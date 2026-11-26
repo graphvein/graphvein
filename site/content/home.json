@@ -1,7 +1,7 @@
 {
   "lead": "Trace any route, call or table across your stack.",
   "sublead": "Frontend calls behind a route, its handler, the tables it may read or write, and what a change reaches.",
-  "eyebrow": "Pre-release · Runs locally · No LLM · Apache {apache-version}",
+  "eyebrow": "Preview release · Runs locally · No LLM · Apache {apache-version}",
   "cards_title": "Measured on real repositories",
   "cards": [
     {
@@ -150,6 +150,8 @@
     ],
     "build_comment": "bin/graphvein, or bin/graphvein.exe on Windows",
     "then": "With bin/ on your PATH, from the repository you want to read:",
+    "note_release": "Or build from source with Go {go-version} (an installed Go {go-minimum} or newer downloads it) and Bash (Git Bash on Windows).",
+    "then_release": "With graphvein on your PATH, from the repository you want to read:",
     "run": [
       "graphvein index",
       "graphvein serve"
@@ -158,7 +160,7 @@
     "more": "Building and testing need only Go; Node is needed only to change the web UI."
   },
   "terminal_note": "",
-  "status_short": "Pre-release; contributions welcome. Index and serve one repository or several, in a local web UI and over MCP.",
+  "status_short": "Preview release ({release-version}); contributions welcome. Index and serve one repository or several, in a local web UI and over MCP.",
   "decides_short": [
     {
       "text": "Fact {rank-fact}: read straight from the code.",
@@ -251,13 +253,11 @@
     },
     {
       "title": "Release checksums and provenance",
-      "body": "Planned with the first release.",
-      "planned": true
+      "body": "Each release lists a checksum for every archive, and every archive has a build provenance attestation from the release workflow.",
+      "repo": ".github/workflows/release.yml"
     }
   ],
   "gallery_title": "More screenshots",
-  "coming": [
-    "Release binaries for Windows, macOS and Linux, with checksums and build provenance."
-  ],
+  "coming": [],
   "footer": "No cookies, no tracking, no third-party scripts or fonts."
 }

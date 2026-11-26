@@ -88,7 +88,7 @@ func (s *site) checkNumbers() {
 // copyStrings lists every sentence of home.json.
 func copyStrings(h homeCopy) []string {
 	v := []string{h.Lead, h.Sublead, h.Eyebrow, h.StatusShort, h.DecidesIntro, h.VerifiedIntro, h.CardsTitle, h.FeatTitle, h.FeatIntro, h.Gallery, h.Terminal, h.Footer,
-		h.Install.Note, h.Install.NoSource, h.Install.BuildNote, h.Install.Then, h.Install.ServeNote, h.Install.More}
+		h.Install.Note, h.Install.NoSource, h.Install.BuildNote, h.Install.Then, h.Install.ServeNote, h.Install.More, h.Install.NoteRelease, h.Install.ThenRelease}
 	v = append(v, h.Install.Clone...)
 	v = append(v, h.Install.Build...)
 	v = append(v, h.Install.Run...)

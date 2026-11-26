@@ -6,7 +6,7 @@
       <p class="eyebrow">{{.Eyebrow}}</p>
       <h1 id="lead">{{.Lead}}</h1>
       <p class="sub">{{.Sublead}}</p>
-      <p class="cta-row"><a class="btn btn-primary" id="cta-primary" href="/download/">Build from source</a><a class="btn btn-ghost" href="/docs/">Read the docs</a></p>
+      <p class="cta-row"><a class="btn btn-primary" id="cta-primary" href="/download/">{{if $.Public}}Download{{else}}Build from source{{end}}</a><a class="btn btn-ghost" href="/docs/">Read the docs</a></p>
     </div>
     {{nocheck}}<figure class="shot framed">
       {{- if .Hero.DarkSrc}}
@@ -65,7 +65,9 @@
 </section>
 
 <section class="wrap split" aria-labelledby="h-qs">
-  <div><h2 id="h-qs">Quick start</h2>{{template "install" .Install}}</div>
+  <div><h2 id="h-qs">Quick start</h2>{{if $.Public}}
+<p>Download the archive for your system from <a href="{{$.Repo}}/releases/latest">the latest release</a> and <a href="/download/#check-the-download">check it</a>. Or install with Go, without the download warnings:</p>
+{{nocheck}}<pre class="code"><code>go install github.com/{{$.RepoSlug}}/cmd/graphvein@latest</code></pre>{{endcheck}}{{end}}{{template "install" .Install}}</div>
   <div>
     {{nocheck}}<pre class="term" aria-label="Terminal output of graphvein changes impact"><code><span class="p">$</span> {{.Terminal.Command}}
 {{.Terminal.Output}}</code></pre>
@@ -102,10 +104,10 @@
 </section>
 {{- end}}
 
-<section class="wrap coming-wrap" aria-labelledby="h-next">
+{{if .Coming}}<section class="wrap coming-wrap" aria-labelledby="h-next">
   <h2 id="h-next">Coming next</h2>
   <ul class="coming">{{range .Coming}}<li>{{.}}</li>{{end}}</ul>
-</section>
+</section>{{end}}
 </main>
 {{end}}{{template "bottom" .}}{{end}}
 

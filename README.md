@@ -15,7 +15,7 @@ describe.
 ## Status
 
 <!-- site:status -->
-**Pre-release; contributions welcome** under the contributor licence agreement ([CONTRIBUTING.md](CONTRIBUTING.md)). What works today:
+**Preview release (v0.1.0); contributions welcome** under the contributor licence agreement ([CONTRIBUTING.md](CONTRIBUTING.md)). What works today:
 `graphvein index` builds the index of a repository, and `graphvein serve`
 opens a local web UI on it with the sections API (routes and their
 callers), Changes (what a change reaches), Architecture, Schema, Explorer
