@@ -6,6 +6,7 @@ tree (ADR 0080).
 | File | Purpose |
 |---|---|
 | `AGENTS.md` | The public instructions for contributors' coding agents. `scripts/public-snapshot.sh` moves it to the root of the snapshot, in place of the internal one. |
+| `dependabot.yml` | The Dependabot configuration of the public repository. `scripts/public-snapshot.sh` moves it to `.github/dependabot.yml` in the snapshot; kept here because Dependabot acts in any repository whose default branch holds that file. |
 | `cla/individual.md`, `cla/corporate.md`, `cla/privacy.md` | The contributor licence agreements and the CLA privacy notice, version 1.0, in force since 2026-11-26. |
 | `ci-plan.md` | The plan for CI in the public repository. |
 | `launch-file-list.txt` | The exact file list of the snapshot (private-side record; not part of the snapshot). |

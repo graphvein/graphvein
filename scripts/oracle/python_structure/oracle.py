@@ -1902,7 +1902,7 @@ def main():
     ap.add_argument("--out", required=True)
     ap.add_argument("--summary")
     a = ap.parse_args()
-    if sys.version_info[:2] < REFERENCE:
+    if sys.version_info[:2] != REFERENCE:
         sys.exit("oracle.py needs Python %d.%d (the contract's reference), not %s" % (REFERENCE + (sys.version.split()[0],)))
     snap = Snapshot(a.snapshot)
     o = Oracle(snap, a.root, a.corpus)

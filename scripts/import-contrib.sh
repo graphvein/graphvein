@@ -15,8 +15,10 @@
 #   message    the public commit message, ending with "Public-PR: #PR_NUMBER";
 #              other authors of a FROM..TO range become Co-authored-by lines.
 # Refused when the diff touches a private path (scripts/public-exclude.txt),
-# the root AGENTS.md (the public AGENTS.md is docs/public/AGENTS.md here) or
-# docs/public/AGENTS.md (which the public tree never holds).
+# the root AGENTS.md (the public AGENTS.md is docs/public/AGENTS.md here),
+# .github/dependabot.yml (docs/public/dependabot.yml here), or
+# docs/public/AGENTS.md or docs/public/dependabot.yml (which the public tree
+# never holds).
 #
 # It never pushes and never touches the working tree or the index: the
 # branch is created with git update-ref. The next steps are printed.
@@ -78,7 +80,7 @@ if git -C "$root" rev-parse -q --verify "refs/heads/$branch" > /dev/null; then
   die "branch $branch already exists"
 fi
 
-# 1. Paths: nothing private, no AGENTS.md.
+# 1. Paths: nothing private, no AGENTS.md, no Dependabot configuration.
 git -C "$clone" -c core.quotePath=false diff --name-only --no-renames "$from" "$to" > "$tmp/paths.txt"
 [ -s "$tmp/paths.txt" ] || die "the diff of $spec is empty"
 # The entries are parsed once: a subshell per path and entry is slow in Git
@@ -93,8 +95,13 @@ while IFS= read -r path; do
       refused=1
       continue
       ;;
-    docs/public/AGENTS.md)
-      echo "import-contrib: the diff touches docs/public/AGENTS.md, which the public tree never holds" >&2
+    .github/dependabot.yml)
+      echo "import-contrib: the diff changes .github/dependabot.yml; apply that change to docs/public/dependabot.yml by hand" >&2
+      refused=1
+      continue
+      ;;
+    docs/public/AGENTS.md | docs/public/dependabot.yml)
+      echo "import-contrib: the diff touches $path, which the public tree never holds" >&2
       refused=1
       continue
       ;;

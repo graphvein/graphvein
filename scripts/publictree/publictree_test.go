@@ -49,8 +49,11 @@ func runBash(t *testing.T, root string, args ...string) (string, error) {
 // private path, the public AGENTS.md at the root, and no file naming
 // docs/tasks, docs/research, the handoff notes, the plan or the CI budget
 // outside the reviewed exemptions, and no personal detail, internal path or
-// private name (scripts/check-public-privacy.sh). In the public repository itself, which
-// has no docs/public/AGENTS.md left to move, it checks the checkout.
+// private name (scripts/check-public-privacy.sh); the files it places
+// (AGENTS.md, .github/dependabot.yml) are their docs/public copies, and the
+// working repository has no .github/dependabot.yml of its own. In the
+// public repository itself, which has no docs/public/AGENTS.md left to
+// move, it checks the checkout.
 func TestPublicSnapshot(t *testing.T) {
 	needTools(t)
 	root := repoRoot(t)
@@ -84,28 +87,41 @@ func TestPublicSnapshot(t *testing.T) {
 	for _, f := range strings.Split(strings.TrimSpace(string(data)), "\n") {
 		files[f] = true
 	}
-	for _, want := range []string{"AGENTS.md", "LICENSE", "NOTICE", "THIRD_PARTY_NOTICES", "CONTRIBUTING.md", "go.mod"} {
+	for _, want := range []string{"AGENTS.md", ".github/dependabot.yml", "LICENSE", "NOTICE", "THIRD_PARTY_NOTICES", "CONTRIBUTING.md", "go.mod"} {
 		if !files[want] {
 			t.Errorf("the snapshot lacks %s", want)
 		}
 	}
 	for f := range files {
-		for _, private := range []string{"docs/tasks/", "docs/research/", "docs/corpora/", "docs/perf/", "docs/HANDOFF.md", "docs/handoff/", "scripts/handoff-check.sh", "scripts/test-handoff-check.sh", "docs/PLAN.md", "docs/ci-budget.md", "docs/public/AGENTS.md", "scripts/private/"} {
+		for _, private := range []string{"docs/tasks/", "docs/research/", "docs/corpora/", "docs/perf/", "docs/HANDOFF.md", "docs/handoff/", "scripts/handoff-check.sh", "scripts/test-handoff-check.sh", "docs/PLAN.md", "docs/ci-budget.md", "docs/public/AGENTS.md", "docs/public/dependabot.yml", "scripts/private/"} {
 			if f == strings.TrimSuffix(private, "/") || strings.HasPrefix(f, private) {
 				t.Errorf("the snapshot holds private path %s", f)
 			}
 		}
 	}
-	public, err := os.ReadFile(filepath.Join(root, "docs", "public", "AGENTS.md"))
-	if err != nil {
-		t.Fatal(err)
+	// Files the snapshot places: the public copy is the docs/public one,
+	// byte for byte (the checkout may hold CRLF on Windows; the archive
+	// holds the committed LF).
+	for _, placed := range []struct{ from, to string }{
+		{"docs/public/AGENTS.md", "AGENTS.md"},
+		{"docs/public/dependabot.yml", ".github/dependabot.yml"},
+	} {
+		public, err := os.ReadFile(filepath.Join(root, filepath.FromSlash(placed.from)))
+		if err != nil {
+			t.Fatal(err)
+		}
+		got, err := os.ReadFile(filepath.Join(snap, filepath.FromSlash(placed.to)))
+		if err != nil {
+			t.Fatal(err)
+		}
+		if !bytes.Equal(bytes.ReplaceAll(public, []byte("\r\n"), []byte("\n")), got) {
+			t.Errorf("the snapshot's %s is not %s", placed.to, placed.from)
+		}
 	}
-	got, err := os.ReadFile(filepath.Join(snap, "AGENTS.md"))
-	if err != nil {
-		t.Fatal(err)
-	}
-	if !bytes.Equal(bytes.ReplaceAll(public, []byte("\r\n"), []byte("\n")), got) {
-		t.Error("the snapshot's AGENTS.md is not docs/public/AGENTS.md")
+	// Dependabot acts in any repository whose default branch holds
+	// .github/dependabot.yml: the working repository must not hold it.
+	if _, err := os.Lstat(filepath.Join(root, ".github", "dependabot.yml")); err == nil {
+		t.Error("the working repository holds .github/dependabot.yml; keep it as docs/public/dependabot.yml (the snapshot places it)")
 	}
 }
 
