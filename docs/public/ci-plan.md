@@ -16,6 +16,29 @@ branch. In the public repository those rules cost contributors coverage and
 buy nothing, so the plan drops most of them. The Postgres job does not
 change.
 
+## Triggers
+
+Every workflow starts on the same events in both repositories (an `on:`
+filter cannot depend on the repository):
+
+| Workflow | Starts on |
+| --- | --- |
+| `ci.yml` (CI) | push to `main`, pull request, manual dispatch; documentation-only changes skipped (`paths-ignore`) |
+| `public-tree.yml` (Public tree) | push to `main`, pull request, manual dispatch |
+| `grammars.yml` (Grammar assets) | push to `main` or pull request that changes its build inputs, manual dispatch |
+| `dependency-review.yml` | pull request to `main` |
+| `release.yml` (Release) | push of a `v*` tag, manual dispatch (dry run) |
+
+No workflow but the release starts on a tag, and none starts on a push to
+another branch. A branch with an open pull request is therefore tested
+once per push, by the `pull_request` run. Before, the branch push started
+a second run of the same commit in the same concurrency group, which
+cancelled it, and its cancelled jobs (`postgres`, `main (windows-2025)`,
+`main (macos-15)`) blocked the required checks. In the maintainer's
+working repository a branch push used to start CI on its own; there a
+branch is now tested through a pull request or a manual dispatch. That
+repository's Actions are disabled, so in practice nothing changes there.
+
 ## Workflow changes (`.github/workflows/ci.yml`)
 
 The same workflow files run in the public repository and in the
@@ -72,7 +95,8 @@ already tested is not re-run. Implemented:
 
 **Dependency review.** `.github/workflows/dependency-review.yml`, job `dependency-review`, runs on pull requests to `main` and acts only in the public repository: it fails a pull request that adds a dependency with a known high or critical vulnerability (ADR 0086).
 
-`grammars.yml` and the `parsing-spike` job stay as they are.
+`grammars.yml` and the `parsing-spike` job stay as they are, apart from
+the triggers above.
 
 **Pinned actions.** Every `uses:` in `.github/workflows/` names a full
 commit SHA with the release tag as a comment (for example
@@ -135,7 +159,13 @@ they come with SHA-256 checksums and build provenance:
    archives as a workflow artifact, `actions/attest-build-provenance` on
    the archives, and `gh release create --draft` with
    `docs/releases/<tag>.md` as notes: the maintainer reviews the draft and
-   publishes it by hand.
+   publishes it by hand. The notes file is wrapped to read well in the
+   repository, and a release body keeps every line break, so
+   `go run ./scripts/releasenotes` passes it with the soft-wrapped lines
+   of each paragraph, list item and quote joined, HTML comments removed
+   and without the leading title (the release title repeats it);
+   headings, blank lines, code blocks, tables and hard breaks stay. Its
+   test converts every file in `docs/releases/`.
 
 A manual dispatch is a dry run: it builds and uploads the archives and
 creates no attestation and no release. The binary also serves `NOTICE`

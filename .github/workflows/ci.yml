@@ -1,7 +1,13 @@
 name: CI
 
+# Triggers: a push to main, a pull request and a manual dispatch; no other
+# branch push and no tag push. A branch with a pull request is tested once
+# per push, by its pull_request run: a second push run of the same commit
+# would share the concurrency group below, be cancelled, and leave cancelled
+# jobs that block the required checks. Tags are built by release.yml.
 on:
   push:
+    branches: [main]
     paths-ignore: ['docs/**', '**/*.md']
   pull_request:
     paths-ignore: ['docs/**', '**/*.md']
@@ -11,8 +17,9 @@ on:
 # in the maintainer's working repository. In the public repository every pull
 # request and push to main runs the postgres job and the main job on Windows
 # and macOS. Elsewhere, scripts/ci-changes.sh runs Windows on main and on
-# marked branch heads, macOS on manual dispatch, and skips a merge to main
-# that was already tested. The public tree check is in public-tree.yml.
+# pull requests whose head is marked, macOS on manual dispatch, and skips a
+# merge to main that was already tested. The public tree check is in
+# public-tree.yml.
 
 concurrency:
   group: ci-${{ github.head_ref || github.ref_name }}

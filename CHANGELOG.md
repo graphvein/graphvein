@@ -9,6 +9,24 @@ Unreleased.
 
 ## [Unreleased]
 
+### Changed
+
+- The website's quick start runs `graphvein serve .` after
+  `graphvein index`, which opens the indexed repository directly;
+  `graphvein serve` without a path opens the workspace view.
+
+### Fixed
+
+- CI starts on a push to `main`, a pull request and a manual dispatch
+  only (Grammar assets: the same, when its inputs change). A branch push
+  no longer starts a second CI run beside its pull request's, whose
+  cancelled jobs blocked the required checks, and a tag push starts only
+  the release workflow.
+- Release notes on GitHub no longer break lines mid-sentence: the release
+  workflow joins the wrapped lines of `docs/releases/<tag>.md`, removes
+  its comments and drops its title, which the release title repeats
+  (`scripts/releasenotes`).
+
 ## [0.1.0] - 2026-11-26
 
 ### Added
