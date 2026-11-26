@@ -286,6 +286,12 @@ func (s *site) renderHome() error {
 		BuildNote: x(in.BuildNote), Then: x(in.Then), ServeNote: x(in.ServeNote), More: x(in.More)}
 	if s.c.Config.PublicRepository {
 		v.Install.CloneURL = s.c.Config.Repository
+		if in.NoteRelease != "" {
+			v.Install.Note = x(in.NoteRelease)
+		}
+		if in.ThenRelease != "" {
+			v.Install.Then = x(in.ThenRelease)
+		}
 	}
 	term, err := os.ReadFile(filepath.Join(s.opt.Site, "media", s.c.Media.Terminal))
 	if err != nil {

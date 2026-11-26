@@ -34,7 +34,7 @@ fails:
 
 | Path | What |
 |---|---|
-| `site.json` | the public-repository switch (`public_repository`, off until the launch) and the site address |
+| `site.json` | the public-repository switch (`public_repository`, on since the first release) and the site address (`site_url`, the canonical address used for canonical links and the social image) |
 | `content/home.json` | every sentence of the home page; numbers only as `{id}` placeholders |
 | `content/numbers.json` | the number registry: id, text shown, evidence file, exact quote |
 | `content/media.json` | the screenshot manifest: hero, social image, terminal transcript, gallery, every image |

@@ -70,6 +70,8 @@ already tested is not re-run. Implemented:
 9. **Comments.** The workflow comments describe both sets of rules without
    cost or budget wording.
 
+**Dependency review.** `.github/workflows/dependency-review.yml`, job `dependency-review`, runs on pull requests to `main` and acts only in the public repository: it fails a pull request that adds a dependency with a known high or critical vulnerability (ADR 0086).
+
 `grammars.yml` and the `parsing-spike` job stay as they are.
 
 **Pinned actions.** Every `uses:` in `.github/workflows/` names a full

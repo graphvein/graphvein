@@ -119,6 +119,13 @@ type install struct {
 	Run       []string `json:"run"`
 	ServeNote string   `json:"serve_comment"`
 	More      string   `json:"more"`
+	// NoteRelease and ThenRelease replace Note and Then on the home page
+	// once the release exists (public-repository switch on): building
+	// from source is then the alternative to the download, and the run
+	// step follows a download or go install as well as a build, so it
+	// cannot say bin/.
+	NoteRelease string `json:"note_release"`
+	ThenRelease string `json:"then_release"`
 }
 
 // decision is one card of "How Graphvein decides".

@@ -2,12 +2,14 @@
 
 All notable changes to Graphvein are recorded here, in the style of
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versions follow
-[Semantic Versioning](https://semver.org/) once the first one is tagged.
+[Semantic Versioning](https://semver.org/).
 
 Each export from the maintainer's working repository adds one entry under
-Unreleased, from now on.
+Unreleased.
 
 ## [Unreleased]
+
+## [0.1.0] - 2026-11-26
 
 ### Added
 
@@ -42,3 +44,6 @@ Unreleased, from now on.
   CPython version: the built-in, start-up, shipped and codec lists differ
   by platform, so they are compared exactly only on the platform they were
   generated on, and as inclusions elsewhere. Indexing is unchanged.
+
+[Unreleased]: https://github.com/graphvein/graphvein/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/graphvein/graphvein/releases/tag/v0.1.0

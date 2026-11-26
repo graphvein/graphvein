@@ -361,6 +361,25 @@ func TestPublicSwitch(t *testing.T) {
 			t.Errorf("home page with the switch on lacks %s", want)
 		}
 	}
+	// Once the release exists, the home page leads with downloading it
+	// (or go install) and keeps building from source as the alternative.
+	for _, want := range []string{`id="cta-primary" href="/download/">Download</a>`, `href="https://github.com/example/fixture/releases/latest">the latest release</a>`, `href="/download/#check-the-download">check it</a>`, "go install github.com/example/fixture/cmd/graphvein@latest", "<p>Or build from source.</p>", "git clone https://github.com/example/fixture", "Then, with tool on your PATH:"} {
+		if !strings.Contains(home, want) {
+			t.Errorf("home page with the switch on lacks %s", want)
+		}
+	}
+	if strings.Index(home, "releases/latest") > strings.Index(home, "Or build from source.") {
+		t.Error("home page with the switch on does not lead with the release")
+	}
+	offHome := string(off.out["index.html"])
+	for _, want := range []string{`id="cta-primary" href="/download/">Build from source</a>`, "<p>Then:</p>"} {
+		if !strings.Contains(offHome, want) {
+			t.Errorf("home page with the switch off lacks %s", want)
+		}
+	}
+	if strings.Contains(offHome, "go install") || strings.Contains(offHome, "Or build from source") {
+		t.Error("home page with the switch off shows the release path")
+	}
 	doc := string(on.out["docs/guide/1-start-here/index.html"])
 	for _, want := range []string{"issues/new?template=docs-problem.yml&amp;page=docs%2Fguide%2F1-start-here.md", "https://github.com/example/fixture/blob/main/cmd/tool/main.go"} {
 		if !strings.Contains(doc, want) {
@@ -411,8 +430,13 @@ func TestRealSite(t *testing.T) {
 	if err := json.Unmarshal(data, &cfg); err != nil {
 		t.Fatal(err)
 	}
-	if cfg.PublicRepository {
-		t.Error("site.json: the public-repository switch is on before the launch")
+	// The first release is tagged from this tree: the site links the
+	// public repository and its releases, at its canonical address.
+	if !cfg.PublicRepository {
+		t.Error("site.json: the public-repository switch is off, but the release links need it")
+	}
+	if cfg.SiteURL != "https://graphvein.com" {
+		t.Errorf("site.json: site_url %q, want the canonical https://graphvein.com", cfg.SiteURL)
 	}
 }
 
