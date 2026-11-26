@@ -248,9 +248,19 @@ func (s *site) renderHome() error {
 		return err
 	}
 	for _, c := range h.Cards {
-		cv := cardView{Big: x("{" + c.Number + "}"), Baseline: x(c.Baseline), Label: x(c.Label), Text: x(c.Text), Link: c.Link, Href: s.pageHref(c.Source)}
+		big := "{" + c.Number + "}"
+		if c.NumberTo != "" {
+			sep := c.RangeSep
+			if sep == "" {
+				sep = "–"
+			}
+			big += sep + "{" + c.NumberTo + "}"
+		}
+		cv := cardView{Big: x(big), Baseline: x(c.Baseline), Label: x(c.Label), Text: x(c.Text), Link: c.Link, Href: s.pageHref(c.Source)}
 		if cv.Href == "" {
 			s.fail("home.json: card %s cites %s, which is not published", c.Number, c.Source)
+		} else if c.Anchor != "" {
+			cv.Href += "#" + c.Anchor
 		}
 		v.Cards = append(v.Cards, cv)
 	}

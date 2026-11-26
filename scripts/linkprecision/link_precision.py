@@ -25,7 +25,11 @@ executed. Usage:
   python3 link_precision.py unlinked STORE.db REPOSITORY > unlinked.jsonl
   python3 link_precision.py summary  STORE.db REPOSITORY
   python3 link_precision.py sample   FILE.jsonl --seed 32 --per-stratum 150 [--by tier]
-  python3 link_precision.py stats    FILE.jsonl [FILE.jsonl ...]
+  python3 link_precision.py stats    FILE.jsonl [FILE.jsonl ...] [--areas CORPUS=DIR,DIR ...]
+
+With --areas, stats also prints the recall estimate restricted to the
+calls whose file lies under the named top-level directories of a corpus
+(for example its application code), with the same estimator.
 """
 import argparse
 import json
@@ -227,6 +231,55 @@ def recall_estimate(linked, strata_rows):
     return (linked / (linked + point), linked / (linked + high_missed), linked / (linked + low_missed), point)
 
 
+def area_of(record):
+    """The top-level directory of a record's call site ("dir/file.ts:12")."""
+    path = (record.get("call_site") or "").rsplit(":", 1)[0]
+    return path.split("/")[0] if "/" in path else ""
+
+
+def area_recall(records, corpus, areas):
+    """Recall inputs restricted to the call sites under the given areas.
+
+    Returns (linked, strata_rows) for recall_estimate. The numerator counts
+    the production calls under the areas with a correct link. A sampled
+    stratum enters whole when every sampled call lies under the areas and
+    is left out when none does; one that mixes areas raises ValueError,
+    because splitting it would need new adjudication. A stratum adjudicated
+    in full (a census) is split by area exactly: each part is a census of
+    its own calls.
+    """
+    areas = set(areas)
+    linked = set()
+    population = {}
+    sampled = {}
+    for r in records:
+        if r.get("corpus") != corpus:
+            continue
+        kind = r.get("record")
+        if kind == "stratum":
+            population[r["stratum"]] = r["population"]
+        elif r.get("verdict") == "correct" and r.get("scope", "production") == "production":
+            if area_of(r) in areas:
+                linked.add(r["call"])
+        elif r.get("verdict") in UNLINKED_VERDICTS:
+            sampled.setdefault(r.get("stratum", ""), []).append(r)
+    rows = []
+    for stratum in sorted(sampled):
+        group = sampled[stratum]
+        inside = [r for r in group if area_of(r) in areas]
+        census = len(group) >= population.get(stratum, len(group))
+        if not census and inside and len(inside) < len(group):
+            raise ValueError("%s stratum %s is sampled and mixes areas; it cannot be split without new adjudication" % (corpus, stratum))
+        if not inside:
+            continue
+        row = dict.fromkeys(UNLINKED_VERDICTS, 0)
+        for r in inside:
+            row[r["verdict"]] += 1
+        row["population"] = population.get(stratum, len(group)) if not census else len(inside)
+        rows.append(row)
+    return len(linked), rows
+
+
 def pct(x):
     return "%.1f%%" % (100 * x)
 
@@ -236,7 +289,7 @@ def interval(k, n):
     return "%s [%s, %s]" % (pct(k / n) if n else "-", pct(lo), pct(hi))
 
 
-def print_stats(records, out):
+def print_stats(records, out, areas=None):
     links, strata, linked, summaries = summarize(records)
     out.write("| corpus | tier | links | correct | wrong | unverifiable | precision (of verifiable) | false-link rate (of all) | unverifiable share |\n")
     out.write("|---|---|---|---|---|---|---|---|---|\n")
@@ -263,6 +316,16 @@ def print_stats(records, out):
             rows = [strata[k] for k in strata if k[0] == corpus]
             point, lo, hi, missed = recall_estimate(linked.get(corpus, 0), rows)
             out.write("| %s | %d | %.0f | %s [%s, %s] |\n" % (corpus, linked.get(corpus, 0), missed, pct(point), pct(lo), pct(hi)))
+    if areas:
+        out.write("\n| corpus | areas | production calls with a correct link | estimated missed calls | recall estimate [conservative 95%] |\n|---|---|---|---|---|\n")
+        for corpus in sorted(areas):
+            n, rows = area_recall(records, corpus, areas[corpus])
+            point, lo, hi, missed = recall_estimate(n, rows)
+            estimate = "%s [%s, %s]" % (pct(point), pct(lo), pct(hi))
+            if lo == hi:  # every stratum in the areas was adjudicated in full
+                estimate = "%s (all adjudicated)" % pct(point)
+            out.write("| %s | %s | %d | %.0f | %s |\n" % (
+                corpus, ", ".join("`%s/`" % a for a in areas[corpus]), n, missed, estimate))
     if summaries:
         out.write("\n| corpus | client calls | linked | dynamic | unmatched | ambiguous | wrapper | test_only | generated |\n|---|---|---|---|---|---|---|---|---|\n")
         for corpus in sorted(summaries):
@@ -293,6 +356,8 @@ def main(argv=None):
     p.add_argument("--by", default=None)
     p = sub.add_parser("stats")
     p.add_argument("files", nargs="+")
+    p.add_argument("--areas", action="append", default=[], metavar="CORPUS=DIR,DIR",
+                   help="also print recall over the calls under these top-level directories")
     args = parser.parse_args(argv)
 
     if args.command == "summary":
@@ -306,7 +371,13 @@ def main(argv=None):
         for record in sample(list(read_jsonl([args.file])), args.seed, args.per_stratum, args.by):
             sys.stdout.write(json.dumps(record, sort_keys=True) + "\n")
     else:
-        print_stats(list(read_jsonl(args.files)), sys.stdout)
+        areas = {}
+        for spec in args.areas:
+            corpus, sep, dirs = spec.partition("=")
+            if not sep or not dirs:
+                parser.error("--areas wants CORPUS=DIR[,DIR...], got %r" % spec)
+            areas[corpus] = [d for d in dirs.split(",") if d]
+        print_stats(list(read_jsonl(args.files)), sys.stdout, areas)
 
 
 if __name__ == "__main__":

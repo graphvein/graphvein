@@ -16,6 +16,12 @@ Unreleased, from now on.
 
 ### Changed
 
+- Recall is now reported for application code first: 93.0% (langflow)
+  and 93.5% (seerr); owncast's 81.5% counts only the calls Graphvein
+  recognises (its admin console's `fetchData` helper calls are not), so
+  it is an upper bound. The all-calls figure and its reason stay beside
+  it; `link_precision.py stats --areas` prints the figures from the
+  evidence data.
 - Dependabot groups major updates per ecosystem in their own weekly pull
   request, beside the grouped minor and patch updates.
 - CI's Windows and macOS test jobs set up the reference CPython 3.14, as
@@ -29,3 +35,10 @@ Unreleased, from now on.
   `tomllib` (Python 3.11 to 3.14), and the structure oracle no longer
   depends on the platform's extension-module suffix. Indexing is
   unchanged.
+- The web UI writes the viewed index into the page URL in the same update
+  that shows it, so a link copied right after the page opened names the
+  index.
+- The Python module-list test on macOS and Windows with the reference
+  CPython version: the built-in, start-up, shipped and codec lists differ
+  by platform, so they are compared exactly only on the platform they were
+  generated on, and as inclusions elsewhere. Indexing is unchanged.

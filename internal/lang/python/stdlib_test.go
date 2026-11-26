@@ -40,12 +40,18 @@ func TestPythonStdlibNames(t *testing.T) {
 // TestPythonMetaPathNames checks metapath.go (rows PS-I4, PS-I5, PS-F2's
 // encoding_cookie) against the running interpreter, read by
 // scripts/oracle/python_structure/stdlib_lists.py: exactly when it is the
-// CPython the lists were generated from; otherwise, for any CPython 3.14,
-// that its frozen and start-up modules are meta-path names (the same on
-// every build; a start-up built-in may be a platform name), its built-in
-// modules are meta-path or platform names, and
-// no pure-Python module of its standard library is a platform name (but
-// the parents of frozen submodules).
+// CPython version and platform (sys.platform) the lists were generated on;
+// otherwise, for any CPython 3.14 on any platform, that its frozen and
+// start-up modules are meta-path names (the same on every build; a start-up
+// built-in may be a platform name), its built-in modules are meta-path or
+// platform names, no pure-Python module of its standard library is a
+// platform name (but the parents of frozen submodules), and every committed
+// codec name is one of its own (it may have more: Windows' mbcs and oem,
+// which an encoding cookie is refused for). The lists other than
+// sys.stdlib_module_names depend on the build (Windows compiles most
+// extension modules in and loads nt at start-up; macOS ships a
+// _sysconfigdata__darwin_darwin module), so a run on another platform of
+// the reference version takes the inclusion checks.
 func TestPythonMetaPathNames(t *testing.T) {
 	if !metaPathSet["sys"] || !metaPathSet["os"] || !platformSet["math"] || metaPathSet["json"] || platformSet["json"] || !interpreterSet["__main__"] || externalEcosystem("test") != ecosystemStdlib {
 		t.Error("the committed lists do not hold the expected names")
@@ -64,6 +70,7 @@ func TestPythonMetaPathNames(t *testing.T) {
 	}
 	var got struct {
 		Version     string   `json:"version"`
+		SysPlatform string   `json:"sys_platform"`
 		Builtin     []string `json:"builtin"`
 		Frozen      []string `json:"frozen"`
 		Startup     []string `json:"startup"`
@@ -82,7 +89,7 @@ func TestPythonMetaPathNames(t *testing.T) {
 		t.Skipf("%s is Python %s; the lists were read from %s", interpreter, got.Version, metaPathNamesVersion)
 	}
 	join := func(names []string) string { return strings.Join(names, " ") }
-	if got.Version == metaPathNamesVersion {
+	if got.Version == metaPathNamesVersion && got.SysPlatform == metaPathNamesPlatform {
 		for _, c := range []struct {
 			name, committed string
 			read            []string
@@ -108,6 +115,17 @@ func TestPythonMetaPathNames(t *testing.T) {
 	for _, name := range got.Builtin {
 		if !metaPathSet[name] && !platformSet[name] {
 			t.Errorf("%s: built-in %s is neither a meta-path nor a platform name", interpreter, name)
+		}
+	}
+	for _, c := range []struct {
+		name, committed string
+		read            []string
+	}{{"asciiCodecNames", asciiCodecNames, got.ASCIICodecs}, {"utf8CodecNames", utf8CodecNames, got.UTF8Codecs}} {
+		read := nameSet(strings.Join(c.read, " "))
+		for _, name := range strings.Fields(c.committed) {
+			if !read[name] {
+				t.Errorf("%s: %s name %s is not one of its codecs that read ASCII as ASCII", interpreter, c.name, name)
+			}
 		}
 	}
 	pure := nameSet(strings.Join(got.Pure, " "))

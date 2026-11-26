@@ -56,9 +56,20 @@ type homeCopy struct {
 // card is one measured number under the hero.
 type card struct {
 	Number string `json:"number"` // registry id of the big number
+	// NumberTo, when set, is the registry id of the upper end of a range:
+	// the card shows "{number}–{number_to}", each end checked against its
+	// own quote like any other number.
+	NumberTo string `json:"number_to"`
+	// RangeSep joins the two ends of a range: an en dash by default, an
+	// arrow for a before-and-after pair such as "53 → 62".
+	RangeSep string `json:"range_sep"`
 	Label  string `json:"label"`
 	Text   string `json:"text"`
 	Source string `json:"source"` // published evidence page (repository path)
+	// Anchor is an optional heading id on the evidence page, for a card
+	// whose number is one section of a longer page; the link check
+	// verifies it.
+	Anchor string `json:"source_anchor"`
 	Link   string `json:"source_label"`
 	// Baseline is a small note next to the number, such as the value
 	// without the MCP server, so the number reads at a glance.
