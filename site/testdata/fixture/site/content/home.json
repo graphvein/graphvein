@@ -1,0 +1,112 @@
+{
+  "lead": "Which calls hit this route?",
+  "sublead": "The fixture links calls to routes.",
+  "eyebrow": "Fixture \u00b7 Apache {apache-version}",
+  "cards_title": "Measured",
+  "cards": [
+    {
+      "number": "links",
+      "label": "links correct",
+      "text": "",
+      "source": "docs/evidence/link-precision.md",
+      "source_label": "Link precision",
+      "baseline": ""
+    }
+  ],
+  "features_title": "What it does",
+  "features_intro": "It follows links.",
+  "features": [
+    {
+      "title": "API",
+      "text": "Routes and callers.",
+      "page": "docs/guide/1-start-here.md",
+      "shot": "hero.png"
+    },
+    {
+      "title": "CLI",
+      "text": "A command line.",
+      "page": "docs/cli/tool.md",
+      "shot": ""
+    }
+  ],
+  "install": {
+    "note": "Build from source.",
+    "no_source": "The source is published later.",
+    "clone": [
+      "cd fixture"
+    ],
+    "build": [
+      "bash build.sh"
+    ],
+    "build_comment": "writes bin/tool",
+    "then": "Then:",
+    "run": [
+      "graphvein index",
+      "graphvein serve"
+    ],
+    "serve_comment": "web UI",
+    "more": "Only Go is needed."
+  },
+  "terminal_note": "",
+  "decides": [
+    {
+      "kind": "fact",
+      "title": "Fact",
+      "rank": "{rank}",
+      "body": "Read from the code."
+    }
+  ],
+  "verified": [
+    {
+      "title": "Decision records",
+      "body": "Recorded as ADRs.",
+      "page": "docs/adr/"
+    },
+    {
+      "title": "Fixtures",
+      "body": "Golden output.",
+      "repo": "testdata/"
+    },
+    {
+      "title": "Releases",
+      "body": "Planned.",
+      "planned": true
+    }
+  ],
+  "gallery_title": "More",
+  "coming": [
+    "Release binaries."
+  ],
+  "footer": "No cookies.",
+  "status_short": "Pre-release.",
+  "decides_short": [
+    {
+      "text": "Fact {rank}: read from the code.",
+      "page": "/how-graphvein-decides/"
+    }
+  ],
+  "decides_intro": "Labels say how a link was found.",
+  "verified_short": [
+    {
+      "text": "Decisions recorded as ADRs.",
+      "page": "docs/adr/"
+    },
+    {
+      "text": "Golden fixtures.",
+      "page": "/how-it-is-verified/"
+    }
+  ],
+  "verified_intro": "Public material.",
+  "reads": {
+    "title": "What it reads",
+    "note": "Structure only.",
+    "link": "Status \u2192",
+    "page": "/status/",
+    "languages": [
+      {
+        "name": "Go",
+        "detail": "net/http"
+      }
+    ]
+  }
+}

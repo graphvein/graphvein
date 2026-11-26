@@ -1,0 +1,28 @@
+{
+  "id": "review16-x13-sys-col-alter-type-add-attr",
+  "signature": "agreed at Revision 1.6",
+  "class": "S1",
+  "owner": "V11",
+  "row": "review16",
+  "history": {
+    "id": "x13-sys-col-alter-type-add-attr"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42701",
+        "message": "column name \"xmin\" conflicts with a system column name",
+        "statement": 3,
+        "statement_text": "ALTER TYPE c ADD ATTRIBUTE xmin int CASCADE;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

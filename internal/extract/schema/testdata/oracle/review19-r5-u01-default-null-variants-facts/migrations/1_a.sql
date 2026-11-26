@@ -1,0 +1,1 @@
+CREATE TABLE t (id int PRIMARY KEY, a text DEFAULT NULL::text, b int DEFAULT CAST(NULL AS int), c varchar(10) DEFAULT NULL::varchar, d uuid DEFAULT (NULL), e numeric(5,2) DEFAULT NULL::numeric, f text DEFAULT NULL::varchar);

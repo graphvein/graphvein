@@ -1,0 +1,28 @@
+{
+  "id": "review19-r3-k17-partition-wrong-bound-kind",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y29",
+  "row": "review19",
+  "history": {
+    "id": "k17-partition-wrong-bound-kind"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42P16",
+        "message": "invalid bound specification for a range partition",
+        "statement": 2,
+        "statement_text": "CREATE TABLE p1 PARTITION OF p FOR VALUES IN (1);"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

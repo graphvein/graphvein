@@ -1,0 +1,35 @@
+{
+  "id": "g1-s7796-S1-M1_create",
+  "signature": "applied|S1|42704|M1.create",
+  "class": "S1",
+  "owner": "P6",
+  "row": "M1.create",
+  "history": {
+    "id": "g1-s7796",
+    "tags": {
+      "1_m1.sql": [
+        "R2.create_enum",
+        "O5.transaction",
+        "M1.create"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42704",
+        "message": "type \"e2\" does not exist",
+        "statement": 3,
+        "statement_text": "CREATE TABLE t5 (status e2);"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

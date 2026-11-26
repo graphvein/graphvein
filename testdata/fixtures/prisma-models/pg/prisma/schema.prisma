@@ -1,0 +1,286 @@
+// PostgreSQL: every scalar and native type, modifiers, enums, defaults,
+// keys and indexes, @ignore and @@ignore, unread attributes, a view and a
+// composite type (fixture part 1).
+generator client {
+  provider        = "prisma-client"
+  previewFeatures = ["views"]
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+/// Doc comments are never facts.
+enum Role {
+  ADMIN @map("admin")
+  USER  @map("user")
+
+  @@map("role_kind")
+}
+
+enum Color {
+  RED
+  GREEN
+}
+
+model Scalars {
+  id       Int      @id
+  text     String
+  int      Int
+  big      BigInt
+  float    Float
+  decimal  Decimal
+  at       DateTime
+  flag     Boolean
+  json     Json
+  bytes    Bytes
+  optional String?
+  list     String[]
+  roles    Role[]
+  role     Role
+  color    Color?
+  circle   Unsupported("circle")?
+}
+
+model Natives {
+  id       String   @id @db.Uuid
+  vc       String   @db.VarChar(255)
+  vcBare   String   @db.VarChar
+  ch       String   @db.Char(2)
+  txt      String   @db.Text
+  small    Int      @db.SmallInt
+  integer  Int      @db.Integer
+  bigint   BigInt   @db.BigInt
+  real     Float    @db.Real
+  double   Float    @db.DoublePrecision
+  dec      Decimal  @db.Decimal(10, 2)
+  ts       DateTime @db.Timestamp(6)
+  tstz     DateTime @db.Timestamptz(3)
+  day      DateTime @db.Date
+  time     DateTime @db.Time(2)
+  timetz   DateTime @db.Timetz(4)
+  bool     Boolean  @db.Boolean
+  js       Json     @db.Json
+  jsb      Json     @db.JsonB
+  bin      Bytes    @db.ByteA
+  ip       String   @db.Inet
+  doc      String   @db.Xml
+  bit      String   @db.Bit(8)
+  varbit   String   @db.VarBit(16)
+  oid      Int      @db.Oid
+  ci       String   @db.Citext
+  cash     Decimal  @db.Money
+  wrong    Int      @db.VarChar(3)
+  badArg   String   @db.VarChar(n)
+  unknown  String   @db.Geometry
+}
+
+model Defaults {
+  id        Int      @id @default(autoincrement())
+  small     Int      @default(autoincrement()) @db.SmallInt
+  big       BigInt   @default(autoincrement())
+  flag      Boolean  @default(true)
+  n         Int      @default(42)
+  neg       Int      @default(-1)
+  huge      BigInt   @default(3000000000)
+  ratio     Float    @default(-1.5)
+  label     String   @default("it's \"quoted\"")
+  role      Role     @default(USER)
+  tags      String[] @default(["a", "b"])
+  created   DateTime @default(now())
+  day       DateTime @default(now()) @db.Date
+  touched   DateTime @default(now()) @updatedAt
+  updated   DateTime @updatedAt
+  gen       String   @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  u         String   @default(uuid())
+  u4        String   @default(uuid(4))
+  u7        String   @default(uuid(7))
+  c         String   @default(cuid())
+  c2        String   @default(cuid(2))
+  nano      String   @default(nanoid())
+  nano8     String   @default(nanoid(8))
+  ulid      String   @default(ulid())
+  seq       Int      @default(sequence())
+  bare      String   @default(dbgenerated())
+  named     String   @default("x", map: "df_named")
+  quoted    String   @default("it's") @db.VarChar(20)
+  fixed     String   @default("ab") @db.Char(2)
+  none      String
+}
+
+model Mapped {
+  id        Int     @id(map: "mapped_pk") @map("mapped_id")
+  firstName String  @map("first_name") @unique(map: "uq_first")
+  email     String  @unique
+  code      String  @unique() @db.VarChar(8)
+  hidden    String? @ignore
+
+  @@map("mapped_people")
+}
+
+model Composite {
+  a     Int
+  b     String
+  c     Int
+  d     Int
+  e     String @map("e_col")
+
+  @@id([b, a], name: "ab", map: "composite_pk")
+  @@unique([c, d], map: "uq_cd")
+  @@unique([e])
+  @@index([c])
+  @@index([d], map: "ix_d", type: Hash)
+  @@index([e(ops: raw("gin_trgm_ops"))], type: Gin)
+  @@index([a(sort: Desc)], map: "ix_a_desc")
+  @@index([a], type: Brin)
+  @@index([b], type: Gist)
+  @@index([b], map: "ix_b_spgist", type: SpGist)
+  @@index([e], map: "ix_e_btree", type: BTree)
+}
+
+model NoKey {
+  value String
+  note  String?
+
+  @@ignore
+}
+
+model Unread {
+  id    Int    @id
+  plain String
+  odd   String @deprecated
+  later Int
+
+  @@fulltext([plain])
+}
+
+model Partial {
+  id    Int    @id
+  name  String
+  slug  String @unique(where: raw("slug IS NOT NULL"))
+  a     Int
+  b     Int
+
+  @@index([name], where: raw("name IS NOT NULL"))
+  @@unique([a, b], where: raw("a > 0"))
+}
+
+// Relations (PR-R1): explicit actions and map:, the default actions
+// (Restrict when a fields: scalar is required, else SetNull),
+// a composite key, a one-to-one, a back-relation (PR-R2) and a relation
+// naming an unknown field (D).
+model Author {
+  id      Int      @id
+  name    String
+  posts   Post[]
+  edited  Post[]   @relation("edits")
+  profile Profile?
+  broken  Broken[]
+}
+
+model Post {
+  id       Int     @id
+  title    String
+  authorId Int
+  author   Author  @relation(fields: [authorId], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "post_author_fk")
+  editorId Int?
+  editor   Author? @relation("edits", fields: [editorId], references: [id])
+  tags     Tag[]
+  labels   Label[] @relation("post_labels")
+  keyless  Keyless[]
+}
+
+model Profile {
+  id     Int    @id
+  userId Int    @unique
+  author Author @relation(fields: [userId], references: [id])
+}
+
+model Parent {
+  pa       Int
+  pb       String
+  children Child[]
+
+  @@id([pa, pb])
+}
+
+model Child {
+  id  Int     @id
+  pa  Int
+  pb  String?
+  par Parent? @relation(fields: [pa, pb], references: [pa, pb], map: "child_parent_fk")
+}
+
+model Broken {
+  id  Int    @id
+  aid Int
+  a   Author @relation(fields: [aid], references: [nope])
+}
+
+// Implicit many-to-many (PR-R3): a generated name (_PostToTag), an
+// explicit name with an @@map'd model and a uuid id (_post_labels), and a
+// self-relation (_friends).
+model Tag {
+  id    Int    @id @default(autoincrement())
+  posts Post[]
+}
+
+model Label {
+  id    String @id @db.Uuid
+  posts Post[] @relation("post_labels")
+
+  @@map("labels")
+}
+
+model Person {
+  id       Int      @id
+  friends  Person[] @relation("friends")
+  friendOf Person[] @relation("friends")
+}
+
+// PR-P1: an implicit many-to-many side without a single-field id, two
+// @id, and @id with @@id: Prisma rejects these models.
+model Keyless {
+  a     Int
+  b     Int
+  posts Post[]
+
+  @@id([a, b])
+}
+
+model TwoIds {
+  a Int @id
+  b Int @id
+}
+
+model IdBoth {
+  a Int @id
+  b Int
+
+  @@id([a, b])
+}
+
+model NonLiteralMap {
+  id   Int    @id
+  name String @map(env("X"))
+}
+
+model Refused {
+  id Int @id
+
+  @@map(env("TABLE"))
+}
+
+model WithView {
+  id      Int       @id
+  summary Summary?
+  addr    Address?
+}
+
+view Summary {
+  id Int @unique
+}
+
+type Address {
+  street String
+}

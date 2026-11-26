@@ -1,0 +1,16 @@
+# Team settings for Graphvein.
+version: 1
+repository: shop   # shared ID
+
+tests:
+    include: ['checks/**']   # scenario tests
+    exclude:
+        - tests/production-adapter.ts
+
+changes:
+    journal_runs: 30   # kept, not in the form
+
+explorer:
+    path_values:
+        - key: nextjs_base_path:web
+          value: /dashboard

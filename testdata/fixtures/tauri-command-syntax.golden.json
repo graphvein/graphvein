@@ -1,0 +1,5386 @@
+{
+  "app/src/chains.rs": {
+    "Apps": [
+      {
+        "Kind": "root",
+        "Path": "tauri::Builder",
+        "Scope": 1,
+        "Span": {
+          "end_column": 29,
+          "end_line": 4,
+          "start_column": 4,
+          "start_line": 4
+        }
+      },
+      {
+        "Kind": "context",
+        "Path": "tauri::generate_context",
+        "Scope": 1,
+        "Span": {
+          "end_column": 39,
+          "end_line": 6,
+          "start_column": 13,
+          "start_line": 6
+        }
+      },
+      {
+        "Kind": "root",
+        "Path": "tauri::Builder",
+        "Scope": 2,
+        "Span": {
+          "end_column": 29,
+          "end_line": 11,
+          "start_column": 4,
+          "start_line": 11
+        }
+      },
+      {
+        "Kind": "context",
+        "Path": "tauri::generate_context",
+        "Scope": 2,
+        "Span": {
+          "end_column": 41,
+          "end_line": 17,
+          "start_column": 15,
+          "start_line": 17
+        }
+      },
+      {
+        "Kind": "root",
+        "Path": "tauri::Builder",
+        "Scope": 3,
+        "Span": {
+          "end_column": 43,
+          "end_line": 23,
+          "start_column": 18,
+          "start_line": 23
+        }
+      },
+      {
+        "Kind": "context",
+        "Path": "tauri::generate_context",
+        "Scope": 3,
+        "Span": {
+          "end_column": 41,
+          "end_line": 51,
+          "start_column": 15,
+          "start_line": 51
+        }
+      },
+      {
+        "Kind": "root",
+        "Path": "tauri::Builder",
+        "Scope": 4,
+        "Span": {
+          "end_column": 55,
+          "end_line": 58,
+          "start_column": 16,
+          "start_line": 58
+        }
+      },
+      {
+        "Kind": "context",
+        "Path": "tauri::generate_context",
+        "Scope": 4,
+        "Span": {
+          "end_column": 36,
+          "end_line": 63,
+          "start_column": 10,
+          "start_line": 63
+        }
+      },
+      {
+        "Kind": "root",
+        "Path": "tauri::Builder",
+        "Scope": 5,
+        "Span": {
+          "end_column": 40,
+          "end_line": 67,
+          "start_column": 15,
+          "start_line": 67
+        }
+      },
+      {
+        "Kind": "context",
+        "Path": "tauri::generate_context",
+        "Scope": 5,
+        "Span": {
+          "end_column": 39,
+          "end_line": 79,
+          "start_column": 13,
+          "start_line": 79
+        }
+      }
+    ],
+    "Flows": [
+      {
+        "Bindings": [
+          {
+            "Alternatives": [
+              {
+                "Methods": [
+                  {
+                    "Name": "manage",
+                    "Span": {
+                      "end_column": 55,
+                      "end_line": 23,
+                      "start_column": 44,
+                      "start_line": 23
+                    }
+                  }
+                ],
+                "Root": {
+                  "Callee": "tauri::Builder::default",
+                  "Kind": "call",
+                  "Offset": 680,
+                  "Span": {
+                    "end_column": 43,
+                    "end_line": 23,
+                    "start_column": 18,
+                    "start_line": 23
+                  }
+                }
+              }
+            ],
+            "Block": {
+              "end_column": 1,
+              "end_line": 55,
+              "start_column": 17,
+              "start_line": 22
+            },
+            "Complete": true,
+            "End": 718,
+            "Kind": "let",
+            "Name": "builder",
+            "Offset": 666,
+            "Value": "plain"
+          },
+          {
+            "Alternatives": [
+              {
+                "Methods": [
+                  {
+                    "Name": "manage",
+                    "Span": {
+                      "end_column": 28,
+                      "end_line": 27,
+                      "start_column": 16,
+                      "start_line": 27
+                    }
+                  }
+                ],
+                "Root": {
+                  "Kind": "identifier",
+                  "Name": "builder",
+                  "Offset": 813
+                }
+              },
+              {
+                "Root": {
+                  "Kind": "identifier",
+                  "Name": "builder",
+                  "Offset": 855
+                }
+              }
+            ],
+            "Block": {
+              "end_column": 1,
+              "end_line": 55,
+              "start_column": 17,
+              "start_line": 22
+            },
+            "Cfg": true,
+            "Complete": true,
+            "End": 869,
+            "Kind": "let",
+            "Name": "builder",
+            "Offset": 752,
+            "Value": "if"
+          },
+          {
+            "Alternatives": [
+              {
+                "Methods": [
+                  {
+                    "Name": "setup",
+                    "Span": {
+                      "end_column": 39,
+                      "end_line": 32,
+                      "start_column": 22,
+                      "start_line": 32
+                    }
+                  }
+                ],
+                "Root": {
+                  "Kind": "identifier",
+                  "Name": "builder",
+                  "Offset": 885
+                }
+              }
+            ],
+            "Block": {
+              "end_column": 1,
+              "end_line": 55,
+              "start_column": 17,
+              "start_line": 22
+            },
+            "Complete": true,
+            "End": 911,
+            "Kind": "let",
+            "Name": "app",
+            "Offset": 875,
+            "Value": "plain"
+          },
+          {
+            "Alternatives": [
+              {
+                "Methods": [
+                  {
+                    "Name": "plugin",
+                    "Span": {
+                      "end_column": 10,
+                      "end_line": 44,
+                      "start_column": 9,
+                      "start_line": 35
+                    }
+                  },
+                  {
+                    "Handler": 3,
+                    "Name": "invoke_handler",
+                    "Span": {
+                      "end_column": 10,
+                      "end_line": 50,
+                      "start_column": 9,
+                      "start_line": 45
+                    }
+                  },
+                  {
+                    "Name": "build",
+                    "Span": {
+                      "end_column": 42,
+                      "end_line": 51,
+                      "start_column": 9,
+                      "start_line": 51
+                    }
+                  },
+                  {
+                    "Name": "expect",
+                    "Span": {
+                      "end_column": 39,
+                      "end_line": 52,
+                      "start_column": 9,
+                      "start_line": 52
+                    }
+                  }
+                ],
+                "Root": {
+                  "Kind": "identifier",
+                  "Name": "app",
+                  "Offset": 927
+                }
+              }
+            ],
+            "Block": {
+              "end_column": 1,
+              "end_line": 55,
+              "start_column": 17,
+              "start_line": 22
+            },
+            "Complete": true,
+            "End": 1440,
+            "Kind": "let",
+            "Name": "app",
+            "Offset": 917,
+            "Value": "plain"
+          }
+        ],
+        "Calls": [
+          {
+            "Chain": {
+              "Methods": [
+                {
+                  "Name": "plugin",
+                  "Span": {
+                    "end_column": 10,
+                    "end_line": 44,
+                    "start_column": 9,
+                    "start_line": 35
+                  }
+                },
+                {
+                  "Handler": 3,
+                  "Name": "invoke_handler",
+                  "Span": {
+                    "end_column": 10,
+                    "end_line": 50,
+                    "start_column": 9,
+                    "start_line": 45
+                  }
+                },
+                {
+                  "Name": "build",
+                  "Span": {
+                    "end_column": 42,
+                    "end_line": 51,
+                    "start_column": 9,
+                    "start_line": 51
+                  }
+                },
+                {
+                  "Name": "expect",
+                  "Span": {
+                    "end_column": 39,
+                    "end_line": 52,
+                    "start_column": 9,
+                    "start_line": 52
+                  }
+                }
+              ],
+              "Root": {
+                "Kind": "identifier",
+                "Name": "app",
+                "Offset": 927
+              }
+            },
+            "Use": "let"
+          }
+        ],
+        "Function": "function:app/src/chains.rs#rebound",
+        "Macros": [
+          {
+            "Kind": "invocation",
+            "Path": "tauri::generate_handler",
+            "Scope": 3,
+            "Span": {
+              "end_column": 9,
+              "end_line": 50,
+              "start_column": 24,
+              "start_line": 45
+            }
+          },
+          {
+            "Kind": "invocation",
+            "Path": "tauri::generate_context",
+            "Scope": 3,
+            "Span": {
+              "end_column": 41,
+              "end_line": 51,
+              "start_column": 15,
+              "start_line": 51
+            }
+          }
+        ],
+        "Shadows": []
+      },
+      {
+        "Bindings": [
+          {
+            "Alternatives": [
+              {
+                "Root": {
+                  "Callee": "tauri::Builder::default",
+                  "Generic": true,
+                  "Kind": "call",
+                  "Offset": 1504,
+                  "Span": {
+                    "end_column": 55,
+                    "end_line": 58,
+                    "start_column": 16,
+                    "start_line": 58
+                  }
+                }
+              }
+            ],
+            "Block": {
+              "end_column": 1,
+              "end_line": 64,
+              "start_column": 17,
+              "start_line": 57
+            },
+            "Complete": true,
+            "End": 1544,
+            "Kind": "let",
+            "Name": "b",
+            "Offset": 1492,
+            "Value": "plain"
+          },
+          {
+            "Alternatives": [
+              {
+                "Methods": [
+                  {
+                    "Name": "manage",
+                    "Span": {
+                      "end_column": 22,
+                      "end_line": 59,
+                      "start_column": 10,
+                      "start_line": 59
+                    }
+                  }
+                ],
+                "Root": {
+                  "Kind": "identifier",
+                  "Name": "b",
+                  "Offset": 1553
+                }
+              }
+            ],
+            "Block": {
+              "end_column": 1,
+              "end_line": 64,
+              "start_column": 17,
+              "start_line": 57
+            },
+            "Complete": true,
+            "End": 1567,
+            "Kind": "assign",
+            "Name": "b",
+            "Offset": 1549,
+            "Value": "plain"
+          },
+          {
+            "Alternatives": [
+              {
+                "Methods": [
+                  {
+                    "Handler": 4,
+                    "Name": "invoke_handler",
+                    "Span": {
+                      "end_column": 78,
+                      "end_line": 61,
+                      "start_column": 10,
+                      "start_line": 61
+                    }
+                  }
+                ],
+                "Root": {
+                  "Kind": "identifier",
+                  "Name": "b",
+                  "Offset": 1603
+                }
+              }
+            ],
+            "Block": {
+              "end_column": 1,
+              "end_line": 64,
+              "start_column": 17,
+              "start_line": 57
+            },
+            "Complete": true,
+            "End": 1673,
+            "Kind": "assign",
+            "Name": "b",
+            "Offset": 1599,
+            "Value": "plain"
+          }
+        ],
+        "Calls": [
+          {
+            "Chain": {
+              "Methods": [
+                {
+                  "Handler": 4,
+                  "Name": "invoke_handler",
+                  "Span": {
+                    "end_column": 78,
+                    "end_line": 61,
+                    "start_column": 10,
+                    "start_line": 61
+                  }
+                }
+              ],
+              "Root": {
+                "Kind": "identifier",
+                "Name": "b",
+                "Offset": 1603
+              }
+            },
+            "Use": "assign"
+          }
+        ],
+        "Function": "function:app/src/chains.rs#mutable",
+        "Macros": [
+          {
+            "Kind": "invocation",
+            "Path": "tauri::generate_handler",
+            "Scope": 4,
+            "Span": {
+              "end_column": 77,
+              "end_line": 61,
+              "start_column": 25,
+              "start_line": 61
+            }
+          },
+          {
+            "Kind": "invocation",
+            "Path": "tauri::generate_context",
+            "Scope": 4,
+            "Span": {
+              "end_column": 36,
+              "end_line": 63,
+              "start_column": 10,
+              "start_line": 63
+            }
+          }
+        ],
+        "Shadows": []
+      },
+      {
+        "Bindings": [
+          {
+            "Alternatives": [
+              {
+                "Root": {
+                  "Callee": "tauri::Builder::default",
+                  "Kind": "call",
+                  "Offset": 1791,
+                  "Span": {
+                    "end_column": 40,
+                    "end_line": 67,
+                    "start_column": 15,
+                    "start_line": 67
+                  }
+                }
+              }
+            ],
+            "Block": {
+              "end_column": 1,
+              "end_line": 81,
+              "start_column": 25,
+              "start_line": 66
+            },
+            "Complete": true,
+            "End": 1817,
+            "Kind": "let",
+            "Name": "base",
+            "Offset": 1780,
+            "Value": "plain"
+          },
+          {
+            "Alternatives": [
+              {
+                "Methods": [
+                  {
+                    "Name": "manage",
+                    "Span": {
+                      "end_column": 29,
+                      "end_line": 69,
+                      "start_column": 18,
+                      "start_line": 69
+                    }
+                  }
+                ],
+                "Root": {
+                  "Kind": "identifier",
+                  "Name": "base",
+                  "Offset": 1861
+                }
+              },
+              {
+                "Root": {
+                  "Kind": "identifier",
+                  "Name": "base",
+                  "Offset": 1906
+                }
+              }
+            ],
+            "Block": {
+              "end_column": 1,
+              "end_line": 81,
+              "start_column": 25,
+              "start_line": 66
+            },
+            "Complete": false,
+            "End": 1987,
+            "Kind": "let",
+            "Name": "chosen",
+            "Offset": 1822,
+            "Value": "match"
+          }
+        ],
+        "Calls": [
+          {
+            "Chain": {
+              "Methods": [
+                {
+                  "Handler": 5,
+                  "Name": "invoke_handler",
+                  "Span": {
+                    "end_column": 69,
+                    "end_line": 78,
+                    "start_column": 9,
+                    "start_line": 78
+                  }
+                },
+                {
+                  "Name": "run",
+                  "Span": {
+                    "end_column": 40,
+                    "end_line": 79,
+                    "start_column": 9,
+                    "start_line": 79
+                  }
+                },
+                {
+                  "Name": "unwrap",
+                  "Span": {
+                    "end_column": 17,
+                    "end_line": 80,
+                    "start_column": 9,
+                    "start_line": 80
+                  }
+                }
+              ],
+              "Root": {
+                "Kind": "identifier",
+                "Name": "chosen",
+                "Offset": 1992
+              }
+            },
+            "Use": "statement"
+          }
+        ],
+        "Function": "function:app/src/chains.rs#matched",
+        "Macros": [
+          {
+            "Kind": "invocation",
+            "Path": "panic",
+            "Scope": 5,
+            "Span": {
+              "end_column": 33,
+              "end_line": 74,
+              "start_column": 12,
+              "start_line": 74
+            }
+          },
+          {
+            "Kind": "invocation",
+            "Path": "tauri::generate_handler",
+            "Scope": 5,
+            "Span": {
+              "end_column": 68,
+              "end_line": 78,
+              "start_column": 24,
+              "start_line": 78
+            }
+          },
+          {
+            "Kind": "invocation",
+            "Path": "tauri::generate_context",
+            "Scope": 5,
+            "Span": {
+              "end_column": 39,
+              "end_line": 79,
+              "start_column": 13,
+              "start_line": 79
+            }
+          }
+        ],
+        "Shadows": []
+      }
+    ],
+    "Handlers": [
+      {
+        "Context": {
+          "Chain": {
+            "Methods": [
+              {
+                "Handler": 0,
+                "Name": "invoke_handler",
+                "Span": {
+                  "end_column": 84,
+                  "end_line": 5,
+                  "start_column": 9,
+                  "start_line": 5
+                }
+              },
+              {
+                "Name": "run",
+                "Span": {
+                  "end_column": 40,
+                  "end_line": 6,
+                  "start_column": 9,
+                  "start_line": 6
+                }
+              },
+              {
+                "Name": "expect",
+                "Span": {
+                  "end_column": 38,
+                  "end_line": 7,
+                  "start_column": 9,
+                  "start_line": 7
+                }
+              }
+            ],
+            "Root": {
+              "Callee": "tauri::Builder::default",
+              "Kind": "call",
+              "Offset": 44,
+              "Span": {
+                "end_column": 29,
+                "end_line": 4,
+                "start_column": 4,
+                "start_line": 4
+              }
+            }
+          },
+          "Kind": "argument",
+          "Method": "invoke_handler",
+          "Use": "statement"
+        },
+        "Entries": [
+          {
+            "Hash": "sha256:da234768cd8669fab530f50cbdeba65594e9d4d0d358a73c0a814c37ea24e42f",
+            "Path": "commands::greet",
+            "Segments": [
+              "commands",
+              "greet"
+            ],
+            "Span": {
+              "end_column": 64,
+              "end_line": 5,
+              "start_column": 49,
+              "start_line": 5
+            }
+          },
+          {
+            "Hash": "sha256:618b0d53fc2a1810d8f6a2056f1e7df1b9f4cc130b9baa81d6986f0635747586",
+            "Path": "commands::rooted",
+            "Segments": [
+              "commands",
+              "rooted"
+            ],
+            "Span": {
+              "end_column": 82,
+              "end_line": 5,
+              "start_column": 66,
+              "start_line": 5
+            }
+          }
+        ],
+        "Owner": "function:app/src/chains.rs#direct",
+        "Path": "tauri::generate_handler",
+        "Scope": 1,
+        "Span": {
+          "end_column": 83,
+          "end_line": 5,
+          "start_column": 24,
+          "start_line": 5
+        }
+      },
+      {
+        "Context": {
+          "Chain": {
+            "Methods": [
+              {
+                "Handler": 1,
+                "Name": "invoke_handler",
+                "Span": {
+                  "end_column": 66,
+                  "end_line": 12,
+                  "start_column": 9,
+                  "start_line": 12
+                }
+              },
+              {
+                "Handler": 2,
+                "Name": "invoke_handler",
+                "Span": {
+                  "end_column": 10,
+                  "end_line": 16,
+                  "start_column": 9,
+                  "start_line": 13
+                }
+              },
+              {
+                "Name": "build",
+                "Span": {
+                  "end_column": 42,
+                  "end_line": 17,
+                  "start_column": 9,
+                  "start_line": 17
+                }
+              },
+              {
+                "Name": "unwrap",
+                "Span": {
+                  "end_column": 17,
+                  "end_line": 18,
+                  "start_column": 9,
+                  "start_line": 18
+                }
+              }
+            ],
+            "Root": {
+              "Callee": "tauri::Builder::default",
+              "Kind": "call",
+              "Offset": 260,
+              "Span": {
+                "end_column": 29,
+                "end_line": 11,
+                "start_column": 4,
+                "start_line": 11
+              }
+            }
+          },
+          "Kind": "argument",
+          "Method": "invoke_handler",
+          "Use": "statement"
+        },
+        "Entries": [
+          {
+            "Hash": "sha256:da234768cd8669fab530f50cbdeba65594e9d4d0d358a73c0a814c37ea24e42f",
+            "Path": "commands::greet",
+            "Segments": [
+              "commands",
+              "greet"
+            ],
+            "Span": {
+              "end_column": 64,
+              "end_line": 12,
+              "start_column": 49,
+              "start_line": 12
+            }
+          }
+        ],
+        "Owner": "function:app/src/chains.rs#twice",
+        "Path": "tauri::generate_handler",
+        "Scope": 2,
+        "Span": {
+          "end_column": 65,
+          "end_line": 12,
+          "start_column": 24,
+          "start_line": 12
+        }
+      },
+      {
+        "Context": {
+          "Chain": {
+            "Methods": [
+              {
+                "Handler": 1,
+                "Name": "invoke_handler",
+                "Span": {
+                  "end_column": 66,
+                  "end_line": 12,
+                  "start_column": 9,
+                  "start_line": 12
+                }
+              },
+              {
+                "Handler": 2,
+                "Name": "invoke_handler",
+                "Span": {
+                  "end_column": 10,
+                  "end_line": 16,
+                  "start_column": 9,
+                  "start_line": 13
+                }
+              },
+              {
+                "Name": "build",
+                "Span": {
+                  "end_column": 42,
+                  "end_line": 17,
+                  "start_column": 9,
+                  "start_line": 17
+                }
+              },
+              {
+                "Name": "unwrap",
+                "Span": {
+                  "end_column": 17,
+                  "end_line": 18,
+                  "start_column": 9,
+                  "start_line": 18
+                }
+              }
+            ],
+            "Root": {
+              "Callee": "tauri::Builder::default",
+              "Kind": "call",
+              "Offset": 260,
+              "Span": {
+                "end_column": 29,
+                "end_line": 11,
+                "start_column": 4,
+                "start_line": 11
+              }
+            }
+          },
+          "Kind": "argument",
+          "Method": "invoke_handler",
+          "Use": "statement"
+        },
+        "Entries": [
+          {
+            "Hash": "sha256:76e84b8c54b5c34b5000836f287a5765abe91cf703fac6e27474a1880051ff2f",
+            "Path": "commands::plain::plain_bare",
+            "Segments": [
+              "commands",
+              "plain",
+              "plain_bare"
+            ],
+            "Span": {
+              "end_column": 39,
+              "end_line": 14,
+              "start_column": 12,
+              "start_line": 14
+            }
+          },
+          {
+            "Hash": "sha256:b2b3984b06556a47996b7b0d554b7d98b7dd31e20b93b99109f3f72433bad81c",
+            "Path": "commands::grouped::grouped_bare",
+            "Segments": [
+              "commands",
+              "grouped",
+              "grouped_bare"
+            ],
+            "Span": {
+              "end_column": 43,
+              "end_line": 15,
+              "start_column": 12,
+              "start_line": 15
+            }
+          }
+        ],
+        "Owner": "function:app/src/chains.rs#twice",
+        "Path": "tauri::generate_handler",
+        "Scope": 2,
+        "Span": {
+          "end_column": 9,
+          "end_line": 16,
+          "start_column": 24,
+          "start_line": 13
+        }
+      },
+      {
+        "Context": {
+          "Chain": {
+            "Methods": [
+              {
+                "Name": "plugin",
+                "Span": {
+                  "end_column": 10,
+                  "end_line": 44,
+                  "start_column": 9,
+                  "start_line": 35
+                }
+              },
+              {
+                "Handler": 3,
+                "Name": "invoke_handler",
+                "Span": {
+                  "end_column": 10,
+                  "end_line": 50,
+                  "start_column": 9,
+                  "start_line": 45
+                }
+              },
+              {
+                "Name": "build",
+                "Span": {
+                  "end_column": 42,
+                  "end_line": 51,
+                  "start_column": 9,
+                  "start_line": 51
+                }
+              },
+              {
+                "Name": "expect",
+                "Span": {
+                  "end_column": 39,
+                  "end_line": 52,
+                  "start_column": 9,
+                  "start_line": 52
+                }
+              }
+            ],
+            "Root": {
+              "Kind": "identifier",
+              "Name": "app",
+              "Offset": 927
+            }
+          },
+          "Kind": "argument",
+          "Method": "invoke_handler",
+          "Use": "let"
+        },
+        "Entries": [
+          {
+            "Hash": "sha256:da234768cd8669fab530f50cbdeba65594e9d4d0d358a73c0a814c37ea24e42f",
+            "Path": "commands::greet",
+            "Segments": [
+              "commands",
+              "greet"
+            ],
+            "Span": {
+              "end_column": 27,
+              "end_line": 46,
+              "start_column": 12,
+              "start_line": 46
+            }
+          },
+          {
+            "Attributes": [
+              "#[cfg(debug_assertions)]"
+            ],
+            "Hash": "sha256:2f19bfc500afdc889900a278e1de785607a8fb3db1e9f71ab995d76d95da7550",
+            "Path": "commands::debug_only",
+            "Segments": [
+              "commands",
+              "debug_only"
+            ],
+            "Span": {
+              "end_column": 32,
+              "end_line": 48,
+              "start_column": 12,
+              "start_line": 48
+            }
+          },
+          {
+            "Hash": "sha256:b73e733bb91128738b6a4c9c96673c637c48c787155c01fb658086347f6c092f",
+            "Path": "commands::arguments::r#type",
+            "Segments": [
+              "commands",
+              "arguments",
+              "r#type"
+            ],
+            "Span": {
+              "end_column": 39,
+              "end_line": 49,
+              "start_column": 12,
+              "start_line": 49
+            }
+          }
+        ],
+        "Owner": "function:app/src/chains.rs#rebound",
+        "Path": "tauri::generate_handler",
+        "Scope": 3,
+        "Span": {
+          "end_column": 9,
+          "end_line": 50,
+          "start_column": 24,
+          "start_line": 45
+        }
+      },
+      {
+        "Context": {
+          "Chain": {
+            "Methods": [
+              {
+                "Handler": 4,
+                "Name": "invoke_handler",
+                "Span": {
+                  "end_column": 78,
+                  "end_line": 61,
+                  "start_column": 10,
+                  "start_line": 61
+                }
+              }
+            ],
+            "Root": {
+              "Kind": "identifier",
+              "Name": "b",
+              "Offset": 1603
+            }
+          },
+          "Kind": "argument",
+          "Method": "invoke_handler",
+          "Use": "assign"
+        },
+        "Entries": [
+          {
+            "Hash": "sha256:741ed581fdf473c2635d2062b257ad4587e3cd6aaa1e1349f8981e2566bcc6fc",
+            "Path": "commands::aliased::aliased",
+            "Segments": [
+              "commands",
+              "aliased",
+              "aliased"
+            ],
+            "Span": {
+              "end_column": 76,
+              "end_line": 61,
+              "start_column": 50,
+              "start_line": 61
+            }
+          }
+        ],
+        "Owner": "function:app/src/chains.rs#mutable",
+        "Path": "tauri::generate_handler",
+        "Scope": 4,
+        "Span": {
+          "end_column": 77,
+          "end_line": 61,
+          "start_column": 25,
+          "start_line": 61
+        }
+      },
+      {
+        "Context": {
+          "Chain": {
+            "Methods": [
+              {
+                "Handler": 5,
+                "Name": "invoke_handler",
+                "Span": {
+                  "end_column": 69,
+                  "end_line": 78,
+                  "start_column": 9,
+                  "start_line": 78
+                }
+              },
+              {
+                "Name": "run",
+                "Span": {
+                  "end_column": 40,
+                  "end_line": 79,
+                  "start_column": 9,
+                  "start_line": 79
+                }
+              },
+              {
+                "Name": "unwrap",
+                "Span": {
+                  "end_column": 17,
+                  "end_line": 80,
+                  "start_column": 9,
+                  "start_line": 80
+                }
+              }
+            ],
+            "Root": {
+              "Kind": "identifier",
+              "Name": "chosen",
+              "Offset": 1992
+            }
+          },
+          "Kind": "argument",
+          "Method": "invoke_handler",
+          "Use": "statement"
+        },
+        "Entries": [
+          {
+            "Hash": "sha256:6b42f4c76914df1be110dd084dbb19bf74982ae26ffa9798cba4efe0314b1554",
+            "Path": "commands::optional",
+            "Segments": [
+              "commands",
+              "optional"
+            ],
+            "Span": {
+              "end_column": 67,
+              "end_line": 78,
+              "start_column": 49,
+              "start_line": 78
+            }
+          }
+        ],
+        "Owner": "function:app/src/chains.rs#matched",
+        "Path": "tauri::generate_handler",
+        "Scope": 5,
+        "Span": {
+          "end_column": 68,
+          "end_line": 78,
+          "start_column": 24,
+          "start_line": 78
+        }
+      }
+    ],
+    "Version": 3
+  },
+  "app/src/commands/aliased.rs": {
+    "Commands": [
+      {
+        "Attributes": [
+          {
+            "Arguments": [
+              {
+                "Key": "rename",
+                "Kind": "string",
+                "Value": "aliased_name"
+              }
+            ],
+            "Form": "attribute",
+            "Path": "cmd",
+            "Scope": 0,
+            "Span": {
+              "end_column": 31,
+              "end_line": 3,
+              "start_column": 0,
+              "start_line": 3
+            }
+          }
+        ],
+        "Identity": "function:app/src/commands/aliased.rs#aliased",
+        "Name": "aliased",
+        "Span": {
+          "end_column": 19,
+          "end_line": 4,
+          "start_column": 0,
+          "start_line": 4
+        },
+        "Visibility": "pub"
+      }
+    ],
+    "Version": 3
+  },
+  "app/src/commands/arguments.rs": {
+    "Commands": [
+      {
+        "Attributes": [
+          {
+            "Arguments": [
+              {
+                "Key": "rename",
+                "Kind": "string",
+                "Value": "renamed"
+              },
+              {
+                "Key": "rename_all",
+                "Kind": "string",
+                "Value": "snake_case"
+              }
+            ],
+            "Form": "attribute",
+            "Path": "tauri::command",
+            "Scope": 0,
+            "Span": {
+              "end_column": 64,
+              "end_line": 3,
+              "start_column": 0,
+              "start_line": 3
+            }
+          }
+        ],
+        "Identity": "function:app/src/commands/arguments.rs#with_rename",
+        "Name": "with_rename",
+        "Span": {
+          "end_column": 23,
+          "end_line": 4,
+          "start_column": 0,
+          "start_line": 4
+        },
+        "Visibility": "pub"
+      },
+      {
+        "Attributes": [
+          {
+            "Arguments": [
+              {
+                "Key": "root",
+                "Kind": "string",
+                "Value": "crate"
+              }
+            ],
+            "Async": true,
+            "Form": "attribute",
+            "Path": "tauri::command",
+            "Scope": 0,
+            "Span": {
+              "end_column": 40,
+              "end_line": 6,
+              "start_column": 0,
+              "start_line": 6
+            }
+          }
+        ],
+        "Identity": "function:app/src/commands/arguments.rs#with_root",
+        "Name": "with_root",
+        "Span": {
+          "end_column": 21,
+          "end_line": 7,
+          "start_column": 0,
+          "start_line": 7
+        },
+        "Visibility": "pub"
+      },
+      {
+        "AsyncFn": true,
+        "Attributes": [
+          {
+            "Arguments": [
+              {
+                "Key": "rename",
+                "Kind": "string",
+                "Value": "raw"
+              }
+            ],
+            "Form": "attribute",
+            "Path": "tauri::command",
+            "Scope": 0,
+            "Span": {
+              "end_column": 37,
+              "end_line": 9,
+              "start_column": 0,
+              "start_line": 9
+            }
+          }
+        ],
+        "Identity": "function:app/src/commands/arguments.rs#raw_literal",
+        "Name": "raw_literal",
+        "Span": {
+          "end_column": 29,
+          "end_line": 10,
+          "start_column": 0,
+          "start_line": 10
+        },
+        "Visibility": "pub"
+      },
+      {
+        "Attributes": [
+          {
+            "Arguments": [
+              {
+                "Key": "rename",
+                "Kind": "expression",
+                "Value": null
+              }
+            ],
+            "Form": "attribute",
+            "Invalid": "non-literal value for rename",
+            "Path": "tauri::command",
+            "Scope": 0,
+            "Span": {
+              "end_column": 32,
+              "end_line": 12,
+              "start_column": 0,
+              "start_line": 12
+            }
+          }
+        ],
+        "Identity": "function:app/src/commands/arguments.rs#non_literal",
+        "Name": "non_literal",
+        "Span": {
+          "end_column": 23,
+          "end_line": 13,
+          "start_column": 0,
+          "start_line": 13
+        },
+        "Visibility": "pub"
+      },
+      {
+        "Attributes": [
+          {
+            "Arguments": [
+              {
+                "Key": "unknown",
+                "Kind": "path",
+                "Value": null
+              }
+            ],
+            "Form": "attribute",
+            "Invalid": "bare path argument unknown",
+            "Path": "tauri::command",
+            "Scope": 0,
+            "Span": {
+              "end_column": 26,
+              "end_line": 15,
+              "start_column": 0,
+              "start_line": 15
+            }
+          }
+        ],
+        "Identity": "function:app/src/commands/arguments.rs#bare_path",
+        "Name": "bare_path",
+        "Span": {
+          "end_column": 21,
+          "end_line": 16,
+          "start_column": 0,
+          "start_line": 16
+        },
+        "Visibility": "pub"
+      },
+      {
+        "Attributes": [
+          {
+            "Form": "attribute",
+            "Path": "tauri::command",
+            "Scope": 0,
+            "Span": {
+              "end_column": 17,
+              "end_line": 18,
+              "start_column": 0,
+              "start_line": 18
+            }
+          }
+        ],
+        "Identity": "function:app/src/commands/arguments.rs#r%23type",
+        "Name": "r#type",
+        "Span": {
+          "end_column": 18,
+          "end_line": 19,
+          "start_column": 0,
+          "start_line": 19
+        },
+        "Visibility": "pub"
+      }
+    ],
+    "Version": 3
+  },
+  "app/src/commands/grouped.rs": {
+    "Commands": [
+      {
+        "AsyncFn": true,
+        "Attributes": [
+          {
+            "Form": "attribute",
+            "Path": "command",
+            "Scope": 0,
+            "Span": {
+              "end_column": 10,
+              "end_line": 7,
+              "start_column": 0,
+              "start_line": 7
+            }
+          }
+        ],
+        "Identity": "function:app/src/commands/grouped.rs#grouped_bare",
+        "Name": "grouped_bare",
+        "Span": {
+          "end_column": 1,
+          "end_line": 10,
+          "start_column": 0,
+          "start_line": 8
+        },
+        "Visibility": "pub"
+      }
+    ],
+    "Version": 3
+  },
+  "app/src/commands/mod.rs": {
+    "Commands": [
+      {
+        "Attributes": [
+          {
+            "Form": "attribute",
+            "Path": "tauri::command",
+            "Scope": 0,
+            "Span": {
+              "end_column": 17,
+              "end_line": 6,
+              "start_column": 0,
+              "start_line": 6
+            }
+          }
+        ],
+        "Identity": "function:app/src/commands/mod.rs#greet",
+        "Name": "greet",
+        "Span": {
+          "end_column": 1,
+          "end_line": 9,
+          "start_column": 0,
+          "start_line": 7
+        },
+        "Visibility": "pub"
+      },
+      {
+        "AsyncFn": true,
+        "Attributes": [
+          {
+            "Form": "attribute",
+            "Path": "::tauri::command",
+            "Scope": 0,
+            "Span": {
+              "end_column": 19,
+              "end_line": 11,
+              "start_column": 0,
+              "start_line": 11
+            }
+          }
+        ],
+        "Identity": "function:app/src/commands/mod.rs#rooted",
+        "Name": "rooted",
+        "Span": {
+          "end_column": 24,
+          "end_line": 12,
+          "start_column": 0,
+          "start_line": 12
+        },
+        "Visibility": "pub"
+      },
+      {
+        "Attributes": [
+          {
+            "Arguments": [
+              {
+                "Key": "rename",
+                "Kind": "string",
+                "Value": "optional_cmd"
+              }
+            ],
+            "Form": "cfg_attr",
+            "Path": "tauri::command",
+            "Predicate": "feature = \"desktop\"",
+            "Scope": 0,
+            "Span": {
+              "end_column": 73,
+              "end_line": 14,
+              "start_column": 0,
+              "start_line": 14
+            }
+          }
+        ],
+        "Identity": "function:app/src/commands/mod.rs#optional",
+        "Name": "optional",
+        "Span": {
+          "end_column": 20,
+          "end_line": 15,
+          "start_column": 0,
+          "start_line": 15
+        },
+        "Visibility": "pub"
+      },
+      {
+        "Attributes": [
+          {
+            "Form": "attribute",
+            "Path": "tauri::command",
+            "Scope": 0,
+            "Span": {
+              "end_column": 17,
+              "end_line": 18,
+              "start_column": 0,
+              "start_line": 18
+            }
+          }
+        ],
+        "Cfg": true,
+        "Identity": "function:app/src/commands/mod.rs#debug_only",
+        "Name": "debug_only",
+        "Span": {
+          "end_column": 29,
+          "end_line": 20,
+          "start_column": 0,
+          "start_line": 20
+        },
+        "Visibility": "pub(crate)"
+      },
+      {
+        "Attributes": [
+          {
+            "Form": "attribute",
+            "Path": "tauri::command",
+            "Scope": 5,
+            "Span": {
+              "end_column": 21,
+              "end_line": 23,
+              "start_column": 4,
+              "start_line": 23
+            }
+          }
+        ],
+        "Identity": "function:app/src/commands/mod.rs#inline.nested_module",
+        "Name": "nested_module",
+        "Span": {
+          "end_column": 29,
+          "end_line": 24,
+          "start_column": 4,
+          "start_line": 24
+        },
+        "Visibility": "pub"
+      },
+      {
+        "Attributes": [
+          {
+            "Form": "attribute",
+            "Path": "tauri::command",
+            "Scope": 7,
+            "Span": {
+              "end_column": 21,
+              "end_line": 28,
+              "start_column": 4,
+              "start_line": 28
+            }
+          }
+        ],
+        "Name": "nested_fn",
+        "Span": {
+          "end_column": 21,
+          "end_line": 29,
+          "start_column": 4,
+          "start_line": 29
+        }
+      },
+      {
+        "Attributes": [
+          {
+            "Form": "attribute",
+            "Path": "tauri::command",
+            "Scope": 0,
+            "Span": {
+              "end_column": 21,
+              "end_line": 35,
+              "start_column": 4,
+              "start_line": 35
+            }
+          }
+        ],
+        "Identity": "method:app/src/commands/mod.rs#Service.member",
+        "Name": "member",
+        "Span": {
+          "end_column": 27,
+          "end_line": 36,
+          "start_column": 4,
+          "start_line": 36
+        },
+        "Visibility": "pub"
+      },
+      {
+        "Attributes": [
+          {
+            "Form": "cfg_attr",
+            "Path": "tauri::command",
+            "Predicate": "all(feature = \"a\",\n        feature = \"b\")",
+            "Scope": 0,
+            "Span": {
+              "end_column": 2,
+              "end_line": 50,
+              "start_column": 0,
+              "start_line": 46
+            }
+          }
+        ],
+        "Identity": "function:app/src/commands/mod.rs#multiline",
+        "Name": "multiline",
+        "Span": {
+          "end_column": 21,
+          "end_line": 51,
+          "start_column": 0,
+          "start_line": 51
+        },
+        "Visibility": "pub"
+      },
+      {
+        "Attributes": [
+          {
+            "Form": "cfg_attr",
+            "Path": "tauri::command",
+            "Predicate": "all(feature = \"outer\", feature = \"inner\")",
+            "Scope": 0,
+            "Span": {
+              "end_column": 75,
+              "end_line": 54,
+              "start_column": 0,
+              "start_line": 54
+            }
+          }
+        ],
+        "Identity": "function:app/src/commands/mod.rs#nested_cfg_attr",
+        "Name": "nested_cfg_attr",
+        "Span": {
+          "end_column": 27,
+          "end_line": 55,
+          "start_column": 0,
+          "start_line": 55
+        },
+        "Visibility": "pub"
+      },
+      {
+        "Attributes": [
+          {
+            "Form": "attribute",
+            "Path": "poise::command",
+            "Scope": 0,
+            "Span": {
+              "end_column": 17,
+              "end_line": 58,
+              "start_column": 0,
+              "start_line": 58
+            }
+          },
+          {
+            "Form": "attribute",
+            "Path": "tauri::command",
+            "Scope": 0,
+            "Span": {
+              "end_column": 17,
+              "end_line": 59,
+              "start_column": 0,
+              "start_line": 59
+            }
+          }
+        ],
+        "Identity": "function:app/src/commands/mod.rs#both_attributes",
+        "Name": "both_attributes",
+        "Span": {
+          "end_column": 27,
+          "end_line": 60,
+          "start_column": 0,
+          "start_line": 60
+        },
+        "Visibility": "pub"
+      },
+      {
+        "Attributes": [
+          {
+            "Form": "attribute",
+            "Path": "tauri::command",
+            "Scope": 15,
+            "Span": {
+              "end_column": 21,
+              "end_line": 65,
+              "start_column": 4,
+              "start_line": 65
+            }
+          }
+        ],
+        "Identity": "function:app/src/commands/mod.rs#gated.in_cfg_module",
+        "Name": "in_cfg_module",
+        "Span": {
+          "end_column": 29,
+          "end_line": 66,
+          "start_column": 4,
+          "start_line": 66
+        },
+        "Test": true,
+        "Visibility": "pub"
+      },
+      {
+        "Attributes": [
+          {
+            "Form": "attribute",
+            "Path": "tauri::command",
+            "Scope": 0,
+            "Span": {
+              "end_column": 17,
+              "end_line": 71,
+              "start_column": 0,
+              "start_line": 71
+            }
+          }
+        ],
+        "Cfg": true,
+        "Identity": "function:app/src/commands/mod.rs#cfg_through_cfg_attr",
+        "Name": "cfg_through_cfg_attr",
+        "Span": {
+          "end_column": 32,
+          "end_line": 72,
+          "start_column": 0,
+          "start_line": 72
+        },
+        "Visibility": "pub"
+      },
+      {
+        "Attributes": [
+          {
+            "Form": "attribute",
+            "Path": "tauri::command",
+            "Scope": 0,
+            "Span": {
+              "end_column": 17,
+              "end_line": 75,
+              "start_column": 0,
+              "start_line": 75
+            }
+          }
+        ],
+        "Cfg": true,
+        "Identity": "function:app/src/commands/mod.rs#cfg_through_nested_cfg_attr",
+        "Name": "cfg_through_nested_cfg_attr",
+        "Span": {
+          "end_column": 39,
+          "end_line": 76,
+          "start_column": 0,
+          "start_line": 76
+        },
+        "Visibility": "pub"
+      },
+      {
+        "Attributes": [
+          {
+            "Form": "attribute",
+            "Path": "tauri::command",
+            "Scope": 0,
+            "Span": {
+              "end_column": 17,
+              "end_line": 80,
+              "start_column": 0,
+              "start_line": 80
+            }
+          }
+        ],
+        "Identity": "function:app/src/commands/mod.rs#cfg_attr_without_cfg",
+        "Name": "cfg_attr_without_cfg",
+        "Span": {
+          "end_column": 32,
+          "end_line": 81,
+          "start_column": 0,
+          "start_line": 81
+        },
+        "Visibility": "pub"
+      }
+    ],
+    "Version": 3
+  },
+  "app/src/commands/plain.rs": {
+    "Commands": [
+      {
+        "Attributes": [
+          {
+            "Form": "attribute",
+            "Path": "command",
+            "Scope": 0,
+            "Span": {
+              "end_column": 10,
+              "end_line": 3,
+              "start_column": 0,
+              "start_line": 3
+            }
+          }
+        ],
+        "Identity": "function:app/src/commands/plain.rs#plain_bare",
+        "Name": "plain_bare",
+        "Span": {
+          "end_column": 22,
+          "end_line": 4,
+          "start_column": 0,
+          "start_line": 4
+        },
+        "Visibility": "pub"
+      }
+    ],
+    "Version": 3
+  },
+  "app/src/handlers.rs": {
+    "Apps": [
+      {
+        "Kind": "root",
+        "Path": "tauri::Builder",
+        "Scope": 1,
+        "Span": {
+          "end_column": 29,
+          "end_line": 4,
+          "start_column": 4,
+          "start_line": 4
+        }
+      },
+      {
+        "Kind": "context",
+        "Path": "tauri::generate_context",
+        "Scope": 1,
+        "Span": {
+          "end_column": 39,
+          "end_line": 6,
+          "start_column": 13,
+          "start_line": 6
+        }
+      },
+      {
+        "Kind": "root",
+        "Path": "tauri::Builder",
+        "Scope": 2,
+        "Span": {
+          "end_column": 29,
+          "end_line": 11,
+          "start_column": 4,
+          "start_line": 11
+        }
+      },
+      {
+        "Kind": "context",
+        "Path": "tauri::generate_context",
+        "Scope": 2,
+        "Span": {
+          "end_column": 39,
+          "end_line": 13,
+          "start_column": 13,
+          "start_line": 13
+        }
+      },
+      {
+        "Kind": "invoke_handler",
+        "Path": "invoke_handler",
+        "Scope": 3,
+        "Span": {
+          "end_column": 32,
+          "end_line": 20,
+          "start_column": 4,
+          "start_line": 19
+        }
+      },
+      {
+        "Kind": "root",
+        "Path": "tauri::Builder",
+        "Scope": 3,
+        "Span": {
+          "end_column": 29,
+          "end_line": 19,
+          "start_column": 4,
+          "start_line": 19
+        }
+      },
+      {
+        "Kind": "context",
+        "Path": "tauri::generate_context",
+        "Scope": 3,
+        "Span": {
+          "end_column": 39,
+          "end_line": 21,
+          "start_column": 13,
+          "start_line": 21
+        }
+      }
+    ],
+    "Handlers": [
+      {
+        "Context": {
+          "Chain": {
+            "Methods": [
+              {
+                "Handler": 0,
+                "Name": "invoke_handler",
+                "Span": {
+                  "end_column": 51,
+                  "end_line": 5,
+                  "start_column": 9,
+                  "start_line": 5
+                }
+              },
+              {
+                "Name": "run",
+                "Span": {
+                  "end_column": 40,
+                  "end_line": 6,
+                  "start_column": 9,
+                  "start_line": 6
+                }
+              },
+              {
+                "Name": "unwrap",
+                "Span": {
+                  "end_column": 17,
+                  "end_line": 7,
+                  "start_column": 9,
+                  "start_line": 7
+                }
+              }
+            ],
+            "Root": {
+              "Callee": "tauri::Builder::default",
+              "Kind": "call",
+              "Offset": 43,
+              "Span": {
+                "end_column": 29,
+                "end_line": 4,
+                "start_column": 4,
+                "start_line": 4
+              }
+            }
+          },
+          "Kind": "argument",
+          "Method": "invoke_handler",
+          "Use": "statement"
+        },
+        "Owner": "function:app/src/handlers.rs#empty",
+        "Path": "tauri::generate_handler",
+        "Scope": 1,
+        "Span": {
+          "end_column": 50,
+          "end_line": 5,
+          "start_column": 24,
+          "start_line": 5
+        }
+      },
+      {
+        "Context": {
+          "Chain": {
+            "Methods": [
+              {
+                "Handler": 1,
+                "Name": "invoke_handler",
+                "Span": {
+                  "end_column": 83,
+                  "end_line": 12,
+                  "start_column": 9,
+                  "start_line": 12
+                }
+              },
+              {
+                "Name": "run",
+                "Span": {
+                  "end_column": 40,
+                  "end_line": 13,
+                  "start_column": 9,
+                  "start_line": 13
+                }
+              },
+              {
+                "Name": "unwrap",
+                "Span": {
+                  "end_column": 17,
+                  "end_line": 14,
+                  "start_column": 9,
+                  "start_line": 14
+                }
+              }
+            ],
+            "Root": {
+              "Callee": "tauri::Builder::default",
+              "Kind": "call",
+              "Offset": 209,
+              "Span": {
+                "end_column": 29,
+                "end_line": 11,
+                "start_column": 4,
+                "start_line": 11
+              }
+            }
+          },
+          "Kind": "argument",
+          "Method": "invoke_handler",
+          "Use": "statement"
+        },
+        "Invalid": "unsupported entry syntax",
+        "Owner": "function:app/src/handlers.rs#malformed",
+        "Path": "tauri::generate_handler",
+        "Scope": 2,
+        "Span": {
+          "end_column": 82,
+          "end_line": 12,
+          "start_column": 24,
+          "start_line": 12
+        }
+      },
+      {
+        "Context": {
+          "Binding": "handler",
+          "Kind": "let"
+        },
+        "Entries": [
+          {
+            "Hash": "sha256:da234768cd8669fab530f50cbdeba65594e9d4d0d358a73c0a814c37ea24e42f",
+            "Path": "commands::greet",
+            "Segments": [
+              "commands",
+              "greet"
+            ],
+            "Span": {
+              "end_column": 58,
+              "end_line": 18,
+              "start_column": 43,
+              "start_line": 18
+            }
+          },
+          {
+            "Hash": "sha256:a57a624b3c49bb103759311ceeb4d31bb68fcc157ff7bbaa8c2c93ff2edb2805",
+            "Path": "crate::commands::inline::nested_module",
+            "Segments": [
+              "crate",
+              "commands",
+              "inline",
+              "nested_module"
+            ],
+            "Span": {
+              "end_column": 98,
+              "end_line": 18,
+              "start_column": 60,
+              "start_line": 18
+            }
+          }
+        ],
+        "Owner": "function:app/src/handlers.rs#let_bound",
+        "Path": "tauri::generate_handler",
+        "Scope": 3,
+        "Span": {
+          "end_column": 99,
+          "end_line": 18,
+          "start_column": 18,
+          "start_line": 18
+        }
+      }
+    ],
+    "Version": 3
+  },
+  "app/src/negatives.rs": {
+    "Commands": [
+      {
+        "AsyncFn": true,
+        "Attributes": [
+          {
+            "Arguments": [
+              {
+                "Key": "slash_command",
+                "Kind": "path",
+                "Value": null
+              }
+            ],
+            "Form": "attribute",
+            "Invalid": "bare path argument slash_command",
+            "Path": "poise::command",
+            "Scope": 0,
+            "Span": {
+              "end_column": 32,
+              "end_line": 10,
+              "start_column": 0,
+              "start_line": 10
+            }
+          }
+        ],
+        "Identity": "function:app/src/negatives.rs#poise_cmd",
+        "Name": "poise_cmd",
+        "Span": {
+          "end_column": 27,
+          "end_line": 11,
+          "start_column": 0,
+          "start_line": 11
+        },
+        "Visibility": "pub"
+      }
+    ],
+    "Version": 3
+  },
+  "app/src/plugin.rs": {
+    "Apps": [
+      {
+        "Kind": "root",
+        "Path": "Builder",
+        "Scope": 2,
+        "Span": {
+          "end_column": 34,
+          "end_line": 8,
+          "start_column": 4,
+          "start_line": 8
+        }
+      },
+      {
+        "Kind": "root",
+        "Path": "tauri::plugin::Builder",
+        "Scope": 3,
+        "Span": {
+          "end_column": 36,
+          "end_line": 14,
+          "start_column": 4,
+          "start_line": 14
+        }
+      }
+    ],
+    "Commands": [
+      {
+        "Attributes": [
+          {
+            "Form": "attribute",
+            "Path": "command",
+            "Scope": 0,
+            "Span": {
+              "end_column": 10,
+              "end_line": 4,
+              "start_column": 0,
+              "start_line": 4
+            }
+          }
+        ],
+        "Identity": "function:app/src/plugin.rs#ping",
+        "Name": "ping",
+        "Span": {
+          "end_column": 16,
+          "end_line": 5,
+          "start_column": 0,
+          "start_line": 5
+        },
+        "Visibility": "pub"
+      }
+    ],
+    "Handlers": [
+      {
+        "Context": {
+          "Chain": {
+            "Methods": [
+              {
+                "Handler": 0,
+                "Name": "invoke_handler",
+                "Span": {
+                  "end_column": 77,
+                  "end_line": 9,
+                  "start_column": 9,
+                  "start_line": 9
+                }
+              },
+              {
+                "Name": "build",
+                "Span": {
+                  "end_column": 16,
+                  "end_line": 10,
+                  "start_column": 9,
+                  "start_line": 10
+                }
+              }
+            ],
+            "Root": {
+              "Argument": "my-plugin",
+              "Callee": "Builder::new",
+              "Generic": true,
+              "Kind": "call",
+              "Offset": 154,
+              "Span": {
+                "end_column": 34,
+                "end_line": 8,
+                "start_column": 4,
+                "start_line": 8
+              }
+            }
+          },
+          "Kind": "argument",
+          "Method": "invoke_handler",
+          "Use": "tail"
+        },
+        "Entries": [
+          {
+            "Hash": "sha256:758d61f26a44448384e5c4468a0dcb7a2abe456067b0f7b505bc28b9411fe931",
+            "Path": "ping",
+            "Segments": [
+              "ping"
+            ],
+            "Span": {
+              "end_column": 75,
+              "end_line": 9,
+              "start_column": 71,
+              "start_line": 9
+            }
+          }
+        ],
+        "Owner": "function:app/src/plugin.rs#init",
+        "Path": "tauri::generate_handler",
+        "Plugin": "my_plugin",
+        "Scope": 2,
+        "Span": {
+          "end_column": 76,
+          "end_line": 9,
+          "start_column": 24,
+          "start_line": 9
+        }
+      },
+      {
+        "Context": {
+          "Chain": {
+            "Methods": [
+              {
+                "Handler": 1,
+                "Name": "invoke_handler",
+                "Span": {
+                  "end_column": 61,
+                  "end_line": 15,
+                  "start_column": 9,
+                  "start_line": 15
+                }
+              },
+              {
+                "Name": "build",
+                "Span": {
+                  "end_column": 16,
+                  "end_line": 16,
+                  "start_column": 9,
+                  "start_line": 16
+                }
+              }
+            ],
+            "Root": {
+              "Argument": "x",
+              "Callee": "tauri::plugin::Builder::new",
+              "Kind": "call",
+              "Offset": 332,
+              "Span": {
+                "end_column": 36,
+                "end_line": 14,
+                "start_column": 4,
+                "start_line": 14
+              }
+            }
+          },
+          "Kind": "argument",
+          "Method": "invoke_handler",
+          "Use": "tail"
+        },
+        "Entries": [
+          {
+            "Hash": "sha256:620eb579fae658cd0007a52e498ed3ffbbbe9575a54f9c3548e45210afed7afb",
+            "Path": "self::ping",
+            "Segments": [
+              "self",
+              "ping"
+            ],
+            "Span": {
+              "end_column": 59,
+              "end_line": 15,
+              "start_column": 49,
+              "start_line": 15
+            }
+          }
+        ],
+        "Owner": "function:app/src/plugin.rs#scoped",
+        "Path": "tauri::generate_handler",
+        "Scope": 3,
+        "Span": {
+          "end_column": 60,
+          "end_line": 15,
+          "start_column": 24,
+          "start_line": 15
+        }
+      }
+    ],
+    "Version": 3
+  },
+  "app/src/rebinding.rs": {
+    "Apps": [
+      {
+        "Kind": "typed",
+        "Path": "tauri::Builder",
+        "Scope": 0,
+        "Span": {
+          "end_column": 39,
+          "end_line": 6,
+          "start_column": 4,
+          "start_line": 6
+        }
+      },
+      {
+        "Kind": "root",
+        "Path": "tauri::Builder",
+        "Scope": 1,
+        "Span": {
+          "end_column": 48,
+          "end_line": 12,
+          "start_column": 23,
+          "start_line": 12
+        }
+      },
+      {
+        "Kind": "root",
+        "Path": "tauri::Builder",
+        "Scope": 2,
+        "Span": {
+          "end_column": 37,
+          "end_line": 17,
+          "start_column": 12,
+          "start_line": 17
+        }
+      },
+      {
+        "Kind": "root",
+        "Path": "tauri::Builder",
+        "Scope": 3,
+        "Span": {
+          "end_column": 39,
+          "end_line": 23,
+          "start_column": 14,
+          "start_line": 23
+        }
+      },
+      {
+        "Kind": "invoke_handler",
+        "Path": "invoke_handler",
+        "Scope": 3,
+        "Span": {
+          "end_column": 31,
+          "end_line": 25,
+          "start_column": 4,
+          "start_line": 25
+        }
+      },
+      {
+        "Kind": "context",
+        "Path": "tauri::generate_context",
+        "Scope": 3,
+        "Span": {
+          "end_column": 62,
+          "end_line": 25,
+          "start_column": 36,
+          "start_line": 25
+        }
+      },
+      {
+        "Kind": "root",
+        "Path": "tauri::Builder",
+        "Scope": 4,
+        "Span": {
+          "end_column": 39,
+          "end_line": 29,
+          "start_column": 14,
+          "start_line": 29
+        }
+      },
+      {
+        "Kind": "invoke_handler",
+        "Path": "invoke_handler",
+        "Scope": 4,
+        "Span": {
+          "end_column": 38,
+          "end_line": 30,
+          "start_column": 4,
+          "start_line": 30
+        }
+      },
+      {
+        "Kind": "context",
+        "Path": "tauri::generate_context",
+        "Scope": 4,
+        "Span": {
+          "end_column": 69,
+          "end_line": 30,
+          "start_column": 43,
+          "start_line": 30
+        }
+      },
+      {
+        "Kind": "root",
+        "Path": "tauri::Builder",
+        "Scope": 5,
+        "Span": {
+          "end_column": 43,
+          "end_line": 35,
+          "start_column": 18,
+          "start_line": 35
+        }
+      },
+      {
+        "Kind": "macro",
+        "Path": "tauri::Builder",
+        "Scope": 0,
+        "Span": {
+          "end_column": 1,
+          "end_line": 48,
+          "start_column": 0,
+          "start_line": 44
+        }
+      },
+      {
+        "Kind": "root",
+        "Path": "tauri::Builder",
+        "Scope": 8,
+        "Span": {
+          "end_column": 43,
+          "end_line": 52,
+          "start_column": 18,
+          "start_line": 52
+        }
+      },
+      {
+        "Kind": "root",
+        "Path": "tauri::Builder",
+        "Scope": 9,
+        "Span": {
+          "end_column": 47,
+          "end_line": 60,
+          "start_column": 22,
+          "start_line": 60
+        }
+      }
+    ],
+    "Flows": [
+      {
+        "Bindings": [
+          {
+            "Alternatives": [
+              {
+                "Methods": [
+                  {
+                    "Handler": 2,
+                    "Name": "invoke_handler",
+                    "Span": {
+                      "end_column": 97,
+                      "end_line": 23,
+                      "start_column": 40,
+                      "start_line": 23
+                    }
+                  }
+                ],
+                "Root": {
+                  "Callee": "tauri::Builder::default",
+                  "Kind": "call",
+                  "Offset": 784,
+                  "Span": {
+                    "end_column": 39,
+                    "end_line": 23,
+                    "start_column": 14,
+                    "start_line": 23
+                  }
+                }
+              }
+            ],
+            "Block": {
+              "end_column": 1,
+              "end_line": 26,
+              "start_column": 29,
+              "start_line": 22
+            },
+            "Complete": true,
+            "End": 868,
+            "Kind": "let",
+            "Name": "app",
+            "Offset": 774,
+            "Value": "plain"
+          }
+        ],
+        "Calls": [
+          {
+            "Chain": {
+              "Methods": [
+                {
+                  "Name": "invoke_handler",
+                  "Span": {
+                    "end_column": 31,
+                    "end_line": 25,
+                    "start_column": 8,
+                    "start_line": 25
+                  },
+                  "Uncaptured": true
+                },
+                {
+                  "Name": "run",
+                  "Span": {
+                    "end_column": 63,
+                    "end_line": 25,
+                    "start_column": 32,
+                    "start_line": 25
+                  }
+                },
+                {
+                  "Name": "unwrap",
+                  "Span": {
+                    "end_column": 72,
+                    "end_line": 25,
+                    "start_column": 64,
+                    "start_line": 25
+                  }
+                }
+              ],
+              "Root": {
+                "Kind": "identifier",
+                "Name": "app",
+                "Offset": 935
+              }
+            },
+            "Use": "statement"
+          }
+        ],
+        "Function": "function:app/src/rebinding.rs#replaced_by_binding",
+        "Macros": [
+          {
+            "Kind": "invocation",
+            "Path": "tauri::generate_handler",
+            "Scope": 3,
+            "Span": {
+              "end_column": 96,
+              "end_line": 23,
+              "start_column": 55,
+              "start_line": 23
+            }
+          },
+          {
+            "Kind": "invocation",
+            "Path": "tauri::generate_handler",
+            "Scope": 3,
+            "Span": {
+              "end_column": 60,
+              "end_line": 24,
+              "start_column": 18,
+              "start_line": 24
+            }
+          },
+          {
+            "Kind": "invocation",
+            "Path": "tauri::generate_context",
+            "Scope": 3,
+            "Span": {
+              "end_column": 62,
+              "end_line": 25,
+              "start_column": 36,
+              "start_line": 25
+            }
+          }
+        ],
+        "Shadows": []
+      },
+      {
+        "Bindings": [
+          {
+            "Alternatives": [
+              {
+                "Methods": [
+                  {
+                    "Handler": 4,
+                    "Name": "invoke_handler",
+                    "Span": {
+                      "end_column": 97,
+                      "end_line": 29,
+                      "start_column": 40,
+                      "start_line": 29
+                    }
+                  }
+                ],
+                "Root": {
+                  "Callee": "tauri::Builder::default",
+                  "Kind": "call",
+                  "Offset": 1053,
+                  "Span": {
+                    "end_column": 39,
+                    "end_line": 29,
+                    "start_column": 14,
+                    "start_line": 29
+                  }
+                }
+              }
+            ],
+            "Block": {
+              "end_column": 1,
+              "end_line": 31,
+              "start_column": 29,
+              "start_line": 28
+            },
+            "Complete": true,
+            "End": 1137,
+            "Kind": "let",
+            "Name": "app",
+            "Offset": 1043,
+            "Value": "plain"
+          }
+        ],
+        "Calls": [
+          {
+            "Chain": {
+              "Methods": [
+                {
+                  "Name": "invoke_handler",
+                  "Span": {
+                    "end_column": 38,
+                    "end_line": 30,
+                    "start_column": 8,
+                    "start_line": 30
+                  },
+                  "Uncaptured": true
+                },
+                {
+                  "Name": "run",
+                  "Span": {
+                    "end_column": 70,
+                    "end_line": 30,
+                    "start_column": 39,
+                    "start_line": 30
+                  }
+                },
+                {
+                  "Name": "unwrap",
+                  "Span": {
+                    "end_column": 79,
+                    "end_line": 30,
+                    "start_column": 71,
+                    "start_line": 30
+                  }
+                }
+              ],
+              "Root": {
+                "Kind": "identifier",
+                "Name": "app",
+                "Offset": 1142
+              }
+            },
+            "Use": "statement"
+          }
+        ],
+        "Function": "function:app/src/rebinding.rs#replaced_by_closure",
+        "Macros": [
+          {
+            "Kind": "invocation",
+            "Path": "tauri::generate_handler",
+            "Scope": 4,
+            "Span": {
+              "end_column": 96,
+              "end_line": 29,
+              "start_column": 55,
+              "start_line": 29
+            }
+          },
+          {
+            "Kind": "invocation",
+            "Path": "tauri::generate_context",
+            "Scope": 4,
+            "Span": {
+              "end_column": 69,
+              "end_line": 30,
+              "start_column": 43,
+              "start_line": 30
+            }
+          }
+        ],
+        "Shadows": []
+      },
+      {
+        "Bindings": [
+          {
+            "Alternatives": [
+              {
+                "Root": {
+                  "Callee": "tauri::Builder::default",
+                  "Kind": "call",
+                  "Offset": 1344,
+                  "Span": {
+                    "end_column": 43,
+                    "end_line": 35,
+                    "start_column": 18,
+                    "start_line": 35
+                  }
+                }
+              }
+            ],
+            "Block": {
+              "end_column": 1,
+              "end_line": 42,
+              "start_column": 39,
+              "start_line": 34
+            },
+            "Complete": true,
+            "End": 1370,
+            "Kind": "let",
+            "Name": "builder",
+            "Offset": 1330,
+            "Value": "plain"
+          }
+        ],
+        "Calls": [
+          {
+            "Chain": {
+              "Methods": [
+                {
+                  "Handler": 5,
+                  "Name": "invoke_handler",
+                  "Span": {
+                    "end_column": 77,
+                    "end_line": 38,
+                    "start_column": 20,
+                    "start_line": 38
+                  }
+                }
+              ],
+              "Root": {
+                "Kind": "identifier",
+                "Name": "builder",
+                "Offset": 1463
+              }
+            },
+            "Use": "statement"
+          }
+        ],
+        "Function": "function:app/src/rebinding.rs#guard_shadow",
+        "Macros": [
+          {
+            "Kind": "invocation",
+            "Path": "tauri::generate_handler",
+            "Scope": 6,
+            "Span": {
+              "end_column": 76,
+              "end_line": 38,
+              "start_column": 35,
+              "start_line": 38
+            }
+          }
+        ],
+        "Shadows": [
+          "builder"
+        ]
+      },
+      {
+        "Bindings": [
+          {
+            "Alternatives": [
+              {
+                "Methods": [
+                  {
+                    "Name": "manage",
+                    "Span": {
+                      "end_column": 55,
+                      "end_line": 52,
+                      "start_column": 44,
+                      "start_line": 52
+                    }
+                  }
+                ],
+                "Root": {
+                  "Callee": "tauri::Builder::default",
+                  "Kind": "call",
+                  "Offset": 1761,
+                  "Span": {
+                    "end_column": 43,
+                    "end_line": 52,
+                    "start_column": 18,
+                    "start_line": 52
+                  }
+                }
+              }
+            ],
+            "Block": {
+              "end_column": 1,
+              "end_line": 55,
+              "start_column": 22,
+              "start_line": 51
+            },
+            "Complete": true,
+            "End": 1799,
+            "Kind": "let",
+            "Name": "builder",
+            "Offset": 1747,
+            "Value": "plain"
+          }
+        ],
+        "Calls": [
+          {
+            "Chain": {
+              "Methods": [
+                {
+                  "Handler": 6,
+                  "Name": "invoke_handler",
+                  "Span": {
+                    "end_column": 69,
+                    "end_line": 54,
+                    "start_column": 12,
+                    "start_line": 54
+                  }
+                }
+              ],
+              "Root": {
+                "Kind": "identifier",
+                "Name": "builder",
+                "Offset": 1826
+              }
+            },
+            "Use": "statement"
+          }
+        ],
+        "Function": "function:app/src/rebinding.rs#macro_shadow",
+        "Macros": [
+          {
+            "Kind": "invocation",
+            "Path": "rebind",
+            "Scope": 8,
+            "Span": {
+              "end_column": 20,
+              "end_line": 53,
+              "start_column": 4,
+              "start_line": 53
+            }
+          },
+          {
+            "Kind": "invocation",
+            "Path": "tauri::generate_handler",
+            "Scope": 8,
+            "Span": {
+              "end_column": 68,
+              "end_line": 54,
+              "start_column": 27,
+              "start_line": 54
+            }
+          }
+        ],
+        "Shadows": [
+          "builder"
+        ]
+      },
+      {
+        "Bindings": [
+          {
+            "Alternatives": [
+              {
+                "Root": {
+                  "Callee": "tauri::Builder::default",
+                  "Kind": "call",
+                  "Offset": 2091,
+                  "Span": {
+                    "end_column": 47,
+                    "end_line": 60,
+                    "start_column": 22,
+                    "start_line": 60
+                  }
+                }
+              }
+            ],
+            "Block": {
+              "end_column": 1,
+              "end_line": 72,
+              "start_column": 32,
+              "start_line": 59
+            },
+            "Complete": true,
+            "End": 2117,
+            "Kind": "let",
+            "Name": "builder",
+            "Offset": 2073,
+            "Value": "plain"
+          },
+          {
+            "Alternatives": [
+              {
+                "Methods": [
+                  {
+                    "Name": "manage",
+                    "Span": {
+                      "end_column": 38,
+                      "end_line": 63,
+                      "start_column": 26,
+                      "start_line": 63
+                    }
+                  }
+                ],
+                "Root": {
+                  "Kind": "identifier",
+                  "Name": "builder",
+                  "Offset": 2172
+                }
+              }
+            ],
+            "Block": {
+              "end_column": 5,
+              "end_line": 64,
+              "start_column": 4,
+              "start_line": 62
+            },
+            "Cfg": true,
+            "Complete": true,
+            "Conditional": true,
+            "End": 2192,
+            "Kind": "assign",
+            "Name": "builder",
+            "Offset": 2162,
+            "Value": "plain"
+          },
+          {
+            "Alternatives": [
+              {
+                "Methods": [
+                  {
+                    "Name": "manage",
+                    "Span": {
+                      "end_column": 38,
+                      "end_line": 66,
+                      "start_column": 26,
+                      "start_line": 66
+                    }
+                  }
+                ],
+                "Root": {
+                  "Kind": "identifier",
+                  "Name": "builder",
+                  "Offset": 2263
+                }
+              }
+            ],
+            "Block": {
+              "end_column": 1,
+              "end_line": 72,
+              "start_column": 32,
+              "start_line": 59
+            },
+            "Cfg": true,
+            "Complete": true,
+            "End": 2284,
+            "Kind": "let",
+            "Name": "builder",
+            "Offset": 2249,
+            "Value": "plain"
+          },
+          {
+            "Alternatives": [
+              {
+                "Root": {
+                  "Kind": "identifier",
+                  "Name": "builder",
+                  "Offset": 2307
+                }
+              }
+            ],
+            "Block": {
+              "end_column": 1,
+              "end_line": 72,
+              "start_column": 32,
+              "start_line": 59
+            },
+            "Complete": true,
+            "End": 2315,
+            "Kind": "let",
+            "Name": "builder",
+            "Offset": 2289,
+            "Value": "plain"
+          },
+          {
+            "Alternatives": [
+              {
+                "Methods": [
+                  {
+                    "Name": "manage",
+                    "Span": {
+                      "end_column": 38,
+                      "end_line": 69,
+                      "start_column": 26,
+                      "start_line": 69
+                    }
+                  }
+                ],
+                "Root": {
+                  "Kind": "identifier",
+                  "Name": "builder",
+                  "Offset": 2348
+                }
+              }
+            ],
+            "Block": {
+              "end_column": 5,
+              "end_line": 70,
+              "start_column": 12,
+              "start_line": 68
+            },
+            "Complete": true,
+            "Conditional": true,
+            "End": 2368,
+            "Kind": "assign",
+            "Name": "builder",
+            "Offset": 2338,
+            "Value": "plain"
+          }
+        ],
+        "Calls": [
+          {
+            "Chain": {
+              "Methods": [
+                {
+                  "Handler": 7,
+                  "Name": "invoke_handler",
+                  "Span": {
+                    "end_column": 69,
+                    "end_line": 71,
+                    "start_column": 12,
+                    "start_line": 71
+                  }
+                }
+              ],
+              "Root": {
+                "Kind": "identifier",
+                "Name": "builder",
+                "Offset": 2380
+              }
+            },
+            "Use": "statement"
+          }
+        ],
+        "Function": "function:app/src/rebinding.rs#gated_blocks",
+        "Macros": [
+          {
+            "Kind": "invocation",
+            "Path": "tauri::generate_handler",
+            "Scope": 9,
+            "Span": {
+              "end_column": 68,
+              "end_line": 71,
+              "start_column": 27,
+              "start_line": 71
+            }
+          }
+        ],
+        "Shadows": []
+      }
+    ],
+    "Handlers": [
+      {
+        "Context": {
+          "Chain": {
+            "Incomplete": true,
+            "Methods": [
+              {
+                "Handler": 0,
+                "Name": "invoke_handler",
+                "Span": {
+                  "end_column": 106,
+                  "end_line": 12,
+                  "start_column": 49,
+                  "start_line": 12
+                }
+              }
+            ],
+            "Root": {
+              "Callee": "tauri::Builder::default",
+              "Kind": "call",
+              "Offset": 337,
+              "Span": {
+                "end_column": 48,
+                "end_line": 12,
+                "start_column": 23,
+                "start_line": 12
+              }
+            }
+          },
+          "Kind": "argument",
+          "Method": "invoke_handler",
+          "Use": "other"
+        },
+        "Entries": [
+          {
+            "Hash": "sha256:da234768cd8669fab530f50cbdeba65594e9d4d0d358a73c0a814c37ea24e42f",
+            "Path": "commands::greet",
+            "Segments": [
+              "commands",
+              "greet"
+            ],
+            "Span": {
+              "end_column": 104,
+              "end_line": 12,
+              "start_column": 89,
+              "start_line": 12
+            }
+          }
+        ],
+        "Owner": "method:app/src/rebinding.rs#Holder.store",
+        "Path": "tauri::generate_handler",
+        "Scope": 1,
+        "Span": {
+          "end_column": 105,
+          "end_line": 12,
+          "start_column": 64,
+          "start_line": 12
+        }
+      },
+      {
+        "Context": {
+          "Chain": {
+            "Incomplete": true,
+            "Methods": [
+              {
+                "Handler": 1,
+                "Name": "invoke_handler",
+                "Span": {
+                  "end_column": 95,
+                  "end_line": 17,
+                  "start_column": 38,
+                  "start_line": 17
+                }
+              }
+            ],
+            "Root": {
+              "Callee": "tauri::Builder::default",
+              "Kind": "call",
+              "Offset": 503,
+              "Span": {
+                "end_column": 37,
+                "end_line": 17,
+                "start_column": 12,
+                "start_line": 17
+              }
+            }
+          },
+          "Kind": "argument",
+          "Method": "invoke_handler",
+          "Use": "other"
+        },
+        "Entries": [
+          {
+            "Hash": "sha256:da234768cd8669fab530f50cbdeba65594e9d4d0d358a73c0a814c37ea24e42f",
+            "Path": "commands::greet",
+            "Segments": [
+              "commands",
+              "greet"
+            ],
+            "Span": {
+              "end_column": 93,
+              "end_line": 17,
+              "start_column": 78,
+              "start_line": 17
+            }
+          }
+        ],
+        "Owner": "function:app/src/rebinding.rs#store_deref",
+        "Path": "tauri::generate_handler",
+        "Scope": 2,
+        "Span": {
+          "end_column": 94,
+          "end_line": 17,
+          "start_column": 53,
+          "start_line": 17
+        }
+      },
+      {
+        "Context": {
+          "Chain": {
+            "Methods": [
+              {
+                "Handler": 2,
+                "Name": "invoke_handler",
+                "Span": {
+                  "end_column": 97,
+                  "end_line": 23,
+                  "start_column": 40,
+                  "start_line": 23
+                }
+              }
+            ],
+            "Root": {
+              "Callee": "tauri::Builder::default",
+              "Kind": "call",
+              "Offset": 784,
+              "Span": {
+                "end_column": 39,
+                "end_line": 23,
+                "start_column": 14,
+                "start_line": 23
+              }
+            }
+          },
+          "Kind": "argument",
+          "Method": "invoke_handler",
+          "Use": "let"
+        },
+        "Entries": [
+          {
+            "Hash": "sha256:da234768cd8669fab530f50cbdeba65594e9d4d0d358a73c0a814c37ea24e42f",
+            "Path": "commands::greet",
+            "Segments": [
+              "commands",
+              "greet"
+            ],
+            "Span": {
+              "end_column": 95,
+              "end_line": 23,
+              "start_column": 80,
+              "start_line": 23
+            }
+          }
+        ],
+        "Owner": "function:app/src/rebinding.rs#replaced_by_binding",
+        "Path": "tauri::generate_handler",
+        "Scope": 3,
+        "Span": {
+          "end_column": 96,
+          "end_line": 23,
+          "start_column": 55,
+          "start_line": 23
+        }
+      },
+      {
+        "Context": {
+          "Binding": "handler",
+          "Kind": "let"
+        },
+        "Entries": [
+          {
+            "Hash": "sha256:618b0d53fc2a1810d8f6a2056f1e7df1b9f4cc130b9baa81d6986f0635747586",
+            "Path": "commands::rooted",
+            "Segments": [
+              "commands",
+              "rooted"
+            ],
+            "Span": {
+              "end_column": 59,
+              "end_line": 24,
+              "start_column": 43,
+              "start_line": 24
+            }
+          }
+        ],
+        "Owner": "function:app/src/rebinding.rs#replaced_by_binding",
+        "Path": "tauri::generate_handler",
+        "Scope": 3,
+        "Span": {
+          "end_column": 60,
+          "end_line": 24,
+          "start_column": 18,
+          "start_line": 24
+        }
+      },
+      {
+        "Context": {
+          "Chain": {
+            "Methods": [
+              {
+                "Handler": 4,
+                "Name": "invoke_handler",
+                "Span": {
+                  "end_column": 97,
+                  "end_line": 29,
+                  "start_column": 40,
+                  "start_line": 29
+                }
+              }
+            ],
+            "Root": {
+              "Callee": "tauri::Builder::default",
+              "Kind": "call",
+              "Offset": 1053,
+              "Span": {
+                "end_column": 39,
+                "end_line": 29,
+                "start_column": 14,
+                "start_line": 29
+              }
+            }
+          },
+          "Kind": "argument",
+          "Method": "invoke_handler",
+          "Use": "let"
+        },
+        "Entries": [
+          {
+            "Hash": "sha256:da234768cd8669fab530f50cbdeba65594e9d4d0d358a73c0a814c37ea24e42f",
+            "Path": "commands::greet",
+            "Segments": [
+              "commands",
+              "greet"
+            ],
+            "Span": {
+              "end_column": 95,
+              "end_line": 29,
+              "start_column": 80,
+              "start_line": 29
+            }
+          }
+        ],
+        "Owner": "function:app/src/rebinding.rs#replaced_by_closure",
+        "Path": "tauri::generate_handler",
+        "Scope": 4,
+        "Span": {
+          "end_column": 96,
+          "end_line": 29,
+          "start_column": 55,
+          "start_line": 29
+        }
+      },
+      {
+        "Context": {
+          "Chain": {
+            "Methods": [
+              {
+                "Handler": 5,
+                "Name": "invoke_handler",
+                "Span": {
+                  "end_column": 77,
+                  "end_line": 38,
+                  "start_column": 20,
+                  "start_line": 38
+                }
+              }
+            ],
+            "Root": {
+              "Kind": "identifier",
+              "Name": "builder",
+              "Offset": 1463
+            }
+          },
+          "Kind": "argument",
+          "Method": "invoke_handler",
+          "Use": "statement"
+        },
+        "Entries": [
+          {
+            "Hash": "sha256:da234768cd8669fab530f50cbdeba65594e9d4d0d358a73c0a814c37ea24e42f",
+            "Path": "commands::greet",
+            "Segments": [
+              "commands",
+              "greet"
+            ],
+            "Span": {
+              "end_column": 75,
+              "end_line": 38,
+              "start_column": 60,
+              "start_line": 38
+            }
+          }
+        ],
+        "Owner": "function:app/src/rebinding.rs#guard_shadow",
+        "Path": "tauri::generate_handler",
+        "Scope": 6,
+        "Span": {
+          "end_column": 76,
+          "end_line": 38,
+          "start_column": 35,
+          "start_line": 38
+        }
+      },
+      {
+        "Context": {
+          "Chain": {
+            "Methods": [
+              {
+                "Handler": 6,
+                "Name": "invoke_handler",
+                "Span": {
+                  "end_column": 69,
+                  "end_line": 54,
+                  "start_column": 12,
+                  "start_line": 54
+                }
+              }
+            ],
+            "Root": {
+              "Kind": "identifier",
+              "Name": "builder",
+              "Offset": 1826
+            }
+          },
+          "Kind": "argument",
+          "Method": "invoke_handler",
+          "Use": "statement"
+        },
+        "Entries": [
+          {
+            "Hash": "sha256:da234768cd8669fab530f50cbdeba65594e9d4d0d358a73c0a814c37ea24e42f",
+            "Path": "commands::greet",
+            "Segments": [
+              "commands",
+              "greet"
+            ],
+            "Span": {
+              "end_column": 67,
+              "end_line": 54,
+              "start_column": 52,
+              "start_line": 54
+            }
+          }
+        ],
+        "Owner": "function:app/src/rebinding.rs#macro_shadow",
+        "Path": "tauri::generate_handler",
+        "Scope": 8,
+        "Span": {
+          "end_column": 68,
+          "end_line": 54,
+          "start_column": 27,
+          "start_line": 54
+        }
+      },
+      {
+        "Context": {
+          "Chain": {
+            "Methods": [
+              {
+                "Handler": 7,
+                "Name": "invoke_handler",
+                "Span": {
+                  "end_column": 69,
+                  "end_line": 71,
+                  "start_column": 12,
+                  "start_line": 71
+                }
+              }
+            ],
+            "Root": {
+              "Kind": "identifier",
+              "Name": "builder",
+              "Offset": 2380
+            }
+          },
+          "Kind": "argument",
+          "Method": "invoke_handler",
+          "Use": "statement"
+        },
+        "Entries": [
+          {
+            "Hash": "sha256:da234768cd8669fab530f50cbdeba65594e9d4d0d358a73c0a814c37ea24e42f",
+            "Path": "commands::greet",
+            "Segments": [
+              "commands",
+              "greet"
+            ],
+            "Span": {
+              "end_column": 67,
+              "end_line": 71,
+              "start_column": 52,
+              "start_line": 71
+            }
+          }
+        ],
+        "Owner": "function:app/src/rebinding.rs#gated_blocks",
+        "Path": "tauri::generate_handler",
+        "Scope": 9,
+        "Span": {
+          "end_column": 68,
+          "end_line": 71,
+          "start_column": 27,
+          "start_line": 71
+        }
+      }
+    ],
+    "Version": 3
+  },
+  "app/src/shapes.rs": {
+    "Apps": [
+      {
+        "Kind": "root",
+        "Path": "tauri::Builder",
+        "Scope": 1,
+        "Span": {
+          "end_column": 30,
+          "end_line": 7,
+          "start_column": 5,
+          "start_line": 7
+        }
+      },
+      {
+        "Kind": "context",
+        "Path": "tauri::generate_context",
+        "Scope": 1,
+        "Span": {
+          "end_column": 39,
+          "end_line": 9,
+          "start_column": 13,
+          "start_line": 9
+        }
+      },
+      {
+        "Kind": "root",
+        "Path": "tauri::Builder",
+        "Scope": 2,
+        "Span": {
+          "end_column": 29,
+          "end_line": 15,
+          "start_column": 4,
+          "start_line": 15
+        }
+      },
+      {
+        "Kind": "context",
+        "Path": "tauri::generate_context",
+        "Scope": 2,
+        "Span": {
+          "end_column": 39,
+          "end_line": 19,
+          "start_column": 13,
+          "start_line": 19
+        }
+      },
+      {
+        "Kind": "context",
+        "Path": "tauri::generate_context",
+        "Scope": 3,
+        "Span": {
+          "end_column": 39,
+          "end_line": 28,
+          "start_column": 13,
+          "start_line": 28
+        }
+      },
+      {
+        "Kind": "root",
+        "Path": "tauri::Builder",
+        "Scope": 4,
+        "Span": {
+          "end_column": 29,
+          "end_line": 34,
+          "start_column": 4,
+          "start_line": 34
+        }
+      },
+      {
+        "Kind": "context",
+        "Path": "tauri::generate_context",
+        "Scope": 5,
+        "Span": {
+          "end_column": 39,
+          "end_line": 40,
+          "start_column": 13,
+          "start_line": 40
+        }
+      },
+      {
+        "Kind": "root",
+        "Path": "tauri::Builder",
+        "Scope": 6,
+        "Span": {
+          "end_column": 36,
+          "end_line": 45,
+          "start_column": 11,
+          "start_line": 45
+        }
+      },
+      {
+        "Kind": "root",
+        "Path": "tauri::Builder",
+        "Scope": 7,
+        "Span": {
+          "end_column": 36,
+          "end_line": 49,
+          "start_column": 11,
+          "start_line": 49
+        }
+      },
+      {
+        "Kind": "root",
+        "Path": "tauri::Builder",
+        "Scope": 8,
+        "Span": {
+          "end_column": 38,
+          "end_line": 54,
+          "start_column": 13,
+          "start_line": 54
+        }
+      },
+      {
+        "Kind": "root",
+        "Path": "tauri::Builder",
+        "Scope": 9,
+        "Span": {
+          "end_column": 43,
+          "end_line": 59,
+          "start_column": 18,
+          "start_line": 59
+        }
+      },
+      {
+        "Kind": "context",
+        "Path": "tauri::generate_context",
+        "Scope": 10,
+        "Span": {
+          "end_column": 43,
+          "end_line": 63,
+          "start_column": 17,
+          "start_line": 63
+        }
+      },
+      {
+        "Kind": "root",
+        "Path": "tauri::Builder",
+        "Scope": 11,
+        "Span": {
+          "end_column": 43,
+          "end_line": 70,
+          "start_column": 18,
+          "start_line": 70
+        }
+      },
+      {
+        "Kind": "context",
+        "Path": "tauri::generate_context",
+        "Scope": 11,
+        "Span": {
+          "end_column": 48,
+          "end_line": 72,
+          "start_column": 22,
+          "start_line": 72
+        }
+      },
+      {
+        "Kind": "root",
+        "Path": "tauri::Builder",
+        "Scope": 12,
+        "Span": {
+          "end_column": 37,
+          "end_line": 76,
+          "start_column": 12,
+          "start_line": 76
+        }
+      },
+      {
+        "Kind": "context",
+        "Path": "tauri::generate_context",
+        "Scope": 12,
+        "Span": {
+          "end_column": 35,
+          "end_line": 81,
+          "start_column": 9,
+          "start_line": 81
+        }
+      },
+      {
+        "Kind": "root",
+        "Path": "tauri::Builder",
+        "Scope": 13,
+        "Span": {
+          "end_column": 43,
+          "end_line": 86,
+          "start_column": 18,
+          "start_line": 86
+        }
+      },
+      {
+        "Kind": "root",
+        "Path": "tauri::Builder",
+        "Scope": 15,
+        "Span": {
+          "end_column": 43,
+          "end_line": 94,
+          "start_column": 18,
+          "start_line": 94
+        }
+      },
+      {
+        "Kind": "root",
+        "Path": "tauri::Builder",
+        "Scope": 17,
+        "Span": {
+          "end_column": 39,
+          "end_line": 107,
+          "start_column": 14,
+          "start_line": 107
+        }
+      }
+    ],
+    "Flows": [
+      {
+        "Bindings": [
+          {
+            "Alternatives": [
+              {
+                "Root": {
+                  "Callee": "tauri::Builder::default",
+                  "Kind": "call",
+                  "Offset": 2057,
+                  "Span": {
+                    "end_column": 43,
+                    "end_line": 59,
+                    "start_column": 18,
+                    "start_line": 59
+                  }
+                }
+              }
+            ],
+            "Block": {
+              "end_column": 1,
+              "end_line": 67,
+              "start_column": 64,
+              "start_line": 58
+            },
+            "Complete": true,
+            "End": 2083,
+            "Kind": "let",
+            "Name": "builder",
+            "Offset": 2043,
+            "Value": "plain"
+          }
+        ],
+        "Calls": [
+          {
+            "Chain": {
+              "Methods": [
+                {
+                  "Handler": 10,
+                  "Name": "invoke_handler",
+                  "Span": {
+                    "end_column": 70,
+                    "end_line": 62,
+                    "start_column": 13,
+                    "start_line": 62
+                  }
+                },
+                {
+                  "Name": "run",
+                  "Span": {
+                    "end_column": 44,
+                    "end_line": 63,
+                    "start_column": 13,
+                    "start_line": 63
+                  }
+                },
+                {
+                  "Name": "unwrap",
+                  "Span": {
+                    "end_column": 21,
+                    "end_line": 64,
+                    "start_column": 13,
+                    "start_line": 64
+                  }
+                }
+              ],
+              "Root": {
+                "Kind": "identifier",
+                "Name": "builder",
+                "Offset": 2127
+              }
+            },
+            "Use": "statement"
+          }
+        ],
+        "Function": "function:app/src/shapes.rs#if_let_shadow",
+        "Macros": [
+          {
+            "Kind": "invocation",
+            "Path": "tauri::generate_handler",
+            "Scope": 10,
+            "Span": {
+              "end_column": 69,
+              "end_line": 62,
+              "start_column": 28,
+              "start_line": 62
+            }
+          },
+          {
+            "Kind": "invocation",
+            "Path": "tauri::generate_context",
+            "Scope": 10,
+            "Span": {
+              "end_column": 43,
+              "end_line": 63,
+              "start_column": 17,
+              "start_line": 63
+            }
+          }
+        ],
+        "Shadows": [
+          "builder"
+        ]
+      },
+      {
+        "Bindings": [
+          {
+            "Alternatives": [
+              {
+                "Root": {
+                  "Callee": "tauri::Builder::default",
+                  "Kind": "call",
+                  "Offset": 2348,
+                  "Span": {
+                    "end_column": 43,
+                    "end_line": 70,
+                    "start_column": 18,
+                    "start_line": 70
+                  }
+                }
+              }
+            ],
+            "Block": {
+              "end_column": 1,
+              "end_line": 73,
+              "start_column": 24,
+              "start_line": 69
+            },
+            "Complete": true,
+            "End": 2374,
+            "Kind": "let",
+            "Name": "builder",
+            "Offset": 2334,
+            "Value": "plain"
+          }
+        ],
+        "Calls": [
+          {
+            "Chain": {
+              "Methods": [
+                {
+                  "Handler": 11,
+                  "Name": "invoke_handler",
+                  "Span": {
+                    "end_column": 118,
+                    "end_line": 71,
+                    "start_column": 61,
+                    "start_line": 71
+                  }
+                }
+              ],
+              "Root": {
+                "Kind": "identifier",
+                "Name": "builder",
+                "Offset": 2428
+              }
+            },
+            "Use": "tail"
+          }
+        ],
+        "Function": "function:app/src/shapes.rs#closure_shadow",
+        "Macros": [
+          {
+            "Kind": "invocation",
+            "Path": "tauri::generate_handler",
+            "Scope": 11,
+            "Span": {
+              "end_column": 117,
+              "end_line": 71,
+              "start_column": 76,
+              "start_line": 71
+            }
+          },
+          {
+            "Kind": "invocation",
+            "Path": "tauri::generate_context",
+            "Scope": 11,
+            "Span": {
+              "end_column": 48,
+              "end_line": 72,
+              "start_column": 22,
+              "start_line": 72
+            }
+          }
+        ],
+        "Shadows": [
+          "builder"
+        ]
+      },
+      {
+        "Bindings": [
+          {
+            "Alternatives": [
+              {
+                "Root": {
+                  "Callee": "tauri::Builder::default",
+                  "Kind": "call",
+                  "Offset": 2635,
+                  "Span": {
+                    "end_column": 37,
+                    "end_line": 76,
+                    "start_column": 12,
+                    "start_line": 76
+                  }
+                }
+              }
+            ],
+            "Block": {
+              "end_column": 1,
+              "end_line": 83,
+              "start_column": 63,
+              "start_line": 75
+            },
+            "Complete": true,
+            "End": 2661,
+            "Kind": "let",
+            "Name": "b",
+            "Offset": 2627,
+            "Value": "plain"
+          }
+        ],
+        "Calls": [
+          {
+            "Chain": {
+              "Incomplete": true,
+              "Methods": [
+                {
+                  "Handler": 12,
+                  "Name": "invoke_handler",
+                  "Span": {
+                    "end_column": 78,
+                    "end_line": 78,
+                    "start_column": 21,
+                    "start_line": 78
+                  }
+                }
+              ],
+              "Root": {
+                "Kind": "identifier",
+                "Name": "b",
+                "Offset": 2699
+              }
+            },
+            "Use": "other"
+          }
+        ],
+        "Function": "function:app/src/shapes.rs#match_shadow",
+        "Macros": [
+          {
+            "Kind": "invocation",
+            "Path": "tauri::generate_handler",
+            "Scope": 12,
+            "Span": {
+              "end_column": 77,
+              "end_line": 78,
+              "start_column": 36,
+              "start_line": 78
+            }
+          },
+          {
+            "Kind": "invocation",
+            "Path": "tauri::generate_context",
+            "Scope": 12,
+            "Span": {
+              "end_column": 35,
+              "end_line": 81,
+              "start_column": 9,
+              "start_line": 81
+            }
+          }
+        ],
+        "Shadows": [
+          "b"
+        ]
+      },
+      {
+        "Bindings": [
+          {
+            "Alternatives": [
+              {
+                "Root": {
+                  "Callee": "tauri::Builder::default",
+                  "Kind": "call",
+                  "Offset": 2916,
+                  "Span": {
+                    "end_column": 43,
+                    "end_line": 86,
+                    "start_column": 18,
+                    "start_line": 86
+                  }
+                }
+              }
+            ],
+            "Block": {
+              "end_column": 1,
+              "end_line": 91,
+              "start_column": 56,
+              "start_line": 85
+            },
+            "Complete": true,
+            "End": 2942,
+            "Kind": "let",
+            "Name": "builder",
+            "Offset": 2902,
+            "Value": "plain"
+          }
+        ],
+        "Calls": [
+          {
+            "Chain": {
+              "Methods": [
+                {
+                  "Handler": 13,
+                  "Name": "invoke_handler",
+                  "Span": {
+                    "end_column": 73,
+                    "end_line": 88,
+                    "start_column": 16,
+                    "start_line": 88
+                  }
+                }
+              ],
+              "Root": {
+                "Kind": "identifier",
+                "Name": "builder",
+                "Offset": 2976
+              }
+            },
+            "Use": "statement"
+          }
+        ],
+        "Function": "function:app/src/shapes.rs#for_shadow",
+        "Macros": [
+          {
+            "Kind": "invocation",
+            "Path": "tauri::generate_handler",
+            "Scope": 14,
+            "Span": {
+              "end_column": 72,
+              "end_line": 88,
+              "start_column": 31,
+              "start_line": 88
+            }
+          }
+        ],
+        "Shadows": [
+          "builder"
+        ]
+      },
+      {
+        "Bindings": [
+          {
+            "Alternatives": [
+              {
+                "Root": {
+                  "Callee": "tauri::Builder::default",
+                  "Kind": "call",
+                  "Offset": 3122,
+                  "Span": {
+                    "end_column": 43,
+                    "end_line": 94,
+                    "start_column": 18,
+                    "start_line": 94
+                  }
+                }
+              }
+            ],
+            "Block": {
+              "end_column": 1,
+              "end_line": 97,
+              "start_column": 29,
+              "start_line": 93
+            },
+            "Complete": true,
+            "End": 3148,
+            "Kind": "let",
+            "Name": "builder",
+            "Offset": 3108,
+            "Value": "plain"
+          }
+        ],
+        "Calls": [
+          {
+            "Chain": {
+              "Methods": [
+                {
+                  "Handler": 14,
+                  "Name": "invoke_handler",
+                  "Span": {
+                    "end_column": 69,
+                    "end_line": 96,
+                    "start_column": 12,
+                    "start_line": 96
+                  }
+                }
+              ],
+              "Root": {
+                "Kind": "identifier",
+                "Name": "builder",
+                "Offset": 3192
+              }
+            },
+            "Use": "statement"
+          }
+        ],
+        "Function": "function:app/src/shapes.rs#destructured_shadow",
+        "Macros": [
+          {
+            "Kind": "invocation",
+            "Path": "tauri::generate_handler",
+            "Scope": 15,
+            "Span": {
+              "end_column": 68,
+              "end_line": 96,
+              "start_column": 27,
+              "start_line": 96
+            }
+          }
+        ],
+        "Shadows": [
+          "builder"
+        ]
+      },
+      {
+        "Bindings": [
+          {
+            "Alternatives": [
+              {
+                "Root": {
+                  "Kind": "identifier",
+                  "Name": "builder",
+                  "Offset": 3335
+                }
+              }
+            ],
+            "Block": {
+              "end_column": 1,
+              "end_line": 102,
+              "start_column": 57,
+              "start_line": 99
+            },
+            "Complete": true,
+            "End": 3343,
+            "Kind": "let",
+            "Name": "app",
+            "Offset": 3325,
+            "Value": "plain"
+          }
+        ],
+        "Calls": [
+          {
+            "Chain": {
+              "Methods": [
+                {
+                  "Handler": 15,
+                  "Name": "invoke_handler",
+                  "Span": {
+                    "end_column": 65,
+                    "end_line": 101,
+                    "start_column": 8,
+                    "start_line": 101
+                  }
+                }
+              ],
+              "Root": {
+                "Kind": "identifier",
+                "Name": "app",
+                "Offset": 3348
+              }
+            },
+            "Use": "statement"
+          }
+        ],
+        "Function": "function:app/src/shapes.rs#param_shadow",
+        "Macros": [
+          {
+            "Kind": "invocation",
+            "Path": "tauri::generate_handler",
+            "Scope": 16,
+            "Span": {
+              "end_column": 64,
+              "end_line": 101,
+              "start_column": 23,
+              "start_line": 101
+            }
+          }
+        ],
+        "Shadows": [
+          "builder"
+        ]
+      },
+      {
+        "Bindings": [
+          {
+            "Alternatives": [
+              {
+                "Methods": [
+                  {
+                    "Name": "setup",
+                    "Span": {
+                      "end_column": 6,
+                      "end_line": 110,
+                      "start_column": 40,
+                      "start_line": 107
+                    }
+                  }
+                ],
+                "Root": {
+                  "Callee": "tauri::Builder::default",
+                  "Kind": "call",
+                  "Offset": 3599,
+                  "Span": {
+                    "end_column": 39,
+                    "end_line": 107,
+                    "start_column": 14,
+                    "start_line": 107
+                  }
+                }
+              }
+            ],
+            "Block": {
+              "end_column": 1,
+              "end_line": 112,
+              "start_column": 27,
+              "start_line": 106
+            },
+            "Complete": true,
+            "End": 3682,
+            "Kind": "let",
+            "Name": "app",
+            "Offset": 3589,
+            "Value": "plain"
+          }
+        ],
+        "Calls": [
+          {
+            "Chain": {
+              "Methods": [
+                {
+                  "Handler": 16,
+                  "Name": "invoke_handler",
+                  "Span": {
+                    "end_column": 65,
+                    "end_line": 111,
+                    "start_column": 8,
+                    "start_line": 111
+                  }
+                }
+              ],
+              "Root": {
+                "Kind": "identifier",
+                "Name": "app",
+                "Offset": 3687
+              }
+            },
+            "Use": "statement"
+          }
+        ],
+        "Function": "function:app/src/shapes.rs#unrelated_closure",
+        "Macros": [
+          {
+            "Kind": "invocation",
+            "Path": "tauri::generate_handler",
+            "Scope": 17,
+            "Span": {
+              "end_column": 64,
+              "end_line": 111,
+              "start_column": 23,
+              "start_line": 111
+            }
+          }
+        ],
+        "Shadows": []
+      }
+    ],
+    "Handlers": [
+      {
+        "Context": {
+          "Chain": {
+            "Methods": [
+              {
+                "Handler": 0,
+                "Name": "invoke_handler",
+                "Span": {
+                  "end_column": 88,
+                  "end_line": 7,
+                  "start_column": 31,
+                  "start_line": 7
+                }
+              },
+              {
+                "Handler": 1,
+                "Name": "invoke_handler",
+                "Span": {
+                  "end_column": 67,
+                  "end_line": 8,
+                  "start_column": 9,
+                  "start_line": 8
+                }
+              },
+              {
+                "Name": "run",
+                "Span": {
+                  "end_column": 40,
+                  "end_line": 9,
+                  "start_column": 9,
+                  "start_line": 9
+                }
+              },
+              {
+                "Name": "unwrap",
+                "Span": {
+                  "end_column": 17,
+                  "end_line": 10,
+                  "start_column": 9,
+                  "start_line": 10
+                }
+              }
+            ],
+            "Root": {
+              "Callee": "tauri::Builder::default",
+              "Kind": "call",
+              "Offset": 226,
+              "Span": {
+                "end_column": 30,
+                "end_line": 7,
+                "start_column": 5,
+                "start_line": 7
+              }
+            }
+          },
+          "Kind": "argument",
+          "Method": "invoke_handler",
+          "Use": "statement"
+        },
+        "Entries": [
+          {
+            "Hash": "sha256:da234768cd8669fab530f50cbdeba65594e9d4d0d358a73c0a814c37ea24e42f",
+            "Path": "commands::greet",
+            "Segments": [
+              "commands",
+              "greet"
+            ],
+            "Span": {
+              "end_column": 86,
+              "end_line": 7,
+              "start_column": 71,
+              "start_line": 7
+            }
+          }
+        ],
+        "Owner": "function:app/src/shapes.rs#parenthesized",
+        "Path": "tauri::generate_handler",
+        "Scope": 1,
+        "Span": {
+          "end_column": 87,
+          "end_line": 7,
+          "start_column": 46,
+          "start_line": 7
+        }
+      },
+      {
+        "Context": {
+          "Chain": {
+            "Methods": [
+              {
+                "Handler": 0,
+                "Name": "invoke_handler",
+                "Span": {
+                  "end_column": 88,
+                  "end_line": 7,
+                  "start_column": 31,
+                  "start_line": 7
+                }
+              },
+              {
+                "Handler": 1,
+                "Name": "invoke_handler",
+                "Span": {
+                  "end_column": 67,
+                  "end_line": 8,
+                  "start_column": 9,
+                  "start_line": 8
+                }
+              },
+              {
+                "Name": "run",
+                "Span": {
+                  "end_column": 40,
+                  "end_line": 9,
+                  "start_column": 9,
+                  "start_line": 9
+                }
+              },
+              {
+                "Name": "unwrap",
+                "Span": {
+                  "end_column": 17,
+                  "end_line": 10,
+                  "start_column": 9,
+                  "start_line": 10
+                }
+              }
+            ],
+            "Root": {
+              "Callee": "tauri::Builder::default",
+              "Kind": "call",
+              "Offset": 226,
+              "Span": {
+                "end_column": 30,
+                "end_line": 7,
+                "start_column": 5,
+                "start_line": 7
+              }
+            }
+          },
+          "Kind": "argument",
+          "Method": "invoke_handler",
+          "Use": "statement"
+        },
+        "Entries": [
+          {
+            "Hash": "sha256:618b0d53fc2a1810d8f6a2056f1e7df1b9f4cc130b9baa81d6986f0635747586",
+            "Path": "commands::rooted",
+            "Segments": [
+              "commands",
+              "rooted"
+            ],
+            "Span": {
+              "end_column": 65,
+              "end_line": 8,
+              "start_column": 49,
+              "start_line": 8
+            }
+          }
+        ],
+        "Owner": "function:app/src/shapes.rs#parenthesized",
+        "Path": "tauri::generate_handler",
+        "Scope": 1,
+        "Span": {
+          "end_column": 66,
+          "end_line": 8,
+          "start_column": 24,
+          "start_line": 8
+        }
+      },
+      {
+        "Context": {
+          "Chain": {
+            "Incomplete": true,
+            "Methods": [
+              {
+                "Handler": 2,
+                "Name": "invoke_handler",
+                "Span": {
+                  "end_column": 66,
+                  "end_line": 16,
+                  "start_column": 9,
+                  "start_line": 16
+                }
+              },
+              {
+                "Name": "checked",
+                "Span": {
+                  "end_column": 18,
+                  "end_line": 17,
+                  "start_column": 9,
+                  "start_line": 17
+                }
+              },
+              {
+                "Handler": 3,
+                "Name": "invoke_handler",
+                "Span": {
+                  "end_column": 67,
+                  "end_line": 18,
+                  "start_column": 9,
+                  "start_line": 18
+                }
+              },
+              {
+                "Name": "run",
+                "Span": {
+                  "end_column": 40,
+                  "end_line": 19,
+                  "start_column": 9,
+                  "start_line": 19
+                }
+              }
+            ],
+            "Root": {
+              "Callee": "tauri::Builder::default",
+              "Kind": "call",
+              "Offset": 564,
+              "Span": {
+                "end_column": 29,
+                "end_line": 15,
+                "start_column": 4,
+                "start_line": 15
+              }
+            }
+          },
+          "Kind": "argument",
+          "Method": "invoke_handler",
+          "Use": "statement"
+        },
+        "Entries": [
+          {
+            "Hash": "sha256:da234768cd8669fab530f50cbdeba65594e9d4d0d358a73c0a814c37ea24e42f",
+            "Path": "commands::greet",
+            "Segments": [
+              "commands",
+              "greet"
+            ],
+            "Span": {
+              "end_column": 64,
+              "end_line": 16,
+              "start_column": 49,
+              "start_line": 16
+            }
+          }
+        ],
+        "Owner": "function:app/src/shapes.rs#tried",
+        "Path": "tauri::generate_handler",
+        "Scope": 2,
+        "Span": {
+          "end_column": 65,
+          "end_line": 16,
+          "start_column": 24,
+          "start_line": 16
+        }
+      },
+      {
+        "Context": {
+          "Chain": {
+            "Incomplete": true,
+            "Methods": [
+              {
+                "Handler": 2,
+                "Name": "invoke_handler",
+                "Span": {
+                  "end_column": 66,
+                  "end_line": 16,
+                  "start_column": 9,
+                  "start_line": 16
+                }
+              },
+              {
+                "Name": "checked",
+                "Span": {
+                  "end_column": 18,
+                  "end_line": 17,
+                  "start_column": 9,
+                  "start_line": 17
+                }
+              },
+              {
+                "Handler": 3,
+                "Name": "invoke_handler",
+                "Span": {
+                  "end_column": 67,
+                  "end_line": 18,
+                  "start_column": 9,
+                  "start_line": 18
+                }
+              },
+              {
+                "Name": "run",
+                "Span": {
+                  "end_column": 40,
+                  "end_line": 19,
+                  "start_column": 9,
+                  "start_line": 19
+                }
+              }
+            ],
+            "Root": {
+              "Callee": "tauri::Builder::default",
+              "Kind": "call",
+              "Offset": 564,
+              "Span": {
+                "end_column": 29,
+                "end_line": 15,
+                "start_column": 4,
+                "start_line": 15
+              }
+            }
+          },
+          "Kind": "argument",
+          "Method": "invoke_handler",
+          "Use": "statement"
+        },
+        "Entries": [
+          {
+            "Hash": "sha256:618b0d53fc2a1810d8f6a2056f1e7df1b9f4cc130b9baa81d6986f0635747586",
+            "Path": "commands::rooted",
+            "Segments": [
+              "commands",
+              "rooted"
+            ],
+            "Span": {
+              "end_column": 65,
+              "end_line": 18,
+              "start_column": 49,
+              "start_line": 18
+            }
+          }
+        ],
+        "Owner": "function:app/src/shapes.rs#tried",
+        "Path": "tauri::generate_handler",
+        "Scope": 2,
+        "Span": {
+          "end_column": 66,
+          "end_line": 18,
+          "start_column": 24,
+          "start_line": 18
+        }
+      },
+      {
+        "Context": {
+          "Chain": {
+            "Incomplete": true,
+            "Methods": [
+              {
+                "Handler": 4,
+                "Name": "invoke_handler",
+                "Span": {
+                  "end_column": 66,
+                  "end_line": 27,
+                  "start_column": 9,
+                  "start_line": 27
+                }
+              },
+              {
+                "Name": "run",
+                "Span": {
+                  "end_column": 40,
+                  "end_line": 28,
+                  "start_column": 9,
+                  "start_line": 28
+                }
+              },
+              {
+                "Name": "unwrap",
+                "Span": {
+                  "end_column": 17,
+                  "end_line": 29,
+                  "start_column": 9,
+                  "start_line": 29
+                }
+              }
+            ],
+            "Root": {
+              "Callee": "make_async",
+              "Kind": "call",
+              "Offset": 910,
+              "Span": {
+                "end_column": 16,
+                "end_line": 25,
+                "start_column": 4,
+                "start_line": 25
+              }
+            }
+          },
+          "Kind": "argument",
+          "Method": "invoke_handler",
+          "Use": "statement"
+        },
+        "Entries": [
+          {
+            "Hash": "sha256:da234768cd8669fab530f50cbdeba65594e9d4d0d358a73c0a814c37ea24e42f",
+            "Path": "commands::greet",
+            "Segments": [
+              "commands",
+              "greet"
+            ],
+            "Span": {
+              "end_column": 64,
+              "end_line": 27,
+              "start_column": 49,
+              "start_line": 27
+            }
+          }
+        ],
+        "Owner": "function:app/src/shapes.rs#awaited",
+        "Path": "tauri::generate_handler",
+        "Scope": 3,
+        "Span": {
+          "end_column": 65,
+          "end_line": 27,
+          "start_column": 24,
+          "start_line": 27
+        }
+      },
+      {
+        "Context": {
+          "Chain": {
+            "Methods": [
+              {
+                "Handler": 5,
+                "Name": "invoke_handler",
+                "Span": {
+                  "end_column": 87,
+                  "end_line": 34,
+                  "start_column": 30,
+                  "start_line": 34
+                }
+              }
+            ],
+            "Root": {
+              "Callee": "tauri::Builder::default",
+              "Kind": "call",
+              "Offset": 1189,
+              "Span": {
+                "end_column": 29,
+                "end_line": 34,
+                "start_column": 4,
+                "start_line": 34
+              }
+            }
+          },
+          "Kind": "argument",
+          "Method": "invoke_handler",
+          "Use": "tail"
+        },
+        "Entries": [
+          {
+            "Hash": "sha256:da234768cd8669fab530f50cbdeba65594e9d4d0d358a73c0a814c37ea24e42f",
+            "Path": "commands::greet",
+            "Segments": [
+              "commands",
+              "greet"
+            ],
+            "Span": {
+              "end_column": 85,
+              "end_line": 34,
+              "start_column": 70,
+              "start_line": 34
+            }
+          }
+        ],
+        "Owner": "function:app/src/shapes.rs#make",
+        "Path": "tauri::generate_handler",
+        "Scope": 4,
+        "Span": {
+          "end_column": 86,
+          "end_line": 34,
+          "start_column": 45,
+          "start_line": 34
+        }
+      },
+      {
+        "Context": {
+          "Chain": {
+            "Methods": [
+              {
+                "Handler": 6,
+                "Name": "invoke_handler",
+                "Span": {
+                  "end_column": 67,
+                  "end_line": 39,
+                  "start_column": 9,
+                  "start_line": 39
+                }
+              },
+              {
+                "Name": "run",
+                "Span": {
+                  "end_column": 40,
+                  "end_line": 40,
+                  "start_column": 9,
+                  "start_line": 40
+                }
+              },
+              {
+                "Name": "unwrap",
+                "Span": {
+                  "end_column": 17,
+                  "end_line": 41,
+                  "start_column": 9,
+                  "start_line": 41
+                }
+              }
+            ],
+            "Root": {
+              "Callee": "make",
+              "Kind": "call",
+              "Offset": 1301,
+              "Span": {
+                "end_column": 10,
+                "end_line": 38,
+                "start_column": 4,
+                "start_line": 38
+              }
+            }
+          },
+          "Kind": "argument",
+          "Method": "invoke_handler",
+          "Use": "statement"
+        },
+        "Entries": [
+          {
+            "Hash": "sha256:618b0d53fc2a1810d8f6a2056f1e7df1b9f4cc130b9baa81d6986f0635747586",
+            "Path": "commands::rooted",
+            "Segments": [
+              "commands",
+              "rooted"
+            ],
+            "Span": {
+              "end_column": 65,
+              "end_line": 39,
+              "start_column": 49,
+              "start_line": 39
+            }
+          }
+        ],
+        "Owner": "function:app/src/shapes.rs#from_make",
+        "Path": "tauri::generate_handler",
+        "Scope": 5,
+        "Span": {
+          "end_column": 66,
+          "end_line": 39,
+          "start_column": 24,
+          "start_line": 39
+        }
+      },
+      {
+        "Context": {
+          "Chain": {
+            "Methods": [
+              {
+                "Handler": 7,
+                "Name": "invoke_handler",
+                "Span": {
+                  "end_column": 94,
+                  "end_line": 45,
+                  "start_column": 37,
+                  "start_line": 45
+                }
+              }
+            ],
+            "Root": {
+              "Callee": "tauri::Builder::default",
+              "Kind": "call",
+              "Offset": 1500,
+              "Span": {
+                "end_column": 36,
+                "end_line": 45,
+                "start_column": 11,
+                "start_line": 45
+              }
+            }
+          },
+          "Kind": "argument",
+          "Method": "invoke_handler",
+          "Use": "return"
+        },
+        "Entries": [
+          {
+            "Hash": "sha256:da234768cd8669fab530f50cbdeba65594e9d4d0d358a73c0a814c37ea24e42f",
+            "Path": "commands::greet",
+            "Segments": [
+              "commands",
+              "greet"
+            ],
+            "Span": {
+              "end_column": 92,
+              "end_line": 45,
+              "start_column": 77,
+              "start_line": 45
+            }
+          }
+        ],
+        "Owner": "function:app/src/shapes.rs#returned",
+        "Path": "tauri::generate_handler",
+        "Scope": 6,
+        "Span": {
+          "end_column": 93,
+          "end_line": 45,
+          "start_column": 52,
+          "start_line": 45
+        }
+      },
+      {
+        "Context": {
+          "Chain": {
+            "Methods": [
+              {
+                "Handler": 8,
+                "Name": "invoke_handler",
+                "Span": {
+                  "end_column": 94,
+                  "end_line": 49,
+                  "start_column": 37,
+                  "start_line": 49
+                }
+              }
+            ],
+            "Root": {
+              "Callee": "tauri::Builder::default",
+              "Kind": "call",
+              "Offset": 1617,
+              "Span": {
+                "end_column": 36,
+                "end_line": 49,
+                "start_column": 11,
+                "start_line": 49
+              }
+            }
+          },
+          "Kind": "argument",
+          "Method": "invoke_handler",
+          "Use": "argument"
+        },
+        "Entries": [
+          {
+            "Hash": "sha256:da234768cd8669fab530f50cbdeba65594e9d4d0d358a73c0a814c37ea24e42f",
+            "Path": "commands::greet",
+            "Segments": [
+              "commands",
+              "greet"
+            ],
+            "Span": {
+              "end_column": 92,
+              "end_line": 49,
+              "start_column": 77,
+              "start_line": 49
+            }
+          }
+        ],
+        "Owner": "function:app/src/shapes.rs#passed",
+        "Path": "tauri::generate_handler",
+        "Scope": 7,
+        "Span": {
+          "end_column": 93,
+          "end_line": 49,
+          "start_column": 52,
+          "start_line": 49
+        }
+      },
+      {
+        "Context": {
+          "Chain": {
+            "Incomplete": true,
+            "Methods": [
+              {
+                "Handler": 9,
+                "Name": "invoke_handler",
+                "Span": {
+                  "end_column": 96,
+                  "end_line": 54,
+                  "start_column": 39,
+                  "start_line": 54
+                }
+              }
+            ],
+            "Root": {
+              "Callee": "tauri::Builder::default",
+              "Kind": "call",
+              "Offset": 1809,
+              "Span": {
+                "end_column": 38,
+                "end_line": 54,
+                "start_column": 13,
+                "start_line": 54
+              }
+            }
+          },
+          "Kind": "argument",
+          "Method": "invoke_handler",
+          "Use": "other"
+        },
+        "Entries": [
+          {
+            "Hash": "sha256:da234768cd8669fab530f50cbdeba65594e9d4d0d358a73c0a814c37ea24e42f",
+            "Path": "commands::greet",
+            "Segments": [
+              "commands",
+              "greet"
+            ],
+            "Span": {
+              "end_column": 94,
+              "end_line": 54,
+              "start_column": 79,
+              "start_line": 54
+            }
+          }
+        ],
+        "Owner": "function:app/src/shapes.rs#borrowed",
+        "Path": "tauri::generate_handler",
+        "Scope": 8,
+        "Span": {
+          "end_column": 95,
+          "end_line": 54,
+          "start_column": 54,
+          "start_line": 54
+        }
+      },
+      {
+        "Context": {
+          "Chain": {
+            "Methods": [
+              {
+                "Handler": 10,
+                "Name": "invoke_handler",
+                "Span": {
+                  "end_column": 70,
+                  "end_line": 62,
+                  "start_column": 13,
+                  "start_line": 62
+                }
+              },
+              {
+                "Name": "run",
+                "Span": {
+                  "end_column": 44,
+                  "end_line": 63,
+                  "start_column": 13,
+                  "start_line": 63
+                }
+              },
+              {
+                "Name": "unwrap",
+                "Span": {
+                  "end_column": 21,
+                  "end_line": 64,
+                  "start_column": 13,
+                  "start_line": 64
+                }
+              }
+            ],
+            "Root": {
+              "Kind": "identifier",
+              "Name": "builder",
+              "Offset": 2127
+            }
+          },
+          "Kind": "argument",
+          "Method": "invoke_handler",
+          "Use": "statement"
+        },
+        "Entries": [
+          {
+            "Hash": "sha256:da234768cd8669fab530f50cbdeba65594e9d4d0d358a73c0a814c37ea24e42f",
+            "Path": "commands::greet",
+            "Segments": [
+              "commands",
+              "greet"
+            ],
+            "Span": {
+              "end_column": 68,
+              "end_line": 62,
+              "start_column": 53,
+              "start_line": 62
+            }
+          }
+        ],
+        "Owner": "function:app/src/shapes.rs#if_let_shadow",
+        "Path": "tauri::generate_handler",
+        "Scope": 10,
+        "Span": {
+          "end_column": 69,
+          "end_line": 62,
+          "start_column": 28,
+          "start_line": 62
+        }
+      },
+      {
+        "Context": {
+          "Chain": {
+            "Methods": [
+              {
+                "Handler": 11,
+                "Name": "invoke_handler",
+                "Span": {
+                  "end_column": 118,
+                  "end_line": 71,
+                  "start_column": 61,
+                  "start_line": 71
+                }
+              }
+            ],
+            "Root": {
+              "Kind": "identifier",
+              "Name": "builder",
+              "Offset": 2428
+            }
+          },
+          "Kind": "argument",
+          "Method": "invoke_handler",
+          "Use": "tail"
+        },
+        "Entries": [
+          {
+            "Hash": "sha256:da234768cd8669fab530f50cbdeba65594e9d4d0d358a73c0a814c37ea24e42f",
+            "Path": "commands::greet",
+            "Segments": [
+              "commands",
+              "greet"
+            ],
+            "Span": {
+              "end_column": 116,
+              "end_line": 71,
+              "start_column": 101,
+              "start_line": 71
+            }
+          }
+        ],
+        "Owner": "function:app/src/shapes.rs#closure_shadow",
+        "Path": "tauri::generate_handler",
+        "Scope": 11,
+        "Span": {
+          "end_column": 117,
+          "end_line": 71,
+          "start_column": 76,
+          "start_line": 71
+        }
+      },
+      {
+        "Context": {
+          "Chain": {
+            "Incomplete": true,
+            "Methods": [
+              {
+                "Handler": 12,
+                "Name": "invoke_handler",
+                "Span": {
+                  "end_column": 78,
+                  "end_line": 78,
+                  "start_column": 21,
+                  "start_line": 78
+                }
+              }
+            ],
+            "Root": {
+              "Kind": "identifier",
+              "Name": "b",
+              "Offset": 2699
+            }
+          },
+          "Kind": "argument",
+          "Method": "invoke_handler",
+          "Use": "other"
+        },
+        "Entries": [
+          {
+            "Hash": "sha256:da234768cd8669fab530f50cbdeba65594e9d4d0d358a73c0a814c37ea24e42f",
+            "Path": "commands::greet",
+            "Segments": [
+              "commands",
+              "greet"
+            ],
+            "Span": {
+              "end_column": 76,
+              "end_line": 78,
+              "start_column": 61,
+              "start_line": 78
+            }
+          }
+        ],
+        "Owner": "function:app/src/shapes.rs#match_shadow",
+        "Path": "tauri::generate_handler",
+        "Scope": 12,
+        "Span": {
+          "end_column": 77,
+          "end_line": 78,
+          "start_column": 36,
+          "start_line": 78
+        }
+      },
+      {
+        "Context": {
+          "Chain": {
+            "Methods": [
+              {
+                "Handler": 13,
+                "Name": "invoke_handler",
+                "Span": {
+                  "end_column": 73,
+                  "end_line": 88,
+                  "start_column": 16,
+                  "start_line": 88
+                }
+              }
+            ],
+            "Root": {
+              "Kind": "identifier",
+              "Name": "builder",
+              "Offset": 2976
+            }
+          },
+          "Kind": "argument",
+          "Method": "invoke_handler",
+          "Use": "statement"
+        },
+        "Entries": [
+          {
+            "Hash": "sha256:da234768cd8669fab530f50cbdeba65594e9d4d0d358a73c0a814c37ea24e42f",
+            "Path": "commands::greet",
+            "Segments": [
+              "commands",
+              "greet"
+            ],
+            "Span": {
+              "end_column": 71,
+              "end_line": 88,
+              "start_column": 56,
+              "start_line": 88
+            }
+          }
+        ],
+        "Owner": "function:app/src/shapes.rs#for_shadow",
+        "Path": "tauri::generate_handler",
+        "Scope": 14,
+        "Span": {
+          "end_column": 72,
+          "end_line": 88,
+          "start_column": 31,
+          "start_line": 88
+        }
+      },
+      {
+        "Context": {
+          "Chain": {
+            "Methods": [
+              {
+                "Handler": 14,
+                "Name": "invoke_handler",
+                "Span": {
+                  "end_column": 69,
+                  "end_line": 96,
+                  "start_column": 12,
+                  "start_line": 96
+                }
+              }
+            ],
+            "Root": {
+              "Kind": "identifier",
+              "Name": "builder",
+              "Offset": 3192
+            }
+          },
+          "Kind": "argument",
+          "Method": "invoke_handler",
+          "Use": "statement"
+        },
+        "Entries": [
+          {
+            "Hash": "sha256:da234768cd8669fab530f50cbdeba65594e9d4d0d358a73c0a814c37ea24e42f",
+            "Path": "commands::greet",
+            "Segments": [
+              "commands",
+              "greet"
+            ],
+            "Span": {
+              "end_column": 67,
+              "end_line": 96,
+              "start_column": 52,
+              "start_line": 96
+            }
+          }
+        ],
+        "Owner": "function:app/src/shapes.rs#destructured_shadow",
+        "Path": "tauri::generate_handler",
+        "Scope": 15,
+        "Span": {
+          "end_column": 68,
+          "end_line": 96,
+          "start_column": 27,
+          "start_line": 96
+        }
+      },
+      {
+        "Context": {
+          "Chain": {
+            "Methods": [
+              {
+                "Handler": 15,
+                "Name": "invoke_handler",
+                "Span": {
+                  "end_column": 65,
+                  "end_line": 101,
+                  "start_column": 8,
+                  "start_line": 101
+                }
+              }
+            ],
+            "Root": {
+              "Kind": "identifier",
+              "Name": "app",
+              "Offset": 3348
+            }
+          },
+          "Kind": "argument",
+          "Method": "invoke_handler",
+          "Use": "statement"
+        },
+        "Entries": [
+          {
+            "Hash": "sha256:da234768cd8669fab530f50cbdeba65594e9d4d0d358a73c0a814c37ea24e42f",
+            "Path": "commands::greet",
+            "Segments": [
+              "commands",
+              "greet"
+            ],
+            "Span": {
+              "end_column": 63,
+              "end_line": 101,
+              "start_column": 48,
+              "start_line": 101
+            }
+          }
+        ],
+        "Owner": "function:app/src/shapes.rs#param_shadow",
+        "Path": "tauri::generate_handler",
+        "Scope": 16,
+        "Span": {
+          "end_column": 64,
+          "end_line": 101,
+          "start_column": 23,
+          "start_line": 101
+        }
+      },
+      {
+        "Context": {
+          "Chain": {
+            "Methods": [
+              {
+                "Handler": 16,
+                "Name": "invoke_handler",
+                "Span": {
+                  "end_column": 65,
+                  "end_line": 111,
+                  "start_column": 8,
+                  "start_line": 111
+                }
+              }
+            ],
+            "Root": {
+              "Kind": "identifier",
+              "Name": "app",
+              "Offset": 3687
+            }
+          },
+          "Kind": "argument",
+          "Method": "invoke_handler",
+          "Use": "statement"
+        },
+        "Entries": [
+          {
+            "Hash": "sha256:da234768cd8669fab530f50cbdeba65594e9d4d0d358a73c0a814c37ea24e42f",
+            "Path": "commands::greet",
+            "Segments": [
+              "commands",
+              "greet"
+            ],
+            "Span": {
+              "end_column": 63,
+              "end_line": 111,
+              "start_column": 48,
+              "start_line": 111
+            }
+          }
+        ],
+        "Owner": "function:app/src/shapes.rs#unrelated_closure",
+        "Path": "tauri::generate_handler",
+        "Scope": 17,
+        "Span": {
+          "end_column": 64,
+          "end_line": 111,
+          "start_column": 23,
+          "start_line": 111
+        }
+      }
+    ],
+    "Version": 3
+  }
+}

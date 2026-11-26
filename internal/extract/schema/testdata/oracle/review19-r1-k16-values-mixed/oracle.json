@@ -1,0 +1,28 @@
+{
+  "id": "review19-r1-k16-values-mixed",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y23",
+  "row": "review19",
+  "history": {
+    "id": "k16-values-mixed"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "22P02",
+        "message": "invalid input syntax for type integer: \"a\"",
+        "statement": 2,
+        "statement_text": "VALUES (1), ('a');"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

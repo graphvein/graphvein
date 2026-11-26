@@ -1,0 +1,28 @@
+{
+  "id": "review-q20-check-sub",
+  "signature": "applied|S1|0A000|",
+  "class": "S1",
+  "owner": "P5",
+  "row": "review",
+  "history": {
+    "id": "q20-check-sub"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "0A000",
+        "message": "cannot use subquery in check constraint",
+        "statement": 1,
+        "statement_text": "CREATE TABLE t (a int CHECK (a IN (SELECT 1)));"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

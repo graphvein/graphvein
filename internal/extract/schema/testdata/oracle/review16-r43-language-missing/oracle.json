@@ -1,0 +1,28 @@
+{
+  "id": "review16-r43-language-missing",
+  "signature": "agreed at Revision 1.6",
+  "class": "S1",
+  "owner": "V2",
+  "row": "review16",
+  "history": {
+    "id": "r43-language-missing"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42704",
+        "message": "language \"plperl\" does not exist",
+        "statement": 1,
+        "statement_text": "CREATE FUNCTION f() RETURNS int LANGUAGE plperl AS $$ return 1; $$;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

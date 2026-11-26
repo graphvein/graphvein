@@ -1,0 +1,3 @@
+CREATE TABLE t2 (c1 date);
+DROP TABLE IF EXISTS t2 CASCADE;
+COMMENT ON COLUMN t2.status IS 'column';

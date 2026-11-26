@@ -1,0 +1,32 @@
+{
+  "id": "review16-p52-do-pk-index-name",
+  "signature": "agreed at Revision 1.6",
+  "class": "S1",
+  "owner": "V8",
+  "row": "review16",
+  "history": {
+    "id": "p52-do-pk-index-name",
+    "prelude": [
+      "CREATE TABLE t0 (a int)"
+    ]
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42P07",
+        "message": "relation \"x_pkey\" already exists",
+        "statement": 2,
+        "statement_text": "CREATE INDEX x_pkey ON t0 (a);"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history.t0",
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

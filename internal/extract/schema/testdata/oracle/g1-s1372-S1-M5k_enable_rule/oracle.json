@@ -1,0 +1,34 @@
+{
+  "id": "g1-s1372-S1-M5k_enable_rule",
+  "signature": "applied|S1|42704|M5k.enable_rule",
+  "class": "S1",
+  "owner": "P4",
+  "row": "M5k.enable_rule",
+  "history": {
+    "id": "g1-s1372",
+    "tags": {
+      "1_m1.sql": [
+        "M1.create_fk",
+        "M5k.enable_rule"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42704",
+        "message": "rule \"nosuch_rule\" for relation \"t1\" does not exist",
+        "statement": 2,
+        "statement_text": "ALTER TABLE t1 ENABLE RULE nosuch_rule;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

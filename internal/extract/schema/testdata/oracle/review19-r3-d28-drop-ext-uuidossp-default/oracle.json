@@ -1,0 +1,52 @@
+{
+  "id": "review19-r3-d28-drop-ext-uuidossp-default",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y34",
+  "row": "review19",
+  "history": {
+    "id": "d28-drop-ext-uuidossp-default",
+    "fresh_db": true
+  },
+  "verdict": {
+    "default_schema": "public",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "accepted"
+      },
+      {
+        "file": "2_b.sql",
+        "status": "refused",
+        "sqlstate": "2BP01",
+        "message": "cannot drop extension uuid-ossp because other objects depend on it",
+        "detail": "default value for column id of table t depends on function uuid_generate_v4()",
+        "statement": 1,
+        "statement_text": "DROP EXTENSION IF EXISTS \"uuid-ossp\";"
+      }
+    ],
+    "tables": [
+      {
+        "table": "public.t",
+        "columns": [
+          {
+            "name": "id",
+            "type": "uuid",
+            "not_null": true,
+            "has_default": true
+          }
+        ],
+        "primary_key": [
+          "id"
+        ],
+        "unique_keys": [],
+        "foreign_keys": [],
+        "indexes": []
+      }
+    ],
+    "prelude_tables": [
+      "public._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

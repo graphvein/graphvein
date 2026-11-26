@@ -1,0 +1,1285 @@
+{
+  "diagnostics": [
+    {
+      "code": "unresolved_calls",
+      "file": "blind.go",
+      "message": "2 calls could not be resolved without a type checker (external=0, unknown=2)",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "syntax_error",
+      "file": "broken.go",
+      "message": "tree-sitter recovered from invalid syntax",
+      "severity": "warning",
+      "type": "diagnostic"
+    },
+    {
+      "code": "unresolved_calls",
+      "file": "main.go",
+      "message": "3 calls could not be resolved without a type checker (external=2, unknown=1)",
+      "severity": "info",
+      "type": "diagnostic"
+    }
+  ],
+  "edges": [
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "extra.go",
+          "span": {
+            "end_column": 22,
+            "end_line": 5,
+            "start_column": 15,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "calls",
+      "provenance": "fact",
+      "source": "function:extra.go#Extra",
+      "target": "function:main.go#local",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "main.go",
+          "span": {
+            "end_column": 8,
+            "end_line": 27,
+            "start_column": 1,
+            "start_line": 27
+          }
+        }
+      ],
+      "kind": "calls",
+      "provenance": "fact",
+      "source": "function:main.go#Run",
+      "target": "function:main.go#local",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "main.go",
+          "span": {
+            "end_column": 9,
+            "end_line": 26,
+            "start_column": 1,
+            "start_line": 26
+          }
+        }
+      ],
+      "kind": "calls",
+      "provenance": "fact",
+      "source": "function:main.go#Run",
+      "target": "method:main.go#User.Save",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "main.go",
+          "span": {
+            "end_column": 21,
+            "end_line": 18,
+            "start_column": 14,
+            "start_line": 18
+          }
+        }
+      ],
+      "kind": "calls",
+      "provenance": "fact",
+      "source": "function:main.go#init",
+      "target": "function:main.go#local",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "main.go",
+          "span": {
+            "end_column": 21,
+            "end_line": 19,
+            "start_column": 14,
+            "start_line": 19
+          }
+        }
+      ],
+      "kind": "calls",
+      "provenance": "fact",
+      "source": "function:main.go#init%402",
+      "target": "function:main.go#local",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "main.go",
+          "span": {
+            "end_column": 26,
+            "end_line": 21,
+            "start_column": 15,
+            "start_line": 21
+          }
+        }
+      ],
+      "kind": "calls",
+      "provenance": "fact",
+      "source": "function:main.go#local",
+      "target": "function:helper/help.go#Help",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "main_test.go",
+          "span": {
+            "end_column": 25,
+            "end_line": 3,
+            "start_column": 18,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "calls",
+      "provenance": "fact",
+      "source": "function:main_test.go#TestOnly",
+      "target": "function:main.go#local",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "main_test.go",
+          "span": {
+            "end_column": 22,
+            "end_line": 4,
+            "start_column": 17,
+            "start_line": 4
+          }
+        }
+      ],
+      "kind": "calls",
+      "provenance": "fact",
+      "source": "function:main_test.go#TestRun",
+      "target": "function:main.go#Run",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "main_test.go",
+          "span": {
+            "end_column": 34,
+            "end_line": 4,
+            "start_column": 24,
+            "start_line": 4
+          }
+        }
+      ],
+      "kind": "calls",
+      "provenance": "fact",
+      "source": "function:main_test.go#TestRun",
+      "target": "function:main_test.go#TestOnly",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "main.go",
+          "span": {
+            "end_column": 31,
+            "end_line": 22,
+            "start_column": 24,
+            "start_line": 22
+          }
+        }
+      ],
+      "kind": "calls",
+      "provenance": "fact",
+      "source": "method:main.go#User.Save",
+      "target": "function:main.go#local",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "blind.go",
+          "span": {
+            "end_column": 1,
+            "end_line": 6,
+            "start_column": 0,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:blind.go#blind.go",
+      "target": "function:blind.go#blind",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "extra.go",
+          "span": {
+            "end_column": 24,
+            "end_line": 5,
+            "start_column": 0,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:extra.go#extra.go",
+      "target": "function:extra.go#Extra",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "helper/help.go",
+          "span": {
+            "end_column": 14,
+            "end_line": 3,
+            "start_column": 0,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:helper/help.go#helper%2Fhelp.go",
+      "target": "function:helper/help.go#Help",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "helper/help_test.go",
+          "span": {
+            "end_column": 20,
+            "end_line": 3,
+            "start_column": 0,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:helper/help_test.go#helper%2Fhelp_test.go",
+      "target": "function:helper/help_test.go#HiddenTest",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "main.go",
+          "span": {
+            "end_column": 17,
+            "end_line": 16,
+            "start_column": 6,
+            "start_line": 16
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:main.go#main.go",
+      "target": "constant:main.go#Answer",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "main.go",
+          "span": {
+            "end_column": 1,
+            "end_line": 30,
+            "start_column": 0,
+            "start_line": 24
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:main.go#main.go",
+      "target": "function:main.go#Run",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "main.go",
+          "span": {
+            "end_column": 23,
+            "end_line": 18,
+            "start_column": 0,
+            "start_line": 18
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:main.go#main.go",
+      "target": "function:main.go#init",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "main.go",
+          "span": {
+            "end_column": 23,
+            "end_line": 19,
+            "start_column": 0,
+            "start_line": 19
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:main.go#main.go",
+      "target": "function:main.go#init%402",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "main.go",
+          "span": {
+            "end_column": 28,
+            "end_line": 21,
+            "start_column": 0,
+            "start_line": 21
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:main.go#main.go",
+      "target": "function:main.go#local",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "main.go",
+          "span": {
+            "end_column": 30,
+            "end_line": 9,
+            "start_column": 5,
+            "start_line": 9
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:main.go#main.go",
+      "target": "interface:main.go#Saver",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "main.go",
+          "span": {
+            "end_column": 51,
+            "end_line": 23,
+            "start_column": 0,
+            "start_line": 23
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:main.go#main.go",
+      "target": "method:main.go#List.Len",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "main.go",
+          "span": {
+            "end_column": 33,
+            "end_line": 22,
+            "start_column": 0,
+            "start_line": 22
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:main.go#main.go",
+      "target": "method:main.go#User.Save",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "main.go",
+          "span": {
+            "end_column": 36,
+            "end_line": 12,
+            "start_column": 5,
+            "start_line": 12
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:main.go#main.go",
+      "target": "struct:main.go#List",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "main.go",
+          "span": {
+            "end_column": 31,
+            "end_line": 8,
+            "start_column": 5,
+            "start_line": 8
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:main.go#main.go",
+      "target": "struct:main.go#User",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "main.go",
+          "span": {
+            "end_column": 14,
+            "end_line": 11,
+            "start_column": 5,
+            "start_line": 11
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:main.go#main.go",
+      "target": "type:main.go#Count",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "main.go",
+          "span": {
+            "end_column": 17,
+            "end_line": 10,
+            "start_column": 5,
+            "start_line": 10
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:main.go#main.go",
+      "target": "type_alias:main.go#Alias",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "main.go",
+          "span": {
+            "end_column": 16,
+            "end_line": 14,
+            "start_column": 4,
+            "start_line": 14
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:main.go#main.go",
+      "target": "variable:main.go#Exported",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "main_test.go",
+          "span": {
+            "end_column": 27,
+            "end_line": 3,
+            "start_column": 0,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:main_test.go#main_test.go",
+      "target": "function:main_test.go#TestOnly",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "main_test.go",
+          "span": {
+            "end_column": 36,
+            "end_line": 4,
+            "start_column": 0,
+            "start_line": 4
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:main_test.go#main_test.go",
+      "target": "function:main_test.go#TestRun",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "main.go",
+          "span": {
+            "end_column": 6,
+            "end_line": 4,
+            "start_column": 1,
+            "start_line": 4
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:main.go#main.go",
+      "target": "external:.#go%3Afmt",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "main.go",
+          "span": {
+            "end_column": 35,
+            "end_line": 5,
+            "start_column": 1,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:main.go#main.go",
+      "target": "file:helper/help.go#helper%2Fhelp.go",
+      "type": "edge"
+    }
+  ],
+  "files": [
+    {
+      "content_hash": "sha256:c2de4d7ef8f916b04d7ff2b7d5a2be88ea6d22ac22347cf328513d862b3de344",
+      "language": "markdown",
+      "path": "README.md",
+      "precision": "best_effort",
+      "size": 337,
+      "type": "file"
+    },
+    {
+      "content_hash": "sha256:048807b0e49a502d130641aa71d9e680b062c3d49da03ded0bef3b930260f18b",
+      "language": "go",
+      "path": "blind.go",
+      "precision": "precise",
+      "size": 75,
+      "type": "file"
+    },
+    {
+      "content_hash": "sha256:55d99d90748c07e1e41177cd3c7d87d0ce58587b261419fe6dc706faf3de3de2",
+      "language": "go",
+      "path": "broken.go",
+      "precision": "best_effort",
+      "size": 32,
+      "type": "file"
+    },
+    {
+      "content_hash": "sha256:09a6585d8346e627a3decae0646dab57ed29174c9d57d8afd106d43257f8e2dd",
+      "language": "go",
+      "path": "extra.go",
+      "precision": "precise",
+      "size": 76,
+      "type": "file"
+    },
+    {
+      "content_hash": "sha256:692b020aed165bc45f9c1c7807f0a1c2421d78c119a20019c077f74e2f4dcdf0",
+      "language": "unknown",
+      "path": "go.mod",
+      "precision": "best_effort",
+      "size": 37,
+      "type": "file"
+    },
+    {
+      "content_hash": "sha256:d4813d8212d6154b238de82b863c5ba6604e6cc496862386ce1b51b58be5410a",
+      "language": "go",
+      "path": "helper/help.go",
+      "precision": "precise",
+      "size": 31,
+      "type": "file"
+    },
+    {
+      "content_hash": "sha256:a872b25931794422750181379a9b32407daa515ad25b865efa10d17b9e14fcd8",
+      "language": "go",
+      "path": "helper/help_test.go",
+      "precision": "precise",
+      "size": 37,
+      "type": "file"
+    },
+    {
+      "content_hash": "sha256:ff609597102ee10733196e5a9c13b41944a36b9941109971d794f5151a2955e6",
+      "language": "go",
+      "path": "main.go",
+      "precision": "precise",
+      "size": 501,
+      "type": "file"
+    },
+    {
+      "content_hash": "sha256:b922aa140c77365f649f34365fb8dace308088f26df53ceb2f33f650d568ff68",
+      "language": "go",
+      "path": "main_test.go",
+      "precision": "precise",
+      "size": 82,
+      "type": "file"
+    }
+  ],
+  "nodes": [
+    {
+      "attributes": {
+        "exported": true
+      },
+      "content_hash": "sha256:7afd7a8d3b80367226c79295b05cf054b326cebc3ff096ad70cfd063ccb15c9e",
+      "file": "main.go",
+      "identity": "constant:main.go#Answer",
+      "kind": "constant",
+      "level": 4,
+      "name": "Answer",
+      "qualified_name": "Answer",
+      "span": {
+        "end_column": 17,
+        "end_line": 16,
+        "start_column": 6,
+        "start_line": 16
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "ecosystem": "go",
+        "name": "fmt"
+      },
+      "content_hash": "sha256:c50dec6aa1b78e9b480c416a2d9eab7dd9ab6ddeb599627052c4cbab8b45e294",
+      "file": ".",
+      "identity": "external:.#go%3Afmt",
+      "kind": "external",
+      "level": 1,
+      "name": "fmt",
+      "qualified_name": "go:fmt",
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:c2de4d7ef8f916b04d7ff2b7d5a2be88ea6d22ac22347cf328513d862b3de344",
+      "file": "README.md",
+      "identity": "file:README.md#README.md",
+      "kind": "file",
+      "level": 3,
+      "name": "README.md",
+      "qualified_name": "README.md",
+      "span": {
+        "end_column": 0,
+        "end_line": 7,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 2,
+        "unresolved_unknown_call_sites": [
+          {
+            "caller": "function:blind.go#blind",
+            "name": "Help",
+            "span": {
+              "end_column": 11,
+              "end_line": 4,
+              "start_column": 1,
+              "start_line": 4
+            }
+          },
+          {
+            "caller": "function:blind.go#blind",
+            "name": "Unrelated",
+            "span": {
+              "end_column": 16,
+              "end_line": 5,
+              "start_column": 1,
+              "start_line": 5
+            }
+          }
+        ]
+      },
+      "content_hash": "sha256:048807b0e49a502d130641aa71d9e680b062c3d49da03ded0bef3b930260f18b",
+      "file": "blind.go",
+      "identity": "file:blind.go#blind.go",
+      "kind": "file",
+      "level": 3,
+      "name": "blind.go",
+      "qualified_name": "blind.go",
+      "span": {
+        "end_column": 0,
+        "end_line": 7,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:55d99d90748c07e1e41177cd3c7d87d0ce58587b261419fe6dc706faf3de3de2",
+      "file": "broken.go",
+      "identity": "file:broken.go#broken.go",
+      "kind": "file",
+      "level": 3,
+      "name": "broken.go",
+      "qualified_name": "broken.go",
+      "span": {
+        "end_column": 0,
+        "end_line": 4,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:09a6585d8346e627a3decae0646dab57ed29174c9d57d8afd106d43257f8e2dd",
+      "file": "extra.go",
+      "identity": "file:extra.go#extra.go",
+      "kind": "file",
+      "level": 3,
+      "name": "extra.go",
+      "qualified_name": "extra.go",
+      "span": {
+        "end_column": 0,
+        "end_line": 6,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:692b020aed165bc45f9c1c7807f0a1c2421d78c119a20019c077f74e2f4dcdf0",
+      "file": "go.mod",
+      "identity": "file:go.mod#go.mod",
+      "kind": "file",
+      "level": 3,
+      "name": "go.mod",
+      "qualified_name": "go.mod",
+      "span": {
+        "end_column": 0,
+        "end_line": 4,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:d4813d8212d6154b238de82b863c5ba6604e6cc496862386ce1b51b58be5410a",
+      "file": "helper/help.go",
+      "identity": "file:helper/help.go#helper%2Fhelp.go",
+      "kind": "file",
+      "level": 3,
+      "name": "help.go",
+      "qualified_name": "helper/help.go",
+      "span": {
+        "end_column": 0,
+        "end_line": 4,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:a872b25931794422750181379a9b32407daa515ad25b865efa10d17b9e14fcd8",
+      "file": "helper/help_test.go",
+      "identity": "file:helper/help_test.go#helper%2Fhelp_test.go",
+      "kind": "file",
+      "level": 3,
+      "name": "help_test.go",
+      "qualified_name": "helper/help_test.go",
+      "span": {
+        "end_column": 0,
+        "end_line": 4,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 2,
+        "unresolved_calls_unknown": 1,
+        "unresolved_unknown_call_sites": [
+          {
+            "caller": "function:main.go#Run",
+            "name": "TestOnly",
+            "span": {
+              "end_column": 11,
+              "end_line": 29,
+              "start_column": 1,
+              "start_line": 29
+            }
+          }
+        ]
+      },
+      "content_hash": "sha256:ff609597102ee10733196e5a9c13b41944a36b9941109971d794f5151a2955e6",
+      "file": "main.go",
+      "identity": "file:main.go#main.go",
+      "kind": "file",
+      "level": 3,
+      "name": "main.go",
+      "qualified_name": "main.go",
+      "span": {
+        "end_column": 0,
+        "end_line": 31,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:b922aa140c77365f649f34365fb8dace308088f26df53ceb2f33f650d568ff68",
+      "file": "main_test.go",
+      "identity": "file:main_test.go#main_test.go",
+      "kind": "file",
+      "level": 3,
+      "name": "main_test.go",
+      "qualified_name": "main_test.go",
+      "span": {
+        "end_column": 0,
+        "end_line": 5,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:3f7760c1d55ab915339ffef910d5b5310a4a061334f2979ecfadea6bc8d6860f",
+      "file": "blind.go",
+      "identity": "function:blind.go#blind",
+      "kind": "function",
+      "level": 4,
+      "name": "blind",
+      "qualified_name": "blind",
+      "span": {
+        "end_column": 1,
+        "end_line": 6,
+        "start_column": 0,
+        "start_line": 3
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:5494a47264192528795a3ecbe5212d15471dac792b3a1e7e219a649a60a4f122",
+      "file": "extra.go",
+      "identity": "function:extra.go#Extra",
+      "kind": "function",
+      "level": 4,
+      "name": "Extra",
+      "qualified_name": "Extra",
+      "span": {
+        "end_column": 24,
+        "end_line": 5,
+        "start_column": 0,
+        "start_line": 5
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:745e65bcebb6e05220cf436e07686da285860d8bf31dd99276fd477e8defed41",
+      "file": "helper/help.go",
+      "identity": "function:helper/help.go#Help",
+      "kind": "function",
+      "level": 4,
+      "name": "Help",
+      "qualified_name": "Help",
+      "span": {
+        "end_column": 14,
+        "end_line": 3,
+        "start_column": 0,
+        "start_line": 3
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:dc97deee828ea57179b9a28a93dcbd63768f9fb06d629645b2c8a2944640bd0d",
+      "file": "helper/help_test.go",
+      "identity": "function:helper/help_test.go#HiddenTest",
+      "kind": "function",
+      "level": 4,
+      "name": "HiddenTest",
+      "qualified_name": "HiddenTest",
+      "span": {
+        "end_column": 20,
+        "end_line": 3,
+        "start_column": 0,
+        "start_line": 3
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:0da59ca7762accef61226c8c23efbd72009839191978d3ffbdf594e8e72e5225",
+      "file": "main.go",
+      "identity": "function:main.go#Run",
+      "kind": "function",
+      "level": 4,
+      "name": "Run",
+      "qualified_name": "Run",
+      "span": {
+        "end_column": 1,
+        "end_line": 30,
+        "start_column": 0,
+        "start_line": 24
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:b0b0cc36c5d6415d8533893d8330bb69fb6e07ff8495b2af827b2883a26f05bf",
+      "file": "main.go",
+      "identity": "function:main.go#init",
+      "kind": "function",
+      "level": 4,
+      "name": "init",
+      "qualified_name": "init",
+      "span": {
+        "end_column": 23,
+        "end_line": 18,
+        "start_column": 0,
+        "start_line": 18
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:b0b0cc36c5d6415d8533893d8330bb69fb6e07ff8495b2af827b2883a26f05bf",
+      "file": "main.go",
+      "identity": "function:main.go#init%402",
+      "kind": "function",
+      "level": 4,
+      "name": "init",
+      "qualified_name": "init@2",
+      "span": {
+        "end_column": 23,
+        "end_line": 19,
+        "start_column": 0,
+        "start_line": 19
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:b38ef23906bfbd202bf32f162366a439121e47ddd016790f65bbdfc94fee2f64",
+      "file": "main.go",
+      "identity": "function:main.go#local",
+      "kind": "function",
+      "level": 4,
+      "name": "local",
+      "qualified_name": "local",
+      "span": {
+        "end_column": 28,
+        "end_line": 21,
+        "start_column": 0,
+        "start_line": 21
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:5e94e38744257a2522ac1aa1a1518dc089c5b52c9d981d1aa6cfabaa4b05ee97",
+      "file": "main_test.go",
+      "identity": "function:main_test.go#TestOnly",
+      "kind": "function",
+      "level": 4,
+      "name": "TestOnly",
+      "qualified_name": "TestOnly",
+      "span": {
+        "end_column": 27,
+        "end_line": 3,
+        "start_column": 0,
+        "start_line": 3
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:a991cbae7e38f84d8cf99d34627d7dad775d97e6c47193f8d48c80b4ef3c374f",
+      "file": "main_test.go",
+      "identity": "function:main_test.go#TestRun",
+      "kind": "function",
+      "level": 4,
+      "name": "TestRun",
+      "qualified_name": "TestRun",
+      "span": {
+        "end_column": 36,
+        "end_line": 4,
+        "start_column": 0,
+        "start_line": 4
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:8261f1173e0711b84a9b651e0705dcca7c09aaf7c8de0b8bd673f15d0b1aaf9c",
+      "file": "main.go",
+      "identity": "interface:main.go#Saver",
+      "kind": "interface",
+      "level": 4,
+      "name": "Saver",
+      "qualified_name": "Saver",
+      "span": {
+        "end_column": 30,
+        "end_line": 9,
+        "start_column": 5,
+        "start_line": 9
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:da2563856e2b5ef91d0eba9a85dbe89a5a030c10647f49cfb4837a4b4a171b79",
+      "file": "main.go",
+      "identity": "method:main.go#List.Len",
+      "kind": "method",
+      "level": 4,
+      "name": "Len",
+      "qualified_name": "List.Len",
+      "span": {
+        "end_column": 51,
+        "end_line": 23,
+        "start_column": 0,
+        "start_line": 23
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:f184b4b607de8f0303de7d2a641c2b3abd8cf8967addaafc52ab282df0477a79",
+      "file": "main.go",
+      "identity": "method:main.go#User.Save",
+      "kind": "method",
+      "level": 4,
+      "name": "Save",
+      "qualified_name": "User.Save",
+      "span": {
+        "end_column": 33,
+        "end_line": 22,
+        "start_column": 0,
+        "start_line": 22
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "directory": ".",
+        "ecosystem": "go",
+        "main_files": [],
+        "name": "example.test/fixture"
+      },
+      "content_hash": "sha256:692b020aed165bc45f9c1c7807f0a1c2421d78c119a20019c077f74e2f4dcdf0",
+      "file": "go.mod",
+      "identity": "package:go.mod#example.test%2Ffixture",
+      "kind": "package",
+      "level": 2,
+      "name": "example.test/fixture",
+      "qualified_name": "example.test/fixture",
+      "span": {
+        "end_column": 0,
+        "end_line": 4,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:62ea356bde89cd224bd7c60cb0ab57009efb33c67bb48481e251441003a54322",
+      "file": "main.go",
+      "identity": "struct:main.go#List",
+      "kind": "struct",
+      "level": 4,
+      "name": "List",
+      "qualified_name": "List",
+      "span": {
+        "end_column": 36,
+        "end_line": 12,
+        "start_column": 5,
+        "start_line": 12
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:a4de1de6b28a401078d63979bceb390da2a1a40048245e4a3ffe06ca9221f60b",
+      "file": "main.go",
+      "identity": "struct:main.go#User",
+      "kind": "struct",
+      "level": 4,
+      "name": "User",
+      "qualified_name": "User",
+      "span": {
+        "end_column": 31,
+        "end_line": 8,
+        "start_column": 5,
+        "start_line": 8
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:b75aa0541263bba3b5ebd914a77978008b4f508565208a6217d86f06b7836387",
+      "file": "main.go",
+      "identity": "type:main.go#Count",
+      "kind": "type",
+      "level": 4,
+      "name": "Count",
+      "qualified_name": "Count",
+      "span": {
+        "end_column": 14,
+        "end_line": 11,
+        "start_column": 5,
+        "start_line": 11
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:f1944363ca731a9c71c0497a2fec4724bae1af0b5ea70440390ba41de90ee47d",
+      "file": "main.go",
+      "identity": "type_alias:main.go#Alias",
+      "kind": "type_alias",
+      "level": 4,
+      "name": "Alias",
+      "qualified_name": "Alias",
+      "span": {
+        "end_column": 17,
+        "end_line": 10,
+        "start_column": 5,
+        "start_line": 10
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "exported": true
+      },
+      "content_hash": "sha256:672338674ca51d22dff345c12ffc01cae22ca5c83a377588aa9cb0992a537800",
+      "file": "main.go",
+      "identity": "variable:main.go#Exported",
+      "kind": "variable",
+      "level": 4,
+      "name": "Exported",
+      "qualified_name": "Exported",
+      "span": {
+        "end_column": 16,
+        "end_line": 14,
+        "start_column": 4,
+        "start_line": 14
+      },
+      "type": "node"
+    }
+  ]
+}

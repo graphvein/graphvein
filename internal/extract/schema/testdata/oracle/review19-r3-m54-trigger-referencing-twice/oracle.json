@@ -1,0 +1,28 @@
+{
+  "id": "review19-r3-m54-trigger-referencing-twice",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y11",
+  "row": "review19",
+  "history": {
+    "id": "m54-trigger-referencing-twice"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42P17",
+        "message": "NEW TABLE cannot be specified multiple times",
+        "statement": 3,
+        "statement_text": "CREATE TRIGGER tr AFTER INSERT ON t REFERENCING NEW TABLE AS n NEW TABLE AS m FOR EACH STATEMENT EXECUTE FUNCTION tf();"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

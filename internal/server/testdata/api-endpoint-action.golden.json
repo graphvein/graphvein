@@ -1,0 +1,316 @@
+{
+  "api_version": 0,
+  "callers": [
+    {
+      "edges": [
+        {
+          "confidence": 1,
+          "kind": "calls_action",
+          "provenance": "fact"
+        }
+      ],
+      "node": {
+        "attributes": {
+          "action": "server_action:next/app/actions.ts#ACTION%20t016dSave",
+          "form": "action_state",
+          "framework": "nextjs",
+          "hook": "useActionState",
+          "status": "linked",
+          "transport": "server_action"
+        },
+        "content_hash": "sha256:31cc43d4855a1064979002a8cda14d613290a6ab85bf0210f52e2f355a2f46b5",
+        "file": "next/app/form.tsx",
+        "file_state": "unchanged",
+        "ide": {
+          "column": 25,
+          "exact": true,
+          "line": 11,
+          "link": "vscode://file/{ROOT}/next/app/form.tsx:11:25"
+        },
+        "identity": "action_call:next/app/form.tsx#T016dForm.ACTION%20t016dSave",
+        "kind": "action_call",
+        "level": 4,
+        "name": "ACTION t016dSave",
+        "qualified_name": "T016dForm.ACTION t016dSave",
+        "source_root": "next",
+        "span": {
+          "end_column": 55,
+          "end_line": 11,
+          "start_column": 24,
+          "start_line": 11
+        },
+        "type": "node"
+      },
+      "owner": {
+        "id": "function:next/app/form.tsx#T016dForm",
+        "kind": "function",
+        "qualified_name": "T016dForm"
+      },
+      "reasons": []
+    },
+    {
+      "edges": [
+        {
+          "confidence": 1,
+          "kind": "calls_action",
+          "provenance": "fact"
+        }
+      ],
+      "node": {
+        "attributes": {
+          "action": "server_action:next/app/actions.ts#ACTION%20t016dSave",
+          "boundary": "client",
+          "form": "direct",
+          "framework": "nextjs",
+          "status": "linked",
+          "transport": "server_action"
+        },
+        "content_hash": "sha256:e64065678e18d94bf71bd425892e9f8f89b60aaaa459bc7528eac0178dac4945",
+        "file": "next/app/form.tsx",
+        "file_state": "unchanged",
+        "ide": {
+          "column": 23,
+          "exact": true,
+          "line": 12,
+          "link": "vscode://file/{ROOT}/next/app/form.tsx:12:23"
+        },
+        "identity": "action_call:next/app/form.tsx#T016dForm.retry.ACTION%20t016dSave",
+        "kind": "action_call",
+        "level": 4,
+        "name": "ACTION t016dSave",
+        "qualified_name": "T016dForm.retry.ACTION t016dSave",
+        "source_root": "next",
+        "span": {
+          "end_column": 47,
+          "end_line": 12,
+          "start_column": 22,
+          "start_line": 12
+        },
+        "type": "node"
+      },
+      "owner": {
+        "id": "function:next/app/form.tsx#T016dForm.retry",
+        "kind": "function",
+        "qualified_name": "T016dForm.retry"
+      },
+      "reasons": []
+    }
+  ],
+  "callers_precision": {
+    "label": "best_effort",
+    "reason": "default_branch",
+    "row": "D"
+  },
+  "endpoint": {
+    "attributes": {
+      "action": "t016dSave",
+      "action_scope": "module",
+      "form": "async_function",
+      "framework": "nextjs",
+      "handler": "function:next/app/actions.ts#t016dSave",
+      "shape": {
+        "body": {
+          "items": [
+            {
+              "content_type": null,
+              "provenance": {
+                "chain": [],
+                "confidence": 1,
+                "file": "next/app/actions.ts",
+                "kind": "read_in_handler",
+                "line": 6,
+                "rule": "SH-N9"
+              },
+              "schema": {
+                "additional": "unknown",
+                "fields": [
+                  {
+                    "name": "name",
+                    "presence": "unknown",
+                    "schema": {
+                      "reason": "type not read",
+                      "type": "unknown"
+                    }
+                  }
+                ],
+                "type": "object"
+              }
+            }
+          ],
+          "reason": "fields read in code or declared by a validator or a type; others may exist",
+          "state": "partial"
+        },
+        "cookie": {
+          "items": [],
+          "reason": "nothing read in the handler or the functions it passes the value to",
+          "state": "not_read"
+        },
+        "follow": {
+          "chains": [
+            {
+              "at": null,
+              "depth": 0,
+              "section": "header",
+              "start": {
+                "file": "next/app/actions.ts",
+                "function": "t016dSave",
+                "line": 5
+              },
+              "steps": [],
+              "stop": "ended"
+            },
+            {
+              "at": null,
+              "depth": 0,
+              "section": "cookie",
+              "start": {
+                "file": "next/app/actions.ts",
+                "function": "t016dSave",
+                "line": 5
+              },
+              "steps": [],
+              "stop": "ended"
+            },
+            {
+              "at": null,
+              "depth": 0,
+              "section": "body",
+              "start": {
+                "file": "next/app/actions.ts",
+                "function": "t016dSave",
+                "line": 5
+              },
+              "steps": [],
+              "stop": "ended"
+            },
+            {
+              "at": null,
+              "depth": 0,
+              "section": "responses",
+              "start": {
+                "file": "next/app/actions.ts",
+                "function": "t016dSave",
+                "line": 5
+              },
+              "steps": [],
+              "stop": "ended"
+            }
+          ],
+          "depth_limit": 6
+        },
+        "header": {
+          "items": [],
+          "reason": "nothing read in the handler or the functions it passes the value to",
+          "state": "not_read"
+        },
+        "models": [],
+        "path": {
+          "items": [],
+          "reason": "a server action is a POST to the page that renders it: it has no path or query parameters of its own",
+          "state": "not_read"
+        },
+        "query": {
+          "items": [],
+          "reason": "a server action is a POST to the page that renders it: it has no path or query parameters of its own",
+          "state": "not_read"
+        },
+        "responses": {
+          "items": [],
+          "reason": "a returned call is not read (next/app/actions.ts:6)",
+          "state": "not_read"
+        },
+        "security": {
+          "items": [],
+          "reason": "security is not read for Next.js route handlers and server actions",
+          "state": "not_read"
+        },
+        "security_schemes": [],
+        "version": 1
+      },
+      "transport": "server_action"
+    },
+    "content_hash": "sha256:21b7fbf2859787bc633a6f63ff8eeba692ff5f1cb2e43d538f6c6cab68f89bfb",
+    "file": "next/app/actions.ts",
+    "file_state": "unchanged",
+    "ide": {
+      "column": 1,
+      "exact": true,
+      "line": 5,
+      "link": "vscode://file/{ROOT}/next/app/actions.ts:5:1"
+    },
+    "identity": "server_action:next/app/actions.ts#ACTION%20t016dSave",
+    "kind": "server_action",
+    "level": 4,
+    "name": "ACTION t016dSave",
+    "qualified_name": "ACTION t016dSave",
+    "span": {
+      "end_column": 1,
+      "end_line": 7,
+      "start_column": 0,
+      "start_line": 5
+    },
+    "type": "node"
+  },
+  "handler": {
+    "edge": {
+      "confidence": 1,
+      "kind": "exposes_action",
+      "provenance": "fact"
+    },
+    "expression": null,
+    "node": {
+      "attributes": {
+        "exported": true
+      },
+      "content_hash": "sha256:21b7fbf2859787bc633a6f63ff8eeba692ff5f1cb2e43d538f6c6cab68f89bfb",
+      "file": "next/app/actions.ts",
+      "file_state": "unchanged",
+      "ide": {
+        "column": 1,
+        "exact": true,
+        "line": 5,
+        "link": "vscode://file/{ROOT}/next/app/actions.ts:5:1"
+      },
+      "identity": "function:next/app/actions.ts#t016dSave",
+      "kind": "function",
+      "level": 4,
+      "name": "t016dSave",
+      "qualified_name": "t016dSave",
+      "span": {
+        "end_column": 1,
+        "end_line": 7,
+        "start_column": 0,
+        "start_line": 5
+      },
+      "type": "node"
+    },
+    "state": "resolved"
+  },
+  "ide": {
+    "available": true,
+    "editor": "vscode",
+    "error": null,
+    "label": "Open in VS Code",
+    "source": "builtin"
+  },
+  "index": {
+    "contract_version": 1,
+    "finished_at": "2026-11-03T14:32:05.123Z",
+    "indexer": {
+      "name": "graphvein",
+      "version": "extractors-62"
+    }
+  },
+  "near_misses": [],
+  "near_misses_incomplete": 0,
+  "openapi": null,
+  "precision": {
+    "label": "best_effort",
+    "reason": "default_branch",
+    "row": "D"
+  },
+  "repository": "fixture",
+  "root": null,
+  "scope": "production",
+  "transport": "server_action"
+}

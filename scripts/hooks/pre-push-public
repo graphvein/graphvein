@@ -1,0 +1,103 @@
+#!/usr/bin/env bash
+# Pre-push guard for the public repository (ADR 0080): refuses a push when
+# any pushed commit's tree contains a path of scripts/public-exclude.txt or
+# the internal AGENTS.md.
+#
+# Install (from the root of the checkout that pushes to the public
+# repository, normally the maintainer's checkout of the working repository):
+#   cp scripts/hooks/pre-push-public "$(git rev-parse --git-path hooks)/pre-push"
+# and add the public repository as a named remote, so the guard checks only
+# the commits the public repository does not have yet:
+#   git remote add public https://github.com/graphvein/graphvein.git
+#   git fetch public
+#
+# It acts only when the remote URL matches the public repository pattern,
+# by default 'github\.com[:/]graphvein/' (the graphvein organisation); set
+# another with: git config graphvein.publicRemotePattern '<regex>'.
+# Pushes to other remotes pass unchecked.
+#
+# Which commits it checks, newest first, stopping at the first bad one:
+#   - an update of a public branch whose old commit is known: OLD..NEW;
+#   - otherwise the commits not reachable from the public remote's tracking
+#     refs (refs/remotes/<name>/*). A push to a bare URL uses the tracking
+#     refs of the configured remote with that URL. Without any (no such
+#     remote, or never fetched), every commit of NEW is checked. Tracking
+#     refs of other remotes are never trusted: the working repository's own
+#     history is exactly what must not be pushed.
+#
+# Bash 3.2 compatible; runs in Git Bash on Windows.
+set -u
+
+remote_name=${1:-}
+remote_url=${2:-}
+pattern=$(git config --get graphvein.publicRemotePattern || echo 'github\.com[:/]graphvein/')
+if ! printf '%s' "$remote_url" | grep -qE "$pattern"; then
+  exit 0
+fi
+
+top=$(git rev-parse --show-toplevel)
+list=$top/scripts/public-exclude.txt
+if [ ! -f "$list" ]; then
+  echo "pre-push-public: $list is missing; refusing the push" >&2
+  exit 1
+fi
+entries=''
+while IFS= read -r line || [ -n "$line" ]; do
+  entry=${line%%#*}
+  entry=$(printf '%s' "$entry" | sed 's/[[:space:]]*$//; s/^[[:space:]]*//')
+  [ -z "$entry" ] && continue
+  # AGENTS.md is replaced, not removed: the content check below covers it.
+  [ "$entry" = AGENTS.md ] && continue
+  entries="$entries ${entry%/}"
+done < "$list"
+
+# The named remote whose tracking refs bound the walk: the remote given,
+# or, for a push to a URL, a configured remote with that URL.
+tracking=''
+if [ -n "$remote_name" ] && git config --get "remote.$remote_name.url" > /dev/null 2>&1; then
+  tracking=$remote_name
+else
+  for r in $(git remote); do
+    if [ "$(git config --get "remote.$r.url")" = "$remote_url" ]; then
+      tracking=$r
+      break
+    fi
+  done
+fi
+if [ -n "$tracking" ] && [ -z "$(git for-each-ref --count=1 "refs/remotes/$tracking/")" ]; then
+  tracking=''
+fi
+
+# bad COMMIT prints why COMMIT may not be pushed, or nothing.
+bad() {
+  if git cat-file -e "$1:AGENTS.md" 2> /dev/null && git cat-file -p "$1:AGENTS.md" | grep -q 'HANDOFF'; then
+    echo "the internal AGENTS.md"
+  fi
+  # The entries are plain paths, split on purpose.
+  git ls-tree --name-only "$1" -- $entries | sed 's/^/private path /'
+}
+
+zero=0000000000000000000000000000000000000000
+while read -r local_ref local_sha remote_ref remote_sha; do
+  [ "$local_sha" = "$zero" ] && continue
+  if [ "$remote_sha" != "$zero" ] && git cat-file -e "$remote_sha^{commit}" 2> /dev/null; then
+    commits=$(git rev-list "$remote_sha..$local_sha")
+  elif [ -n "$tracking" ]; then
+    commits=$(git rev-list "$local_sha" --not --remotes="$tracking")
+  else
+    commits=$(git rev-list "$local_sha")
+  fi
+  total=$(printf '%s\n' "$commits" | grep -c . || true)
+  n=0
+  for c in $commits; do
+    n=$((n + 1))
+    why=$(bad "$c")
+    if [ -n "$why" ]; then
+      printf '%s\n' "$why" | head -5 | sed "s/^/pre-push-public: commit $c contains /" >&2
+      echo "pre-push-public: $local_ref: stopped at the first bad commit ($n of $total to check)" >&2
+      echo "pre-push-public: push refused; remove the private paths (scripts/public-exclude.txt)" >&2
+      exit 1
+    fi
+  done
+done
+exit 0

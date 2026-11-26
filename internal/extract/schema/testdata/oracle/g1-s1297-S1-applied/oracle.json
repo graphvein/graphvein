@@ -1,0 +1,51 @@
+{
+  "id": "g1-s1297-S1-applied",
+  "signature": "applied|S1|42704|",
+  "class": "S1",
+  "owner": "P1",
+  "row": "",
+  "history": {
+    "id": "g1-s1297",
+    "tags": {
+      "1_m1.sql": [
+        "M1.create",
+        "N2.commit",
+        "M7.drop"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42704",
+        "message": "index \"t1_id_key\" does not exist",
+        "statement": 3,
+        "statement_text": "DROP INDEX t1_id_key;"
+      }
+    ],
+    "tables": [
+      {
+        "table": "history.t1",
+        "columns": [
+          {
+            "name": "c3",
+            "type": "integer",
+            "not_null": false,
+            "has_default": false
+          }
+        ],
+        "primary_key": null,
+        "unique_keys": [],
+        "foreign_keys": [],
+        "indexes": []
+      }
+    ],
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

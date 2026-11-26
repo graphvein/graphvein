@@ -1,0 +1,4 @@
+# Compose reads COMPOSE_FILE from this .env (stored as _env); the
+# extractor states only that the line exists, never a value.
+COMPOSE_FILE=compose.yml:compose.prod.yml
+APP_SECRET=never-stored-dotenv

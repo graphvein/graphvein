@@ -1,0 +1,2 @@
+CREATE TABLE t2 (id integer PRIMARY KEY);
+CREATE TABLE t3 (id int, CONSTRAINT t2_pkey PRIMARY KEY (id));

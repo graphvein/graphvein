@@ -1,0 +1,28 @@
+{
+  "id": "review19-r1-l09-index-brin-include",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y25",
+  "row": "review19",
+  "history": {
+    "id": "l09-index-brin-include"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "0A000",
+        "message": "access method \"brin\" does not support included columns",
+        "statement": 2,
+        "statement_text": "CREATE INDEX t_a ON t USING brin (a) INCLUDE (b);"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

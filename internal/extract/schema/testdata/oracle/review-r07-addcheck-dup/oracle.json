@@ -1,0 +1,28 @@
+{
+  "id": "review-r07-addcheck-dup",
+  "signature": "applied|S1|42710|",
+  "class": "S1",
+  "owner": "P2",
+  "row": "review",
+  "history": {
+    "id": "r07-addcheck-dup"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42710",
+        "message": "constraint \"x\" for relation \"t\" already exists",
+        "statement": 2,
+        "statement_text": "ALTER TABLE t ADD CONSTRAINT x CHECK (a \u003c 10);"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

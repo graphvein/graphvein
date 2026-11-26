@@ -1,0 +1,29 @@
+{
+  "id": "review16-p50-do-serial-dropseq",
+  "signature": "agreed at Revision 1.6",
+  "class": "S1",
+  "owner": "V8",
+  "row": "review16",
+  "history": {
+    "id": "p50-do-serial-dropseq"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "2BP01",
+        "message": "cannot drop sequence x_id_seq because other objects depend on it",
+        "detail": "default value for column id of table x depends on sequence x_id_seq",
+        "statement": 2,
+        "statement_text": "DROP SEQUENCE x_id_seq;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

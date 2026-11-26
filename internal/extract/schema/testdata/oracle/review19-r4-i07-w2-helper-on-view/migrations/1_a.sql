@@ -1,0 +1,5 @@
+create table users (id int, updated_at timestamptz);
+create view uv as select * from users;
+create or replace function set_updated_at() returns trigger as $$ begin NEW.updated_at = now(); return NEW; end; $$ language plpgsql;
+create or replace function trigger_updated_at(tablename regclass) returns void as $$ begin execute format('CREATE TRIGGER set_updated_at BEFORE UPDATE ON %s FOR EACH ROW EXECUTE FUNCTION set_updated_at();', tablename); end; $$ language plpgsql;
+select trigger_updated_at('uv');

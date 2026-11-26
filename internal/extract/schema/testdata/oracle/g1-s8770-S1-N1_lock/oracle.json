@@ -1,0 +1,39 @@
+{
+  "id": "g1-s8770-S1-N1_lock",
+  "signature": "applied|S1|42P01|N1.lock",
+  "class": "S1",
+  "owner": "P1",
+  "row": "N1.lock",
+  "history": {
+    "id": "g1-s8770",
+    "prelude": [
+      "CREATE TABLE ext_b (id bigint PRIMARY KEY)"
+    ],
+    "tags": {
+      "1_m1.sql": [
+        "M1.create",
+        "M6.drop",
+        "N1.lock"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42P01",
+        "message": "relation \"t1\" does not exist",
+        "statement": 3,
+        "statement_text": "LOCK TABLE t1 IN SHARE MODE;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history.ext_b",
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

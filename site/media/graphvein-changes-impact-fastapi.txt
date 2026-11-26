@@ -1,0 +1,16 @@
+Base: run PQRDUCNHJOH2ZLQBX5JLXO66HI commit 1762adac607a1b29cfc4da129557780beea71616 graphvein/extractors-62
+Head: current ELSDMD3HLYE775ADAR3CBRAJQB commit 1762adac607a1b29cfc4da129557780beea71616 graphvein/extractors-62
+routes: 0 items, 6 moves, 2 other changes
+code: 1 items, 4 moves, 2 other changes
+files: 1 items, 0 moves, 0 other changes
+other: 0 items, 6 moves, 0 other changes
+architecture: not extracted yet
+Impact of function:backend/app/api/routes/items.py#create_item (depth 5)
+  1 I4 route:backend/app/api/routes/items.py#POST%20%2F depends on: handled by the changed code, fact confidence=1.0
+  2 I3 client_call:frontend/src/client/sdk.gen.ts#ItemsService.createItem.POST%20%27%2Fapi%2Fv1%2Fitems%2F%27 may depend on: calls this route, inferred confidence=0.9
+  3 I2 method:frontend/src/client/sdk.gen.ts#ItemsService.createItem may depend on: makes the changed call, inferred confidence=0.9
+  4 I1 function:frontend/src/components/Items/AddItem.tsx#AddItem may depend on: calls the changed code, inferred confidence=0.9
+  5 I14 function:frontend/src/routes/_layout/items.tsx#Items may depend on: renders this, inferred confidence=0.9
+  Unknowns: 0 blind spots, 0 near misses, 0 nodes in gap files
+  I11: not extracted yet
+  Caps reached: depth

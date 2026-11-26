@@ -1,0 +1,28 @@
+{
+  "id": "review16-j02-grant-junk",
+  "signature": "agreed at Revision 1.6",
+  "class": "S1",
+  "owner": "V7",
+  "row": "review16",
+  "history": {
+    "id": "j02-grant-junk"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42601",
+        "message": "syntax error at or near \"garbage\"",
+        "statement": 1,
+        "statement_text": "GRANT ALL ON ALL TABLES IN SCHEMA public TO r2 garbage;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

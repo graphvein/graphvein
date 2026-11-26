@@ -1,0 +1,778 @@
+{
+  "Diagnostics": [
+    {
+      "code": "deploy_compose_unread",
+      "file": "compose.dup.yml",
+      "message": "compose.dup.yml: service \"a\": duplicate key \"image\" on line 4; no deploy facts from this file (row DC-S1)",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "deploy_compose_unread",
+      "file": "docker-compose.broken.yml",
+      "message": "docker-compose.broken.yml: YAML refused: yaml: unknown anchor 'missing' referenced; no deploy facts from this file (row DC-S1)",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "deploy_dockerfile_unread",
+      "file": "tools/Dockerfile",
+      "message": "tools/Dockerfile: line 2: RUN before the first FROM; no Dockerfile facts from this file (row DC-F1)",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "deploy_dockerfile_unread",
+      "file": "web/Dockerfile.md",
+      "message": "web/Dockerfile.md: line 1: unknown instruction \"how\"; no Dockerfile facts from this file (row DC-F1)",
+      "severity": "info",
+      "type": "diagnostic"
+    }
+  ],
+  "Nodes": [
+    {
+      "attributes": {
+        "build_context_as_written": null,
+        "build_dockerfile_as_written": null,
+        "depends_on": [],
+        "dotenv_compose_file": null,
+        "environment_urls": [],
+        "image": "adminer",
+        "image_digest": null,
+        "image_name": "adminer",
+        "image_tag": null,
+        "interpolated": [],
+        "ports": [],
+        "service": "admin",
+        "traefik_enable": null,
+        "traefik_enabled": null,
+        "traefik_routers": [
+          {
+            "entrypoints": null,
+            "interpolated": [
+              "router"
+            ],
+            "router": "${STACK_NAME?unset}-admin",
+            "rule": null,
+            "tls": "true",
+            "tls_certresolver": null,
+            "tls_enabled": true
+          }
+        ]
+      },
+      "content_hash": "sha256:71d7ce8bfa3e5001e4c1bfa539fd9bcca7fdd922e16516675253479d21ac389f",
+      "file": "compose.deploy.yml",
+      "identity": "deploy_service:compose.deploy.yml#admin",
+      "kind": "deploy_service",
+      "level": 2,
+      "name": "admin",
+      "qualified_name": "admin",
+      "span": {
+        "end_column": 63,
+        "end_line": 17,
+        "start_column": 0,
+        "start_line": 14
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "build_context": "api",
+        "build_context_as_written": "./api",
+        "build_dockerfile_as_written": null,
+        "depends_on": [],
+        "dotenv_compose_file": null,
+        "environment_urls": [],
+        "image": null,
+        "image_digest": null,
+        "image_name": null,
+        "image_tag": null,
+        "interpolated": [],
+        "ports": [],
+        "service": "api",
+        "traefik_enable": null,
+        "traefik_enabled": null,
+        "traefik_routers": [
+          {
+            "entrypoints": "websecure",
+            "interpolated": [
+              "rule"
+            ],
+            "router": "api-https",
+            "rule": "Host(`${DOMAIN:?unset}`)",
+            "tls": "true",
+            "tls_certresolver": "le",
+            "tls_enabled": true
+          },
+          {
+            "entrypoints": null,
+            "interpolated": [
+              "tls"
+            ],
+            "router": "api-plain",
+            "rule": null,
+            "tls": "${TLS_ON}",
+            "tls_certresolver": null,
+            "tls_enabled": null
+          }
+        ]
+      },
+      "content_hash": "sha256:ce174c3b9740203e38d4d73b16c29e78fee45889b12edf91c08d747dd66912dd",
+      "file": "compose.deploy.yml",
+      "identity": "deploy_service:compose.deploy.yml#api",
+      "kind": "deploy_service",
+      "level": 2,
+      "name": "api",
+      "qualified_name": "api",
+      "span": {
+        "end_column": 53,
+        "end_line": 13,
+        "start_column": 0,
+        "start_line": 5
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "build_context": "web",
+        "build_context_as_written": "./web",
+        "build_dockerfile_as_written": null,
+        "depends_on": [],
+        "dotenv_compose_file": null,
+        "environment_urls": [],
+        "image": null,
+        "image_digest": null,
+        "image_name": null,
+        "image_tag": null,
+        "interpolated": [],
+        "ports": [],
+        "service": "hidden",
+        "traefik_enable": "false",
+        "traefik_enabled": false,
+        "traefik_routers": [
+          {
+            "entrypoints": null,
+            "interpolated": [],
+            "router": "hidden-https",
+            "rule": null,
+            "tls": "true",
+            "tls_certresolver": null,
+            "tls_enabled": true
+          }
+        ]
+      },
+      "content_hash": "sha256:060bf030b799c3216a274b68708a514af1fa96d047ae91a0d8a348d6309ee123",
+      "file": "compose.deploy.yml",
+      "identity": "deploy_service:compose.deploy.yml#hidden",
+      "kind": "deploy_service",
+      "level": 2,
+      "name": "hidden",
+      "qualified_name": "hidden",
+      "span": {
+        "end_column": 49,
+        "end_line": 22,
+        "start_column": 0,
+        "start_line": 18
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "build_context_as_written": null,
+        "build_dockerfile_as_written": null,
+        "depends_on": [],
+        "dotenv_compose_file": null,
+        "environment_urls": [],
+        "image": null,
+        "image_digest": null,
+        "image_name": null,
+        "image_tag": null,
+        "interpolated": [],
+        "ports": [
+          {
+            "as_written": "9229:9229",
+            "interpolated": false
+          }
+        ],
+        "service": "api",
+        "traefik_enable": null,
+        "traefik_enabled": null,
+        "traefik_routers": []
+      },
+      "content_hash": "sha256:4cb520fab16f33f18c57094851ad9d3abb3ce3259f05a70f0dbc61e69db16e47",
+      "file": "compose.override.yml",
+      "identity": "deploy_service:compose.override.yml#api",
+      "kind": "deploy_service",
+      "level": 2,
+      "name": "api",
+      "qualified_name": "api",
+      "span": {
+        "end_column": 19,
+        "end_line": 6,
+        "start_column": 0,
+        "start_line": 4
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "build_context": ".",
+        "build_context_as_written": ".",
+        "build_dockerfile": "api/Dockerfile",
+        "build_dockerfile_as_written": "api/Dockerfile",
+        "depends_on": [
+          "db"
+        ],
+        "dotenv_compose_file": null,
+        "environment_urls": [
+          {
+            "host": "db",
+            "interpolated": [],
+            "name": "DATABASE_URL",
+            "scheme": "postgresql"
+          },
+          {
+            "host": null,
+            "interpolated": [
+              "host"
+            ],
+            "name": "CACHE_URL",
+            "scheme": "redis"
+          },
+          {
+            "host": null,
+            "interpolated": [
+              "host"
+            ],
+            "name": "PUBLIC_ORIGIN",
+            "scheme": "https"
+          }
+        ],
+        "image": "example/api:1.2@sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "image_digest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "image_name": "example/api",
+        "image_tag": "1.2",
+        "interpolated": [],
+        "ports": [
+          {
+            "as_written": "8000:8000",
+            "interpolated": false
+          }
+        ],
+        "service": "api",
+        "traefik_enable": "true",
+        "traefik_enabled": true,
+        "traefik_routers": [
+          {
+            "entrypoints": "web",
+            "interpolated": [],
+            "router": "api-http",
+            "rule": "Host(`localhost`)",
+            "tls": null,
+            "tls_certresolver": null,
+            "tls_enabled": null
+          }
+        ]
+      },
+      "content_hash": "sha256:d6983ccf3b674c1fc971ac17d7307cf8cc0f49ffe386b2ad63e9300b48bb6ff1",
+      "file": "compose.yml",
+      "identity": "deploy_service:compose.yml#api",
+      "kind": "deploy_service",
+      "level": 2,
+      "name": "api",
+      "qualified_name": "api",
+      "span": {
+        "end_column": 17,
+        "end_line": 49,
+        "start_column": 0,
+        "start_line": 28
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "build_context_as_written": null,
+        "build_dockerfile_as_written": null,
+        "depends_on": [],
+        "dotenv_compose_file": null,
+        "environment_urls": [],
+        "image": "postgres:16",
+        "image_digest": null,
+        "image_name": "postgres",
+        "image_tag": "16",
+        "interpolated": [],
+        "ports": [],
+        "service": "db",
+        "traefik_enable": null,
+        "traefik_enabled": null,
+        "traefik_routers": []
+      },
+      "content_hash": "sha256:d735c10f52fae4dd408888a28e69fa9d4beb2a9afa810684771531ac3b416955",
+      "file": "compose.yml",
+      "identity": "deploy_service:compose.yml#db",
+      "kind": "deploy_service",
+      "level": 2,
+      "name": "db",
+      "qualified_name": "db",
+      "span": {
+        "end_column": 22,
+        "end_line": 26,
+        "start_column": 0,
+        "start_line": 22
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "build_context_as_written": null,
+        "build_dockerfile_as_written": null,
+        "depends_on": [],
+        "dotenv_compose_file": null,
+        "environment_urls": [],
+        "image": "traefik:v3.7",
+        "image_digest": null,
+        "image_name": "traefik",
+        "image_tag": "v3.7",
+        "interpolated": [],
+        "ports": [
+          {
+            "as_written": "80:80",
+            "interpolated": false
+          },
+          {
+            "interpolated": true,
+            "protocol": "tcp",
+            "published": "${HTTPS_PORT:-443}",
+            "target": "443"
+          }
+        ],
+        "service": "proxy",
+        "traefik_enable": null,
+        "traefik_enabled": null,
+        "traefik_entrypoints": [
+          {
+            "address": ":80",
+            "entrypoint": "web",
+            "interpolated": [],
+            "redirect_scheme": "https",
+            "redirect_to": "websecure"
+          },
+          {
+            "address": ":443",
+            "entrypoint": "websecure",
+            "interpolated": [],
+            "redirect_scheme": null,
+            "redirect_to": null
+          }
+        ],
+        "traefik_exposed_by_default": false,
+        "traefik_routers": []
+      },
+      "content_hash": "sha256:48e2d1fce46ecc2385a01729c02db70b446f06d42ec3df84eb98384ababeef02",
+      "file": "compose.yml",
+      "identity": "deploy_service:compose.yml#proxy",
+      "kind": "deploy_service",
+      "level": 2,
+      "name": "proxy",
+      "qualified_name": "proxy",
+      "span": {
+        "end_column": 21,
+        "end_line": 20,
+        "start_column": 0,
+        "start_line": 6
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "build_context_as_written": null,
+        "build_dockerfile_as_written": null,
+        "depends_on": [
+          "api"
+        ],
+        "dotenv_compose_file": null,
+        "environment_urls": [],
+        "image": "${WEB_IMAGE:-example/web:local}",
+        "image_digest": null,
+        "image_name": null,
+        "image_tag": null,
+        "interpolated": [
+          "image"
+        ],
+        "ports": [],
+        "service": "web",
+        "traefik_enable": null,
+        "traefik_enabled": null,
+        "traefik_routers": []
+      },
+      "content_hash": "sha256:620e82f09a62624f9f1d76db61789d4f627d2b2077521790ddc65ac879eec815",
+      "file": "compose.yml",
+      "identity": "deploy_service:compose.yml#web",
+      "kind": "deploy_service",
+      "level": 2,
+      "name": "web",
+      "qualified_name": "web",
+      "span": {
+        "end_column": 11,
+        "end_line": 54,
+        "start_column": 0,
+        "start_line": 51
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "build_context_as_written": null,
+        "build_dockerfile_as_written": null,
+        "depends_on": [],
+        "dotenv_compose_file": "envset/.env",
+        "environment_urls": [],
+        "image": null,
+        "image_digest": null,
+        "image_name": null,
+        "image_tag": null,
+        "interpolated": [],
+        "ports": [],
+        "service": "app",
+        "traefik_enable": null,
+        "traefik_enabled": null,
+        "traefik_routers": []
+      },
+      "content_hash": "sha256:1b02fcde2997cec07de28d8373e1931be48000b56f0a6134657a16881ca454b2",
+      "file": "envset/compose.override.yml",
+      "identity": "deploy_service:envset/compose.override.yml#app",
+      "kind": "deploy_service",
+      "level": 2,
+      "name": "app",
+      "qualified_name": "app",
+      "span": {
+        "end_column": 16,
+        "end_line": 4,
+        "start_column": 0,
+        "start_line": 2
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "build_context": "envset",
+        "build_context_as_written": ".",
+        "build_dockerfile_as_written": null,
+        "depends_on": [],
+        "dotenv_compose_file": "envset/.env",
+        "environment_urls": [],
+        "image": null,
+        "image_digest": null,
+        "image_name": null,
+        "image_tag": null,
+        "interpolated": [],
+        "ports": [],
+        "service": "app",
+        "traefik_enable": null,
+        "traefik_enabled": null,
+        "traefik_routers": []
+      },
+      "content_hash": "sha256:daa2cae6c5a900ec58e5e21881c5168dc5d355074396c0babae91773e586865c",
+      "file": "envset/compose.yml",
+      "identity": "deploy_service:envset/compose.yml#app",
+      "kind": "deploy_service",
+      "level": 2,
+      "name": "app",
+      "qualified_name": "app",
+      "span": {
+        "end_column": 12,
+        "end_line": 3,
+        "start_column": 0,
+        "start_line": 2
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "build_context_as_written": "../..",
+        "build_dockerfile_as_written": "Dockerfile",
+        "depends_on": [],
+        "dotenv_compose_file": null,
+        "environment_urls": [],
+        "image": null,
+        "image_digest": null,
+        "image_name": null,
+        "image_tag": null,
+        "interpolated": [],
+        "ports": [],
+        "service": "escapee",
+        "traefik_enable": null,
+        "traefik_enabled": null,
+        "traefik_routers": []
+      },
+      "content_hash": "sha256:522997d7ee5a04e5374d6759d242ac4ab2c32b019231ae395f1e174df423e1de",
+      "file": "ops/docker-compose.yaml",
+      "identity": "deploy_service:ops/docker-compose.yaml#escapee",
+      "kind": "deploy_service",
+      "level": 2,
+      "name": "escapee",
+      "qualified_name": "escapee",
+      "span": {
+        "end_column": 28,
+        "end_line": 28,
+        "start_column": 0,
+        "start_line": 25
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "build_context_as_written": "${CTX:-.}",
+        "build_dockerfile_as_written": null,
+        "depends_on": [],
+        "dotenv_compose_file": null,
+        "environment_urls": [],
+        "image": null,
+        "image_digest": null,
+        "image_name": null,
+        "image_tag": null,
+        "interpolated": [
+          "build.context"
+        ],
+        "ports": [],
+        "service": "inline",
+        "traefik_enable": null,
+        "traefik_enabled": null,
+        "traefik_routers": []
+      },
+      "content_hash": "sha256:e99dba898cb842ad90b5bf757112a7253f9be19d93e43379a5571c72384c3468",
+      "file": "ops/docker-compose.yaml",
+      "identity": "deploy_service:ops/docker-compose.yaml#inline",
+      "kind": "deploy_service",
+      "level": 2,
+      "name": "inline",
+      "qualified_name": "inline",
+      "span": {
+        "end_column": 19,
+        "end_line": 39,
+        "start_column": 0,
+        "start_line": 35
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "build_context_as_written": null,
+        "build_dockerfile_as_written": null,
+        "depends_on": [],
+        "dotenv_compose_file": null,
+        "environment_urls": [],
+        "image": "docker.io/library/rabbitmq:3-management",
+        "image_digest": null,
+        "image_name": "docker.io/library/rabbitmq",
+        "image_tag": "3-management",
+        "interpolated": [],
+        "ports": [],
+        "service": "queue",
+        "traefik_enable": null,
+        "traefik_enabled": null,
+        "traefik_routers": []
+      },
+      "content_hash": "sha256:8805dd03dede4e6f1b11fd4662e838154f48d39892782058c8afa120cd2f1b32",
+      "file": "ops/docker-compose.yaml",
+      "identity": "deploy_service:ops/docker-compose.yaml#queue",
+      "kind": "deploy_service",
+      "level": 2,
+      "name": "queue",
+      "qualified_name": "queue",
+      "span": {
+        "end_column": 20,
+        "end_line": 23,
+        "start_column": 0,
+        "start_line": 19
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "build_context_as_written": "https://github.com/example/repo.git#main",
+        "build_dockerfile_as_written": "Dockerfile",
+        "depends_on": [],
+        "dotenv_compose_file": null,
+        "environment_urls": [],
+        "image": null,
+        "image_digest": null,
+        "image_name": null,
+        "image_tag": null,
+        "interpolated": [],
+        "ports": [],
+        "service": "remote",
+        "traefik_enable": null,
+        "traefik_enabled": null,
+        "traefik_routers": []
+      },
+      "content_hash": "sha256:660feebf7c382c20e4d35b1669465f20333f68f681832b588b054da9007eb56d",
+      "file": "ops/docker-compose.yaml",
+      "identity": "deploy_service:ops/docker-compose.yaml#remote",
+      "kind": "deploy_service",
+      "level": 2,
+      "name": "remote",
+      "qualified_name": "remote",
+      "span": {
+        "end_column": 28,
+        "end_line": 33,
+        "start_column": 0,
+        "start_line": 30
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "build_context": "api",
+        "build_context_as_written": "../api",
+        "build_dockerfile_as_written": null,
+        "depends_on": [
+          "queue"
+        ],
+        "dotenv_compose_file": null,
+        "environment_urls": [
+          {
+            "host": "logs.example.test",
+            "interpolated": [],
+            "name": "LOG_URL",
+            "scheme": "https"
+          }
+        ],
+        "image": null,
+        "image_digest": null,
+        "image_name": null,
+        "image_tag": null,
+        "interpolated": [],
+        "ports": [
+          {
+            "as_written": "${WORKER_PORT}:9000",
+            "interpolated": true
+          }
+        ],
+        "service": "worker",
+        "traefik_enable": null,
+        "traefik_enabled": null,
+        "traefik_routers": []
+      },
+      "content_hash": "sha256:c155589facca5ffd3e87a49569591655367a7d431674beaf7b3de2501cb83b4a",
+      "file": "ops/docker-compose.yaml",
+      "identity": "deploy_service:ops/docker-compose.yaml#worker",
+      "kind": "deploy_service",
+      "level": 2,
+      "name": "worker",
+      "qualified_name": "worker",
+      "span": {
+        "end_column": 29,
+        "end_line": 17,
+        "start_column": 0,
+        "start_line": 12
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "stages": [
+          {
+            "alias": "assets",
+            "expose": [],
+            "from_stage": null,
+            "image": "node:22-alpine",
+            "image_digest": null,
+            "image_name": "node",
+            "image_tag": "22-alpine",
+            "index": 0,
+            "interpolated": [],
+            "line": 3,
+            "platform": null
+          },
+          {
+            "alias": "runtime",
+            "expose": [
+              "8000",
+              "9000/udp"
+            ],
+            "from_stage": null,
+            "image": "${BASE}",
+            "image_digest": null,
+            "image_name": null,
+            "image_tag": null,
+            "index": 1,
+            "interpolated": [
+              "image"
+            ],
+            "line": 8,
+            "platform": null
+          },
+          {
+            "alias": null,
+            "expose": [
+              "$EXTRA_PORT"
+            ],
+            "from_stage": "runtime",
+            "image": "runtime",
+            "image_digest": null,
+            "image_name": null,
+            "image_tag": null,
+            "index": 2,
+            "interpolated": [
+              "expose"
+            ],
+            "line": 13,
+            "platform": null
+          }
+        ]
+      },
+      "content_hash": "sha256:2d354093751b7703248f8e8a3bca9729282da6e726318f888c033cd66656f9ff",
+      "file": "api/Dockerfile",
+      "identity": "dockerfile:api/Dockerfile#Dockerfile",
+      "kind": "dockerfile",
+      "level": 3,
+      "name": "api/Dockerfile",
+      "qualified_name": "Dockerfile",
+      "span": {
+        "end_column": 0,
+        "end_line": 15,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "stages": [
+          {
+            "alias": null,
+            "expose": [
+              "80"
+            ],
+            "from_stage": null,
+            "image": "nginx:alpine",
+            "image_digest": null,
+            "image_name": "nginx",
+            "image_tag": "alpine",
+            "index": 0,
+            "interpolated": [
+              "platform"
+            ],
+            "line": 2,
+            "platform": "$BUILDPLATFORM"
+          }
+        ]
+      },
+      "content_hash": "sha256:b6848ee2541d38fcaf25b1853cb8ac2e5b73eaeb668a4fec5e25e056dce08f94",
+      "file": "web/web.Dockerfile",
+      "identity": "dockerfile:web/web.Dockerfile#web.Dockerfile",
+      "kind": "dockerfile",
+      "level": 3,
+      "name": "web/web.Dockerfile",
+      "qualified_name": "web.Dockerfile",
+      "span": {
+        "end_column": 0,
+        "end_line": 5,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    }
+  ]
+}

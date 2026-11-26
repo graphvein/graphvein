@@ -1,0 +1,14 @@
+{
+  "openapi": "3.1.0",
+  "info": {"title": "T016d fixture", "version": "1"},
+  "paths": {
+    "/t016d-items": {
+      "get": {
+        "operationId": "listItems",
+        "summary": "List items",
+        "tags": ["items"],
+        "responses": {"200": {"description": "ok"}}
+      }
+    }
+  }
+}

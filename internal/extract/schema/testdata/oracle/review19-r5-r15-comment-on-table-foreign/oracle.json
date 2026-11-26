@@ -1,0 +1,28 @@
+{
+  "id": "review19-r5-r15-comment-on-table-foreign",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y42",
+  "row": "review19",
+  "history": {
+    "id": "r15-comment-on-table-foreign"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42809",
+        "message": "\"v\" is not a foreign table",
+        "statement": 3,
+        "statement_text": "COMMENT ON FOREIGN TABLE v IS 'x';"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

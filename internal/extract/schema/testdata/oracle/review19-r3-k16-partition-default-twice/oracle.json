@@ -1,0 +1,28 @@
+{
+  "id": "review19-r3-k16-partition-default-twice",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y29",
+  "row": "review19",
+  "history": {
+    "id": "k16-partition-default-twice"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42P17",
+        "message": "partition \"pd2\" conflicts with existing default partition \"pd\"",
+        "statement": 3,
+        "statement_text": "CREATE TABLE pd2 PARTITION OF p DEFAULT;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

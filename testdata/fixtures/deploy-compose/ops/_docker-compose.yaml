@@ -1,0 +1,39 @@
+# Anchors and merge keys resolve; extends and include are not followed
+# (DCD); paths resolve against this file's directory.
+include:
+  - ../shared/compose.yml
+
+x-common: &common
+  restart: always
+  environment:
+    LOG_URL: "https://logs.example.test/ingest?token=abc"
+
+services:
+  worker:
+    <<: *common
+    build: ../api
+    depends_on: [queue]
+    ports:
+      - "${WORKER_PORT}:9000"
+
+  queue:
+    image: docker.io/library/rabbitmq:3-management
+    extends:
+      file: ../base.yml
+      service: queue
+
+  escapee:
+    build:
+      context: ../..
+      dockerfile: Dockerfile
+
+  remote:
+    build:
+      context: https://github.com/example/repo.git#main
+      dockerfile: Dockerfile
+
+  inline:
+    build:
+      context: ${CTX:-.}
+      dockerfile_inline: |
+        FROM alpine

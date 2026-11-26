@@ -1,0 +1,3 @@
+CREATE TABLE t1 (id int PRIMARY KEY);
+CREATE TABLE t2 (a int, b int, CHECK (a > b));
+ALTER TABLE t2 ADD CONSTRAINT t2_check PRIMARY KEY (a);

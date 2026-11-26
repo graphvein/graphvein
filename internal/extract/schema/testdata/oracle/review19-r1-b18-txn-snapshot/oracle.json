@@ -1,0 +1,28 @@
+{
+  "id": "review19-r1-b18-txn-snapshot",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y03",
+  "row": "review19",
+  "history": {
+    "id": "b18-txn-snapshot"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "25001",
+        "message": "SET TRANSACTION SNAPSHOT must be called before any query",
+        "statement": 2,
+        "statement_text": "SET TRANSACTION SNAPSHOT '00000003-0000001B-1';"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

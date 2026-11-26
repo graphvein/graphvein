@@ -1,0 +1,36 @@
+{
+  "id": "g1-s3088-S1-M4_create_unnamed",
+  "signature": "applied|S1|42P01|M4.create_unnamed",
+  "class": "S1",
+  "owner": "P6",
+  "row": "M4.create_unnamed",
+  "history": {
+    "id": "g1-s3088",
+    "tags": {
+      "1_m1.sql": [
+        "R2.create_enum",
+        "M1.enum_default",
+        "O5.transaction",
+        "M4.create_unnamed"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42P01",
+        "message": "relation \"t4\" does not exist",
+        "statement": 4,
+        "statement_text": "CREATE UNIQUE INDEX ON t4 (status);"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

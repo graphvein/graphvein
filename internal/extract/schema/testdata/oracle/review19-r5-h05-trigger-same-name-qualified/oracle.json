@@ -1,0 +1,30 @@
+{
+  "id": "review19-r5-h05-trigger-same-name-qualified",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y39",
+  "row": "review19",
+  "history": {
+    "id": "h05-trigger-same-name-qualified",
+    "fresh_db": true
+  },
+  "verdict": {
+    "default_schema": "public",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "2BP01",
+        "message": "cannot drop function set_updated_at() because other objects depend on it",
+        "detail": "trigger set_updated_at on table t depends on function set_updated_at()",
+        "statement": 4,
+        "statement_text": "DROP FUNCTION public.set_updated_at();"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "public._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

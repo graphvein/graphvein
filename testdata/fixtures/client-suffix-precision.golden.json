@@ -1,0 +1,1021 @@
+{
+  "diagnostics": [
+    {
+      "code": "unresolved_calls",
+      "file": "frontend.ts",
+      "message": "4 calls could not be resolved without a type checker (external=4, unknown=0)",
+      "severity": "info",
+      "type": "diagnostic"
+    }
+  ],
+  "edges": [
+    {
+      "confidence": 0.6,
+      "evidence": [
+        {
+          "file": "frontend.ts",
+          "span": {
+            "end_column": 45,
+            "end_line": 5,
+            "start_column": 2,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "calls_route",
+      "provenance": "inferred",
+      "source": "client_call:frontend.ts#main.GET%20%60%24%7Bprocess.env.API%7D%2Fassets%2Flogo.png%60",
+      "target": "route:backend.ts#ANY%20%2Fcdn%2Fassets%2F%2A",
+      "type": "edge"
+    },
+    {
+      "confidence": 0.6,
+      "evidence": [
+        {
+          "file": "frontend.ts",
+          "span": {
+            "end_column": 39,
+            "end_line": 4,
+            "start_column": 2,
+            "start_line": 4
+          }
+        }
+      ],
+      "kind": "calls_route",
+      "provenance": "inferred",
+      "source": "client_call:frontend.ts#main.GET%20%60%24%7Bprocess.env.API%7D%2Forders%2F42%60",
+      "target": "route:backend.ts#GET%20%2Fapi%2Forders%2F%3Aid",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "backend.ts",
+          "span": {
+            "end_column": 28,
+            "end_line": 3,
+            "start_column": 0,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:backend.ts#backend.ts",
+      "target": "function:backend.ts#handler",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "backend.ts",
+          "span": {
+            "end_column": 33,
+            "end_line": 7,
+            "start_column": 0,
+            "start_line": 7
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:backend.ts#backend.ts",
+      "target": "route:backend.ts#ANY%20%2Fcdn%2Fassets%2F%2A",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "backend.ts",
+          "span": {
+            "end_column": 28,
+            "end_line": 4,
+            "start_column": 0,
+            "start_line": 4
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:backend.ts#backend.ts",
+      "target": "route:backend.ts#ANY%20%2Ffiles%2F%2A",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "backend.ts",
+          "span": {
+            "end_column": 35,
+            "end_line": 6,
+            "start_column": 0,
+            "start_line": 6
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:backend.ts#backend.ts",
+      "target": "route:backend.ts#GET%20%2Fapi%2Forders%2F%3Aid",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "backend.ts",
+          "span": {
+            "end_column": 30,
+            "end_line": 5,
+            "start_column": 0,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:backend.ts#backend.ts",
+      "target": "route:backend.ts#GET%20%2Fusers%2F%3Aid",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "frontend.ts",
+          "span": {
+            "end_column": 1,
+            "end_line": 6,
+            "start_column": 0,
+            "start_line": 1
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:frontend.ts#frontend.ts",
+      "target": "function:frontend.ts#main",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "frontend.ts",
+          "span": {
+            "end_column": 57,
+            "end_line": 2,
+            "start_column": 2,
+            "start_line": 2
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "function:frontend.ts#main",
+      "target": "client_call:frontend.ts#main.DELETE%20%60%24%7Bprocess.env.API%7D%2Fnothing%60",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "frontend.ts",
+          "span": {
+            "end_column": 45,
+            "end_line": 5,
+            "start_column": 2,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "function:frontend.ts#main",
+      "target": "client_call:frontend.ts#main.GET%20%60%24%7Bprocess.env.API%7D%2Fassets%2Flogo.png%60",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "frontend.ts",
+          "span": {
+            "end_column": 36,
+            "end_line": 3,
+            "start_column": 2,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "function:frontend.ts#main",
+      "target": "client_call:frontend.ts#main.GET%20%60%24%7Bprocess.env.API%7D%2Fhealth%60",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "frontend.ts",
+          "span": {
+            "end_column": 39,
+            "end_line": 4,
+            "start_column": 2,
+            "start_line": 4
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "function:frontend.ts#main",
+      "target": "client_call:frontend.ts#main.GET%20%60%24%7Bprocess.env.API%7D%2Forders%2F42%60",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "backend.ts",
+          "span": {
+            "end_column": 33,
+            "end_line": 7,
+            "start_column": 0,
+            "start_line": 7
+          }
+        }
+      ],
+      "kind": "exposes_route",
+      "provenance": "fact",
+      "source": "function:backend.ts#handler",
+      "target": "route:backend.ts#ANY%20%2Fcdn%2Fassets%2F%2A",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "backend.ts",
+          "span": {
+            "end_column": 28,
+            "end_line": 4,
+            "start_column": 0,
+            "start_line": 4
+          }
+        }
+      ],
+      "kind": "exposes_route",
+      "provenance": "fact",
+      "source": "function:backend.ts#handler",
+      "target": "route:backend.ts#ANY%20%2Ffiles%2F%2A",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "backend.ts",
+          "span": {
+            "end_column": 35,
+            "end_line": 6,
+            "start_column": 0,
+            "start_line": 6
+          }
+        }
+      ],
+      "kind": "exposes_route",
+      "provenance": "fact",
+      "source": "function:backend.ts#handler",
+      "target": "route:backend.ts#GET%20%2Fapi%2Forders%2F%3Aid",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "backend.ts",
+          "span": {
+            "end_column": 30,
+            "end_line": 5,
+            "start_column": 0,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "exposes_route",
+      "provenance": "fact",
+      "source": "function:backend.ts#handler",
+      "target": "route:backend.ts#GET%20%2Fusers%2F%3Aid",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "backend.ts",
+          "span": {
+            "end_column": 30,
+            "end_line": 1,
+            "start_column": 0,
+            "start_line": 1
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:backend.ts#backend.ts",
+      "target": "external:.#npm%3Aexpress",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "backend.ts",
+          "span": {
+            "end_column": 27,
+            "end_line": 4,
+            "start_column": 20,
+            "start_line": 4
+          }
+        },
+        {
+          "file": "backend.ts",
+          "span": {
+            "end_column": 29,
+            "end_line": 5,
+            "start_column": 22,
+            "start_line": 5
+          }
+        },
+        {
+          "file": "backend.ts",
+          "span": {
+            "end_column": 34,
+            "end_line": 6,
+            "start_column": 27,
+            "start_line": 6
+          }
+        },
+        {
+          "file": "backend.ts",
+          "span": {
+            "end_column": 32,
+            "end_line": 7,
+            "start_column": 25,
+            "start_line": 7
+          }
+        }
+      ],
+      "kind": "passes_function",
+      "provenance": "fact",
+      "source": "file:backend.ts#backend.ts",
+      "target": "function:backend.ts#handler",
+      "type": "edge"
+    }
+  ],
+  "files": null,
+  "nodes": [
+    {
+      "attributes": {
+        "base": "unresolved",
+        "base_expression": "process.env.API",
+        "library": "fetch",
+        "method": "DELETE",
+        "paths": [
+          {
+            "candidate_count": 0,
+            "candidates": [],
+            "conditional": false,
+            "match": null,
+            "origin": null,
+            "resolution": "literal",
+            "status": "unmatched",
+            "template": "/nothing"
+          }
+        ],
+        "status": "unmatched",
+        "url_expression": "`${process.env.API}/nothing`",
+        "wrapper": null
+      },
+      "content_hash": "sha256:76a13f14e66d29479adb7ca343326aa7e6ec84d4c85e49f02608b1755b6c7018",
+      "file": "frontend.ts",
+      "identity": "client_call:frontend.ts#main.DELETE%20%60%24%7Bprocess.env.API%7D%2Fnothing%60",
+      "kind": "client_call",
+      "level": 4,
+      "name": "DELETE `${process.env.API}/nothing`",
+      "qualified_name": "main.DELETE `${process.env.API}/nothing`",
+      "span": {
+        "end_column": 57,
+        "end_line": 2,
+        "start_column": 2,
+        "start_line": 2
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "base": "unresolved",
+        "base_expression": "process.env.API",
+        "library": "fetch",
+        "method": "GET",
+        "paths": [
+          {
+            "candidate_count": 0,
+            "candidates": [
+              "route:backend.ts#ANY%20%2Fcdn%2Fassets%2F%2A"
+            ],
+            "conditional": false,
+            "match": "suffix",
+            "origin": null,
+            "resolution": "literal",
+            "status": "linked",
+            "template": "/assets/logo.png"
+          }
+        ],
+        "status": "linked",
+        "url_expression": "`${process.env.API}/assets/logo.png`",
+        "wrapper": null
+      },
+      "content_hash": "sha256:769334a00cf331f651aa4e30bdcd0d53c1ca8b3433eb99bd9267dd6d094174be",
+      "file": "frontend.ts",
+      "identity": "client_call:frontend.ts#main.GET%20%60%24%7Bprocess.env.API%7D%2Fassets%2Flogo.png%60",
+      "kind": "client_call",
+      "level": 4,
+      "name": "GET `${process.env.API}/assets/logo.png`",
+      "qualified_name": "main.GET `${process.env.API}/assets/logo.png`",
+      "span": {
+        "end_column": 45,
+        "end_line": 5,
+        "start_column": 2,
+        "start_line": 5
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "base": "unresolved",
+        "base_expression": "process.env.API",
+        "library": "fetch",
+        "method": "GET",
+        "paths": [
+          {
+            "candidate_count": 0,
+            "candidates": [],
+            "conditional": false,
+            "match": null,
+            "origin": null,
+            "resolution": "literal",
+            "status": "unmatched",
+            "template": "/health"
+          }
+        ],
+        "status": "unmatched",
+        "url_expression": "`${process.env.API}/health`",
+        "wrapper": null
+      },
+      "content_hash": "sha256:74f84f10dac91b6acea1a952e5a5d5bf1af82ceebf451b87dce289cb0e12f1d8",
+      "file": "frontend.ts",
+      "identity": "client_call:frontend.ts#main.GET%20%60%24%7Bprocess.env.API%7D%2Fhealth%60",
+      "kind": "client_call",
+      "level": 4,
+      "name": "GET `${process.env.API}/health`",
+      "qualified_name": "main.GET `${process.env.API}/health`",
+      "span": {
+        "end_column": 36,
+        "end_line": 3,
+        "start_column": 2,
+        "start_line": 3
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "base": "unresolved",
+        "base_expression": "process.env.API",
+        "library": "fetch",
+        "method": "GET",
+        "paths": [
+          {
+            "candidate_count": 0,
+            "candidates": [
+              "route:backend.ts#GET%20%2Fapi%2Forders%2F%3Aid"
+            ],
+            "conditional": false,
+            "match": "suffix",
+            "origin": null,
+            "resolution": "literal",
+            "status": "linked",
+            "template": "/orders/42"
+          }
+        ],
+        "status": "linked",
+        "url_expression": "`${process.env.API}/orders/42`",
+        "wrapper": null
+      },
+      "content_hash": "sha256:8f4e76bc925208e018d1af5ffa40d85714e2a68cf5f1918f8d8b80d144bca61f",
+      "file": "frontend.ts",
+      "identity": "client_call:frontend.ts#main.GET%20%60%24%7Bprocess.env.API%7D%2Forders%2F42%60",
+      "kind": "client_call",
+      "level": 4,
+      "name": "GET `${process.env.API}/orders/42`",
+      "qualified_name": "main.GET `${process.env.API}/orders/42`",
+      "span": {
+        "end_column": 39,
+        "end_line": 4,
+        "start_column": 2,
+        "start_line": 4
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "ecosystem": "npm",
+        "name": "express"
+      },
+      "content_hash": "sha256:299aaf2025e1758e1e299eb3a57540c904426ae0b557ed39870875227a95dbcd",
+      "file": ".",
+      "identity": "external:.#npm%3Aexpress",
+      "kind": "external",
+      "level": 1,
+      "name": "express",
+      "qualified_name": "npm:express",
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:f735b1495a96c3aa31f072de7a02e14c441b5e64a8a98dec089f25ad932bf098",
+      "file": "README.md",
+      "identity": "file:README.md#README.md",
+      "kind": "file",
+      "level": 3,
+      "name": "README.md",
+      "qualified_name": "README.md",
+      "span": {
+        "end_column": 0,
+        "end_line": 16,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:03cea971d667d23f5b95e403a6866ce376ff5c4d1ddd2a135949d891520662f6",
+      "file": "backend.ts",
+      "identity": "file:backend.ts#backend.ts",
+      "kind": "file",
+      "level": 3,
+      "name": "backend.ts",
+      "qualified_name": "backend.ts",
+      "span": {
+        "end_column": 0,
+        "end_line": 8,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 4,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:e28df6b049016417ba1229a7193a69b112b84ec74d8c99f0a4ee7ce3badc832a",
+      "file": "frontend.ts",
+      "identity": "file:frontend.ts#frontend.ts",
+      "kind": "file",
+      "level": 3,
+      "name": "frontend.ts",
+      "qualified_name": "frontend.ts",
+      "span": {
+        "end_column": 0,
+        "end_line": 7,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:f10d9ffbc9f9bb53d9e484c84dd836b9adfa1224af958ec3d1cff76313c7b4ca",
+      "file": "package.json",
+      "identity": "file:package.json#package.json",
+      "kind": "file",
+      "level": 3,
+      "name": "package.json",
+      "qualified_name": "package.json",
+      "span": {
+        "end_column": 0,
+        "end_line": 2,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "exported": true
+      },
+      "content_hash": "sha256:8ea128a4e5ec3377957ad6c92b2dacc12ea81aaae30748e7afe4528d4bc25797",
+      "file": "backend.ts",
+      "identity": "function:backend.ts#handler",
+      "kind": "function",
+      "level": 4,
+      "name": "handler",
+      "qualified_name": "handler",
+      "span": {
+        "end_column": 28,
+        "end_line": 3,
+        "start_column": 0,
+        "start_line": 3
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "exported": true
+      },
+      "content_hash": "sha256:e0ba41a1455c9e6faa1788a5d82e375cbf20e78dc87e65c743c367587436912c",
+      "file": "frontend.ts",
+      "identity": "function:frontend.ts#main",
+      "kind": "function",
+      "level": 4,
+      "name": "main",
+      "qualified_name": "main",
+      "span": {
+        "end_column": 1,
+        "end_line": 6,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "framework": "express",
+        "handler": "function:backend.ts#handler",
+        "handler_inline": false,
+        "method": "ANY",
+        "middleware": [],
+        "paths": [
+          {
+            "conditional": false,
+            "resolution": "literal",
+            "template": "/cdn/assets/{*}"
+          }
+        ],
+        "pattern": "/cdn/assets/*",
+        "shape": {
+          "body": {
+            "items": [],
+            "reason": "the handler reads no request property; no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+            "state": "not_read"
+          },
+          "cookie": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "follow": {
+            "chains": [],
+            "depth_limit": 6
+          },
+          "header": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "models": [],
+          "path": {
+            "items": [],
+            "reason": "an unnamed wildcard (req.params[0]) is not an item",
+            "state": "not_read"
+          },
+          "query": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "responses": {
+            "items": [],
+            "reason": "the handler does not use a response parameter in a read form",
+            "state": "not_read"
+          },
+          "security": {
+            "items": [],
+            "state": "not_read"
+          },
+          "security_schemes": [],
+          "version": 1
+        }
+      },
+      "content_hash": "sha256:ce2fb876e38dbf99988ca5cec3d3f144178fd1400e7eb342fcdb1b3ef17c047e",
+      "file": "backend.ts",
+      "identity": "route:backend.ts#ANY%20%2Fcdn%2Fassets%2F%2A",
+      "kind": "route",
+      "level": 4,
+      "name": "ANY /cdn/assets/*",
+      "qualified_name": "ANY /cdn/assets/*",
+      "span": {
+        "end_column": 33,
+        "end_line": 7,
+        "start_column": 0,
+        "start_line": 7
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "framework": "express",
+        "handler": "function:backend.ts#handler",
+        "handler_inline": false,
+        "method": "ANY",
+        "middleware": [],
+        "paths": [
+          {
+            "conditional": false,
+            "resolution": "literal",
+            "template": "/files/{*}"
+          }
+        ],
+        "pattern": "/files/*",
+        "shape": {
+          "body": {
+            "items": [],
+            "reason": "the handler reads no request property; no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+            "state": "not_read"
+          },
+          "cookie": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "follow": {
+            "chains": [],
+            "depth_limit": 6
+          },
+          "header": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "models": [],
+          "path": {
+            "items": [],
+            "reason": "an unnamed wildcard (req.params[0]) is not an item",
+            "state": "not_read"
+          },
+          "query": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "responses": {
+            "items": [],
+            "reason": "the handler does not use a response parameter in a read form",
+            "state": "not_read"
+          },
+          "security": {
+            "items": [],
+            "state": "not_read"
+          },
+          "security_schemes": [],
+          "version": 1
+        }
+      },
+      "content_hash": "sha256:238041f7ac8a7daa5d7e554eec210edfcfb6154fd567ca599dacf4a82f430148",
+      "file": "backend.ts",
+      "identity": "route:backend.ts#ANY%20%2Ffiles%2F%2A",
+      "kind": "route",
+      "level": 4,
+      "name": "ANY /files/*",
+      "qualified_name": "ANY /files/*",
+      "span": {
+        "end_column": 28,
+        "end_line": 4,
+        "start_column": 0,
+        "start_line": 4
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "framework": "express",
+        "handler": "function:backend.ts#handler",
+        "handler_inline": false,
+        "method": "GET",
+        "middleware": [],
+        "paths": [
+          {
+            "conditional": false,
+            "resolution": "literal",
+            "template": "/api/orders/{id}"
+          }
+        ],
+        "pattern": "/api/orders/:id",
+        "shape": {
+          "body": {
+            "items": [],
+            "reason": "the handler reads no request property; no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+            "state": "not_read"
+          },
+          "cookie": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "follow": {
+            "chains": [],
+            "depth_limit": 6
+          },
+          "header": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "models": [],
+          "path": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "backend.ts",
+              "kind": "fact",
+              "line": 6,
+              "rule": "SH-E1"
+            },
+            "items": [
+              {
+                "access": "declared",
+                "name": "id",
+                "presence": "required",
+                "provenance": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "backend.ts",
+                  "kind": "fact",
+                  "line": 6,
+                  "rule": "SH-E1"
+                },
+                "schema": {
+                  "type": "string"
+                }
+              }
+            ],
+            "state": "complete"
+          },
+          "query": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "responses": {
+            "items": [],
+            "reason": "the handler does not use a response parameter in a read form",
+            "state": "not_read"
+          },
+          "security": {
+            "items": [],
+            "state": "not_read"
+          },
+          "security_schemes": [],
+          "version": 1
+        }
+      },
+      "content_hash": "sha256:025f57d117e0af018ecb63dfc1fa789027c32d26575bd23546a0abd7e2cc491a",
+      "file": "backend.ts",
+      "identity": "route:backend.ts#GET%20%2Fapi%2Forders%2F%3Aid",
+      "kind": "route",
+      "level": 4,
+      "name": "GET /api/orders/:id",
+      "qualified_name": "GET /api/orders/:id",
+      "span": {
+        "end_column": 35,
+        "end_line": 6,
+        "start_column": 0,
+        "start_line": 6
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "framework": "express",
+        "handler": "function:backend.ts#handler",
+        "handler_inline": false,
+        "method": "GET",
+        "middleware": [],
+        "paths": [
+          {
+            "conditional": false,
+            "resolution": "literal",
+            "template": "/users/{id}"
+          }
+        ],
+        "pattern": "/users/:id",
+        "shape": {
+          "body": {
+            "items": [],
+            "reason": "the handler reads no request property; no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+            "state": "not_read"
+          },
+          "cookie": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "follow": {
+            "chains": [],
+            "depth_limit": 6
+          },
+          "header": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "models": [],
+          "path": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "backend.ts",
+              "kind": "fact",
+              "line": 5,
+              "rule": "SH-E1"
+            },
+            "items": [
+              {
+                "access": "declared",
+                "name": "id",
+                "presence": "required",
+                "provenance": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "backend.ts",
+                  "kind": "fact",
+                  "line": 5,
+                  "rule": "SH-E1"
+                },
+                "schema": {
+                  "type": "string"
+                }
+              }
+            ],
+            "state": "complete"
+          },
+          "query": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "responses": {
+            "items": [],
+            "reason": "the handler does not use a response parameter in a read form",
+            "state": "not_read"
+          },
+          "security": {
+            "items": [],
+            "state": "not_read"
+          },
+          "security_schemes": [],
+          "version": 1
+        }
+      },
+      "content_hash": "sha256:ee86b5a158a6bdf3e53a432eed24b150c4ad1311e6b02cc975ed3e359c523837",
+      "file": "backend.ts",
+      "identity": "route:backend.ts#GET%20%2Fusers%2F%3Aid",
+      "kind": "route",
+      "level": 4,
+      "name": "GET /users/:id",
+      "qualified_name": "GET /users/:id",
+      "span": {
+        "end_column": 30,
+        "end_line": 5,
+        "start_column": 0,
+        "start_line": 5
+      },
+      "type": "node"
+    }
+  ]
+}

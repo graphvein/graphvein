@@ -1,0 +1,35 @@
+{
+  "id": "g3-s6790-S1-applied",
+  "signature": "applied|S1|42703|",
+  "class": "S1",
+  "owner": "P1",
+  "row": "",
+  "history": {
+    "id": "g3-s6790",
+    "fresh_db": true,
+    "tags": {
+      "1_m1.sql": [
+        "M5a.order_p9",
+        "N3.update"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "public",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42703",
+        "message": "column \"id\" does not exist",
+        "statement": 3,
+        "statement_text": "UPDATE t3 SET id = id;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "public._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

@@ -1,0 +1,29 @@
+{
+  "id": "review18-c02-droptype-func-ret",
+  "signature": "agreed at Revision 1.8",
+  "class": "S1",
+  "owner": "X1",
+  "row": "review18",
+  "history": {
+    "id": "c02-droptype-func-ret"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "2BP01",
+        "message": "cannot drop type st because other objects depend on it",
+        "detail": "function f() depends on type st",
+        "statement": 3,
+        "statement_text": "DROP TYPE st;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

@@ -1,0 +1,26 @@
+enum Action {
+  CREATE
+  DELETE
+
+  @@schema("audit")
+}
+
+model AuditEntry {
+  id     BigInt   @id @default(autoincrement())
+  action Action
+  at     DateTime @default(now())
+
+  @@schema("audit")
+}
+
+// @@schema naming a schema the datasource does not list: PR-P1.
+model Stray {
+  id Int @id
+
+  @@schema("elsewhere")
+}
+
+// No @@schema while the datasource lists schemas: PR-P1.
+model Unplaced {
+  id Int @id
+}

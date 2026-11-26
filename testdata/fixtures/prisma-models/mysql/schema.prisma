@@ -1,0 +1,45 @@
+// MySQL: provider-dependent facts mapped from Prisma's connector source.
+datasource db {
+  provider = "mysql"
+}
+
+enum Size {
+  SMALL @map("s")
+  LARGE @map("l")
+}
+
+model Item {
+  id       Int      @id @default(autoincrement())
+  name     String
+  price    Decimal
+  ratio    Float    @default(0.5)
+  active   Boolean  @default(true)
+  size     Size     @default(SMALL)
+  data     Json?    @default("{}")
+  blob     Bytes?
+  count    BigInt
+  created  DateTime @default(now())
+  code     String   @default(dbgenerated("(uuid())"))
+  ref      String   @default(cuid())
+  short    String   @db.VarChar(10)
+  sku      String   @unique
+
+  purchases Purchase[]
+
+  @@index([name])
+  @@unique([name, count])
+}
+
+// A scalar list on MySQL: Prisma rejects the model (PR-P1).
+model Tagged {
+  id   Int      @id
+  tags String[]
+}
+
+// A foreign key on MySQL: the default action from the connector (mapped);
+// the database may add an index for it, so index is unknown.
+model Purchase {
+  id     Int  @id
+  itemId Int
+  item   Item @relation(fields: [itemId], references: [id])
+}

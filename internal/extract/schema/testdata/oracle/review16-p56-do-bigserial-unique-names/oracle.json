@@ -1,0 +1,32 @@
+{
+  "id": "review16-p56-do-bigserial-unique-names",
+  "signature": "agreed at Revision 1.6",
+  "class": "S1",
+  "owner": "V8",
+  "row": "review16",
+  "history": {
+    "id": "p56-do-bigserial-unique-names",
+    "prelude": [
+      "CREATE TABLE y (a int)"
+    ]
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42P07",
+        "message": "relation \"x_e_key\" already exists",
+        "statement": 2,
+        "statement_text": "CREATE INDEX x_e_key ON y (a);"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history.y",
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

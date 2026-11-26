@@ -1,0 +1,2105 @@
+{
+  "diagnostics": [
+    {
+      "code": "syntax_error",
+      "file": "src/main/java/com/acme/app/Broken.java",
+      "message": "tree-sitter recovered from invalid syntax",
+      "severity": "warning",
+      "type": "diagnostic"
+    },
+    {
+      "code": "ambiguous_import",
+      "file": "src/main/java/com/acme/app/Imports.java",
+      "message": "import com.acme.dup.Twin has candidates: module-a/src/com/acme/dup/Twin.java, module-b/src/com/acme/dup/Twin.java",
+      "severity": "warning",
+      "type": "diagnostic"
+    },
+    {
+      "code": "unresolved_import",
+      "file": "src/main/java/com/acme/app/Imports.java",
+      "message": "import com.acme.app.model.QOrder is not declared by a scanned file, but package com.acme.app.model is",
+      "severity": "warning",
+      "type": "diagnostic"
+    },
+    {
+      "code": "unresolved_import",
+      "file": "src/main/java/com/acme/app/Imports.java",
+      "message": "import com.acme.app.gen.Generated is not declared by a scanned file, but package com.acme.app is",
+      "severity": "warning",
+      "type": "diagnostic"
+    },
+    {
+      "code": "unresolved_import",
+      "file": "src/main/java/com/acme/app/Imports.java",
+      "message": "import com.acme.secret.Vault is not declared by a readable scanned file, but may be declared in a file refused for invalid syntax or a failed parse: src/main/java/com/acme/secret/Vault.java",
+      "severity": "warning",
+      "type": "diagnostic"
+    },
+    {
+      "code": "syntax_error",
+      "file": "src/main/java/com/acme/app/Missing.java",
+      "message": "tree-sitter recovered from invalid syntax",
+      "severity": "warning",
+      "type": "diagnostic"
+    },
+    {
+      "code": "syntax_error",
+      "file": "src/main/java/com/acme/secret/Vault.java",
+      "message": "tree-sitter recovered from invalid syntax",
+      "severity": "warning",
+      "type": "diagnostic"
+    },
+    {
+      "code": "syntax_error",
+      "file": "tools/Scratch.java",
+      "message": "tree-sitter recovered from invalid syntax",
+      "severity": "warning",
+      "type": "diagnostic"
+    }
+  ],
+  "edges": [
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/main/java/com/acme/app/Sample.java",
+          "span": {
+            "end_column": 34,
+            "end_line": 68,
+            "start_column": 8,
+            "start_line": 68
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "annotation:src/main/java/com/acme/app/Sample.java#Sample.Marker",
+      "target": "method:src/main/java/com/acme/app/Sample.java#Sample.Marker.value",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/main/java/com/acme/app/Sample.java",
+          "span": {
+            "end_column": 24,
+            "end_line": 69,
+            "start_column": 8,
+            "start_line": 69
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "annotation:src/main/java/com/acme/app/Sample.java#Sample.Marker",
+      "target": "method:src/main/java/com/acme/app/Sample.java#Sample.Marker.weights",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/main/java/com/acme/app/Sample.java",
+          "span": {
+            "end_column": 5,
+            "end_line": 70,
+            "start_column": 4,
+            "start_line": 67
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:src/main/java/com/acme/app/Sample.java#Sample",
+      "target": "annotation:src/main/java/com/acme/app/Sample.java#Sample.Marker",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/main/java/com/acme/app/Sample.java",
+          "span": {
+            "end_column": 5,
+            "end_line": 45,
+            "start_column": 4,
+            "start_line": 42
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:src/main/java/com/acme/app/Sample.java#Sample",
+      "target": "class:src/main/java/com/acme/app/Sample.java#Sample.Inner",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/main/java/com/acme/app/Sample.java",
+          "span": {
+            "end_column": 74,
+            "end_line": 15,
+            "start_column": 4,
+            "start_line": 15
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:src/main/java/com/acme/app/Sample.java#Sample",
+      "target": "constructor:src/main/java/com/acme/app/Sample.java#Sample.Sample%40overload%28String%5B%5D%2Cint...%29",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/main/java/com/acme/app/Sample.java",
+          "span": {
+            "end_column": 52,
+            "end_line": 14,
+            "start_column": 4,
+            "start_line": 14
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:src/main/java/com/acme/app/Sample.java#Sample",
+      "target": "constructor:src/main/java/com/acme/app/Sample.java#Sample.Sample%40overload%28int%29",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/main/java/com/acme/app/Sample.java",
+          "span": {
+            "end_column": 5,
+            "end_line": 59,
+            "start_column": 4,
+            "start_line": 52
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:src/main/java/com/acme/app/Sample.java#Sample",
+      "target": "enum:src/main/java/com/acme/app/Sample.java#Sample.Color",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/main/java/com/acme/app/Sample.java",
+          "span": {
+            "end_column": 5,
+            "end_line": 50,
+            "start_column": 4,
+            "start_line": 47
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:src/main/java/com/acme/app/Sample.java#Sample",
+      "target": "interface:src/main/java/com/acme/app/Sample.java#Sample.Callback",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/main/java/com/acme/app/Sample.java",
+          "span": {
+            "end_column": 5,
+            "end_line": 40,
+            "start_column": 4,
+            "start_line": 34
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:src/main/java/com/acme/app/Sample.java#Sample",
+      "target": "method:src/main/java/com/acme/app/Sample.java#Sample.blocks",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/main/java/com/acme/app/Sample.java",
+          "span": {
+            "end_column": 88,
+            "end_line": 28,
+            "start_column": 4,
+            "start_line": 28
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:src/main/java/com/acme/app/Sample.java#Sample",
+      "target": "method:src/main/java/com/acme/app/Sample.java#Sample.generic",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/main/java/com/acme/app/Sample.java",
+          "span": {
+            "end_column": 33,
+            "end_line": 72,
+            "start_column": 4,
+            "start_line": 72
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:src/main/java/com/acme/app/Sample.java#Sample",
+      "target": "method:src/main/java/com/acme/app/Sample.java#Sample.init",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/main/java/com/acme/app/Sample.java",
+          "span": {
+            "end_column": 54,
+            "end_line": 32,
+            "start_column": 4,
+            "start_line": 32
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:src/main/java/com/acme/app/Sample.java#Sample",
+      "target": "method:src/main/java/com/acme/app/Sample.java#Sample.overloaded%40overload%28String%29",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/main/java/com/acme/app/Sample.java",
+          "span": {
+            "end_column": 29,
+            "end_line": 30,
+            "start_column": 4,
+            "start_line": 30
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:src/main/java/com/acme/app/Sample.java#Sample",
+      "target": "method:src/main/java/com/acme/app/Sample.java#Sample.overloaded%40overload%28int%29",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/main/java/com/acme/app/Sample.java",
+          "span": {
+            "end_column": 68,
+            "end_line": 31,
+            "start_column": 4,
+            "start_line": 31
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:src/main/java/com/acme/app/Sample.java#Sample",
+      "target": "method:src/main/java/com/acme/app/Sample.java#Sample.overloaded%40overload%28java.util.Map.Entry%3CString%2Cint%5B%5D%3E%5B%5D%29",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/main/java/com/acme/app/Sample.java",
+          "span": {
+            "end_column": 5,
+            "end_line": 26,
+            "start_column": 4,
+            "start_line": 17
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:src/main/java/com/acme/app/Sample.java#Sample",
+      "target": "method:src/main/java/com/acme/app/Sample.java#Sample.run",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/main/java/com/acme/app/Sample.java",
+          "span": {
+            "end_column": 5,
+            "end_line": 65,
+            "start_column": 4,
+            "start_line": 61
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:src/main/java/com/acme/app/Sample.java#Sample",
+      "target": "record:src/main/java/com/acme/app/Sample.java#Sample.Point",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/main/java/com/acme/app/Sample.java",
+          "span": {
+            "end_column": 23,
+            "end_line": 44,
+            "start_column": 8,
+            "start_line": 44
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:src/main/java/com/acme/app/Sample.java#Sample.Inner",
+      "target": "class:src/main/java/com/acme/app/Sample.java#Sample.Inner.Deeper",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/main/java/com/acme/app/Sample.java",
+          "span": {
+            "end_column": 19,
+            "end_line": 43,
+            "start_column": 8,
+            "start_line": 43
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:src/main/java/com/acme/app/Sample.java#Sample.Inner",
+      "target": "method:src/main/java/com/acme/app/Sample.java#Sample.Inner.m",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/main/java/com/acme/app/Sample.java",
+          "span": {
+            "end_column": 38,
+            "end_line": 36,
+            "start_column": 26,
+            "start_line": 36
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:src/main/java/com/acme/app/Sample.java#Sample.blocks.Local",
+      "target": "method:src/main/java/com/acme/app/Sample.java#Sample.blocks.Local.lm",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/main/java/com/acme/app/Sample.java",
+          "span": {
+            "end_column": 38,
+            "end_line": 38,
+            "start_column": 26,
+            "start_line": 38
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:src/main/java/com/acme/app/Sample.java#Sample.blocks.Local%402",
+      "target": "method:src/main/java/com/acme/app/Sample.java#Sample.blocks.Local%402.lm",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/main/java/com/acme/app/Sample.java",
+          "span": {
+            "end_column": 45,
+            "end_line": 20,
+            "start_column": 29,
+            "start_line": 20
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:src/main/java/com/acme/app/Sample.java#Sample.run.InLambda",
+      "target": "method:src/main/java/com/acme/app/Sample.java#Sample.run.InLambda.inside",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/main/java/com/acme/app/model/Order.java",
+          "span": {
+            "end_column": 31,
+            "end_line": 6,
+            "start_column": 4,
+            "start_line": 6
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:src/main/java/com/acme/app/model/Order.java#Order",
+      "target": "class:src/main/java/com/acme/app/model/Order.java#Order.Line",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/main/java/com/acme/app/model/Order.java",
+          "span": {
+            "end_column": 43,
+            "end_line": 4,
+            "start_column": 4,
+            "start_line": 4
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:src/main/java/com/acme/app/model/Order.java#Order",
+      "target": "method:src/main/java/com/acme/app/model/Order.java#Order.total",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/main/java/com/acme/app/Sample.java",
+          "span": {
+            "end_column": 28,
+            "end_line": 56,
+            "start_column": 8,
+            "start_line": 56
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "enum:src/main/java/com/acme/app/Sample.java#Sample.Color",
+      "target": "constructor:src/main/java/com/acme/app/Sample.java#Sample.Color.Color%40overload%28%29",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/main/java/com/acme/app/Sample.java",
+          "span": {
+            "end_column": 51,
+            "end_line": 57,
+            "start_column": 8,
+            "start_line": 57
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "enum:src/main/java/com/acme/app/Sample.java#Sample.Color",
+      "target": "constructor:src/main/java/com/acme/app/Sample.java#Sample.Color.Color%40overload%28int%29",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/main/java/com/acme/app/Sample.java",
+          "span": {
+            "end_column": 39,
+            "end_line": 58,
+            "start_column": 8,
+            "start_line": 58
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "enum:src/main/java/com/acme/app/Sample.java#Sample.Color",
+      "target": "method:src/main/java/com/acme/app/Sample.java#Sample.Color.weight",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "module-a/src/com/acme/dup/Twin.java",
+          "span": {
+            "end_column": 20,
+            "end_line": 3,
+            "start_column": 0,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:module-a/src/com/acme/dup/Twin.java#module-a%2Fsrc%2Fcom%2Facme%2Fdup%2FTwin.java",
+      "target": "class:module-a/src/com/acme/dup/Twin.java#Twin",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "module-b/src/com/acme/dup/Twin.java",
+          "span": {
+            "end_column": 20,
+            "end_line": 3,
+            "start_column": 0,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:module-b/src/com/acme/dup/Twin.java#module-b%2Fsrc%2Fcom%2Facme%2Fdup%2FTwin.java",
+      "target": "class:module-b/src/com/acme/dup/Twin.java#Twin",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/main/java/com/acme/app/Imports.java",
+          "span": {
+            "end_column": 1,
+            "end_line": 21,
+            "start_column": 0,
+            "start_line": 19
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/main/java/com/acme/app/Imports.java#src%2Fmain%2Fjava%2Fcom%2Facme%2Fapp%2FImports.java",
+      "target": "class:src/main/java/com/acme/app/Imports.java#Imports",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/main/java/com/acme/app/Sample.java",
+          "span": {
+            "end_column": 38,
+            "end_line": 77,
+            "start_column": 0,
+            "start_line": 77
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/main/java/com/acme/app/Sample.java#src%2Fmain%2Fjava%2Fcom%2Facme%2Fapp%2FSample.java",
+      "target": "class:src/main/java/com/acme/app/Sample.java#Circle",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/main/java/com/acme/app/Sample.java",
+          "span": {
+            "end_column": 1,
+            "end_line": 73,
+            "start_column": 0,
+            "start_line": 8
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/main/java/com/acme/app/Sample.java#src%2Fmain%2Fjava%2Fcom%2Facme%2Fapp%2FSample.java",
+      "target": "class:src/main/java/com/acme/app/Sample.java#Sample",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/main/java/com/acme/app/Sample.java",
+          "span": {
+            "end_column": 40,
+            "end_line": 75,
+            "start_column": 0,
+            "start_line": 75
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/main/java/com/acme/app/Sample.java#src%2Fmain%2Fjava%2Fcom%2Facme%2Fapp%2FSample.java",
+      "target": "interface:src/main/java/com/acme/app/Sample.java#Shape",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/main/java/com/acme/app/model/Order.java",
+          "span": {
+            "end_column": 1,
+            "end_line": 7,
+            "start_column": 0,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/main/java/com/acme/app/model/Order.java#src%2Fmain%2Fjava%2Fcom%2Facme%2Fapp%2Fmodel%2FOrder.java",
+      "target": "class:src/main/java/com/acme/app/model/Order.java#Order",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "tools/Hello.java",
+          "span": {
+            "end_column": 26,
+            "end_line": 6,
+            "start_column": 0,
+            "start_line": 6
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:tools/Hello.java#tools%2FHello.java",
+      "target": "method:tools/Hello.java#greet",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "tools/Hello.java",
+          "span": {
+            "end_column": 1,
+            "end_line": 4,
+            "start_column": 0,
+            "start_line": 2
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:tools/Hello.java#tools%2FHello.java",
+      "target": "method:tools/Hello.java#main",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/main/java/com/acme/app/Sample.java",
+          "span": {
+            "end_column": 20,
+            "end_line": 48,
+            "start_column": 8,
+            "start_line": 48
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "interface:src/main/java/com/acme/app/Sample.java#Sample.Callback",
+      "target": "method:src/main/java/com/acme/app/Sample.java#Sample.Callback.call%40overload%28%29",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/main/java/com/acme/app/Sample.java",
+          "span": {
+            "end_column": 39,
+            "end_line": 49,
+            "start_column": 8,
+            "start_line": 49
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "interface:src/main/java/com/acme/app/Sample.java#Sample.Callback",
+      "target": "method:src/main/java/com/acme/app/Sample.java#Sample.Callback.call%40overload%28int%29",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/main/java/com/acme/app/Sample.java",
+          "span": {
+            "end_column": 40,
+            "end_line": 36,
+            "start_column": 12,
+            "start_line": 36
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "method:src/main/java/com/acme/app/Sample.java#Sample.blocks",
+      "target": "class:src/main/java/com/acme/app/Sample.java#Sample.blocks.Local",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/main/java/com/acme/app/Sample.java",
+          "span": {
+            "end_column": 40,
+            "end_line": 38,
+            "start_column": 12,
+            "start_line": 38
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "method:src/main/java/com/acme/app/Sample.java#Sample.blocks",
+      "target": "class:src/main/java/com/acme/app/Sample.java#Sample.blocks.Local%402",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/main/java/com/acme/app/Sample.java",
+          "span": {
+            "end_column": 47,
+            "end_line": 20,
+            "start_column": 12,
+            "start_line": 20
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "method:src/main/java/com/acme/app/Sample.java#Sample.run",
+      "target": "class:src/main/java/com/acme/app/Sample.java#Sample.run.InLambda",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/main/java/com/acme/app/Sample.java",
+          "span": {
+            "end_column": 36,
+            "end_line": 63,
+            "start_column": 8,
+            "start_line": 63
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "record:src/main/java/com/acme/app/Sample.java#Sample.Point",
+      "target": "constructor:src/main/java/com/acme/app/Sample.java#Sample.Point.Point%40overload%28int%29",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/main/java/com/acme/app/Sample.java",
+          "span": {
+            "end_column": 17,
+            "end_line": 62,
+            "start_column": 8,
+            "start_line": 62
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "record:src/main/java/com/acme/app/Sample.java#Sample.Point",
+      "target": "constructor:src/main/java/com/acme/app/Sample.java#Sample.Point.Point%40overload%28int%2Cint%29",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/main/java/com/acme/app/Sample.java",
+          "span": {
+            "end_column": 35,
+            "end_line": 64,
+            "start_column": 8,
+            "start_line": 64
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "record:src/main/java/com/acme/app/Sample.java#Sample.Point",
+      "target": "method:src/main/java/com/acme/app/Sample.java#Sample.Point.sum",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/main/java/com/acme/app/Imports.java",
+          "span": {
+            "end_column": 19,
+            "end_line": 14,
+            "start_column": 0,
+            "start_line": 14
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:src/main/java/com/acme/app/Imports.java#src%2Fmain%2Fjava%2Fcom%2Facme%2Fapp%2FImports.java",
+      "target": "external:.#java%3Ajava.util.%2A",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/main/java/com/acme/app/Imports.java",
+          "span": {
+            "end_column": 22,
+            "end_line": 13,
+            "start_column": 0,
+            "start_line": 13
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:src/main/java/com/acme/app/Imports.java#src%2Fmain%2Fjava%2Fcom%2Facme%2Fapp%2FImports.java",
+      "target": "external:.#java%3Ajava.util.List",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/main/java/com/acme/app/Imports.java",
+          "span": {
+            "end_column": 61,
+            "end_line": 16,
+            "start_column": 0,
+            "start_line": 16
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:src/main/java/com/acme/app/Imports.java#src%2Fmain%2Fjava%2Fcom%2Facme%2Fapp%2FImports.java",
+      "target": "external:.#java%3Ajava.util.Objects.requireNonNull",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/main/java/com/acme/app/Imports.java",
+          "span": {
+            "end_column": 33,
+            "end_line": 15,
+            "start_column": 0,
+            "start_line": 15
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:src/main/java/com/acme/app/Imports.java#src%2Fmain%2Fjava%2Fcom%2Facme%2Fapp%2FImports.java",
+      "target": "external:.#java%3Aorg.junit.Assert.%2A",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/main/java/com/acme/app/Imports.java",
+          "span": {
+            "end_column": 32,
+            "end_line": 3,
+            "start_column": 0,
+            "start_line": 3
+          }
+        },
+        {
+          "file": "src/main/java/com/acme/app/Imports.java",
+          "span": {
+            "end_column": 37,
+            "end_line": 4,
+            "start_column": 0,
+            "start_line": 4
+          }
+        },
+        {
+          "file": "src/main/java/com/acme/app/Imports.java",
+          "span": {
+            "end_column": 45,
+            "end_line": 6,
+            "start_column": 0,
+            "start_line": 6
+          }
+        },
+        {
+          "file": "src/main/java/com/acme/app/Imports.java",
+          "span": {
+            "end_column": 41,
+            "end_line": 7,
+            "start_column": 0,
+            "start_line": 7
+          }
+        },
+        {
+          "file": "src/main/java/com/acme/app/Imports.java",
+          "span": {
+            "end_column": 34,
+            "end_line": 8,
+            "start_column": 0,
+            "start_line": 8
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:src/main/java/com/acme/app/Imports.java#src%2Fmain%2Fjava%2Fcom%2Facme%2Fapp%2FImports.java",
+      "target": "file:src/main/java/com/acme/app/model/Order.java#src%2Fmain%2Fjava%2Fcom%2Facme%2Fapp%2Fmodel%2FOrder.java",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/main/java/com/acme/app/Sample.java",
+          "span": {
+            "end_column": 22,
+            "end_line": 3,
+            "start_column": 0,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:src/main/java/com/acme/app/Sample.java#src%2Fmain%2Fjava%2Fcom%2Facme%2Fapp%2FSample.java",
+      "target": "external:.#java%3Ajava.util.List",
+      "type": "edge"
+    }
+  ],
+  "files": null,
+  "nodes": [
+    {
+      "attributes": {},
+      "content_hash": "sha256:aa136eced8252d2fefa898cd207cc616c3a8d3bbc5de8829ee54fdabb8d7269f",
+      "file": "src/main/java/com/acme/app/Sample.java",
+      "identity": "annotation:src/main/java/com/acme/app/Sample.java#Sample.Marker",
+      "kind": "annotation",
+      "level": 4,
+      "name": "Marker",
+      "qualified_name": "Sample.Marker",
+      "span": {
+        "end_column": 5,
+        "end_line": 70,
+        "start_column": 4,
+        "start_line": 67
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:4a947d6936bdbc3fdd6535fc8ed02624986c33d820135292f1861076d107b5d3",
+      "file": "module-a/src/com/acme/dup/Twin.java",
+      "identity": "class:module-a/src/com/acme/dup/Twin.java#Twin",
+      "kind": "class",
+      "level": 4,
+      "name": "Twin",
+      "qualified_name": "Twin",
+      "span": {
+        "end_column": 20,
+        "end_line": 3,
+        "start_column": 0,
+        "start_line": 3
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:4a947d6936bdbc3fdd6535fc8ed02624986c33d820135292f1861076d107b5d3",
+      "file": "module-b/src/com/acme/dup/Twin.java",
+      "identity": "class:module-b/src/com/acme/dup/Twin.java#Twin",
+      "kind": "class",
+      "level": 4,
+      "name": "Twin",
+      "qualified_name": "Twin",
+      "span": {
+        "end_column": 20,
+        "end_line": 3,
+        "start_column": 0,
+        "start_line": 3
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:5245e874c865f61bd830b7fc4a1c6f33aa07782ae4a891ae862b70fe7b875f9b",
+      "file": "src/main/java/com/acme/app/Imports.java",
+      "identity": "class:src/main/java/com/acme/app/Imports.java#Imports",
+      "kind": "class",
+      "level": 4,
+      "name": "Imports",
+      "qualified_name": "Imports",
+      "span": {
+        "end_column": 1,
+        "end_line": 21,
+        "start_column": 0,
+        "start_line": 19
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:d248ac4ce471e533c946ccb3e69e22b524cb01af7b0818725bb4d23e3552197c",
+      "file": "src/main/java/com/acme/app/Sample.java",
+      "identity": "class:src/main/java/com/acme/app/Sample.java#Circle",
+      "kind": "class",
+      "level": 4,
+      "name": "Circle",
+      "qualified_name": "Circle",
+      "span": {
+        "end_column": 38,
+        "end_line": 77,
+        "start_column": 0,
+        "start_line": 77
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:eab3c0e5cc8aa27f9c7adf41be58dbe326ae298873f4efd7508f8ebe15a8ee7d",
+      "file": "src/main/java/com/acme/app/Sample.java",
+      "identity": "class:src/main/java/com/acme/app/Sample.java#Sample",
+      "kind": "class",
+      "level": 4,
+      "name": "Sample",
+      "qualified_name": "Sample",
+      "span": {
+        "end_column": 1,
+        "end_line": 73,
+        "start_column": 0,
+        "start_line": 8
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:cbade7e3fdd7fb54b90e34d33cb809367b1b959fc9cc3e89b3b3dc288432f31c",
+      "file": "src/main/java/com/acme/app/Sample.java",
+      "identity": "class:src/main/java/com/acme/app/Sample.java#Sample.Inner",
+      "kind": "class",
+      "level": 4,
+      "name": "Inner",
+      "qualified_name": "Sample.Inner",
+      "span": {
+        "end_column": 5,
+        "end_line": 45,
+        "start_column": 4,
+        "start_line": 42
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:2ca51c86e9214d42af1bcf8ea6effec94fbbed70d89f163034d8e9091bdfbcc5",
+      "file": "src/main/java/com/acme/app/Sample.java",
+      "identity": "class:src/main/java/com/acme/app/Sample.java#Sample.Inner.Deeper",
+      "kind": "class",
+      "level": 4,
+      "name": "Deeper",
+      "qualified_name": "Sample.Inner.Deeper",
+      "span": {
+        "end_column": 23,
+        "end_line": 44,
+        "start_column": 8,
+        "start_line": 44
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:9efa3ec340eebd4c0d976d47a0766f166ec20ae993b290c3aea4e896fd2202df",
+      "file": "src/main/java/com/acme/app/Sample.java",
+      "identity": "class:src/main/java/com/acme/app/Sample.java#Sample.blocks.Local",
+      "kind": "class",
+      "level": 4,
+      "name": "Local",
+      "qualified_name": "Sample.blocks.Local",
+      "span": {
+        "end_column": 40,
+        "end_line": 36,
+        "start_column": 12,
+        "start_line": 36
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:9efa3ec340eebd4c0d976d47a0766f166ec20ae993b290c3aea4e896fd2202df",
+      "file": "src/main/java/com/acme/app/Sample.java",
+      "identity": "class:src/main/java/com/acme/app/Sample.java#Sample.blocks.Local%402",
+      "kind": "class",
+      "level": 4,
+      "name": "Local",
+      "qualified_name": "Sample.blocks.Local@2",
+      "span": {
+        "end_column": 40,
+        "end_line": 38,
+        "start_column": 12,
+        "start_line": 38
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:d1e604c6ba73dd23d81d560c3673f8f7a306d82e4adaabb26ee9cee52566de3b",
+      "file": "src/main/java/com/acme/app/Sample.java",
+      "identity": "class:src/main/java/com/acme/app/Sample.java#Sample.run.InLambda",
+      "kind": "class",
+      "level": 4,
+      "name": "InLambda",
+      "qualified_name": "Sample.run.InLambda",
+      "span": {
+        "end_column": 47,
+        "end_line": 20,
+        "start_column": 12,
+        "start_line": 20
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:e7362868f9b59538c209c425ed1df8caccc07056bc3c4f211a9f5445e566f159",
+      "file": "src/main/java/com/acme/app/model/Order.java",
+      "identity": "class:src/main/java/com/acme/app/model/Order.java#Order",
+      "kind": "class",
+      "level": 4,
+      "name": "Order",
+      "qualified_name": "Order",
+      "span": {
+        "end_column": 1,
+        "end_line": 7,
+        "start_column": 0,
+        "start_line": 3
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:5840c109478519413fe639af3f27d2d76b32c9144ff55d384657d8c14a8a55df",
+      "file": "src/main/java/com/acme/app/model/Order.java",
+      "identity": "class:src/main/java/com/acme/app/model/Order.java#Order.Line",
+      "kind": "class",
+      "level": 4,
+      "name": "Line",
+      "qualified_name": "Order.Line",
+      "span": {
+        "end_column": 31,
+        "end_line": 6,
+        "start_column": 4,
+        "start_line": 6
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:dc5d81dbc1f84d0f2098d9e80be183a92a0a96b829d6c0488a54350f1bbc77c2",
+      "file": "src/main/java/com/acme/app/Sample.java",
+      "identity": "constructor:src/main/java/com/acme/app/Sample.java#Sample.Color.Color%40overload%28%29",
+      "kind": "constructor",
+      "level": 4,
+      "name": "Color",
+      "qualified_name": "Sample.Color.Color@overload()",
+      "span": {
+        "end_column": 28,
+        "end_line": 56,
+        "start_column": 8,
+        "start_line": 56
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:8de3699c46535889fd4968c1c6fbd28e1eaa7b404da8e36b105cb0e9cd35775f",
+      "file": "src/main/java/com/acme/app/Sample.java",
+      "identity": "constructor:src/main/java/com/acme/app/Sample.java#Sample.Color.Color%40overload%28int%29",
+      "kind": "constructor",
+      "level": 4,
+      "name": "Color",
+      "qualified_name": "Sample.Color.Color@overload(int)",
+      "span": {
+        "end_column": 51,
+        "end_line": 57,
+        "start_column": 8,
+        "start_line": 57
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:285b3a85a67c6ed64559a235ad3b4160e8caaffca0f34509aa09537c497a9abd",
+      "file": "src/main/java/com/acme/app/Sample.java",
+      "identity": "constructor:src/main/java/com/acme/app/Sample.java#Sample.Point.Point%40overload%28int%29",
+      "kind": "constructor",
+      "level": 4,
+      "name": "Point",
+      "qualified_name": "Sample.Point.Point@overload(int)",
+      "span": {
+        "end_column": 36,
+        "end_line": 63,
+        "start_column": 8,
+        "start_line": 63
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:e8ec259c2ebe9c53c09568a32f06640557f38e38906cd15808c554bde8b46d72",
+      "file": "src/main/java/com/acme/app/Sample.java",
+      "identity": "constructor:src/main/java/com/acme/app/Sample.java#Sample.Point.Point%40overload%28int%2Cint%29",
+      "kind": "constructor",
+      "level": 4,
+      "name": "Point",
+      "qualified_name": "Sample.Point.Point@overload(int,int)",
+      "span": {
+        "end_column": 17,
+        "end_line": 62,
+        "start_column": 8,
+        "start_line": 62
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:aa39f9ce066442e533912399dc37fbf5008a107e91d218d0a0adee28372393fe",
+      "file": "src/main/java/com/acme/app/Sample.java",
+      "identity": "constructor:src/main/java/com/acme/app/Sample.java#Sample.Sample%40overload%28String%5B%5D%2Cint...%29",
+      "kind": "constructor",
+      "level": 4,
+      "name": "Sample",
+      "qualified_name": "Sample.Sample@overload(String[],int...)",
+      "span": {
+        "end_column": 74,
+        "end_line": 15,
+        "start_column": 4,
+        "start_line": 15
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:0f267b697b4a74190479cb5dcf5384829e18a55b1fd261e05f32ca22f27ce453",
+      "file": "src/main/java/com/acme/app/Sample.java",
+      "identity": "constructor:src/main/java/com/acme/app/Sample.java#Sample.Sample%40overload%28int%29",
+      "kind": "constructor",
+      "level": 4,
+      "name": "Sample",
+      "qualified_name": "Sample.Sample@overload(int)",
+      "span": {
+        "end_column": 52,
+        "end_line": 14,
+        "start_column": 4,
+        "start_line": 14
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:6c7ce10668e912e1f6b969f430c0490b2b044eaa696331b2dfd2a0cffc4d1aa2",
+      "file": "src/main/java/com/acme/app/Sample.java",
+      "identity": "enum:src/main/java/com/acme/app/Sample.java#Sample.Color",
+      "kind": "enum",
+      "level": 4,
+      "name": "Color",
+      "qualified_name": "Sample.Color",
+      "span": {
+        "end_column": 5,
+        "end_line": 59,
+        "start_column": 4,
+        "start_line": 52
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "ecosystem": "java",
+        "name": "java.util.*"
+      },
+      "content_hash": "sha256:5f9679d25b17d4776baf3e2683de0f17bee059f13b699bd87209b1f4c5fc929e",
+      "file": ".",
+      "identity": "external:.#java%3Ajava.util.%2A",
+      "kind": "external",
+      "level": 1,
+      "name": "java.util.*",
+      "qualified_name": "java:java.util.*",
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "ecosystem": "java",
+        "name": "java.util.List"
+      },
+      "content_hash": "sha256:4ca860c4e11c85e2850beb64162bfb78565503632cebd0ba7e87559bd3a00a3f",
+      "file": ".",
+      "identity": "external:.#java%3Ajava.util.List",
+      "kind": "external",
+      "level": 1,
+      "name": "java.util.List",
+      "qualified_name": "java:java.util.List",
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "ecosystem": "java",
+        "name": "java.util.Objects.requireNonNull"
+      },
+      "content_hash": "sha256:1e1b995a74f6bda6d3f5f0345aa7727735bb5f36732e0e0fc1638f5e516fbe98",
+      "file": ".",
+      "identity": "external:.#java%3Ajava.util.Objects.requireNonNull",
+      "kind": "external",
+      "level": 1,
+      "name": "java.util.Objects.requireNonNull",
+      "qualified_name": "java:java.util.Objects.requireNonNull",
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "ecosystem": "java",
+        "name": "org.junit.Assert.*"
+      },
+      "content_hash": "sha256:3473583e20f01db7284c4203e1b5c7b747bdd36d0305fa34cee6b75a6a2ff974",
+      "file": ".",
+      "identity": "external:.#java%3Aorg.junit.Assert.%2A",
+      "kind": "external",
+      "level": 1,
+      "name": "org.junit.Assert.*",
+      "qualified_name": "java:org.junit.Assert.*",
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:49a128c96d01a55a2479454dc20109cbd10901c331b85c730a238503b43ae881",
+      "file": "README.md",
+      "identity": "file:README.md#README.md",
+      "kind": "file",
+      "level": 3,
+      "name": "README.md",
+      "qualified_name": "README.md",
+      "span": {
+        "end_column": 0,
+        "end_line": 40,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:c8613f48de4d826d53fac5df43657850d83bdc7a28d60385582783c18168cc15",
+      "file": "module-a/src/com/acme/dup/Twin.java",
+      "identity": "file:module-a/src/com/acme/dup/Twin.java#module-a%2Fsrc%2Fcom%2Facme%2Fdup%2FTwin.java",
+      "kind": "file",
+      "level": 3,
+      "name": "Twin.java",
+      "qualified_name": "module-a/src/com/acme/dup/Twin.java",
+      "span": {
+        "end_column": 0,
+        "end_line": 4,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:c8613f48de4d826d53fac5df43657850d83bdc7a28d60385582783c18168cc15",
+      "file": "module-b/src/com/acme/dup/Twin.java",
+      "identity": "file:module-b/src/com/acme/dup/Twin.java#module-b%2Fsrc%2Fcom%2Facme%2Fdup%2FTwin.java",
+      "kind": "file",
+      "level": 3,
+      "name": "Twin.java",
+      "qualified_name": "module-b/src/com/acme/dup/Twin.java",
+      "span": {
+        "end_column": 0,
+        "end_line": 4,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:4d70682e0afb67ccfa6bc5918c9112205ed52b47d07fefa5e249a1b50f75f94a",
+      "file": "src/main/java/com/acme/app/Broken.java",
+      "identity": "file:src/main/java/com/acme/app/Broken.java#src%2Fmain%2Fjava%2Fcom%2Facme%2Fapp%2FBroken.java",
+      "kind": "file",
+      "level": 3,
+      "name": "Broken.java",
+      "qualified_name": "src/main/java/com/acme/app/Broken.java",
+      "span": {
+        "end_column": 0,
+        "end_line": 9,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:b7c8f5b8934a4b4001d44076335931a3723700c4503885c7429748fe9302b0f6",
+      "file": "src/main/java/com/acme/app/Imports.java",
+      "identity": "file:src/main/java/com/acme/app/Imports.java#src%2Fmain%2Fjava%2Fcom%2Facme%2Fapp%2FImports.java",
+      "kind": "file",
+      "level": 3,
+      "name": "Imports.java",
+      "qualified_name": "src/main/java/com/acme/app/Imports.java",
+      "span": {
+        "end_column": 0,
+        "end_line": 22,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:8c015cd8b71b54bead4c380630ea651b15f15aa4407553911c5aeb233ea9e40e",
+      "file": "src/main/java/com/acme/app/Missing.java",
+      "identity": "file:src/main/java/com/acme/app/Missing.java#src%2Fmain%2Fjava%2Fcom%2Facme%2Fapp%2FMissing.java",
+      "kind": "file",
+      "level": 3,
+      "name": "Missing.java",
+      "qualified_name": "src/main/java/com/acme/app/Missing.java",
+      "span": {
+        "end_column": 0,
+        "end_line": 9,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:2c2759b6d65f4dabe8651171d90234de40862a188b56b735da15388c7ee31773",
+      "file": "src/main/java/com/acme/app/Sample.java",
+      "identity": "file:src/main/java/com/acme/app/Sample.java#src%2Fmain%2Fjava%2Fcom%2Facme%2Fapp%2FSample.java",
+      "kind": "file",
+      "level": 3,
+      "name": "Sample.java",
+      "qualified_name": "src/main/java/com/acme/app/Sample.java",
+      "span": {
+        "end_column": 0,
+        "end_line": 78,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:c786f428f32cbb4a0236249bdbd43b58a1372e06ad49c86ab975cc6db8683ce3",
+      "file": "src/main/java/com/acme/app/model/Order.java",
+      "identity": "file:src/main/java/com/acme/app/model/Order.java#src%2Fmain%2Fjava%2Fcom%2Facme%2Fapp%2Fmodel%2FOrder.java",
+      "kind": "file",
+      "level": 3,
+      "name": "Order.java",
+      "qualified_name": "src/main/java/com/acme/app/model/Order.java",
+      "span": {
+        "end_column": 0,
+        "end_line": 8,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:93018e77ac27a14cf3824bd63001efd4e5a673f849deae8c23f2175e686efe9b",
+      "file": "src/main/java/com/acme/app/package-info.java",
+      "identity": "file:src/main/java/com/acme/app/package-info.java#src%2Fmain%2Fjava%2Fcom%2Facme%2Fapp%2Fpackage-info.java",
+      "kind": "file",
+      "level": 3,
+      "name": "package-info.java",
+      "qualified_name": "src/main/java/com/acme/app/package-info.java",
+      "span": {
+        "end_column": 0,
+        "end_line": 4,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:4aab00e7eca9465d801ac5b940f1c1bc3f6ac5ba77dba45ef902bfa0f3dff4f6",
+      "file": "src/main/java/com/acme/secret/Vault.java",
+      "identity": "file:src/main/java/com/acme/secret/Vault.java#src%2Fmain%2Fjava%2Fcom%2Facme%2Fsecret%2FVault.java",
+      "kind": "file",
+      "level": 3,
+      "name": "Vault.java",
+      "qualified_name": "src/main/java/com/acme/secret/Vault.java",
+      "span": {
+        "end_column": 0,
+        "end_line": 8,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:4345a616ca56f034a282acd5076a1a6dfefd8bb223cd3a0c5d0a6ded8946652b",
+      "file": "src/main/java/module-info.java",
+      "identity": "file:src/main/java/module-info.java#src%2Fmain%2Fjava%2Fmodule-info.java",
+      "kind": "file",
+      "level": 3,
+      "name": "module-info.java",
+      "qualified_name": "src/main/java/module-info.java",
+      "span": {
+        "end_column": 0,
+        "end_line": 6,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:47f32ece709b802755ac21545013e97e3a32732c45ab73aed7b59ae5747dcb0b",
+      "file": "tools/Hello.java",
+      "identity": "file:tools/Hello.java#tools%2FHello.java",
+      "kind": "file",
+      "level": 3,
+      "name": "Hello.java",
+      "qualified_name": "tools/Hello.java",
+      "span": {
+        "end_column": 0,
+        "end_line": 7,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:e0672ed5a01154c4343b18009ab8673fd865a4703890371639b4bc41a8013b58",
+      "file": "tools/Scratch.java",
+      "identity": "file:tools/Scratch.java#tools%2FScratch.java",
+      "kind": "file",
+      "level": 3,
+      "name": "Scratch.java",
+      "qualified_name": "tools/Scratch.java",
+      "span": {
+        "end_column": 0,
+        "end_line": 6,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:95c5aecbed673adf7755605c19bd42a2b984f108b5b3f5c43c154a86d6fc92f7",
+      "file": "src/main/java/com/acme/app/Sample.java",
+      "identity": "interface:src/main/java/com/acme/app/Sample.java#Sample.Callback",
+      "kind": "interface",
+      "level": 4,
+      "name": "Callback",
+      "qualified_name": "Sample.Callback",
+      "span": {
+        "end_column": 5,
+        "end_line": 50,
+        "start_column": 4,
+        "start_line": 47
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:4ef3139c1dc8ac147fefa339c54abc6c97e6bcb166e946c69cd5b0ea8c3afd94",
+      "file": "src/main/java/com/acme/app/Sample.java",
+      "identity": "interface:src/main/java/com/acme/app/Sample.java#Shape",
+      "kind": "interface",
+      "level": 4,
+      "name": "Shape",
+      "qualified_name": "Shape",
+      "span": {
+        "end_column": 40,
+        "end_line": 75,
+        "start_column": 0,
+        "start_line": 75
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:344ab9e37a31badfc5cf0bb025fa09d6decb538e128ccb802132de98b3bec4ea",
+      "file": "src/main/java/com/acme/app/Sample.java",
+      "identity": "method:src/main/java/com/acme/app/Sample.java#Sample.Callback.call%40overload%28%29",
+      "kind": "method",
+      "level": 4,
+      "name": "call",
+      "qualified_name": "Sample.Callback.call@overload()",
+      "span": {
+        "end_column": 20,
+        "end_line": 48,
+        "start_column": 8,
+        "start_line": 48
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:0732fa282236f357912cae85e228ab05c58ac276354f1447ca09557615b6fcf7",
+      "file": "src/main/java/com/acme/app/Sample.java",
+      "identity": "method:src/main/java/com/acme/app/Sample.java#Sample.Callback.call%40overload%28int%29",
+      "kind": "method",
+      "level": 4,
+      "name": "call",
+      "qualified_name": "Sample.Callback.call@overload(int)",
+      "span": {
+        "end_column": 39,
+        "end_line": 49,
+        "start_column": 8,
+        "start_line": 49
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:c1cd52601ec8bdc3860ad13f9019602bf83fad4bba9dc65cbbe26a0c1800e90b",
+      "file": "src/main/java/com/acme/app/Sample.java",
+      "identity": "method:src/main/java/com/acme/app/Sample.java#Sample.Color.weight",
+      "kind": "method",
+      "level": 4,
+      "name": "weight",
+      "qualified_name": "Sample.Color.weight",
+      "span": {
+        "end_column": 39,
+        "end_line": 58,
+        "start_column": 8,
+        "start_line": 58
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:a9a4c041997d78792501999f2e59ed1a67a37cac08809d62dd763ac48099c77b",
+      "file": "src/main/java/com/acme/app/Sample.java",
+      "identity": "method:src/main/java/com/acme/app/Sample.java#Sample.Inner.m",
+      "kind": "method",
+      "level": 4,
+      "name": "m",
+      "qualified_name": "Sample.Inner.m",
+      "span": {
+        "end_column": 19,
+        "end_line": 43,
+        "start_column": 8,
+        "start_line": 43
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:edb558a32247d33a533ba67d17a36bd063e7d35bf2141ea5b5bd29843b5cabac",
+      "file": "src/main/java/com/acme/app/Sample.java",
+      "identity": "method:src/main/java/com/acme/app/Sample.java#Sample.Marker.value",
+      "kind": "method",
+      "level": 4,
+      "name": "value",
+      "qualified_name": "Sample.Marker.value",
+      "span": {
+        "end_column": 34,
+        "end_line": 68,
+        "start_column": 8,
+        "start_line": 68
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:6423445f3de467491e6624f757d2017527d2cac5bb4bad7a387655dc060d9fff",
+      "file": "src/main/java/com/acme/app/Sample.java",
+      "identity": "method:src/main/java/com/acme/app/Sample.java#Sample.Marker.weights",
+      "kind": "method",
+      "level": 4,
+      "name": "weights",
+      "qualified_name": "Sample.Marker.weights",
+      "span": {
+        "end_column": 24,
+        "end_line": 69,
+        "start_column": 8,
+        "start_line": 69
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:8cfa578670ec1c8cfca8bc5dd234775a71581016b9b6501abeb9b17100882994",
+      "file": "src/main/java/com/acme/app/Sample.java",
+      "identity": "method:src/main/java/com/acme/app/Sample.java#Sample.Point.sum",
+      "kind": "method",
+      "level": 4,
+      "name": "sum",
+      "qualified_name": "Sample.Point.sum",
+      "span": {
+        "end_column": 35,
+        "end_line": 64,
+        "start_column": 8,
+        "start_line": 64
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:25967283127782a646dc2130edede355dbed5e13753e3f2bef556f2231cee0f6",
+      "file": "src/main/java/com/acme/app/Sample.java",
+      "identity": "method:src/main/java/com/acme/app/Sample.java#Sample.blocks",
+      "kind": "method",
+      "level": 4,
+      "name": "blocks",
+      "qualified_name": "Sample.blocks",
+      "span": {
+        "end_column": 5,
+        "end_line": 40,
+        "start_column": 4,
+        "start_line": 34
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:0e66c951250bb85de280481fc43df86386e83e3b36e33fd055854976b982578b",
+      "file": "src/main/java/com/acme/app/Sample.java",
+      "identity": "method:src/main/java/com/acme/app/Sample.java#Sample.blocks.Local%402.lm",
+      "kind": "method",
+      "level": 4,
+      "name": "lm",
+      "qualified_name": "Sample.blocks.Local@2.lm",
+      "span": {
+        "end_column": 38,
+        "end_line": 38,
+        "start_column": 26,
+        "start_line": 38
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:0e66c951250bb85de280481fc43df86386e83e3b36e33fd055854976b982578b",
+      "file": "src/main/java/com/acme/app/Sample.java",
+      "identity": "method:src/main/java/com/acme/app/Sample.java#Sample.blocks.Local.lm",
+      "kind": "method",
+      "level": 4,
+      "name": "lm",
+      "qualified_name": "Sample.blocks.Local.lm",
+      "span": {
+        "end_column": 38,
+        "end_line": 36,
+        "start_column": 26,
+        "start_line": 36
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:bd9eb00264232d10d844647edb6cfdf36dca8923c6b823b956c11f1e62d6bccd",
+      "file": "src/main/java/com/acme/app/Sample.java",
+      "identity": "method:src/main/java/com/acme/app/Sample.java#Sample.generic",
+      "kind": "method",
+      "level": 4,
+      "name": "generic",
+      "qualified_name": "Sample.generic",
+      "span": {
+        "end_column": 88,
+        "end_line": 28,
+        "start_column": 4,
+        "start_line": 28
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:d8d534a991298b8a54185430e0b794e24a53a52daf05e247a196c236dbc354fa",
+      "file": "src/main/java/com/acme/app/Sample.java",
+      "identity": "method:src/main/java/com/acme/app/Sample.java#Sample.init",
+      "kind": "method",
+      "level": 4,
+      "name": "init",
+      "qualified_name": "Sample.init",
+      "span": {
+        "end_column": 33,
+        "end_line": 72,
+        "start_column": 4,
+        "start_line": 72
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:63be3a6fd2636f4e2d89c3c89d0ddc639bfcc39707772722ab4aa9bd5eca6894",
+      "file": "src/main/java/com/acme/app/Sample.java",
+      "identity": "method:src/main/java/com/acme/app/Sample.java#Sample.overloaded%40overload%28String%29",
+      "kind": "method",
+      "level": 4,
+      "name": "overloaded",
+      "qualified_name": "Sample.overloaded@overload(String)",
+      "span": {
+        "end_column": 54,
+        "end_line": 32,
+        "start_column": 4,
+        "start_line": 32
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:ff45c1117a28ca65d84b7df29921cacc81540e4c0ec21402e27d5cb9a28c7836",
+      "file": "src/main/java/com/acme/app/Sample.java",
+      "identity": "method:src/main/java/com/acme/app/Sample.java#Sample.overloaded%40overload%28int%29",
+      "kind": "method",
+      "level": 4,
+      "name": "overloaded",
+      "qualified_name": "Sample.overloaded@overload(int)",
+      "span": {
+        "end_column": 29,
+        "end_line": 30,
+        "start_column": 4,
+        "start_line": 30
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:a883f34fde1b513830cb74fd990582e111c842175eac71425240602682997a48",
+      "file": "src/main/java/com/acme/app/Sample.java",
+      "identity": "method:src/main/java/com/acme/app/Sample.java#Sample.overloaded%40overload%28java.util.Map.Entry%3CString%2Cint%5B%5D%3E%5B%5D%29",
+      "kind": "method",
+      "level": 4,
+      "name": "overloaded",
+      "qualified_name": "Sample.overloaded@overload(java.util.Map.Entry\u003cString,int[]\u003e[])",
+      "span": {
+        "end_column": 68,
+        "end_line": 31,
+        "start_column": 4,
+        "start_line": 31
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:5a3b8c43844500c6734a8c05b87146317e79d1b405194a8c57d08402c20e9681",
+      "file": "src/main/java/com/acme/app/Sample.java",
+      "identity": "method:src/main/java/com/acme/app/Sample.java#Sample.run",
+      "kind": "method",
+      "level": 4,
+      "name": "run",
+      "qualified_name": "Sample.run",
+      "span": {
+        "end_column": 5,
+        "end_line": 26,
+        "start_column": 4,
+        "start_line": 17
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:1492e196ff0b52b46bae08225829f16c2e69b04528ed69949938603d6d6e8cb1",
+      "file": "src/main/java/com/acme/app/Sample.java",
+      "identity": "method:src/main/java/com/acme/app/Sample.java#Sample.run.InLambda.inside",
+      "kind": "method",
+      "level": 4,
+      "name": "inside",
+      "qualified_name": "Sample.run.InLambda.inside",
+      "span": {
+        "end_column": 45,
+        "end_line": 20,
+        "start_column": 29,
+        "start_line": 20
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:fa1dd68df7c213add6ad117fb2244a85d896a0827d812e81cfdf3a28b0461c4b",
+      "file": "src/main/java/com/acme/app/model/Order.java",
+      "identity": "method:src/main/java/com/acme/app/model/Order.java#Order.total",
+      "kind": "method",
+      "level": 4,
+      "name": "total",
+      "qualified_name": "Order.total",
+      "span": {
+        "end_column": 43,
+        "end_line": 4,
+        "start_column": 4,
+        "start_line": 4
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:4dba8e91fc02334d5207c96a01d91ca5a4247a5870a23662b33a072d705e7812",
+      "file": "tools/Hello.java",
+      "identity": "method:tools/Hello.java#greet",
+      "kind": "method",
+      "level": 4,
+      "name": "greet",
+      "qualified_name": "greet",
+      "span": {
+        "end_column": 26,
+        "end_line": 6,
+        "start_column": 0,
+        "start_line": 6
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:a8fc9192e03a887e68ba7059ae9bb8c536fe4ff372dc21e47a6347097f5cce42",
+      "file": "tools/Hello.java",
+      "identity": "method:tools/Hello.java#main",
+      "kind": "method",
+      "level": 4,
+      "name": "main",
+      "qualified_name": "main",
+      "span": {
+        "end_column": 1,
+        "end_line": 4,
+        "start_column": 0,
+        "start_line": 2
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:77036be7e1d7d18f840e8e4f3ce7393ece85980d441338a05e47a4513de84ca7",
+      "file": "src/main/java/com/acme/app/Sample.java",
+      "identity": "record:src/main/java/com/acme/app/Sample.java#Sample.Point",
+      "kind": "record",
+      "level": 4,
+      "name": "Point",
+      "qualified_name": "Sample.Point",
+      "span": {
+        "end_column": 5,
+        "end_line": 65,
+        "start_column": 4,
+        "start_line": 61
+      },
+      "type": "node"
+    }
+  ]
+}

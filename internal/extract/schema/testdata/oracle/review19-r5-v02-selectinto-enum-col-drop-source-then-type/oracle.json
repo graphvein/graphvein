@@ -1,0 +1,29 @@
+{
+  "id": "review19-r5-v02-selectinto-enum-col-drop-source-then-type",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y44",
+  "row": "review19",
+  "history": {
+    "id": "v02-selectinto-enum-col-drop-source-then-type"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "2BP01",
+        "message": "cannot drop type status because other objects depend on it",
+        "detail": "column status of table orders_copy depends on type status",
+        "statement": 5,
+        "statement_text": "DROP TYPE status;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

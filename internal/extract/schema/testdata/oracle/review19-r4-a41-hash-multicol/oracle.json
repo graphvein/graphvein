@@ -1,0 +1,28 @@
+{
+  "id": "review19-r4-a41-hash-multicol",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y25",
+  "row": "review19",
+  "history": {
+    "id": "a41-hash-multicol"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "0A000",
+        "message": "access method \"hash\" does not support multicolumn indexes",
+        "statement": 2,
+        "statement_text": "create index t_ab on t using hash (a, b);"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

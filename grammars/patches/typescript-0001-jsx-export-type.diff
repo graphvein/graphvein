@@ -1,0 +1,130 @@
+--- a/typescript/src/grammar.json
++++ b/typescript/src/grammar.json
+@@ -185,18 +185,54 @@
+               "value": "type"
+             },
+             {
+-              "type": "SYMBOL",
+-              "name": "export_clause"
+-            },
+-            {
+               "type": "CHOICE",
+               "members": [
+                 {
+-                  "type": "SYMBOL",
+-                  "name": "_from_clause"
++                  "type": "SEQ",
++                  "members": [
++                    {
++                      "type": "SYMBOL",
++                      "name": "export_clause"
++                    },
++                    {
++                      "type": "CHOICE",
++                      "members": [
++                        {
++                          "type": "SYMBOL",
++                          "name": "_from_clause"
++                        },
++                        {
++                          "type": "BLANK"
++                        }
++                      ]
++                    }
++                  ]
+                 },
+                 {
+-                  "type": "BLANK"
++                  "type": "SEQ",
++                  "members": [
++                    {
++                      "type": "STRING",
++                      "value": "*"
++                    },
++                    {
++                      "type": "SYMBOL",
++                      "name": "_from_clause"
++                    }
++                  ]
++                },
++                {
++                  "type": "SEQ",
++                  "members": [
++                    {
++                      "type": "SYMBOL",
++                      "name": "namespace_export"
++                    },
++                    {
++                      "type": "SYMBOL",
++                      "name": "_from_clause"
++                    }
++                  ]
+                 }
+               ]
+             },
+@@ -2785,6 +2821,17 @@
+         }
+       ]
+     },
++    "_jsx_bare_ampersand": {
++      "type": "TOKEN",
++      "content": {
++        "type": "PREC",
++        "value": -1,
++        "content": {
++          "type": "PATTERN",
++          "value": "&"
++        }
++      }
++    },
+     "html_character_reference": {
+       "type": "PATTERN",
+       "value": "&(#([xX][0-9a-fA-F]{1,6}|[0-9]{1,5})|[A-Za-z]{1,30});"
+@@ -2835,6 +2882,15 @@
+           "name": "jsx_text"
+         },
+         {
++          "type": "ALIAS",
++          "content": {
++            "type": "SYMBOL",
++            "name": "_jsx_bare_ampersand"
++          },
++          "named": true,
++          "value": "jsx_text"
++        },
++        {
+           "type": "SYMBOL",
+           "name": "html_character_reference"
+         },
+@@ -3106,6 +3162,15 @@
+                     "value": "string_fragment"
+                   },
+                   {
++                    "type": "ALIAS",
++                    "content": {
++                      "type": "SYMBOL",
++                      "name": "_jsx_bare_ampersand"
++                    },
++                    "named": true,
++                    "value": "string_fragment"
++                  },
++                  {
+                     "type": "SYMBOL",
+                     "name": "html_character_reference"
+                   }
+@@ -3138,6 +3203,15 @@
+                     },
+                     "named": true,
+                     "value": "string_fragment"
++                  },
++                  {
++                    "type": "ALIAS",
++                    "content": {
++                      "type": "SYMBOL",
++                      "name": "_jsx_bare_ampersand"
++                    },
++                    "named": true,
++                    "value": "string_fragment"
+                   },
+                   {
+                     "type": "SYMBOL",

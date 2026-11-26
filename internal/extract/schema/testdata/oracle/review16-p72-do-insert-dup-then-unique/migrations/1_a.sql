@@ -1,0 +1,3 @@
+CREATE TABLE t (a int);
+DO $$ BEGIN INSERT INTO t VALUES (1), (1); END $$;
+CREATE UNIQUE INDEX t_a ON t (a);

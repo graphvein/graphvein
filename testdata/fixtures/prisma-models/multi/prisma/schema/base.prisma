@@ -1,0 +1,16 @@
+// A multi-file schema: the config names the directory prisma/schema.
+datasource db {
+  provider = "postgresql"
+  schemas  = ["public", "audit"]
+}
+
+generator client {
+  provider = "prisma-client"
+}
+
+model Account {
+  id    Int    @id @default(autoincrement())
+  email String @unique
+
+  @@schema("public")
+}

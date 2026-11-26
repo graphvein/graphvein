@@ -1,0 +1,29 @@
+{
+  "id": "review19-r5-g01-atomic-uses-table-seq-dropcol",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y40",
+  "row": "review19",
+  "history": {
+    "id": "g01-atomic-uses-table-seq-dropcol"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "2BP01",
+        "message": "cannot drop column id of table a because other objects depend on it",
+        "detail": "function nx() depends on sequence a_id_seq",
+        "statement": 3,
+        "statement_text": "ALTER TABLE a DROP COLUMN id;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

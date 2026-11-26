@@ -1,0 +1,48 @@
+{
+  "id": "review-r14-pk-dup-name-idx",
+  "signature": "agreed at af6a883",
+  "class": "S1",
+  "owner": "P2",
+  "row": "review",
+  "history": {
+    "id": "r14-pk-dup-name-idx"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "accepted"
+      }
+    ],
+    "tables": [
+      {
+        "table": "history.t",
+        "columns": [
+          {
+            "name": "a",
+            "type": "integer",
+            "not_null": false,
+            "has_default": false
+          }
+        ],
+        "primary_key": null,
+        "unique_keys": [],
+        "foreign_keys": [],
+        "indexes": [
+          {
+            "name": "x",
+            "unique": false,
+            "columns": [
+              "a"
+            ]
+          }
+        ]
+      }
+    ],
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

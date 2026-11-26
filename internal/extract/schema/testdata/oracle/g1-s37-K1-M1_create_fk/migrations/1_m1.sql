@@ -1,0 +1,2 @@
+CREATE TABLE t1 (c4 integer NOT NULL REFERENCES t2);
+CREATE TABLE t2 (id bigserial);

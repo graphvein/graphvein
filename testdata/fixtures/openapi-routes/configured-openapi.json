@@ -1,0 +1,22 @@
+{
+  "openapi": "3.2.0",
+  "servers": [
+    {
+      "url": "relative/api"
+    }
+  ],
+  "paths": {
+    "/repaired": {
+      "get": {}
+    },
+    "/overridden": {
+      "get": {
+        "servers": [
+          {
+            "url": "https://example.invalid/wrong"
+          }
+        ]
+      }
+    }
+  }
+}

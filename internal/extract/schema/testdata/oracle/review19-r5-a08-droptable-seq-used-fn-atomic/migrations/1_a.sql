@@ -1,0 +1,3 @@
+CREATE TABLE a (id serial PRIMARY KEY);
+CREATE FUNCTION nx() RETURNS bigint BEGIN ATOMIC SELECT nextval('a_id_seq'); END;
+DROP TABLE a;

@@ -1,0 +1,614 @@
+{
+  "agents": {
+    "claude": {
+      "auth_path": "api_key_bare",
+      "model": "claude-opus-5-5",
+      "preflight": "ok",
+      "signin": {
+        "agent": "claude",
+        "billed": true,
+        "detail": "ANTHROPIC_API_KEY set; runs use --bare and bill API credits",
+        "kind": "api_key_env",
+        "ok": true
+      },
+      "version": "2.1.328 (Claude Code)"
+    },
+    "codex": {
+      "model": "gpt-6.2-sol",
+      "preflight": "ok",
+      "signin": {
+        "agent": "codex",
+        "billed": false,
+        "detail": "ChatGPT sign-in (signed-in wording matched; confirm on the first real run)",
+        "kind": "chatgpt",
+        "ok": true
+      },
+      "version": "codex-cli 0.171.0"
+    },
+    "opencode": {
+      "key_limit_remaining_at_start": "8",
+      "live_prices_sha256": "28ba4f381d699c94623caab0ae682168ece3d6956603b4f8d3a266099ef762f7",
+      "model": "openrouter/deepseek/deepseek-v4.1-flash-1017",
+      "preflight": "ok",
+      "price_check": "ok at 2026-11-24T14:29:57Z",
+      "version": "1.19.6"
+    }
+  },
+  "anthropic": {
+    "auth_path": "api_key_bare",
+    "cap_usd": 75,
+    "model": "claude-opus-5-5",
+    "prices": {
+      "context_length": 1000000,
+      "endpoints": [],
+      "listed": {
+        "cache_read": 0.2,
+        "cache_write": 8,
+        "completion": 20,
+        "prompt": 4
+      },
+      "max_cache_write": 8,
+      "max_completion": 20,
+      "max_prompt": 4,
+      "model": "claude-opus-5-5",
+      "note": "Anthropic first-party API prices of Claude Opus 5.5 at standard speed and global routing: input $4, output $20, cache read $0.20 (0.05x). Cache writes cost 1.25x input ($5) with the 5-minute TTL and 2x input ($8) with the 1-hour TTL; the Claude cap books every cache write at the higher 2x price because a transcript does not say which TTL was used. Fast mode ($8 / $40) and US-only inference (1.1x) are never enabled by the driver and are not covered by this bound.",
+      "preferred_endpoints": [],
+      "read_at": "2026-11-23T13:53:00Z",
+      "sources": [
+        "https://platform.claude.com/docs/en/about-claude/pricing"
+      ],
+      "unit": "USD per million tokens"
+    },
+    "run_ceiling_usd": 3,
+    "step_context_tokens": 1000000,
+    "step_output_tokens": 32768
+  },
+  "corpora": {
+    "fastapi": {
+      "commit": "1762adac607a1b29cfc4da129557780beea71616",
+      "digest": "755a84bd62be99389214695529de812cdad7b38dc110eb2ff18ea250708a95fa",
+      "files": "248",
+      "index": "reused <home>/graphvein-bench/2026-11-24-full/store/fastapi.db",
+      "index_peak_memory": "not measured by the script",
+      "index_seconds": 2,
+      "symlinks_skipped": "4",
+      "workspace": "git archive of the pinned commit, read-only"
+    },
+    "langflow": {
+      "commit": "504c02fc47e76087b82b0e7cbe4186e9cdd916d4",
+      "digest": "b9d594a6f5084b1970b901e853f029155e60d025067a505c351b36348c0075f9",
+      "files": "10396",
+      "index": "reused <home>/graphvein-bench/2026-11-24-full/store/langflow.db",
+      "index_peak_memory": "not measured by the script",
+      "index_seconds": 169,
+      "symlinks_skipped": "0",
+      "workspace": "git archive of the pinned commit, read-only"
+    }
+  },
+  "finished_at": "2026-11-24T15:05:22Z",
+  "graphvein": {
+    "commit": "b01e91a7bc2e4b59adc557d0a1bf500b4a40b0c7",
+    "mcp_command": "<repo>/bin/graphvein.exe mcp",
+    "version": "graphvein dev"
+  },
+  "label": "2026-11-24-full",
+  "limits": {
+    "max_turns": 60,
+    "timeout": "10m"
+  },
+  "openrouter": {
+    "cap_usd": 8,
+    "model": "deepseek/deepseek-v4.1-flash-1017",
+    "preferred_endpoints": "deepinfra/fp8,pearl-research/fp8",
+    "prices": {
+      "context_length": 1048576,
+      "endpoints": [
+        {
+          "cache_read": 0.0036,
+          "completion": 0.72,
+          "peak_completion": 0.72,
+          "peak_prompt": 0.18,
+          "prompt": 0.18,
+          "provider": "Alibaba",
+          "quantization": "unknown",
+          "tag": "alibaba",
+          "tools": true
+        },
+        {
+          "cache_read": 0.0025,
+          "completion": 0.25,
+          "prompt": 0.045,
+          "provider": "Ambient",
+          "quantization": "fp4",
+          "tag": "ambient/fp4",
+          "tools": true
+        },
+        {
+          "cache_read": 0.0018,
+          "completion": 0.36,
+          "discount": 0.7,
+          "prompt": 0.09,
+          "provider": "Ant Digital",
+          "quantization": "fp8",
+          "tag": "antdigital/fp8",
+          "tools": true
+        },
+        {
+          "cache_read": 0.002094,
+          "completion": 0.39437,
+          "discount": 0.651,
+          "prompt": 0.09772,
+          "provider": "Baidu",
+          "quantization": "fp8",
+          "tag": "baidu/fp8",
+          "tools": true
+        },
+        {
+          "cache_read": 0.007,
+          "completion": 1.2,
+          "prompt": 0.3,
+          "provider": "BaseTen",
+          "quantization": "unknown",
+          "tag": "baseten",
+          "tools": true
+        },
+        {
+          "cache_read": 0.014,
+          "completion": 2.4,
+          "prompt": 0.6,
+          "provider": "BaseTen",
+          "quantization": "unknown",
+          "tag": "baseten/fast",
+          "tools": true
+        },
+        {
+          "cache_read": 0.003,
+          "completion": 0.6,
+          "prompt": 0.1,
+          "provider": "Cloudflare",
+          "quantization": "unknown",
+          "tag": "cloudflare",
+          "tools": true
+        },
+        {
+          "cache_read": 0.0025,
+          "completion": 0.4,
+          "prompt": 0.115,
+          "provider": "Cohere",
+          "quantization": "fp8",
+          "tag": "cohere/fp8",
+          "tools": true
+        },
+        {
+          "cache_read": 0.006,
+          "completion": 1.2,
+          "prompt": 0.3,
+          "provider": "CoreWeave",
+          "quantization": "fp8",
+          "tag": "coreweave/fp8",
+          "tools": true
+        },
+        {
+          "cache_read": 0.00455,
+          "completion": 0.78,
+          "discount": 0.35,
+          "prompt": 0.1885,
+          "provider": "Crusoe",
+          "quantization": "fp8",
+          "tag": "crusoe/fp8",
+          "tools": true
+        },
+        {
+          "cache_read": 0.00294,
+          "completion": 0.294,
+          "discount": 0.51,
+          "prompt": 0.098,
+          "provider": "DeepInfra",
+          "quantization": "fp8",
+          "tag": "deepinfra/fp8",
+          "tools": true
+        },
+        {
+          "cache_read": 0.002352,
+          "completion": 0.2352,
+          "discount": 0.51,
+          "prompt": 0.0784,
+          "provider": "DeepInfra",
+          "quantization": "fp8",
+          "tag": "deepinfra/fp8/flex",
+          "tools": true
+        },
+        {
+          "cache_read": 0.00441,
+          "completion": 0.441,
+          "discount": 0.51,
+          "prompt": 0.147,
+          "provider": "DeepInfra",
+          "quantization": "fp8",
+          "tag": "deepinfra/fp8/priority",
+          "tools": true
+        },
+        {
+          "cache_read": 0.003,
+          "completion": 0.6,
+          "peak_completion": 1.2,
+          "peak_prompt": 0.3,
+          "prompt": 0.15,
+          "provider": "DeepSeek",
+          "quantization": "unknown",
+          "tag": "deepseek",
+          "tools": true
+        },
+        {
+          "cache_read": 0.003,
+          "completion": 0.6,
+          "prompt": 0.15,
+          "provider": "DigitalOcean",
+          "quantization": "unknown",
+          "tag": "digitalocean",
+          "tools": true
+        },
+        {
+          "cache_read": 0.006,
+          "completion": 1.2,
+          "prompt": 0.3,
+          "provider": "Fireworks",
+          "quantization": "unknown",
+          "tag": "fireworks",
+          "tools": true
+        },
+        {
+          "cache_read": 0.003,
+          "completion": 0.6,
+          "prompt": 0.15,
+          "provider": "Fireworks",
+          "quantization": "unknown",
+          "tag": "fireworks/spot",
+          "tools": true
+        },
+        {
+          "cache_read": 0.009,
+          "completion": 1.8,
+          "prompt": 0.45,
+          "provider": "Fireworks",
+          "quantization": "unknown",
+          "tag": "fireworks/us",
+          "tools": true
+        },
+        {
+          "cache_read": 0.006,
+          "completion": 0.6,
+          "prompt": 0.1,
+          "provider": "Inceptron",
+          "quantization": "fp4",
+          "tag": "inceptron/fp4",
+          "tools": true
+        },
+        {
+          "cache_read": 0.008,
+          "completion": 0.666,
+          "prompt": 0.08,
+          "provider": "InferenceNet",
+          "quantization": "fp8",
+          "tag": "inference-net/fp8",
+          "tools": true
+        },
+        {
+          "cache_read": 0.008,
+          "completion": 0.666,
+          "prompt": 0.08,
+          "provider": "InferenceNet",
+          "quantization": "fp8",
+          "tag": "inference-net/us",
+          "tools": true
+        },
+        {
+          "cache_read": 0.0105,
+          "completion": 0.62,
+          "prompt": 0.21,
+          "provider": "Ionstream",
+          "quantization": "unknown",
+          "tag": "ionstream",
+          "tools": true
+        },
+        {
+          "cache_read": 0.006,
+          "completion": 0.8,
+          "prompt": 0.15,
+          "provider": "Makora",
+          "quantization": "fp8",
+          "tag": "makora/fp8",
+          "tools": true
+        },
+        {
+          "cache_read": 0.007,
+          "completion": 1.2,
+          "prompt": 0.3,
+          "provider": "Mistral",
+          "quantization": "fp8",
+          "tag": "mistral/fp8",
+          "tools": true
+        },
+        {
+          "cache_read": 0.005,
+          "completion": 1,
+          "prompt": 0.25,
+          "provider": "Modal",
+          "quantization": "unknown",
+          "tag": "modal",
+          "tools": true
+        },
+        {
+          "cache_read": 0.006,
+          "completion": 0.67,
+          "prompt": 0.17,
+          "provider": "ModelRun",
+          "quantization": "fp4",
+          "tag": "modelrun/fp4",
+          "tools": true
+        },
+        {
+          "cache_read": 0.014,
+          "completion": 2.4,
+          "prompt": 0.6,
+          "provider": "Morph",
+          "quantization": "fp8",
+          "tag": "morph/fast",
+          "tools": true
+        },
+        {
+          "cache_read": 0.005,
+          "completion": 0.52,
+          "prompt": 0.059,
+          "provider": "Morph",
+          "quantization": "fp8",
+          "tag": "morph/fp8",
+          "tools": true
+        },
+        {
+          "cache_read": 0.006,
+          "completion": 1.2,
+          "prompt": 0.3,
+          "provider": "Near AI",
+          "quantization": "unknown",
+          "tag": "near-ai",
+          "tools": true
+        },
+        {
+          "cache_read": 0.0036,
+          "completion": 0.72,
+          "discount": 0.4,
+          "prompt": 0.18,
+          "provider": "Nebius",
+          "quantization": "fp4",
+          "tag": "nebius/fp4",
+          "tools": true
+        },
+        {
+          "cache_read": 0.0033,
+          "completion": 0.66,
+          "discount": 0.45,
+          "prompt": 0.165,
+          "provider": "Novita",
+          "quantization": "fp8",
+          "tag": "novita/fp8",
+          "tools": true
+        },
+        {
+          "cache_read": 0.002,
+          "completion": 0.9,
+          "prompt": 0.05,
+          "provider": "OpenInference",
+          "quantization": "fp4",
+          "tag": "open-inference/fp4",
+          "tools": true
+        },
+        {
+          "cache_read": 0.006,
+          "completion": 1.2,
+          "prompt": 0.3,
+          "provider": "Parasail",
+          "quantization": "fp8",
+          "tag": "parasail/fp8",
+          "tools": true
+        },
+        {
+          "cache_read": 0.03,
+          "completion": 0.55,
+          "prompt": 0.06,
+          "provider": "Particle AI",
+          "quantization": "unknown",
+          "tag": "particle-ai/us",
+          "tools": true
+        },
+        {
+          "cache_read": 0.015,
+          "completion": 0.275,
+          "prompt": 0.03,
+          "provider": "Particle AI",
+          "quantization": "unknown",
+          "tag": "particle-ai/us/flex",
+          "tools": true
+        },
+        {
+          "cache_read": 0.003,
+          "completion": 0.3,
+          "prompt": 0.05,
+          "provider": "Pearl Research",
+          "quantization": "fp8",
+          "tag": "pearl-research/fp8",
+          "tools": true
+        },
+        {
+          "cache_read": 0.0048,
+          "completion": 0.96,
+          "prompt": 0.24,
+          "provider": "PrimaLabs",
+          "quantization": "unknown",
+          "tag": "primalabs",
+          "tools": true
+        },
+        {
+          "cache_read": 0.007,
+          "completion": 0.7,
+          "prompt": 0.075,
+          "provider": "PrimeIntellect",
+          "quantization": "unknown",
+          "tag": "primeintellect",
+          "tools": true
+        },
+        {
+          "cache_read": 0.006,
+          "completion": 1.2,
+          "prompt": 0.3,
+          "provider": "Reka",
+          "quantization": "unknown",
+          "tag": "reka",
+          "tools": true
+        },
+        {
+          "cache_read": 0.003,
+          "completion": 0.5,
+          "prompt": 0.12,
+          "provider": "Relace",
+          "quantization": "fp4",
+          "tag": "relace/fp4",
+          "tools": true
+        },
+        {
+          "cache_read": 0.0024,
+          "completion": 0.48,
+          "prompt": 0.12,
+          "provider": "River",
+          "quantization": "unknown",
+          "tag": "river",
+          "tools": true
+        },
+        {
+          "cache_read": 0.007,
+          "completion": 0.1,
+          "prompt": 0.04,
+          "provider": "Sail Research",
+          "quantization": "fp4",
+          "tag": "sail-research/fp4",
+          "tools": true
+        },
+        {
+          "cache_read": 0.007,
+          "completion": 0.1,
+          "prompt": 0.04,
+          "provider": "Sail Research",
+          "quantization": "fp4",
+          "tag": "sail-research/fp4/us",
+          "tools": true
+        },
+        {
+          "cache_read": 0.003,
+          "completion": 0.6,
+          "prompt": 0.15,
+          "provider": "SiliconFlow",
+          "quantization": "fp8",
+          "tag": "siliconflow/fp8",
+          "tools": true
+        },
+        {
+          "cache_read": 0.00222,
+          "completion": 0.444,
+          "discount": 0.63,
+          "prompt": 0.111,
+          "provider": "StreamLake",
+          "quantization": "fp8",
+          "tag": "streamlake/fp8",
+          "tools": true
+        },
+        {
+          "cache_read": 0.003,
+          "completion": 0.4,
+          "prompt": 0.1,
+          "provider": "Tenstorrent",
+          "quantization": "fp8",
+          "tag": "tenstorrent/fp8",
+          "tools": true
+        },
+        {
+          "cache_read": 0.006,
+          "completion": 1.2,
+          "prompt": 0.3,
+          "provider": "Together",
+          "quantization": "unknown",
+          "tag": "together",
+          "tools": true
+        },
+        {
+          "cache_read": 0.0075,
+          "completion": 1.2,
+          "prompt": 0.3,
+          "provider": "Venice",
+          "quantization": "fp8",
+          "tag": "venice/fp8",
+          "tools": true
+        },
+        {
+          "cache_read": 0.0065,
+          "completion": 0.5,
+          "prompt": 0.066,
+          "provider": "Wafer",
+          "quantization": "mxfp4",
+          "tag": "wafer/mxfp4",
+          "tools": true
+        },
+        {
+          "cache_read": 0.01,
+          "completion": 0.5,
+          "prompt": 0.036,
+          "provider": "Wafer",
+          "quantization": "mxfp4",
+          "tag": "wafer/us",
+          "tools": true
+        }
+      ],
+      "listed": {
+        "cache_read": 0.003,
+        "completion": 0.6,
+        "peak_completion": 1.2,
+        "peak_prompt": 0.3,
+        "prompt": 0.15
+      },
+      "max_cache_write": 0,
+      "max_completion": 2.4,
+      "max_prompt": 0.6,
+      "model": "deepseek/deepseek-v4.1-flash-1017",
+      "note": "Max* fields are the highest price over every tool-capable endpoint and time-of-day override, before any discount; the cap uses them with no caching.",
+      "preferred_endpoints": [
+        "deepinfra/fp8",
+        "pearl-research/fp8"
+      ],
+      "read_at": "2026-11-23T11:37:16Z",
+      "sources": [
+        "https://openrouter.ai/api/v1/models/deepseek/deepseek-v4.1-flash-1017/endpoints",
+        "https://openrouter.ai/api/v1/models"
+      ],
+      "unit": "USD per million tokens"
+    },
+    "run_ceiling_usd": 0.45,
+    "step_context_tokens": 1048576,
+    "step_output_tokens": 32768,
+    "usage_at_start": "0"
+  },
+  "plan": {
+    "agent_reps": "codex=3",
+    "agents": "claude,codex,opencode",
+    "modes": "base,mcp",
+    "questions": "BQ-1,BQ-2,BQ-3,BQ-4,BQ-5,BQ-6,BQ-7,BQ-8,BQ-9,BQ-10,BQ-11,BQ-12,BQ-13,BQ-14,BQ-15,BQ-16,BQ-17,BQ-18,BQ-19,BQ-20,BQ-21",
+    "reps": "3",
+    "seed": 20261123,
+    "shuffle": true
+  },
+  "prompt": {
+    "preamble_and_instruction": "built by gvbench prompt; identical for every agent and mode"
+  },
+  "question_file": "docs/evidence/benchmark/questions.jsonl",
+  "question_file_sha256": "b79051d367c83e88af48d8a59d0b81d29507914de2166bdb3f356af78c3eaa3d",
+  "stand_in": false,
+  "started_at": "2026-11-24T07:24:59Z"
+}

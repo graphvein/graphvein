@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "type",
+    "kind",
+    "source",
+    "target",
+    "provenance",
+    "confidence",
+    "evidence"
+  ],
+  "properties": {
+    "type": {
+      "const": "edge"
+    },
+    "kind": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*$"
+    },
+    "source": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*:[A-Za-z0-9._~/%-]+#[A-Za-z0-9._~%-]+$"
+    },
+    "target": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*:[A-Za-z0-9._~/%-]+#[A-Za-z0-9._~%-]+$"
+    },
+    "provenance": {
+      "enum": [
+        "fact",
+        "inferred",
+        "assessment",
+        "agent_proposed"
+      ]
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "file",
+          "span"
+        ],
+        "properties": {
+          "file": {
+            "type": "string",
+            "minLength": 1,
+            "pattern": "^[^/\\\\:\\x00\\r\\n][^\\\\:\\x00\\r\\n]*$"
+          },
+          "span": {
+            "type": "object",
+            "required": [
+              "start_line",
+              "start_column",
+              "end_line",
+              "end_column"
+            ],
+            "properties": {
+              "start_line": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "start_column": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "end_line": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "end_column": {
+                "type": "integer",
+                "minimum": 0
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "provenance": {
+            "const": "fact"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "confidence": {
+            "const": 1
+          }
+        }
+      }
+    }
+  ]
+}

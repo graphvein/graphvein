@@ -1,0 +1,35 @@
+{
+  "id": "g1-s6498-S1-R4_alter_index_other",
+  "signature": "applied|S1|42P01|R4.alter_index_other",
+  "class": "S1",
+  "owner": "P1",
+  "row": "R4.alter_index_other",
+  "history": {
+    "id": "g1-s6498",
+    "tags": {
+      "1_m1.sql": [
+        "M1.create",
+        "M1b.like",
+        "R4.alter_index_other"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42P01",
+        "message": "relation \"t2_pkey\" does not exist",
+        "statement": 3,
+        "statement_text": "ALTER INDEX t2_pkey SET (fillfactor = 80);"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

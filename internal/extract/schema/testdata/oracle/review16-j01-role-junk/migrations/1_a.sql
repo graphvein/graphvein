@@ -1,0 +1,1 @@
+CREATE ROLE r1 WITH BYPASSRLS garbage;

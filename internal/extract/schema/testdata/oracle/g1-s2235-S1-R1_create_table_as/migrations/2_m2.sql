@@ -1,0 +1,4 @@
+-- no-transaction
+CREATE TABLE t5 (id text PRIMARY KEY);
+ALTER INDEX t5 RENAME TO ix_6;
+CREATE TABLE t7 AS SELECT * FROM t5;

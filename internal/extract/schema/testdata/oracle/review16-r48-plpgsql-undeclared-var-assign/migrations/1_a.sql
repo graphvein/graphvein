@@ -1,0 +1,1 @@
+CREATE FUNCTION f() RETURNS int LANGUAGE plpgsql AS $$ BEGIN y := 1; RETURN 1; END $$;

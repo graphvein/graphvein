@@ -1,0 +1,2 @@
+CREATE TABLE t1 (c1 smallint);
+ALTER TABLE t1 ALTER CONSTRAINT nosuch_constraint DEFERRABLE;

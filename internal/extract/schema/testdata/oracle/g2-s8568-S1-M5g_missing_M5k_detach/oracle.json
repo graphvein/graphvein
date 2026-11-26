@@ -1,0 +1,33 @@
+{
+  "id": "g2-s8568-S1-M5g_missing_M5k_detach",
+  "signature": "applied|S1|42601|M5g.missing",
+  "class": "S1",
+  "owner": "P7",
+  "row": "M5g.missing+M5k.detach",
+  "history": {
+    "id": "g2-s8568",
+    "tags": {
+      "1_m1.sql": [
+        "M5g.missing+M5k.detach"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42601",
+        "message": "syntax error at or near \"DETACH\"",
+        "statement": 1,
+        "statement_text": "ALTER TABLE t4 DROP CONSTRAINT IF EXISTS nosuch_constraint, DETACH PARTITION t4;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

@@ -1,0 +1,2 @@
+CREATE ROLE r1;
+ALTER ROLE r1 SET gv9.x = 'y';

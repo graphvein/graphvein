@@ -1,0 +1,145 @@
+{
+  "proposals": [],
+  "unmatched": [
+    {
+      "evidence": {
+        "file": "deploy/.env.example",
+        "key": "BACKEND_URL",
+        "line": 17,
+        "member": "langflow",
+        "row": "SG-E1",
+        "value": "http://backend:7860"
+      },
+      "reason": "Compose service backend (deploy/docker-compose.override.yml:37) has neither build nor image in this file (its fields come from another Compose file), so the name is not proven to reach a member",
+      "row": "SG-M3"
+    }
+  ],
+  "unread": [
+    {
+      "file": "package.json",
+      "line": 195,
+      "member": "langflow-frontend",
+      "reason": "proxy without a react-scripts dependency (only Create React App reads it)",
+      "row": "SG-U"
+    },
+    {
+      "file": "vite.config.mts",
+      "line": 16,
+      "member": "langflow-frontend",
+      "reason": "config is computed in code (not a literal exported object)",
+      "row": "SG-U"
+    },
+    {
+      "file": "deploy/.env.example",
+      "line": 50,
+      "member": "langflow",
+      "reason": "BROKER_URL: value uses interpolation",
+      "row": "SG-U"
+    },
+    {
+      "file": "deploy/docker-compose.override.yml",
+      "line": 3,
+      "member": "langflow",
+      "reason": "service proxy: runs an image, not built from a member (no build context)",
+      "row": "SG-U"
+    },
+    {
+      "file": "deploy/docker-compose.override.yml",
+      "line": 30,
+      "member": "langflow",
+      "reason": "service pgadmin: runs an image, not built from a member (no build context)",
+      "row": "SG-U"
+    },
+    {
+      "file": "deploy/docker-compose.override.yml",
+      "line": 34,
+      "member": "langflow",
+      "reason": "service flower: runs an image, not built from a member (no build context)",
+      "row": "SG-U"
+    },
+    {
+      "file": "deploy/docker-compose.yml",
+      "line": 87,
+      "member": "langflow",
+      "reason": "service db: runs an image, not built from a member (no build context)",
+      "row": "SG-U"
+    },
+    {
+      "file": "deploy/docker-compose.yml",
+      "line": 132,
+      "member": "langflow",
+      "reason": "service celeryworker uses \u003c\u003c (its fields come from elsewhere)",
+      "row": "SG-U"
+    },
+    {
+      "file": "deploy/docker-compose.yml",
+      "line": 142,
+      "member": "langflow",
+      "reason": "service flower uses \u003c\u003c (its fields come from elsewhere)",
+      "row": "SG-U"
+    },
+    {
+      "file": "deploy/docker-compose.yml",
+      "line": 169,
+      "member": "langflow",
+      "reason": "service broker: runs an image, not built from a member (no build context)",
+      "row": "SG-U"
+    },
+    {
+      "file": "deploy/observability/grafana-loki/docker-compose.yml",
+      "line": 3,
+      "member": "langflow",
+      "reason": "service loki: runs an image, not built from a member (no build context)",
+      "row": "SG-U"
+    },
+    {
+      "file": "deploy/observability/grafana-loki/docker-compose.yml",
+      "line": 32,
+      "member": "langflow",
+      "reason": "service grafana: runs an image, not built from a member (no build context)",
+      "row": "SG-U"
+    },
+    {
+      "file": "docker/cdk-docker-compose.yml",
+      "line": 20,
+      "member": "langflow",
+      "reason": "service frontend: build context ./src/frontend is not a folder here (Compose resolves it from the file's folder)",
+      "row": "SG-U"
+    },
+    {
+      "file": "docker/dev.docker-compose.yml",
+      "line": 32,
+      "member": "langflow",
+      "reason": "service postgres: runs an image, not built from a member (no build context)",
+      "row": "SG-U"
+    },
+    {
+      "file": "docker_example/docker-compose.yml",
+      "line": 3,
+      "member": "langflow",
+      "reason": "service langflow: runs an image, not built from a member (no build context)",
+      "row": "SG-U"
+    },
+    {
+      "file": "docker_example/docker-compose.yml",
+      "line": 22,
+      "member": "langflow",
+      "reason": "service postgres: runs an image, not built from a member (no build context)",
+      "row": "SG-U"
+    },
+    {
+      "file": "docker_example/pre.docker-compose.yml",
+      "line": 5,
+      "member": "langflow",
+      "reason": "service langflow: runs an image, not built from a member (no build context)",
+      "row": "SG-U"
+    },
+    {
+      "file": "docker_example/pre.docker-compose.yml",
+      "line": 22,
+      "member": "langflow",
+      "reason": "service postgres: runs an image, not built from a member (no build context)",
+      "row": "SG-U"
+    }
+  ]
+}

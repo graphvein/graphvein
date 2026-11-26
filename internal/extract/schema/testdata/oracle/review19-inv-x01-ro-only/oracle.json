@@ -1,0 +1,26 @@
+{
+  "id": "review19-inv-x01-ro-only",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y03",
+  "row": "review19",
+  "history": {
+    "id": "x01-ro-only"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "25006",
+        "message": "sqlx bookkeeping: cannot execute INSERT in a read-only transaction"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

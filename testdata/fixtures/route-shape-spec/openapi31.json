@@ -1,0 +1,79 @@
+{
+  "openapi": "3.1.0",
+  "info": {"title": "Spec shape 3.1", "version": "1"},
+  "paths": {
+    "/v31/things/{thing_id}": {
+      "put": {
+        "parameters": [
+          {"name": "thing_id", "in": "path", "required": true, "schema": {"type": "string", "format": "uuid"}},
+          {"name": "mode", "in": "query", "schema": {"anyOf": [{"type": "string"}, {"type": "null"}]}},
+          {"name": "Content-Type", "in": "header", "schema": {"type": "string"}}
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {"schema": {"$ref": "#/components/schemas/Thing"}},
+            "application/x-www-form-urlencoded": {"schema": {"$ref": "#/components/schemas/Thing", "description": "form"}}
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "ok",
+            "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Thing", "type": "object"}}}
+          },
+          "2XX": {"description": "other success"}
+        }
+      }
+    },
+    "/v31/auth": {
+      "servers": [{"url": "https://api.example.com/"}],
+      "get": {
+        "security": [
+          {"bearer": [], "oidc": ["read", "write"]},
+          {"oauth": ["items:read"]},
+          {"mtls": []},
+          {"undefinedScheme": []},
+          {}
+        ],
+        "responses": {"200": {"description": "ok"}}
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearer": {"type": "http", "scheme": "bearer", "bearerFormat": "JWT"},
+      "oidc": {"type": "openIdConnect", "openIdConnectUrl": "https://id.example.com/.well-known/openid-configuration"},
+      "oauth": {"type": "oauth2", "flows": {
+        "password": {"tokenUrl": "https://id.example.com/token", "scopes": {}},
+        "clientCredentials": {"tokenUrl": "https://id.example.com/token", "scopes": {}}
+      }},
+      "mtls": {"type": "mutualTLS"}
+    },
+    "schemas": {
+      "RoId": {"type": "string", "readOnly": true},
+      "Thing": {
+        "type": "object",
+        "required": ["id", "label", "roRef"],
+        "properties": {
+          "id": {"type": "string", "readOnly": true},
+          "label": {"type": ["string", "null"]},
+          "count": {"type": "integer", "nullable": true},
+          "kind": {"enum": ["a", 1, true, null]},
+          "choice": {"oneOf": [{"$ref": "#/components/schemas/Thing"}, {"type": "null"}]},
+          "roRef": {"oneOf": [{"$ref": "#/components/schemas/RoId"}, {"type": "null"}]},
+          "nullBoth": {"oneOf": [{"type": ["string", "null"]}, {"type": "null"}]},
+          "nullAny": {"anyOf": [{"type": ["string", "null"]}, {"type": "null"}]},
+          "nothing": {"type": "null"},
+          "self": {"$ref": "#/components/schemas/Thing"},
+          "closed": {"type": "object", "unevaluatedProperties": false},
+          "flag": {"const": "on"},
+          "any": true,
+          "pair": {"type": "array", "prefixItems": [{"type": "string"}]},
+          "cond": {"type": "string", "if": {"minLength": 1}, "then": {"maxLength": 9}},
+          "multi": {"type": ["string", "integer"]},
+          "literal": {"enum": [{"a": 1}]},
+          "deep": {"type": "array", "items": {"type": "array", "items": {"type": "array", "items": {"type": "array", "items": {"type": "array", "items": {"type": "array", "items": {"type": "array", "items": {"type": "array", "items": {"type": "array", "items": {"type": "array", "items": {"type": "array", "items": {"type": "array", "items": {"type": "array", "items": {"type": "array", "items": {"type": "array", "items": {"type": "array", "items": {"type": "array", "items": {"type": "array", "items": {"type": "array", "items": {"type": "array", "items": {"type": "array", "items": {"type": "array", "items": {"type": "array", "items": {"type": "array", "items": {"type": "array", "items": {"type": "array", "items": {"type": "array", "items": {"type": "array", "items": {"type": "array", "items": {"type": "array", "items": {"type": "array", "items": {"type": "array", "items": {"type": "array", "items": {"type": "string"}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+        }
+      }
+    }
+  }
+}

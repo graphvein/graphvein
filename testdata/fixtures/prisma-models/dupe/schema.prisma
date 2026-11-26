@@ -1,0 +1,12 @@
+// A block name defined twice: Prisma rejects the schema (PR-P1).
+datasource db {
+  provider = "postgresql"
+}
+
+model Twice {
+  id Int @id
+}
+
+enum Twice {
+  A
+}

@@ -1,0 +1,28 @@
+{
+  "id": "review19-r3-y16-param-text-mod-bad",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y18",
+  "row": "review19",
+  "history": {
+    "id": "y16-param-text-mod-bad"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42601",
+        "message": "type modifier is not allowed for type \"text\"",
+        "statement": 1,
+        "statement_text": "CREATE FUNCTION f(a text(10)) RETURNS int LANGUAGE plpgsql AS $$ BEGIN RETURN 1; END $$;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

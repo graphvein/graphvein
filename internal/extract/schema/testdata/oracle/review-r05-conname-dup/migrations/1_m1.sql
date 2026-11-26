@@ -1,0 +1,1 @@
+CREATE TABLE t (a int CONSTRAINT x CHECK (a > 0), b int CONSTRAINT x CHECK (b > 0));

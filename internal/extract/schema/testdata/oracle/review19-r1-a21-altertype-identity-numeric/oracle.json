@@ -1,0 +1,29 @@
+{
+  "id": "review19-r1-a21-altertype-identity-numeric",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y01",
+  "row": "review19",
+  "history": {
+    "id": "a21-altertype-identity-numeric"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "22023",
+        "message": "identity column type must be smallint, integer, or bigint",
+        "statement": 2,
+        "statement_text": "ALTER TABLE t ALTER COLUMN a TYPE numeric;",
+        "row_free": true
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

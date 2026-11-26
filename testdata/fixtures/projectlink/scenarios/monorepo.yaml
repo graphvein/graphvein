@@ -1,0 +1,38 @@
+version: 1
+name: shop-monorepo
+members:
+  - repository: frontend
+    path: frontend
+    consumes:
+      - repository: monorepo
+        scope: users
+  - repository: monorepo
+    path: monorepo
+    scopes:
+      - name: users
+        path: apps/users
+      - name: orders
+        path: apps/orders
+      - name: web
+        path: web
+        consumes:
+          - repository: monorepo
+            scope: users
+            select:
+              bases: [VITE_USERS]
+          - repository: monorepo
+            scope: orders
+            select:
+              bases: [VITE_ORDERS]
+      - name: admin
+        path: admin
+        consumes:
+          - repository: monorepo
+            scope: users
+      - name: ops
+        path: ops
+        consumes:
+          - repository: monorepo
+            scope: users
+          - repository: monorepo
+            scope: orders

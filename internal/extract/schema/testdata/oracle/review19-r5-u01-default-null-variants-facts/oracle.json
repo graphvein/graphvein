@@ -1,0 +1,78 @@
+{
+  "id": "review19-r5-u01-default-null-variants-facts",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y46",
+  "row": "review19",
+  "history": {
+    "id": "u01-default-null-variants-facts"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "accepted"
+      }
+    ],
+    "tables": [
+      {
+        "table": "history.t",
+        "columns": [
+          {
+            "name": "id",
+            "type": "integer",
+            "not_null": true,
+            "has_default": false
+          },
+          {
+            "name": "a",
+            "type": "text",
+            "not_null": false,
+            "has_default": false
+          },
+          {
+            "name": "b",
+            "type": "integer",
+            "not_null": false,
+            "has_default": false
+          },
+          {
+            "name": "c",
+            "type": "character varying(10)",
+            "not_null": false,
+            "has_default": true
+          },
+          {
+            "name": "d",
+            "type": "uuid",
+            "not_null": false,
+            "has_default": false
+          },
+          {
+            "name": "e",
+            "type": "numeric(5,2)",
+            "not_null": false,
+            "has_default": true
+          },
+          {
+            "name": "f",
+            "type": "text",
+            "not_null": false,
+            "has_default": true
+          }
+        ],
+        "primary_key": [
+          "id"
+        ],
+        "unique_keys": [],
+        "foreign_keys": [],
+        "indexes": []
+      }
+    ],
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

@@ -1,0 +1,143 @@
+{
+  "alters": [],
+  "api_version": 0,
+  "creates": [],
+  "diagnostics": [
+    {
+      "code": "schema_opaque_statement",
+      "message": "pg-app/migrations/6_opaque.sql:1: bytes 0-23: calls account_count, a function defined in the migration set",
+      "severity": "info"
+    },
+    {
+      "code": "schema_opaque_statement",
+      "message": "pg-app/migrations/6_opaque.sql:2: bytes 24-54: DO block runs code whose effect is not visible in source",
+      "severity": "info"
+    }
+  ],
+  "diagnostics_total": 2,
+  "ide": {
+    "available": true,
+    "editor": "vscode",
+    "error": null,
+    "label": "Open in VS Code",
+    "source": "builtin"
+  },
+  "index": {
+    "contract_version": 1,
+    "finished_at": "2026-11-03T14:32:05.123Z",
+    "indexer": {
+      "name": "graphvein",
+      "version": "extractors-62"
+    }
+  },
+  "migration": {
+    "attributes": {
+      "applied": true,
+      "description": "opaque",
+      "dialect": "postgres",
+      "direction": "simple",
+      "errors": 0,
+      "extensions": [],
+      "modeled": 0,
+      "no_effect": 0,
+      "opaque": 2,
+      "opaque_sites": [
+        {
+          "kind": "function_call",
+          "row": "O1",
+          "span": {
+            "end_column": 23,
+            "end_line": 1,
+            "start_column": 0,
+            "start_line": 1
+          }
+        },
+        {
+          "kind": "do",
+          "row": "O1",
+          "span": {
+            "end_column": 30,
+            "end_line": 2,
+            "start_column": 0,
+            "start_line": 2
+          }
+        }
+      ],
+      "order": 6,
+      "package": "pg-app/Cargo.toml",
+      "set": "pg-app/migrations",
+      "set_opaque_statements": {
+        "by_kind": {
+          "do": 1,
+          "function_call": 1,
+          "lexing_failure": 1
+        },
+        "total": 3
+      },
+      "statements": 2,
+      "tool": "sqlx",
+      "unsupported": 0,
+      "version": "6",
+      "version_text": "6"
+    },
+    "content_hash": "sha256:9ede60e6884a05296eafa5c7ab9fa8289a61ada76e665c337f67fc031e275ab6",
+    "file": "pg-app/migrations/6_opaque.sql",
+    "file_state": "unchanged",
+    "ide": {
+      "column": 1,
+      "exact": true,
+      "line": 1,
+      "link": "vscode://file/{ROOT}/pg-app/migrations/6_opaque.sql:1:1"
+    },
+    "identity": "migration:pg-app/migrations/6_opaque.sql#migration",
+    "kind": "migration",
+    "level": 3,
+    "name": "6_opaque.sql",
+    "qualified_name": "migration",
+    "span": {
+      "end_column": 0,
+      "end_line": 3,
+      "start_column": 0,
+      "start_line": 1
+    },
+    "type": "node"
+  },
+  "next": "migration:pg-app/migrations/7_unsupported.sql#migration",
+  "opaque_sites": [
+    {
+      "kind": "function_call",
+      "link": {
+        "column": 1,
+        "exact": true,
+        "line": 1,
+        "link": "vscode://file/{ROOT}/pg-app/migrations/6_opaque.sql:1:1"
+      },
+      "row": "O1",
+      "span": {
+        "end_column": 23,
+        "end_line": 1,
+        "start_column": 0,
+        "start_line": 1
+      }
+    },
+    {
+      "kind": "do",
+      "link": {
+        "column": 1,
+        "exact": true,
+        "line": 2,
+        "link": "vscode://file/{ROOT}/pg-app/migrations/6_opaque.sql:2:1"
+      },
+      "row": "O1",
+      "span": {
+        "end_column": 30,
+        "end_line": 2,
+        "start_column": 0,
+        "start_line": 2
+      }
+    }
+  ],
+  "previous": "migration:pg-app/migrations/5_generated_name.sql#migration",
+  "repository": "fixture",
+  "set": "pg-app/migrations"
+}

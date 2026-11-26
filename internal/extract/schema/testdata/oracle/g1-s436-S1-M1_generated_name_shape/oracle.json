@@ -1,0 +1,34 @@
+{
+  "id": "g1-s436-S1-M1_generated_name_shape",
+  "signature": "applied|S1|42P07|M1.generated_name_shape",
+  "class": "S1",
+  "owner": "P2",
+  "row": "M1.generated_name_shape",
+  "history": {
+    "id": "g1-s436",
+    "tags": {
+      "1_m1.sql": [
+        "M1.create",
+        "M1.generated_name_shape"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42P07",
+        "message": "relation \"t2_pkey\" already exists",
+        "statement": 2,
+        "statement_text": "CREATE TABLE t3 (id int, CONSTRAINT t2_pkey PRIMARY KEY (id));"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

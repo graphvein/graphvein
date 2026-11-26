@@ -1,0 +1,1 @@
+ALTER SEQUENCE nosuch_seq RESTART;

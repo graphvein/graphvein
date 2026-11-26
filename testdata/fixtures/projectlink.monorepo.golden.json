@@ -1,0 +1,762 @@
+{
+  "links": [
+    {
+      "assumption": "declared in graphvein-project.yaml: `frontend` consumes `monorepo/users`",
+      "attributes": {
+        "declaration": "`frontend` consumes `monorepo/users`",
+        "match": "exact",
+        "row": "PL-L2",
+        "target_scope": "users",
+        "template": "/t022/users"
+      },
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "file": "api.ts",
+          "span": {
+            "end_column": 107,
+            "end_line": 22,
+            "start_column": 9,
+            "start_line": 22
+          }
+        }
+      ],
+      "kind": "calls_route",
+      "provenance": "inferred",
+      "source": {
+        "content_hash": "sha256:9d4269cb5658b2db95acf6984c983661420b75f0e4a9fb88fb812573178190bd",
+        "identity": "client_call:api.ts#either.GET%20flag%3F%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022%2Fusers%60%3A%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022%2Forders%60",
+        "repository": "frontend",
+        "run": "\u003crun of frontend\u003e"
+      },
+      "target": {
+        "content_hash": "sha256:2ea8ba8fea1c24c4483178ae65ddf4380c0427c20089a7234049a6db9c82199b",
+        "identity": "route:apps/users/server.ts#GET%20%2Ft022%2Fusers",
+        "repository": "monorepo",
+        "run": "\u003crun of monorepo\u003e"
+      }
+    },
+    {
+      "assumption": "declared in graphvein-project.yaml: `frontend` consumes `monorepo/users`",
+      "attributes": {
+        "declaration": "`frontend` consumes `monorepo/users`",
+        "match": "exact",
+        "row": "PL-L2",
+        "target_scope": "users",
+        "template": "/t022/users/{id}"
+      },
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "file": "api.ts",
+          "span": {
+            "end_column": 67,
+            "end_line": 7,
+            "start_column": 9,
+            "start_line": 7
+          }
+        }
+      ],
+      "kind": "calls_route",
+      "provenance": "inferred",
+      "source": {
+        "content_hash": "sha256:7d60966bbb64395e5ed13859a16a127ef4e609cfa3fe14e2a84a5891473bfe7e",
+        "identity": "client_call:api.ts#getUser.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022%2Fusers%2F%24%7Buser.id%7D%60",
+        "repository": "frontend",
+        "run": "\u003crun of frontend\u003e"
+      },
+      "target": {
+        "content_hash": "sha256:45835f5a55a26bde915c2238366bc3292af872c712323a8ba8e10917b2215c03",
+        "identity": "route:apps/users/server.ts#GET%20%2Ft022%2Fusers%2F%3Aid",
+        "repository": "monorepo",
+        "run": "\u003crun of monorepo\u003e"
+      }
+    },
+    {
+      "assumption": "declared in graphvein-project.yaml: `frontend` consumes `monorepo/users`",
+      "attributes": {
+        "declaration": "`frontend` consumes `monorepo/users`",
+        "match": "exact",
+        "row": "PL-L2",
+        "target_scope": "users",
+        "template": "/t022/users"
+      },
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "file": "api.ts",
+          "span": {
+            "end_column": 56,
+            "end_line": 4,
+            "start_column": 9,
+            "start_line": 4
+          }
+        }
+      ],
+      "kind": "calls_route",
+      "provenance": "inferred",
+      "source": {
+        "content_hash": "sha256:51df6023688dec1b8bc75a42139c089ef6ebb002cd616bbb013c38291f4137af",
+        "identity": "client_call:api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022%2Fusers%60",
+        "repository": "frontend",
+        "run": "\u003crun of frontend\u003e"
+      },
+      "target": {
+        "content_hash": "sha256:2ea8ba8fea1c24c4483178ae65ddf4380c0427c20089a7234049a6db9c82199b",
+        "identity": "route:apps/users/server.ts#GET%20%2Ft022%2Fusers",
+        "repository": "monorepo",
+        "run": "\u003crun of monorepo\u003e"
+      }
+    },
+    {
+      "assumption": "declared in graphvein-project.yaml: `frontend` consumes `monorepo/users`",
+      "attributes": {
+        "declaration": "`frontend` consumes `monorepo/users`",
+        "match": "exact",
+        "row": "PL-L2",
+        "target_scope": "users",
+        "template": "/t022/users"
+      },
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "file": "api.ts",
+          "span": {
+            "end_column": 116,
+            "end_line": 30,
+            "start_column": 9,
+            "start_line": 30
+          }
+        }
+      ],
+      "kind": "calls_route",
+      "provenance": "inferred",
+      "source": {
+        "content_hash": "sha256:0f88c0973eaf5e746e0d96d5ddf4597bc0a4cee06d85919d21bc7a6f60c70539",
+        "identity": "client_call:api.ts#mixed.GET%20flag%3F%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022%2Fusers%2F%24%7Bid%7D%60%3A%60%24%7Bimport.meta.env.VITE_PARTNER%7D%2Ft022%2Fusers%60",
+        "repository": "frontend",
+        "run": "\u003crun of frontend\u003e"
+      },
+      "target": {
+        "content_hash": "sha256:2ea8ba8fea1c24c4483178ae65ddf4380c0427c20089a7234049a6db9c82199b",
+        "identity": "route:apps/users/server.ts#GET%20%2Ft022%2Fusers",
+        "repository": "monorepo",
+        "run": "\u003crun of monorepo\u003e"
+      }
+    },
+    {
+      "assumption": "declared in graphvein-project.yaml: `frontend` consumes `monorepo/users`",
+      "attributes": {
+        "declaration": "`frontend` consumes `monorepo/users`",
+        "match": "exact",
+        "row": "PL-L2",
+        "target_scope": "users",
+        "template": "/t022/users/{id}"
+      },
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "file": "api.ts",
+          "span": {
+            "end_column": 116,
+            "end_line": 30,
+            "start_column": 9,
+            "start_line": 30
+          }
+        }
+      ],
+      "kind": "calls_route",
+      "provenance": "inferred",
+      "source": {
+        "content_hash": "sha256:0f88c0973eaf5e746e0d96d5ddf4597bc0a4cee06d85919d21bc7a6f60c70539",
+        "identity": "client_call:api.ts#mixed.GET%20flag%3F%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022%2Fusers%2F%24%7Bid%7D%60%3A%60%24%7Bimport.meta.env.VITE_PARTNER%7D%2Ft022%2Fusers%60",
+        "repository": "frontend",
+        "run": "\u003crun of frontend\u003e"
+      },
+      "target": {
+        "content_hash": "sha256:45835f5a55a26bde915c2238366bc3292af872c712323a8ba8e10917b2215c03",
+        "identity": "route:apps/users/server.ts#GET%20%2Ft022%2Fusers%2F%3Aid",
+        "repository": "monorepo",
+        "run": "\u003crun of monorepo\u003e"
+      }
+    },
+    {
+      "assumption": "declared in graphvein-project.yaml: `monorepo/admin` consumes `monorepo/users`; resolves an in-repository ambiguity across link scopes",
+      "attributes": {
+        "declaration": "`monorepo/admin` consumes `monorepo/users`",
+        "match": "exact",
+        "row": "PL-S1",
+        "source_scope": "admin",
+        "target_scope": "users",
+        "template": "/t022/mono/health"
+      },
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "file": "admin/client.ts",
+          "span": {
+            "end_column": 64,
+            "end_line": 3,
+            "start_column": 9,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "calls_route",
+      "provenance": "inferred",
+      "source": {
+        "content_hash": "sha256:5dc91246094156a12f8ebd4caf1c743fd97bd0a17517a6209e9c671e72ae925b",
+        "identity": "client_call:admin/client.ts#adminHealth.GET%20%60%24%7Bimport.meta.env.VITE_ADMIN%7D%2Ft022%2Fmono%2Fhealth%60",
+        "repository": "monorepo",
+        "run": "\u003crun of monorepo\u003e"
+      },
+      "target": {
+        "content_hash": "sha256:78b2fb4001d533973364db71eaa3d93d9355fd1e4c0af71a1dba79f1ff28ec65",
+        "identity": "route:apps/users/server.ts#GET%20%2Ft022%2Fmono%2Fhealth",
+        "repository": "monorepo",
+        "run": "\u003crun of monorepo\u003e"
+      }
+    },
+    {
+      "assumption": "declared in graphvein-project.yaml: `monorepo/web` consumes `monorepo/orders` (bases: VITE_ORDERS); resolves an in-repository ambiguity across link scopes",
+      "attributes": {
+        "declaration": "`monorepo/web` consumes `monorepo/orders` (bases: VITE_ORDERS)",
+        "match": "exact",
+        "row": "PL-S1",
+        "source_scope": "web",
+        "target_scope": "orders",
+        "template": "/t022/users"
+      },
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "file": "web/client.ts",
+          "span": {
+            "end_column": 59,
+            "end_line": 6,
+            "start_column": 9,
+            "start_line": 6
+          }
+        }
+      ],
+      "kind": "calls_route",
+      "provenance": "inferred",
+      "source": {
+        "content_hash": "sha256:1a99da9edd74fe09e6c2bceac0f06152c959f12e60cc3bf0bb9a0b74deb80123",
+        "identity": "client_call:web/client.ts#usersFromOrders.GET%20%60%24%7Bimport.meta.env.VITE_ORDERS%7D%2Ft022%2Fusers%60",
+        "repository": "monorepo",
+        "run": "\u003crun of monorepo\u003e"
+      },
+      "target": {
+        "content_hash": "sha256:2ea8ba8fea1c24c4483178ae65ddf4380c0427c20089a7234049a6db9c82199b",
+        "identity": "route:apps/orders/server.ts#GET%20%2Ft022%2Fusers",
+        "repository": "monorepo",
+        "run": "\u003crun of monorepo\u003e"
+      }
+    },
+    {
+      "assumption": "declared in graphvein-project.yaml: `monorepo/web` consumes `monorepo/users` (bases: VITE_USERS); resolves an in-repository ambiguity across link scopes",
+      "attributes": {
+        "declaration": "`monorepo/web` consumes `monorepo/users` (bases: VITE_USERS)",
+        "match": "exact",
+        "row": "PL-S1",
+        "source_scope": "web",
+        "target_scope": "users",
+        "template": "/t022/users"
+      },
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "file": "web/client.ts",
+          "span": {
+            "end_column": 58,
+            "end_line": 3,
+            "start_column": 9,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "calls_route",
+      "provenance": "inferred",
+      "source": {
+        "content_hash": "sha256:b1201c046e51ff8b70823fff4504a2896b62ee3fcc236696eaeec7944d1bb2b9",
+        "identity": "client_call:web/client.ts#usersFromUsers.GET%20%60%24%7Bimport.meta.env.VITE_USERS%7D%2Ft022%2Fusers%60",
+        "repository": "monorepo",
+        "run": "\u003crun of monorepo\u003e"
+      },
+      "target": {
+        "content_hash": "sha256:2ea8ba8fea1c24c4483178ae65ddf4380c0427c20089a7234049a6db9c82199b",
+        "identity": "route:apps/users/server.ts#GET%20%2Ft022%2Fusers",
+        "repository": "monorepo",
+        "run": "\u003crun of monorepo\u003e"
+      }
+    },
+    {
+      "assumption": "declared in graphvein-project.yaml: `frontend` consumes `monorepo/users`; origin https://partner.example.com assumed to be monorepo's server",
+      "attributes": {
+        "declaration": "`frontend` consumes `monorepo/users`",
+        "match": "exact",
+        "row": "PL-L6",
+        "target_scope": "users",
+        "template": "/t022/users"
+      },
+      "confidence": 0.7,
+      "evidence": [
+        {
+          "file": "openapi.yaml",
+          "span": {
+            "end_column": 11,
+            "end_line": 9,
+            "start_column": 4,
+            "start_line": 9
+          }
+        }
+      ],
+      "kind": "documents_route",
+      "provenance": "inferred",
+      "source": {
+        "content_hash": "sha256:101f440014d1f0aebf310e6e34d43dcb5f5d42b19f8b90df4e2a8d1dfff6d2aa",
+        "identity": "api_operation:openapi.yaml#GET%20%2Ft022%2Fusers",
+        "repository": "frontend",
+        "run": "\u003crun of frontend\u003e"
+      },
+      "target": {
+        "content_hash": "sha256:2ea8ba8fea1c24c4483178ae65ddf4380c0427c20089a7234049a6db9c82199b",
+        "identity": "route:apps/users/server.ts#GET%20%2Ft022%2Fusers",
+        "repository": "monorepo",
+        "run": "\u003crun of monorepo\u003e"
+      }
+    },
+    {
+      "assumption": "declared in graphvein-project.yaml: `monorepo/admin` consumes `monorepo/users`; resolves an in-repository ambiguity across link scopes",
+      "attributes": {
+        "declaration": "`monorepo/admin` consumes `monorepo/users`",
+        "match": "exact",
+        "row": "PL-S2",
+        "source_scope": "admin",
+        "target_scope": "users",
+        "template": "/t022/users"
+      },
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "file": "admin/openapi.yaml",
+          "span": {
+            "end_column": 11,
+            "end_line": 7,
+            "start_column": 4,
+            "start_line": 7
+          }
+        }
+      ],
+      "kind": "documents_route",
+      "provenance": "inferred",
+      "source": {
+        "content_hash": "sha256:101f440014d1f0aebf310e6e34d43dcb5f5d42b19f8b90df4e2a8d1dfff6d2aa",
+        "identity": "api_operation:admin/openapi.yaml#GET%20%2Ft022%2Fusers",
+        "repository": "monorepo",
+        "run": "\u003crun of monorepo\u003e"
+      },
+      "target": {
+        "content_hash": "sha256:2ea8ba8fea1c24c4483178ae65ddf4380c0427c20089a7234049a6db9c82199b",
+        "identity": "route:apps/users/server.ts#GET%20%2Ft022%2Fusers",
+        "repository": "monorepo",
+        "run": "\u003crun of monorepo\u003e"
+      }
+    }
+  ],
+  "members": [
+    {
+      "repository": "frontend",
+      "run": "\u003crun of frontend\u003e"
+    },
+    {
+      "repository": "monorepo",
+      "run": "\u003crun of monorepo\u003e"
+    }
+  ],
+  "outcomes": [
+    {
+      "candidate_count": 0,
+      "candidates": [],
+      "kind": "calls_route",
+      "row": "PL-R2",
+      "source": {
+        "identity": "client_call:api.ts#anywhere.GET%20nextUrl%28%29",
+        "repository": "frontend"
+      },
+      "status": "dynamic"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [],
+      "kind": "calls_route",
+      "row": "PL-R8",
+      "source": {
+        "identity": "client_call:api.ts#createOrder.POST%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022%2Forders%60",
+        "repository": "frontend"
+      },
+      "status": "unmatched",
+      "template": "/t022/orders"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [],
+      "kind": "calls_route",
+      "row": "PL-R8",
+      "source": {
+        "identity": "client_call:api.ts#duplicate.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022%2Fduplicate%60",
+        "repository": "frontend"
+      },
+      "status": "unmatched",
+      "template": "/t022/duplicate"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [],
+      "kind": "calls_route",
+      "row": "PL-R8",
+      "source": {
+        "identity": "client_call:api.ts#either.GET%20flag%3F%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022%2Fusers%60%3A%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022%2Forders%60",
+        "repository": "frontend"
+      },
+      "status": "unmatched",
+      "template": "/t022/orders"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [
+        {
+          "identity": "route:apps/users/server.ts#GET%20%2Ft022%2Fusers",
+          "repository": "monorepo"
+        }
+      ],
+      "kind": "calls_route",
+      "row": "PL-L2",
+      "source": {
+        "identity": "client_call:api.ts#either.GET%20flag%3F%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022%2Fusers%60%3A%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022%2Forders%60",
+        "repository": "frontend"
+      },
+      "status": "linked",
+      "target": {
+        "identity": "route:apps/users/server.ts#GET%20%2Ft022%2Fusers",
+        "repository": "monorepo"
+      },
+      "template": "/t022/users"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [
+        {
+          "identity": "route:apps/users/server.ts#GET%20%2Ft022%2Fusers%2F%3Aid",
+          "repository": "monorepo"
+        }
+      ],
+      "kind": "calls_route",
+      "row": "PL-L2",
+      "source": {
+        "identity": "client_call:api.ts#getUser.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022%2Fusers%2F%24%7Buser.id%7D%60",
+        "repository": "frontend"
+      },
+      "status": "linked",
+      "target": {
+        "identity": "route:apps/users/server.ts#GET%20%2Ft022%2Fusers%2F%3Aid",
+        "repository": "monorepo"
+      },
+      "template": "/t022/users/{id}"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [],
+      "kind": "calls_route",
+      "row": "PL-R8",
+      "source": {
+        "identity": "client_call:api.ts#health.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022%2Fhealth%60",
+        "repository": "frontend"
+      },
+      "status": "unmatched",
+      "template": "/t022/health"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [
+        {
+          "identity": "route:apps/users/server.ts#GET%20%2Ft022%2Fusers",
+          "repository": "monorepo"
+        }
+      ],
+      "kind": "calls_route",
+      "row": "PL-L2",
+      "source": {
+        "identity": "client_call:api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022%2Fusers%60",
+        "repository": "frontend"
+      },
+      "status": "linked",
+      "target": {
+        "identity": "route:apps/users/server.ts#GET%20%2Ft022%2Fusers",
+        "repository": "monorepo"
+      },
+      "template": "/t022/users"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [
+        {
+          "identity": "route:apps/users/server.ts#GET%20%2Ft022%2Fusers",
+          "repository": "monorepo"
+        }
+      ],
+      "kind": "calls_route",
+      "row": "PL-L2",
+      "source": {
+        "identity": "client_call:api.ts#mixed.GET%20flag%3F%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022%2Fusers%2F%24%7Bid%7D%60%3A%60%24%7Bimport.meta.env.VITE_PARTNER%7D%2Ft022%2Fusers%60",
+        "repository": "frontend"
+      },
+      "status": "linked",
+      "target": {
+        "identity": "route:apps/users/server.ts#GET%20%2Ft022%2Fusers",
+        "repository": "monorepo"
+      },
+      "template": "/t022/users"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [
+        {
+          "identity": "route:apps/users/server.ts#GET%20%2Ft022%2Fusers%2F%3Aid",
+          "repository": "monorepo"
+        }
+      ],
+      "kind": "calls_route",
+      "row": "PL-L2",
+      "source": {
+        "identity": "client_call:api.ts#mixed.GET%20flag%3F%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022%2Fusers%2F%24%7Bid%7D%60%3A%60%24%7Bimport.meta.env.VITE_PARTNER%7D%2Ft022%2Fusers%60",
+        "repository": "frontend"
+      },
+      "status": "linked",
+      "target": {
+        "identity": "route:apps/users/server.ts#GET%20%2Ft022%2Fusers%2F%3Aid",
+        "repository": "monorepo"
+      },
+      "template": "/t022/users/{id}"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [],
+      "kind": "calls_route",
+      "row": "PL-R5",
+      "source": {
+        "identity": "client_call:api.ts#partner.GET%20%27https%3A%2F%2Fpartner.example.com%2Ft022%2Fusers%27",
+        "repository": "frontend"
+      },
+      "status": "unmatched",
+      "template": "/t022/users"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [],
+      "kind": "calls_route",
+      "row": "PL-R8",
+      "source": {
+        "identity": "client_call:api.ts#sameRoute.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022%2Fsame%60",
+        "repository": "frontend"
+      },
+      "status": "unmatched",
+      "template": "/t022/same"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [
+        {
+          "identity": "route:apps/users/server.ts#GET%20%2Ft022%2Fmono%2Fhealth",
+          "repository": "monorepo"
+        }
+      ],
+      "kind": "calls_route",
+      "row": "PL-S1",
+      "source": {
+        "identity": "client_call:admin/client.ts#adminHealth.GET%20%60%24%7Bimport.meta.env.VITE_ADMIN%7D%2Ft022%2Fmono%2Fhealth%60",
+        "repository": "monorepo"
+      },
+      "status": "linked",
+      "target": {
+        "identity": "route:apps/users/server.ts#GET%20%2Ft022%2Fmono%2Fhealth",
+        "repository": "monorepo"
+      },
+      "template": "/t022/mono/health"
+    },
+    {
+      "candidate_count": 2,
+      "candidates": [
+        {
+          "identity": "route:apps/orders/server.ts#GET%20%2Ft022%2Fmono%2Fhealth",
+          "repository": "monorepo"
+        },
+        {
+          "identity": "route:apps/users/server.ts#GET%20%2Ft022%2Fmono%2Fhealth",
+          "repository": "monorepo"
+        }
+      ],
+      "kind": "calls_route",
+      "row": "PL-S3",
+      "source": {
+        "identity": "client_call:ops/client.ts#opsHealth.GET%20%60%24%7Bimport.meta.env.VITE_OPS%7D%2Ft022%2Fmono%2Fhealth%60",
+        "repository": "monorepo"
+      },
+      "status": "ambiguous",
+      "template": "/t022/mono/health"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [],
+      "kind": "calls_route",
+      "row": "PL-R1",
+      "source": {
+        "identity": "client_call:tools/check.ts#checkUsers.GET%20%60%24%7Bimport.meta.env.VITE_USERS%7D%2Ft022%2Fusers%60",
+        "repository": "monorepo"
+      },
+      "status": "in_repository"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [],
+      "kind": "calls_route",
+      "row": "PL-R1",
+      "source": {
+        "identity": "client_call:web/client.ts#sharedHealth.GET%20%60%24%7Bimport.meta.env.VITE_SHARED%7D%2Ft022%2Fmono%2Fhealth%60",
+        "repository": "monorepo"
+      },
+      "status": "in_repository"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [],
+      "kind": "calls_route",
+      "row": "PL-R1",
+      "source": {
+        "identity": "client_call:web/client.ts#userFortyTwoFromOrders.GET%20%60%24%7Bimport.meta.env.VITE_ORDERS%7D%2Ft022%2Fusers%2F42%60",
+        "repository": "monorepo"
+      },
+      "status": "in_repository"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [],
+      "kind": "calls_route",
+      "row": "PL-R1",
+      "source": {
+        "identity": "client_call:web/client.ts#userFromOrders.GET%20%60%24%7Bimport.meta.env.VITE_ORDERS%7D%2Ft022%2Fusers%2F%24%7Bid%7D%60",
+        "repository": "monorepo"
+      },
+      "status": "in_repository"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [
+        {
+          "identity": "route:apps/orders/server.ts#GET%20%2Ft022%2Fusers",
+          "repository": "monorepo"
+        }
+      ],
+      "kind": "calls_route",
+      "row": "PL-S1",
+      "source": {
+        "identity": "client_call:web/client.ts#usersFromOrders.GET%20%60%24%7Bimport.meta.env.VITE_ORDERS%7D%2Ft022%2Fusers%60",
+        "repository": "monorepo"
+      },
+      "status": "linked",
+      "target": {
+        "identity": "route:apps/orders/server.ts#GET%20%2Ft022%2Fusers",
+        "repository": "monorepo"
+      },
+      "template": "/t022/users"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [
+        {
+          "identity": "route:apps/users/server.ts#GET%20%2Ft022%2Fusers",
+          "repository": "monorepo"
+        }
+      ],
+      "kind": "calls_route",
+      "row": "PL-S1",
+      "source": {
+        "identity": "client_call:web/client.ts#usersFromUsers.GET%20%60%24%7Bimport.meta.env.VITE_USERS%7D%2Ft022%2Fusers%60",
+        "repository": "monorepo"
+      },
+      "status": "linked",
+      "target": {
+        "identity": "route:apps/users/server.ts#GET%20%2Ft022%2Fusers",
+        "repository": "monorepo"
+      },
+      "template": "/t022/users"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [],
+      "kind": "documents_route",
+      "row": "PL-R8",
+      "source": {
+        "identity": "api_operation:openapi.yaml#GET%20%2Ft022%2Fmissing",
+        "repository": "frontend"
+      },
+      "status": "unmatched",
+      "template": "/t022/missing"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [
+        {
+          "identity": "route:apps/users/server.ts#GET%20%2Ft022%2Fusers",
+          "repository": "monorepo"
+        }
+      ],
+      "kind": "documents_route",
+      "row": "PL-L6",
+      "source": {
+        "identity": "api_operation:openapi.yaml#GET%20%2Ft022%2Fusers",
+        "repository": "frontend"
+      },
+      "status": "linked",
+      "target": {
+        "identity": "route:apps/users/server.ts#GET%20%2Ft022%2Fusers",
+        "repository": "monorepo"
+      },
+      "template": "/t022/users"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [],
+      "kind": "documents_route",
+      "row": "PL-R8",
+      "source": {
+        "identity": "api_operation:openapi.yaml#POST%20%2Ft022%2Forders",
+        "repository": "frontend"
+      },
+      "status": "unmatched",
+      "template": "/t022/orders"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [
+        {
+          "identity": "route:apps/users/server.ts#GET%20%2Ft022%2Fusers",
+          "repository": "monorepo"
+        }
+      ],
+      "kind": "documents_route",
+      "row": "PL-S2",
+      "source": {
+        "identity": "api_operation:admin/openapi.yaml#GET%20%2Ft022%2Fusers",
+        "repository": "monorepo"
+      },
+      "status": "linked",
+      "target": {
+        "identity": "route:apps/users/server.ts#GET%20%2Ft022%2Fusers",
+        "repository": "monorepo"
+      },
+      "template": "/t022/users"
+    }
+  ]
+}

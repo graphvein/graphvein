@@ -1,0 +1,28 @@
+{
+  "id": "review16-r45-plpgsql-missing-semicolon-trigger",
+  "signature": "agreed at Revision 1.6",
+  "class": "S1",
+  "owner": "V1",
+  "row": "review16",
+  "history": {
+    "id": "r45-plpgsql-missing-semicolon-trigger"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42601",
+        "message": "syntax error at or near \"NEW\"",
+        "statement": 2,
+        "statement_text": "CREATE FUNCTION tf() RETURNS trigger LANGUAGE plpgsql AS $$ BEGIN NEW.a := 1 RETURN NEW; END $$;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

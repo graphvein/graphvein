@@ -1,0 +1,29 @@
+{
+  "id": "review-r17-ins-omit-domdef",
+  "signature": "agreed at af6a883",
+  "class": "S1",
+  "owner": "P5",
+  "row": "review",
+  "history": {
+    "id": "r17-ins-omit-domdef"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "23502",
+        "message": "domain d does not allow null values",
+        "statement": 3,
+        "statement_text": "INSERT INTO t (b) VALUES (1);",
+        "row_free": true
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

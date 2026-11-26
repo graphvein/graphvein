@@ -1,0 +1,174 @@
+{
+  "routes": {
+    "GET /api/items/{id}": [
+      {"path": "/api/items/7?q=a&verbose", "headers": {"authorization": "x"}, "cookies": "theme=dark"},
+      {"path": "/api/items/none"},
+      {"path": "/api/items/missing"},
+      {"path": "/api/items/old"}
+    ],
+    "PUT /api/items/{id}": [
+      {"path": "/api/items/7", "json": {"name": "Lamp", "price": 12, "tags": ["a"]}, "valid": true}
+    ],
+    "GET /api/search": [
+      {"path": "/api/search?term=x&page=1", "headers": {"accept-language": "en"}, "cookies": "session=s"},
+      {"path": "/api/search"},
+      {"path": "/api/search?term=go"},
+      {"path": "/api/search?term=moved"},
+      {"path": "/api/search?term=none"},
+      {"path": "/api/search?term=next"}
+    ],
+    "POST /api/forms": [
+      {"path": "/api/forms", "form": {"email": "a@b.c", "attachment": "x"}}
+    ],
+    "POST /api/orders": [
+      {"path": "/api/orders", "json": {"sku": "A1", "qty": 2, "note": "n"}, "valid": true, "headers": {"x-request-id": "r1"}},
+      {"path": "/api/orders", "json": {"sku": 5}}
+    ],
+    "PATCH /api/orders": [
+      {"path": "/api/orders", "json": {"qty": 1}},
+      {"path": "/api/orders", "json": {"qty": 0}}
+    ],
+    "PUT /api/orders": [
+      {"path": "/api/orders", "text": "raw"}
+    ],
+    "DELETE /api/orders": [
+      {"path": "/api/orders"}
+    ],
+    "GET /api/deep": [
+      {"path": "/api/deep"},
+      {"path": "/api/deep", "headers": {"x-bare": "1"}}
+    ],
+    "GET /admin/stats": [
+      {"path": "/admin/stats"},
+      {"path": "/admin/stats", "cookies": "admin=1"},
+      {"path": "/admin/stats", "cookies": "admin=1", "headers": {"x-scope": "s"}}
+    ],
+    "GET /api/wrapped": [
+      {"path": "/api/wrapped", "headers": {"x-user": "u"}}
+    ],
+    "GET /api/plain": [
+      {"path": "/api/plain"}
+    ],
+    "HEAD /api/plain": [
+      {"path": "/api/plain"}
+    ],
+    "GET /api/files/{*path}": [
+      {"path": "/api/files/a/b"}
+    ],
+    "GET /api/docs/{*slug}": [
+      {"path": "/api/docs"},
+      {"path": "/api/docs/a/b"}
+    ],
+    "POST /api/webhook": [
+      {"path": "/api/webhook", "json": {"type": "t"}},
+      {"path": "/api/webhook", "json": {"type": 1}}
+    ],
+    "PUT /api/webhook": [
+      {"path": "/api/webhook", "json": {"id": "i"}},
+      {"path": "/api/webhook", "json": {}}
+    ],
+    "POST /api/loose": [
+      {"path": "/api/loose", "json": {"kind": "a"}},
+      {"path": "/api/loose", "json": {"kind": "b"}}
+    ],
+    "GET /api/review/redirects": [
+      {"path": "/api/review/redirects", "expect": "500"}
+    ],
+    "POST /api/review/redirects": [
+      {"path": "/api/review/redirects", "expect": "500"}
+    ],
+    "PUT /api/review/redirects": [
+      {"path": "/api/review/redirects", "expect": "307"}
+    ],
+    "PATCH /api/review/redirects": [
+      {"path": "/api/review/redirects", "expect": "308"}
+    ],
+    "DELETE /api/review/redirects": [
+      {"path": "/api/review/redirects", "expect": "303"}
+    ],
+    "GET /api/review/static": [
+      {"path": "/api/review/static?q=1", "headers": {"x-a": "7"}, "expect": "400"}
+    ],
+    "POST /api/review/static": [
+      {"path": "/api/review/static", "cookies": "token=t", "json": {"name": "n"}, "expect": "401"}
+    ],
+    "POST /api/review/dyerror": [
+      {"path": "/api/review/dyerror", "json": {"name": "n"}, "headers": {"x-a": "7"}, "expect": {"next14": "500", "next15": "201", "next16": "201"}}
+    ],
+    "GET /api/review/revalidate": [
+      {"path": "/api/review/revalidate?q=1", "expect": "200"},
+      {"path": "/api/review/revalidate", "expect": "400"}
+    ],
+    "GET /api/review/caught": [
+      {"path": "/api/review/caught", "expect": "500"}
+    ],
+    "POST /api/review/caught": [
+      {"path": "/api/review/caught", "expect": "404"}
+    ],
+    "PUT /api/review/caught": [
+      {"path": "/api/review/caught", "headers": {"x-relay": "r"}, "expect": "502"}
+    ],
+    "PATCH /api/review/caught": [
+      {"path": "/api/review/caught", "expect": "503"}
+    ],
+    "GET /api/review/nested": [
+      {"path": "/api/review/nested", "expect": "200"}
+    ],
+    "GET /api/review/empty": [
+      {"path": "/api/review/empty", "expect": "500"}
+    ],
+    "POST /api/review/empty": [
+      {"path": "/api/review/empty", "expect": "500"}
+    ],
+    "GET /api/review/cfg": [
+      {"path": "/api/review/cfg", "expect": "201"},
+      {"path": "/api/review/cfg?go=1", "expect": "307"}
+    ],
+    "GET /api/review/gone": [
+      {"path": "/api/review/gone", "expect": "307"}
+    ],
+    "GET /api/review/bf": [
+      {"path": "/api/review/bf", "expect": "200"}
+    ],
+    "GET /api/review/dyn/{id}": [
+      {"path": "/api/review/dyn/5", "expect": "200"}
+    ],
+    "GET /api/review/st": [
+      {"path": "/api/review/st", "expect": "201"}
+    ],
+    "GET /api/review/cfgh": [
+      {"path": "/api/review/cfgh", "expect": "200", "expect_header": ["x-config", "1"]}
+    ],
+    "GET /api/review/cfgx": [
+      {"path": "/api/review/cfgx", "expect": "200", "expect_header": ["x-frame-options", "DENY"]}
+    ],
+    "GET /api/review/cfct": [
+      {"path": "/api/review/cfct", "expect": "200", "expect_header": ["content-type", {"next14": "text/plain; charset=utf-8, application/json", "next15": "text/plain; charset=utf-8", "next16": "text/plain; charset=utf-8"}]}
+    ],
+    "POST /api/review/cfct": [
+      {"path": "/api/review/cfct", "expect": "202", "expect_header": ["content-type", "text/plain; charset=utf-8"]}
+    ],
+    "GET /api/review/cfcl": [
+      {"path": "/api/review/cfcl", "expect": "200", "expect_header": ["content-length", "3"]}
+    ],
+    "GET /api/review/cfk": [
+      {"path": "/api/review/cfk", "expect": "200", "expect_header": ["x-fixture", "1"]}
+    ],
+    "GET /api/review/sync": [
+      {"path": "/api/review/sync", "headers": {"x-a": "7"}, "expect": {"next14": "201", "next15": "201", "next16": "500"}}
+    ]
+  },
+  "actions": {
+    "signup": {"args": [{"email": "a@b.c", "age": 30}], "valid": true, "extra": 5},
+    "rename": {"args": [{"id": "1", "name": "n"}]},
+    "move": {"args": ["a", 1]},
+    "subscribe": {"form": {"email": "a@b.c", "topic": "t"}}
+  },
+  "schemas": [
+    {"file": "app/api/items/[id]/route.ts", "name": "ItemBody", "route": "PUT /api/items/{id}"},
+    {"file": "app/api/orders/route.ts", "name": "Order", "route": "POST /api/orders"},
+    {"file": "app/api/webhook/route.ts", "name": "Event", "route": "POST /api/webhook"},
+    {"file": "app/actions.ts", "name": "Signup", "action": "signup"}
+  ],
+  "unobservable": {}
+}

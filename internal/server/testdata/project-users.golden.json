@@ -1,0 +1,4469 @@
+{
+  "1-project": {
+    "ambiguous": {
+      "groups": [],
+      "total": 0
+    },
+    "api_version": 0,
+    "checks": [],
+    "conflicts": [],
+    "declarations": {
+      "consumes": [],
+      "scopes": []
+    },
+    "link_pass": {
+      "links": 3,
+      "outcomes": {
+        "linked": 3
+      },
+      "pass": 1,
+      "stale_links": 0,
+      "stale_reasons": [],
+      "state": "fresh"
+    },
+    "members": [
+      {
+        "checkout": true,
+        "extractor": {
+          "current": "extractors-62",
+          "indexed": "extractors-62",
+          "matches": true
+        },
+        "freshness": {
+          "changed_count": 0,
+          "changed_files": [],
+          "changed_files_truncated": false,
+          "checked_at": "2026-11-03T14:40:00Z",
+          "settings": {
+            "changed_keys": [],
+            "current_hash": "sha256:bd0bac46bc39426f2956eada62b5e5cd03dc376650d84e5996b66f09494e62d2",
+            "index_hash": "sha256:bd0bac46bc39426f2956eada62b5e5cd03dc376650d84e5996b66f09494e62d2",
+            "reason": null,
+            "state": "unchanged",
+            "unknown_keys": []
+          },
+          "state": "fresh"
+        },
+        "index": {
+          "contract_version": 1,
+          "finished_at": "2026-11-03T14:32:05.123Z",
+          "indexer": {
+            "name": "graphvein",
+            "version": "extractors-62"
+          }
+        },
+        "links": {
+          "in_pass": true,
+          "index_error": null,
+          "links": 3,
+          "pass_run": "\u003crun frontend#1\u003e",
+          "stale": 0,
+          "stale_reasons": []
+        },
+        "path": "frontend",
+        "path_source": "manifest",
+        "remote": null,
+        "repository": "frontend",
+        "repository_source": "manifest"
+      },
+      {
+        "checkout": true,
+        "extractor": {
+          "current": "extractors-62",
+          "indexed": "extractors-62",
+          "matches": true
+        },
+        "freshness": {
+          "changed_count": 0,
+          "changed_files": [],
+          "changed_files_truncated": false,
+          "checked_at": "2026-11-03T14:40:00Z",
+          "settings": {
+            "changed_keys": [],
+            "current_hash": "sha256:bd0bac46bc39426f2956eada62b5e5cd03dc376650d84e5996b66f09494e62d2",
+            "index_hash": "sha256:bd0bac46bc39426f2956eada62b5e5cd03dc376650d84e5996b66f09494e62d2",
+            "reason": null,
+            "state": "unchanged",
+            "unknown_keys": []
+          },
+          "state": "fresh"
+        },
+        "index": {
+          "contract_version": 1,
+          "finished_at": "2026-11-03T14:32:05.123Z",
+          "indexer": {
+            "name": "graphvein",
+            "version": "extractors-62"
+          }
+        },
+        "links": {
+          "in_pass": true,
+          "index_error": null,
+          "links": 3,
+          "pass_run": "\u003crun backend#1\u003e",
+          "stale": 0,
+          "stale_reasons": []
+        },
+        "path": "backend",
+        "path_source": "manifest",
+        "remote": null,
+        "repository": "backend",
+        "repository_source": "manifest"
+      }
+    ],
+    "project": "users",
+    "server_version": "test"
+  },
+  "10-endpoint-stale": {
+    "api_version": 0,
+    "callers": [],
+    "callers_precision": {
+      "label": "best_effort",
+      "reason": "default_branch",
+      "row": "D"
+    },
+    "endpoint": {
+      "attributes": {
+        "framework": "express",
+        "handler": "function:src/server.ts#listUsers",
+        "handler_inline": false,
+        "method": "GET",
+        "middleware": [],
+        "paths": [
+          {
+            "conditional": false,
+            "resolution": "literal",
+            "template": "/t022b7/users"
+          }
+        ],
+        "pattern": "/t022b7/users",
+        "shape": {
+          "body": {
+            "items": [],
+            "reason": "no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+            "state": "not_read"
+          },
+          "cookie": {
+            "items": [],
+            "reason": "nothing read in the handler or the functions it passes the value to",
+            "state": "not_read"
+          },
+          "follow": {
+            "chains": [
+              {
+                "at": null,
+                "depth": 0,
+                "section": "query",
+                "start": {
+                  "file": "src/server.ts",
+                  "function": "listUsers",
+                  "line": 5
+                },
+                "steps": [],
+                "stop": "ended"
+              },
+              {
+                "at": null,
+                "depth": 0,
+                "section": "header",
+                "start": {
+                  "file": "src/server.ts",
+                  "function": "listUsers",
+                  "line": 5
+                },
+                "steps": [],
+                "stop": "ended"
+              },
+              {
+                "at": null,
+                "depth": 0,
+                "section": "cookie",
+                "start": {
+                  "file": "src/server.ts",
+                  "function": "listUsers",
+                  "line": 5
+                },
+                "steps": [],
+                "stop": "ended"
+              },
+              {
+                "at": null,
+                "depth": 0,
+                "section": "body",
+                "start": {
+                  "file": "src/server.ts",
+                  "function": "listUsers",
+                  "line": 5
+                },
+                "steps": [],
+                "stop": "ended"
+              },
+              {
+                "at": null,
+                "depth": 0,
+                "section": "responses",
+                "start": {
+                  "file": "src/server.ts",
+                  "function": "listUsers",
+                  "line": 5
+                },
+                "steps": [],
+                "stop": "ended"
+              }
+            ],
+            "depth_limit": 6
+          },
+          "header": {
+            "items": [],
+            "reason": "nothing read in the handler or the functions it passes the value to",
+            "state": "not_read"
+          },
+          "models": [],
+          "path": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/server.ts",
+              "kind": "fact",
+              "line": 13,
+              "rule": "SH-E2"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "query": {
+            "items": [],
+            "reason": "nothing read in the handler or the functions it passes the value to",
+            "state": "not_read"
+          },
+          "responses": {
+            "items": [
+              {
+                "content_type": "application/json",
+                "provenance": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "src/server.ts",
+                  "kind": "read_in_handler",
+                  "line": 6,
+                  "rule": "SH-E25"
+                },
+                "schema": null,
+                "status": "200"
+              }
+            ],
+            "reason": "statuses read from code; errors thrown by called functions, error middleware and unread calls may add others",
+            "state": "partial"
+          },
+          "security": {
+            "items": [],
+            "state": "not_read"
+          },
+          "security_schemes": [],
+          "version": 1
+        }
+      },
+      "content_hash": "sha256:089e84383ba9a9de228136f14faeba403c402d6b42483c2899d43d0a324f55e1",
+      "file": "src/server.ts",
+      "file_state": "unchanged",
+      "ide": {
+        "column": 1,
+        "exact": true,
+        "line": 13,
+        "link": "vscode://file/{ROOT}/backend/src/server.ts:13:1"
+      },
+      "identity": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+      "kind": "route",
+      "level": 4,
+      "name": "GET /t022b7/users",
+      "qualified_name": "GET /t022b7/users",
+      "span": {
+        "end_column": 35,
+        "end_line": 13,
+        "start_column": 0,
+        "start_line": 13
+      },
+      "type": "node"
+    },
+    "handler": {
+      "edge": {
+        "confidence": 1,
+        "kind": "exposes_route",
+        "provenance": "fact"
+      },
+      "expression": null,
+      "node": {
+        "attributes": {
+          "table_access": [
+            {
+              "assumes": [
+                "TA-V3b"
+              ],
+              "kind": "reads_table",
+              "operations": [
+                "select"
+              ],
+              "role": "executes",
+              "rows": [
+                "CT-Z1"
+              ],
+              "target": "table:src/db/schema.ts#users",
+              "tool": "drizzle",
+              "verification": "oracle"
+            }
+          ]
+        },
+        "content_hash": "sha256:541315c5a6f0776a24330a292eeef14469a58623f6783939ec03e3fdc9f3d4bc",
+        "file": "src/server.ts",
+        "file_state": "unchanged",
+        "ide": {
+          "column": 1,
+          "exact": true,
+          "line": 5,
+          "link": "vscode://file/{ROOT}/backend/src/server.ts:5:1"
+        },
+        "identity": "function:src/server.ts#listUsers",
+        "kind": "function",
+        "level": 4,
+        "name": "listUsers",
+        "qualified_name": "listUsers",
+        "span": {
+          "end_column": 1,
+          "end_line": 7,
+          "start_column": 0,
+          "start_line": 5
+        },
+        "type": "node"
+      },
+      "state": "resolved"
+    },
+    "ide": {
+      "available": true,
+      "editor": "vscode",
+      "error": null,
+      "label": "Open in VS Code",
+      "source": "builtin"
+    },
+    "index": {
+      "contract_version": 1,
+      "finished_at": "2026-11-03T14:32:05.123Z",
+      "indexer": {
+        "name": "graphvein",
+        "version": "extractors-62"
+      }
+    },
+    "model_tables": [],
+    "near_misses": [],
+    "near_misses_incomplete": 0,
+    "openapi": {
+      "operations": [],
+      "specs": 0
+    },
+    "precision": {
+      "label": "best_effort",
+      "reason": "default_branch",
+      "row": "D"
+    },
+    "project": {
+      "callers": [
+        {
+          "assumption": "matched across project repositories; base URL not proven",
+          "confidence": 0.9,
+          "evidence": [
+            {
+              "file": "src/api.ts",
+              "span": {
+                "end_column": 58,
+                "end_line": 4,
+                "start_column": 9,
+                "start_line": 4
+              }
+            }
+          ],
+          "ide_status": {
+            "available": true,
+            "editor": "vscode",
+            "error": null,
+            "label": "Open in VS Code",
+            "source": "builtin"
+          },
+          "identity": "client_call:src/api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+          "kind": "calls_route",
+          "node": {
+            "attributes": {
+              "base": "unresolved",
+              "base_expression": "import.meta.env.VITE_API",
+              "library": "fetch",
+              "method": "GET",
+              "paths": [
+                {
+                  "candidate_count": 0,
+                  "candidates": [],
+                  "conditional": false,
+                  "match": null,
+                  "origin": null,
+                  "resolution": "literal",
+                  "status": "unmatched",
+                  "template": "/t022b7/users"
+                }
+              ],
+              "status": "unmatched",
+              "url_expression": "`${import.meta.env.VITE_API}/t022b7/users`",
+              "wrapper": null
+            },
+            "content_hash": "sha256:8889ef584333b1f2e159ca6693dfbb9b1287ce616da7917fe5495e4f0c99afe9",
+            "file": "src/api.ts",
+            "file_state": "unchanged",
+            "ide": {
+              "column": 10,
+              "exact": true,
+              "line": 4,
+              "link": "vscode://file/{ROOT}/frontend/src/api.ts:4:10"
+            },
+            "identity": "client_call:src/api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+            "kind": "client_call",
+            "level": 4,
+            "name": "GET `${import.meta.env.VITE_API}/t022b7/users`",
+            "qualified_name": "listUsers.GET `${import.meta.env.VITE_API}/t022b7/users`",
+            "source_root": ".",
+            "span": {
+              "end_column": 58,
+              "end_line": 4,
+              "start_column": 9,
+              "start_line": 4
+            },
+            "type": "node"
+          },
+          "owner": {
+            "id": "function:src/api.ts#listUsers",
+            "kind": "function",
+            "qualified_name": "listUsers"
+          },
+          "provenance": "inferred",
+          "repository": "frontend",
+          "stale": true,
+          "stale_reasons": [
+            "frontend indexed again since the pass"
+          ]
+        }
+      ],
+      "declaration_conflicts": [],
+      "link_pass": {
+        "pass": 2,
+        "stale_reasons": [
+          "frontend indexed again"
+        ],
+        "state": "stale"
+      },
+      "links_precision": {
+        "label": "best_effort",
+        "reason": "default_branch",
+        "row": "D"
+      },
+      "operations": [
+        {
+          "assumption": "matched across project repositories; base URL not proven",
+          "confidence": 0.9,
+          "evidence": [
+            {
+              "file": "openapi.yaml",
+              "span": {
+                "end_column": 25,
+                "end_line": 11,
+                "start_column": 4,
+                "start_line": 7
+              }
+            }
+          ],
+          "ide_status": {
+            "available": true,
+            "editor": "vscode",
+            "error": null,
+            "label": "Open in VS Code",
+            "source": "builtin"
+          },
+          "identity": "api_operation:openapi.yaml#GET%20%2Ft022b7%2Fusers",
+          "kind": "documents_route",
+          "node": {
+            "attributes": {
+              "deprecated": false,
+              "method": "GET",
+              "operation_id": "listUsers",
+              "parameters": [],
+              "path": "/t022b7/users",
+              "path_count": 1,
+              "paths": [
+                {
+                  "candidate_count": 0,
+                  "candidates": [],
+                  "match": null,
+                  "origins": [],
+                  "resolution": "literal",
+                  "status": "unmatched",
+                  "template": "/t022b7/users"
+                }
+              ],
+              "request_content_types": [],
+              "response_codes": [
+                "200"
+              ],
+              "security": [],
+              "status": "unmatched",
+              "summary": null,
+              "tags": []
+            },
+            "content_hash": "sha256:f409b7cdd72dcde75fbbadad69134ebf818c79edb4d5ac6d9cc113f5101fc74d",
+            "file": "openapi.yaml",
+            "file_state": "unchanged",
+            "ide": {
+              "column": 5,
+              "exact": true,
+              "line": 7,
+              "link": "vscode://file/{ROOT}/frontend/openapi.yaml:7:5"
+            },
+            "identity": "api_operation:openapi.yaml#GET%20%2Ft022b7%2Fusers",
+            "kind": "api_operation",
+            "level": 4,
+            "name": "GET /t022b7/users",
+            "qualified_name": "GET /t022b7/users",
+            "source_root": ".",
+            "span": {
+              "end_column": 25,
+              "end_line": 11,
+              "start_column": 4,
+              "start_line": 7
+            },
+            "type": "node"
+          },
+          "owner": {
+            "id": "api_spec:openapi.yaml#spec",
+            "kind": "api_spec",
+            "qualified_name": "spec"
+          },
+          "provenance": "inferred",
+          "repository": "frontend",
+          "stale": true,
+          "stale_reasons": [
+            "frontend indexed again since the pass"
+          ]
+        }
+      ],
+      "possible_callers": [],
+      "project": "users"
+    },
+    "repository": "backend",
+    "root": null,
+    "scope": "production",
+    "shape": {
+      "body": {
+        "items": [],
+        "reason": "no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+        "state": "not_read"
+      },
+      "cookie": {
+        "items": [],
+        "reason": "nothing read in the handler or the functions it passes the value to",
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [
+          {
+            "at": null,
+            "depth": 0,
+            "section": "query",
+            "start": {
+              "file": "src/server.ts",
+              "function": "listUsers",
+              "line": 5
+            },
+            "steps": [],
+            "stop": "ended"
+          },
+          {
+            "at": null,
+            "depth": 0,
+            "section": "header",
+            "start": {
+              "file": "src/server.ts",
+              "function": "listUsers",
+              "line": 5
+            },
+            "steps": [],
+            "stop": "ended"
+          },
+          {
+            "at": null,
+            "depth": 0,
+            "section": "cookie",
+            "start": {
+              "file": "src/server.ts",
+              "function": "listUsers",
+              "line": 5
+            },
+            "steps": [],
+            "stop": "ended"
+          },
+          {
+            "at": null,
+            "depth": 0,
+            "section": "body",
+            "start": {
+              "file": "src/server.ts",
+              "function": "listUsers",
+              "line": 5
+            },
+            "steps": [],
+            "stop": "ended"
+          },
+          {
+            "at": null,
+            "depth": 0,
+            "section": "responses",
+            "start": {
+              "file": "src/server.ts",
+              "function": "listUsers",
+              "line": 5
+            },
+            "steps": [],
+            "stop": "ended"
+          }
+        ],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [],
+        "reason": "nothing read in the handler or the functions it passes the value to",
+        "state": "not_read"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/server.ts",
+          "kind": "fact",
+          "line": 13,
+          "rule": "SH-E2"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "query": {
+        "items": [],
+        "reason": "nothing read in the handler or the functions it passes the value to",
+        "state": "not_read"
+      },
+      "responses": {
+        "items": [
+          {
+            "content_type": "application/json",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/server.ts",
+              "kind": "read_in_handler",
+              "line": 6,
+              "rule": "SH-E25"
+            },
+            "schema": null,
+            "status": "200"
+          }
+        ],
+        "reason": "statuses read from code; errors thrown by called functions, error middleware and unread calls may add others",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "shape_links": {
+      "src/server.ts:13": {
+        "column": 1,
+        "exact": true,
+        "line": 13,
+        "link": "vscode://file/{ROOT}/backend/src/server.ts:13:1"
+      },
+      "src/server.ts:6": {
+        "column": 1,
+        "exact": true,
+        "line": 6,
+        "link": "vscode://file/{ROOT}/backend/src/server.ts:6:1"
+      }
+    },
+    "transport": "http"
+  },
+  "2-endpoints-backend": {
+    "api_version": 0,
+    "index": {
+      "contract_version": 1,
+      "finished_at": "2026-11-03T14:32:05.123Z",
+      "indexer": {
+        "name": "graphvein",
+        "version": "extractors-62"
+      }
+    },
+    "repository": "backend",
+    "root": null,
+    "scope": "production",
+    "transports": [
+      {
+        "callers_precision": {
+          "label": "best_effort",
+          "reason": "default_branch",
+          "row": "D"
+        },
+        "calls": {
+          "by_status": {},
+          "edges_from_unlinked": 0,
+          "linked_without_edge": 0,
+          "total": 0,
+          "unknown_scope": 0
+        },
+        "endpoint_count": 2,
+        "endpoints": [
+          {
+            "caller_count": 0,
+            "documented": false,
+            "file": "src/server.ts",
+            "flags": [],
+            "framework": "express",
+            "id": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+            "line": 13,
+            "method": "GET",
+            "name": "GET /t022b7/users",
+            "path": "/t022b7/users",
+            "path_count": 1,
+            "pattern": "/t022b7/users",
+            "project_caller_count": 1,
+            "project_possible_caller_count": 0,
+            "scope": null,
+            "shape": {
+              "depth_cap": 0,
+              "depth_limit": 6,
+              "sections": {
+                "body": {
+                  "items": 0,
+                  "state": "not_read"
+                },
+                "cookie": {
+                  "items": 0,
+                  "state": "not_read"
+                },
+                "header": {
+                  "items": 0,
+                  "state": "not_read"
+                },
+                "path": {
+                  "items": 0,
+                  "state": "provably_none"
+                },
+                "query": {
+                  "items": 0,
+                  "state": "not_read"
+                },
+                "responses": {
+                  "items": 1,
+                  "state": "partial"
+                },
+                "security": {
+                  "items": 0,
+                  "state": "not_read"
+                }
+              }
+            }
+          },
+          {
+            "caller_count": 0,
+            "documented": false,
+            "file": "src/server.ts",
+            "flags": [],
+            "framework": "express",
+            "id": "route:src/server.ts#POST%20%2Ft022b7%2Fusers",
+            "line": 14,
+            "method": "POST",
+            "name": "POST /t022b7/users",
+            "path": "/t022b7/users",
+            "path_count": 1,
+            "pattern": "/t022b7/users",
+            "project_caller_count": 1,
+            "project_possible_caller_count": 0,
+            "scope": null,
+            "shape": {
+              "depth_cap": 0,
+              "depth_limit": 6,
+              "sections": {
+                "body": {
+                  "items": 1,
+                  "state": "partial"
+                },
+                "cookie": {
+                  "items": 0,
+                  "state": "not_read"
+                },
+                "header": {
+                  "items": 0,
+                  "state": "not_read"
+                },
+                "path": {
+                  "items": 0,
+                  "state": "provably_none"
+                },
+                "query": {
+                  "items": 0,
+                  "state": "not_read"
+                },
+                "responses": {
+                  "items": 1,
+                  "state": "partial"
+                },
+                "security": {
+                  "items": 0,
+                  "state": "not_read"
+                }
+              }
+            }
+          }
+        ],
+        "frameworks": [
+          "express"
+        ],
+        "never_called": 2,
+        "never_called_in_project": 0,
+        "openapi": {
+          "documented_endpoints": 0,
+          "specs": 0
+        },
+        "possibly_called_in_project": 0,
+        "precision": {
+          "label": "best_effort",
+          "reason": "default_branch",
+          "row": "D"
+        },
+        "project_linked_calls": 0,
+        "roots": [],
+        "transport": "http"
+      }
+    ]
+  },
+  "2a-endpoints-frontend": {
+    "api_version": 0,
+    "index": {
+      "contract_version": 1,
+      "finished_at": "2026-11-03T14:32:05.123Z",
+      "indexer": {
+        "name": "graphvein",
+        "version": "extractors-62"
+      }
+    },
+    "repository": "frontend",
+    "root": null,
+    "scope": "all",
+    "transports": [
+      {
+        "callers_precision": {
+          "label": "best_effort",
+          "reason": "default_branch",
+          "row": "D"
+        },
+        "calls": {
+          "by_status": {
+            "unmatched": 2
+          },
+          "edges_from_unlinked": 0,
+          "linked_without_edge": 0,
+          "project_by_status": {
+            "linked_across": 2
+          },
+          "total": 2,
+          "unknown_scope": 0
+        },
+        "endpoint_count": 0,
+        "endpoints": [],
+        "frameworks": [],
+        "never_called": 0,
+        "never_called_in_project": 0,
+        "openapi": {
+          "documented_endpoints": 0,
+          "specs": 1
+        },
+        "possibly_called_in_project": 0,
+        "precision": {
+          "label": "best_effort",
+          "reason": "default_branch",
+          "row": "D"
+        },
+        "project_linked_calls": 2,
+        "roots": [
+          {
+            "by_status": {
+              "unmatched": 2
+            },
+            "manifest": "package.json",
+            "project_by_status": {
+              "linked_across": 2
+            },
+            "root": ".",
+            "total": 2
+          }
+        ],
+        "transport": "http"
+      }
+    ]
+  },
+  "3-endpoint-backend-route": {
+    "api_version": 0,
+    "callers": [],
+    "callers_precision": {
+      "label": "best_effort",
+      "reason": "default_branch",
+      "row": "D"
+    },
+    "endpoint": {
+      "attributes": {
+        "framework": "express",
+        "handler": "function:src/server.ts#listUsers",
+        "handler_inline": false,
+        "method": "GET",
+        "middleware": [],
+        "paths": [
+          {
+            "conditional": false,
+            "resolution": "literal",
+            "template": "/t022b7/users"
+          }
+        ],
+        "pattern": "/t022b7/users",
+        "shape": {
+          "body": {
+            "items": [],
+            "reason": "no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+            "state": "not_read"
+          },
+          "cookie": {
+            "items": [],
+            "reason": "nothing read in the handler or the functions it passes the value to",
+            "state": "not_read"
+          },
+          "follow": {
+            "chains": [
+              {
+                "at": null,
+                "depth": 0,
+                "section": "query",
+                "start": {
+                  "file": "src/server.ts",
+                  "function": "listUsers",
+                  "line": 5
+                },
+                "steps": [],
+                "stop": "ended"
+              },
+              {
+                "at": null,
+                "depth": 0,
+                "section": "header",
+                "start": {
+                  "file": "src/server.ts",
+                  "function": "listUsers",
+                  "line": 5
+                },
+                "steps": [],
+                "stop": "ended"
+              },
+              {
+                "at": null,
+                "depth": 0,
+                "section": "cookie",
+                "start": {
+                  "file": "src/server.ts",
+                  "function": "listUsers",
+                  "line": 5
+                },
+                "steps": [],
+                "stop": "ended"
+              },
+              {
+                "at": null,
+                "depth": 0,
+                "section": "body",
+                "start": {
+                  "file": "src/server.ts",
+                  "function": "listUsers",
+                  "line": 5
+                },
+                "steps": [],
+                "stop": "ended"
+              },
+              {
+                "at": null,
+                "depth": 0,
+                "section": "responses",
+                "start": {
+                  "file": "src/server.ts",
+                  "function": "listUsers",
+                  "line": 5
+                },
+                "steps": [],
+                "stop": "ended"
+              }
+            ],
+            "depth_limit": 6
+          },
+          "header": {
+            "items": [],
+            "reason": "nothing read in the handler or the functions it passes the value to",
+            "state": "not_read"
+          },
+          "models": [],
+          "path": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/server.ts",
+              "kind": "fact",
+              "line": 13,
+              "rule": "SH-E2"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "query": {
+            "items": [],
+            "reason": "nothing read in the handler or the functions it passes the value to",
+            "state": "not_read"
+          },
+          "responses": {
+            "items": [
+              {
+                "content_type": "application/json",
+                "provenance": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "src/server.ts",
+                  "kind": "read_in_handler",
+                  "line": 6,
+                  "rule": "SH-E25"
+                },
+                "schema": null,
+                "status": "200"
+              }
+            ],
+            "reason": "statuses read from code; errors thrown by called functions, error middleware and unread calls may add others",
+            "state": "partial"
+          },
+          "security": {
+            "items": [],
+            "state": "not_read"
+          },
+          "security_schemes": [],
+          "version": 1
+        }
+      },
+      "content_hash": "sha256:089e84383ba9a9de228136f14faeba403c402d6b42483c2899d43d0a324f55e1",
+      "file": "src/server.ts",
+      "file_state": "unchanged",
+      "ide": {
+        "column": 1,
+        "exact": true,
+        "line": 13,
+        "link": "vscode://file/{ROOT}/backend/src/server.ts:13:1"
+      },
+      "identity": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+      "kind": "route",
+      "level": 4,
+      "name": "GET /t022b7/users",
+      "qualified_name": "GET /t022b7/users",
+      "span": {
+        "end_column": 35,
+        "end_line": 13,
+        "start_column": 0,
+        "start_line": 13
+      },
+      "type": "node"
+    },
+    "handler": {
+      "edge": {
+        "confidence": 1,
+        "kind": "exposes_route",
+        "provenance": "fact"
+      },
+      "expression": null,
+      "node": {
+        "attributes": {
+          "table_access": [
+            {
+              "assumes": [
+                "TA-V3b"
+              ],
+              "kind": "reads_table",
+              "operations": [
+                "select"
+              ],
+              "role": "executes",
+              "rows": [
+                "CT-Z1"
+              ],
+              "target": "table:src/db/schema.ts#users",
+              "tool": "drizzle",
+              "verification": "oracle"
+            }
+          ]
+        },
+        "content_hash": "sha256:baba0c3509b34ed020f46bf5e4f0711e212790c4d4f3c9f4eb2a7a8ab84265c5",
+        "file": "src/server.ts",
+        "file_state": "unchanged",
+        "ide": {
+          "column": 1,
+          "exact": true,
+          "line": 5,
+          "link": "vscode://file/{ROOT}/backend/src/server.ts:5:1"
+        },
+        "identity": "function:src/server.ts#listUsers",
+        "kind": "function",
+        "level": 4,
+        "name": "listUsers",
+        "qualified_name": "listUsers",
+        "span": {
+          "end_column": 1,
+          "end_line": 7,
+          "start_column": 0,
+          "start_line": 5
+        },
+        "type": "node"
+      },
+      "state": "resolved"
+    },
+    "ide": {
+      "available": true,
+      "editor": "vscode",
+      "error": null,
+      "label": "Open in VS Code",
+      "source": "builtin"
+    },
+    "index": {
+      "contract_version": 1,
+      "finished_at": "2026-11-03T14:32:05.123Z",
+      "indexer": {
+        "name": "graphvein",
+        "version": "extractors-62"
+      }
+    },
+    "model_tables": [],
+    "near_misses": [],
+    "near_misses_incomplete": 0,
+    "openapi": {
+      "operations": [],
+      "specs": 0
+    },
+    "precision": {
+      "label": "best_effort",
+      "reason": "default_branch",
+      "row": "D"
+    },
+    "project": {
+      "callers": [
+        {
+          "assumption": "matched across project repositories; base URL not proven",
+          "confidence": 0.9,
+          "evidence": [
+            {
+              "file": "src/api.ts",
+              "span": {
+                "end_column": 58,
+                "end_line": 4,
+                "start_column": 9,
+                "start_line": 4
+              }
+            }
+          ],
+          "ide_status": {
+            "available": true,
+            "editor": "vscode",
+            "error": null,
+            "label": "Open in VS Code",
+            "source": "builtin"
+          },
+          "identity": "client_call:src/api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+          "kind": "calls_route",
+          "node": {
+            "attributes": {
+              "base": "unresolved",
+              "base_expression": "import.meta.env.VITE_API",
+              "library": "fetch",
+              "method": "GET",
+              "paths": [
+                {
+                  "candidate_count": 0,
+                  "candidates": [],
+                  "conditional": false,
+                  "match": null,
+                  "origin": null,
+                  "resolution": "literal",
+                  "status": "unmatched",
+                  "template": "/t022b7/users"
+                }
+              ],
+              "status": "unmatched",
+              "url_expression": "`${import.meta.env.VITE_API}/t022b7/users`",
+              "wrapper": null
+            },
+            "content_hash": "sha256:8889ef584333b1f2e159ca6693dfbb9b1287ce616da7917fe5495e4f0c99afe9",
+            "file": "src/api.ts",
+            "file_state": "unchanged",
+            "ide": {
+              "column": 10,
+              "exact": true,
+              "line": 4,
+              "link": "vscode://file/{ROOT}/frontend/src/api.ts:4:10"
+            },
+            "identity": "client_call:src/api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+            "kind": "client_call",
+            "level": 4,
+            "name": "GET `${import.meta.env.VITE_API}/t022b7/users`",
+            "qualified_name": "listUsers.GET `${import.meta.env.VITE_API}/t022b7/users`",
+            "source_root": ".",
+            "span": {
+              "end_column": 58,
+              "end_line": 4,
+              "start_column": 9,
+              "start_line": 4
+            },
+            "type": "node"
+          },
+          "owner": {
+            "id": "function:src/api.ts#listUsers",
+            "kind": "function",
+            "qualified_name": "listUsers"
+          },
+          "provenance": "inferred",
+          "repository": "frontend",
+          "stale": false,
+          "stale_reasons": []
+        }
+      ],
+      "declaration_conflicts": [],
+      "link_pass": {
+        "pass": 1,
+        "stale_reasons": [],
+        "state": "fresh"
+      },
+      "links_precision": {
+        "label": "best_effort",
+        "reason": "default_branch",
+        "row": "D"
+      },
+      "operations": [
+        {
+          "assumption": "matched across project repositories; base URL not proven",
+          "confidence": 0.9,
+          "evidence": [
+            {
+              "file": "openapi.yaml",
+              "span": {
+                "end_column": 25,
+                "end_line": 11,
+                "start_column": 4,
+                "start_line": 7
+              }
+            }
+          ],
+          "ide_status": {
+            "available": true,
+            "editor": "vscode",
+            "error": null,
+            "label": "Open in VS Code",
+            "source": "builtin"
+          },
+          "identity": "api_operation:openapi.yaml#GET%20%2Ft022b7%2Fusers",
+          "kind": "documents_route",
+          "node": {
+            "attributes": {
+              "deprecated": false,
+              "method": "GET",
+              "operation_id": "listUsers",
+              "parameters": [],
+              "path": "/t022b7/users",
+              "path_count": 1,
+              "paths": [
+                {
+                  "candidate_count": 0,
+                  "candidates": [],
+                  "match": null,
+                  "origins": [],
+                  "resolution": "literal",
+                  "status": "unmatched",
+                  "template": "/t022b7/users"
+                }
+              ],
+              "request_content_types": [],
+              "response_codes": [
+                "200"
+              ],
+              "security": [],
+              "status": "unmatched",
+              "summary": null,
+              "tags": []
+            },
+            "content_hash": "sha256:f409b7cdd72dcde75fbbadad69134ebf818c79edb4d5ac6d9cc113f5101fc74d",
+            "file": "openapi.yaml",
+            "file_state": "unchanged",
+            "ide": {
+              "column": 5,
+              "exact": true,
+              "line": 7,
+              "link": "vscode://file/{ROOT}/frontend/openapi.yaml:7:5"
+            },
+            "identity": "api_operation:openapi.yaml#GET%20%2Ft022b7%2Fusers",
+            "kind": "api_operation",
+            "level": 4,
+            "name": "GET /t022b7/users",
+            "qualified_name": "GET /t022b7/users",
+            "source_root": ".",
+            "span": {
+              "end_column": 25,
+              "end_line": 11,
+              "start_column": 4,
+              "start_line": 7
+            },
+            "type": "node"
+          },
+          "owner": {
+            "id": "api_spec:openapi.yaml#spec",
+            "kind": "api_spec",
+            "qualified_name": "spec"
+          },
+          "provenance": "inferred",
+          "repository": "frontend",
+          "stale": false,
+          "stale_reasons": []
+        }
+      ],
+      "possible_callers": [],
+      "project": "users"
+    },
+    "repository": "backend",
+    "root": null,
+    "scope": "production",
+    "shape": {
+      "body": {
+        "items": [],
+        "reason": "no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+        "state": "not_read"
+      },
+      "cookie": {
+        "items": [],
+        "reason": "nothing read in the handler or the functions it passes the value to",
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [
+          {
+            "at": null,
+            "depth": 0,
+            "section": "query",
+            "start": {
+              "file": "src/server.ts",
+              "function": "listUsers",
+              "line": 5
+            },
+            "steps": [],
+            "stop": "ended"
+          },
+          {
+            "at": null,
+            "depth": 0,
+            "section": "header",
+            "start": {
+              "file": "src/server.ts",
+              "function": "listUsers",
+              "line": 5
+            },
+            "steps": [],
+            "stop": "ended"
+          },
+          {
+            "at": null,
+            "depth": 0,
+            "section": "cookie",
+            "start": {
+              "file": "src/server.ts",
+              "function": "listUsers",
+              "line": 5
+            },
+            "steps": [],
+            "stop": "ended"
+          },
+          {
+            "at": null,
+            "depth": 0,
+            "section": "body",
+            "start": {
+              "file": "src/server.ts",
+              "function": "listUsers",
+              "line": 5
+            },
+            "steps": [],
+            "stop": "ended"
+          },
+          {
+            "at": null,
+            "depth": 0,
+            "section": "responses",
+            "start": {
+              "file": "src/server.ts",
+              "function": "listUsers",
+              "line": 5
+            },
+            "steps": [],
+            "stop": "ended"
+          }
+        ],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [],
+        "reason": "nothing read in the handler or the functions it passes the value to",
+        "state": "not_read"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/server.ts",
+          "kind": "fact",
+          "line": 13,
+          "rule": "SH-E2"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "query": {
+        "items": [],
+        "reason": "nothing read in the handler or the functions it passes the value to",
+        "state": "not_read"
+      },
+      "responses": {
+        "items": [
+          {
+            "content_type": "application/json",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/server.ts",
+              "kind": "read_in_handler",
+              "line": 6,
+              "rule": "SH-E25"
+            },
+            "schema": null,
+            "status": "200"
+          }
+        ],
+        "reason": "statuses read from code; errors thrown by called functions, error middleware and unread calls may add others",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "shape_links": {
+      "src/server.ts:13": {
+        "column": 1,
+        "exact": true,
+        "line": 13,
+        "link": "vscode://file/{ROOT}/backend/src/server.ts:13:1"
+      },
+      "src/server.ts:6": {
+        "column": 1,
+        "exact": true,
+        "line": 6,
+        "link": "vscode://file/{ROOT}/backend/src/server.ts:6:1"
+      }
+    },
+    "transport": "http"
+  },
+  "4-project-callers": {
+    "api_version": 0,
+    "blind_spot_data": false,
+    "bounds": [
+      {
+        "beyond": 1,
+        "cap": "depth",
+        "step": 3
+      }
+    ],
+    "candidates": [],
+    "caps": [
+      "depth"
+    ],
+    "command": "callers",
+    "ends": [],
+    "link_pass": {
+      "links": 3,
+      "pass": 1,
+      "stale_reasons": [],
+      "stored": true
+    },
+    "members": [
+      {
+        "changed_files": [],
+        "checkout": true,
+        "indexed": true,
+        "repository": "frontend"
+      },
+      {
+        "changed_files": [],
+        "checkout": true,
+        "indexed": true,
+        "repository": "backend"
+      }
+    ],
+    "possible_callers": [],
+    "possibly_missing_call_sites": [],
+    "possibly_missing_callers": 0,
+    "project": "users",
+    "results": [
+      {
+        "assumptions": [
+          "matched across project repositories; base URL not proven"
+        ],
+        "confidence": 0.9,
+        "distance": 1,
+        "node": {
+          "attributes": {
+            "base": "unresolved",
+            "base_expression": "import.meta.env.VITE_API",
+            "library": "fetch",
+            "method": "GET",
+            "paths": [
+              {
+                "candidate_count": 0,
+                "candidates": [],
+                "conditional": false,
+                "match": null,
+                "origin": null,
+                "resolution": "literal",
+                "status": "unmatched",
+                "template": "/t022b7/users"
+              }
+            ],
+            "status": "unmatched",
+            "url_expression": "`${import.meta.env.VITE_API}/t022b7/users`",
+            "wrapper": null
+          },
+          "content_hash": "sha256:8889ef584333b1f2e159ca6693dfbb9b1287ce616da7917fe5495e4f0c99afe9",
+          "file": "src/api.ts",
+          "ide": {
+            "column": 10,
+            "exact": true,
+            "line": 4,
+            "link": "vscode://file/{ROOT}/frontend/src/api.ts:4:10"
+          },
+          "identity": "client_call:src/api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+          "kind": "client_call",
+          "level": 4,
+          "name": "GET `${import.meta.env.VITE_API}/t022b7/users`",
+          "qualified_name": "listUsers.GET `${import.meta.env.VITE_API}/t022b7/users`",
+          "repository": "frontend",
+          "span": {
+            "end_column": 58,
+            "end_line": 4,
+            "start_column": 9,
+            "start_line": 4
+          },
+          "type": "node"
+        },
+        "path": [
+          {
+            "assumption": "matched across project repositories; base URL not proven",
+            "confidence": 0.9,
+            "evidence": [
+              {
+                "file": "src/api.ts",
+                "span": {
+                  "end_column": 58,
+                  "end_line": 4,
+                  "start_column": 9,
+                  "start_line": 4
+                }
+              }
+            ],
+            "kind": "calls_route",
+            "project_link": true,
+            "provenance": "inferred",
+            "source": "client_call:src/api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+            "source_repository": "frontend",
+            "target": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+            "target_repository": "backend",
+            "type": ""
+          }
+        ],
+        "provenance": "inferred"
+      },
+      {
+        "assumptions": [
+          "matched across project repositories; base URL not proven"
+        ],
+        "confidence": 0.9,
+        "distance": 2,
+        "node": {
+          "attributes": {
+            "exported": true
+          },
+          "content_hash": "sha256:03000668476ba276d681cd933e9b938fc04b5c2163a3cf08d470ad985a41b34e",
+          "file": "src/api.ts",
+          "ide": {
+            "column": 1,
+            "exact": true,
+            "line": 3,
+            "link": "vscode://file/{ROOT}/frontend/src/api.ts:3:1"
+          },
+          "identity": "function:src/api.ts#listUsers",
+          "kind": "function",
+          "level": 4,
+          "name": "listUsers",
+          "qualified_name": "listUsers",
+          "repository": "frontend",
+          "span": {
+            "end_column": 1,
+            "end_line": 5,
+            "start_column": 0,
+            "start_line": 3
+          },
+          "type": "node"
+        },
+        "path": [
+          {
+            "assumption": "matched across project repositories; base URL not proven",
+            "confidence": 0.9,
+            "evidence": [
+              {
+                "file": "src/api.ts",
+                "span": {
+                  "end_column": 58,
+                  "end_line": 4,
+                  "start_column": 9,
+                  "start_line": 4
+                }
+              }
+            ],
+            "kind": "calls_route",
+            "project_link": true,
+            "provenance": "inferred",
+            "source": "client_call:src/api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+            "source_repository": "frontend",
+            "target": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+            "target_repository": "backend",
+            "type": ""
+          },
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "src/api.ts",
+                "span": {
+                  "end_column": 58,
+                  "end_line": 4,
+                  "start_column": 9,
+                  "start_line": 4
+                }
+              }
+            ],
+            "kind": "contains",
+            "provenance": "fact",
+            "source": "function:src/api.ts#listUsers",
+            "source_repository": "frontend",
+            "target": "client_call:src/api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+            "target_repository": "frontend",
+            "type": "edge"
+          }
+        ],
+        "provenance": "inferred"
+      }
+    ],
+    "target": {
+      "attributes": {
+        "framework": "express",
+        "handler": "function:src/server.ts#listUsers",
+        "handler_inline": false,
+        "method": "GET",
+        "middleware": [],
+        "paths": [
+          {
+            "conditional": false,
+            "resolution": "literal",
+            "template": "/t022b7/users"
+          }
+        ],
+        "pattern": "/t022b7/users",
+        "shape": {
+          "body": {
+            "items": [],
+            "reason": "no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+            "state": "not_read"
+          },
+          "cookie": {
+            "items": [],
+            "reason": "nothing read in the handler or the functions it passes the value to",
+            "state": "not_read"
+          },
+          "follow": {
+            "chains": [
+              {
+                "at": null,
+                "depth": 0,
+                "section": "query",
+                "start": {
+                  "file": "src/server.ts",
+                  "function": "listUsers",
+                  "line": 5
+                },
+                "steps": [],
+                "stop": "ended"
+              },
+              {
+                "at": null,
+                "depth": 0,
+                "section": "header",
+                "start": {
+                  "file": "src/server.ts",
+                  "function": "listUsers",
+                  "line": 5
+                },
+                "steps": [],
+                "stop": "ended"
+              },
+              {
+                "at": null,
+                "depth": 0,
+                "section": "cookie",
+                "start": {
+                  "file": "src/server.ts",
+                  "function": "listUsers",
+                  "line": 5
+                },
+                "steps": [],
+                "stop": "ended"
+              },
+              {
+                "at": null,
+                "depth": 0,
+                "section": "body",
+                "start": {
+                  "file": "src/server.ts",
+                  "function": "listUsers",
+                  "line": 5
+                },
+                "steps": [],
+                "stop": "ended"
+              },
+              {
+                "at": null,
+                "depth": 0,
+                "section": "responses",
+                "start": {
+                  "file": "src/server.ts",
+                  "function": "listUsers",
+                  "line": 5
+                },
+                "steps": [],
+                "stop": "ended"
+              }
+            ],
+            "depth_limit": 6
+          },
+          "header": {
+            "items": [],
+            "reason": "nothing read in the handler or the functions it passes the value to",
+            "state": "not_read"
+          },
+          "models": [],
+          "path": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/server.ts",
+              "kind": "fact",
+              "line": 13,
+              "rule": "SH-E2"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "query": {
+            "items": [],
+            "reason": "nothing read in the handler or the functions it passes the value to",
+            "state": "not_read"
+          },
+          "responses": {
+            "items": [
+              {
+                "content_type": "application/json",
+                "provenance": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "src/server.ts",
+                  "kind": "read_in_handler",
+                  "line": 6,
+                  "rule": "SH-E25"
+                },
+                "schema": null,
+                "status": "200"
+              }
+            ],
+            "reason": "statuses read from code; errors thrown by called functions, error middleware and unread calls may add others",
+            "state": "partial"
+          },
+          "security": {
+            "items": [],
+            "state": "not_read"
+          },
+          "security_schemes": [],
+          "version": 1
+        }
+      },
+      "content_hash": "sha256:089e84383ba9a9de228136f14faeba403c402d6b42483c2899d43d0a324f55e1",
+      "file": "src/server.ts",
+      "ide": {
+        "column": 1,
+        "exact": true,
+        "line": 13,
+        "link": "vscode://file/{ROOT}/backend/src/server.ts:13:1"
+      },
+      "identity": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+      "kind": "route",
+      "level": 4,
+      "name": "GET /t022b7/users",
+      "qualified_name": "GET /t022b7/users",
+      "repository": "backend",
+      "span": {
+        "end_column": 35,
+        "end_line": 13,
+        "start_column": 0,
+        "start_line": 13
+      },
+      "type": "node"
+    },
+    "unknown_calls_in_result_files": 0
+  },
+  "5-project-impact": {
+    "api_version": 0,
+    "blind_spot_data": true,
+    "bounds": [],
+    "candidates": [],
+    "caps": [],
+    "command": "impact",
+    "ends": [
+      {
+        "node": "function:src/page.ts#UsersPage",
+        "repository": "frontend",
+        "text": "? not modelled: no stored caller, import, reference or route; dependency injection, framework callbacks, JSX renders, passed callbacks and dynamic calls are not followed by impact"
+      }
+    ],
+    "link_pass": {
+      "links": 3,
+      "pass": 1,
+      "stale_reasons": [],
+      "stored": true
+    },
+    "members": [
+      {
+        "changed_files": [],
+        "checkout": true,
+        "indexed": true,
+        "repository": "frontend"
+      },
+      {
+        "changed_files": [],
+        "checkout": true,
+        "indexed": true,
+        "repository": "backend"
+      }
+    ],
+    "possible_callers": [],
+    "possibly_missing_call_sites": [],
+    "possibly_missing_callers": 0,
+    "project": "users",
+    "results": [
+      {
+        "distance": 1,
+        "node": {
+          "attributes": {
+            "framework": "express",
+            "handler": "function:src/server.ts#listUsers",
+            "handler_inline": false,
+            "method": "GET",
+            "middleware": [],
+            "paths": [
+              {
+                "conditional": false,
+                "resolution": "literal",
+                "template": "/t022b7/users"
+              }
+            ],
+            "pattern": "/t022b7/users",
+            "shape": {
+              "body": {
+                "items": [],
+                "reason": "no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+                "state": "not_read"
+              },
+              "cookie": {
+                "items": [],
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "state": "not_read"
+              },
+              "follow": {
+                "chains": [
+                  {
+                    "at": null,
+                    "depth": 0,
+                    "section": "query",
+                    "start": {
+                      "file": "src/server.ts",
+                      "function": "listUsers",
+                      "line": 5
+                    },
+                    "steps": [],
+                    "stop": "ended"
+                  },
+                  {
+                    "at": null,
+                    "depth": 0,
+                    "section": "header",
+                    "start": {
+                      "file": "src/server.ts",
+                      "function": "listUsers",
+                      "line": 5
+                    },
+                    "steps": [],
+                    "stop": "ended"
+                  },
+                  {
+                    "at": null,
+                    "depth": 0,
+                    "section": "cookie",
+                    "start": {
+                      "file": "src/server.ts",
+                      "function": "listUsers",
+                      "line": 5
+                    },
+                    "steps": [],
+                    "stop": "ended"
+                  },
+                  {
+                    "at": null,
+                    "depth": 0,
+                    "section": "body",
+                    "start": {
+                      "file": "src/server.ts",
+                      "function": "listUsers",
+                      "line": 5
+                    },
+                    "steps": [],
+                    "stop": "ended"
+                  },
+                  {
+                    "at": null,
+                    "depth": 0,
+                    "section": "responses",
+                    "start": {
+                      "file": "src/server.ts",
+                      "function": "listUsers",
+                      "line": 5
+                    },
+                    "steps": [],
+                    "stop": "ended"
+                  }
+                ],
+                "depth_limit": 6
+              },
+              "header": {
+                "items": [],
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "state": "not_read"
+              },
+              "models": [],
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "src/server.ts",
+                  "kind": "fact",
+                  "line": 13,
+                  "rule": "SH-E2"
+                },
+                "items": [],
+                "state": "provably_none"
+              },
+              "query": {
+                "items": [],
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "state": "not_read"
+              },
+              "responses": {
+                "items": [
+                  {
+                    "content_type": "application/json",
+                    "provenance": {
+                      "chain": [],
+                      "confidence": 1,
+                      "file": "src/server.ts",
+                      "kind": "read_in_handler",
+                      "line": 6,
+                      "rule": "SH-E25"
+                    },
+                    "schema": null,
+                    "status": "200"
+                  }
+                ],
+                "reason": "statuses read from code; errors thrown by called functions, error middleware and unread calls may add others",
+                "state": "partial"
+              },
+              "security": {
+                "items": [],
+                "state": "not_read"
+              },
+              "security_schemes": [],
+              "version": 1
+            }
+          },
+          "content_hash": "sha256:089e84383ba9a9de228136f14faeba403c402d6b42483c2899d43d0a324f55e1",
+          "file": "src/server.ts",
+          "ide": {
+            "column": 1,
+            "exact": true,
+            "line": 13,
+            "link": "vscode://file/{ROOT}/backend/src/server.ts:13:1"
+          },
+          "identity": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+          "kind": "route",
+          "level": 4,
+          "name": "GET /t022b7/users",
+          "qualified_name": "GET /t022b7/users",
+          "repository": "backend",
+          "span": {
+            "end_column": 35,
+            "end_line": 13,
+            "start_column": 0,
+            "start_line": 13
+          },
+          "type": "node"
+        },
+        "path": [
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "src/server.ts",
+                "span": {
+                  "end_column": 35,
+                  "end_line": 13,
+                  "start_column": 0,
+                  "start_line": 13
+                }
+              }
+            ],
+            "kind": "exposes_route",
+            "provenance": "fact",
+            "source": "function:src/server.ts#listUsers",
+            "source_repository": "backend",
+            "target": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+            "target_repository": "backend",
+            "type": "edge"
+          }
+        ]
+      },
+      {
+        "assumptions": [
+          "matched across project repositories; base URL not proven"
+        ],
+        "confidence": 0.9,
+        "distance": 2,
+        "node": {
+          "attributes": {
+            "base": "unresolved",
+            "base_expression": "import.meta.env.VITE_API",
+            "library": "fetch",
+            "method": "GET",
+            "paths": [
+              {
+                "candidate_count": 0,
+                "candidates": [],
+                "conditional": false,
+                "match": null,
+                "origin": null,
+                "resolution": "literal",
+                "status": "unmatched",
+                "template": "/t022b7/users"
+              }
+            ],
+            "status": "unmatched",
+            "url_expression": "`${import.meta.env.VITE_API}/t022b7/users`",
+            "wrapper": null
+          },
+          "content_hash": "sha256:8889ef584333b1f2e159ca6693dfbb9b1287ce616da7917fe5495e4f0c99afe9",
+          "file": "src/api.ts",
+          "ide": {
+            "column": 10,
+            "exact": true,
+            "line": 4,
+            "link": "vscode://file/{ROOT}/frontend/src/api.ts:4:10"
+          },
+          "identity": "client_call:src/api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+          "kind": "client_call",
+          "level": 4,
+          "name": "GET `${import.meta.env.VITE_API}/t022b7/users`",
+          "qualified_name": "listUsers.GET `${import.meta.env.VITE_API}/t022b7/users`",
+          "repository": "frontend",
+          "span": {
+            "end_column": 58,
+            "end_line": 4,
+            "start_column": 9,
+            "start_line": 4
+          },
+          "type": "node"
+        },
+        "path": [
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "src/server.ts",
+                "span": {
+                  "end_column": 35,
+                  "end_line": 13,
+                  "start_column": 0,
+                  "start_line": 13
+                }
+              }
+            ],
+            "kind": "exposes_route",
+            "provenance": "fact",
+            "source": "function:src/server.ts#listUsers",
+            "source_repository": "backend",
+            "target": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+            "target_repository": "backend",
+            "type": "edge"
+          },
+          {
+            "assumption": "matched across project repositories; base URL not proven",
+            "confidence": 0.9,
+            "evidence": [
+              {
+                "file": "src/api.ts",
+                "span": {
+                  "end_column": 58,
+                  "end_line": 4,
+                  "start_column": 9,
+                  "start_line": 4
+                }
+              }
+            ],
+            "kind": "calls_route",
+            "project_link": true,
+            "provenance": "inferred",
+            "source": "client_call:src/api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+            "source_repository": "frontend",
+            "target": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+            "target_repository": "backend",
+            "type": ""
+          }
+        ],
+        "provenance": "inferred"
+      },
+      {
+        "assumptions": [
+          "matched across project repositories; base URL not proven"
+        ],
+        "confidence": 0.9,
+        "distance": 3,
+        "node": {
+          "attributes": {
+            "exported": true
+          },
+          "content_hash": "sha256:03000668476ba276d681cd933e9b938fc04b5c2163a3cf08d470ad985a41b34e",
+          "file": "src/api.ts",
+          "ide": {
+            "column": 1,
+            "exact": true,
+            "line": 3,
+            "link": "vscode://file/{ROOT}/frontend/src/api.ts:3:1"
+          },
+          "identity": "function:src/api.ts#listUsers",
+          "kind": "function",
+          "level": 4,
+          "name": "listUsers",
+          "qualified_name": "listUsers",
+          "repository": "frontend",
+          "span": {
+            "end_column": 1,
+            "end_line": 5,
+            "start_column": 0,
+            "start_line": 3
+          },
+          "type": "node"
+        },
+        "path": [
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "src/server.ts",
+                "span": {
+                  "end_column": 35,
+                  "end_line": 13,
+                  "start_column": 0,
+                  "start_line": 13
+                }
+              }
+            ],
+            "kind": "exposes_route",
+            "provenance": "fact",
+            "source": "function:src/server.ts#listUsers",
+            "source_repository": "backend",
+            "target": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+            "target_repository": "backend",
+            "type": "edge"
+          },
+          {
+            "assumption": "matched across project repositories; base URL not proven",
+            "confidence": 0.9,
+            "evidence": [
+              {
+                "file": "src/api.ts",
+                "span": {
+                  "end_column": 58,
+                  "end_line": 4,
+                  "start_column": 9,
+                  "start_line": 4
+                }
+              }
+            ],
+            "kind": "calls_route",
+            "project_link": true,
+            "provenance": "inferred",
+            "source": "client_call:src/api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+            "source_repository": "frontend",
+            "target": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+            "target_repository": "backend",
+            "type": ""
+          },
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "src/api.ts",
+                "span": {
+                  "end_column": 58,
+                  "end_line": 4,
+                  "start_column": 9,
+                  "start_line": 4
+                }
+              }
+            ],
+            "kind": "contains",
+            "provenance": "fact",
+            "source": "function:src/api.ts#listUsers",
+            "source_repository": "frontend",
+            "target": "client_call:src/api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+            "target_repository": "frontend",
+            "type": "edge"
+          }
+        ],
+        "provenance": "inferred"
+      },
+      {
+        "assumptions": [
+          "matched across project repositories; base URL not proven"
+        ],
+        "confidence": 0.9,
+        "distance": 4,
+        "node": {
+          "attributes": {
+            "exported": true
+          },
+          "content_hash": "sha256:ab4a5dae32588aa8497c3c6b9ea99c5e72621fbfd83d1dcc800c0e68cd0c1528",
+          "file": "src/page.ts",
+          "ide": {
+            "column": 1,
+            "exact": true,
+            "line": 4,
+            "link": "vscode://file/{ROOT}/frontend/src/page.ts:4:1"
+          },
+          "identity": "function:src/page.ts#UsersPage",
+          "kind": "function",
+          "level": 4,
+          "name": "UsersPage",
+          "qualified_name": "UsersPage",
+          "repository": "frontend",
+          "span": {
+            "end_column": 1,
+            "end_line": 6,
+            "start_column": 0,
+            "start_line": 4
+          },
+          "type": "node"
+        },
+        "path": [
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "src/server.ts",
+                "span": {
+                  "end_column": 35,
+                  "end_line": 13,
+                  "start_column": 0,
+                  "start_line": 13
+                }
+              }
+            ],
+            "kind": "exposes_route",
+            "provenance": "fact",
+            "source": "function:src/server.ts#listUsers",
+            "source_repository": "backend",
+            "target": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+            "target_repository": "backend",
+            "type": "edge"
+          },
+          {
+            "assumption": "matched across project repositories; base URL not proven",
+            "confidence": 0.9,
+            "evidence": [
+              {
+                "file": "src/api.ts",
+                "span": {
+                  "end_column": 58,
+                  "end_line": 4,
+                  "start_column": 9,
+                  "start_line": 4
+                }
+              }
+            ],
+            "kind": "calls_route",
+            "project_link": true,
+            "provenance": "inferred",
+            "source": "client_call:src/api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+            "source_repository": "frontend",
+            "target": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+            "target_repository": "backend",
+            "type": ""
+          },
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "src/api.ts",
+                "span": {
+                  "end_column": 58,
+                  "end_line": 4,
+                  "start_column": 9,
+                  "start_line": 4
+                }
+              }
+            ],
+            "kind": "contains",
+            "provenance": "fact",
+            "source": "function:src/api.ts#listUsers",
+            "source_repository": "frontend",
+            "target": "client_call:src/api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+            "target_repository": "frontend",
+            "type": "edge"
+          },
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "src/page.ts",
+                "span": {
+                  "end_column": 20,
+                  "end_line": 5,
+                  "start_column": 9,
+                  "start_line": 5
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "function:src/page.ts#UsersPage",
+            "source_repository": "frontend",
+            "target": "function:src/api.ts#listUsers",
+            "target_repository": "frontend",
+            "type": "edge"
+          }
+        ],
+        "provenance": "inferred"
+      }
+    ],
+    "target": {
+      "attributes": {
+        "table_access": [
+          {
+            "assumes": [
+              "TA-V3b"
+            ],
+            "kind": "reads_table",
+            "operations": [
+              "select"
+            ],
+            "role": "executes",
+            "rows": [
+              "CT-Z1"
+            ],
+            "target": "table:src/db/schema.ts#users",
+            "tool": "drizzle",
+            "verification": "oracle"
+          }
+        ]
+      },
+      "content_hash": "sha256:baba0c3509b34ed020f46bf5e4f0711e212790c4d4f3c9f4eb2a7a8ab84265c5",
+      "file": "src/server.ts",
+      "ide": {
+        "column": 1,
+        "exact": true,
+        "line": 5,
+        "link": "vscode://file/{ROOT}/backend/src/server.ts:5:1"
+      },
+      "identity": "function:src/server.ts#listUsers",
+      "kind": "function",
+      "level": 4,
+      "name": "listUsers",
+      "qualified_name": "listUsers",
+      "repository": "backend",
+      "span": {
+        "end_column": 1,
+        "end_line": 7,
+        "start_column": 0,
+        "start_line": 5
+      },
+      "type": "node"
+    },
+    "unknown_calls_in_result_files": 6
+  },
+  "6-project-callers-ambiguous": {
+    "api_version": 0,
+    "blind_spot_data": false,
+    "bounds": [],
+    "candidates": [
+      {
+        "identity": "function:src/api.ts#listUsers",
+        "repository": "frontend"
+      },
+      {
+        "identity": "function:src/server.ts#listUsers",
+        "repository": "backend"
+      }
+    ],
+    "caps": [],
+    "command": "callers",
+    "ends": [],
+    "error": "ambiguous target",
+    "link_pass": {
+      "links": 3,
+      "pass": 1,
+      "stale_reasons": [],
+      "stored": true
+    },
+    "members": [
+      {
+        "changed_files": [],
+        "checkout": true,
+        "indexed": true,
+        "repository": "frontend"
+      },
+      {
+        "changed_files": [],
+        "checkout": true,
+        "indexed": true,
+        "repository": "backend"
+      }
+    ],
+    "possible_callers": [],
+    "possibly_missing_call_sites": [],
+    "possibly_missing_callers": 0,
+    "project": "users",
+    "results": [],
+    "unknown_calls_in_result_files": 0
+  },
+  "6a-flow-backend-route": {
+    "api_version": 0,
+    "callers_precision": {
+      "label": "best_effort",
+      "reason": "default_branch",
+      "row": "D"
+    },
+    "candidates": [],
+    "code_calls_precision": {
+      "label": "best_effort",
+      "reason": "default_branch",
+      "row": "D"
+    },
+    "counts": {
+      "callers": 0,
+      "near_misses": 0,
+      "near_misses_incomplete": 0
+    },
+    "edges": [
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "src/server.ts",
+            "span": {
+              "end_column": 35,
+              "end_line": 13,
+              "start_column": 0,
+              "start_line": 13
+            }
+          }
+        ],
+        "kind": "exposes_route",
+        "provenance": "fact",
+        "source": "function:src/server.ts#listUsers",
+        "target": "route:src/server.ts#GET%20%2Ft022b7%2Fusers"
+      },
+      {
+        "confidence": 0.9,
+        "evidence": [
+          {
+            "file": "src/server.ts",
+            "span": {
+              "end_column": 40,
+              "end_line": 6,
+              "start_column": 17,
+              "start_line": 6
+            }
+          }
+        ],
+        "kind": "reads_table",
+        "provenance": "inferred",
+        "source": "function:src/server.ts#listUsers",
+        "target": "table:src/db/schema.ts#users",
+        "wording": "may read"
+      }
+    ],
+    "endpoint": {
+      "attributes": {
+        "framework": "express",
+        "handler": "function:src/server.ts#listUsers",
+        "handler_inline": false,
+        "method": "GET",
+        "middleware": [],
+        "paths": [
+          {
+            "conditional": false,
+            "resolution": "literal",
+            "template": "/t022b7/users"
+          }
+        ],
+        "pattern": "/t022b7/users",
+        "shape": {
+          "body": {
+            "items": [],
+            "reason": "no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+            "state": "not_read"
+          },
+          "cookie": {
+            "items": [],
+            "reason": "nothing read in the handler or the functions it passes the value to",
+            "state": "not_read"
+          },
+          "follow": {
+            "chains": [
+              {
+                "at": null,
+                "depth": 0,
+                "section": "query",
+                "start": {
+                  "file": "src/server.ts",
+                  "function": "listUsers",
+                  "line": 5
+                },
+                "steps": [],
+                "stop": "ended"
+              },
+              {
+                "at": null,
+                "depth": 0,
+                "section": "header",
+                "start": {
+                  "file": "src/server.ts",
+                  "function": "listUsers",
+                  "line": 5
+                },
+                "steps": [],
+                "stop": "ended"
+              },
+              {
+                "at": null,
+                "depth": 0,
+                "section": "cookie",
+                "start": {
+                  "file": "src/server.ts",
+                  "function": "listUsers",
+                  "line": 5
+                },
+                "steps": [],
+                "stop": "ended"
+              },
+              {
+                "at": null,
+                "depth": 0,
+                "section": "body",
+                "start": {
+                  "file": "src/server.ts",
+                  "function": "listUsers",
+                  "line": 5
+                },
+                "steps": [],
+                "stop": "ended"
+              },
+              {
+                "at": null,
+                "depth": 0,
+                "section": "responses",
+                "start": {
+                  "file": "src/server.ts",
+                  "function": "listUsers",
+                  "line": 5
+                },
+                "steps": [],
+                "stop": "ended"
+              }
+            ],
+            "depth_limit": 6
+          },
+          "header": {
+            "items": [],
+            "reason": "nothing read in the handler or the functions it passes the value to",
+            "state": "not_read"
+          },
+          "models": [],
+          "path": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/server.ts",
+              "kind": "fact",
+              "line": 13,
+              "rule": "SH-E2"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "query": {
+            "items": [],
+            "reason": "nothing read in the handler or the functions it passes the value to",
+            "state": "not_read"
+          },
+          "responses": {
+            "items": [
+              {
+                "content_type": "application/json",
+                "provenance": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "src/server.ts",
+                  "kind": "read_in_handler",
+                  "line": 6,
+                  "rule": "SH-E25"
+                },
+                "schema": null,
+                "status": "200"
+              }
+            ],
+            "reason": "statuses read from code; errors thrown by called functions, error middleware and unread calls may add others",
+            "state": "partial"
+          },
+          "security": {
+            "items": [],
+            "state": "not_read"
+          },
+          "security_schemes": [],
+          "version": 1
+        }
+      },
+      "content_hash": "sha256:089e84383ba9a9de228136f14faeba403c402d6b42483c2899d43d0a324f55e1",
+      "file": "src/server.ts",
+      "file_state": "unchanged",
+      "ide": {
+        "column": 1,
+        "exact": true,
+        "line": 13,
+        "link": "vscode://file/{ROOT}/backend/src/server.ts:13:1"
+      },
+      "identity": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+      "kind": "route",
+      "level": 4,
+      "name": "GET /t022b7/users",
+      "qualified_name": "GET /t022b7/users",
+      "span": {
+        "end_column": 35,
+        "end_line": 13,
+        "start_column": 0,
+        "start_line": 13
+      },
+      "type": "node"
+    },
+    "handler": {
+      "edge": {
+        "confidence": 1,
+        "kind": "exposes_route",
+        "provenance": "fact"
+      },
+      "expression": null,
+      "node": {
+        "attributes": {
+          "table_access": [
+            {
+              "assumes": [
+                "TA-V3b"
+              ],
+              "kind": "reads_table",
+              "operations": [
+                "select"
+              ],
+              "role": "executes",
+              "rows": [
+                "CT-Z1"
+              ],
+              "target": "table:src/db/schema.ts#users",
+              "tool": "drizzle",
+              "verification": "oracle"
+            }
+          ]
+        },
+        "content_hash": "sha256:baba0c3509b34ed020f46bf5e4f0711e212790c4d4f3c9f4eb2a7a8ab84265c5",
+        "file": "src/server.ts",
+        "file_state": "unchanged",
+        "ide": {
+          "column": 1,
+          "exact": true,
+          "line": 5,
+          "link": "vscode://file/{ROOT}/backend/src/server.ts:5:1"
+        },
+        "identity": "function:src/server.ts#listUsers",
+        "kind": "function",
+        "level": 4,
+        "name": "listUsers",
+        "qualified_name": "listUsers",
+        "span": {
+          "end_column": 1,
+          "end_line": 7,
+          "start_column": 0,
+          "start_line": 5
+        },
+        "type": "node"
+      },
+      "state": "resolved"
+    },
+    "ide": {
+      "available": true,
+      "editor": "vscode",
+      "error": null,
+      "label": "Open in VS Code",
+      "source": "builtin"
+    },
+    "index": {
+      "contract_version": 1,
+      "finished_at": "2026-11-03T14:32:05.123Z",
+      "indexer": {
+        "name": "graphvein",
+        "version": "extractors-62"
+      }
+    },
+    "may_also_use": [],
+    "nodes": [
+      {
+        "hop": 0,
+        "node": {
+          "attributes": {
+            "framework": "express",
+            "handler": "function:src/server.ts#listUsers",
+            "handler_inline": false,
+            "method": "GET",
+            "middleware": [],
+            "paths": [
+              {
+                "conditional": false,
+                "resolution": "literal",
+                "template": "/t022b7/users"
+              }
+            ],
+            "pattern": "/t022b7/users",
+            "shape": {
+              "body": {
+                "items": [],
+                "reason": "no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+                "state": "not_read"
+              },
+              "cookie": {
+                "items": [],
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "state": "not_read"
+              },
+              "follow": {
+                "chains": [
+                  {
+                    "at": null,
+                    "depth": 0,
+                    "section": "query",
+                    "start": {
+                      "file": "src/server.ts",
+                      "function": "listUsers",
+                      "line": 5
+                    },
+                    "steps": [],
+                    "stop": "ended"
+                  },
+                  {
+                    "at": null,
+                    "depth": 0,
+                    "section": "header",
+                    "start": {
+                      "file": "src/server.ts",
+                      "function": "listUsers",
+                      "line": 5
+                    },
+                    "steps": [],
+                    "stop": "ended"
+                  },
+                  {
+                    "at": null,
+                    "depth": 0,
+                    "section": "cookie",
+                    "start": {
+                      "file": "src/server.ts",
+                      "function": "listUsers",
+                      "line": 5
+                    },
+                    "steps": [],
+                    "stop": "ended"
+                  },
+                  {
+                    "at": null,
+                    "depth": 0,
+                    "section": "body",
+                    "start": {
+                      "file": "src/server.ts",
+                      "function": "listUsers",
+                      "line": 5
+                    },
+                    "steps": [],
+                    "stop": "ended"
+                  },
+                  {
+                    "at": null,
+                    "depth": 0,
+                    "section": "responses",
+                    "start": {
+                      "file": "src/server.ts",
+                      "function": "listUsers",
+                      "line": 5
+                    },
+                    "steps": [],
+                    "stop": "ended"
+                  }
+                ],
+                "depth_limit": 6
+              },
+              "header": {
+                "items": [],
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "state": "not_read"
+              },
+              "models": [],
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "src/server.ts",
+                  "kind": "fact",
+                  "line": 13,
+                  "rule": "SH-E2"
+                },
+                "items": [],
+                "state": "provably_none"
+              },
+              "query": {
+                "items": [],
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "state": "not_read"
+              },
+              "responses": {
+                "items": [
+                  {
+                    "content_type": "application/json",
+                    "provenance": {
+                      "chain": [],
+                      "confidence": 1,
+                      "file": "src/server.ts",
+                      "kind": "read_in_handler",
+                      "line": 6,
+                      "rule": "SH-E25"
+                    },
+                    "schema": null,
+                    "status": "200"
+                  }
+                ],
+                "reason": "statuses read from code; errors thrown by called functions, error middleware and unread calls may add others",
+                "state": "partial"
+              },
+              "security": {
+                "items": [],
+                "state": "not_read"
+              },
+              "security_schemes": [],
+              "version": 1
+            }
+          },
+          "content_hash": "sha256:089e84383ba9a9de228136f14faeba403c402d6b42483c2899d43d0a324f55e1",
+          "file": "src/server.ts",
+          "file_state": "unchanged",
+          "ide": {
+            "column": 1,
+            "exact": true,
+            "line": 13,
+            "link": "vscode://file/{ROOT}/backend/src/server.ts:13:1"
+          },
+          "identity": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+          "kind": "route",
+          "level": 4,
+          "name": "GET /t022b7/users",
+          "qualified_name": "GET /t022b7/users",
+          "span": {
+            "end_column": 35,
+            "end_line": 13,
+            "start_column": 0,
+            "start_line": 13
+          },
+          "type": "node"
+        },
+        "omitted": {
+          "callees": 0,
+          "callers": 0
+        },
+        "roles": [
+          "endpoint"
+        ]
+      },
+      {
+        "hop": 0,
+        "node": {
+          "attributes": {
+            "table_access": [
+              {
+                "assumes": [
+                  "TA-V3b"
+                ],
+                "kind": "reads_table",
+                "operations": [
+                  "select"
+                ],
+                "role": "executes",
+                "rows": [
+                  "CT-Z1"
+                ],
+                "target": "table:src/db/schema.ts#users",
+                "tool": "drizzle",
+                "verification": "oracle"
+              }
+            ]
+          },
+          "content_hash": "sha256:baba0c3509b34ed020f46bf5e4f0711e212790c4d4f3c9f4eb2a7a8ab84265c5",
+          "file": "src/server.ts",
+          "file_state": "unchanged",
+          "ide": {
+            "column": 1,
+            "exact": true,
+            "line": 5,
+            "link": "vscode://file/{ROOT}/backend/src/server.ts:5:1"
+          },
+          "identity": "function:src/server.ts#listUsers",
+          "kind": "function",
+          "level": 4,
+          "name": "listUsers",
+          "qualified_name": "listUsers",
+          "span": {
+            "end_column": 1,
+            "end_line": 7,
+            "start_column": 0,
+            "start_line": 5
+          },
+          "type": "node"
+        },
+        "omitted": {
+          "callees": 0,
+          "callers": 0
+        },
+        "roles": [
+          "handler"
+        ]
+      },
+      {
+        "hop": 1,
+        "node": {
+          "attributes": {
+            "assumptions": [
+              "DR-V1",
+              "DR-V2",
+              "DR-V4",
+              "DR-V5"
+            ],
+            "builder": "pgTable",
+            "check_constraints": [],
+            "column_set": "complete",
+            "constraint_set": "complete",
+            "dialect": "postgresql",
+            "indexes": [],
+            "name": "users",
+            "pins": {
+              "drizzle-kit": "0.31.11",
+              "drizzle-orm": "0.45.4"
+            },
+            "primary_key": [
+              "id"
+            ],
+            "reasons": [],
+            "schema": "public",
+            "schema_known": true,
+            "set": "models/drizzle/drizzle.config.ts",
+            "source": "model",
+            "state": "complete",
+            "tool": "drizzle",
+            "unique_constraints": [],
+            "verification": "oracle",
+            "verification_counts": {
+              "oracle": 18
+            }
+          },
+          "content_hash": "sha256:aa20f20326952edb283aa99aec543f941f29b1bd992733af2e6495a960a4255c",
+          "file": "src/db/schema.ts",
+          "file_state": "unchanged",
+          "ide": {
+            "column": 1,
+            "exact": true,
+            "line": 3,
+            "link": "vscode://file/{ROOT}/backend/src/db/schema.ts:3:1"
+          },
+          "identity": "table:src/db/schema.ts#users",
+          "kind": "table",
+          "level": 4,
+          "name": "users",
+          "qualified_name": "users",
+          "span": {
+            "end_column": 0,
+            "end_line": 6,
+            "start_column": 0,
+            "start_line": 3
+          },
+          "type": "node"
+        },
+        "omitted": {
+          "callees": 0,
+          "callers": 0
+        },
+        "roles": [
+          "table"
+        ]
+      }
+    ],
+    "precision": {
+      "label": "best_effort",
+      "reason": "default_branch",
+      "row": "D"
+    },
+    "project": {
+      "callers": [
+        {
+          "assumption": "matched across project repositories; base URL not proven",
+          "confidence": 0.9,
+          "evidence": [
+            {
+              "file": "src/api.ts",
+              "span": {
+                "end_column": 58,
+                "end_line": 4,
+                "start_column": 9,
+                "start_line": 4
+              }
+            }
+          ],
+          "ide_status": {
+            "available": true,
+            "editor": "vscode",
+            "error": null,
+            "label": "Open in VS Code",
+            "source": "builtin"
+          },
+          "identity": "client_call:src/api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+          "kind": "calls_route",
+          "node": {
+            "attributes": {
+              "base": "unresolved",
+              "base_expression": "import.meta.env.VITE_API",
+              "library": "fetch",
+              "method": "GET",
+              "paths": [
+                {
+                  "candidate_count": 0,
+                  "candidates": [],
+                  "conditional": false,
+                  "match": null,
+                  "origin": null,
+                  "resolution": "literal",
+                  "status": "unmatched",
+                  "template": "/t022b7/users"
+                }
+              ],
+              "status": "unmatched",
+              "url_expression": "`${import.meta.env.VITE_API}/t022b7/users`",
+              "wrapper": null
+            },
+            "content_hash": "sha256:8889ef584333b1f2e159ca6693dfbb9b1287ce616da7917fe5495e4f0c99afe9",
+            "file": "src/api.ts",
+            "file_state": "unchanged",
+            "ide": {
+              "column": 10,
+              "exact": true,
+              "line": 4,
+              "link": "vscode://file/{ROOT}/frontend/src/api.ts:4:10"
+            },
+            "identity": "client_call:src/api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+            "kind": "client_call",
+            "level": 4,
+            "name": "GET `${import.meta.env.VITE_API}/t022b7/users`",
+            "qualified_name": "listUsers.GET `${import.meta.env.VITE_API}/t022b7/users`",
+            "source_root": ".",
+            "span": {
+              "end_column": 58,
+              "end_line": 4,
+              "start_column": 9,
+              "start_line": 4
+            },
+            "type": "node"
+          },
+          "owner": {
+            "id": "function:src/api.ts#listUsers",
+            "kind": "function",
+            "qualified_name": "listUsers"
+          },
+          "provenance": "inferred",
+          "repository": "frontend",
+          "stale": false,
+          "stale_reasons": []
+        }
+      ],
+      "declaration_conflicts": [],
+      "link_pass": {
+        "pass": 1,
+        "stale_reasons": [],
+        "state": "fresh"
+      },
+      "links_precision": {
+        "label": "best_effort",
+        "reason": "default_branch",
+        "row": "D"
+      },
+      "operations": [
+        {
+          "assumption": "matched across project repositories; base URL not proven",
+          "confidence": 0.9,
+          "evidence": [
+            {
+              "file": "openapi.yaml",
+              "span": {
+                "end_column": 25,
+                "end_line": 11,
+                "start_column": 4,
+                "start_line": 7
+              }
+            }
+          ],
+          "ide_status": {
+            "available": true,
+            "editor": "vscode",
+            "error": null,
+            "label": "Open in VS Code",
+            "source": "builtin"
+          },
+          "identity": "api_operation:openapi.yaml#GET%20%2Ft022b7%2Fusers",
+          "kind": "documents_route",
+          "node": {
+            "attributes": {
+              "deprecated": false,
+              "method": "GET",
+              "operation_id": "listUsers",
+              "parameters": [],
+              "path": "/t022b7/users",
+              "path_count": 1,
+              "paths": [
+                {
+                  "candidate_count": 0,
+                  "candidates": [],
+                  "match": null,
+                  "origins": [],
+                  "resolution": "literal",
+                  "status": "unmatched",
+                  "template": "/t022b7/users"
+                }
+              ],
+              "request_content_types": [],
+              "response_codes": [
+                "200"
+              ],
+              "security": [],
+              "status": "unmatched",
+              "summary": null,
+              "tags": []
+            },
+            "content_hash": "sha256:f409b7cdd72dcde75fbbadad69134ebf818c79edb4d5ac6d9cc113f5101fc74d",
+            "file": "openapi.yaml",
+            "file_state": "unchanged",
+            "ide": {
+              "column": 5,
+              "exact": true,
+              "line": 7,
+              "link": "vscode://file/{ROOT}/frontend/openapi.yaml:7:5"
+            },
+            "identity": "api_operation:openapi.yaml#GET%20%2Ft022b7%2Fusers",
+            "kind": "api_operation",
+            "level": 4,
+            "name": "GET /t022b7/users",
+            "qualified_name": "GET /t022b7/users",
+            "source_root": ".",
+            "span": {
+              "end_column": 25,
+              "end_line": 11,
+              "start_column": 4,
+              "start_line": 7
+            },
+            "type": "node"
+          },
+          "owner": {
+            "id": "api_spec:openapi.yaml#spec",
+            "kind": "api_spec",
+            "qualified_name": "spec"
+          },
+          "provenance": "inferred",
+          "repository": "frontend",
+          "stale": false,
+          "stale_reasons": []
+        }
+      ],
+      "possible_callers": [],
+      "project": "users"
+    },
+    "repository": "backend",
+    "root": null,
+    "scope": "production",
+    "skipped_edges": 0,
+    "tables_beyond": {
+      "functions": 0,
+      "hop": 3,
+      "may_also_use": 0,
+      "tables": 0
+    },
+    "transport": "http",
+    "truncated": null
+  },
+  "6b-calls-frontend": {
+    "api_version": 0,
+    "calls": [
+      {
+        "node": {
+          "attributes": {
+            "base": "unresolved",
+            "base_expression": "import.meta.env.VITE_API",
+            "library": "fetch",
+            "method": "GET",
+            "paths": [
+              {
+                "candidate_count": 0,
+                "candidates": [],
+                "conditional": false,
+                "match": null,
+                "origin": null,
+                "resolution": "literal",
+                "status": "unmatched",
+                "template": "/t022b7/users"
+              }
+            ],
+            "status": "unmatched",
+            "url_expression": "`${import.meta.env.VITE_API}/t022b7/users`",
+            "wrapper": null
+          },
+          "content_hash": "sha256:8889ef584333b1f2e159ca6693dfbb9b1287ce616da7917fe5495e4f0c99afe9",
+          "file": "src/api.ts",
+          "file_state": "unchanged",
+          "ide": {
+            "column": 10,
+            "exact": true,
+            "line": 4,
+            "link": "vscode://file/{ROOT}/frontend/src/api.ts:4:10"
+          },
+          "identity": "client_call:src/api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+          "kind": "client_call",
+          "level": 4,
+          "name": "GET `${import.meta.env.VITE_API}/t022b7/users`",
+          "qualified_name": "listUsers.GET `${import.meta.env.VITE_API}/t022b7/users`",
+          "source_root": ".",
+          "span": {
+            "end_column": 58,
+            "end_line": 4,
+            "start_column": 9,
+            "start_line": 4
+          },
+          "type": "node"
+        },
+        "owner": {
+          "id": "function:src/api.ts#listUsers",
+          "kind": "function",
+          "qualified_name": "listUsers"
+        },
+        "project": {
+          "declaration_conflict": null,
+          "link_pass": {
+            "pass": 1,
+            "stale_reasons": [],
+            "state": "fresh"
+          },
+          "links": [
+            {
+              "assumption": "matched across project repositories; base URL not proven",
+              "confidence": 0.9,
+              "evidence": [
+                {
+                  "file": "src/api.ts",
+                  "span": {
+                    "end_column": 58,
+                    "end_line": 4,
+                    "start_column": 9,
+                    "start_line": 4
+                  }
+                }
+              ],
+              "kind": "calls_route",
+              "provenance": "inferred",
+              "stale": false,
+              "stale_reasons": [],
+              "target": {
+                "file": "src/server.ts",
+                "identity": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+                "kind": "route",
+                "line": 13,
+                "name": "GET /t022b7/users",
+                "repository": "backend"
+              }
+            }
+          ],
+          "links_precision": {
+            "label": "best_effort",
+            "reason": "default_branch",
+            "row": "D"
+          },
+          "outcomes": [
+            {
+              "candidate_count": 1,
+              "candidates": [
+                {
+                  "identity": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+                  "repository": "backend"
+                }
+              ],
+              "reason": "",
+              "row": "PL-L1",
+              "status": "linked",
+              "template": "/t022b7/users"
+            }
+          ]
+        },
+        "reasons": [
+          {
+            "code": "no_matching_route",
+            "detail": "GET /t022b7/users",
+            "text": "No route matches this method and path"
+          },
+          {
+            "code": "base_unresolved",
+            "detail": "import.meta.env.VITE_API",
+            "text": "Base URL is not resolved"
+          }
+        ],
+        "targets": []
+      },
+      {
+        "node": {
+          "attributes": {
+            "base": "unresolved",
+            "base_expression": "import.meta.env.VITE_API",
+            "library": "fetch",
+            "method": "POST",
+            "paths": [
+              {
+                "candidate_count": 0,
+                "candidates": [],
+                "conditional": false,
+                "match": null,
+                "origin": null,
+                "resolution": "literal",
+                "status": "unmatched",
+                "template": "/t022b7/users"
+              }
+            ],
+            "status": "unmatched",
+            "url_expression": "`${import.meta.env.VITE_API}/t022b7/users`",
+            "wrapper": null
+          },
+          "content_hash": "sha256:c01a027c38954fda13751c6c35f47be486aeefeeb00d287978d39c23fbdb11ad",
+          "file": "src/api.ts",
+          "file_state": "unchanged",
+          "ide": {
+            "column": 10,
+            "exact": true,
+            "line": 7,
+            "link": "vscode://file/{ROOT}/frontend/src/api.ts:7:10"
+          },
+          "identity": "client_call:src/api.ts#createUser.POST%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+          "kind": "client_call",
+          "level": 4,
+          "name": "POST `${import.meta.env.VITE_API}/t022b7/users`",
+          "qualified_name": "createUser.POST `${import.meta.env.VITE_API}/t022b7/users`",
+          "source_root": ".",
+          "span": {
+            "end_column": 78,
+            "end_line": 7,
+            "start_column": 9,
+            "start_line": 7
+          },
+          "type": "node"
+        },
+        "owner": {
+          "id": "function:src/api.ts#createUser",
+          "kind": "function",
+          "qualified_name": "createUser"
+        },
+        "project": {
+          "declaration_conflict": null,
+          "link_pass": {
+            "pass": 1,
+            "stale_reasons": [],
+            "state": "fresh"
+          },
+          "links": [
+            {
+              "assumption": "matched across project repositories; base URL not proven",
+              "confidence": 0.9,
+              "evidence": [
+                {
+                  "file": "src/api.ts",
+                  "span": {
+                    "end_column": 78,
+                    "end_line": 7,
+                    "start_column": 9,
+                    "start_line": 7
+                  }
+                }
+              ],
+              "kind": "calls_route",
+              "provenance": "inferred",
+              "stale": false,
+              "stale_reasons": [],
+              "target": {
+                "file": "src/server.ts",
+                "identity": "route:src/server.ts#POST%20%2Ft022b7%2Fusers",
+                "kind": "route",
+                "line": 14,
+                "name": "POST /t022b7/users",
+                "repository": "backend"
+              }
+            }
+          ],
+          "links_precision": {
+            "label": "best_effort",
+            "reason": "default_branch",
+            "row": "D"
+          },
+          "outcomes": [
+            {
+              "candidate_count": 1,
+              "candidates": [
+                {
+                  "identity": "route:src/server.ts#POST%20%2Ft022b7%2Fusers",
+                  "repository": "backend"
+                }
+              ],
+              "reason": "",
+              "row": "PL-L1",
+              "status": "linked",
+              "template": "/t022b7/users"
+            }
+          ]
+        },
+        "reasons": [
+          {
+            "code": "no_matching_route",
+            "detail": "POST /t022b7/users",
+            "text": "No route matches this method and path"
+          },
+          {
+            "code": "base_unresolved",
+            "detail": "import.meta.env.VITE_API",
+            "text": "Base URL is not resolved"
+          }
+        ],
+        "targets": []
+      }
+    ],
+    "ide": {
+      "available": true,
+      "editor": "vscode",
+      "error": null,
+      "label": "Open in VS Code",
+      "source": "builtin"
+    },
+    "index": {
+      "contract_version": 1,
+      "finished_at": "2026-11-03T14:32:05.123Z",
+      "indexer": {
+        "name": "graphvein",
+        "version": "extractors-62"
+      }
+    },
+    "repository": "frontend",
+    "root": null,
+    "scope": "all",
+    "statuses": [
+      "ambiguous",
+      "dynamic",
+      "linked",
+      "test_only",
+      "unmatched",
+      "wrapper"
+    ],
+    "total": 2,
+    "transport": "http"
+  },
+  "6c-calls-frontend-project-scope": {
+    "api_version": 0,
+    "calls": [
+      {
+        "node": {
+          "attributes": {
+            "base": "unresolved",
+            "base_expression": "import.meta.env.VITE_API",
+            "library": "fetch",
+            "method": "GET",
+            "paths": [
+              {
+                "candidate_count": 0,
+                "candidates": [],
+                "conditional": false,
+                "match": null,
+                "origin": null,
+                "resolution": "literal",
+                "status": "unmatched",
+                "template": "/t022b7/users"
+              }
+            ],
+            "status": "unmatched",
+            "url_expression": "`${import.meta.env.VITE_API}/t022b7/users`",
+            "wrapper": null
+          },
+          "content_hash": "sha256:8889ef584333b1f2e159ca6693dfbb9b1287ce616da7917fe5495e4f0c99afe9",
+          "file": "src/api.ts",
+          "file_state": "unchanged",
+          "ide": {
+            "column": 10,
+            "exact": true,
+            "line": 4,
+            "link": "vscode://file/{ROOT}/frontend/src/api.ts:4:10"
+          },
+          "identity": "client_call:src/api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+          "kind": "client_call",
+          "level": 4,
+          "name": "GET `${import.meta.env.VITE_API}/t022b7/users`",
+          "qualified_name": "listUsers.GET `${import.meta.env.VITE_API}/t022b7/users`",
+          "source_root": ".",
+          "span": {
+            "end_column": 58,
+            "end_line": 4,
+            "start_column": 9,
+            "start_line": 4
+          },
+          "type": "node"
+        },
+        "owner": {
+          "id": "function:src/api.ts#listUsers",
+          "kind": "function",
+          "qualified_name": "listUsers"
+        },
+        "project": {
+          "declaration_conflict": null,
+          "link_pass": {
+            "pass": 1,
+            "stale_reasons": [],
+            "state": "fresh"
+          },
+          "links": [
+            {
+              "assumption": "matched across project repositories; base URL not proven",
+              "confidence": 0.9,
+              "evidence": [
+                {
+                  "file": "src/api.ts",
+                  "span": {
+                    "end_column": 58,
+                    "end_line": 4,
+                    "start_column": 9,
+                    "start_line": 4
+                  }
+                }
+              ],
+              "kind": "calls_route",
+              "provenance": "inferred",
+              "stale": false,
+              "stale_reasons": [],
+              "target": {
+                "file": "src/server.ts",
+                "identity": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+                "kind": "route",
+                "line": 13,
+                "name": "GET /t022b7/users",
+                "repository": "backend"
+              }
+            }
+          ],
+          "links_precision": {
+            "label": "best_effort",
+            "reason": "default_branch",
+            "row": "D"
+          },
+          "outcomes": [
+            {
+              "candidate_count": 1,
+              "candidates": [
+                {
+                  "identity": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+                  "repository": "backend"
+                }
+              ],
+              "reason": "",
+              "row": "PL-L1",
+              "status": "linked",
+              "template": "/t022b7/users"
+            }
+          ]
+        },
+        "reasons": [
+          {
+            "code": "no_matching_route",
+            "detail": "GET /t022b7/users",
+            "text": "No route matches this method and path"
+          },
+          {
+            "code": "base_unresolved",
+            "detail": "import.meta.env.VITE_API",
+            "text": "Base URL is not resolved"
+          }
+        ],
+        "targets": []
+      },
+      {
+        "node": {
+          "attributes": {
+            "base": "unresolved",
+            "base_expression": "import.meta.env.VITE_API",
+            "library": "fetch",
+            "method": "POST",
+            "paths": [
+              {
+                "candidate_count": 0,
+                "candidates": [],
+                "conditional": false,
+                "match": null,
+                "origin": null,
+                "resolution": "literal",
+                "status": "unmatched",
+                "template": "/t022b7/users"
+              }
+            ],
+            "status": "unmatched",
+            "url_expression": "`${import.meta.env.VITE_API}/t022b7/users`",
+            "wrapper": null
+          },
+          "content_hash": "sha256:c01a027c38954fda13751c6c35f47be486aeefeeb00d287978d39c23fbdb11ad",
+          "file": "src/api.ts",
+          "file_state": "unchanged",
+          "ide": {
+            "column": 10,
+            "exact": true,
+            "line": 7,
+            "link": "vscode://file/{ROOT}/frontend/src/api.ts:7:10"
+          },
+          "identity": "client_call:src/api.ts#createUser.POST%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+          "kind": "client_call",
+          "level": 4,
+          "name": "POST `${import.meta.env.VITE_API}/t022b7/users`",
+          "qualified_name": "createUser.POST `${import.meta.env.VITE_API}/t022b7/users`",
+          "source_root": ".",
+          "span": {
+            "end_column": 78,
+            "end_line": 7,
+            "start_column": 9,
+            "start_line": 7
+          },
+          "type": "node"
+        },
+        "owner": {
+          "id": "function:src/api.ts#createUser",
+          "kind": "function",
+          "qualified_name": "createUser"
+        },
+        "project": {
+          "declaration_conflict": null,
+          "link_pass": {
+            "pass": 1,
+            "stale_reasons": [],
+            "state": "fresh"
+          },
+          "links": [
+            {
+              "assumption": "matched across project repositories; base URL not proven",
+              "confidence": 0.9,
+              "evidence": [
+                {
+                  "file": "src/api.ts",
+                  "span": {
+                    "end_column": 78,
+                    "end_line": 7,
+                    "start_column": 9,
+                    "start_line": 7
+                  }
+                }
+              ],
+              "kind": "calls_route",
+              "provenance": "inferred",
+              "stale": false,
+              "stale_reasons": [],
+              "target": {
+                "file": "src/server.ts",
+                "identity": "route:src/server.ts#POST%20%2Ft022b7%2Fusers",
+                "kind": "route",
+                "line": 14,
+                "name": "POST /t022b7/users",
+                "repository": "backend"
+              }
+            }
+          ],
+          "links_precision": {
+            "label": "best_effort",
+            "reason": "default_branch",
+            "row": "D"
+          },
+          "outcomes": [
+            {
+              "candidate_count": 1,
+              "candidates": [
+                {
+                  "identity": "route:src/server.ts#POST%20%2Ft022b7%2Fusers",
+                  "repository": "backend"
+                }
+              ],
+              "reason": "",
+              "row": "PL-L1",
+              "status": "linked",
+              "template": "/t022b7/users"
+            }
+          ]
+        },
+        "reasons": [
+          {
+            "code": "no_matching_route",
+            "detail": "POST /t022b7/users",
+            "text": "No route matches this method and path"
+          },
+          {
+            "code": "base_unresolved",
+            "detail": "import.meta.env.VITE_API",
+            "text": "Base URL is not resolved"
+          }
+        ],
+        "targets": []
+      }
+    ],
+    "ide": {
+      "available": true,
+      "editor": "vscode",
+      "error": null,
+      "label": "Open in VS Code",
+      "source": "builtin"
+    },
+    "index": {
+      "contract_version": 1,
+      "finished_at": "2026-11-03T14:32:05.123Z",
+      "indexer": {
+        "name": "graphvein",
+        "version": "extractors-62"
+      }
+    },
+    "repository": "frontend",
+    "root": null,
+    "scope": "all",
+    "status_scope": "project",
+    "statuses": [
+      "ambiguous_across",
+      "linked_across",
+      "unmatched"
+    ],
+    "total": 2,
+    "transport": "http"
+  },
+  "7-project-change-impact": {
+    "api_version": 0,
+    "base": "previous",
+    "caps": [],
+    "depth": 4,
+    "freshness": {
+      "changed_count": 0,
+      "changed_files": [],
+      "changed_files_truncated": false,
+      "checked_at": "2026-11-03T14:40:00Z",
+      "state": "fresh"
+    },
+    "index": {
+      "contract_version": 1,
+      "finished_at": "2026-11-03T14:32:05.123Z",
+      "indexer": {
+        "name": "graphvein",
+        "version": "extractors-62"
+      }
+    },
+    "members": [
+      {
+        "link_sources_missing": [],
+        "repository": "frontend",
+        "table_uses": [],
+        "unknowns": {
+          "blind_spots": [],
+          "gap_nodes": [],
+          "near_misses": [],
+          "not_extracted": [
+            {
+              "nodes": [],
+              "relation": "I11"
+            }
+          ],
+          "untraversed": {
+            "contains": 2
+          }
+        }
+      }
+    ],
+    "next_cursor": null,
+    "paths": [
+      {
+        "claim": "may depend on",
+        "confidence": null,
+        "distance": 1,
+        "kind": "file",
+        "node": "file:src/server.ts#src%2Fserver.ts",
+        "provenance": "inferred",
+        "relation": "I15",
+        "repository": "backend",
+        "seed": "function:src/server.ts#listUsers",
+        "steps": [
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "src/server.ts",
+                "span": {
+                  "end_column": 34,
+                  "end_line": 13,
+                  "start_column": 25,
+                  "start_line": 13
+                }
+              }
+            ],
+            "kind": "passes_function",
+            "provenance": "fact",
+            "relation": "I15",
+            "removed": false,
+            "source": "file:src/server.ts#src%2Fserver.ts",
+            "source_repository": "backend",
+            "target": "function:src/server.ts#listUsers",
+            "target_repository": "backend",
+            "via": null
+          }
+        ],
+        "wording": "passes this as callback, call not modelled"
+      },
+      {
+        "claim": "depends on",
+        "confidence": 1,
+        "distance": 1,
+        "kind": "route",
+        "node": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+        "provenance": "fact",
+        "relation": "I4",
+        "repository": "backend",
+        "route_paths": [
+          {
+            "scope": null,
+            "template": "/t022b7/users",
+            "trailing_slash": false
+          }
+        ],
+        "seed": "function:src/server.ts#listUsers",
+        "steps": [
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "src/server.ts",
+                "span": {
+                  "end_column": 35,
+                  "end_line": 13,
+                  "start_column": 0,
+                  "start_line": 13
+                }
+              }
+            ],
+            "kind": "exposes_route",
+            "provenance": "fact",
+            "relation": "I4",
+            "removed": false,
+            "source": "function:src/server.ts#listUsers",
+            "source_repository": "backend",
+            "target": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+            "target_repository": "backend",
+            "via": null
+          }
+        ],
+        "wording": "handled by the changed code"
+      },
+      {
+        "assumptions": [
+          "matched across project repositories; base URL not proven"
+        ],
+        "claim": "may depend on",
+        "confidence": 0.9,
+        "distance": 2,
+        "kind": "api_operation",
+        "node": "api_operation:openapi.yaml#GET%20%2Ft022b7%2Fusers",
+        "provenance": "inferred",
+        "relation": "I13",
+        "repository": "frontend",
+        "seed": "function:src/server.ts#listUsers",
+        "steps": [
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "src/server.ts",
+                "span": {
+                  "end_column": 35,
+                  "end_line": 13,
+                  "start_column": 0,
+                  "start_line": 13
+                }
+              }
+            ],
+            "kind": "exposes_route",
+            "provenance": "fact",
+            "relation": "I4",
+            "removed": false,
+            "source": "function:src/server.ts#listUsers",
+            "source_repository": "backend",
+            "target": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+            "target_repository": "backend",
+            "via": null
+          },
+          {
+            "assumption": "matched across project repositories; base URL not proven",
+            "confidence": 0.9,
+            "evidence": [
+              {
+                "file": "openapi.yaml",
+                "span": {
+                  "end_column": 25,
+                  "end_line": 11,
+                  "start_column": 4,
+                  "start_line": 7
+                }
+              }
+            ],
+            "kind": "documents_route",
+            "provenance": "inferred",
+            "relation": "I13",
+            "removed": false,
+            "source": "api_operation:openapi.yaml#GET%20%2Ft022b7%2Fusers",
+            "source_repository": "frontend",
+            "target": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+            "target_repository": "backend",
+            "via": null
+          }
+        ],
+        "wording": "documents this route from another project repository"
+      },
+      {
+        "assumptions": [
+          "matched across project repositories; base URL not proven"
+        ],
+        "claim": "may depend on",
+        "confidence": 0.9,
+        "distance": 2,
+        "kind": "client_call",
+        "node": "client_call:src/api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+        "provenance": "inferred",
+        "relation": "I12",
+        "repository": "frontend",
+        "seed": "function:src/server.ts#listUsers",
+        "steps": [
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "src/server.ts",
+                "span": {
+                  "end_column": 35,
+                  "end_line": 13,
+                  "start_column": 0,
+                  "start_line": 13
+                }
+              }
+            ],
+            "kind": "exposes_route",
+            "provenance": "fact",
+            "relation": "I4",
+            "removed": false,
+            "source": "function:src/server.ts#listUsers",
+            "source_repository": "backend",
+            "target": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+            "target_repository": "backend",
+            "via": null
+          },
+          {
+            "assumption": "matched across project repositories; base URL not proven",
+            "confidence": 0.9,
+            "evidence": [
+              {
+                "file": "src/api.ts",
+                "span": {
+                  "end_column": 58,
+                  "end_line": 4,
+                  "start_column": 9,
+                  "start_line": 4
+                }
+              }
+            ],
+            "kind": "calls_route",
+            "provenance": "inferred",
+            "relation": "I12",
+            "removed": false,
+            "source": "client_call:src/api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+            "source_repository": "frontend",
+            "target": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+            "target_repository": "backend",
+            "via": null
+          }
+        ],
+        "wording": "calls this route from another project repository"
+      },
+      {
+        "assumptions": [
+          "matched across project repositories; base URL not proven"
+        ],
+        "claim": "may depend on",
+        "confidence": 0.9,
+        "distance": 3,
+        "kind": "function",
+        "node": "function:src/api.ts#listUsers",
+        "provenance": "inferred",
+        "relation": "I2",
+        "repository": "frontend",
+        "seed": "function:src/server.ts#listUsers",
+        "steps": [
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "src/server.ts",
+                "span": {
+                  "end_column": 35,
+                  "end_line": 13,
+                  "start_column": 0,
+                  "start_line": 13
+                }
+              }
+            ],
+            "kind": "exposes_route",
+            "provenance": "fact",
+            "relation": "I4",
+            "removed": false,
+            "source": "function:src/server.ts#listUsers",
+            "source_repository": "backend",
+            "target": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+            "target_repository": "backend",
+            "via": null
+          },
+          {
+            "assumption": "matched across project repositories; base URL not proven",
+            "confidence": 0.9,
+            "evidence": [
+              {
+                "file": "src/api.ts",
+                "span": {
+                  "end_column": 58,
+                  "end_line": 4,
+                  "start_column": 9,
+                  "start_line": 4
+                }
+              }
+            ],
+            "kind": "calls_route",
+            "provenance": "inferred",
+            "relation": "I12",
+            "removed": false,
+            "source": "client_call:src/api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+            "source_repository": "frontend",
+            "target": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+            "target_repository": "backend",
+            "via": null
+          },
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "src/api.ts",
+                "span": {
+                  "end_column": 58,
+                  "end_line": 4,
+                  "start_column": 9,
+                  "start_line": 4
+                }
+              }
+            ],
+            "kind": "contains",
+            "provenance": "fact",
+            "relation": "I2",
+            "removed": false,
+            "source": "function:src/api.ts#listUsers",
+            "source_repository": "frontend",
+            "target": "client_call:src/api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+            "target_repository": "frontend",
+            "via": null
+          }
+        ],
+        "wording": "makes the changed call"
+      },
+      {
+        "assumptions": [
+          "matched across project repositories; base URL not proven"
+        ],
+        "claim": "may depend on",
+        "confidence": 0.9,
+        "distance": 4,
+        "kind": "function",
+        "node": "function:src/page.ts#UsersPage",
+        "provenance": "inferred",
+        "relation": "I1",
+        "repository": "frontend",
+        "seed": "function:src/server.ts#listUsers",
+        "steps": [
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "src/server.ts",
+                "span": {
+                  "end_column": 35,
+                  "end_line": 13,
+                  "start_column": 0,
+                  "start_line": 13
+                }
+              }
+            ],
+            "kind": "exposes_route",
+            "provenance": "fact",
+            "relation": "I4",
+            "removed": false,
+            "source": "function:src/server.ts#listUsers",
+            "source_repository": "backend",
+            "target": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+            "target_repository": "backend",
+            "via": null
+          },
+          {
+            "assumption": "matched across project repositories; base URL not proven",
+            "confidence": 0.9,
+            "evidence": [
+              {
+                "file": "src/api.ts",
+                "span": {
+                  "end_column": 58,
+                  "end_line": 4,
+                  "start_column": 9,
+                  "start_line": 4
+                }
+              }
+            ],
+            "kind": "calls_route",
+            "provenance": "inferred",
+            "relation": "I12",
+            "removed": false,
+            "source": "client_call:src/api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+            "source_repository": "frontend",
+            "target": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+            "target_repository": "backend",
+            "via": null
+          },
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "src/api.ts",
+                "span": {
+                  "end_column": 58,
+                  "end_line": 4,
+                  "start_column": 9,
+                  "start_line": 4
+                }
+              }
+            ],
+            "kind": "contains",
+            "provenance": "fact",
+            "relation": "I2",
+            "removed": false,
+            "source": "function:src/api.ts#listUsers",
+            "source_repository": "frontend",
+            "target": "client_call:src/api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+            "target_repository": "frontend",
+            "via": null
+          },
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "src/page.ts",
+                "span": {
+                  "end_column": 20,
+                  "end_line": 5,
+                  "start_column": 9,
+                  "start_line": 5
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "relation": "I1",
+            "removed": false,
+            "source": "function:src/page.ts#UsersPage",
+            "source_repository": "frontend",
+            "target": "function:src/api.ts#listUsers",
+            "target_repository": "frontend",
+            "via": null
+          }
+        ],
+        "wording": "calls the changed code"
+      }
+    ],
+    "project": "users",
+    "repository": "backend",
+    "seeds": [
+      "function:src/server.ts#listUsers"
+    ],
+    "table_uses": [],
+    "total": 6,
+    "unknowns": {
+      "blind_spots": [],
+      "gap_nodes": [],
+      "near_misses": [],
+      "not_extracted": [
+        {
+          "nodes": [],
+          "relation": "I11"
+        }
+      ],
+      "untraversed": {
+        "contains": 2,
+        "exposes_route": 1
+      }
+    }
+  },
+  "8-link-changes": {
+    "api_version": 0,
+    "base": "previous",
+    "links": {
+      "added": [],
+      "changed": [],
+      "from_pass": 1,
+      "manifest_changed": false,
+      "members": [
+        [
+          {
+            "repository": "frontend",
+            "run": "\u003crun frontend#1\u003e"
+          },
+          {
+            "repository": "backend",
+            "run": "\u003crun backend#1\u003e"
+          }
+        ],
+        [
+          {
+            "repository": "frontend",
+            "run": "\u003crun frontend#1\u003e"
+          },
+          {
+            "repository": "backend",
+            "run": "\u003crun backend#2\u003e"
+          }
+        ]
+      ],
+      "project": "users",
+      "removed": [],
+      "to_pass": 2
+    },
+    "links_note": null,
+    "project": "users",
+    "state": "compared"
+  },
+  "8a-link-changes-same-pass": {
+    "api_version": 0,
+    "base": "pass:2",
+    "links": null,
+    "links_note": "the base is pass 2, the newest kept link pass: nothing compared, not proof that no link changed; use base previous or an older pass",
+    "project": "users",
+    "state": "same_pass"
+  },
+  "9-project-stale": {
+    "ambiguous": {
+      "groups": [],
+      "total": 0
+    },
+    "api_version": 0,
+    "checks": [],
+    "conflicts": [],
+    "declarations": {
+      "consumes": [],
+      "scopes": []
+    },
+    "link_pass": {
+      "links": 3,
+      "outcomes": {
+        "linked": 3
+      },
+      "pass": 2,
+      "stale_links": 3,
+      "stale_reasons": [
+        "frontend indexed again"
+      ],
+      "state": "stale"
+    },
+    "members": [
+      {
+        "checkout": true,
+        "extractor": {
+          "current": "extractors-62",
+          "indexed": "extractors-62",
+          "matches": true
+        },
+        "freshness": {
+          "changed_count": 0,
+          "changed_files": [],
+          "changed_files_truncated": false,
+          "checked_at": "2026-11-03T14:40:00Z",
+          "settings": {
+            "changed_keys": [],
+            "current_hash": "sha256:bd0bac46bc39426f2956eada62b5e5cd03dc376650d84e5996b66f09494e62d2",
+            "index_hash": "sha256:bd0bac46bc39426f2956eada62b5e5cd03dc376650d84e5996b66f09494e62d2",
+            "reason": null,
+            "state": "unchanged",
+            "unknown_keys": []
+          },
+          "state": "fresh"
+        },
+        "index": {
+          "contract_version": 1,
+          "finished_at": "2026-11-03T14:32:05.123Z",
+          "indexer": {
+            "name": "graphvein",
+            "version": "extractors-62"
+          }
+        },
+        "links": {
+          "in_pass": true,
+          "index_error": null,
+          "links": 3,
+          "pass_run": "\u003crun frontend#1\u003e",
+          "stale": 3,
+          "stale_reasons": [
+            "frontend indexed again since the pass"
+          ]
+        },
+        "path": "frontend",
+        "path_source": "manifest",
+        "remote": null,
+        "repository": "frontend",
+        "repository_source": "manifest"
+      },
+      {
+        "checkout": true,
+        "extractor": {
+          "current": "extractors-62",
+          "indexed": "extractors-62",
+          "matches": true
+        },
+        "freshness": {
+          "changed_count": 0,
+          "changed_files": [],
+          "changed_files_truncated": false,
+          "checked_at": "2026-11-03T14:40:00Z",
+          "settings": {
+            "changed_keys": [],
+            "current_hash": "sha256:bd0bac46bc39426f2956eada62b5e5cd03dc376650d84e5996b66f09494e62d2",
+            "index_hash": "sha256:bd0bac46bc39426f2956eada62b5e5cd03dc376650d84e5996b66f09494e62d2",
+            "reason": null,
+            "state": "unchanged",
+            "unknown_keys": []
+          },
+          "state": "fresh"
+        },
+        "index": {
+          "contract_version": 1,
+          "finished_at": "2026-11-03T14:32:05.123Z",
+          "indexer": {
+            "name": "graphvein",
+            "version": "extractors-62"
+          }
+        },
+        "links": {
+          "in_pass": true,
+          "index_error": null,
+          "links": 3,
+          "pass_run": "\u003crun backend#2\u003e",
+          "stale": 3,
+          "stale_reasons": [
+            "frontend indexed again since the pass"
+          ]
+        },
+        "path": "backend",
+        "path_source": "manifest",
+        "remote": null,
+        "repository": "backend",
+        "repository_source": "manifest"
+      }
+    ],
+    "project": "users",
+    "server_version": "test"
+  }
+}

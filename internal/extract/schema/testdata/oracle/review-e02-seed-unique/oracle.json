@@ -1,0 +1,29 @@
+{
+  "id": "review-e02-seed-unique",
+  "signature": "agreed at af6a883",
+  "class": "S1",
+  "owner": "P11",
+  "row": "review",
+  "history": {
+    "id": "e02-seed-unique"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "23505",
+        "message": "could not create unique index \"t_a\"",
+        "detail": "Key (a)=(1) is duplicated.",
+        "statement": 3,
+        "statement_text": "CREATE UNIQUE INDEX t_a ON t (a);"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

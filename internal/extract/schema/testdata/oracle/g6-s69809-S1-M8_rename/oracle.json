@@ -1,0 +1,36 @@
+{
+  "id": "g6-s69809-S1-M8_rename",
+  "signature": "applied|S1|42P01|M8.rename",
+  "class": "S1",
+  "owner": "P1",
+  "row": "M8.rename",
+  "history": {
+    "id": "g6-s69809",
+    "tags": {
+      "1_m1.sql": [
+        "M5f.generated_name_r2",
+        "M5f.generated_name_r2",
+        "M5f.generated_name_r2",
+        "M8.rename"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42P01",
+        "message": "relation \"t2_pkey\" does not exist",
+        "statement": 4,
+        "statement_text": "ALTER INDEX t2_pkey RENAME TO ix_4;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

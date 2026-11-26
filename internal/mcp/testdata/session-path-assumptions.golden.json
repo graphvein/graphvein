@@ -1,0 +1,1156 @@
+[
+  {
+    "call": {
+      "arguments": {
+        "target": "route:web/app.js#GET%20%2Fz%2Fb"
+      },
+      "name": "endpoint"
+    },
+    "envelope": {
+      "assumptions": [
+        {
+          "id": "RO-V2",
+          "row": "MC-12",
+          "text": "a mounted app's catch-all may answer first: assumes the app or router mounted earlier below this path's prefix passes the request on"
+        }
+      ],
+      "bounds": [],
+      "envelope": 1,
+      "freshness": {
+        "changed_count": 0,
+        "changed_files": [],
+        "changed_more": 0,
+        "checked_at": "2026-11-23T09:00:00Z",
+        "index": {
+          "commit": null,
+          "contract_version": 1,
+          "extractor_current": "extractors-62",
+          "extractor_matches": true,
+          "finished_at": "\u003cfinished_at\u003e",
+          "indexer": "graphvein",
+          "indexer_version": "extractors-62"
+        },
+        "state": "fresh"
+      },
+      "labels": {
+        "claim:calls this route": "a stored calls_route edge links this call to the route",
+        "file_state:unchanged": "the file still has the indexed content",
+        "freshness:fresh": "no file added, changed or deleted since the last index (same scan and ignore rules as indexing), as of checked_at",
+        "handler:unresolved": "no handler was resolved",
+        "match:exact": "the call's composed URL path equals the route path",
+        "precision:best_effort": "no precision rule covers this scope (row D or a refusal): facts are still facts, absence is not proven",
+        "provenance:inferred": "the path has an inferred edge: confidence is the weakest edge of the path",
+        "shape:not_read": "this part of the request or response was not read: no claim either way",
+        "shape:provably_none": "the code proves this part has no item"
+      },
+      "omitted": [
+        {
+          "field": "ide",
+          "how": "editor links: open the file at file and line; the source tool shows the lines"
+        },
+        {
+          "field": "node.attributes",
+          "how": "the node's raw stored attributes: find, callers, impact and source do not serve them; endpoint (detail full), table (detail full), chain and unresolved serve the facts they claim from them"
+        },
+        {
+          "field": "node.content_hash",
+          "how": "the stored content hash: file_state says whether the file still has it"
+        },
+        {
+          "field": "node.ide",
+          "how": "editor link: open the file at file and line; the source tool shows the lines"
+        },
+        {
+          "field": "node.level",
+          "how": "the presentation level of the node kind"
+        },
+        {
+          "field": "node.type",
+          "how": "the record type (always node)"
+        },
+        {
+          "field": "shape items' provenance (rule, file, line, call chain)",
+          "how": "call endpoint with detail full"
+        },
+        {
+          "field": "shape.*.evidence",
+          "how": "the declaration that proves provably_none or complete: call endpoint with detail full"
+        },
+        {
+          "field": "shape_links",
+          "how": "editor links of shape items: the source tool shows the lines"
+        }
+      ],
+      "page": {
+        "more": 0,
+        "returned": 1,
+        "total": 1
+      },
+      "repository": "lpa",
+      "request": {
+        "cursor": "",
+        "detail": "compact",
+        "limit": 50,
+        "match": "identity",
+        "resolved": "route:web/app.js#GET%20%2Fz%2Fb",
+        "scope": "production",
+        "target": "route:web/app.js#GET%20%2Fz%2Fb"
+      },
+      "results": [
+        {
+          "callers": [
+            {
+              "claim": "calls this route",
+              "edges": [
+                {
+                  "confidence": 0.9,
+                  "kind": "calls_route",
+                  "match": "exact",
+                  "provenance": "inferred"
+                }
+              ],
+              "end_line": 2,
+              "file": "client/calls.ts",
+              "file_state": "unchanged",
+              "id": "client_call:client/calls.ts#calls.GET%20%22%2Fz%2Fb%22",
+              "kind": "client_call",
+              "line": 2,
+              "name": "GET \"/z/b\"",
+              "owner": {
+                "id": "function:client/calls.ts#calls",
+                "kind": "function",
+                "qualified_name": "calls"
+              },
+              "qualified_name": "calls.GET \"/z/b\"",
+              "reasons": [
+                {
+                  "code": "path_assumed",
+                  "detail": "RO-V2",
+                  "text": "Assumption: a mounted app's catch-all may answer first: assumes the app or router mounted earlier below this path's prefix passes the request on"
+                }
+              ],
+              "route_path_assumptions": [
+                "RO-V2"
+              ],
+              "source_root": "client"
+            }
+          ],
+          "callers_precision": {
+            "label": "best_effort",
+            "reason": "default_branch",
+            "row": "D"
+          },
+          "end_line": 15,
+          "file": "web/app.js",
+          "file_state": "unchanged",
+          "framework": "express",
+          "handler": {
+            "edge": null,
+            "expression": "reply(\"parent-b\")",
+            "node": null,
+            "state": "unresolved"
+          },
+          "id": "route:web/app.js#GET%20%2Fz%2Fb",
+          "kind": "route",
+          "line": 15,
+          "method": "GET",
+          "model_tables": [],
+          "name": "GET /z/b",
+          "near_misses": [],
+          "near_misses_incomplete": 0,
+          "openapi": {
+            "operations": [],
+            "specs": 0
+          },
+          "path_assumptions": [
+            {
+              "assumptions": [
+                "RO-V2"
+              ],
+              "may_answer_first": [
+                "catchRouter (web/app.js:14)"
+              ],
+              "path": "/z/b",
+              "scope": "production"
+            }
+          ],
+          "pattern": "/z/b",
+          "precision": {
+            "label": "best_effort",
+            "reason": "default_branch",
+            "row": "D"
+          },
+          "qualified_name": "GET /z/b",
+          "served_paths": [
+            {
+              "path": "/z/b",
+              "scope": "production"
+            }
+          ],
+          "shape": {
+            "body": {
+              "items": [],
+              "reason": "handler not read: handler reply(\"parent-b\") is not a proven function",
+              "state": "not_read"
+            },
+            "cookie": {
+              "items": [],
+              "reason": "handler not read: handler reply(\"parent-b\") is not a proven function",
+              "state": "not_read"
+            },
+            "follow": {
+              "chains": 0,
+              "depth_limit": 6,
+              "stops": {}
+            },
+            "header": {
+              "items": [],
+              "reason": "handler not read: handler reply(\"parent-b\") is not a proven function",
+              "state": "not_read"
+            },
+            "models": [],
+            "path": {
+              "items": [],
+              "state": "provably_none"
+            },
+            "query": {
+              "items": [],
+              "reason": "handler not read: handler reply(\"parent-b\") is not a proven function",
+              "state": "not_read"
+            },
+            "responses": {
+              "items": [],
+              "reason": "handler not read: handler reply(\"parent-b\") is not a proven function",
+              "state": "not_read"
+            },
+            "security": {
+              "items": [],
+              "state": "not_read"
+            },
+            "security_schemes": []
+          },
+          "transport": "http"
+        }
+      ],
+      "summary": null,
+      "tool": "endpoint",
+      "unknowns": []
+    },
+    "is_error": false
+  },
+  {
+    "call": {
+      "arguments": {
+        "target": "route:api/main.py#GET%20%2Fhealth%2Flive"
+      },
+      "name": "callers"
+    },
+    "envelope": {
+      "assumptions": [
+        {
+          "id": "RO-V1",
+          "row": "MC-14",
+          "text": "a mount at an unknown prefix may answer first: assumes the mount added before the route, whose prefix the code does not read, does not take this path"
+        }
+      ],
+      "bounds": [],
+      "envelope": 1,
+      "freshness": {
+        "changed_count": 0,
+        "changed_files": [],
+        "changed_more": 0,
+        "checked_at": "2026-11-23T09:00:00Z",
+        "index": {
+          "commit": null,
+          "contract_version": 1,
+          "extractor_current": "extractors-62",
+          "extractor_matches": true,
+          "finished_at": "\u003cfinished_at\u003e",
+          "indexer": "graphvein",
+          "indexer_version": "extractors-62"
+        },
+        "reused": true,
+        "state": "fresh",
+        "text": "reused from a check started less than 1h0m0s before this call with the same latest run (one check per call batch); checked_at is that check's time"
+      },
+      "labels": {
+        "claim:called by": "a stored call path leads from this node to the target",
+        "confidence:weakest_edge": "confidence = the lowest stored edge confidence on the shortest path; a fact path has none",
+        "file_state:unchanged": "the file still has the indexed content",
+        "freshness:fresh": "no file added, changed or deleted since the last index (same scan and ignore rules as indexing), as of checked_at",
+        "provenance:inferred": "the path has an inferred edge: confidence is the weakest edge of the path"
+      },
+      "omitted": [
+        {
+          "field": "node.attributes",
+          "how": "the node's raw stored attributes: find, callers, impact and source do not serve them; endpoint (detail full), table (detail full), chain and unresolved serve the facts they claim from them"
+        },
+        {
+          "field": "node.content_hash",
+          "how": "the stored content hash: file_state says whether the file still has it"
+        },
+        {
+          "field": "node.ide",
+          "how": "editor link: open the file at file and line; the source tool shows the lines"
+        },
+        {
+          "field": "node.level",
+          "how": "the presentation level of the node kind"
+        },
+        {
+          "field": "node.type",
+          "how": "the record type (always node)"
+        },
+        {
+          "field": "via.evidence",
+          "how": "evidence spans past the first location: the source tool shows the lines"
+        },
+        {
+          "field": "via.type",
+          "how": "the record type (always edge)"
+        }
+      ],
+      "page": {
+        "more": 0,
+        "returned": 2,
+        "total": 2
+      },
+      "repository": "lpa",
+      "request": {
+        "cursor": "",
+        "depth": 2,
+        "depth_note": "a route's callers are its client calls (step 1) and the code that makes them (step 2): depth raised to 2",
+        "limit": 50,
+        "match": "identity",
+        "resolved": "route:api/main.py#GET%20%2Fhealth%2Flive",
+        "scope": "production",
+        "target": "route:api/main.py#GET%20%2Fhealth%2Flive",
+        "unknowns_cursor": "",
+        "unknowns_limit": 20
+      },
+      "results": [
+        {
+          "claim": "called by",
+          "confidence": 0.9,
+          "confidence_rule": "weakest_edge",
+          "distance": 1,
+          "end_line": 6,
+          "file": "client/calls.ts",
+          "file_state": "unchanged",
+          "id": "client_call:client/calls.ts#calls.GET%20%22%2Fhealth%2Flive%22",
+          "kind": "client_call",
+          "line": 6,
+          "name": "GET \"/health/live\"",
+          "provenance": "inferred",
+          "qualified_name": "calls.GET \"/health/live\"",
+          "via": [
+            {
+              "confidence": 0.9,
+              "edge": "calls_route",
+              "file": "client/calls.ts",
+              "line": 6,
+              "provenance": "inferred",
+              "route_path_assumptions": [
+                "RO-V1"
+              ],
+              "source": "client_call:client/calls.ts#calls.GET%20%22%2Fhealth%2Flive%22",
+              "target": "route:api/main.py#GET%20%2Fhealth%2Flive"
+            }
+          ]
+        },
+        {
+          "claim": "called by",
+          "confidence": 0.9,
+          "confidence_rule": "weakest_edge",
+          "distance": 2,
+          "end_line": 11,
+          "file": "client/calls.ts",
+          "file_state": "unchanged",
+          "id": "function:client/calls.ts#calls",
+          "kind": "function",
+          "line": 1,
+          "name": "calls",
+          "provenance": "inferred",
+          "qualified_name": "calls",
+          "via": [
+            {
+              "confidence": 0.9,
+              "edge": "calls_route",
+              "file": "client/calls.ts",
+              "line": 6,
+              "provenance": "inferred",
+              "route_path_assumptions": [
+                "RO-V1"
+              ],
+              "source": "client_call:client/calls.ts#calls.GET%20%22%2Fhealth%2Flive%22",
+              "target": "route:api/main.py#GET%20%2Fhealth%2Flive"
+            },
+            {
+              "confidence": 1,
+              "edge": "contains",
+              "file": "client/calls.ts",
+              "line": 6,
+              "provenance": "fact",
+              "source": "function:client/calls.ts#calls",
+              "target": "client_call:client/calls.ts#calls.GET%20%22%2Fhealth%2Flive%22"
+            }
+          ]
+        }
+      ],
+      "summary": null,
+      "tool": "callers",
+      "unknowns": [
+        {
+          "data": {
+            "nodes": [
+              "function:client/calls.ts#calls"
+            ],
+            "total": 1
+          },
+          "kind": "not_modelled_end",
+          "row": "MC-17",
+          "text": "? not modelled: no stored caller; dependency injection, framework callbacks, JSX renders, passed callbacks and dynamic calls are not followed by callers"
+        },
+        {
+          "data": {
+            "unfiltered": [
+              "bounds",
+              "possibly_missing_callers",
+              "near_miss",
+              "possible_caller"
+            ]
+          },
+          "kind": "test_scope_unfiltered",
+          "row": "MC-31",
+          "text": "production scope leaves out the results and '? not modelled' ends in test code only: the walk itself still follows test code, so the bounds, the possibly missing callers (blind spots), the near misses and the possible callers of other members count it too; their items in test code say test_code: true, and a result reached through test code says via_test_code: true"
+        }
+      ]
+    },
+    "is_error": false
+  },
+  {
+    "call": {
+      "arguments": {
+        "target": "route:server/main.go#GET%20%2Fgp%2Forders%2Flist"
+      },
+      "name": "callers"
+    },
+    "envelope": {
+      "assumptions": [
+        {
+          "id": "UP-V1",
+          "row": "MC-14",
+          "text": "The route is served below a prefix the code does not fix (configuration or an unproven hop); the call is taken to reach it because its path ends with the route's proven path below that prefix."
+        },
+        {
+          "id": "GR-V5",
+          "row": "MC-14",
+          "text": "the path is served through a wrapper not proven to keep it: assumes the wrapper passes the request on unchanged"
+        }
+      ],
+      "bounds": [],
+      "envelope": 1,
+      "freshness": {
+        "changed_count": 0,
+        "changed_files": [],
+        "changed_more": 0,
+        "checked_at": "2026-11-23T09:00:00Z",
+        "index": {
+          "commit": null,
+          "contract_version": 1,
+          "extractor_current": "extractors-62",
+          "extractor_matches": true,
+          "finished_at": "\u003cfinished_at\u003e",
+          "indexer": "graphvein",
+          "indexer_version": "extractors-62"
+        },
+        "reused": true,
+        "state": "fresh",
+        "text": "reused from a check started less than 1h0m0s before this call with the same latest run (one check per call batch); checked_at is that check's time"
+      },
+      "labels": {
+        "claim:called by": "a stored call path leads from this node to the target",
+        "confidence:weakest_edge": "confidence = the lowest stored edge confidence on the shortest path; a fact path has none",
+        "file_state:unchanged": "the file still has the indexed content",
+        "freshness:fresh": "no file added, changed or deleted since the last index (same scan and ignore rules as indexing), as of checked_at",
+        "provenance:inferred": "the path has an inferred edge: confidence is the weakest edge of the path"
+      },
+      "omitted": [
+        {
+          "field": "node.attributes",
+          "how": "the node's raw stored attributes: find, callers, impact and source do not serve them; endpoint (detail full), table (detail full), chain and unresolved serve the facts they claim from them"
+        },
+        {
+          "field": "node.content_hash",
+          "how": "the stored content hash: file_state says whether the file still has it"
+        },
+        {
+          "field": "node.ide",
+          "how": "editor link: open the file at file and line; the source tool shows the lines"
+        },
+        {
+          "field": "node.level",
+          "how": "the presentation level of the node kind"
+        },
+        {
+          "field": "node.type",
+          "how": "the record type (always node)"
+        },
+        {
+          "field": "via.evidence",
+          "how": "evidence spans past the first location: the source tool shows the lines"
+        },
+        {
+          "field": "via.type",
+          "how": "the record type (always edge)"
+        }
+      ],
+      "page": {
+        "more": 0,
+        "returned": 2,
+        "total": 2
+      },
+      "repository": "lpa",
+      "request": {
+        "cursor": "",
+        "depth": 2,
+        "depth_note": "a route's callers are its client calls (step 1) and the code that makes them (step 2): depth raised to 2",
+        "limit": 50,
+        "match": "identity",
+        "resolved": "route:server/main.go#GET%20%2Fgp%2Forders%2Flist",
+        "scope": "production",
+        "target": "route:server/main.go#GET%20%2Fgp%2Forders%2Flist",
+        "unknowns_cursor": "",
+        "unknowns_limit": 20
+      },
+      "results": [
+        {
+          "claim": "called by",
+          "confidence": 0.6,
+          "confidence_rule": "weakest_edge",
+          "distance": 1,
+          "end_line": 8,
+          "file": "client/calls.ts",
+          "file_state": "unchanged",
+          "id": "client_call:client/calls.ts#calls.GET%20%22%2Fv1%2Fgp%2Forders%2Flist%22",
+          "kind": "client_call",
+          "line": 8,
+          "name": "GET \"/v1/gp/orders/list\"",
+          "provenance": "inferred",
+          "qualified_name": "calls.GET \"/v1/gp/orders/list\"",
+          "via": [
+            {
+              "confidence": 0.6,
+              "edge": "calls_route",
+              "file": "client/calls.ts",
+              "line": 8,
+              "prefix_assumptions": [
+                "UP-V1"
+              ],
+              "provenance": "inferred",
+              "route_path_assumptions": [
+                "GR-V5"
+              ],
+              "source": "client_call:client/calls.ts#calls.GET%20%22%2Fv1%2Fgp%2Forders%2Flist%22",
+              "target": "route:server/main.go#GET%20%2Fgp%2Forders%2Flist"
+            }
+          ]
+        },
+        {
+          "claim": "called by",
+          "confidence": 0.6,
+          "confidence_rule": "weakest_edge",
+          "distance": 2,
+          "end_line": 11,
+          "file": "client/calls.ts",
+          "file_state": "unchanged",
+          "id": "function:client/calls.ts#calls",
+          "kind": "function",
+          "line": 1,
+          "name": "calls",
+          "provenance": "inferred",
+          "qualified_name": "calls",
+          "via": [
+            {
+              "confidence": 0.6,
+              "edge": "calls_route",
+              "file": "client/calls.ts",
+              "line": 8,
+              "prefix_assumptions": [
+                "UP-V1"
+              ],
+              "provenance": "inferred",
+              "route_path_assumptions": [
+                "GR-V5"
+              ],
+              "source": "client_call:client/calls.ts#calls.GET%20%22%2Fv1%2Fgp%2Forders%2Flist%22",
+              "target": "route:server/main.go#GET%20%2Fgp%2Forders%2Flist"
+            },
+            {
+              "confidence": 1,
+              "edge": "contains",
+              "file": "client/calls.ts",
+              "line": 8,
+              "provenance": "fact",
+              "source": "function:client/calls.ts#calls",
+              "target": "client_call:client/calls.ts#calls.GET%20%22%2Fv1%2Fgp%2Forders%2Flist%22"
+            }
+          ]
+        }
+      ],
+      "summary": null,
+      "tool": "callers",
+      "unknowns": [
+        {
+          "data": {
+            "nodes": [
+              "function:client/calls.ts#calls"
+            ],
+            "total": 1
+          },
+          "kind": "not_modelled_end",
+          "row": "MC-17",
+          "text": "? not modelled: no stored caller; dependency injection, framework callbacks, JSX renders, passed callbacks and dynamic calls are not followed by callers"
+        },
+        {
+          "data": {
+            "unfiltered": [
+              "bounds",
+              "possibly_missing_callers",
+              "near_miss",
+              "possible_caller"
+            ]
+          },
+          "kind": "test_scope_unfiltered",
+          "row": "MC-31",
+          "text": "production scope leaves out the results and '? not modelled' ends in test code only: the walk itself still follows test code, so the bounds, the possibly missing callers (blind spots), the near misses and the possible callers of other members count it too; their items in test code say test_code: true, and a result reached through test code says via_test_code: true"
+        }
+      ]
+    },
+    "is_error": false
+  },
+  {
+    "call": {
+      "arguments": {
+        "target": "route:server/main.go#GET%20%2Fgb%2Fitems%2Fall"
+      },
+      "name": "callers"
+    },
+    "envelope": {
+      "assumptions": [
+        {
+          "id": "GR-V5",
+          "row": "MC-14",
+          "text": "the path is served through a wrapper not proven to keep it: assumes the wrapper passes the request on unchanged"
+        }
+      ],
+      "bounds": [],
+      "envelope": 1,
+      "freshness": {
+        "changed_count": 0,
+        "changed_files": [],
+        "changed_more": 0,
+        "checked_at": "2026-11-23T09:00:00Z",
+        "index": {
+          "commit": null,
+          "contract_version": 1,
+          "extractor_current": "extractors-62",
+          "extractor_matches": true,
+          "finished_at": "\u003cfinished_at\u003e",
+          "indexer": "graphvein",
+          "indexer_version": "extractors-62"
+        },
+        "reused": true,
+        "state": "fresh",
+        "text": "reused from a check started less than 1h0m0s before this call with the same latest run (one check per call batch); checked_at is that check's time"
+      },
+      "labels": {
+        "claim:called by": "a stored call path leads from this node to the target",
+        "confidence:weakest_edge": "confidence = the lowest stored edge confidence on the shortest path; a fact path has none",
+        "file_state:unchanged": "the file still has the indexed content",
+        "freshness:fresh": "no file added, changed or deleted since the last index (same scan and ignore rules as indexing), as of checked_at",
+        "provenance:inferred": "the path has an inferred edge: confidence is the weakest edge of the path"
+      },
+      "omitted": [
+        {
+          "field": "node.attributes",
+          "how": "the node's raw stored attributes: find, callers, impact and source do not serve them; endpoint (detail full), table (detail full), chain and unresolved serve the facts they claim from them"
+        },
+        {
+          "field": "node.content_hash",
+          "how": "the stored content hash: file_state says whether the file still has it"
+        },
+        {
+          "field": "node.ide",
+          "how": "editor link: open the file at file and line; the source tool shows the lines"
+        },
+        {
+          "field": "node.level",
+          "how": "the presentation level of the node kind"
+        },
+        {
+          "field": "node.type",
+          "how": "the record type (always node)"
+        },
+        {
+          "field": "via.evidence",
+          "how": "evidence spans past the first location: the source tool shows the lines"
+        },
+        {
+          "field": "via.type",
+          "how": "the record type (always edge)"
+        }
+      ],
+      "page": {
+        "more": 0,
+        "returned": 3,
+        "total": 3
+      },
+      "repository": "lpa",
+      "request": {
+        "cursor": "",
+        "depth": 2,
+        "depth_note": "a route's callers are its client calls (step 1) and the code that makes them (step 2): depth raised to 2",
+        "limit": 50,
+        "match": "identity",
+        "resolved": "route:server/main.go#GET%20%2Fgb%2Fitems%2Fall",
+        "scope": "production",
+        "target": "route:server/main.go#GET%20%2Fgb%2Fitems%2Fall",
+        "unknowns_cursor": "",
+        "unknowns_limit": 20
+      },
+      "results": [
+        {
+          "claim": "called by",
+          "confidence": 0.9,
+          "confidence_rule": "weakest_edge",
+          "distance": 1,
+          "end_line": 10,
+          "file": "client/calls.ts",
+          "file_state": "unchanged",
+          "id": "client_call:client/calls.ts#calls.GET%20%22%2Fdirect%2Fgb%2Fitems%2Fall%22",
+          "kind": "client_call",
+          "line": 10,
+          "name": "GET \"/direct/gb/items/all\"",
+          "provenance": "inferred",
+          "qualified_name": "calls.GET \"/direct/gb/items/all\"",
+          "via": [
+            {
+              "confidence": 0.9,
+              "edge": "calls_route",
+              "file": "client/calls.ts",
+              "line": 10,
+              "provenance": "inferred",
+              "source": "client_call:client/calls.ts#calls.GET%20%22%2Fdirect%2Fgb%2Fitems%2Fall%22",
+              "target": "route:server/main.go#GET%20%2Fgb%2Fitems%2Fall"
+            }
+          ]
+        },
+        {
+          "claim": "called by",
+          "confidence": 0.9,
+          "confidence_rule": "weakest_edge",
+          "distance": 1,
+          "end_line": 9,
+          "file": "client/calls.ts",
+          "file_state": "unchanged",
+          "id": "client_call:client/calls.ts#calls.GET%20%22%2Fgb%2Fitems%2Fall%22",
+          "kind": "client_call",
+          "line": 9,
+          "name": "GET \"/gb/items/all\"",
+          "provenance": "inferred",
+          "qualified_name": "calls.GET \"/gb/items/all\"",
+          "via": [
+            {
+              "confidence": 0.9,
+              "edge": "calls_route",
+              "file": "client/calls.ts",
+              "line": 9,
+              "provenance": "inferred",
+              "route_path_assumptions": [
+                "GR-V5"
+              ],
+              "source": "client_call:client/calls.ts#calls.GET%20%22%2Fgb%2Fitems%2Fall%22",
+              "target": "route:server/main.go#GET%20%2Fgb%2Fitems%2Fall"
+            }
+          ]
+        },
+        {
+          "claim": "called by",
+          "confidence": 0.9,
+          "confidence_rule": "weakest_edge",
+          "distance": 2,
+          "end_line": 11,
+          "file": "client/calls.ts",
+          "file_state": "unchanged",
+          "id": "function:client/calls.ts#calls",
+          "kind": "function",
+          "line": 1,
+          "name": "calls",
+          "provenance": "inferred",
+          "qualified_name": "calls",
+          "via": [
+            {
+              "confidence": 0.9,
+              "edge": "calls_route",
+              "file": "client/calls.ts",
+              "line": 10,
+              "provenance": "inferred",
+              "source": "client_call:client/calls.ts#calls.GET%20%22%2Fdirect%2Fgb%2Fitems%2Fall%22",
+              "target": "route:server/main.go#GET%20%2Fgb%2Fitems%2Fall"
+            },
+            {
+              "confidence": 1,
+              "edge": "contains",
+              "file": "client/calls.ts",
+              "line": 10,
+              "provenance": "fact",
+              "source": "function:client/calls.ts#calls",
+              "target": "client_call:client/calls.ts#calls.GET%20%22%2Fdirect%2Fgb%2Fitems%2Fall%22"
+            }
+          ]
+        }
+      ],
+      "summary": null,
+      "tool": "callers",
+      "unknowns": [
+        {
+          "data": {
+            "nodes": [
+              "function:client/calls.ts#calls"
+            ],
+            "total": 1
+          },
+          "kind": "not_modelled_end",
+          "row": "MC-17",
+          "text": "? not modelled: no stored caller; dependency injection, framework callbacks, JSX renders, passed callbacks and dynamic calls are not followed by callers"
+        },
+        {
+          "data": {
+            "unfiltered": [
+              "bounds",
+              "possibly_missing_callers",
+              "near_miss",
+              "possible_caller"
+            ]
+          },
+          "kind": "test_scope_unfiltered",
+          "row": "MC-31",
+          "text": "production scope leaves out the results and '? not modelled' ends in test code only: the walk itself still follows test code, so the bounds, the possibly missing callers (blind spots), the near misses and the possible callers of other members count it too; their items in test code say test_code: true, and a result reached through test code says via_test_code: true"
+        }
+      ]
+    },
+    "is_error": false
+  },
+  {
+    "call": {
+      "arguments": {
+        "depth": 1,
+        "target": "route:web/app.js#GET%20%2Fz%2Fb"
+      },
+      "name": "impact"
+    },
+    "envelope": {
+      "assumptions": [
+        {
+          "id": "RO-V2",
+          "row": "MC-16",
+          "text": "a mounted app's catch-all may answer first: assumes the app or router mounted earlier below this path's prefix passes the request on"
+        }
+      ],
+      "bounds": [
+        {
+          "beyond": 1,
+          "cap": "depth",
+          "limit": 1,
+          "row": "MC-3",
+          "step": 2,
+          "text": "depth cap reached (1): 1 beyond step 1; call again with a larger depth (at most 10) to see them"
+        }
+      ],
+      "envelope": 1,
+      "freshness": {
+        "changed_count": 0,
+        "changed_files": [],
+        "changed_more": 0,
+        "checked_at": "2026-11-23T09:00:00Z",
+        "index": {
+          "commit": null,
+          "contract_version": 1,
+          "extractor_current": "extractors-62",
+          "extractor_matches": true,
+          "finished_at": "\u003cfinished_at\u003e",
+          "indexer": "graphvein",
+          "indexer_version": "extractors-62"
+        },
+        "reused": true,
+        "state": "fresh",
+        "text": "reused from a check started less than 1h0m0s before this call with the same latest run (one check per call batch); checked_at is that check's time"
+      },
+      "labels": {
+        "bound:depth": "the walk stopped at the depth cap: nodes lie beyond",
+        "claim:may depend on": "the path to the target has an inferred edge",
+        "confidence:weakest_edge": "confidence = the lowest stored edge confidence on the shortest path; a fact path has none",
+        "file_state:unchanged": "the file still has the indexed content",
+        "freshness:fresh": "no file added, changed or deleted since the last index (same scan and ignore rules as indexing), as of checked_at",
+        "provenance:inferred": "the path has an inferred edge: confidence is the weakest edge of the path"
+      },
+      "omitted": [
+        {
+          "field": "node.attributes",
+          "how": "the node's raw stored attributes: find, callers, impact and source do not serve them; endpoint (detail full), table (detail full), chain and unresolved serve the facts they claim from them"
+        },
+        {
+          "field": "node.content_hash",
+          "how": "the stored content hash: file_state says whether the file still has it"
+        },
+        {
+          "field": "node.ide",
+          "how": "editor link: open the file at file and line; the source tool shows the lines"
+        },
+        {
+          "field": "node.level",
+          "how": "the presentation level of the node kind"
+        },
+        {
+          "field": "node.type",
+          "how": "the record type (always node)"
+        },
+        {
+          "field": "via.evidence",
+          "how": "evidence spans past the first location: the source tool shows the lines"
+        },
+        {
+          "field": "via.type",
+          "how": "the record type (always edge)"
+        }
+      ],
+      "page": {
+        "more": 0,
+        "returned": 1,
+        "total": 1
+      },
+      "repository": "lpa",
+      "request": {
+        "cursor": "",
+        "depth": 1,
+        "limit": 50,
+        "match": "identity",
+        "resolved": "route:web/app.js#GET%20%2Fz%2Fb",
+        "scope": "production",
+        "target": "route:web/app.js#GET%20%2Fz%2Fb",
+        "unknowns_cursor": "",
+        "unknowns_limit": 20
+      },
+      "results": [
+        {
+          "claim": "may depend on",
+          "confidence": 0.9,
+          "confidence_rule": "weakest_edge",
+          "distance": 1,
+          "end_line": 2,
+          "file": "client/calls.ts",
+          "file_state": "unchanged",
+          "id": "client_call:client/calls.ts#calls.GET%20%22%2Fz%2Fb%22",
+          "kind": "client_call",
+          "line": 2,
+          "name": "GET \"/z/b\"",
+          "provenance": "inferred",
+          "qualified_name": "calls.GET \"/z/b\"",
+          "via": [
+            {
+              "confidence": 0.9,
+              "edge": "calls_route",
+              "file": "client/calls.ts",
+              "line": 2,
+              "provenance": "inferred",
+              "route_path_assumptions": [
+                "RO-V2"
+              ],
+              "source": "client_call:client/calls.ts#calls.GET%20%22%2Fz%2Fb%22",
+              "target": "route:web/app.js#GET%20%2Fz%2Fb"
+            }
+          ]
+        }
+      ],
+      "summary": null,
+      "tool": "impact",
+      "unknowns": [
+        {
+          "data": {
+            "call_sites": {
+              "items": [],
+              "total": 0
+            },
+            "count": 0
+          },
+          "kind": "possibly_missing_callers",
+          "row": "MC-16",
+          "text": "no unresolved call site names a reached function (name-matched blind spots; calls the indexer did not record are not covered)"
+        },
+        {
+          "kind": "unknown_calls_in_result_files",
+          "row": "MC-16",
+          "text": "3 unresolved call sites in the files of these results; none names a reached function"
+        },
+        {
+          "data": {
+            "unfiltered": [
+              "bounds",
+              "possibly_missing_callers",
+              "near_miss",
+              "possible_caller"
+            ]
+          },
+          "kind": "test_scope_unfiltered",
+          "row": "MC-31",
+          "text": "production scope leaves out the results and '? not modelled' ends in test code only: the walk itself still follows test code, so the bounds, the possibly missing callers (blind spots), the near misses and the possible callers of other members count it too; their items in test code say test_code: true, and a result reached through test code says via_test_code: true"
+        }
+      ]
+    },
+    "is_error": false
+  },
+  {
+    "call": {
+      "arguments": {
+        "depth": 1,
+        "direction": "up",
+        "target": "route:web/app.js#GET%20%2Fz%2Fb"
+      },
+      "name": "chain"
+    },
+    "envelope": {
+      "assumptions": [
+        {
+          "id": "RO-V2",
+          "row": "MC-20",
+          "text": "a mounted app's catch-all may answer first: assumes the app or router mounted earlier below this path's prefix passes the request on"
+        }
+      ],
+      "bounds": [
+        {
+          "beyond": 1,
+          "cap": "depth",
+          "limit": 1,
+          "row": "MC-3",
+          "step": 2,
+          "text": "up: + 1 beyond step 1; call again with a larger depth (at most 10) or start from a member at the last step"
+        }
+      ],
+      "envelope": 1,
+      "freshness": {
+        "changed_count": 0,
+        "changed_files": [],
+        "changed_more": 0,
+        "checked_at": "2026-11-23T09:00:00Z",
+        "index": {
+          "commit": null,
+          "contract_version": 1,
+          "extractor_current": "extractors-62",
+          "extractor_matches": true,
+          "finished_at": "\u003cfinished_at\u003e",
+          "indexer": "graphvein",
+          "indexer_version": "extractors-62"
+        },
+        "reused": true,
+        "state": "fresh",
+        "text": "reused from a check started less than 1h0m0s before this call with the same latest run (one check per call batch); checked_at is that check's time"
+      },
+      "labels": {
+        "bound:depth": "the walk stopped at the depth cap: nodes lie beyond",
+        "freshness:fresh": "no file added, changed or deleted since the last index (same scan and ignore rules as indexing), as of checked_at",
+        "tier:inferred": "an inferred edge is on the first path from the start; the number is the weakest edge confidence"
+      },
+      "omitted": [
+        {
+          "field": "map",
+          "how": "the UI's folding hint (members drawn per step); every member is listed"
+        }
+      ],
+      "page": {
+        "more": 0,
+        "returned": 1,
+        "total": 1
+      },
+      "repository": "lpa",
+      "request": {
+        "cursor": "",
+        "depth": 1,
+        "direction": "up",
+        "limit": 50,
+        "match": "identity",
+        "resolved": "route:web/app.js#GET%20%2Fz%2Fb",
+        "scope": "production",
+        "target": "route:web/app.js#GET%20%2Fz%2Fb"
+      },
+      "results": [
+        {
+          "component": "client",
+          "direction": "up",
+          "file": "client/calls.ts",
+          "id": "client_call:client/calls.ts#calls.GET%20%22%2Fz%2Fb%22",
+          "kind": "client_call",
+          "line": 2,
+          "method": "GET",
+          "name": "GET \"/z/b\"",
+          "parents": [
+            "route:web/app.js#GET%20%2Fz%2Fb"
+          ],
+          "qualified_name": "calls.GET \"/z/b\"",
+          "row": "CH3",
+          "status": "linked",
+          "step": 1,
+          "tier": "inferred 0.9",
+          "tier_step": 1,
+          "via": [
+            {
+              "count": 1,
+              "dashed": false,
+              "file": "client/calls.ts",
+              "from": "route:web/app.js#GET%20%2Fz%2Fb",
+              "kind": "calls_route",
+              "line": 2,
+              "route_path_assumptions": [
+                "RO-V2"
+              ],
+              "row": "CH3",
+              "tier": "inferred 0.9",
+              "wording": "called by client call"
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "caps": {
+          "depth": 10,
+          "fan_out": 200,
+          "members": 2000
+        },
+        "start": {
+          "id": "route:web/app.js#GET%20%2Fz%2Fb",
+          "kind": "route",
+          "level": "node"
+        },
+        "up": {
+          "caps": [
+            "depth"
+          ],
+          "hidden_test": 0,
+          "members": 1
+        }
+      },
+      "tool": "chain",
+      "unknowns": [
+        {
+          "data": {
+            "contains": 1
+          },
+          "kind": "not_followed",
+          "row": "MC-21",
+          "text": "up: stored edges of these kinds lead on from members but no chain row follows them (counts by kind)"
+        }
+      ]
+    },
+    "is_error": false
+  }
+]

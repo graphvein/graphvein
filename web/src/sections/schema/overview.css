@@ -1,0 +1,6 @@
+/* The Overview diagram's table nodes are not React Flow selectables (the
+   section keeps its own selection), so React Flow turns their pointer
+   events off; the node buttons need them (as flow.css does for cards). */
+.gv-flow .react-flow__node-table {
+  pointer-events: all !important;
+}

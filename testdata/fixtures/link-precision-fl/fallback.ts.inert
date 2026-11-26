@@ -1,0 +1,5 @@
+import express from 'express';
+const server = express();
+export function render() {}
+server.get('*path', render);
+server.all('*path', render);

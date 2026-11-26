@@ -1,0 +1,1 @@
+ALTER INDEX nosuch_a ATTACH PARTITION nosuch_b;

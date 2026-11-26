@@ -1,0 +1,29 @@
+{
+  "id": "review18-h11-droptype-proc-arg",
+  "signature": "agreed at Revision 1.8",
+  "class": "S1",
+  "owner": "X1",
+  "row": "review18",
+  "history": {
+    "id": "h11-droptype-proc-arg"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "2BP01",
+        "message": "cannot drop type st because other objects depend on it",
+        "detail": "function p(st) depends on type st",
+        "statement": 3,
+        "statement_text": "drop type st;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

@@ -1,0 +1,39 @@
+{
+  "id": "g2-s8584-S1-N1_create_trigger",
+  "signature": "applied|S1|42P01|N1.create_trigger",
+  "class": "S1",
+  "owner": "P6",
+  "row": "N1.create_trigger",
+  "history": {
+    "id": "g2-s8584",
+    "prelude": [
+      "CREATE TABLE t2 (id int PRIMARY KEY)"
+    ],
+    "tags": {
+      "1_m1.sql": [
+        "M1.create_fk",
+        "O5.transaction",
+        "N1.create_trigger"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42P01",
+        "message": "relation \"t1\" does not exist",
+        "statement": 3,
+        "statement_text": "CREATE TRIGGER trg5 BEFORE INSERT ON t1 FOR EACH ROW EXECUTE FUNCTION nosuch_fn();"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history.t2",
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

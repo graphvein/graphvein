@@ -1,0 +1,28 @@
+{
+  "id": "review19-r5-f12-event-trigger-same-name",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y39",
+  "row": "review19",
+  "history": {
+    "id": "f12-event-trigger-same-name"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42501",
+        "message": "permission denied to create event trigger \"ddl_log\"",
+        "statement": 2,
+        "statement_text": "CREATE EVENT TRIGGER ddl_log ON ddl_command_end EXECUTE FUNCTION ddl_log();"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

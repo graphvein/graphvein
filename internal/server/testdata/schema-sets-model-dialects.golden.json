@@ -1,0 +1,381 @@
+{
+  "api_version": 0,
+  "failed_sets": [],
+  "index": {
+    "contract_version": 1,
+    "finished_at": "2026-11-03T14:32:05.123Z",
+    "indexer": {
+      "name": "crafted",
+      "version": "t018g0b"
+    }
+  },
+  "model_list_reasons": null,
+  "repository": "dialects",
+  "scan_gaps": [],
+  "sets": [
+    {
+      "assumptions": null,
+      "conflicts": [],
+      "diagnostic_counts": {},
+      "dialect": null,
+      "dialects": [
+        "mysql",
+        "postgres",
+        "sqlite"
+      ],
+      "files": [
+        {
+          "core_tables": null,
+          "file": "app/models.go",
+          "tables": 1,
+          "unread": null
+        }
+      ],
+      "foreign_keys": [],
+      "linked_without_edge": 0,
+      "migrations": [],
+      "not_modeled_reasons": [],
+      "objects": "modeled",
+      "opaque_by_kind": null,
+      "opaque_total": null,
+      "package": null,
+      "pins": {
+        "synthetic": "1.0"
+      },
+      "pins_conflict": false,
+      "precision": {
+        "label": "best_effort",
+        "reason": "external_indexer",
+        "row": "D"
+      },
+      "rests_on": null,
+      "set": "models/synthetic/app",
+      "source": "models",
+      "table_list": null,
+      "table_list_reasons": [],
+      "tables": [
+        {
+          "altered_by": [],
+          "columns": [
+            {
+              "default_state": "unknown",
+              "node": {
+                "attributes": {
+                  "attribute": "Amount",
+                  "by_dialect": {
+                    "mysql": {
+                      "precision": 10,
+                      "scale": 0,
+                      "server_default": true,
+                      "server_default_text": "'0'",
+                      "type": "decimal",
+                      "type_family": null
+                    },
+                    "postgres": {
+                      "precision": null,
+                      "scale": null,
+                      "server_default": true,
+                      "server_default_text": "0",
+                      "type": null,
+                      "type_family": {
+                        "name": "numeric",
+                        "unknown": [
+                          "precision",
+                          "scale"
+                        ]
+                      }
+                    },
+                    "sqlite": {
+                      "precision": null,
+                      "scale": null,
+                      "server_default": false,
+                      "server_default_text": null,
+                      "type": null,
+                      "type_family": null
+                    }
+                  },
+                  "default": "absent",
+                  "defined_in": {
+                    "file": "app/models.go",
+                    "line": 3
+                  },
+                  "foreign_keys": [],
+                  "name": "amount",
+                  "nullable": false,
+                  "precision": null,
+                  "primary_key": false,
+                  "reasons": [],
+                  "scale": null,
+                  "server_default": null,
+                  "server_default_text": null,
+                  "source": "model",
+                  "state": "read",
+                  "tool_type": "decimal.Decimal",
+                  "type": null,
+                  "type_family": null
+                },
+                "content_hash": "sha256:e6d02bd9f134bf8753e88ee94f18153a0a8225ad185ed40c3e906352863a2de9",
+                "file": "app/models.go",
+                "identity": "column:app/models.go#Order.amount",
+                "kind": "column",
+                "level": 4,
+                "name": "amount",
+                "qualified_name": "Order.amount",
+                "span": {
+                  "end_column": 0,
+                  "end_line": 3,
+                  "start_column": 0,
+                  "start_line": 3
+                },
+                "type": "node"
+              }
+            },
+            {
+              "default_state": "unknown",
+              "node": {
+                "attributes": {
+                  "attribute": "Created",
+                  "by_dialect": {
+                    "mysql": {
+                      "precision": null,
+                      "timezone": false,
+                      "type": null,
+                      "type_family": {
+                        "name": "datetime",
+                        "unknown": [
+                          "precision"
+                        ]
+                      }
+                    },
+                    "postgres": {
+                      "precision": null,
+                      "timezone": true,
+                      "type": null,
+                      "type_family": {
+                        "name": "timestamp with time zone",
+                        "unknown": [
+                          "precision"
+                        ]
+                      }
+                    },
+                    "sqlite": {
+                      "precision": null,
+                      "timezone": null,
+                      "type": "datetime",
+                      "type_family": null
+                    }
+                  },
+                  "default": "absent",
+                  "defined_in": {
+                    "file": "app/models.go",
+                    "line": 4
+                  },
+                  "foreign_keys": [],
+                  "name": "created",
+                  "nullable": false,
+                  "precision": null,
+                  "primary_key": false,
+                  "reasons": [],
+                  "source": "model",
+                  "state": "read",
+                  "timezone": null,
+                  "type": null,
+                  "type_family": null
+                },
+                "content_hash": "sha256:73ae61303522167aee68fe50530a6b06ebaee85b6ab01585f10e4c2c5f16b2cc",
+                "file": "app/models.go",
+                "identity": "column:app/models.go#Order.created",
+                "kind": "column",
+                "level": 4,
+                "name": "created",
+                "qualified_name": "Order.created",
+                "span": {
+                  "end_column": 0,
+                  "end_line": 4,
+                  "start_column": 0,
+                  "start_line": 4
+                },
+                "type": "node"
+              }
+            },
+            {
+              "default_state": "unknown",
+              "node": {
+                "attributes": {
+                  "attribute": "ID",
+                  "autoincrement": null,
+                  "by_dialect": {
+                    "mysql": {
+                      "autoincrement": true,
+                      "type": "bigint unsigned",
+                      "type_family": null
+                    },
+                    "postgres": {
+                      "autoincrement": true,
+                      "type": "bigserial",
+                      "type_family": null
+                    },
+                    "sqlite": {
+                      "autoincrement": true,
+                      "type": "integer",
+                      "type_family": null
+                    }
+                  },
+                  "default": "absent",
+                  "defined_in": {
+                    "file": "app/models.go",
+                    "line": 2
+                  },
+                  "foreign_keys": [],
+                  "name": "id",
+                  "nullable": false,
+                  "primary_key": true,
+                  "reasons": [],
+                  "source": "model",
+                  "state": "read",
+                  "tool_type": "uint",
+                  "type": null,
+                  "type_family": null
+                },
+                "content_hash": "sha256:09cc33fb9c8e9b6286d5a28bccd07c0a89a3c77ffb0d5946394cce1991e885fd",
+                "file": "app/models.go",
+                "identity": "column:app/models.go#Order.id",
+                "kind": "column",
+                "level": 4,
+                "name": "id",
+                "qualified_name": "Order.id",
+                "span": {
+                  "end_column": 0,
+                  "end_line": 2,
+                  "start_column": 0,
+                  "start_line": 2
+                },
+                "type": "node"
+              }
+            },
+            {
+              "default_state": "unknown",
+              "node": {
+                "attributes": {
+                  "attribute": "Note",
+                  "by_dialect": {
+                    "mysql": {
+                      "type": "text",
+                      "type_family": null
+                    },
+                    "postgres": {
+                      "type": "text",
+                      "type_family": null
+                    },
+                    "sqlite": {
+                      "type": "text",
+                      "type_family": null
+                    }
+                  },
+                  "default": "absent",
+                  "defined_in": {
+                    "file": "app/models.go",
+                    "line": 5
+                  },
+                  "foreign_keys": [],
+                  "name": "note",
+                  "nullable": false,
+                  "primary_key": false,
+                  "reasons": [],
+                  "source": "model",
+                  "state": "read",
+                  "type": null,
+                  "type_family": null
+                },
+                "content_hash": "sha256:0e8a5b988cb5f1472d8c7ba7fb4c1c29cd57b48187cad81e609a0b7d51ca8ea3",
+                "file": "app/models.go",
+                "identity": "column:app/models.go#Order.note",
+                "kind": "column",
+                "level": 4,
+                "name": "note",
+                "qualified_name": "Order.note",
+                "span": {
+                  "end_column": 0,
+                  "end_line": 5,
+                  "start_column": 0,
+                  "start_line": 5
+                },
+                "type": "node"
+              }
+            }
+          ],
+          "completeness": "complete",
+          "created_by": null,
+          "foreign_keys_in": 0,
+          "foreign_keys_out": 0,
+          "indexes": [],
+          "node": {
+            "attributes": {
+              "assumptions": null,
+              "check_constraints": [],
+              "column_set": "complete",
+              "constraint_set": "complete",
+              "dialects": [
+                "mysql",
+                "postgres",
+                "sqlite"
+              ],
+              "indexes": [],
+              "name": "orders",
+              "pins": {
+                "synthetic": "1.0"
+              },
+              "primary_key": [
+                "id"
+              ],
+              "reasons": [],
+              "schema": null,
+              "schema_known": true,
+              "set": "models/synthetic/app",
+              "source": "model",
+              "state": "complete",
+              "tool": "synthetic",
+              "unique_constraints": [],
+              "verification": "mapped"
+            },
+            "content_hash": "sha256:5f726b24fac0b73128bd81502565812b054833d3cf82f57d9121503f671056de",
+            "file": "app/models.go",
+            "identity": "table:app/models.go#Order",
+            "kind": "table",
+            "level": 4,
+            "name": "orders",
+            "qualified_name": "Order",
+            "span": {
+              "end_column": 0,
+              "end_line": 6,
+              "start_column": 0,
+              "start_line": 1
+            },
+            "type": "node"
+          },
+          "opaque_sites": null,
+          "overlaps": [],
+          "rests_on": null,
+          "unresolved_references": 0,
+          "verification_counts": {
+            "mapped": 29,
+            "oracle": 12
+          }
+        }
+      ],
+      "tables_by_scope": {
+        "production": 1,
+        "test": 0
+      },
+      "test_only": false,
+      "tool": "synthetic",
+      "unattached": {
+        "columns": 0,
+        "indexes": 0
+      }
+    }
+  ],
+  "sets_without_records": [],
+  "unread_tools": [],
+  "unreadable_manifests": []
+}

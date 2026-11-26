@@ -1,0 +1,29 @@
+{
+  "id": "review18-c23-droptable-atomic-proc-dep",
+  "signature": "agreed at Revision 1.8",
+  "class": "S1",
+  "owner": "X1",
+  "row": "review18",
+  "history": {
+    "id": "c23-droptable-atomic-proc-dep"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "2BP01",
+        "message": "cannot drop table t because other objects depend on it",
+        "detail": "function p() depends on table t",
+        "statement": 3,
+        "statement_text": "DROP TABLE t;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

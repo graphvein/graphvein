@@ -1,0 +1,1609 @@
+[
+  {
+    "identity": "route:admin.js#GET%20%2Fguarded",
+    "middleware": [],
+    "mounted_middleware": [
+      {
+        "file": "app.js",
+        "name": "logger",
+        "prefix": "/",
+        "span": {
+          "end_column": 15,
+          "end_line": 8,
+          "start_column": 0,
+          "start_line": 8
+        }
+      },
+      {
+        "file": "app.js",
+        "name": "audit",
+        "prefix": "/",
+        "span": {
+          "end_column": 14,
+          "end_line": 10,
+          "start_column": 0,
+          "start_line": 10
+        }
+      },
+      {
+        "file": "setup.js",
+        "name": "trace('configured')",
+        "prefix": "/",
+        "span": {
+          "end_column": 30,
+          "end_line": 6,
+          "start_column": 2,
+          "start_line": 6
+        },
+        "via": {
+          "file": "app.js",
+          "function": "configure",
+          "span": {
+            "end_column": 14,
+            "end_line": 17,
+            "start_column": 0,
+            "start_line": 17
+          }
+        }
+      },
+      {
+        "file": "admin.js",
+        "name": "trace2",
+        "prefix": "/",
+        "span": {
+          "end_column": 19,
+          "end_line": 9,
+          "start_column": 0,
+          "start_line": 9
+        }
+      }
+    ],
+    "mounted_middleware_unknown": [
+      {
+        "expression": "trace('conditional')",
+        "file": "app.js",
+        "reason": "conditional registration",
+        "span": {
+          "end_column": 31,
+          "end_line": 19,
+          "start_column": 2,
+          "start_line": 19
+        }
+      },
+      {
+        "expression": "...stack",
+        "file": "app.js",
+        "reason": "spread argument",
+        "span": {
+          "end_column": 17,
+          "end_line": 21,
+          "start_column": 0,
+          "start_line": 21
+        }
+      },
+      {
+        "expression": "pathOf()",
+        "file": "app.js",
+        "reason": "first argument pathOf() may be a path",
+        "span": {
+          "end_column": 38,
+          "end_line": 22,
+          "start_column": 0,
+          "start_line": 22
+        }
+      },
+      {
+        "expression": "trace('maybe-path')",
+        "file": "app.js",
+        "reason": "first argument pathOf() may be a path",
+        "span": {
+          "end_column": 38,
+          "end_line": 22,
+          "start_column": 0,
+          "start_line": 22
+        }
+      },
+      {
+        "expression": "trace('array-path')",
+        "file": "app.js",
+        "reason": "dynamic path ['/a','/b']",
+        "span": {
+          "end_column": 42,
+          "end_line": 23,
+          "start_column": 0,
+          "start_line": 23
+        }
+      }
+    ],
+    "paths": [
+      "/guarded"
+    ]
+  },
+  {
+    "identity": "route:admin.js#GET%20%2Fusers",
+    "middleware": [],
+    "mounted_middleware": [
+      {
+        "file": "app.js",
+        "name": "logger",
+        "prefix": "/",
+        "span": {
+          "end_column": 15,
+          "end_line": 8,
+          "start_column": 0,
+          "start_line": 8
+        }
+      },
+      {
+        "file": "app.js",
+        "name": "audit",
+        "prefix": "/",
+        "span": {
+          "end_column": 14,
+          "end_line": 10,
+          "start_column": 0,
+          "start_line": 10
+        }
+      },
+      {
+        "file": "admin.js",
+        "name": "requireAdmin",
+        "prefix": "/",
+        "span": {
+          "end_column": 23,
+          "end_line": 5,
+          "start_column": 0,
+          "start_line": 5
+        }
+      }
+    ],
+    "paths": [
+      "/admin/users"
+    ]
+  },
+  {
+    "identity": "route:api.js#GET%20%2F%3Akind%2Flist",
+    "middleware": [],
+    "mounted_middleware": [
+      {
+        "file": "app.js",
+        "name": "logger",
+        "prefix": "/",
+        "span": {
+          "end_column": 15,
+          "end_line": 8,
+          "start_column": 0,
+          "start_line": 8
+        }
+      },
+      {
+        "file": "app.js",
+        "name": "audit",
+        "prefix": "/",
+        "span": {
+          "end_column": 14,
+          "end_line": 10,
+          "start_column": 0,
+          "start_line": 10
+        }
+      },
+      {
+        "file": "app.js",
+        "name": "trace('api-gate')",
+        "prefix": "/api",
+        "span": {
+          "end_column": 39,
+          "end_line": 11,
+          "start_column": 0,
+          "start_line": 11
+        }
+      }
+    ],
+    "mounted_middleware_unknown": [
+      {
+        "expression": "reply('api-item')",
+        "file": "api.js",
+        "reason": "earlier route handler reply('api-item') (GET /items/:id) may run first",
+        "span": {
+          "end_column": 40,
+          "end_line": 7,
+          "start_column": 0,
+          "start_line": 7
+        }
+      },
+      {
+        "expression": "trace('items-only')",
+        "file": "api.js",
+        "reason": "route parameter :kind may match items",
+        "span": {
+          "end_column": 38,
+          "end_line": 6,
+          "start_column": 0,
+          "start_line": 6
+        }
+      }
+    ],
+    "paths": [
+      "/api/{kind}/list"
+    ]
+  },
+  {
+    "identity": "route:api.js#GET%20%2Facme%2Fx%2Fy",
+    "middleware": [],
+    "mounted_middleware": [
+      {
+        "file": "app.js",
+        "name": "logger",
+        "prefix": "/",
+        "span": {
+          "end_column": 15,
+          "end_line": 8,
+          "start_column": 0,
+          "start_line": 8
+        }
+      },
+      {
+        "file": "app.js",
+        "name": "audit",
+        "prefix": "/",
+        "span": {
+          "end_column": 14,
+          "end_line": 10,
+          "start_column": 0,
+          "start_line": 10
+        }
+      },
+      {
+        "file": "app.js",
+        "name": "trace('api-gate')",
+        "prefix": "/api",
+        "span": {
+          "end_column": 39,
+          "end_line": 11,
+          "start_column": 0,
+          "start_line": 11
+        }
+      },
+      {
+        "file": "api.js",
+        "name": "trace('tenant')",
+        "prefix": "/:tenant/x",
+        "span": {
+          "end_column": 38,
+          "end_line": 10,
+          "start_column": 0,
+          "start_line": 10
+        }
+      }
+    ],
+    "paths": [
+      "/api/acme/x/y"
+    ]
+  },
+  {
+    "identity": "route:api.js#GET%20%2Fitems%2F%3Aid",
+    "middleware": [],
+    "mounted_middleware": [
+      {
+        "file": "app.js",
+        "name": "logger",
+        "prefix": "/",
+        "span": {
+          "end_column": 15,
+          "end_line": 8,
+          "start_column": 0,
+          "start_line": 8
+        }
+      },
+      {
+        "file": "app.js",
+        "name": "audit",
+        "prefix": "/",
+        "span": {
+          "end_column": 14,
+          "end_line": 10,
+          "start_column": 0,
+          "start_line": 10
+        }
+      },
+      {
+        "file": "app.js",
+        "name": "trace('api-gate')",
+        "prefix": "/api",
+        "span": {
+          "end_column": 39,
+          "end_line": 11,
+          "start_column": 0,
+          "start_line": 11
+        }
+      },
+      {
+        "file": "api.js",
+        "name": "trace('items-only')",
+        "prefix": "/items",
+        "span": {
+          "end_column": 38,
+          "end_line": 6,
+          "start_column": 0,
+          "start_line": 6
+        }
+      }
+    ],
+    "paths": [
+      "/api/items/{id}"
+    ]
+  },
+  {
+    "identity": "route:api.js#GET%20%2Fitemsx",
+    "middleware": [],
+    "mounted_middleware": [
+      {
+        "file": "app.js",
+        "name": "logger",
+        "prefix": "/",
+        "span": {
+          "end_column": 15,
+          "end_line": 8,
+          "start_column": 0,
+          "start_line": 8
+        }
+      },
+      {
+        "file": "app.js",
+        "name": "audit",
+        "prefix": "/",
+        "span": {
+          "end_column": 14,
+          "end_line": 10,
+          "start_column": 0,
+          "start_line": 10
+        }
+      },
+      {
+        "file": "app.js",
+        "name": "trace('api-gate')",
+        "prefix": "/api",
+        "span": {
+          "end_column": 39,
+          "end_line": 11,
+          "start_column": 0,
+          "start_line": 11
+        }
+      }
+    ],
+    "paths": [
+      "/api/itemsx"
+    ]
+  },
+  {
+    "identity": "route:api.js#GET%20%2Fpublic",
+    "middleware": [],
+    "mounted_middleware": [
+      {
+        "file": "app.js",
+        "name": "logger",
+        "prefix": "/",
+        "span": {
+          "end_column": 15,
+          "end_line": 8,
+          "start_column": 0,
+          "start_line": 8
+        }
+      },
+      {
+        "file": "app.js",
+        "name": "audit",
+        "prefix": "/",
+        "span": {
+          "end_column": 14,
+          "end_line": 10,
+          "start_column": 0,
+          "start_line": 10
+        }
+      },
+      {
+        "file": "app.js",
+        "name": "trace('api-gate')",
+        "prefix": "/api",
+        "span": {
+          "end_column": 39,
+          "end_line": 11,
+          "start_column": 0,
+          "start_line": 11
+        }
+      }
+    ],
+    "paths": [
+      "/api/public"
+    ]
+  },
+  {
+    "identity": "route:app.js#GET%20%2Fafter-escape",
+    "middleware": [],
+    "mounted_middleware": [
+      {
+        "file": "app.js",
+        "name": "logger",
+        "prefix": "/",
+        "span": {
+          "end_column": 15,
+          "end_line": 8,
+          "start_column": 0,
+          "start_line": 8
+        }
+      },
+      {
+        "file": "app.js",
+        "name": "audit",
+        "prefix": "/",
+        "span": {
+          "end_column": 14,
+          "end_line": 10,
+          "start_column": 0,
+          "start_line": 10
+        }
+      },
+      {
+        "file": "setup.js",
+        "name": "trace('configured')",
+        "prefix": "/",
+        "span": {
+          "end_column": 30,
+          "end_line": 6,
+          "start_column": 2,
+          "start_line": 6
+        },
+        "via": {
+          "file": "app.js",
+          "function": "configure",
+          "span": {
+            "end_column": 14,
+            "end_line": 17,
+            "start_column": 0,
+            "start_line": 17
+          }
+        }
+      }
+    ],
+    "mounted_middleware_unknown": [
+      {
+        "expression": "trace('conditional')",
+        "file": "app.js",
+        "reason": "conditional registration",
+        "span": {
+          "end_column": 31,
+          "end_line": 19,
+          "start_column": 2,
+          "start_line": 19
+        }
+      },
+      {
+        "expression": "...stack",
+        "file": "app.js",
+        "reason": "spread argument",
+        "span": {
+          "end_column": 17,
+          "end_line": 21,
+          "start_column": 0,
+          "start_line": 21
+        }
+      },
+      {
+        "expression": "pathOf()",
+        "file": "app.js",
+        "reason": "first argument pathOf() may be a path",
+        "span": {
+          "end_column": 38,
+          "end_line": 22,
+          "start_column": 0,
+          "start_line": 22
+        }
+      },
+      {
+        "expression": "trace('maybe-path')",
+        "file": "app.js",
+        "reason": "first argument pathOf() may be a path",
+        "span": {
+          "end_column": 38,
+          "end_line": 22,
+          "start_column": 0,
+          "start_line": 22
+        }
+      },
+      {
+        "expression": "trace('array-path')",
+        "file": "app.js",
+        "reason": "dynamic path ['/a','/b']",
+        "span": {
+          "end_column": 42,
+          "end_line": 23,
+          "start_column": 0,
+          "start_line": 23
+        }
+      }
+    ],
+    "paths": [
+      "/after-escape"
+    ]
+  },
+  {
+    "identity": "route:app.js#GET%20%2Fafter-function",
+    "middleware": [],
+    "mounted_middleware_unknown": [
+      {
+        "expression": "trace('in-function')",
+        "file": "app.js",
+        "reason": "order relative to the route not proven (another file or function)",
+        "span": {
+          "end_column": 33,
+          "end_line": 34,
+          "start_column": 2,
+          "start_line": 34
+        }
+      }
+    ],
+    "paths": [
+      "/after-function"
+    ]
+  },
+  {
+    "identity": "route:app.js#GET%20%2Fafter-guarded",
+    "middleware": [],
+    "mounted_middleware": [
+      {
+        "file": "app.js",
+        "name": "logger",
+        "prefix": "/",
+        "span": {
+          "end_column": 15,
+          "end_line": 8,
+          "start_column": 0,
+          "start_line": 8
+        }
+      },
+      {
+        "file": "app.js",
+        "name": "audit",
+        "prefix": "/",
+        "span": {
+          "end_column": 14,
+          "end_line": 10,
+          "start_column": 0,
+          "start_line": 10
+        }
+      },
+      {
+        "file": "setup.js",
+        "name": "trace('configured')",
+        "prefix": "/",
+        "span": {
+          "end_column": 30,
+          "end_line": 6,
+          "start_column": 2,
+          "start_line": 6
+        },
+        "via": {
+          "file": "app.js",
+          "function": "configure",
+          "span": {
+            "end_column": 14,
+            "end_line": 17,
+            "start_column": 0,
+            "start_line": 17
+          }
+        }
+      }
+    ],
+    "mounted_middleware_unknown": [
+      {
+        "expression": "trace('conditional')",
+        "file": "app.js",
+        "reason": "conditional registration",
+        "span": {
+          "end_column": 31,
+          "end_line": 19,
+          "start_column": 2,
+          "start_line": 19
+        }
+      },
+      {
+        "expression": "...stack",
+        "file": "app.js",
+        "reason": "spread argument",
+        "span": {
+          "end_column": 17,
+          "end_line": 21,
+          "start_column": 0,
+          "start_line": 21
+        }
+      },
+      {
+        "expression": "pathOf()",
+        "file": "app.js",
+        "reason": "first argument pathOf() may be a path",
+        "span": {
+          "end_column": 38,
+          "end_line": 22,
+          "start_column": 0,
+          "start_line": 22
+        }
+      },
+      {
+        "expression": "trace('maybe-path')",
+        "file": "app.js",
+        "reason": "first argument pathOf() may be a path",
+        "span": {
+          "end_column": 38,
+          "end_line": 22,
+          "start_column": 0,
+          "start_line": 22
+        }
+      },
+      {
+        "expression": "trace('array-path')",
+        "file": "app.js",
+        "reason": "dynamic path ['/a','/b']",
+        "span": {
+          "end_column": 42,
+          "end_line": 23,
+          "start_column": 0,
+          "start_line": 23
+        }
+      },
+      {
+        "expression": "guarded",
+        "file": "app.js",
+        "reason": "router guarded mounted earlier may run its own middleware first",
+        "span": {
+          "end_column": 16,
+          "end_line": 25,
+          "start_column": 0,
+          "start_line": 25
+        }
+      }
+    ],
+    "paths": [
+      "/after-guarded"
+    ]
+  },
+  {
+    "identity": "route:app.js#GET%20%2Fapi2%2Fz",
+    "middleware": [],
+    "mounted_middleware": [
+      {
+        "file": "app.js",
+        "name": "logger",
+        "prefix": "/",
+        "span": {
+          "end_column": 15,
+          "end_line": 8,
+          "start_column": 0,
+          "start_line": 8
+        }
+      },
+      {
+        "file": "app.js",
+        "name": "audit",
+        "prefix": "/",
+        "span": {
+          "end_column": 14,
+          "end_line": 10,
+          "start_column": 0,
+          "start_line": 10
+        }
+      }
+    ],
+    "mounted_middleware_unknown": [
+      {
+        "expression": "trace('case')",
+        "file": "app.js",
+        "reason": "path /API2 matches only when routing is case-insensitive (the default)",
+        "span": {
+          "end_column": 31,
+          "end_line": 13,
+          "start_column": 0,
+          "start_line": 13
+        }
+      }
+    ],
+    "paths": [
+      "/api2/z"
+    ]
+  },
+  {
+    "identity": "route:app.js#GET%20%2Fbefore-function",
+    "middleware": [],
+    "mounted_middleware_unknown": [
+      {
+        "expression": "trace('in-function')",
+        "file": "app.js",
+        "reason": "order relative to the route not proven (another file or function)",
+        "span": {
+          "end_column": 33,
+          "end_line": 34,
+          "start_column": 2,
+          "start_line": 34
+        }
+      }
+    ],
+    "paths": [
+      "/before-function"
+    ]
+  },
+  {
+    "identity": "route:app.js#GET%20%2Fearly",
+    "middleware": [],
+    "mounted_middleware": [
+      {
+        "file": "app.js",
+        "name": "logger",
+        "prefix": "/",
+        "span": {
+          "end_column": 15,
+          "end_line": 8,
+          "start_column": 0,
+          "start_line": 8
+        }
+      }
+    ],
+    "paths": [
+      "/early"
+    ]
+  },
+  {
+    "identity": "route:app.js#GET%20%2Fhello",
+    "middleware": [],
+    "mounted_middleware": [
+      {
+        "file": "app.js",
+        "name": "trace('sub-own')",
+        "prefix": "/",
+        "span": {
+          "end_column": 25,
+          "end_line": 40,
+          "start_column": 0,
+          "start_line": 40
+        }
+      }
+    ],
+    "mounted_middleware_unknown": [
+      {
+        "expression": "trace('conditional')",
+        "file": "app.js",
+        "reason": "conditional registration",
+        "span": {
+          "end_column": 31,
+          "end_line": 19,
+          "start_column": 2,
+          "start_line": 19
+        }
+      },
+      {
+        "expression": "...stack",
+        "file": "app.js",
+        "reason": "spread argument",
+        "span": {
+          "end_column": 17,
+          "end_line": 21,
+          "start_column": 0,
+          "start_line": 21
+        }
+      },
+      {
+        "expression": "pathOf()",
+        "file": "app.js",
+        "reason": "first argument pathOf() may be a path",
+        "span": {
+          "end_column": 38,
+          "end_line": 22,
+          "start_column": 0,
+          "start_line": 22
+        }
+      },
+      {
+        "expression": "trace('maybe-path')",
+        "file": "app.js",
+        "reason": "first argument pathOf() may be a path",
+        "span": {
+          "end_column": 38,
+          "end_line": 22,
+          "start_column": 0,
+          "start_line": 22
+        }
+      },
+      {
+        "expression": "trace('array-path')",
+        "file": "app.js",
+        "reason": "dynamic path ['/a','/b']",
+        "span": {
+          "end_column": 42,
+          "end_line": 23,
+          "start_column": 0,
+          "start_line": 23
+        }
+      },
+      {
+        "expression": "guarded",
+        "file": "app.js",
+        "reason": "router guarded mounted earlier may run its own middleware first",
+        "span": {
+          "end_column": 16,
+          "end_line": 25,
+          "start_column": 0,
+          "start_line": 25
+        }
+      },
+      {
+        "expression": "audit",
+        "file": "app.js",
+        "reason": "declared on some mount chains only",
+        "span": {
+          "end_column": 14,
+          "end_line": 10,
+          "start_column": 0,
+          "start_line": 10
+        }
+      },
+      {
+        "expression": "logger",
+        "file": "app.js",
+        "reason": "declared on some mount chains only",
+        "span": {
+          "end_column": 15,
+          "end_line": 8,
+          "start_column": 0,
+          "start_line": 8
+        }
+      },
+      {
+        "expression": "trace('configured')",
+        "file": "setup.js",
+        "reason": "declared on some mount chains only",
+        "span": {
+          "end_column": 30,
+          "end_line": 6,
+          "start_column": 2,
+          "start_line": 6
+        }
+      }
+    ],
+    "paths": [
+      "/sub/hello"
+    ]
+  },
+  {
+    "identity": "route:app.js#GET%20%2Flate",
+    "middleware": [],
+    "mounted_middleware": [
+      {
+        "file": "app.js",
+        "name": "logger",
+        "prefix": "/",
+        "span": {
+          "end_column": 15,
+          "end_line": 8,
+          "start_column": 0,
+          "start_line": 8
+        }
+      },
+      {
+        "file": "app.js",
+        "name": "audit",
+        "prefix": "/",
+        "span": {
+          "end_column": 14,
+          "end_line": 10,
+          "start_column": 0,
+          "start_line": 10
+        }
+      }
+    ],
+    "paths": [
+      "/late"
+    ]
+  },
+  {
+    "identity": "route:cjs.cjs#GET%20%2Fcjs",
+    "middleware": [],
+    "mounted_middleware": [
+      {
+        "declares": {
+          "detail": "bearer",
+          "library": "passport"
+        },
+        "file": "cjs.cjs",
+        "name": "passport.authenticate('bearer',{session:false})",
+        "prefix": "/",
+        "span": {
+          "end_column": 63,
+          "end_line": 6,
+          "start_column": 0,
+          "start_line": 6
+        }
+      }
+    ],
+    "mounted_middleware_unknown": [
+      {
+        "reason": "not mounted from a proven app: middleware of the routers above is not read"
+      }
+    ],
+    "paths": []
+  },
+  {
+    "identity": "route:configured.js#GET%20%2Falias",
+    "middleware": [],
+    "mounted_middleware_unknown": [
+      {
+        "expression": "configureAlias",
+        "file": "configured.js",
+        "reason": "passed to configureAlias, which may register middleware",
+        "span": {
+          "end_column": 21,
+          "end_line": 21,
+          "start_column": 0,
+          "start_line": 21
+        }
+      }
+    ],
+    "paths": [
+      "/alias"
+    ]
+  },
+  {
+    "identity": "route:configured.js#GET%20%2Fasync",
+    "middleware": [],
+    "mounted_middleware_unknown": [
+      {
+        "expression": "configureAsync",
+        "file": "configured.js",
+        "reason": "passed to configureAsync, which may register middleware",
+        "span": {
+          "end_column": 21,
+          "end_line": 17,
+          "start_column": 0,
+          "start_line": 17
+        }
+      }
+    ],
+    "paths": [
+      "/async"
+    ]
+  },
+  {
+    "identity": "route:configured.js#GET%20%2Fcfg-after",
+    "middleware": [],
+    "mounted_middleware": [
+      {
+        "file": "setup.js",
+        "name": "trace('cfg-first')",
+        "prefix": "/",
+        "span": {
+          "end_column": 29,
+          "end_line": 12,
+          "start_column": 2,
+          "start_line": 12
+        },
+        "via": {
+          "file": "configured.js",
+          "function": "configureAll",
+          "span": {
+            "end_column": 39,
+            "end_line": 8,
+            "start_column": 0,
+            "start_line": 8
+          }
+        }
+      }
+    ],
+    "mounted_middleware_unknown": [
+      {
+        "expression": "trace('cfg-flag')",
+        "file": "setup.js",
+        "reason": "conditional registration",
+        "span": {
+          "end_column": 30,
+          "end_line": 14,
+          "start_column": 4,
+          "start_line": 14
+        }
+      },
+      {
+        "expression": "trace('cfg-after-return')",
+        "file": "setup.js",
+        "reason": "conditional registration: a return or throw before it in configureAll may skip it",
+        "span": {
+          "end_column": 36,
+          "end_line": 19,
+          "start_column": 2,
+          "start_line": 19
+        }
+      }
+    ],
+    "paths": [
+      "/cfg-after"
+    ]
+  },
+  {
+    "identity": "route:configured.js#GET%20%2Fcfg-before",
+    "middleware": [],
+    "paths": [
+      "/cfg-before"
+    ]
+  },
+  {
+    "identity": "route:configured.js#GET%20%2Fpass",
+    "middleware": [],
+    "mounted_middleware_unknown": [
+      {
+        "expression": "configurePass",
+        "file": "configured.js",
+        "reason": "passed to configurePass, which may register middleware",
+        "span": {
+          "end_column": 19,
+          "end_line": 25,
+          "start_column": 0,
+          "start_line": 25
+        }
+      }
+    ],
+    "paths": [
+      "/pass"
+    ]
+  },
+  {
+    "identity": "route:configured.js#GET%20%2Ftwice",
+    "middleware": [],
+    "mounted_middleware_unknown": [
+      {
+        "expression": "configureTwice",
+        "file": "configured.js",
+        "reason": "passed to configureTwice, which may register middleware",
+        "span": {
+          "end_column": 21,
+          "end_line": 12,
+          "start_column": 0,
+          "start_line": 12
+        }
+      },
+      {
+        "expression": "configureTwice",
+        "file": "configured.js",
+        "reason": "passed to configureTwice, which may register middleware",
+        "span": {
+          "end_column": 21,
+          "end_line": 13,
+          "start_column": 0,
+          "start_line": 13
+        }
+      }
+    ],
+    "paths": [
+      "/twice"
+    ]
+  },
+  {
+    "identity": "route:earlier.js#ANY%20%2Fopen",
+    "middleware": [],
+    "paths": [
+      "/open"
+    ]
+  },
+  {
+    "identity": "route:earlier.js#ANY%20%2Fother%2Fx",
+    "middleware": [],
+    "paths": [
+      "/other/x"
+    ]
+  },
+  {
+    "identity": "route:earlier.js#GET%20%2F%3Aid",
+    "middleware": [],
+    "mounted_error_handlers": [
+      {
+        "file": "earlier.js",
+        "name": "onError",
+        "prefix": "/",
+        "span": {
+          "end_column": 20,
+          "end_line": 15,
+          "start_column": 0,
+          "start_line": 15
+        }
+      },
+      {
+        "file": "earlier.js",
+        "name": "(err,req,res,next)=\u003enext(err)",
+        "prefix": "/",
+        "span": {
+          "end_column": 47,
+          "end_line": 16,
+          "start_column": 0,
+          "start_line": 16
+        }
+      }
+    ],
+    "mounted_middleware_unknown": [
+      {
+        "expression": "requireAdmin",
+        "file": "earlier.js",
+        "reason": "earlier route handler requireAdmin (ALL /items) may run first",
+        "span": {
+          "end_column": 41,
+          "end_line": 9,
+          "start_column": 0,
+          "start_line": 9
+        }
+      },
+      {
+        "expression": "reply('things-get')",
+        "file": "earlier.js",
+        "reason": "earlier route handler reply('things-get') (GET /things) may run first",
+        "span": {
+          "end_column": 49,
+          "end_line": 10,
+          "start_column": 0,
+          "start_line": 10
+        }
+      },
+      {
+        "expression": "trace('all-open')",
+        "file": "earlier.js",
+        "reason": "earlier route handler trace('all-open') (ALL /open) may run first",
+        "span": {
+          "end_column": 39,
+          "end_line": 11,
+          "start_column": 0,
+          "start_line": 11
+        }
+      },
+      {
+        "expression": "reply('open')",
+        "file": "earlier.js",
+        "reason": "earlier route handler reply('open') (GET /open) may run first",
+        "span": {
+          "end_column": 35,
+          "end_line": 12,
+          "start_column": 0,
+          "start_line": 12
+        }
+      },
+      {
+        "expression": "reply('other')",
+        "file": "earlier.js",
+        "reason": "earlier route handler reply('other') (GET /other) may run first",
+        "span": {
+          "end_column": 37,
+          "end_line": 14,
+          "start_column": 0,
+          "start_line": 14
+        }
+      },
+      {
+        "expression": "reply('after-error')",
+        "file": "earlier.js",
+        "reason": "earlier route handler reply('after-error') (GET /after-error) may run first",
+        "span": {
+          "end_column": 49,
+          "end_line": 17,
+          "start_column": 0,
+          "start_line": 17
+        }
+      }
+    ],
+    "paths": [
+      "/{id}"
+    ]
+  },
+  {
+    "identity": "route:earlier.js#GET%20%2F%3Aslug",
+    "middleware": [],
+    "paths": [
+      "/{slug}"
+    ]
+  },
+  {
+    "identity": "route:earlier.js#GET%20%2Fafter-error",
+    "middleware": [],
+    "mounted_error_handlers": [
+      {
+        "file": "earlier.js",
+        "name": "onError",
+        "prefix": "/",
+        "span": {
+          "end_column": 20,
+          "end_line": 15,
+          "start_column": 0,
+          "start_line": 15
+        }
+      },
+      {
+        "file": "earlier.js",
+        "name": "(err,req,res,next)=\u003enext(err)",
+        "prefix": "/",
+        "span": {
+          "end_column": 47,
+          "end_line": 16,
+          "start_column": 0,
+          "start_line": 16
+        }
+      }
+    ],
+    "paths": [
+      "/after-error"
+    ]
+  },
+  {
+    "identity": "route:earlier.js#GET%20%2Ffeed",
+    "middleware": [],
+    "mounted_error_handlers": [
+      {
+        "file": "earlier.js",
+        "name": "onError",
+        "prefix": "/",
+        "span": {
+          "end_column": 20,
+          "end_line": 15,
+          "start_column": 0,
+          "start_line": 15
+        }
+      },
+      {
+        "file": "earlier.js",
+        "name": "(err,req,res,next)=\u003enext(err)",
+        "prefix": "/",
+        "span": {
+          "end_column": 47,
+          "end_line": 16,
+          "start_column": 0,
+          "start_line": 16
+        }
+      }
+    ],
+    "mounted_middleware_unknown": [
+      {
+        "expression": "trace('by-id')",
+        "file": "earlier.js",
+        "reason": "earlier route handler trace('by-id') (GET /:id) may run first",
+        "span": {
+          "end_column": 35,
+          "end_line": 18,
+          "start_column": 0,
+          "start_line": 18
+        }
+      }
+    ],
+    "paths": [
+      "/feed"
+    ]
+  },
+  {
+    "identity": "route:earlier.js#GET%20%2Ffeed%402",
+    "middleware": [],
+    "mounted_middleware_unknown": [
+      {
+        "expression": "first",
+        "file": "earlier.js",
+        "reason": "router first mounted earlier has route handler trace('first-slug') (GET /:slug) that may run first",
+        "span": {
+          "end_column": 19,
+          "end_line": 28,
+          "start_column": 0,
+          "start_line": 28
+        }
+      }
+    ],
+    "paths": [
+      "/feed"
+    ]
+  },
+  {
+    "identity": "route:earlier.js#GET%20%2Fitems",
+    "middleware": [
+      "requireAdmin"
+    ],
+    "paths": [
+      "/items"
+    ]
+  },
+  {
+    "identity": "route:earlier.js#GET%20%2Fopen",
+    "middleware": [],
+    "mounted_middleware_unknown": [
+      {
+        "expression": "trace('all-open')",
+        "file": "earlier.js",
+        "reason": "earlier route handler trace('all-open') (ALL /open) may run first",
+        "span": {
+          "end_column": 39,
+          "end_line": 11,
+          "start_column": 0,
+          "start_line": 11
+        }
+      }
+    ],
+    "paths": [
+      "/open"
+    ]
+  },
+  {
+    "identity": "route:earlier.js#GET%20%2Fother",
+    "middleware": [],
+    "paths": [
+      "/other"
+    ]
+  },
+  {
+    "identity": "route:earlier.js#GET%20%2Fthings",
+    "middleware": [],
+    "paths": [
+      "/things"
+    ]
+  },
+  {
+    "identity": "route:earlier.js#POST%20%2Fthings",
+    "middleware": [
+      "audit"
+    ],
+    "paths": [
+      "/things"
+    ]
+  },
+  {
+    "identity": "route:earlier4.js#ANY%20%2A",
+    "middleware": [],
+    "paths": [
+      "/r/{*}"
+    ]
+  },
+  {
+    "identity": "route:earlier4.js#ANY%20%2Fapi%2F%2A",
+    "middleware": [],
+    "paths": [
+      "/api/{*}"
+    ]
+  },
+  {
+    "identity": "route:earlier4.js#GET%20%2Fapi%2Fopen",
+    "middleware": [],
+    "mounted_middleware_unknown": [
+      {
+        "expression": "trace('api-all')",
+        "file": "earlier4.js",
+        "reason": "earlier route handler trace('api-all') (ALL /api/*) may run first",
+        "span": {
+          "end_column": 37,
+          "end_line": 11,
+          "start_column": 0,
+          "start_line": 11
+        }
+      }
+    ],
+    "paths": [
+      "/api/open"
+    ]
+  },
+  {
+    "identity": "route:earlier4.js#GET%20%2Fother",
+    "middleware": [],
+    "mounted_middleware_unknown": [
+      {
+        "expression": "trace('router-all')",
+        "file": "earlier4.js",
+        "reason": "earlier route handler trace('router-all') (ALL *) may run first",
+        "span": {
+          "end_column": 35,
+          "end_line": 9,
+          "start_column": 0,
+          "start_line": 9
+        }
+      }
+    ],
+    "paths": [
+      "/r/other"
+    ]
+  },
+  {
+    "identity": "route:express5/earlier5.js#ANY%20%2F%2Asplat",
+    "middleware": [],
+    "paths": [
+      "/r/{*splat}"
+    ]
+  },
+  {
+    "identity": "route:express5/earlier5.js#ANY%20%2Fapi%2F%2Asplat",
+    "middleware": [],
+    "paths": [
+      "/api/{*splat}"
+    ]
+  },
+  {
+    "identity": "route:express5/earlier5.js#GET%20%2Fapi%2Fopen",
+    "middleware": [],
+    "mounted_middleware_unknown": [
+      {
+        "expression": "trace('api-all')",
+        "file": "express5/earlier5.js",
+        "reason": "earlier route handler trace('api-all') (ALL /api/*splat) may run first",
+        "span": {
+          "end_column": 42,
+          "end_line": 12,
+          "start_column": 0,
+          "start_line": 12
+        }
+      }
+    ],
+    "paths": [
+      "/api/open"
+    ]
+  },
+  {
+    "identity": "route:express5/earlier5.js#GET%20%2Fother",
+    "middleware": [],
+    "mounted_middleware_unknown": [
+      {
+        "expression": "trace('router-all')",
+        "file": "express5/earlier5.js",
+        "reason": "earlier route handler trace('router-all') (ALL /*splat) may run first",
+        "span": {
+          "end_column": 41,
+          "end_line": 10,
+          "start_column": 0,
+          "start_line": 10
+        }
+      }
+    ],
+    "paths": [
+      "/r/other"
+    ]
+  },
+  {
+    "identity": "route:libs.js#GET%20%2Fbearer%2Fx",
+    "middleware": [],
+    "mounted_middleware": [
+      {
+        "declares": {
+          "detail": "auth",
+          "library": "express-oauth2-jwt-bearer",
+          "option": "authRequired",
+          "optional": true
+        },
+        "file": "libs.js",
+        "name": "auth({authRequired:false})",
+        "prefix": "/bearer",
+        "span": {
+          "end_column": 50,
+          "end_line": 27,
+          "start_column": 0,
+          "start_line": 27
+        }
+      }
+    ],
+    "paths": [
+      "/bearer/x"
+    ]
+  },
+  {
+    "identity": "route:libs.js#GET%20%2Fcustom",
+    "middleware": [
+      "ensureLoggedIn"
+    ],
+    "paths": [
+      "/custom"
+    ]
+  },
+  {
+    "identity": "route:libs.js#GET%20%2Fjwt",
+    "middleware": [
+      "checks.required"
+    ],
+    "middleware_declares": [
+      {
+        "detail": "expressjwt",
+        "index": 0,
+        "library": "express-jwt",
+        "name": "checks.required",
+        "option": "credentialsRequired",
+        "optional": false
+      }
+    ],
+    "paths": [
+      "/jwt"
+    ]
+  },
+  {
+    "identity": "route:libs.js#GET%20%2Fjwt-optional",
+    "middleware": [
+      "checks.optional"
+    ],
+    "middleware_declares": [
+      {
+        "detail": "expressjwt",
+        "index": 0,
+        "library": "express-jwt",
+        "name": "checks.optional",
+        "option": "credentialsRequired",
+        "optional": true
+      }
+    ],
+    "paths": [
+      "/jwt-optional"
+    ]
+  },
+  {
+    "identity": "route:libs.js#GET%20%2Foidc",
+    "middleware": [
+      "requiresAuth()"
+    ],
+    "middleware_declares": [
+      {
+        "detail": "requiresAuth",
+        "index": 0,
+        "library": "express-openid-connect",
+        "name": "requiresAuth()"
+      }
+    ],
+    "paths": [
+      "/oidc"
+    ]
+  },
+  {
+    "identity": "route:libs.js#GET%20%2Fsession%2Fme",
+    "middleware": [],
+    "mounted_middleware": [
+      {
+        "declares": {
+          "detail": "session",
+          "library": "passport"
+        },
+        "file": "libs.js",
+        "name": "passport.authenticate('session')",
+        "prefix": "/session",
+        "span": {
+          "end_column": 54,
+          "end_line": 22,
+          "start_column": 0,
+          "start_line": 22
+        }
+      }
+    ],
+    "paths": [
+      "/session/me"
+    ]
+  },
+  {
+    "identity": "route:libs.js#GET%20%2Fstrategy",
+    "middleware": [
+      "passport.authenticate(strategyName)"
+    ],
+    "middleware_declares": [
+      {
+        "detail": "strategy ?",
+        "index": 0,
+        "library": "passport",
+        "name": "passport.authenticate(strategyName)"
+      }
+    ],
+    "paths": [
+      "/strategy"
+    ]
+  },
+  {
+    "identity": "route:libs.js#GET%20%2Fv6",
+    "middleware": [
+      "jwtV6({secret:'s',credentialsRequired:options.flag})"
+    ],
+    "middleware_declares": [
+      {
+        "detail": "default export",
+        "index": 0,
+        "library": "express-jwt",
+        "name": "jwtV6({secret:'s',credentialsRequired:options.flag})",
+        "option": "credentialsRequired",
+        "optional": "unknown"
+      }
+    ],
+    "paths": [
+      "/v6"
+    ]
+  }
+]

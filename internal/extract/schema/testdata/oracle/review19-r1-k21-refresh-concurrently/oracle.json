@@ -1,0 +1,28 @@
+{
+  "id": "review19-r1-k21-refresh-concurrently",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y24",
+  "row": "review19",
+  "history": {
+    "id": "k21-refresh-concurrently"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "55000",
+        "message": "cannot refresh materialized view \"history.mv\" concurrently",
+        "statement": 3,
+        "statement_text": "REFRESH MATERIALIZED VIEW CONCURRENTLY mv;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

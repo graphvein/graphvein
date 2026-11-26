@@ -1,0 +1,29 @@
+{
+  "id": "review19-r5-h20-alter-domain-set-default-func",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y39",
+  "row": "review19",
+  "history": {
+    "id": "h20-alter-domain-set-default-func"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "2BP01",
+        "message": "cannot drop function d() because other objects depend on it",
+        "detail": "type d depends on function d()",
+        "statement": 4,
+        "statement_text": "DROP FUNCTION d();"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

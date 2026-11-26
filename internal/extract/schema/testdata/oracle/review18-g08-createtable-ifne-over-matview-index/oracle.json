@@ -1,0 +1,28 @@
+{
+  "id": "review18-g08-createtable-ifne-over-matview-index",
+  "signature": "agreed at Revision 1.8",
+  "class": "S1",
+  "owner": "X3",
+  "row": "review18",
+  "history": {
+    "id": "g08-createtable-ifne-over-matview-index"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42703",
+        "message": "column \"b\" does not exist",
+        "statement": 4,
+        "statement_text": "create index v_b on v (b);"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

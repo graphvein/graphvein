@@ -1,0 +1,2 @@
+CREATE INDEX ix_2 ON t1 (id);
+CREATE INDEX IF NOT EXISTS ix_2 ON t1 (nosuch);

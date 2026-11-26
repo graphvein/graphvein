@@ -1,0 +1,29 @@
+{
+  "id": "review19-r3-k18-partition-empty-range",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y29",
+  "row": "review19",
+  "history": {
+    "id": "k18-partition-empty-range"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42P17",
+        "message": "empty range bound specified for partition \"p1\"",
+        "detail": "Specified lower bound (10) is greater than or equal to upper bound (5).",
+        "statement": 2,
+        "statement_text": "CREATE TABLE p1 PARTITION OF p FOR VALUES FROM (10) TO (5);"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

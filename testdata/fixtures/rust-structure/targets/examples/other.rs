@@ -1,0 +1,2 @@
+mod skipped;
+fn main() {}

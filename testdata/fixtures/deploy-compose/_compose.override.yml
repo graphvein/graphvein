@@ -1,0 +1,6 @@
+# Default override: Compose merges it into compose.yml without -f. Its api
+# service has neither build nor image (row CD4, Compose's default merge).
+services:
+  api:
+    ports:
+      - "9229:9229"

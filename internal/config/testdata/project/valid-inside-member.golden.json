@@ -1,0 +1,30 @@
+{
+  "dir": "web",
+  "members": [
+    {
+      "checkout": true,
+      "consumes": null,
+      "path": "web",
+      "path_source": "manifest",
+      "repository": "web",
+      "repository_source": "manifest",
+      "scopes": null
+    },
+    {
+      "checkout": true,
+      "consumes": null,
+      "path": "api",
+      "path_source": "manifest",
+      "repository": "api",
+      "repository_source": "manifest",
+      "scopes": [
+        {
+          "consumes": null,
+          "name": "admin",
+          "path": "apps/admin"
+        }
+      ]
+    }
+  ],
+  "name": "shop"
+}

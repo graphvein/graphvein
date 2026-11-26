@@ -1,0 +1,2 @@
+CREATE TABLE t (a int);
+CREATE POLICY p ON t FOR INSERT USING (true);

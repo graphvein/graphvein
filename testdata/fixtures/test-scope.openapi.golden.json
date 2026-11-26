@@ -1,0 +1,751 @@
+{
+  "info": {
+    "description": "Routes registered in this repository's source, as Graphvein extracted them from its index. Graphvein ran no code and read no running server. A parameter, request body, response or security requirement that is absent was not read, which is not the same as none: each operation lists what was not read in x-graphvein.not_read. Routes Graphvein could not place on a path, forms OpenAPI cannot express and conflicting registrations are listed in the root x-graphvein, never guessed.",
+    "title": "fixture routes extracted by Graphvein",
+    "version": "unversioned"
+  },
+  "openapi": "3.1.1",
+  "paths": {
+    "/t011g/excluded": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "kept.test.ts",
+          "framework": "express",
+          "handler": null,
+          "handler_expression": null,
+          "line": 3,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:kept.test.ts#GET%20%2Ft011g%2Fexcluded",
+          "rule": "Express routes (ADR 0013, docs/extract/routes.md)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [
+              {
+                "item": {
+                  "content_type": null,
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "kept.test.ts",
+                    "kind": "read_in_handler",
+                    "line": 3,
+                    "rule": "SH-E25"
+                  },
+                  "schema": null,
+                  "status": "200"
+                },
+                "row": "OG-76",
+                "section": "responses",
+                "why": "a name read in code: its type and whether it must be sent are not read"
+              }
+            ],
+            "sections": {
+              "body": {
+                "reason": "no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "kept.test.ts",
+                  "kind": "fact",
+                  "line": 3,
+                  "rule": "SH-E2"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "reason": "statuses read from code; errors thrown by called functions, error middleware and unread calls may add others",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 5
+            },
+            "version": 1
+          },
+          "template": "/t011g/excluded"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:kept.test.ts#GET%20%2Ft011g%2Fexcluded"
+          }
+        ]
+      }
+    },
+    "/t011g/helper/child": {
+      "get": {
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "x-graphvein": {
+                    "unknown": "no response model is declared"
+                  }
+                },
+                "x-graphvein": {
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "t011g_backend.py",
+                    "kind": "fact",
+                    "line": 17,
+                    "rule": "SH-F27"
+                  }
+                }
+              }
+            },
+            "description": "Not read by Graphvein",
+            "x-graphvein": {
+              "description": "not_read"
+            }
+          }
+        },
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "t011g_backend.py",
+          "framework": "fastapi",
+          "handler": "function:t011g_backend.py#child_route",
+          "handler_expression": null,
+          "line": 17,
+          "not_read": [
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:t011g_backend.py#GET%20%2Fchild",
+          "rule": "FastAPI routes (ADR 0015, ADR 0019)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [],
+            "sections": {
+              "body": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "t011g_backend.py",
+                  "kind": "fact",
+                  "line": 18,
+                  "rule": "SH-F23"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "cookie": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "t011g_backend.py",
+                  "kind": "fact",
+                  "line": 18,
+                  "rule": "SH-F23"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "header": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "t011g_backend.py",
+                  "kind": "fact",
+                  "line": 18,
+                  "rule": "SH-F23"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "t011g_backend.py",
+                  "kind": "fact",
+                  "line": 17,
+                  "rule": "SH-F3"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "t011g_backend.py",
+                  "kind": "fact",
+                  "line": 18,
+                  "rule": "SH-F23"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "responses": {
+                "reason": "statuses from exception handlers, middleware and calls not followed are not read",
+                "standard": 1,
+                "state": "partial"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 2
+            },
+            "version": 1
+          },
+          "template": "/t011g/helper/child"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:t011g_backend.py#GET%20%2Fchild"
+          }
+        ]
+      }
+    },
+    "/t011g/mixed": {
+      "get": {
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "x-graphvein": {
+                    "unknown": "no response model is declared"
+                  }
+                },
+                "x-graphvein": {
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "t011g_backend.py",
+                    "kind": "fact",
+                    "line": 5,
+                    "rule": "SH-F27"
+                  }
+                }
+              }
+            },
+            "description": "Not read by Graphvein",
+            "x-graphvein": {
+              "description": "not_read"
+            }
+          }
+        },
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "t011g_backend.py",
+          "framework": "fastapi",
+          "handler": "function:t011g_backend.py#mixed",
+          "handler_expression": null,
+          "line": 5,
+          "not_read": [
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:t011g_backend.py#GET%20%2Ft011g%2Fmixed",
+          "rule": "FastAPI routes (ADR 0015, ADR 0019)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [],
+            "sections": {
+              "body": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "t011g_backend.py",
+                  "kind": "fact",
+                  "line": 6,
+                  "rule": "SH-F23"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "cookie": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "t011g_backend.py",
+                  "kind": "fact",
+                  "line": 6,
+                  "rule": "SH-F23"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "header": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "t011g_backend.py",
+                  "kind": "fact",
+                  "line": 6,
+                  "rule": "SH-F23"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "t011g_backend.py",
+                  "kind": "fact",
+                  "line": 5,
+                  "rule": "SH-F3"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "t011g_backend.py",
+                  "kind": "fact",
+                  "line": 6,
+                  "rule": "SH-F23"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "responses": {
+                "reason": "statuses from exception handlers, middleware and calls not followed are not read",
+                "standard": 1,
+                "state": "partial"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 2
+            },
+            "version": 1
+          },
+          "template": "/t011g/mixed"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:t011g_backend.py#GET%20%2Ft011g%2Fmixed"
+          }
+        ]
+      }
+    },
+    "/t011g/only": {
+      "x-graphvein": {
+        "any_method": [
+          {
+            "file": "t011g_backend.py",
+            "framework": "fastapi",
+            "line": 8,
+            "route": "route:t011g_backend.py#ANY%20%2Ft011g%2Fonly"
+          }
+        ],
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "ANY",
+            "resolution": "literal",
+            "route": "route:t011g_backend.py#ANY%20%2Ft011g%2Fonly"
+          }
+        ]
+      }
+    },
+    "/t011g/prod-express/shared": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "express.ts",
+          "framework": "express",
+          "handler": null,
+          "handler_expression": null,
+          "line": 4,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:express.ts#GET%20%2Fshared",
+          "rule": "Express routes (ADR 0013, docs/extract/routes.md)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [
+              {
+                "item": {
+                  "content_type": null,
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "express.ts",
+                    "kind": "read_in_handler",
+                    "line": 4,
+                    "rule": "SH-E25"
+                  },
+                  "schema": null,
+                  "status": "200"
+                },
+                "row": "OG-76",
+                "section": "responses",
+                "why": "a name read in code: its type and whether it must be sent are not read"
+              }
+            ],
+            "sections": {
+              "body": {
+                "reason": "no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "express.ts",
+                  "kind": "fact",
+                  "line": 4,
+                  "rule": "SH-E2"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "reason": "statuses read from code; errors thrown by called functions, error middleware and unread calls may add others",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 5
+            },
+            "version": 1
+          },
+          "template": "/t011g/prod-express/shared"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:express.ts#GET%20%2Fshared"
+          }
+        ]
+      }
+    },
+    "/t011g/prod/child": {
+      "get": {
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "x-graphvein": {
+                    "unknown": "no response model is declared"
+                  }
+                },
+                "x-graphvein": {
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "t011g_backend.py",
+                    "kind": "fact",
+                    "line": 17,
+                    "rule": "SH-F27"
+                  }
+                }
+              }
+            },
+            "description": "Not read by Graphvein",
+            "x-graphvein": {
+              "description": "not_read"
+            }
+          }
+        },
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "t011g_backend.py",
+          "framework": "fastapi",
+          "handler": "function:t011g_backend.py#child_route",
+          "handler_expression": null,
+          "line": 17,
+          "not_read": [
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:t011g_backend.py#GET%20%2Fchild",
+          "rule": "FastAPI routes (ADR 0015, ADR 0019)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [],
+            "sections": {
+              "body": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "t011g_backend.py",
+                  "kind": "fact",
+                  "line": 18,
+                  "rule": "SH-F23"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "cookie": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "t011g_backend.py",
+                  "kind": "fact",
+                  "line": 18,
+                  "rule": "SH-F23"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "header": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "t011g_backend.py",
+                  "kind": "fact",
+                  "line": 18,
+                  "rule": "SH-F23"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "t011g_backend.py",
+                  "kind": "fact",
+                  "line": 17,
+                  "rule": "SH-F3"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "t011g_backend.py",
+                  "kind": "fact",
+                  "line": 18,
+                  "rule": "SH-F23"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "responses": {
+                "reason": "statuses from exception handlers, middleware and calls not followed are not read",
+                "standard": 1,
+                "state": "partial"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 2
+            },
+            "version": 1
+          },
+          "template": "/t011g/prod/child"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:t011g_backend.py#GET%20%2Fchild"
+          }
+        ]
+      }
+    }
+  },
+  "x-graphvein": {
+    "conflicts": [
+      {
+        "keys": [
+          "/t011g/two"
+        ],
+        "method": "GET",
+        "reason": "duplicate_operation",
+        "routes": [
+          "route:t011g_backend.py#GET%20%2Ft011g%2Ftwo",
+          "route:t011g_backend.py#GET%20%2Ft011g%2Ftwo%402"
+        ]
+      }
+    ],
+    "contract_version": 1,
+    "counts": {
+      "any_method": 1,
+      "conditional": 0,
+      "conflicts": 1,
+      "may_be_shadowed": 0,
+      "operations": 5,
+      "path_keys": 6,
+      "production_routes": 8,
+      "routes": 15,
+      "set_by_you": 0,
+      "settings_default": 0,
+      "unrepresentable": 0,
+      "unresolved": 0,
+      "with_shape": 5
+    },
+    "excluded_test": {
+      "path_entries": 4,
+      "routes": 7
+    },
+    "generator": "graphvein",
+    "group": "repository",
+    "imported_specs": [],
+    "index": {
+      "extractor": "graphvein EXTRACTOR",
+      "finished_at": "FINISHED",
+      "run": "RUN"
+    },
+    "repository": "fixture",
+    "scope": "production",
+    "shape_errors": 0,
+    "unrepresentable": [],
+    "unresolved": [],
+    "user_values": []
+  }
+}

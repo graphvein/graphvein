@@ -1,0 +1,57 @@
+{
+  "id": "review18-c27-dropfunc-trigger-diesel",
+  "signature": "agreed at Revision 1.8",
+  "class": "S1",
+  "owner": "X1",
+  "row": "review18",
+  "history": {
+    "id": "c27-dropfunc-trigger-diesel"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "accepted"
+      },
+      {
+        "file": "2_down_like.sql",
+        "status": "refused",
+        "sqlstate": "2BP01",
+        "message": "cannot drop function diesel_set_updated_at() because other objects depend on it",
+        "detail": "trigger set_updated_at on table posts depends on function diesel_set_updated_at()",
+        "statement": 1,
+        "statement_text": "DROP FUNCTION IF EXISTS diesel_set_updated_at();"
+      }
+    ],
+    "tables": [
+      {
+        "table": "history.posts",
+        "columns": [
+          {
+            "name": "id",
+            "type": "integer",
+            "not_null": true,
+            "has_default": true
+          },
+          {
+            "name": "updated_at",
+            "type": "timestamp without time zone",
+            "not_null": true,
+            "has_default": true
+          }
+        ],
+        "primary_key": [
+          "id"
+        ],
+        "unique_keys": [],
+        "foreign_keys": [],
+        "indexes": []
+      }
+    ],
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

@@ -1,0 +1,14 @@
+model Shop {
+  id   Int    @id
+  code String @default(ulid())
+  tags Tag[]
+
+  @@schema("shop")
+}
+
+model Tag {
+  id    Int    @id
+  shops Shop[]
+
+  @@schema("shop")
+}

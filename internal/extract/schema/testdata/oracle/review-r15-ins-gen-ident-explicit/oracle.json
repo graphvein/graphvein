@@ -1,0 +1,29 @@
+{
+  "id": "review-r15-ins-gen-ident-explicit",
+  "signature": "agreed at af6a883",
+  "class": "S1",
+  "owner": "P5",
+  "row": "review",
+  "history": {
+    "id": "r15-ins-gen-ident-explicit"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "428C9",
+        "message": "cannot insert a non-DEFAULT value into column \"id\"",
+        "detail": "Column \"id\" is an identity column defined as GENERATED ALWAYS.",
+        "statement": 2,
+        "statement_text": "INSERT INTO t (id, v) VALUES (1, 1);"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

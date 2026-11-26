@@ -1,0 +1,2 @@
+CREATE TABLE t (a int);
+ALTER TRIGGER nosuch ON t RENAME TO x;

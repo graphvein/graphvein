@@ -1,0 +1,1949 @@
+{
+  "diagnostics": [
+    {
+      "code": "structure_unrooted",
+      "file": "src/blind.rs",
+      "message": "no crate root of a read Cargo.toml reaches this file: its declarations are read, its imports are not resolved as a crate member, and its file label is best_effort (precision row PL-L4)",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "unresolved_calls",
+      "file": "src/blind.rs",
+      "message": "2 calls could not be resolved without a type checker (external=0, unknown=2)",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "syntax_error",
+      "file": "src/broken.rs",
+      "message": "tree-sitter recovered from invalid syntax",
+      "severity": "warning",
+      "type": "diagnostic"
+    },
+    {
+      "code": "rust_structure_unread",
+      "file": "src/lib.rs",
+      "message": "1 Rust declarations, modules or import leaves are outside the structural claim contract and claim nothing (undeclared_crate=1)",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "unresolved_calls",
+      "file": "src/lib.rs",
+      "message": "2 calls could not be resolved without a type checker (external=1, unknown=1)",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "unresolved_module",
+      "file": "src/lib.rs",
+      "message": "module custom is unavailable",
+      "severity": "warning",
+      "type": "diagnostic"
+    }
+  ],
+  "edges": [
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/lib.rs",
+          "span": {
+            "end_column": 26,
+            "end_line": 34,
+            "start_column": 18,
+            "start_line": 34
+          }
+        }
+      ],
+      "kind": "calls",
+      "provenance": "fact",
+      "source": "function:src/lib.rs#inline.go",
+      "target": "function:src/lib.rs#helper",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/lib.rs",
+          "span": {
+            "end_column": 41,
+            "end_line": 34,
+            "start_column": 28,
+            "start_line": 34
+          }
+        }
+      ],
+      "kind": "calls",
+      "provenance": "fact",
+      "source": "function:src/lib.rs#inline.go",
+      "target": "function:src/lib.rs#inline.again",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/lib.rs",
+          "span": {
+            "end_column": 16,
+            "end_line": 27,
+            "start_column": 4,
+            "start_line": 27
+          }
+        }
+      ],
+      "kind": "calls",
+      "provenance": "fact",
+      "source": "function:src/lib.rs#run",
+      "target": "function:src/lib.rs#inline.go",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/lib.rs",
+          "span": {
+            "end_column": 25,
+            "end_line": 25,
+            "start_column": 4,
+            "start_line": 25
+          }
+        }
+      ],
+      "kind": "calls",
+      "provenance": "fact",
+      "source": "function:src/lib.rs#run",
+      "target": "function:src/nested/mod.rs#deep",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/lib.rs",
+          "span": {
+            "end_column": 10,
+            "end_line": 23,
+            "start_column": 4,
+            "start_line": 23
+          }
+        },
+        {
+          "file": "src/lib.rs",
+          "span": {
+            "end_column": 18,
+            "end_line": 24,
+            "start_column": 4,
+            "start_line": 24
+          }
+        }
+      ],
+      "kind": "calls",
+      "provenance": "fact",
+      "source": "function:src/lib.rs#run",
+      "target": "function:src/worker.rs#work",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/lib.rs",
+          "span": {
+            "end_column": 15,
+            "end_line": 26,
+            "start_column": 4,
+            "start_line": 26
+          }
+        }
+      ],
+      "kind": "calls",
+      "provenance": "fact",
+      "source": "function:src/lib.rs#run",
+      "target": "method:src/worker.rs#User.new",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/lib.rs",
+          "span": {
+            "end_column": 22,
+            "end_line": 40,
+            "start_column": 17,
+            "start_line": 40
+          }
+        }
+      ],
+      "kind": "calls",
+      "provenance": "fact",
+      "source": "function:src/lib.rs#tests.check",
+      "target": "function:src/lib.rs#run",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/nested/mod.rs",
+          "span": {
+            "end_column": 24,
+            "end_line": 3,
+            "start_column": 16,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "calls",
+      "provenance": "fact",
+      "source": "function:src/nested/mod.rs#deep",
+      "target": "function:src/lib.rs#helper",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/nested/mod.rs",
+          "span": {
+            "end_column": 43,
+            "end_line": 3,
+            "start_column": 26,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "calls",
+      "provenance": "fact",
+      "source": "function:src/nested/mod.rs#deep",
+      "target": "function:src/nested/leaf.rs#end",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/worker.rs",
+          "span": {
+            "end_column": 24,
+            "end_line": 16,
+            "start_column": 16,
+            "start_line": 16
+          }
+        }
+      ],
+      "kind": "calls",
+      "provenance": "fact",
+      "source": "function:src/worker.rs#work",
+      "target": "function:src/lib.rs#helper",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/worker.rs",
+          "span": {
+            "end_column": 37,
+            "end_line": 16,
+            "start_column": 26,
+            "start_line": 16
+          }
+        }
+      ],
+      "kind": "calls",
+      "provenance": "fact",
+      "source": "function:src/worker.rs#work",
+      "target": "method:src/worker.rs#User.new",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/lib.rs",
+          "span": {
+            "end_column": 29,
+            "end_line": 19,
+            "start_column": 21,
+            "start_line": 19
+          }
+        }
+      ],
+      "kind": "calls",
+      "provenance": "fact",
+      "source": "method:src/lib.rs#Local.save",
+      "target": "function:src/lib.rs#helper",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/worker.rs",
+          "span": {
+            "end_column": 37,
+            "end_line": 13,
+            "start_column": 24,
+            "start_line": 13
+          }
+        }
+      ],
+      "kind": "calls",
+      "provenance": "fact",
+      "source": "method:src/worker.rs#List.len",
+      "target": "method:src/worker.rs#List.empty",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/worker.rs",
+          "span": {
+            "end_column": 27,
+            "end_line": 4,
+            "start_column": 19,
+            "start_line": 4
+          }
+        }
+      ],
+      "kind": "calls",
+      "provenance": "fact",
+      "source": "method:src/worker.rs#User.new",
+      "target": "function:src/lib.rs#helper",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/worker.rs",
+          "span": {
+            "end_column": 41,
+            "end_line": 4,
+            "start_column": 29,
+            "start_line": 4
+          }
+        }
+      ],
+      "kind": "calls",
+      "provenance": "fact",
+      "source": "method:src/worker.rs#User.new",
+      "target": "method:src/worker.rs#User.save",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/worker.rs",
+          "span": {
+            "end_column": 40,
+            "end_line": 5,
+            "start_column": 25,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "calls",
+      "provenance": "fact",
+      "source": "method:src/worker.rs#User.save",
+      "target": "method:src/worker.rs#User.validate",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/worker.rs",
+          "span": {
+            "end_column": 36,
+            "end_line": 9,
+            "start_column": 21,
+            "start_line": 9
+          }
+        }
+      ],
+      "kind": "calls",
+      "provenance": "fact",
+      "source": "method:src/worker.rs#User.save%40Local",
+      "target": "method:src/worker.rs#User.validate",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/worker.rs",
+          "span": {
+            "end_column": 33,
+            "end_line": 6,
+            "start_column": 25,
+            "start_line": 6
+          }
+        }
+      ],
+      "kind": "calls",
+      "provenance": "fact",
+      "source": "method:src/worker.rs#User.validate",
+      "target": "function:src/lib.rs#helper",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/blind.rs",
+          "span": {
+            "end_column": 1,
+            "end_line": 4,
+            "start_column": 0,
+            "start_line": 1
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/blind.rs#src%2Fblind.rs",
+      "target": "function:src/blind.rs#blind",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/lib.rs",
+          "span": {
+            "end_column": 29,
+            "end_line": 10,
+            "start_column": 0,
+            "start_line": 10
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/lib.rs#src%2Flib.rs",
+      "target": "constant:src/lib.rs#ANSWER",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/lib.rs",
+          "span": {
+            "end_column": 30,
+            "end_line": 14,
+            "start_column": 0,
+            "start_line": 14
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/lib.rs#src%2Flib.rs",
+      "target": "enum:src/lib.rs#State",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/lib.rs",
+          "span": {
+            "end_column": 19,
+            "end_line": 43,
+            "start_column": 0,
+            "start_line": 43
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/lib.rs#src%2Flib.rs",
+      "target": "function:src/lib.rs#alternative",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/lib.rs",
+          "span": {
+            "end_column": 19,
+            "end_line": 45,
+            "start_column": 0,
+            "start_line": 45
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/lib.rs#src%2Flib.rs",
+      "target": "function:src/lib.rs#alternative%402",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/lib.rs",
+          "span": {
+            "end_column": 18,
+            "end_line": 21,
+            "start_column": 0,
+            "start_line": 21
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/lib.rs#src%2Flib.rs",
+      "target": "function:src/lib.rs#helper",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/lib.rs",
+          "span": {
+            "end_column": 17,
+            "end_line": 35,
+            "start_column": 4,
+            "start_line": 35
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/lib.rs#src%2Flib.rs",
+      "target": "function:src/lib.rs#inline.again",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/lib.rs",
+          "span": {
+            "end_column": 44,
+            "end_line": 34,
+            "start_column": 4,
+            "start_line": 34
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/lib.rs#src%2Flib.rs",
+      "target": "function:src/lib.rs#inline.go",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/lib.rs",
+          "span": {
+            "end_column": 1,
+            "end_line": 31,
+            "start_column": 0,
+            "start_line": 22
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/lib.rs#src%2Flib.rs",
+      "target": "function:src/lib.rs#run",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/lib.rs",
+          "span": {
+            "end_column": 25,
+            "end_line": 40,
+            "start_column": 4,
+            "start_line": 40
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/lib.rs#src%2Flib.rs",
+      "target": "function:src/lib.rs#tests.check",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/lib.rs",
+          "span": {
+            "end_column": 43,
+            "end_line": 16,
+            "start_column": 0,
+            "start_line": 16
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/lib.rs#src%2Flib.rs",
+      "target": "macro:src/lib.rs#greeting",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/lib.rs",
+          "span": {
+            "end_column": 1,
+            "end_line": 20,
+            "start_column": 0,
+            "start_line": 18
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/lib.rs#src%2Flib.rs",
+      "target": "trait:src/lib.rs#Local",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/lib.rs",
+          "span": {
+            "end_column": 23,
+            "end_line": 15,
+            "start_column": 0,
+            "start_line": 15
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/lib.rs#src%2Flib.rs",
+      "target": "type_alias:src/lib.rs#Alias",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/lib.rs",
+          "span": {
+            "end_column": 42,
+            "end_line": 13,
+            "start_column": 0,
+            "start_line": 13
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/lib.rs#src%2Flib.rs",
+      "target": "union:src/lib.rs#Value",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/lib.rs",
+          "span": {
+            "end_column": 30,
+            "end_line": 12,
+            "start_column": 0,
+            "start_line": 12
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/lib.rs#src%2Flib.rs",
+      "target": "variable:src/lib.rs#READY",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/nested/leaf.rs",
+          "span": {
+            "end_column": 15,
+            "end_line": 1,
+            "start_column": 0,
+            "start_line": 1
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/nested/leaf.rs#src%2Fnested%2Fleaf.rs",
+      "target": "function:src/nested/leaf.rs#end",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/nested/mod.rs",
+          "span": {
+            "end_column": 46,
+            "end_line": 3,
+            "start_column": 0,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/nested/mod.rs#src%2Fnested%2Fmod.rs",
+      "target": "function:src/nested/mod.rs#deep",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/worker.rs",
+          "span": {
+            "end_column": 40,
+            "end_line": 16,
+            "start_column": 0,
+            "start_line": 16
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/worker.rs#src%2Fworker.rs",
+      "target": "function:src/worker.rs#work",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/worker.rs",
+          "span": {
+            "end_column": 17,
+            "end_line": 14,
+            "start_column": 4,
+            "start_line": 14
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/worker.rs#src%2Fworker.rs",
+      "target": "method:src/worker.rs#List.empty",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/worker.rs",
+          "span": {
+            "end_column": 40,
+            "end_line": 13,
+            "start_column": 4,
+            "start_line": 13
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/worker.rs#src%2Fworker.rs",
+      "target": "method:src/worker.rs#List.len",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/worker.rs",
+          "span": {
+            "end_column": 44,
+            "end_line": 4,
+            "start_column": 4,
+            "start_line": 4
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/worker.rs#src%2Fworker.rs",
+      "target": "method:src/worker.rs#User.new",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/worker.rs",
+          "span": {
+            "end_column": 43,
+            "end_line": 5,
+            "start_column": 4,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/worker.rs#src%2Fworker.rs",
+      "target": "method:src/worker.rs#User.save",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/worker.rs",
+          "span": {
+            "end_column": 39,
+            "end_line": 9,
+            "start_column": 4,
+            "start_line": 9
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/worker.rs#src%2Fworker.rs",
+      "target": "method:src/worker.rs#User.save%40Local",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/worker.rs",
+          "span": {
+            "end_column": 36,
+            "end_line": 6,
+            "start_column": 4,
+            "start_line": 6
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/worker.rs#src%2Fworker.rs",
+      "target": "method:src/worker.rs#User.validate",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/worker.rs",
+          "span": {
+            "end_column": 36,
+            "end_line": 11,
+            "start_column": 0,
+            "start_line": 11
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/worker.rs#src%2Fworker.rs",
+      "target": "struct:src/worker.rs#List",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/worker.rs",
+          "span": {
+            "end_column": 16,
+            "end_line": 2,
+            "start_column": 0,
+            "start_line": 2
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/worker.rs#src%2Fworker.rs",
+      "target": "struct:src/worker.rs#User",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/lib.rs",
+          "span": {
+            "end_column": 32,
+            "end_line": 19,
+            "start_column": 4,
+            "start_line": 19
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "trait:src/lib.rs#Local",
+      "target": "method:src/lib.rs#Local.save",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/lib.rs",
+          "span": {
+            "end_column": 22,
+            "end_line": 7,
+            "start_column": 0,
+            "start_line": 7
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:src/lib.rs#src%2Flib.rs",
+      "target": "external:.#cargo%3Astd",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/lib.rs",
+          "span": {
+            "end_column": 11,
+            "end_line": 3,
+            "start_column": 0,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:src/lib.rs#src%2Flib.rs",
+      "target": "file:src/broken.rs#src%2Fbroken.rs",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/lib.rs",
+          "span": {
+            "end_column": 22,
+            "end_line": 33,
+            "start_column": 4,
+            "start_line": 33
+          }
+        },
+        {
+          "file": "src/lib.rs",
+          "span": {
+            "end_column": 19,
+            "end_line": 39,
+            "start_column": 4,
+            "start_line": 39
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:src/lib.rs#src%2Flib.rs",
+      "target": "file:src/lib.rs#src%2Flib.rs",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/lib.rs",
+          "span": {
+            "end_column": 21,
+            "end_line": 6,
+            "start_column": 0,
+            "start_line": 6
+          }
+        },
+        {
+          "file": "src/lib.rs",
+          "span": {
+            "end_column": 11,
+            "end_line": 2,
+            "start_column": 0,
+            "start_line": 2
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:src/lib.rs#src%2Flib.rs",
+      "target": "file:src/nested/mod.rs#src%2Fnested%2Fmod.rs",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/lib.rs",
+          "span": {
+            "end_column": 40,
+            "end_line": 5,
+            "start_column": 0,
+            "start_line": 5
+          }
+        },
+        {
+          "file": "src/lib.rs",
+          "span": {
+            "end_column": 40,
+            "end_line": 5,
+            "start_column": 0,
+            "start_line": 5
+          }
+        },
+        {
+          "file": "src/lib.rs",
+          "span": {
+            "end_column": 11,
+            "end_line": 1,
+            "start_column": 0,
+            "start_line": 1
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:src/lib.rs#src%2Flib.rs",
+      "target": "file:src/worker.rs#src%2Fworker.rs",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/nested/mod.rs",
+          "span": {
+            "end_column": 18,
+            "end_line": 1,
+            "start_column": 0,
+            "start_line": 1
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:src/nested/mod.rs#src%2Fnested%2Fmod.rs",
+      "target": "file:src/lib.rs#src%2Flib.rs",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/nested/mod.rs",
+          "span": {
+            "end_column": 9,
+            "end_line": 2,
+            "start_column": 0,
+            "start_line": 2
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:src/nested/mod.rs#src%2Fnested%2Fmod.rs",
+      "target": "file:src/nested/leaf.rs#src%2Fnested%2Fleaf.rs",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/worker.rs",
+          "span": {
+            "end_column": 18,
+            "end_line": 1,
+            "start_column": 0,
+            "start_line": 1
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:src/worker.rs#src%2Fworker.rs",
+      "target": "file:src/lib.rs#src%2Flib.rs",
+      "type": "edge"
+    }
+  ],
+  "files": [
+    {
+      "content_hash": "sha256:f168d5884868a858206914e169087463c621dc12ccc3381c14ea210379fccc00",
+      "language": "toml",
+      "path": "Cargo.toml",
+      "precision": "best_effort",
+      "size": 62,
+      "type": "file"
+    },
+    {
+      "content_hash": "sha256:da5277d21bc880a0720fd1dbeaab10ac451b18054a4fd53a079491a499c68f55",
+      "language": "markdown",
+      "path": "README.md",
+      "precision": "best_effort",
+      "size": 404,
+      "type": "file"
+    },
+    {
+      "content_hash": "sha256:6d464236512527986452faa7bf746e59bc56646069c7fd865da0b06b18531d0c",
+      "language": "rust",
+      "path": "src/blind.rs",
+      "precision": "best_effort",
+      "size": 66,
+      "type": "file"
+    },
+    {
+      "content_hash": "sha256:bbfe721f470ffee879d4d32da4b3aa9ffaf1cfa24820b8c542880bce211f1ea8",
+      "language": "rust",
+      "path": "src/broken.rs",
+      "precision": "best_effort",
+      "size": 17,
+      "type": "file"
+    },
+    {
+      "content_hash": "sha256:4acb973297bf279ea872c4bf4a525d8bfc4482a51ea00e8d0358dc64ce50423a",
+      "language": "rust",
+      "path": "src/lib.rs",
+      "precision": "precise",
+      "size": 913,
+      "type": "file"
+    },
+    {
+      "content_hash": "sha256:5594c4198821df03a631c5c248a59baa86ac30c122fd241f7c5fc8021dc4f016",
+      "language": "rust",
+      "path": "src/nested/leaf.rs",
+      "precision": "precise",
+      "size": 16,
+      "type": "file"
+    },
+    {
+      "content_hash": "sha256:56f4c9ef8ee0eef5bfcf5118f806da5777fe328873ce53edc4c09b6ef9557f04",
+      "language": "rust",
+      "path": "src/nested/mod.rs",
+      "precision": "precise",
+      "size": 76,
+      "type": "file"
+    },
+    {
+      "content_hash": "sha256:be75ccdea984487c2d77102aac0ebc22235706cf2d6edf99a457c40f545a2345",
+      "language": "rust",
+      "path": "src/worker.rs",
+      "precision": "precise",
+      "size": 404,
+      "type": "file"
+    }
+  ],
+  "nodes": [
+    {
+      "attributes": {
+        "module": ""
+      },
+      "content_hash": "sha256:855ff690b0b79ff6650cd4aafd49b7e89e3a6eb4b3d7823dc599d902a035c132",
+      "file": "src/lib.rs",
+      "identity": "constant:src/lib.rs#ANSWER",
+      "kind": "constant",
+      "level": 4,
+      "name": "ANSWER",
+      "qualified_name": "ANSWER",
+      "span": {
+        "end_column": 29,
+        "end_line": 10,
+        "start_column": 0,
+        "start_line": 10
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "module": ""
+      },
+      "content_hash": "sha256:557c7ba8df926778762b9776d4ca02e7bd695d9f97a1e2493713f31664641eb5",
+      "file": "src/lib.rs",
+      "identity": "enum:src/lib.rs#State",
+      "kind": "enum",
+      "level": 4,
+      "name": "State",
+      "qualified_name": "State",
+      "span": {
+        "end_column": 30,
+        "end_line": 14,
+        "start_column": 0,
+        "start_line": 14
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "ecosystem": "cargo",
+        "name": "std"
+      },
+      "content_hash": "sha256:8d99cd93d2c7655b30431b713e3d0dda4721cee43a812ea008e294439ab70ee5",
+      "file": ".",
+      "identity": "external:.#cargo%3Astd",
+      "kind": "external",
+      "level": 1,
+      "name": "std",
+      "qualified_name": "cargo:std",
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:f168d5884868a858206914e169087463c621dc12ccc3381c14ea210379fccc00",
+      "file": "Cargo.toml",
+      "identity": "file:Cargo.toml#Cargo.toml",
+      "kind": "file",
+      "level": 3,
+      "name": "Cargo.toml",
+      "qualified_name": "Cargo.toml",
+      "span": {
+        "end_column": 0,
+        "end_line": 5,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:da5277d21bc880a0720fd1dbeaab10ac451b18054a4fd53a079491a499c68f55",
+      "file": "README.md",
+      "identity": "file:README.md#README.md",
+      "kind": "file",
+      "level": 3,
+      "name": "README.md",
+      "qualified_name": "README.md",
+      "span": {
+        "end_column": 0,
+        "end_line": 8,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 2,
+        "unresolved_unknown_call_sites": [
+          {
+            "caller": "function:src/blind.rs#blind",
+            "name": "helper",
+            "span": {
+              "end_column": 16,
+              "end_line": 2,
+              "start_column": 4,
+              "start_line": 2
+            }
+          },
+          {
+            "caller": "function:src/blind.rs#blind",
+            "name": "unrelated",
+            "span": {
+              "end_column": 19,
+              "end_line": 3,
+              "start_column": 4,
+              "start_line": 3
+            }
+          }
+        ]
+      },
+      "content_hash": "sha256:6d464236512527986452faa7bf746e59bc56646069c7fd865da0b06b18531d0c",
+      "file": "src/blind.rs",
+      "identity": "file:src/blind.rs#src%2Fblind.rs",
+      "kind": "file",
+      "level": 3,
+      "name": "blind.rs",
+      "qualified_name": "src/blind.rs",
+      "span": {
+        "end_column": 0,
+        "end_line": 5,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:bbfe721f470ffee879d4d32da4b3aa9ffaf1cfa24820b8c542880bce211f1ea8",
+      "file": "src/broken.rs",
+      "identity": "file:src/broken.rs#src%2Fbroken.rs",
+      "kind": "file",
+      "level": 3,
+      "name": "broken.rs",
+      "qualified_name": "src/broken.rs",
+      "span": {
+        "end_column": 0,
+        "end_line": 2,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 1,
+        "unresolved_calls_unknown": 1,
+        "unresolved_unknown_call_sites": [
+          {
+            "caller": "function:src/lib.rs#run",
+            "name": "missing",
+            "span": {
+              "end_column": 13,
+              "end_line": 30,
+              "start_column": 4,
+              "start_line": 30
+            }
+          }
+        ]
+      },
+      "content_hash": "sha256:4acb973297bf279ea872c4bf4a525d8bfc4482a51ea00e8d0358dc64ce50423a",
+      "file": "src/lib.rs",
+      "identity": "file:src/lib.rs#src%2Flib.rs",
+      "kind": "file",
+      "level": 3,
+      "name": "lib.rs",
+      "qualified_name": "src/lib.rs",
+      "span": {
+        "end_column": 0,
+        "end_line": 46,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:5594c4198821df03a631c5c248a59baa86ac30c122fd241f7c5fc8021dc4f016",
+      "file": "src/nested/leaf.rs",
+      "identity": "file:src/nested/leaf.rs#src%2Fnested%2Fleaf.rs",
+      "kind": "file",
+      "level": 3,
+      "name": "leaf.rs",
+      "qualified_name": "src/nested/leaf.rs",
+      "span": {
+        "end_column": 0,
+        "end_line": 2,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:56f4c9ef8ee0eef5bfcf5118f806da5777fe328873ce53edc4c09b6ef9557f04",
+      "file": "src/nested/mod.rs",
+      "identity": "file:src/nested/mod.rs#src%2Fnested%2Fmod.rs",
+      "kind": "file",
+      "level": 3,
+      "name": "mod.rs",
+      "qualified_name": "src/nested/mod.rs",
+      "span": {
+        "end_column": 0,
+        "end_line": 4,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:be75ccdea984487c2d77102aac0ebc22235706cf2d6edf99a457c40f545a2345",
+      "file": "src/worker.rs",
+      "identity": "file:src/worker.rs#src%2Fworker.rs",
+      "kind": "file",
+      "level": 3,
+      "name": "worker.rs",
+      "qualified_name": "src/worker.rs",
+      "span": {
+        "end_column": 0,
+        "end_line": 17,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "module": ""
+      },
+      "content_hash": "sha256:e12960cf23f0d4d4814fd83a03937d26ff4b350ac84481310784b70384d955db",
+      "file": "src/blind.rs",
+      "identity": "function:src/blind.rs#blind",
+      "kind": "function",
+      "level": 4,
+      "name": "blind",
+      "qualified_name": "blind",
+      "span": {
+        "end_column": 1,
+        "end_line": 4,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "module": ""
+      },
+      "content_hash": "sha256:d864421e63d462c7f46288c9bc97a7e0391087148f92b356cd4f180a2487e15d",
+      "file": "src/lib.rs",
+      "identity": "function:src/lib.rs#alternative",
+      "kind": "function",
+      "level": 4,
+      "name": "alternative",
+      "qualified_name": "alternative",
+      "span": {
+        "end_column": 19,
+        "end_line": 43,
+        "start_column": 0,
+        "start_line": 43
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "module": ""
+      },
+      "content_hash": "sha256:d864421e63d462c7f46288c9bc97a7e0391087148f92b356cd4f180a2487e15d",
+      "file": "src/lib.rs",
+      "identity": "function:src/lib.rs#alternative%402",
+      "kind": "function",
+      "level": 4,
+      "name": "alternative",
+      "qualified_name": "alternative@2",
+      "span": {
+        "end_column": 19,
+        "end_line": 45,
+        "start_column": 0,
+        "start_line": 45
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "module": ""
+      },
+      "content_hash": "sha256:ab0772abfb2d1ee2884e8da31abab0275efd747bb0de61cfd2a5e6053e0bef6b",
+      "file": "src/lib.rs",
+      "identity": "function:src/lib.rs#helper",
+      "kind": "function",
+      "level": 4,
+      "name": "helper",
+      "qualified_name": "helper",
+      "span": {
+        "end_column": 18,
+        "end_line": 21,
+        "start_column": 0,
+        "start_line": 21
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "module": "inline"
+      },
+      "content_hash": "sha256:a95a935500f778b618af3b312f1b75ce4838fa679be89d5f1458817c4af2c540",
+      "file": "src/lib.rs",
+      "identity": "function:src/lib.rs#inline.again",
+      "kind": "function",
+      "level": 4,
+      "name": "again",
+      "qualified_name": "inline.again",
+      "span": {
+        "end_column": 17,
+        "end_line": 35,
+        "start_column": 4,
+        "start_line": 35
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "module": "inline"
+      },
+      "content_hash": "sha256:e769d10551049c5e42c953a4d2976a8ad3048fb2b5c1813b92d7b1411d38b56c",
+      "file": "src/lib.rs",
+      "identity": "function:src/lib.rs#inline.go",
+      "kind": "function",
+      "level": 4,
+      "name": "go",
+      "qualified_name": "inline.go",
+      "span": {
+        "end_column": 44,
+        "end_line": 34,
+        "start_column": 4,
+        "start_line": 34
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "module": ""
+      },
+      "content_hash": "sha256:5bb80a029298a77e0c71e134802e08e6dbcdc1060e647d823758309c548d345d",
+      "file": "src/lib.rs",
+      "identity": "function:src/lib.rs#run",
+      "kind": "function",
+      "level": 4,
+      "name": "run",
+      "qualified_name": "run",
+      "span": {
+        "end_column": 1,
+        "end_line": 31,
+        "start_column": 0,
+        "start_line": 22
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "module": "tests"
+      },
+      "content_hash": "sha256:5be67d651b09ac0828861441b251c568f2def88aefe3ee38d490c9698002ce81",
+      "file": "src/lib.rs",
+      "identity": "function:src/lib.rs#tests.check",
+      "kind": "function",
+      "level": 4,
+      "name": "check",
+      "qualified_name": "tests.check",
+      "span": {
+        "end_column": 25,
+        "end_line": 40,
+        "start_column": 4,
+        "start_line": 40
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "module": ""
+      },
+      "content_hash": "sha256:80321d69eea63751996a9581cb89921ff17db4ea4dbc9d8a8e5671639986bdb3",
+      "file": "src/nested/leaf.rs",
+      "identity": "function:src/nested/leaf.rs#end",
+      "kind": "function",
+      "level": 4,
+      "name": "end",
+      "qualified_name": "end",
+      "span": {
+        "end_column": 15,
+        "end_line": 1,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "module": ""
+      },
+      "content_hash": "sha256:23063b7e1b915f95ca889d0c9556351807670074a7f5dfb3c2416ca206eb2bff",
+      "file": "src/nested/mod.rs",
+      "identity": "function:src/nested/mod.rs#deep",
+      "kind": "function",
+      "level": 4,
+      "name": "deep",
+      "qualified_name": "deep",
+      "span": {
+        "end_column": 46,
+        "end_line": 3,
+        "start_column": 0,
+        "start_line": 3
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "module": ""
+      },
+      "content_hash": "sha256:4980c9e65d4209de68c6db213efb3f00a2aee4d042023a1433d5bcd5f184752b",
+      "file": "src/worker.rs",
+      "identity": "function:src/worker.rs#work",
+      "kind": "function",
+      "level": 4,
+      "name": "work",
+      "qualified_name": "work",
+      "span": {
+        "end_column": 40,
+        "end_line": 16,
+        "start_column": 0,
+        "start_line": 16
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "module": ""
+      },
+      "content_hash": "sha256:8f944e6e112258d005bb26c0ff71d778e9182f42a530cf019a772727835ebb81",
+      "file": "src/lib.rs",
+      "identity": "macro:src/lib.rs#greeting",
+      "kind": "macro",
+      "level": 4,
+      "name": "greeting",
+      "qualified_name": "greeting",
+      "span": {
+        "end_column": 43,
+        "end_line": 16,
+        "start_column": 0,
+        "start_line": 16
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "module": "",
+        "receiver": "Local",
+        "receiver_path": "Local",
+        "trait": ""
+      },
+      "content_hash": "sha256:7d8e874e23a47a774838832ae3dd00978601f9b686a9db682b81f3f00b0f380b",
+      "file": "src/lib.rs",
+      "identity": "method:src/lib.rs#Local.save",
+      "kind": "method",
+      "level": 4,
+      "name": "save",
+      "qualified_name": "Local.save",
+      "span": {
+        "end_column": 32,
+        "end_line": 19,
+        "start_column": 4,
+        "start_line": 19
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "module": "",
+        "receiver": "List",
+        "receiver_path": "List",
+        "trait": ""
+      },
+      "content_hash": "sha256:a7edd0873be1c7d5887ad77bdc976ad0ec1a74f94838865944ad212c4386e4be",
+      "file": "src/worker.rs",
+      "identity": "method:src/worker.rs#List.empty",
+      "kind": "method",
+      "level": 4,
+      "name": "empty",
+      "qualified_name": "List.empty",
+      "span": {
+        "end_column": 17,
+        "end_line": 14,
+        "start_column": 4,
+        "start_line": 14
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "module": "",
+        "receiver": "List",
+        "receiver_path": "List",
+        "trait": ""
+      },
+      "content_hash": "sha256:cd1403007fc7411ec479490290b780cd7af8daf45db2acd264a4a56c5c93009a",
+      "file": "src/worker.rs",
+      "identity": "method:src/worker.rs#List.len",
+      "kind": "method",
+      "level": 4,
+      "name": "len",
+      "qualified_name": "List.len",
+      "span": {
+        "end_column": 40,
+        "end_line": 13,
+        "start_column": 4,
+        "start_line": 13
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "module": "",
+        "receiver": "User",
+        "receiver_path": "User",
+        "trait": ""
+      },
+      "content_hash": "sha256:ac471507cbbf3b63c89888263a913ee4a772ce78b6b49113320408a7b9412d67",
+      "file": "src/worker.rs",
+      "identity": "method:src/worker.rs#User.new",
+      "kind": "method",
+      "level": 4,
+      "name": "new",
+      "qualified_name": "User.new",
+      "span": {
+        "end_column": 44,
+        "end_line": 4,
+        "start_column": 4,
+        "start_line": 4
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "module": "",
+        "receiver": "User",
+        "receiver_path": "User",
+        "trait": ""
+      },
+      "content_hash": "sha256:4ae61d6bf4c734209fab4d2f4b0e0d1df5aeee61965a329ea0ff11edbafa156b",
+      "file": "src/worker.rs",
+      "identity": "method:src/worker.rs#User.save",
+      "kind": "method",
+      "level": 4,
+      "name": "save",
+      "qualified_name": "User.save",
+      "span": {
+        "end_column": 43,
+        "end_line": 5,
+        "start_column": 4,
+        "start_line": 5
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "module": "",
+        "receiver": "User",
+        "receiver_path": "User",
+        "trait": "Local"
+      },
+      "content_hash": "sha256:82bffc85db92460c41a59232d32fdc863aa2631b16d329844163e7eb1db1184d",
+      "file": "src/worker.rs",
+      "identity": "method:src/worker.rs#User.save%40Local",
+      "kind": "method",
+      "level": 4,
+      "name": "save",
+      "qualified_name": "User.save@Local",
+      "span": {
+        "end_column": 39,
+        "end_line": 9,
+        "start_column": 4,
+        "start_line": 9
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "module": "",
+        "receiver": "User",
+        "receiver_path": "User",
+        "trait": ""
+      },
+      "content_hash": "sha256:18b691c9d1a702edbc8dc38490571e44e49b48ad34e29e9bcf52ec456067bffa",
+      "file": "src/worker.rs",
+      "identity": "method:src/worker.rs#User.validate",
+      "kind": "method",
+      "level": 4,
+      "name": "validate",
+      "qualified_name": "User.validate",
+      "span": {
+        "end_column": 36,
+        "end_line": 6,
+        "start_column": 4,
+        "start_line": 6
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "autobins": true,
+        "bins": [],
+        "dependencies": [],
+        "directory": ".",
+        "ecosystem": "cargo",
+        "lib": false,
+        "name": "fixture"
+      },
+      "content_hash": "sha256:f168d5884868a858206914e169087463c621dc12ccc3381c14ea210379fccc00",
+      "file": "Cargo.toml",
+      "identity": "package:Cargo.toml#fixture",
+      "kind": "package",
+      "level": 2,
+      "name": "fixture",
+      "qualified_name": "fixture",
+      "span": {
+        "end_column": 0,
+        "end_line": 5,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "module": ""
+      },
+      "content_hash": "sha256:3b1fec7a7a8e1ecbea890309df963ab77ba4970e132ecf44658c00fdca90bf73",
+      "file": "src/worker.rs",
+      "identity": "struct:src/worker.rs#List",
+      "kind": "struct",
+      "level": 4,
+      "name": "List",
+      "qualified_name": "List",
+      "span": {
+        "end_column": 36,
+        "end_line": 11,
+        "start_column": 0,
+        "start_line": 11
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "module": ""
+      },
+      "content_hash": "sha256:035cfd30e87abbf8008fcc0b7b1fade58416955519ce543b2c2c2c0a254b6997",
+      "file": "src/worker.rs",
+      "identity": "struct:src/worker.rs#User",
+      "kind": "struct",
+      "level": 4,
+      "name": "User",
+      "qualified_name": "User",
+      "span": {
+        "end_column": 16,
+        "end_line": 2,
+        "start_column": 0,
+        "start_line": 2
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "module": ""
+      },
+      "content_hash": "sha256:5eed39fd8767c8f7382821ecf218ef7d77c45d6162b0d78df6eb1afc7da37385",
+      "file": "src/lib.rs",
+      "identity": "trait:src/lib.rs#Local",
+      "kind": "trait",
+      "level": 4,
+      "name": "Local",
+      "qualified_name": "Local",
+      "span": {
+        "end_column": 1,
+        "end_line": 20,
+        "start_column": 0,
+        "start_line": 18
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "module": ""
+      },
+      "content_hash": "sha256:1e4c1b738fdb8f07d2a344eb417d0112567408c3f6163d60dede9d09a4cf1bb4",
+      "file": "src/lib.rs",
+      "identity": "type_alias:src/lib.rs#Alias",
+      "kind": "type_alias",
+      "level": 4,
+      "name": "Alias",
+      "qualified_name": "Alias",
+      "span": {
+        "end_column": 23,
+        "end_line": 15,
+        "start_column": 0,
+        "start_line": 15
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "module": ""
+      },
+      "content_hash": "sha256:d7fd809f7eb831318c922a57a3a4d9024d0fa59c7ae507050b541d929bf9fadb",
+      "file": "src/lib.rs",
+      "identity": "union:src/lib.rs#Value",
+      "kind": "union",
+      "level": 4,
+      "name": "Value",
+      "qualified_name": "Value",
+      "span": {
+        "end_column": 42,
+        "end_line": 13,
+        "start_column": 0,
+        "start_line": 13
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "module": ""
+      },
+      "content_hash": "sha256:eef21950a29684c03b63ab73ecd0dd81a73aea5296dbadb840646ca949a64e30",
+      "file": "src/lib.rs",
+      "identity": "variable:src/lib.rs#READY",
+      "kind": "variable",
+      "level": 4,
+      "name": "READY",
+      "qualified_name": "READY",
+      "span": {
+        "end_column": 30,
+        "end_line": 12,
+        "start_column": 0,
+        "start_line": 12
+      },
+      "type": "node"
+    }
+  ]
+}

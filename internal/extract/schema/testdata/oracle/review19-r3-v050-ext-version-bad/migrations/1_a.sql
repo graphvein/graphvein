@@ -1,0 +1,1 @@
+CREATE EXTENSION pgcrypto VERSION '9.9';

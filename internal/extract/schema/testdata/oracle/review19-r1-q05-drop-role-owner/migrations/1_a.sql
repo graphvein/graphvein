@@ -1,0 +1,4 @@
+CREATE ROLE rv_q5;
+CREATE TABLE t (a int);
+ALTER TABLE t OWNER TO rv_q5;
+DROP ROLE rv_q5;

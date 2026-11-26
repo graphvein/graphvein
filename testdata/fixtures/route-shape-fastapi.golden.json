@@ -1,0 +1,6404 @@
+{
+  "models": {
+    "Aliased": {
+      "additional": "unknown",
+      "fields": [
+        {
+          "name": "userName",
+          "presence": "required",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "ByName": {
+      "reason": "populate_by_name: an aliased field is also accepted under its field name",
+      "type": "unknown"
+    },
+    "Checked": {
+      "additional": "unknown",
+      "fields": [
+        {
+          "name": "tags",
+          "presence": "required",
+          "schema": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "Computed": {
+      "reason": "computed field double is not read",
+      "type": "unknown"
+    },
+    "FormData": {
+      "additional": "unknown",
+      "fields": [
+        {
+          "name": "username",
+          "presence": "required",
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "age",
+          "presence": "required",
+          "schema": {
+            "type": "integer"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "Generated": {
+      "reason": "model_config is not read",
+      "type": "unknown"
+    },
+    "HTTPValidationError": {
+      "additional": "unknown",
+      "fields": [
+        {
+          "name": "detail",
+          "presence": "optional",
+          "schema": {
+            "items": {
+              "ref": "ValidationError",
+              "type": "ref"
+            },
+            "type": "array"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "Hero": {
+      "reason": "class keyword table is not read",
+      "type": "unknown"
+    },
+    "Item": {
+      "additional": "unknown",
+      "fields": [
+        {
+          "name": "name",
+          "presence": "required",
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "price",
+          "presence": "optional",
+          "schema": {
+            "type": "number"
+          }
+        },
+        {
+          "name": "tags",
+          "presence": "optional",
+          "schema": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        {
+          "name": "note",
+          "presence": "required",
+          "schema": {
+            "nullable": true,
+            "type": "string"
+          }
+        },
+        {
+          "name": "id",
+          "presence": "required",
+          "schema": {
+            "type": "integer"
+          }
+        },
+        {
+          "name": "owner",
+          "presence": "optional",
+          "schema": {
+            "reason": "string annotation \"Owner | None\" is not read",
+            "type": "unknown"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "ItemCreate": {
+      "additional": "unknown",
+      "fields": [
+        {
+          "name": "name",
+          "presence": "required",
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "price",
+          "presence": "optional",
+          "schema": {
+            "type": "number"
+          }
+        },
+        {
+          "name": "tags",
+          "presence": "optional",
+          "schema": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        {
+          "name": "note",
+          "presence": "required",
+          "schema": {
+            "nullable": true,
+            "type": "string"
+          }
+        },
+        {
+          "name": "color",
+          "presence": "optional",
+          "schema": {
+            "enum": [
+              "red",
+              "blue"
+            ],
+            "type": "enum"
+          }
+        },
+        {
+          "name": "size",
+          "presence": "optional",
+          "schema": {
+            "enum": [
+              "s",
+              "m"
+            ],
+            "type": "enum"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "Message": {
+      "additional": "unknown",
+      "fields": [
+        {
+          "name": "message",
+          "presence": "required",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "Owner": {
+      "additional": "forbidden",
+      "fields": [
+        {
+          "name": "userName",
+          "presence": "required",
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "email",
+          "presence": "required",
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "items",
+          "presence": "optional",
+          "schema": {
+            "items": {
+              "ref": "Item",
+              "type": "ref"
+            },
+            "type": "array"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "Plain": {
+      "additional": "unknown",
+      "fields": [
+        {
+          "name": "name",
+          "presence": "required",
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "x",
+          "presence": "required",
+          "schema": {
+            "nullable": true,
+            "type": "integer"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "Reshaped": {
+      "reason": "model_validator accept_bare is not read",
+      "type": "unknown"
+    },
+    "Serialized": {
+      "reason": "field_serializer show is not read",
+      "type": "unknown"
+    },
+    "Tags": {
+      "reason": "field_validator split runs before the field's validation",
+      "type": "unknown"
+    },
+    "ValidationError": {
+      "additional": "unknown",
+      "fields": [
+        {
+          "name": "loc",
+          "presence": "required",
+          "schema": {
+            "items": {
+              "reason": "a string or an integer",
+              "type": "unknown"
+            },
+            "type": "array"
+          }
+        },
+        {
+          "name": "msg",
+          "presence": "required",
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "type",
+          "presence": "required",
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "input",
+          "presence": "optional",
+          "schema": {
+            "reason": "any value",
+            "type": "unknown"
+          }
+        },
+        {
+          "name": "ctx",
+          "presence": "optional",
+          "schema": {
+            "additional": "allowed",
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    }
+  },
+  "routes": [
+    {
+      "chains": [
+        "query depth 1 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/routers/admin.py#GET%20%2Fraw%2F%7Bslot%3Aint%7D",
+      "models": [
+        "HTTPValidationError",
+        "ValidationError"
+      ],
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/routers/admin.py:22",
+          "state": "provably_none"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/routers/admin.py:22",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/routers/admin.py:22",
+          "items": [
+            {
+              "access": "declared",
+              "at": "app/routers/admin.py:9",
+              "chain": [
+                "app/main.py:8 tenant_header"
+              ],
+              "key": "x-tenant",
+              "kind": "fact",
+              "presence": "required",
+              "rule": "SH-F5",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "state": "complete"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/admin.py:21",
+          "items": [
+            {
+              "access": "declared",
+              "at": "app/routers/admin.py:21",
+              "key": "tenant",
+              "kind": "fact",
+              "presence": "required",
+              "rule": "SH-F2",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "access": "declared",
+              "at": "app/routers/admin.py:21",
+              "key": "slot",
+              "kind": "fact",
+              "presence": "required",
+              "rule": "SH-F2",
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "state": "complete"
+        },
+        "query": {
+          "evidence": "SH-F23 app/routers/admin.py:22",
+          "state": "provably_none"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/admin.py:21",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "fact",
+              "rule": "SH-F27",
+              "schema": {
+                "reason": "no response model is declared",
+                "type": "unknown"
+              }
+            },
+            {
+              "at": "app/routers/admin.py:21",
+              "content_type": "application/json",
+              "key": "422",
+              "kind": "fact",
+              "rule": "SH-F30",
+              "schema": {
+                "ref": "HTTPValidationError",
+                "type": "ref"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read; a returned value is not read (app/routers/admin.py:23)",
+          "state": "partial"
+        },
+        "security": {
+          "items": [
+            {
+              "at": "app/routers/admin.py:21",
+              "key": "APIKeyHeader",
+              "kind": "fact",
+              "rule": "SH-F33",
+              "schema": null
+            }
+          ],
+          "reason": "middleware is not read",
+          "state": "partial"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 1 ended",
+        "query depth 1 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/routers/admin.py#GET%20%2Fstats",
+      "models": [
+        "HTTPValidationError",
+        "ValidationError"
+      ],
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/routers/admin.py:17",
+          "state": "provably_none"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/routers/admin.py:17",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/routers/admin.py:17",
+          "items": [
+            {
+              "access": "declared",
+              "at": "app/routers/admin.py:9",
+              "chain": [
+                "app/main.py:8 tenant_header"
+              ],
+              "key": "x-tenant",
+              "kind": "fact",
+              "presence": "required",
+              "rule": "SH-F5",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "state": "complete"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/admin.py:16",
+          "items": [
+            {
+              "access": "declared",
+              "at": "app/routers/admin.py:17",
+              "key": "tenant",
+              "kind": "fact",
+              "presence": "required",
+              "rule": "SH-F1",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "state": "complete"
+        },
+        "query": {
+          "evidence": "SH-F23 app/routers/admin.py:17",
+          "items": [
+            {
+              "access": "declared",
+              "at": "app/deps.py:10",
+              "chain": [
+                "app/routers/admin.py:17 pagination"
+              ],
+              "key": "skip",
+              "kind": "fact",
+              "presence": "optional",
+              "rule": "SH-F4",
+              "schema": {
+                "type": "integer"
+              }
+            },
+            {
+              "access": "declared",
+              "at": "app/deps.py:10",
+              "chain": [
+                "app/routers/admin.py:17 pagination"
+              ],
+              "key": "limit",
+              "kind": "fact",
+              "presence": "optional",
+              "rule": "SH-F5",
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "state": "complete"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/admin.py:16",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "fact",
+              "rule": "SH-F27",
+              "schema": {
+                "reason": "no response model is declared",
+                "type": "unknown"
+              }
+            },
+            {
+              "at": "app/routers/admin.py:16",
+              "content_type": "application/json",
+              "key": "422",
+              "kind": "fact",
+              "rule": "SH-F30",
+              "schema": {
+                "ref": "HTTPValidationError",
+                "type": "ref"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read; a returned value is not read (app/routers/admin.py:18)",
+          "state": "partial"
+        },
+        "security": {
+          "items": [
+            {
+              "at": "app/routers/admin.py:16",
+              "key": "APIKeyHeader",
+              "kind": "fact",
+              "rule": "SH-F33",
+              "schema": null
+            }
+          ],
+          "reason": "middleware is not read",
+          "state": "partial"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/routers/items.py#DELETE%20%2Fitems%2F%7Bitem_id%7D",
+      "models": [
+        "HTTPValidationError",
+        "ValidationError"
+      ],
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/routers/items.py:171",
+          "state": "provably_none"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/routers/items.py:171",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/routers/items.py:171",
+          "state": "provably_none"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/items.py:170",
+          "items": [
+            {
+              "access": "declared",
+              "at": "app/routers/items.py:171",
+              "key": "item_id",
+              "kind": "fact",
+              "presence": "required",
+              "rule": "SH-F1",
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "state": "complete"
+        },
+        "query": {
+          "evidence": "SH-F23 app/routers/items.py:171",
+          "state": "provably_none"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/items.py:170",
+              "content_type": null,
+              "key": "204",
+              "kind": "fact",
+              "rule": "SH-F24",
+              "schema": {
+                "type": "null"
+              }
+            },
+            {
+              "at": "app/routers/items.py:170",
+              "content_type": "application/json",
+              "key": "422",
+              "kind": "fact",
+              "rule": "SH-F30",
+              "schema": {
+                "ref": "HTTPValidationError",
+                "type": "ref"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 ambiguous at app/routers/items.py:216 twice (twice is bound more than once)"
+      ],
+      "identity": "route:app/routers/items.py#GET%20%2Fambiguous",
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/routers/items.py:215",
+          "state": "provably_none"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/routers/items.py:215",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/routers/items.py:215",
+          "state": "provably_none"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/items.py:214",
+          "state": "provably_none"
+        },
+        "query": {
+          "evidence": "SH-F23 app/routers/items.py:215",
+          "state": "provably_none"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/items.py:214",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "intended",
+              "rule": "SH-F27",
+              "schema": {
+                "reason": "no response model is declared",
+                "type": "unknown"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read; a call was not followed (ambiguous: twice is bound more than once) at app/routers/items.py:216; the value of twice is returned (app/routers/items.py:216): it may be a Response",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/routers/items.py#GET%20%2Fannotated-list",
+      "models": [
+        "Item"
+      ],
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/routers/items.py:230",
+          "state": "provably_none"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/routers/items.py:230",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/routers/items.py:230",
+          "state": "provably_none"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/items.py:229",
+          "state": "provably_none"
+        },
+        "query": {
+          "evidence": "SH-F23 app/routers/items.py:230",
+          "state": "provably_none"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/items.py:230",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "fact",
+              "rule": "SH-F26",
+              "schema": {
+                "items": {
+                  "ref": "Item",
+                  "type": "ref"
+                },
+                "type": "array"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/routers/items.py#GET%20%2Fcaught%2F%7Bitem_id%7D",
+      "models": [
+        "HTTPValidationError",
+        "ValidationError"
+      ],
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/routers/items.py:298",
+          "state": "provably_none"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/routers/items.py:298",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/routers/items.py:298",
+          "state": "provably_none"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/items.py:297",
+          "items": [
+            {
+              "access": "declared",
+              "at": "app/routers/items.py:298",
+              "key": "item_id",
+              "kind": "fact",
+              "presence": "required",
+              "rule": "SH-F1",
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "state": "complete"
+        },
+        "query": {
+          "evidence": "SH-F23 app/routers/items.py:298",
+          "state": "provably_none"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/items.py:297",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "fact",
+              "rule": "SH-F27",
+              "schema": {
+                "reason": "no response model is declared",
+                "type": "unknown"
+              }
+            },
+            {
+              "at": "app/routers/items.py:297",
+              "content_type": "application/json",
+              "key": "422",
+              "kind": "fact",
+              "rule": "SH-F30",
+              "schema": {
+                "ref": "HTTPValidationError",
+                "type": "ref"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read; a returned value is not read (app/routers/items.py:302); a returned value is not read (app/routers/items.py:303)",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/routers/items.py#GET%20%2Fcomputed",
+      "models": [
+        "Computed"
+      ],
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/routers/items.py:235",
+          "state": "provably_none"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/routers/items.py:235",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/routers/items.py:235",
+          "state": "provably_none"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/items.py:234",
+          "state": "provably_none"
+        },
+        "query": {
+          "evidence": "SH-F23 app/routers/items.py:235",
+          "state": "provably_none"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/items.py:235",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "fact",
+              "rule": "SH-F26",
+              "schema": {
+                "ref": "Computed",
+                "type": "ref"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "header depth 2 cycle at app/helpers.py:37 ping",
+        "responses depth 1 ended"
+      ],
+      "identity": "route:app/routers/items.py#GET%20%2Fcycle",
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/routers/items.py:136",
+          "state": "provably_none"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/routers/items.py:136",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/routers/items.py:136",
+          "state": "provably_none"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/items.py:135",
+          "state": "provably_none"
+        },
+        "query": {
+          "evidence": "SH-F23 app/routers/items.py:136",
+          "state": "provably_none"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/items.py:135",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "fact",
+              "rule": "SH-F27",
+              "schema": {
+                "reason": "no response model is declared",
+                "type": "unknown"
+              }
+            },
+            {
+              "at": "app/helpers.py:32",
+              "chain": [
+                "app/routers/items.py:137 ping"
+              ],
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "returned",
+              "rule": "SH-F31",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 2 ended",
+        "query depth 1 ended",
+        "query depth 1 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/routers/items.py#GET%20%2Fdeps%2F%7Bitem_id%7D",
+      "models": [
+        "HTTPValidationError",
+        "ValidationError"
+      ],
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/routers/items.py:106",
+          "state": "provably_none"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/routers/items.py:106",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/routers/items.py:106",
+          "items": [
+            {
+              "access": "declared",
+              "at": "app/deps.py:22",
+              "chain": [
+                "app/routers/items.py:106 common"
+              ],
+              "key": "X-Token",
+              "kind": "fact",
+              "presence": "required",
+              "rule": "SH-F5",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "access": "declared",
+              "at": "app/deps.py:18",
+              "chain": [
+                "app/routers/items.py:106 item_owner"
+              ],
+              "key": "x-owner",
+              "kind": "fact",
+              "presence": "required",
+              "rule": "SH-F5",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "state": "complete"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/items.py:105",
+          "items": [
+            {
+              "access": "declared",
+              "at": "app/deps.py:18",
+              "chain": [
+                "app/routers/items.py:106 item_owner"
+              ],
+              "key": "item_id",
+              "kind": "fact",
+              "presence": "required",
+              "rule": "SH-F1",
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "state": "complete"
+        },
+        "query": {
+          "evidence": "SH-F23 app/routers/items.py:106",
+          "items": [
+            {
+              "access": "declared",
+              "at": "app/deps.py:10",
+              "chain": [
+                "app/routers/items.py:106 common",
+                "app/deps.py:22 pagination"
+              ],
+              "key": "skip",
+              "kind": "fact",
+              "presence": "optional",
+              "rule": "SH-F4",
+              "schema": {
+                "type": "integer"
+              }
+            },
+            {
+              "access": "declared",
+              "at": "app/deps.py:10",
+              "chain": [
+                "app/routers/items.py:106 common",
+                "app/deps.py:22 pagination"
+              ],
+              "key": "limit",
+              "kind": "fact",
+              "presence": "optional",
+              "rule": "SH-F5",
+              "schema": {
+                "type": "integer"
+              }
+            },
+            {
+              "access": "declared",
+              "at": "app/deps.py:40",
+              "chain": [
+                "app/routers/items.py:106 Filters.__init__"
+              ],
+              "key": "q",
+              "kind": "fact",
+              "presence": "optional",
+              "rule": "SH-F4",
+              "schema": {
+                "nullable": true,
+                "type": "string"
+              }
+            },
+            {
+              "access": "declared",
+              "at": "app/deps.py:40",
+              "chain": [
+                "app/routers/items.py:106 Filters.__init__"
+              ],
+              "key": "color",
+              "kind": "fact",
+              "presence": "optional",
+              "rule": "SH-F4",
+              "schema": {
+                "enum": [
+                  "red",
+                  "blue"
+                ],
+                "type": "enum"
+              }
+            }
+          ],
+          "state": "complete"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/items.py:105",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "fact",
+              "rule": "SH-F27",
+              "schema": {
+                "reason": "no response model is declared",
+                "type": "unknown"
+              }
+            },
+            {
+              "at": "app/routers/items.py:105",
+              "content_type": "application/json",
+              "key": "422",
+              "kind": "fact",
+              "rule": "SH-F30",
+              "schema": {
+                "ref": "HTTPValidationError",
+                "type": "ref"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read; a returned value is not read (app/routers/items.py:107)",
+          "state": "partial"
+        },
+        "security": {
+          "reason": "a security dependency is not read: class dependency: its __init__ parameters are not read; middleware is not read",
+          "state": "partial"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/routers/items.py#GET%20%2Fdynamic",
+      "models": [
+        "HTTPValidationError",
+        "ValidationError"
+      ],
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/routers/items.py:151",
+          "state": "provably_none"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/routers/items.py:151",
+          "state": "provably_none"
+        },
+        "header": {
+          "reason": "a name read is not a literal (app/routers/items.py:152)",
+          "state": "partial"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/items.py:150",
+          "state": "provably_none"
+        },
+        "query": {
+          "evidence": "SH-F23 app/routers/items.py:151",
+          "items": [
+            {
+              "access": "declared",
+              "at": "app/routers/items.py:151",
+              "key": "name",
+              "kind": "fact",
+              "presence": "required",
+              "rule": "SH-F4",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "state": "complete"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/items.py:150",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "intended",
+              "rule": "SH-F27",
+              "schema": {
+                "reason": "no response model is declared",
+                "type": "unknown"
+              }
+            },
+            {
+              "at": "app/routers/items.py:150",
+              "content_type": "application/json",
+              "key": "422",
+              "kind": "fact",
+              "rule": "SH-F30",
+              "schema": {
+                "ref": "HTTPValidationError",
+                "type": "ref"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read; a returned value is not read (app/routers/items.py:152); a returned value is not read (app/routers/items.py:152): it may be a Response",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "header depth 1 ended",
+        "responses depth 1 ended"
+      ],
+      "identity": "route:app/routers/items.py#GET%20%2Fescape",
+      "sections": {
+        "body": {
+          "reason": "the request value is used where its reads are not followed (app/helpers.py:45)",
+          "state": "partial"
+        },
+        "cookie": {
+          "reason": "the request value is used where its reads are not followed (app/helpers.py:45)",
+          "state": "partial"
+        },
+        "header": {
+          "reason": "the request value is used where its reads are not followed (app/helpers.py:45)",
+          "state": "partial"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/items.py:130",
+          "state": "provably_none"
+        },
+        "query": {
+          "reason": "the request value is used where its reads are not followed (app/helpers.py:45)",
+          "state": "partial"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/items.py:130",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "fact",
+              "rule": "SH-F27",
+              "schema": {
+                "reason": "no response model is declared",
+                "type": "unknown"
+              }
+            },
+            {
+              "at": "app/helpers.py:44",
+              "chain": [
+                "app/routers/items.py:132 dumped"
+              ],
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "returned",
+              "rule": "SH-F31",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 external at app/routers/items.py:221 jsonable_encoder (fastapi.encoders.jsonable_encoder)"
+      ],
+      "identity": "route:app/routers/items.py#GET%20%2Fexternal",
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/routers/items.py:220",
+          "state": "provably_none"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/routers/items.py:220",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/routers/items.py:220",
+          "state": "provably_none"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/items.py:219",
+          "state": "provably_none"
+        },
+        "query": {
+          "evidence": "SH-F23 app/routers/items.py:220",
+          "state": "provably_none"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/items.py:219",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "fact",
+              "rule": "SH-F27",
+              "schema": {
+                "reason": "no response model is declared",
+                "type": "unknown"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read; a call was not followed (external: fastapi.encoders.jsonable_encoder) at app/routers/items.py:221",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/routers/items.py#GET%20%2Ffield",
+      "sections": {
+        "body": {
+          "reason": "parameter n (app/routers/items.py:260): pydantic Field() in a parameter annotation is not read",
+          "state": "partial"
+        },
+        "cookie": {
+          "reason": "parameter n (app/routers/items.py:260): pydantic Field() in a parameter annotation is not read",
+          "state": "partial"
+        },
+        "header": {
+          "reason": "parameter n (app/routers/items.py:260): pydantic Field() in a parameter annotation is not read",
+          "state": "partial"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/items.py:259",
+          "state": "provably_none"
+        },
+        "query": {
+          "reason": "parameter n (app/routers/items.py:260): pydantic Field() in a parameter annotation is not read",
+          "state": "partial"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/items.py:259",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "fact",
+              "rule": "SH-F27",
+              "schema": {
+                "reason": "no response model is declared",
+                "type": "unknown"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read; a returned value is not read (app/routers/items.py:261)",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/routers/items.py#GET%20%2Ffiles%2F%7Bfile_path%3Apath%7D%2F%7Bversion%3Aint%7D",
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/routers/items.py:26",
+          "state": "provably_none"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/routers/items.py:26",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/routers/items.py:26",
+          "state": "provably_none"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/items.py:25",
+          "items": [
+            {
+              "access": "declared",
+              "at": "app/routers/items.py:25",
+              "key": "file_path",
+              "kind": "fact",
+              "presence": "required",
+              "rule": "SH-F2",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "access": "declared",
+              "at": "app/routers/items.py:25",
+              "key": "version",
+              "kind": "fact",
+              "presence": "required",
+              "rule": "SH-F2",
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "state": "complete"
+        },
+        "query": {
+          "evidence": "SH-F23 app/routers/items.py:26",
+          "state": "provably_none"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/items.py:25",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "fact",
+              "rule": "SH-F27",
+              "schema": {
+                "reason": "no response model is declared",
+                "type": "unknown"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read; a returned value is not read (app/routers/items.py:27)",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 2 ended"
+      ],
+      "identity": "route:app/routers/items.py#GET%20%2Fguarded%2F%7Bitem_id%7D",
+      "models": [
+        "HTTPValidationError",
+        "ValidationError",
+        "Item"
+      ],
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/routers/items.py:202",
+          "state": "provably_none"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/routers/items.py:202",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/routers/items.py:202",
+          "state": "provably_none"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/items.py:201",
+          "items": [
+            {
+              "access": "declared",
+              "at": "app/routers/items.py:202",
+              "key": "item_id",
+              "kind": "fact",
+              "presence": "required",
+              "rule": "SH-F1",
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "state": "complete"
+        },
+        "query": {
+          "evidence": "SH-F23 app/routers/items.py:202",
+          "state": "provably_none"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/items.py:201",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "fact",
+              "rule": "SH-F27",
+              "schema": {
+                "reason": "no response model is declared",
+                "type": "unknown"
+              }
+            },
+            {
+              "at": "app/crud.py:6",
+              "chain": [
+                "app/routers/items.py:203 guarded",
+                "app/crud.py:30 get_item"
+              ],
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "returned",
+              "rule": "SH-F31",
+              "schema": {
+                "ref": "Item",
+                "type": "ref"
+              }
+            },
+            {
+              "at": "app/routers/items.py:201",
+              "content_type": "application/json",
+              "key": "422",
+              "kind": "fact",
+              "rule": "SH-F30",
+              "schema": {
+                "ref": "HTTPValidationError",
+                "type": "ref"
+              }
+            },
+            {
+              "at": "app/crud.py:8",
+              "chain": [
+                "app/routers/items.py:203 guarded",
+                "app/crud.py:30 get_item"
+              ],
+              "content_type": null,
+              "key": "404",
+              "kind": "fact",
+              "rule": "SH-F29",
+              "schema": null
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read; an HTTPException raised inside try may be caught (app/crud.py:27)",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/routers/items.py#GET%20%2Fhidden",
+      "models": [
+        "HTTPValidationError",
+        "ValidationError"
+      ],
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/routers/items.py:156",
+          "state": "provably_none"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/routers/items.py:156",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/routers/items.py:156",
+          "state": "provably_none"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/items.py:155",
+          "state": "provably_none"
+        },
+        "query": {
+          "evidence": "SH-F23 app/routers/items.py:156",
+          "items": [
+            {
+              "access": "declared",
+              "at": "app/routers/items.py:156",
+              "key": "q",
+              "kind": "fact",
+              "presence": "required",
+              "rule": "SH-F4",
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "state": "complete"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/items.py:155",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "fact",
+              "rule": "SH-F27",
+              "schema": {
+                "reason": "no response model is declared",
+                "type": "unknown"
+              }
+            },
+            {
+              "at": "app/routers/items.py:155",
+              "content_type": "application/json",
+              "key": "422",
+              "kind": "fact",
+              "rule": "SH-F30",
+              "schema": {
+                "ref": "HTTPValidationError",
+                "type": "ref"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read; a returned value is not read (app/routers/items.py:157)",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/routers/items.py#GET%20%2Fhtml",
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/routers/items.py:181",
+          "state": "provably_none"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/routers/items.py:181",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/routers/items.py:181",
+          "state": "provably_none"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/items.py:180",
+          "state": "provably_none"
+        },
+        "query": {
+          "evidence": "SH-F23 app/routers/items.py:181",
+          "state": "provably_none"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/items.py:180",
+              "content_type": "text/html",
+              "key": "200",
+              "kind": "fact",
+              "rule": "SH-F27",
+              "schema": {
+                "reason": "no response model is declared",
+                "type": "unknown"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read; a returned value is not read (app/routers/items.py:182)",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/routers/items.py#GET%20%2Fitems%2F%7Bitem_id%7D",
+      "models": [
+        "HTTPValidationError",
+        "ValidationError",
+        "Item"
+      ],
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/routers/items.py:19",
+          "state": "provably_none"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/routers/items.py:19",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/routers/items.py:19",
+          "state": "provably_none"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/items.py:18",
+          "items": [
+            {
+              "access": "declared",
+              "at": "app/routers/items.py:19",
+              "key": "item_id",
+              "kind": "fact",
+              "presence": "required",
+              "rule": "SH-F1",
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "state": "complete"
+        },
+        "query": {
+          "evidence": "SH-F23 app/routers/items.py:19",
+          "items": [
+            {
+              "access": "declared",
+              "at": "app/routers/items.py:19",
+              "key": "q",
+              "kind": "fact",
+              "presence": "optional",
+              "rule": "SH-F4",
+              "schema": {
+                "nullable": true,
+                "type": "string"
+              }
+            },
+            {
+              "access": "declared",
+              "at": "app/routers/items.py:19",
+              "key": "verbose",
+              "kind": "fact",
+              "presence": "optional",
+              "rule": "SH-F4",
+              "schema": {
+                "type": "boolean"
+              }
+            }
+          ],
+          "state": "complete"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/items.py:18",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "fact",
+              "rule": "SH-F25",
+              "schema": {
+                "ref": "Item",
+                "type": "ref"
+              }
+            },
+            {
+              "at": "app/routers/items.py:18",
+              "content_type": "application/json",
+              "key": "422",
+              "kind": "fact",
+              "rule": "SH-F30",
+              "schema": {
+                "ref": "HTTPValidationError",
+                "type": "ref"
+              }
+            },
+            {
+              "at": "app/routers/items.py:21",
+              "content_type": null,
+              "key": "404",
+              "kind": "fact",
+              "rule": "SH-F29",
+              "schema": null
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 1 ended",
+        "query depth 1 joined at app/deps.py:22 pagination",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/routers/items.py#GET%20%2Fjoined",
+      "models": [
+        "HTTPValidationError",
+        "ValidationError"
+      ],
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/routers/items.py:255",
+          "state": "provably_none"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/routers/items.py:255",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/routers/items.py:255",
+          "items": [
+            {
+              "access": "declared",
+              "at": "app/deps.py:22",
+              "chain": [
+                "app/routers/items.py:255 common"
+              ],
+              "key": "X-Token",
+              "kind": "fact",
+              "presence": "required",
+              "rule": "SH-F5",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "state": "complete"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/items.py:254",
+          "state": "provably_none"
+        },
+        "query": {
+          "evidence": "SH-F23 app/routers/items.py:255",
+          "items": [
+            {
+              "access": "declared",
+              "at": "app/deps.py:10",
+              "chain": [
+                "app/routers/items.py:255 pagination"
+              ],
+              "key": "skip",
+              "kind": "fact",
+              "presence": "optional",
+              "rule": "SH-F4",
+              "schema": {
+                "type": "integer"
+              }
+            },
+            {
+              "access": "declared",
+              "at": "app/deps.py:10",
+              "chain": [
+                "app/routers/items.py:255 pagination"
+              ],
+              "key": "limit",
+              "kind": "fact",
+              "presence": "optional",
+              "rule": "SH-F5",
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "state": "complete"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/items.py:254",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "fact",
+              "rule": "SH-F27",
+              "schema": {
+                "reason": "no response model is declared",
+                "type": "unknown"
+              }
+            },
+            {
+              "at": "app/routers/items.py:254",
+              "content_type": "application/json",
+              "key": "422",
+              "kind": "fact",
+              "rule": "SH-F30",
+              "schema": {
+                "ref": "HTTPValidationError",
+                "type": "ref"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read; a returned value is not read (app/routers/items.py:256)",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/routers/items.py#GET%20%2Fkeys",
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/routers/items.py:71",
+          "state": "provably_none"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/routers/items.py:71",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/routers/items.py:71",
+          "state": "provably_none"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/items.py:70",
+          "state": "provably_none"
+        },
+        "query": {
+          "evidence": "SH-F23 app/routers/items.py:71",
+          "state": "provably_none"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/items.py:70",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "fact",
+              "rule": "SH-F27",
+              "schema": {
+                "reason": "no response model is declared",
+                "type": "unknown"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read; a returned value is not read (app/routers/items.py:72)",
+          "state": "partial"
+        },
+        "security": {
+          "items": [
+            {
+              "at": "app/routers/items.py:70",
+              "key": "APIKeyHeader+HTTPBearer+HTTPBasic",
+              "kind": "fact",
+              "rule": "SH-F33",
+              "schema": null
+            }
+          ],
+          "reason": "middleware is not read",
+          "state": "partial"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 1 unresolved at app/deps.py:45 Depends(lambda: 1) (dependency expression lambda: 1 is not read)",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/routers/items.py#GET%20%2Flambda",
+      "models": [
+        "HTTPValidationError",
+        "ValidationError"
+      ],
+      "sections": {
+        "body": {
+          "reason": "a call was not followed (unresolved: dependency expression lambda: 1 is not read) at app/deps.py:45",
+          "state": "partial"
+        },
+        "cookie": {
+          "reason": "a call was not followed (unresolved: dependency expression lambda: 1 is not read) at app/deps.py:45",
+          "state": "partial"
+        },
+        "header": {
+          "reason": "a call was not followed (unresolved: dependency expression lambda: 1 is not read) at app/deps.py:45",
+          "state": "partial"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/items.py:249",
+          "state": "provably_none"
+        },
+        "query": {
+          "items": [
+            {
+              "access": "declared",
+              "at": "app/deps.py:45",
+              "chain": [
+                "app/routers/items.py:250 level_one"
+              ],
+              "key": "a",
+              "kind": "fact",
+              "presence": "required",
+              "rule": "SH-F4",
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "reason": "a call was not followed (unresolved: dependency expression lambda: 1 is not read) at app/deps.py:45",
+          "state": "partial"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/items.py:249",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "fact",
+              "rule": "SH-F27",
+              "schema": {
+                "reason": "no response model is declared",
+                "type": "unknown"
+              }
+            },
+            {
+              "at": "app/routers/items.py:249",
+              "content_type": "application/json",
+              "key": "422",
+              "kind": "fact",
+              "rule": "SH-F30",
+              "schema": {
+                "ref": "HTTPValidationError",
+                "type": "ref"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read; a returned value is not read (app/routers/items.py:251)",
+          "state": "partial"
+        },
+        "security": {
+          "reason": "a security dependency is not read: dependency expression is not read; middleware is not read",
+          "state": "partial"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 4 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/routers/items.py#GET%20%2Flevels",
+      "models": [
+        "HTTPValidationError",
+        "ValidationError"
+      ],
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/routers/items.py:245",
+          "state": "provably_none"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/routers/items.py:245",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/routers/items.py:245",
+          "state": "provably_none"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/items.py:244",
+          "state": "provably_none"
+        },
+        "query": {
+          "evidence": "SH-F23 app/routers/items.py:245",
+          "items": [
+            {
+              "access": "declared",
+              "at": "app/deps.py:61",
+              "chain": [
+                "app/routers/items.py:245 level_root"
+              ],
+              "key": "z",
+              "kind": "fact",
+              "presence": "required",
+              "rule": "SH-F4",
+              "schema": {
+                "type": "integer"
+              }
+            },
+            {
+              "access": "declared",
+              "at": "app/deps.py:57",
+              "chain": [
+                "app/routers/items.py:245 level_root",
+                "app/deps.py:61 level_two"
+              ],
+              "key": "b",
+              "kind": "fact",
+              "presence": "required",
+              "rule": "SH-F4",
+              "schema": {
+                "type": "integer"
+              }
+            },
+            {
+              "access": "declared",
+              "at": "app/deps.py:53",
+              "chain": [
+                "app/routers/items.py:245 level_root",
+                "app/deps.py:61 level_two",
+                "app/deps.py:57 level_three"
+              ],
+              "key": "c",
+              "kind": "fact",
+              "presence": "required",
+              "rule": "SH-F4",
+              "schema": {
+                "type": "integer"
+              }
+            },
+            {
+              "access": "declared",
+              "at": "app/deps.py:49",
+              "chain": [
+                "app/routers/items.py:245 level_root",
+                "app/deps.py:61 level_two",
+                "app/deps.py:57 level_three",
+                "app/deps.py:53 level_four"
+              ],
+              "key": "d",
+              "kind": "fact",
+              "presence": "required",
+              "rule": "SH-F4",
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "state": "complete"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/items.py:244",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "fact",
+              "rule": "SH-F27",
+              "schema": {
+                "reason": "no response model is declared",
+                "type": "unknown"
+              }
+            },
+            {
+              "at": "app/routers/items.py:244",
+              "content_type": "application/json",
+              "key": "422",
+              "kind": "fact",
+              "rule": "SH-F30",
+              "schema": {
+                "ref": "HTTPValidationError",
+                "type": "ref"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read; a returned value is not read (app/routers/items.py:246)",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 1 ended"
+      ],
+      "identity": "route:app/routers/items.py#GET%20%2Flocal",
+      "models": [
+        "Message"
+      ],
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/routers/items.py:196",
+          "state": "provably_none"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/routers/items.py:196",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/routers/items.py:196",
+          "state": "provably_none"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/items.py:195",
+          "state": "provably_none"
+        },
+        "query": {
+          "evidence": "SH-F23 app/routers/items.py:196",
+          "state": "provably_none"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/items.py:195",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "fact",
+              "rule": "SH-F27",
+              "schema": {
+                "reason": "no response model is declared",
+                "type": "unknown"
+              }
+            },
+            {
+              "at": "app/crud.py:21",
+              "chain": [
+                "app/routers/items.py:197 make_message"
+              ],
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "returned",
+              "rule": "SH-F31",
+              "schema": {
+                "ref": "Message",
+                "type": "ref"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 1 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/routers/items.py#GET%20%2Fme",
+      "models": [
+        "Message"
+      ],
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/routers/items.py:66",
+          "state": "provably_none"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/routers/items.py:66",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/routers/items.py:66",
+          "state": "provably_none"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/items.py:65",
+          "state": "provably_none"
+        },
+        "query": {
+          "evidence": "SH-F23 app/routers/items.py:66",
+          "state": "provably_none"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/items.py:66",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "fact",
+              "rule": "SH-F26",
+              "schema": {
+                "ref": "Message",
+                "type": "ref"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read",
+          "state": "partial"
+        },
+        "security": {
+          "items": [
+            {
+              "at": "app/routers/items.py:65",
+              "key": "OAuth2PasswordBearer",
+              "kind": "fact",
+              "rule": "SH-F33",
+              "schema": null
+            }
+          ],
+          "reason": "middleware is not read",
+          "state": "partial"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/routers/items.py#GET%20%2Fnomodel",
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/routers/items.py:161",
+          "state": "provably_none"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/routers/items.py:161",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/routers/items.py:161",
+          "state": "provably_none"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/items.py:160",
+          "state": "provably_none"
+        },
+        "query": {
+          "evidence": "SH-F23 app/routers/items.py:161",
+          "state": "provably_none"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/items.py:160",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "fact",
+              "rule": "SH-F27",
+              "schema": {
+                "reason": "response_model=None: the response is not validated",
+                "type": "unknown"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/routers/items.py#GET%20%2Fnone",
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/routers/items.py:176",
+          "state": "provably_none"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/routers/items.py:176",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/routers/items.py:176",
+          "state": "provably_none"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/items.py:175",
+          "state": "provably_none"
+        },
+        "query": {
+          "evidence": "SH-F23 app/routers/items.py:176",
+          "state": "provably_none"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/items.py:175",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "fact",
+              "rule": "SH-F27",
+              "schema": {
+                "reason": "-\u003e None: no response model",
+                "type": "unknown"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/routers/items.py#GET%20%2Foidc",
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/routers/items.py:81",
+          "state": "provably_none"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/routers/items.py:81",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/routers/items.py:81",
+          "state": "provably_none"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/items.py:80",
+          "state": "provably_none"
+        },
+        "query": {
+          "evidence": "SH-F23 app/routers/items.py:81",
+          "state": "provably_none"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/items.py:80",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "fact",
+              "rule": "SH-F27",
+              "schema": {
+                "reason": "no response model is declared",
+                "type": "unknown"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read; a returned value is not read (app/routers/items.py:82)",
+          "state": "partial"
+        },
+        "security": {
+          "items": [
+            {
+              "at": "app/routers/items.py:80",
+              "key": "OpenIdConnect+ComputedToken",
+              "kind": "fact",
+              "rule": "SH-F33",
+              "schema": null
+            }
+          ],
+          "reason": "middleware is not read",
+          "state": "partial"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/routers/items.py#GET%20%2Foptional",
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/routers/items.py:76",
+          "state": "provably_none"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/routers/items.py:76",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/routers/items.py:76",
+          "state": "provably_none"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/items.py:75",
+          "state": "provably_none"
+        },
+        "query": {
+          "evidence": "SH-F23 app/routers/items.py:76",
+          "state": "provably_none"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/items.py:75",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "fact",
+              "rule": "SH-F27",
+              "schema": {
+                "reason": "no response model is declared",
+                "type": "unknown"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read; a returned value is not read (app/routers/items.py:77)",
+          "state": "partial"
+        },
+        "security": {
+          "items": [
+            {
+              "at": "app/routers/items.py:75",
+              "key": "APIKeyQuery",
+              "kind": "intended",
+              "rule": "SH-F33",
+              "schema": null
+            }
+          ],
+          "reason": "APIKeyQuery: auto_error is not True, so requests without credentials can reach the handler; middleware is not read",
+          "state": "partial"
+        }
+      }
+    },
+    {
+      "chains": [
+        "header depth 2 resolver_error (the body of untyped_reader is not read: its file imports none of fastapi, starlette, pydantic and sqlmodel)",
+        "responses depth 1 ended"
+      ],
+      "identity": "route:app/routers/items.py#GET%20%2Fplain",
+      "sections": {
+        "body": {
+          "reason": "a call was not followed (resolver_error: the body of untyped_reader is not read: its file imports none of fastapi, starlette, pydantic and sqlmodel)",
+          "state": "partial"
+        },
+        "cookie": {
+          "reason": "a call was not followed (resolver_error: the body of untyped_reader is not read: its file imports none of fastapi, starlette, pydantic and sqlmodel)",
+          "state": "partial"
+        },
+        "header": {
+          "reason": "a call was not followed (resolver_error: the body of untyped_reader is not read: its file imports none of fastapi, starlette, pydantic and sqlmodel)",
+          "state": "partial"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/items.py:145",
+          "state": "provably_none"
+        },
+        "query": {
+          "reason": "a call was not followed (resolver_error: the body of untyped_reader is not read: its file imports none of fastapi, starlette, pydantic and sqlmodel)",
+          "state": "partial"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/items.py:145",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "fact",
+              "rule": "SH-F27",
+              "schema": {
+                "reason": "no response model is declared",
+                "type": "unknown"
+              }
+            },
+            {
+              "at": "app/helpers.py:48",
+              "chain": [
+                "app/routers/items.py:147 via_plain"
+              ],
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "returned",
+              "rule": "SH-F31",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "header depth 3 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/routers/items.py#GET%20%2Fraw",
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/routers/items.py:111",
+          "state": "provably_none"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/routers/items.py:111",
+          "state": "provably_none"
+        },
+        "header": {
+          "items": [
+            {
+              "access": "read_by_handler",
+              "at": "app/routers/items.py:112",
+              "key": "User-Agent",
+              "kind": "read_in_handler",
+              "presence": "unknown",
+              "rule": "SH-F15",
+              "schema": null
+            },
+            {
+              "access": "read_by_handler",
+              "at": "app/routers/items.py:113",
+              "key": "Accept-Language",
+              "kind": "read_in_handler",
+              "presence": "unknown",
+              "rule": "SH-F15",
+              "schema": null
+            }
+          ],
+          "reason": "names read in code; their types and whether they must be sent are not read",
+          "state": "partial"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/items.py:110",
+          "state": "provably_none"
+        },
+        "query": {
+          "items": [
+            {
+              "access": "read_by_handler",
+              "at": "app/routers/items.py:114",
+              "key": "sort",
+              "kind": "read_in_handler",
+              "presence": "unknown",
+              "rule": "SH-F15",
+              "schema": null
+            },
+            {
+              "access": "read_by_handler",
+              "at": "app/helpers.py:29",
+              "chain": [
+                "app/routers/items.py:115 deep_one",
+                "app/helpers.py:21 deep_two",
+                "app/helpers.py:25 deep_three"
+              ],
+              "key": "deep",
+              "kind": "read_in_handler",
+              "presence": "unknown",
+              "rule": "SH-F15",
+              "schema": null
+            }
+          ],
+          "reason": "names read in code; their types and whether they must be sent are not read",
+          "state": "partial"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/items.py:110",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "fact",
+              "rule": "SH-F27",
+              "schema": {
+                "reason": "no response model is declared",
+                "type": "unknown"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read; a returned value is not read (app/routers/items.py:116)",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "header depth 3 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/routers/items.py#GET%20%2Freader",
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/routers/items.py:120",
+          "state": "provably_none"
+        },
+        "cookie": {
+          "items": [
+            {
+              "access": "read_by_dependency",
+              "at": "app/deps.py:27",
+              "chain": [
+                "app/routers/items.py:120 reader"
+              ],
+              "key": "session",
+              "kind": "read_in_handler",
+              "presence": "unknown",
+              "rule": "SH-F15",
+              "schema": null
+            }
+          ],
+          "reason": "names read in code; their types and whether they must be sent are not read",
+          "state": "partial"
+        },
+        "header": {
+          "items": [
+            {
+              "access": "read_by_dependency",
+              "at": "app/helpers.py:14",
+              "chain": [
+                "app/routers/items.py:120 reader",
+                "app/deps.py:28 read_token",
+                "app/helpers.py:10 token_from"
+              ],
+              "key": "Authorization",
+              "kind": "read_in_handler",
+              "presence": "unknown",
+              "rule": "SH-F15",
+              "schema": null
+            }
+          ],
+          "reason": "names read in code; their types and whether they must be sent are not read",
+          "state": "partial"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/items.py:119",
+          "state": "provably_none"
+        },
+        "query": {
+          "evidence": "SH-F23 app/routers/items.py:120",
+          "state": "provably_none"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/items.py:119",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "fact",
+              "rule": "SH-F27",
+              "schema": {
+                "reason": "no response model is declared",
+                "type": "unknown"
+              }
+            },
+            {
+              "at": "app/helpers.py:16",
+              "chain": [
+                "app/routers/items.py:120 reader",
+                "app/deps.py:28 read_token",
+                "app/helpers.py:10 token_from"
+              ],
+              "content_type": null,
+              "key": "401",
+              "kind": "fact",
+              "rule": "SH-F29",
+              "schema": null
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read; a returned value is not read (app/routers/items.py:121)",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 2 ended"
+      ],
+      "identity": "route:app/routers/items.py#GET%20%2Freturned",
+      "models": [
+        "Item"
+      ],
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/routers/items.py:186",
+          "state": "provably_none"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/routers/items.py:186",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/routers/items.py:186",
+          "state": "provably_none"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/items.py:185",
+          "state": "provably_none"
+        },
+        "query": {
+          "evidence": "SH-F23 app/routers/items.py:186",
+          "state": "provably_none"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/items.py:185",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "fact",
+              "rule": "SH-F27",
+              "schema": {
+                "reason": "no response model is declared",
+                "type": "unknown"
+              }
+            },
+            {
+              "at": "app/crud.py:13",
+              "chain": [
+                "app/routers/items.py:187 make_item",
+                "app/crud.py:17 build_item"
+              ],
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "returned",
+              "rule": "SH-F31",
+              "schema": {
+                "ref": "Item",
+                "type": "ref"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 1 ended"
+      ],
+      "identity": "route:app/routers/items.py#GET%20%2Freturned-direct%2F%7Bitem_id%7D",
+      "models": [
+        "HTTPValidationError",
+        "ValidationError",
+        "Item"
+      ],
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/routers/items.py:191",
+          "state": "provably_none"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/routers/items.py:191",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/routers/items.py:191",
+          "state": "provably_none"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/items.py:190",
+          "items": [
+            {
+              "access": "declared",
+              "at": "app/routers/items.py:191",
+              "key": "item_id",
+              "kind": "fact",
+              "presence": "required",
+              "rule": "SH-F1",
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "state": "complete"
+        },
+        "query": {
+          "evidence": "SH-F23 app/routers/items.py:191",
+          "state": "provably_none"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/items.py:190",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "fact",
+              "rule": "SH-F27",
+              "schema": {
+                "reason": "no response model is declared",
+                "type": "unknown"
+              }
+            },
+            {
+              "at": "app/crud.py:6",
+              "chain": [
+                "app/routers/items.py:192 get_item"
+              ],
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "returned",
+              "rule": "SH-F31",
+              "schema": {
+                "ref": "Item",
+                "type": "ref"
+              }
+            },
+            {
+              "at": "app/routers/items.py:190",
+              "content_type": "application/json",
+              "key": "422",
+              "kind": "fact",
+              "rule": "SH-F30",
+              "schema": {
+                "ref": "HTTPValidationError",
+                "type": "ref"
+              }
+            },
+            {
+              "at": "app/crud.py:8",
+              "chain": [
+                "app/routers/items.py:192 get_item"
+              ],
+              "content_type": null,
+              "key": "404",
+              "kind": "fact",
+              "rule": "SH-F29",
+              "schema": null
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 1 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/routers/items.py#GET%20%2Fscoped",
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/routers/items.py:86",
+          "state": "provably_none"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/routers/items.py:86",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/routers/items.py:86",
+          "state": "provably_none"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/items.py:85",
+          "state": "provably_none"
+        },
+        "query": {
+          "evidence": "SH-F23 app/routers/items.py:86",
+          "state": "provably_none"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/items.py:85",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "fact",
+              "rule": "SH-F27",
+              "schema": {
+                "reason": "no response model is declared",
+                "type": "unknown"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read; a returned value is not read (app/routers/items.py:87)",
+          "state": "partial"
+        },
+        "security": {
+          "items": [
+            {
+              "at": "app/routers/items.py:85",
+              "key": "OAuth2PasswordBearer",
+              "kind": "fact",
+              "rule": "SH-F33",
+              "schema": null
+            }
+          ],
+          "reason": "middleware is not read",
+          "state": "partial"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/routers/items.py#GET%20%2Fsearch",
+      "models": [
+        "HTTPValidationError",
+        "ValidationError"
+      ],
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/routers/items.py:91",
+          "state": "provably_none"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/routers/items.py:91",
+          "items": [
+            {
+              "access": "declared",
+              "at": "app/routers/items.py:99",
+              "key": "session_id",
+              "kind": "fact",
+              "presence": "optional",
+              "rule": "SH-F5",
+              "schema": {
+                "nullable": true,
+                "type": "string"
+              }
+            }
+          ],
+          "state": "complete"
+        },
+        "header": {
+          "evidence": "SH-F23 app/routers/items.py:91",
+          "items": [
+            {
+              "access": "declared",
+              "at": "app/routers/items.py:97",
+              "key": "user-agent",
+              "kind": "fact",
+              "presence": "optional",
+              "rule": "SH-F5",
+              "schema": {
+                "nullable": true,
+                "type": "string"
+              }
+            },
+            {
+              "access": "declared",
+              "at": "app/routers/items.py:98",
+              "key": "x_keep_under",
+              "kind": "fact",
+              "presence": "optional",
+              "rule": "SH-F5",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "state": "complete"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/items.py:90",
+          "state": "provably_none"
+        },
+        "query": {
+          "evidence": "SH-F23 app/routers/items.py:91",
+          "items": [
+            {
+              "access": "declared",
+              "at": "app/routers/items.py:92",
+              "key": "query",
+              "kind": "fact",
+              "presence": "optional",
+              "rule": "SH-F5",
+              "schema": {
+                "nullable": true,
+                "type": "string"
+              }
+            },
+            {
+              "access": "declared",
+              "at": "app/routers/items.py:93",
+              "key": "tags",
+              "kind": "fact",
+              "presence": "optional",
+              "rule": "SH-F5",
+              "schema": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            },
+            {
+              "access": "declared",
+              "at": "app/routers/items.py:94",
+              "key": "color",
+              "kind": "fact",
+              "presence": "optional",
+              "rule": "SH-F4",
+              "schema": {
+                "enum": [
+                  "red",
+                  "blue"
+                ],
+                "type": "enum"
+              }
+            },
+            {
+              "access": "declared",
+              "at": "app/routers/items.py:95",
+              "key": "size",
+              "kind": "fact",
+              "presence": "optional",
+              "rule": "SH-F4",
+              "schema": {
+                "enum": [
+                  "s",
+                  "m",
+                  "l"
+                ],
+                "type": "enum"
+              }
+            },
+            {
+              "access": "declared",
+              "at": "app/routers/items.py:96",
+              "key": "raw",
+              "kind": "fact",
+              "presence": "optional",
+              "rule": "SH-F6",
+              "schema": {
+                "reason": "no annotation: any value",
+                "type": "unknown"
+              }
+            },
+            {
+              "access": "declared",
+              "at": "app/routers/items.py:100",
+              "key": "page",
+              "kind": "fact",
+              "presence": "optional",
+              "rule": "SH-F5",
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "state": "complete"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/items.py:90",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "fact",
+              "rule": "SH-F27",
+              "schema": {
+                "reason": "no response model is declared",
+                "type": "unknown"
+              }
+            },
+            {
+              "at": "app/routers/items.py:90",
+              "content_type": "application/json",
+              "key": "422",
+              "kind": "fact",
+              "rule": "SH-F30",
+              "schema": {
+                "ref": "HTTPValidationError",
+                "type": "ref"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read; a returned value is not read (app/routers/items.py:102)",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 transformed at app/routers/items.py:142 spread (the value is passed to *args or **kwargs)",
+        "responses depth 1 ended"
+      ],
+      "identity": "route:app/routers/items.py#GET%20%2Fspread",
+      "sections": {
+        "body": {
+          "reason": "a call was not followed (transformed: the value is passed to *args or **kwargs) at app/routers/items.py:142",
+          "state": "partial"
+        },
+        "cookie": {
+          "reason": "a call was not followed (transformed: the value is passed to *args or **kwargs) at app/routers/items.py:142",
+          "state": "partial"
+        },
+        "header": {
+          "reason": "a call was not followed (transformed: the value is passed to *args or **kwargs) at app/routers/items.py:142",
+          "state": "partial"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/items.py:140",
+          "state": "provably_none"
+        },
+        "query": {
+          "reason": "a call was not followed (transformed: the value is passed to *args or **kwargs) at app/routers/items.py:142",
+          "state": "partial"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/items.py:140",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "fact",
+              "rule": "SH-F27",
+              "schema": {
+                "reason": "no response model is declared",
+                "type": "unknown"
+              }
+            },
+            {
+              "at": "app/helpers.py:40",
+              "chain": [
+                "app/routers/items.py:142 spread"
+              ],
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "returned",
+              "rule": "SH-F31",
+              "schema": {
+                "additional": "allowed",
+                "type": "object"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/routers/items.py#GET%20%2Fstatus-param",
+      "models": [
+        "HTTPValidationError",
+        "ValidationError",
+        "Message"
+      ],
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/routers/items.py:286",
+          "state": "provably_none"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/routers/items.py:286",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/routers/items.py:286",
+          "state": "provably_none"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/items.py:285",
+          "state": "provably_none"
+        },
+        "query": {
+          "evidence": "SH-F23 app/routers/items.py:286",
+          "items": [
+            {
+              "access": "declared",
+              "at": "app/routers/items.py:286",
+              "key": "slow",
+              "kind": "fact",
+              "presence": "optional",
+              "rule": "SH-F4",
+              "schema": {
+                "type": "boolean"
+              }
+            }
+          ],
+          "state": "complete"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/items.py:285",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "intended",
+              "rule": "SH-F25",
+              "schema": {
+                "ref": "Message",
+                "type": "ref"
+              }
+            },
+            {
+              "at": "app/routers/items.py:285",
+              "content_type": "application/json",
+              "key": "422",
+              "kind": "fact",
+              "rule": "SH-F30",
+              "schema": {
+                "ref": "HTTPValidationError",
+                "type": "ref"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read; the Response parameter response is changed (app/routers/items.py:288)",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/routers/items.py#GET%20%2Fstream",
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/routers/items.py:166",
+          "state": "provably_none"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/routers/items.py:166",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/routers/items.py:166",
+          "state": "provably_none"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/items.py:165",
+          "state": "provably_none"
+        },
+        "query": {
+          "evidence": "SH-F23 app/routers/items.py:166",
+          "state": "provably_none"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/items.py:165",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "intended",
+              "rule": "SH-F27",
+              "schema": {
+                "reason": "the handler returns a Response object",
+                "type": "unknown"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read; a Response is returned directly (app/routers/items.py:167)",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 1 ended"
+      ],
+      "identity": "route:app/routers/items.py#GET%20%2Ftry%2F%7Bitem_id%7D",
+      "models": [
+        "HTTPValidationError",
+        "ValidationError",
+        "Item"
+      ],
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/routers/items.py:207",
+          "state": "provably_none"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/routers/items.py:207",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/routers/items.py:207",
+          "state": "provably_none"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/items.py:206",
+          "items": [
+            {
+              "access": "declared",
+              "at": "app/routers/items.py:207",
+              "key": "item_id",
+              "kind": "fact",
+              "presence": "required",
+              "rule": "SH-F1",
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "state": "complete"
+        },
+        "query": {
+          "evidence": "SH-F23 app/routers/items.py:207",
+          "state": "provably_none"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/items.py:206",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "fact",
+              "rule": "SH-F27",
+              "schema": {
+                "reason": "no response model is declared",
+                "type": "unknown"
+              }
+            },
+            {
+              "at": "app/crud.py:6",
+              "chain": [
+                "app/routers/items.py:209 get_item"
+              ],
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "returned",
+              "rule": "SH-F31",
+              "schema": {
+                "ref": "Item",
+                "type": "ref"
+              }
+            },
+            {
+              "at": "app/routers/items.py:206",
+              "content_type": "application/json",
+              "key": "422",
+              "kind": "fact",
+              "rule": "SH-F30",
+              "schema": {
+                "ref": "HTTPValidationError",
+                "type": "ref"
+              }
+            },
+            {
+              "at": "app/routers/items.py:211",
+              "content_type": null,
+              "key": "400",
+              "kind": "fact",
+              "rule": "SH-F29",
+              "schema": null
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read; an HTTPException raised inside try may be caught (app/crud.py:8)",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 unresolved at app/routers/items.py:226 undefined_function (undefined_function)"
+      ],
+      "identity": "route:app/routers/items.py#GET%20%2Funresolved",
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/routers/items.py:225",
+          "state": "provably_none"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/routers/items.py:225",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/routers/items.py:225",
+          "state": "provably_none"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/items.py:224",
+          "state": "provably_none"
+        },
+        "query": {
+          "evidence": "SH-F23 app/routers/items.py:225",
+          "state": "provably_none"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/items.py:224",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "intended",
+              "rule": "SH-F27",
+              "schema": {
+                "reason": "no response model is declared",
+                "type": "unknown"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read; a call was not followed (unresolved: undefined_function) at app/routers/items.py:226; the value of undefined_function is returned (app/routers/items.py:226): it may be a Response",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 1 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/routers/items.py#POST%20%2Fchecked",
+      "models": [
+        "HTTPValidationError",
+        "ValidationError",
+        "ItemCreate",
+        "Generated"
+      ],
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/routers/items.py:274",
+          "items": [
+            {
+              "at": "app/routers/items.py:274",
+              "content_type": "application/json",
+              "key": "body",
+              "kind": "fact",
+              "rule": "SH-F18",
+              "schema": {
+                "ref": "ItemCreate",
+                "type": "ref"
+              }
+            }
+          ],
+          "state": "complete"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/routers/items.py:274",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/routers/items.py:274",
+          "state": "provably_none"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/items.py:273",
+          "state": "provably_none"
+        },
+        "query": {
+          "evidence": "SH-F23 app/routers/items.py:274",
+          "state": "provably_none"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/items.py:273",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "fact",
+              "rule": "SH-F25",
+              "schema": {
+                "ref": "Generated",
+                "type": "ref"
+              }
+            },
+            {
+              "at": "app/routers/items.py:273",
+              "content_type": "application/json",
+              "key": "422",
+              "kind": "fact",
+              "rule": "SH-F30",
+              "schema": {
+                "ref": "HTTPValidationError",
+                "type": "ref"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/routers/items.py#POST%20%2Fdirect",
+      "models": [
+        "HTTPValidationError",
+        "ValidationError",
+        "Message"
+      ],
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/routers/items.py:279",
+          "state": "provably_none"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/routers/items.py:279",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/routers/items.py:279",
+          "state": "provably_none"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/items.py:278",
+          "state": "provably_none"
+        },
+        "query": {
+          "evidence": "SH-F23 app/routers/items.py:279",
+          "items": [
+            {
+              "access": "declared",
+              "at": "app/routers/items.py:279",
+              "key": "flag",
+              "kind": "fact",
+              "presence": "optional",
+              "rule": "SH-F4",
+              "schema": {
+                "type": "boolean"
+              }
+            }
+          ],
+          "state": "complete"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/items.py:278",
+              "content_type": "application/json",
+              "key": "201",
+              "kind": "intended",
+              "rule": "SH-F25",
+              "schema": {
+                "ref": "Message",
+                "type": "ref"
+              }
+            },
+            {
+              "at": "app/routers/items.py:278",
+              "content_type": "application/json",
+              "key": "422",
+              "kind": "fact",
+              "rule": "SH-F30",
+              "schema": {
+                "ref": "HTTPValidationError",
+                "type": "ref"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read; a Response is returned directly (app/routers/items.py:281)",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/routers/items.py#POST%20%2Fembed",
+      "models": [
+        "HTTPValidationError",
+        "ValidationError",
+        "Item",
+        "Message"
+      ],
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/routers/items.py:36",
+          "items": [
+            {
+              "at": "app/routers/items.py:36",
+              "content_type": "application/json",
+              "key": "body",
+              "kind": "fact",
+              "rule": "SH-F19",
+              "schema": {
+                "additional": "unknown",
+                "fields": [
+                  {
+                    "name": "item",
+                    "presence": "required",
+                    "schema": {
+                      "ref": "Item",
+                      "type": "ref"
+                    }
+                  }
+                ],
+                "type": "object"
+              }
+            }
+          ],
+          "state": "complete"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/routers/items.py:36",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/routers/items.py:36",
+          "state": "provably_none"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/items.py:35",
+          "state": "provably_none"
+        },
+        "query": {
+          "evidence": "SH-F23 app/routers/items.py:36",
+          "state": "provably_none"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/items.py:36",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "fact",
+              "rule": "SH-F26",
+              "schema": {
+                "ref": "Message",
+                "type": "ref"
+              }
+            },
+            {
+              "at": "app/routers/items.py:35",
+              "content_type": "application/json",
+              "key": "422",
+              "kind": "fact",
+              "rule": "SH-F30",
+              "schema": {
+                "ref": "HTTPValidationError",
+                "type": "ref"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/routers/items.py#POST%20%2Fform",
+      "models": [
+        "HTTPValidationError",
+        "ValidationError"
+      ],
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/routers/items.py:51",
+          "items": [
+            {
+              "at": "app/routers/items.py:51",
+              "content_type": "application/x-www-form-urlencoded",
+              "key": "body",
+              "kind": "fact",
+              "rule": "SH-F20",
+              "schema": {
+                "additional": "unknown",
+                "fields": [
+                  {
+                    "name": "name",
+                    "presence": "required",
+                    "schema": {
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "name": "age",
+                    "presence": "optional",
+                    "schema": {
+                      "type": "integer"
+                    }
+                  }
+                ],
+                "type": "object"
+              }
+            }
+          ],
+          "state": "complete"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/routers/items.py:51",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/routers/items.py:51",
+          "state": "provably_none"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/items.py:50",
+          "state": "provably_none"
+        },
+        "query": {
+          "evidence": "SH-F23 app/routers/items.py:51",
+          "state": "provably_none"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/items.py:50",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "fact",
+              "rule": "SH-F27",
+              "schema": {
+                "reason": "no response model is declared",
+                "type": "unknown"
+              }
+            },
+            {
+              "at": "app/routers/items.py:50",
+              "content_type": "application/json",
+              "key": "422",
+              "kind": "fact",
+              "rule": "SH-F30",
+              "schema": {
+                "ref": "HTTPValidationError",
+                "type": "ref"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read; a returned value is not read (app/routers/items.py:52)",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/routers/items.py#POST%20%2Fids",
+      "models": [
+        "HTTPValidationError",
+        "ValidationError",
+        "Item"
+      ],
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/routers/items.py:46",
+          "items": [
+            {
+              "at": "app/routers/items.py:46",
+              "content_type": "application/json",
+              "key": "body",
+              "kind": "fact",
+              "rule": "SH-F21",
+              "schema": {
+                "items": {
+                  "type": "integer"
+                },
+                "type": "array"
+              }
+            }
+          ],
+          "state": "complete"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/routers/items.py:46",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/routers/items.py:46",
+          "state": "provably_none"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/items.py:45",
+          "state": "provably_none"
+        },
+        "query": {
+          "evidence": "SH-F23 app/routers/items.py:46",
+          "state": "provably_none"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/items.py:46",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "fact",
+              "rule": "SH-F26",
+              "schema": {
+                "items": {
+                  "ref": "Item",
+                  "type": "ref"
+                },
+                "type": "array"
+              }
+            },
+            {
+              "at": "app/routers/items.py:45",
+              "content_type": "application/json",
+              "key": "422",
+              "kind": "fact",
+              "rule": "SH-F30",
+              "schema": {
+                "ref": "HTTPValidationError",
+                "type": "ref"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/routers/items.py#POST%20%2Fitems",
+      "models": [
+        "HTTPValidationError",
+        "ValidationError",
+        "ItemCreate",
+        "Item",
+        "Message"
+      ],
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/routers/items.py:31",
+          "items": [
+            {
+              "at": "app/routers/items.py:31",
+              "content_type": "application/json",
+              "key": "body",
+              "kind": "fact",
+              "rule": "SH-F18",
+              "schema": {
+                "ref": "ItemCreate",
+                "type": "ref"
+              }
+            }
+          ],
+          "state": "complete"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/routers/items.py:31",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/routers/items.py:31",
+          "state": "provably_none"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/items.py:30",
+          "state": "provably_none"
+        },
+        "query": {
+          "evidence": "SH-F23 app/routers/items.py:31",
+          "state": "provably_none"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/items.py:30",
+              "content_type": "application/json",
+              "key": "201",
+              "kind": "fact",
+              "rule": "SH-F25",
+              "schema": {
+                "ref": "Item",
+                "type": "ref"
+              }
+            },
+            {
+              "at": "app/routers/items.py:30",
+              "content_type": "application/json",
+              "key": "404",
+              "kind": "intended",
+              "rule": "SH-F28",
+              "schema": {
+                "ref": "Message",
+                "type": "ref"
+              }
+            },
+            {
+              "at": "app/routers/items.py:30",
+              "content_type": null,
+              "key": "418",
+              "kind": "intended",
+              "rule": "SH-F28",
+              "schema": null
+            },
+            {
+              "at": "app/routers/items.py:30",
+              "content_type": "application/json",
+              "key": "422",
+              "kind": "fact",
+              "rule": "SH-F30",
+              "schema": {
+                "ref": "HTTPValidationError",
+                "type": "ref"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/routers/items.py#POST%20%2Flogin",
+      "models": [
+        "HTTPValidationError",
+        "ValidationError"
+      ],
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/routers/items.py:61",
+          "items": [
+            {
+              "at": "app/routers/items.py:61",
+              "content_type": "application/x-www-form-urlencoded",
+              "key": "body",
+              "kind": "fact",
+              "rule": "SH-F20",
+              "schema": {
+                "additional": "unknown",
+                "fields": [
+                  {
+                    "name": "grant_type",
+                    "presence": "optional",
+                    "schema": {
+                      "nullable": true,
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "name": "username",
+                    "presence": "required",
+                    "schema": {
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "name": "password",
+                    "presence": "required",
+                    "schema": {
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "name": "scope",
+                    "presence": "optional",
+                    "schema": {
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "name": "client_id",
+                    "presence": "optional",
+                    "schema": {
+                      "nullable": true,
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "name": "client_secret",
+                    "presence": "optional",
+                    "schema": {
+                      "nullable": true,
+                      "type": "string"
+                    }
+                  }
+                ],
+                "type": "object"
+              }
+            }
+          ],
+          "state": "complete"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/routers/items.py:61",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/routers/items.py:61",
+          "state": "provably_none"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/items.py:60",
+          "state": "provably_none"
+        },
+        "query": {
+          "evidence": "SH-F23 app/routers/items.py:61",
+          "state": "provably_none"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/items.py:60",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "fact",
+              "rule": "SH-F27",
+              "schema": {
+                "reason": "no response model is declared",
+                "type": "unknown"
+              }
+            },
+            {
+              "at": "app/routers/items.py:60",
+              "content_type": "application/json",
+              "key": "422",
+              "kind": "fact",
+              "rule": "SH-F30",
+              "schema": {
+                "ref": "HTTPValidationError",
+                "type": "ref"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read; a returned value is not read (app/routers/items.py:62)",
+          "state": "partial"
+        },
+        "security": {
+          "reason": "a security dependency is not read: external callable fastapi.security.OAuth2PasswordRequestForm is not read; middleware is not read",
+          "state": "partial"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/routers/items.py#POST%20%2Fmulti",
+      "models": [
+        "HTTPValidationError",
+        "ValidationError",
+        "Item",
+        "ItemCreate"
+      ],
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/routers/items.py:41",
+          "items": [
+            {
+              "at": "app/routers/items.py:41",
+              "content_type": "application/json",
+              "key": "body",
+              "kind": "fact",
+              "rule": "SH-F19",
+              "schema": {
+                "additional": "unknown",
+                "fields": [
+                  {
+                    "name": "item",
+                    "presence": "required",
+                    "schema": {
+                      "ref": "Item",
+                      "type": "ref"
+                    }
+                  },
+                  {
+                    "name": "other",
+                    "presence": "required",
+                    "schema": {
+                      "ref": "ItemCreate",
+                      "type": "ref"
+                    }
+                  },
+                  {
+                    "name": "importance",
+                    "presence": "required",
+                    "schema": {
+                      "type": "integer"
+                    }
+                  },
+                  {
+                    "name": "ids",
+                    "presence": "optional",
+                    "schema": {
+                      "items": {
+                        "type": "integer"
+                      },
+                      "nullable": true,
+                      "type": "array"
+                    }
+                  }
+                ],
+                "type": "object"
+              }
+            }
+          ],
+          "state": "complete"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/routers/items.py:41",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/routers/items.py:41",
+          "state": "provably_none"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/items.py:40",
+          "state": "provably_none"
+        },
+        "query": {
+          "evidence": "SH-F23 app/routers/items.py:41",
+          "state": "provably_none"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/items.py:41",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "fact",
+              "rule": "SH-F26",
+              "schema": {
+                "additional": "allowed",
+                "type": "object"
+              }
+            },
+            {
+              "at": "app/routers/items.py:40",
+              "content_type": "application/json",
+              "key": "422",
+              "kind": "fact",
+              "rule": "SH-F30",
+              "schema": {
+                "ref": "HTTPValidationError",
+                "type": "ref"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/routers/items.py#POST%20%2Frequest-model",
+      "models": [
+        "HTTPValidationError",
+        "ValidationError",
+        "ItemCreate"
+      ],
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/routers/items.py:240",
+          "items": [
+            {
+              "at": "app/routers/items.py:240",
+              "content_type": "application/json",
+              "key": "body",
+              "kind": "fact",
+              "rule": "SH-F18",
+              "schema": {
+                "ref": "ItemCreate",
+                "type": "ref"
+              }
+            }
+          ],
+          "state": "complete"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/routers/items.py:240",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/routers/items.py:240",
+          "state": "provably_none"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/items.py:239",
+          "state": "provably_none"
+        },
+        "query": {
+          "evidence": "SH-F23 app/routers/items.py:240",
+          "state": "provably_none"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/items.py:239",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "fact",
+              "rule": "SH-F27",
+              "schema": {
+                "reason": "no response model is declared",
+                "type": "unknown"
+              }
+            },
+            {
+              "at": "app/routers/items.py:239",
+              "content_type": "application/json",
+              "key": "422",
+              "kind": "fact",
+              "rule": "SH-F30",
+              "schema": {
+                "ref": "HTTPValidationError",
+                "type": "ref"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read; a returned value is not read (app/routers/items.py:241)",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/routers/items.py#POST%20%2Fserialized",
+      "models": [
+        "HTTPValidationError",
+        "ValidationError",
+        "Reshaped",
+        "Serialized"
+      ],
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/routers/items.py:293",
+          "items": [
+            {
+              "at": "app/routers/items.py:293",
+              "content_type": "application/json",
+              "key": "body",
+              "kind": "fact",
+              "rule": "SH-F18",
+              "schema": {
+                "ref": "Reshaped",
+                "type": "ref"
+              }
+            }
+          ],
+          "state": "complete"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/routers/items.py:293",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/routers/items.py:293",
+          "state": "provably_none"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/items.py:292",
+          "state": "provably_none"
+        },
+        "query": {
+          "evidence": "SH-F23 app/routers/items.py:293",
+          "state": "provably_none"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/items.py:293",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "fact",
+              "rule": "SH-F26",
+              "schema": {
+                "ref": "Serialized",
+                "type": "ref"
+              }
+            },
+            {
+              "at": "app/routers/items.py:292",
+              "content_type": "application/json",
+              "key": "422",
+              "kind": "fact",
+              "rule": "SH-F30",
+              "schema": {
+                "ref": "HTTPValidationError",
+                "type": "ref"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/routers/items.py#POST%20%2Fupload",
+      "models": [
+        "HTTPValidationError",
+        "ValidationError"
+      ],
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/routers/items.py:56",
+          "items": [
+            {
+              "at": "app/routers/items.py:56",
+              "content_type": "multipart/form-data",
+              "key": "body",
+              "kind": "fact",
+              "rule": "SH-F20",
+              "schema": {
+                "additional": "unknown",
+                "fields": [
+                  {
+                    "name": "file",
+                    "presence": "required",
+                    "schema": {
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "name": "title",
+                    "presence": "required",
+                    "schema": {
+                      "type": "string"
+                    }
+                  },
+                  {
+                    "name": "extra",
+                    "presence": "optional",
+                    "schema": {
+                      "type": "string"
+                    }
+                  }
+                ],
+                "type": "object"
+              }
+            }
+          ],
+          "state": "complete"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/routers/items.py:56",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/routers/items.py:56",
+          "state": "provably_none"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/items.py:55",
+          "state": "provably_none"
+        },
+        "query": {
+          "evidence": "SH-F23 app/routers/items.py:56",
+          "state": "provably_none"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/items.py:55",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "fact",
+              "rule": "SH-F27",
+              "schema": {
+                "reason": "no response model is declared",
+                "type": "unknown"
+              }
+            },
+            {
+              "at": "app/routers/items.py:55",
+              "content_type": "application/json",
+              "key": "422",
+              "kind": "fact",
+              "rule": "SH-F30",
+              "schema": {
+                "ref": "HTTPValidationError",
+                "type": "ref"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read; a returned value is not read (app/routers/items.py:57)",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/routers/items.py#POST%20%2Fwebhook",
+      "sections": {
+        "body": {
+          "items": [
+            {
+              "at": "app/routers/items.py:126",
+              "content_type": null,
+              "key": "body",
+              "kind": "read_in_handler",
+              "rule": "SH-F16",
+              "schema": null
+            }
+          ],
+          "reason": "the raw request body is read (app/routers/items.py:126)",
+          "state": "partial"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/routers/items.py:125",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/routers/items.py:125",
+          "state": "provably_none"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/items.py:124",
+          "state": "provably_none"
+        },
+        "query": {
+          "evidence": "SH-F23 app/routers/items.py:125",
+          "state": "provably_none"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/items.py:124",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "intended",
+              "rule": "SH-F27",
+              "schema": {
+                "reason": "no response model is declared",
+                "type": "unknown"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read; the returned value payload is not read (app/routers/items.py:127); the returned value payload is not read (app/routers/items.py:127): it may be a Response",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/routers/items.py#PUT%20%2Fowners%2F%7Blogin%7D",
+      "models": [
+        "HTTPValidationError",
+        "ValidationError",
+        "Owner",
+        "Item"
+      ],
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/routers/items.py:265",
+          "items": [
+            {
+              "at": "app/routers/items.py:265",
+              "content_type": "application/json",
+              "key": "body",
+              "kind": "fact",
+              "rule": "SH-F18",
+              "schema": {
+                "ref": "Owner",
+                "type": "ref"
+              }
+            }
+          ],
+          "state": "complete"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/routers/items.py:265",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/routers/items.py:265",
+          "items": [
+            {
+              "access": "declared",
+              "at": "app/routers/items.py:265",
+              "key": "X-Request-ID",
+              "kind": "fact",
+              "presence": "optional",
+              "rule": "SH-F5",
+              "schema": {
+                "nullable": true,
+                "type": "string"
+              }
+            }
+          ],
+          "state": "complete"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/items.py:264",
+          "items": [
+            {
+              "access": "declared",
+              "at": "app/routers/items.py:265",
+              "key": "login",
+              "kind": "fact",
+              "presence": "required",
+              "rule": "SH-F1",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "state": "complete"
+        },
+        "query": {
+          "evidence": "SH-F23 app/routers/items.py:265",
+          "state": "provably_none"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/items.py:264",
+              "content_type": "application/json",
+              "key": "202",
+              "kind": "fact",
+              "rule": "SH-F25",
+              "schema": {
+                "ref": "Owner",
+                "type": "ref"
+              }
+            },
+            {
+              "at": "app/routers/items.py:264",
+              "content_type": "application/json",
+              "key": "422",
+              "kind": "fact",
+              "rule": "SH-F30",
+              "schema": {
+                "ref": "HTTPValidationError",
+                "type": "ref"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 1 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/routers/review.py#GET%20%2Fafter-yield",
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/routers/review.py:179",
+          "state": "provably_none"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/routers/review.py:179",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/routers/review.py:179",
+          "state": "provably_none"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/review.py:178",
+          "state": "provably_none"
+        },
+        "query": {
+          "evidence": "SH-F23 app/routers/review.py:179",
+          "state": "provably_none"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/review.py:178",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "intended",
+              "rule": "SH-F27",
+              "schema": {
+                "reason": "no response model is declared",
+                "type": "unknown"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read; an HTTPException raised after yield in after_yield_dep runs after the response is sent (app/routers/review.py:175); the returned value v is not read (app/routers/review.py:180); the value after_yield_dep yields is returned (app/routers/review.py:180): it may be a Response",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/routers/review.py#GET%20%2Fav",
+      "models": [
+        "HTTPValidationError",
+        "ValidationError"
+      ],
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/routers/review.py:149",
+          "state": "provably_none"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/routers/review.py:149",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/routers/review.py:149",
+          "state": "provably_none"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/review.py:148",
+          "state": "provably_none"
+        },
+        "query": {
+          "evidence": "SH-F23 app/routers/review.py:149",
+          "items": [
+            {
+              "access": "declared",
+              "at": "app/routers/review.py:149",
+              "key": "q",
+              "kind": "fact",
+              "presence": "required",
+              "rule": "SH-F4",
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "state": "complete"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/review.py:148",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "fact",
+              "rule": "SH-F27",
+              "schema": {
+                "reason": "no response model is declared",
+                "type": "unknown"
+              }
+            },
+            {
+              "at": "app/routers/review.py:148",
+              "content_type": "application/json",
+              "key": "422",
+              "kind": "fact",
+              "rule": "SH-F30",
+              "schema": {
+                "ref": "HTTPValidationError",
+                "type": "ref"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read; the returned value q is not read (app/routers/review.py:150)",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/routers/review.py#GET%20%2Fbv",
+      "sections": {
+        "body": {
+          "reason": "parameter q (app/routers/review.py:144): an Annotated item is not read: BeforeValidator(len)",
+          "state": "partial"
+        },
+        "cookie": {
+          "reason": "parameter q (app/routers/review.py:144): an Annotated item is not read: BeforeValidator(len)",
+          "state": "partial"
+        },
+        "header": {
+          "reason": "parameter q (app/routers/review.py:144): an Annotated item is not read: BeforeValidator(len)",
+          "state": "partial"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/review.py:143",
+          "state": "provably_none"
+        },
+        "query": {
+          "reason": "parameter q (app/routers/review.py:144): an Annotated item is not read: BeforeValidator(len)",
+          "state": "partial"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/review.py:143",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "fact",
+              "rule": "SH-F27",
+              "schema": {
+                "reason": "no response model is declared",
+                "type": "unknown"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read; the returned value q is not read (app/routers/review.py:145)",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/routers/review.py#GET%20%2Fbyalias",
+      "models": [
+        "Aliased"
+      ],
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/routers/review.py:109",
+          "state": "provably_none"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/routers/review.py:109",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/routers/review.py:109",
+          "state": "provably_none"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/review.py:108",
+          "state": "provably_none"
+        },
+        "query": {
+          "evidence": "SH-F23 app/routers/review.py:109",
+          "state": "provably_none"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/review.py:108",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "fact",
+              "rule": "SH-F25",
+              "schema": {
+                "reason": "response_model_by_alias: the response may leave out or rename fields",
+                "type": "unknown"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 1 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/routers/review.py#GET%20%2Fcookie-oauth",
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/routers/review.py:195",
+          "state": "provably_none"
+        },
+        "cookie": {
+          "items": [
+            {
+              "access": "read_by_dependency",
+              "at": "app/routers/review.py:185",
+              "chain": [
+                "app/routers/review.py:195 CookieOAuth.__call__"
+              ],
+              "key": "access_token",
+              "kind": "read_in_handler",
+              "presence": "unknown",
+              "rule": "SH-F15",
+              "schema": null
+            }
+          ],
+          "reason": "names read in code; their types and whether they must be sent are not read",
+          "state": "partial"
+        },
+        "header": {
+          "evidence": "SH-F23 app/routers/review.py:195",
+          "state": "provably_none"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/review.py:194",
+          "state": "provably_none"
+        },
+        "query": {
+          "evidence": "SH-F23 app/routers/review.py:195",
+          "state": "provably_none"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/review.py:194",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "intended",
+              "rule": "SH-F27",
+              "schema": {
+                "reason": "no response model is declared",
+                "type": "unknown"
+              }
+            },
+            {
+              "at": "app/routers/review.py:187",
+              "chain": [
+                "app/routers/review.py:195 CookieOAuth.__call__"
+              ],
+              "content_type": null,
+              "key": "401",
+              "kind": "fact",
+              "rule": "SH-F29",
+              "schema": null
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read; the returned value token is not read (app/routers/review.py:196); the value of cookie_scheme is returned (app/routers/review.py:196): it may be a Response",
+          "state": "partial"
+        },
+        "security": {
+          "reason": "CookieOAuth: a repository subclass of OAuth2PasswordBearer is not read; middleware is not read",
+          "state": "partial"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/routers/review.py#GET%20%2Fcookie-set",
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/routers/review.py:215",
+          "state": "provably_none"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/routers/review.py:215",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/routers/review.py:215",
+          "state": "provably_none"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/review.py:214",
+          "state": "provably_none"
+        },
+        "query": {
+          "evidence": "SH-F23 app/routers/review.py:215",
+          "state": "provably_none"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/review.py:214",
+              "content_type": "application/json",
+              "key": "201",
+              "kind": "fact",
+              "rule": "SH-F27",
+              "schema": {
+                "reason": "no response model is declared",
+                "type": "unknown"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read; a returned value is not read (app/routers/review.py:218)",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/routers/review.py#GET%20%2Fcustom",
+      "models": [
+        "HTTPValidationError",
+        "ValidationError"
+      ],
+      "sections": {
+        "body": {
+          "reason": "a custom route_class CatchAll (app/routers/review.py:234) can rewrite the request and the response",
+          "state": "partial"
+        },
+        "cookie": {
+          "reason": "a custom route_class CatchAll (app/routers/review.py:234) can rewrite the request and the response",
+          "state": "partial"
+        },
+        "header": {
+          "reason": "a custom route_class CatchAll (app/routers/review.py:234) can rewrite the request and the response",
+          "state": "partial"
+        },
+        "path": {
+          "reason": "a custom route_class CatchAll (app/routers/review.py:234) can rewrite the request and the response",
+          "state": "partial"
+        },
+        "query": {
+          "items": [
+            {
+              "access": "declared",
+              "at": "app/routers/review.py:238",
+              "key": "q",
+              "kind": "intended",
+              "presence": "unknown",
+              "rule": "SH-F4",
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "reason": "a custom route_class CatchAll (app/routers/review.py:234) can rewrite the request and the response",
+          "state": "partial"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/review.py:237",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "intended",
+              "rule": "SH-F27",
+              "schema": {
+                "reason": "no response model is declared",
+                "type": "unknown"
+              }
+            },
+            {
+              "at": "app/routers/review.py:237",
+              "content_type": "application/json",
+              "key": "422",
+              "kind": "intended",
+              "rule": "SH-F30",
+              "schema": {
+                "ref": "HTTPValidationError",
+                "type": "ref"
+              }
+            },
+            {
+              "at": "app/routers/review.py:239",
+              "content_type": null,
+              "key": "404",
+              "kind": "intended",
+              "rule": "SH-F29",
+              "schema": null
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read; a custom route_class CatchAll (app/routers/review.py:234) can rewrite the request and the response",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/routers/review.py#GET%20%2Fenum-missing",
+      "sections": {
+        "body": {
+          "reason": "parameter c (app/routers/review.py:164): the annotation is not read: enum Shade defines _missing_: other values may be accepted",
+          "state": "partial"
+        },
+        "cookie": {
+          "reason": "parameter c (app/routers/review.py:164): the annotation is not read: enum Shade defines _missing_: other values may be accepted",
+          "state": "partial"
+        },
+        "header": {
+          "reason": "parameter c (app/routers/review.py:164): the annotation is not read: enum Shade defines _missing_: other values may be accepted",
+          "state": "partial"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/review.py:163",
+          "state": "provably_none"
+        },
+        "query": {
+          "reason": "parameter c (app/routers/review.py:164): the annotation is not read: enum Shade defines _missing_: other values may be accepted",
+          "state": "partial"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/review.py:163",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "intended",
+              "rule": "SH-F27",
+              "schema": {
+                "reason": "no response model is declared",
+                "type": "unknown"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read; the returned value c is not read (app/routers/review.py:165); the returned parameter c is not read (app/routers/review.py:165): it may be a Response",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/routers/review.py#GET%20%2Fexclnone",
+      "models": [
+        "Plain"
+      ],
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/routers/review.py:99",
+          "state": "provably_none"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/routers/review.py:99",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/routers/review.py:99",
+          "state": "provably_none"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/review.py:98",
+          "state": "provably_none"
+        },
+        "query": {
+          "evidence": "SH-F23 app/routers/review.py:99",
+          "state": "provably_none"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/review.py:98",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "fact",
+              "rule": "SH-F25",
+              "schema": {
+                "reason": "response_model_exclude_none: the response may leave out or rename fields",
+                "type": "unknown"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/routers/review.py#GET%20%2Fexclude",
+      "models": [
+        "Plain"
+      ],
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/routers/review.py:104",
+          "state": "provably_none"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/routers/review.py:104",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/routers/review.py:104",
+          "state": "provably_none"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/review.py:103",
+          "state": "provably_none"
+        },
+        "query": {
+          "evidence": "SH-F23 app/routers/review.py:104",
+          "state": "provably_none"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/review.py:103",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "fact",
+              "rule": "SH-F25",
+              "schema": {
+                "reason": "response_model_exclude: the response may leave out or rename fields",
+                "type": "unknown"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/routers/review.py#GET%20%2Fgen",
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/routers/review.py:134",
+          "state": "provably_none"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/routers/review.py:134",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/routers/review.py:134",
+          "state": "provably_none"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/review.py:133",
+          "state": "provably_none"
+        },
+        "query": {
+          "evidence": "SH-F23 app/routers/review.py:134",
+          "state": "provably_none"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/review.py:133",
+              "content_type": null,
+              "key": "200",
+              "kind": "intended",
+              "rule": "SH-F39",
+              "schema": {
+                "reason": "the handler streams its values (a generator or an iterable return annotation): the content type depends on the FastAPI version",
+                "type": "unknown"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read; the handler is a generator or returns an iterable: FastAPI streams it (JSON Lines in recent versions)",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 1 external at app/routers/review.py:66 JSONResponse (fastapi.responses.JSONResponse)"
+      ],
+      "identity": "route:app/routers/review.py#GET%20%2Findirect",
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/routers/review.py:84",
+          "state": "provably_none"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/routers/review.py:84",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/routers/review.py:84",
+          "state": "provably_none"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/review.py:83",
+          "state": "provably_none"
+        },
+        "query": {
+          "evidence": "SH-F23 app/routers/review.py:84",
+          "state": "provably_none"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/review.py:83",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "intended",
+              "rule": "SH-F27",
+              "schema": {
+                "reason": "no response model is declared",
+                "type": "unknown"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read; a call was not followed (external: fastapi.responses.JSONResponse) at app/routers/review.py:66; a Response is returned directly (app/routers/review.py:66)",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/routers/review.py#GET%20%2Findirect2",
+      "models": [
+        "Plain"
+      ],
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/routers/review.py:89",
+          "state": "provably_none"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/routers/review.py:89",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/routers/review.py:89",
+          "state": "provably_none"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/review.py:88",
+          "state": "provably_none"
+        },
+        "query": {
+          "evidence": "SH-F23 app/routers/review.py:89",
+          "state": "provably_none"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/review.py:88",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "intended",
+              "rule": "SH-F25",
+              "schema": {
+                "ref": "Plain",
+                "type": "ref"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read; a Response is returned directly (app/routers/review.py:66)",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/routers/review.py#GET%20%2Fopt422",
+      "models": [
+        "HTTPValidationError",
+        "ValidationError"
+      ],
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/routers/review.py:169",
+          "state": "provably_none"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/routers/review.py:169",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/routers/review.py:169",
+          "state": "provably_none"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/review.py:168",
+          "state": "provably_none"
+        },
+        "query": {
+          "evidence": "SH-F23 app/routers/review.py:169",
+          "items": [
+            {
+              "access": "declared",
+              "at": "app/routers/review.py:169",
+              "key": "q",
+              "kind": "fact",
+              "presence": "optional",
+              "rule": "SH-F4",
+              "schema": {
+                "nullable": true,
+                "type": "string"
+              }
+            }
+          ],
+          "state": "complete"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/review.py:168",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "fact",
+              "rule": "SH-F27",
+              "schema": {
+                "reason": "no response model is declared",
+                "type": "unknown"
+              }
+            },
+            {
+              "at": "app/routers/review.py:168",
+              "content_type": "application/json",
+              "key": "422",
+              "kind": "intended",
+              "rule": "SH-F30",
+              "schema": {
+                "ref": "HTTPValidationError",
+                "type": "ref"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read; a returned value is not read (app/routers/review.py:170); 422: no declared parameter or body can fail validation (FastAPI documents it, no request reaches it)",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/routers/review.py#GET%20%2Fproven-plain",
+      "models": [
+        "Plain"
+      ],
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/routers/review.py:94",
+          "state": "provably_none"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/routers/review.py:94",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/routers/review.py:94",
+          "state": "provably_none"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/review.py:93",
+          "state": "provably_none"
+        },
+        "query": {
+          "evidence": "SH-F23 app/routers/review.py:94",
+          "state": "provably_none"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/review.py:93",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "fact",
+              "rule": "SH-F25",
+              "schema": {
+                "ref": "Plain",
+                "type": "ref"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "header depth 1 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/routers/review.py#GET%20%2Freassign",
+      "sections": {
+        "body": {
+          "reason": "the request value is used where its reads are not followed (app/routers/review.py:210); the request value is used where its reads are not followed (app/routers/review.py:205)",
+          "state": "partial"
+        },
+        "cookie": {
+          "reason": "the request value is used where its reads are not followed (app/routers/review.py:210); the request value is used where its reads are not followed (app/routers/review.py:205)",
+          "state": "partial"
+        },
+        "header": {
+          "reason": "the request value is used where its reads are not followed (app/routers/review.py:210); the request value is used where its reads are not followed (app/routers/review.py:205)",
+          "state": "partial"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/review.py:208",
+          "state": "provably_none"
+        },
+        "query": {
+          "reason": "the request value is used where its reads are not followed (app/routers/review.py:210); the request value is used where its reads are not followed (app/routers/review.py:205)",
+          "state": "partial"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/review.py:208",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "intended",
+              "rule": "SH-F27",
+              "schema": {
+                "reason": "no response model is declared",
+                "type": "unknown"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read; a returned value is not read (app/routers/review.py:211); a returned value is not read (app/routers/review.py:211): it may be a Response",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/routers/review.py#GET%20%2Fredir",
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/routers/review.py:129",
+          "state": "provably_none"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/routers/review.py:129",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/routers/review.py:129",
+          "state": "provably_none"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/review.py:128",
+          "state": "provably_none"
+        },
+        "query": {
+          "evidence": "SH-F23 app/routers/review.py:129",
+          "state": "provably_none"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/review.py:128",
+              "content_type": null,
+              "key": "307",
+              "kind": "fact",
+              "rule": "SH-F27",
+              "schema": {
+                "reason": "no response model is declared",
+                "type": "unknown"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read; a returned value is not read (app/routers/review.py:130)",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/routers/review.py#GET%20%2Fstate",
+      "sections": {
+        "body": {
+          "reason": "the request value is used where its reads are not followed (app/routers/review.py:80)",
+          "state": "partial"
+        },
+        "cookie": {
+          "reason": "the request value is used where its reads are not followed (app/routers/review.py:80)",
+          "state": "partial"
+        },
+        "header": {
+          "reason": "the request value is used where its reads are not followed (app/routers/review.py:80)",
+          "state": "partial"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/review.py:78",
+          "state": "provably_none"
+        },
+        "query": {
+          "reason": "the request value is used where its reads are not followed (app/routers/review.py:80)",
+          "state": "partial"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/review.py:78",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "fact",
+              "rule": "SH-F27",
+              "schema": {
+                "reason": "no response model is declared",
+                "type": "unknown"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read; a returned value is not read (app/routers/review.py:80)",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/routers/review.py#GET%20%2Fstream-items",
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/routers/review.py:139",
+          "state": "provably_none"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/routers/review.py:139",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/routers/review.py:139",
+          "state": "provably_none"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/review.py:138",
+          "state": "provably_none"
+        },
+        "query": {
+          "evidence": "SH-F23 app/routers/review.py:139",
+          "state": "provably_none"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/review.py:138",
+              "content_type": null,
+              "key": "200",
+              "kind": "intended",
+              "rule": "SH-F39",
+              "schema": {
+                "reason": "the handler streams its values (a generator or an iterable return annotation): the content type depends on the FastAPI version",
+                "type": "unknown"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read; the handler is a generator or returns an iterable: FastAPI streams it (JSON Lines in recent versions)",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/routers/review.py#GET%20%2Funset",
+      "models": [
+        "Plain"
+      ],
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/routers/review.py:114",
+          "state": "provably_none"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/routers/review.py:114",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/routers/review.py:114",
+          "state": "provably_none"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/review.py:113",
+          "state": "provably_none"
+        },
+        "query": {
+          "evidence": "SH-F23 app/routers/review.py:114",
+          "state": "provably_none"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/review.py:113",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "fact",
+              "rule": "SH-F25",
+              "schema": {
+                "ref": "Plain",
+                "type": "ref"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/routers/review.py#GET%20%2Furl",
+      "sections": {
+        "body": {
+          "reason": "the request value is used where its reads are not followed (app/routers/review.py:75)",
+          "state": "partial"
+        },
+        "cookie": {
+          "reason": "the request value is used where its reads are not followed (app/routers/review.py:75)",
+          "state": "partial"
+        },
+        "header": {
+          "reason": "the request value is used where its reads are not followed (app/routers/review.py:75)",
+          "state": "partial"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/review.py:73",
+          "state": "provably_none"
+        },
+        "query": {
+          "reason": "the request value is used where its reads are not followed (app/routers/review.py:75)",
+          "state": "partial"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/review.py:73",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "fact",
+              "rule": "SH-F27",
+              "schema": {
+                "reason": "no response model is declared",
+                "type": "unknown"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read; a returned value is not read (app/routers/review.py:75)",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/routers/review.py#POST%20%2Ffiles-list",
+      "models": [
+        "HTTPValidationError",
+        "ValidationError"
+      ],
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/routers/review.py:200",
+          "items": [
+            {
+              "at": "app/routers/review.py:200",
+              "content_type": "multipart/form-data",
+              "key": "body",
+              "kind": "fact",
+              "rule": "SH-F20",
+              "schema": {
+                "additional": "unknown",
+                "fields": [
+                  {
+                    "name": "files",
+                    "presence": "required",
+                    "schema": {
+                      "items": {
+                        "type": "string"
+                      },
+                      "type": "array"
+                    }
+                  }
+                ],
+                "type": "object"
+              }
+            }
+          ],
+          "state": "complete"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/routers/review.py:200",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/routers/review.py:200",
+          "state": "provably_none"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/review.py:199",
+          "state": "provably_none"
+        },
+        "query": {
+          "evidence": "SH-F23 app/routers/review.py:200",
+          "state": "provably_none"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/review.py:199",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "fact",
+              "rule": "SH-F27",
+              "schema": {
+                "reason": "no response model is declared",
+                "type": "unknown"
+              }
+            },
+            {
+              "at": "app/routers/review.py:199",
+              "content_type": "application/json",
+              "key": "422",
+              "kind": "fact",
+              "rule": "SH-F30",
+              "schema": {
+                "ref": "HTTPValidationError",
+                "type": "ref"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read; a returned value is not read (app/routers/review.py:201)",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/routers/review.py#POST%20%2Fformmodel",
+      "models": [
+        "HTTPValidationError",
+        "ValidationError",
+        "FormData"
+      ],
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/routers/review.py:119",
+          "items": [
+            {
+              "at": "app/routers/review.py:119",
+              "content_type": "application/x-www-form-urlencoded",
+              "key": "body",
+              "kind": "fact",
+              "rule": "SH-F20",
+              "schema": {
+                "ref": "FormData",
+                "type": "ref"
+              }
+            }
+          ],
+          "state": "complete"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/routers/review.py:119",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/routers/review.py:119",
+          "state": "provably_none"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/review.py:118",
+          "state": "provably_none"
+        },
+        "query": {
+          "evidence": "SH-F23 app/routers/review.py:119",
+          "state": "provably_none"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/review.py:118",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "fact",
+              "rule": "SH-F27",
+              "schema": {
+                "reason": "no response model is declared",
+                "type": "unknown"
+              }
+            },
+            {
+              "at": "app/routers/review.py:118",
+              "content_type": "application/json",
+              "key": "422",
+              "kind": "fact",
+              "rule": "SH-F30",
+              "schema": {
+                "ref": "HTTPValidationError",
+                "type": "ref"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read; a returned value is not read (app/routers/review.py:120)",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/routers/review.py#POST%20%2Ffv",
+      "models": [
+        "HTTPValidationError",
+        "ValidationError",
+        "Tags"
+      ],
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/routers/review.py:154",
+          "items": [
+            {
+              "at": "app/routers/review.py:154",
+              "content_type": "application/json",
+              "key": "body",
+              "kind": "fact",
+              "rule": "SH-F18",
+              "schema": {
+                "ref": "Tags",
+                "type": "ref"
+              }
+            }
+          ],
+          "state": "complete"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/routers/review.py:154",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/routers/review.py:154",
+          "state": "provably_none"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/review.py:153",
+          "state": "provably_none"
+        },
+        "query": {
+          "evidence": "SH-F23 app/routers/review.py:154",
+          "state": "provably_none"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/review.py:153",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "intended",
+              "rule": "SH-F27",
+              "schema": {
+                "reason": "no response model is declared",
+                "type": "unknown"
+              }
+            },
+            {
+              "at": "app/routers/review.py:153",
+              "content_type": "application/json",
+              "key": "422",
+              "kind": "fact",
+              "rule": "SH-F30",
+              "schema": {
+                "ref": "HTTPValidationError",
+                "type": "ref"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read; a returned value is not read (app/routers/review.py:155); a returned value is not read (app/routers/review.py:155): it may be a Response",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/routers/review.py#POST%20%2Ffv-after",
+      "models": [
+        "HTTPValidationError",
+        "ValidationError",
+        "Checked"
+      ],
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/routers/review.py:159",
+          "items": [
+            {
+              "at": "app/routers/review.py:159",
+              "content_type": "application/json",
+              "key": "body",
+              "kind": "fact",
+              "rule": "SH-F18",
+              "schema": {
+                "ref": "Checked",
+                "type": "ref"
+              }
+            }
+          ],
+          "state": "complete"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/routers/review.py:159",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/routers/review.py:159",
+          "state": "provably_none"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/review.py:158",
+          "state": "provably_none"
+        },
+        "query": {
+          "evidence": "SH-F23 app/routers/review.py:159",
+          "state": "provably_none"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/review.py:158",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "intended",
+              "rule": "SH-F27",
+              "schema": {
+                "reason": "no response model is declared",
+                "type": "unknown"
+              }
+            },
+            {
+              "at": "app/routers/review.py:158",
+              "content_type": "application/json",
+              "key": "422",
+              "kind": "fact",
+              "rule": "SH-F30",
+              "schema": {
+                "ref": "HTTPValidationError",
+                "type": "ref"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read; a returned value is not read (app/routers/review.py:160); a returned value is not read (app/routers/review.py:160): it may be a Response",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/routers/review.py#POST%20%2Fpopname",
+      "models": [
+        "HTTPValidationError",
+        "ValidationError",
+        "ByName"
+      ],
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/routers/review.py:124",
+          "items": [
+            {
+              "at": "app/routers/review.py:124",
+              "content_type": "application/json",
+              "key": "body",
+              "kind": "fact",
+              "rule": "SH-F18",
+              "schema": {
+                "ref": "ByName",
+                "type": "ref"
+              }
+            }
+          ],
+          "state": "complete"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/routers/review.py:124",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/routers/review.py:124",
+          "state": "provably_none"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/review.py:123",
+          "state": "provably_none"
+        },
+        "query": {
+          "evidence": "SH-F23 app/routers/review.py:124",
+          "state": "provably_none"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/review.py:123",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "fact",
+              "rule": "SH-F27",
+              "schema": {
+                "reason": "no response model is declared",
+                "type": "unknown"
+              }
+            },
+            {
+              "at": "app/routers/review.py:123",
+              "content_type": "application/json",
+              "key": "422",
+              "kind": "fact",
+              "rule": "SH-F30",
+              "schema": {
+                "ref": "HTTPValidationError",
+                "type": "ref"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read; a returned value is not read (app/routers/review.py:125)",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/unread.py#POST%20%2Fheroes",
+      "models": [
+        "HTTPValidationError",
+        "ValidationError",
+        "Hero"
+      ],
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/unread.py:15",
+          "items": [
+            {
+              "at": "app/unread.py:15",
+              "content_type": "application/json",
+              "key": "body",
+              "kind": "fact",
+              "rule": "SH-F18",
+              "schema": {
+                "ref": "Hero",
+                "type": "ref"
+              }
+            }
+          ],
+          "state": "complete"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/unread.py:15",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/unread.py:15",
+          "state": "provably_none"
+        },
+        "path": {
+          "state": "not_read"
+        },
+        "query": {
+          "evidence": "SH-F23 app/unread.py:15",
+          "state": "provably_none"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/unread.py:15",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "fact",
+              "rule": "SH-F26",
+              "schema": {
+                "ref": "Hero",
+                "type": "ref"
+              }
+            },
+            {
+              "at": "app/unread.py:14",
+              "content_type": "application/json",
+              "key": "422",
+              "kind": "fact",
+              "rule": "SH-F30",
+              "schema": {
+                "ref": "HTTPValidationError",
+                "type": "ref"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    }
+  ],
+  "security_schemes": {
+    "APIKeyHeader": {
+      "at": "app/security.py:7",
+      "bearer_format": null,
+      "in": "header",
+      "openid_connect_url": null,
+      "param_name": "X-API-Key",
+      "rule": "SH-F32",
+      "scheme": null,
+      "token_url": null,
+      "type": "apiKey"
+    },
+    "APIKeyQuery": {
+      "at": "app/security.py:8",
+      "bearer_format": null,
+      "in": "query",
+      "openid_connect_url": null,
+      "param_name": "key",
+      "rule": "SH-F32",
+      "scheme": null,
+      "token_url": null,
+      "type": "apiKey"
+    },
+    "ComputedToken": {
+      "at": "app/security.py:12",
+      "bearer_format": null,
+      "in": null,
+      "openid_connect_url": null,
+      "param_name": null,
+      "rule": "SH-F32",
+      "scheme": null,
+      "token_url": null,
+      "type": "oauth2"
+    },
+    "HTTPBasic": {
+      "at": "app/security.py:10",
+      "bearer_format": null,
+      "in": null,
+      "openid_connect_url": null,
+      "param_name": null,
+      "rule": "SH-F32",
+      "scheme": "basic",
+      "token_url": null,
+      "type": "http"
+    },
+    "HTTPBearer": {
+      "at": "app/security.py:9",
+      "bearer_format": "JWT",
+      "in": null,
+      "openid_connect_url": null,
+      "param_name": null,
+      "rule": "SH-F32",
+      "scheme": "bearer",
+      "token_url": null,
+      "type": "http"
+    },
+    "OAuth2PasswordBearer": {
+      "at": "app/security.py:6",
+      "bearer_format": null,
+      "in": null,
+      "openid_connect_url": null,
+      "param_name": null,
+      "rule": "SH-F32",
+      "scheme": null,
+      "token_url": "/auth/token",
+      "type": "oauth2"
+    },
+    "OpenIdConnect": {
+      "at": "app/security.py:11",
+      "bearer_format": null,
+      "in": null,
+      "openid_connect_url": "https://id.example.com/.well-known/openid-configuration",
+      "param_name": null,
+      "rule": "SH-F32",
+      "scheme": null,
+      "token_url": null,
+      "type": "openIdConnect"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+import { Assigned as Alias, Defined, Deleted, Updated, DynamicMutation } from './rejections';
+import * as ns from './rejections';
+Alias.run = () => 2;
+Object.defineProperty(Defined, 'run', { value: () => 2 });
+Object.defineProperties(ns.DefinedMany, { run: { value: () => 2 } });
+Object.assign(ns.AssignedMany, { run: () => 2 });
+delete Deleted.run;
+Updated.run++;
+declare const key: string;
+DynamicMutation[key] = () => 2;

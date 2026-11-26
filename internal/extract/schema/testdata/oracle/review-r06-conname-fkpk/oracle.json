@@ -1,0 +1,28 @@
+{
+  "id": "review-r06-conname-fkpk",
+  "signature": "applied|S1|42710|",
+  "class": "S1",
+  "owner": "P2",
+  "row": "review",
+  "history": {
+    "id": "r06-conname-fkpk"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42710",
+        "message": "constraint \"x\" for relation \"t\" already exists",
+        "statement": 2,
+        "statement_text": "CREATE TABLE t (a int CONSTRAINT x PRIMARY KEY, b int, CONSTRAINT x FOREIGN KEY (b) REFERENCES p);"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

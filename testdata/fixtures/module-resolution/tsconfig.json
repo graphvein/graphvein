@@ -1,0 +1,12 @@
+{
+ // Metadata stays out of source extraction caches.
+ "extends": "./configs/child.json",
+ "compilerOptions": {
+  "paths": {
+   "@alias/*": ["missing/*", "aliased/*",],
+   "@pkg": ["aliased/tool"],
+   "fallen": ["missing"],
+   "@fall-work": ["missing"],
+  },
+ },
+}

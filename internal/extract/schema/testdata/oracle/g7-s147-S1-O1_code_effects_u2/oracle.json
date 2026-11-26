@@ -1,0 +1,38 @@
+{
+  "id": "g7-s147-S1-O1_code_effects_u2",
+  "signature": "applied|S1|2BP01|O1.code_effects_u2",
+  "class": "S1",
+  "owner": "Y48",
+  "row": "O1.code_effects_u2",
+  "history": {
+    "id": "g7-s147",
+    "tags": {
+      "1_m1.sql": [
+        "O1.code_effects_u2",
+        "O1.code_effects_u2",
+        "O1.code_effects_u2",
+        "O1.code_effects_u2"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "2BP01",
+        "message": "cannot drop index ct1_pkey because constraint ct1_pkey on table ct1 requires it",
+        "where": "SQL statement \"DROP INDEX ct1_pkey\"\nPL/pgSQL function cr4() line 1 at EXECUTE",
+        "statement": 3,
+        "statement_text": "CALL cr4();",
+        "no_transaction": true
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

@@ -1,0 +1,25 @@
+// CI-only helper: copy inside the pinned wasitter module to use its compiler.
+package main
+
+import (
+ "context"
+ "encoding/json"
+ "fmt"
+ "os"
+ "path/filepath"
+ "github.com/zema1/wasitter/internal/grammarbuild"
+)
+
+func run() error {
+ if len(os.Args) != 5 { return fmt.Errorf("want root, grammar directory, row JSON and output") }
+ var row struct { Name string `json:"name"`; Parser string `json:"parser"`; Scanners []string `json:"scanners"`; Function string `json:"language_function"` }
+ data, err := os.ReadFile(os.Args[3]); if err != nil { return err }
+ if err = json.Unmarshal(data, &row); err != nil { return err }
+ return grammarbuild.CompileWASM(context.Background(), grammarbuild.CompilerOptions{
+ Root: os.Args[1], GrammarDirectory: os.Args[2], Parser: row.Parser,
+ ExtraSources: row.Scanners, LanguageFunction: row.Function, LanguageName: row.Name,
+ Output: os.Args[4], CCompiler: filepath.Join(os.Getenv("WASI_SDK_PATH"), "bin", "clang"),
+ CXXCompiler: filepath.Join(os.Getenv("WASI_SDK_PATH"), "bin", "clang++"), Stdout: os.Stdout, Stderr: os.Stderr,
+ })
+}
+func main() { if err := run(); err != nil { fmt.Fprintln(os.Stderr, err); os.Exit(1) } }

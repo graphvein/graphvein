@@ -1,0 +1,41 @@
+{
+  "id": "g8-s983-S1-R4_relkinds_v4",
+  "signature": "applied|S1|42704|R4.relkinds_v4",
+  "class": "S1",
+  "owner": "V4",
+  "row": "R4.relkinds_v4",
+  "history": {
+    "id": "g8-s983",
+    "tags": {
+      "1_m1.sql": [
+        "R4.relkinds_v4",
+        "R4.relkinds_v4",
+        "R4.relkinds_v4",
+        "R4.relkinds_v4",
+        "R4.relkinds_v4",
+        "R4.relkinds_v4",
+        "R4.relkinds_v4",
+        "R4.relkinds_v4",
+        "R4.relkinds_v4"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42704",
+        "message": "type \"nosuch9\" does not exist",
+        "statement": 9,
+        "statement_text": "ALTER DOMAIN nosuch9 DROP CONSTRAINT IF EXISTS c;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

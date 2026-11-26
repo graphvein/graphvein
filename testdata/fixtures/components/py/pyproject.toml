@@ -1,0 +1,7 @@
+[project]
+name = "t026-py"
+version = "0.1.0"
+dependencies = ["asyncpg>=0.30", "httpx"]
+
+[project.scripts]
+t026-py = "svc.main:run"

@@ -1,0 +1,595 @@
+{
+  "api_version": 0,
+  "calls": [
+    {
+      "node": {
+        "attributes": {
+          "base": "none",
+          "library": "fetch",
+          "method": "GET",
+          "paths": [
+            {
+              "candidate_count": 0,
+              "candidates": [],
+              "conditional": false,
+              "match": null,
+              "origin": null,
+              "resolution": "literal",
+              "status": "unmatched",
+              "template": "/t016d-missing-tool"
+            }
+          ],
+          "status": "unmatched",
+          "url_expression": "'/t016d-missing-tool'",
+          "wrapper": null
+        },
+        "content_hash": "sha256:821843eb13009d0ee8d26e6546bfb002ec9e407a51b49e6badfafca93abf4ff1",
+        "file": "tools/check.ts",
+        "file_state": "unchanged",
+        "ide": {
+          "column": 10,
+          "exact": true,
+          "line": 2,
+          "link": "vscode://file/{ROOT}/tools/check.ts:2:10"
+        },
+        "identity": "client_call:tools/check.ts#check.GET%20%27%2Ft016d-missing-tool%27",
+        "kind": "client_call",
+        "level": 4,
+        "name": "GET '/t016d-missing-tool'",
+        "qualified_name": "check.GET '/t016d-missing-tool'",
+        "source_root": "tools",
+        "span": {
+          "end_column": 37,
+          "end_line": 2,
+          "start_column": 9,
+          "start_line": 2
+        },
+        "type": "node"
+      },
+      "owner": {
+        "id": "function:tools/check.ts#check",
+        "kind": "function",
+        "qualified_name": "check"
+      },
+      "reasons": [
+        {
+          "code": "no_matching_route",
+          "detail": "GET /t016d-missing-tool",
+          "text": "No route matches this method and path"
+        }
+      ],
+      "targets": []
+    },
+    {
+      "node": {
+        "attributes": {
+          "base": "none",
+          "library": "fetch",
+          "method": "GET",
+          "paths": [
+            {
+              "candidate_count": 0,
+              "candidates": [],
+              "conditional": false,
+              "match": null,
+              "origin": null,
+              "resolution": "literal",
+              "status": "dynamic",
+              "template": "/{path}"
+            }
+          ],
+          "status": "wrapper",
+          "url_expression": "`/t016d-api${path}`",
+          "wrapper": null
+        },
+        "content_hash": "sha256:ba556ab2794f9bb8ce828c6b47d1444206a621b374b10dc629bbd35456be5f7c",
+        "file": "web/src/client.ts",
+        "file_state": "unchanged",
+        "ide": {
+          "column": 10,
+          "exact": true,
+          "line": 3,
+          "link": "vscode://file/{ROOT}/web/src/client.ts:3:10"
+        },
+        "identity": "client_call:web/src/client.ts#apiGet.GET%20%60%2Ft016d-api%24%7Bpath%7D%60",
+        "kind": "client_call",
+        "level": 4,
+        "name": "GET `/t016d-api${path}`",
+        "qualified_name": "apiGet.GET `/t016d-api${path}`",
+        "source_root": "web",
+        "span": {
+          "end_column": 35,
+          "end_line": 3,
+          "start_column": 9,
+          "start_line": 3
+        },
+        "type": "node"
+      },
+      "owner": {
+        "id": "function:web/src/client.ts#apiGet",
+        "kind": "function",
+        "qualified_name": "apiGet"
+      },
+      "reasons": [
+        {
+          "code": "wrapper_inner",
+          "detail": null,
+          "text": "Inner request of a wrapper; the wrapper's call sites are listed as calls"
+        }
+      ],
+      "targets": []
+    },
+    {
+      "node": {
+        "attributes": {
+          "base": "none",
+          "library": "fetch",
+          "method": "GET",
+          "paths": [
+            {
+              "candidate_count": 0,
+              "candidates": [],
+              "conditional": false,
+              "match": null,
+              "origin": null,
+              "resolution": "literal",
+              "status": "unmatched",
+              "template": "/t016d-missing"
+            }
+          ],
+          "status": "unmatched",
+          "url_expression": "'/t016d-missing'",
+          "wrapper": null
+        },
+        "content_hash": "sha256:c01547463250cc7b8d3b573d9aca9e850533d72da22dffc121823458b7569662",
+        "file": "web/src/http.ts",
+        "file_state": "unchanged",
+        "ide": {
+          "column": 10,
+          "exact": true,
+          "line": 23,
+          "link": "vscode://file/{ROOT}/web/src/http.ts:23:10"
+        },
+        "identity": "client_call:web/src/http.ts#unmatched.GET%20%27%2Ft016d-missing%27",
+        "kind": "client_call",
+        "level": 4,
+        "name": "GET '/t016d-missing'",
+        "qualified_name": "unmatched.GET '/t016d-missing'",
+        "source_root": "web",
+        "span": {
+          "end_column": 32,
+          "end_line": 23,
+          "start_column": 9,
+          "start_line": 23
+        },
+        "type": "node"
+      },
+      "owner": {
+        "id": "function:web/src/http.ts#unmatched",
+        "kind": "function",
+        "qualified_name": "unmatched"
+      },
+      "reasons": [
+        {
+          "code": "no_matching_route",
+          "detail": "GET /t016d-missing",
+          "text": "No route matches this method and path"
+        }
+      ],
+      "targets": []
+    },
+    {
+      "node": {
+        "attributes": {
+          "base": "none",
+          "library": "fetch",
+          "method": null,
+          "method_expression": "method",
+          "paths": [
+            {
+              "candidate_count": 0,
+              "candidates": [],
+              "conditional": false,
+              "match": null,
+              "origin": null,
+              "resolution": "literal",
+              "status": "dynamic",
+              "template": "/t016d-items"
+            }
+          ],
+          "status": "dynamic",
+          "url_expression": "'/t016d-items'",
+          "wrapper": null
+        },
+        "content_hash": "sha256:1c583c869e71054c3a8ad0f9097f767979529b61e7f9c9ac15ceda74a9361e3d",
+        "file": "web/src/http.ts",
+        "file_state": "unchanged",
+        "ide": {
+          "column": 10,
+          "exact": true,
+          "line": 27,
+          "link": "vscode://file/{ROOT}/web/src/http.ts:27:10"
+        },
+        "identity": "client_call:web/src/http.ts#methodUnknown.DYNAMIC%20%27%2Ft016d-items%27",
+        "kind": "client_call",
+        "level": 4,
+        "name": "DYNAMIC '/t016d-items'",
+        "qualified_name": "methodUnknown.DYNAMIC '/t016d-items'",
+        "source_root": "web",
+        "span": {
+          "end_column": 40,
+          "end_line": 27,
+          "start_column": 9,
+          "start_line": 27
+        },
+        "type": "node"
+      },
+      "owner": {
+        "id": "function:web/src/http.ts#methodUnknown",
+        "kind": "function",
+        "qualified_name": "methodUnknown"
+      },
+      "reasons": [
+        {
+          "code": "method_unknown",
+          "detail": "method",
+          "text": "Method is not known statically"
+        }
+      ],
+      "targets": []
+    },
+    {
+      "node": {
+        "attributes": {
+          "base": "unresolved",
+          "library": "fetch",
+          "method": "GET",
+          "paths": [
+            {
+              "candidate_count": 0,
+              "candidates": [],
+              "conditional": false,
+              "match": null,
+              "origin": null,
+              "resolution": "evaluated",
+              "status": "dynamic",
+              "template": null
+            }
+          ],
+          "status": "dynamic",
+          "url_expression": "urls[0]",
+          "wrapper": null
+        },
+        "content_hash": "sha256:6c5d94a65c93a2c98730fc9c354e05f1af09e45a251ad3a89dbe20cbc9a68fa4",
+        "file": "web/src/http.ts",
+        "file_state": "unchanged",
+        "ide": {
+          "column": 10,
+          "exact": true,
+          "line": 32,
+          "link": "vscode://file/{ROOT}/web/src/http.ts:32:10"
+        },
+        "identity": "client_call:web/src/http.ts#urlUnevaluated.GET%20urls%5B0%5D",
+        "kind": "client_call",
+        "level": 4,
+        "name": "GET urls[0]",
+        "qualified_name": "urlUnevaluated.GET urls[0]",
+        "source_root": "web",
+        "span": {
+          "end_column": 23,
+          "end_line": 32,
+          "start_column": 9,
+          "start_line": 32
+        },
+        "type": "node"
+      },
+      "owner": {
+        "id": "function:web/src/http.ts#urlUnevaluated",
+        "kind": "function",
+        "qualified_name": "urlUnevaluated"
+      },
+      "reasons": [
+        {
+          "code": "url_unevaluated",
+          "detail": "urls[0]",
+          "text": "URL is not evaluated statically"
+        }
+      ],
+      "targets": []
+    },
+    {
+      "node": {
+        "attributes": {
+          "base": "unresolved",
+          "base_expression": "process.env.T016D_API",
+          "library": "axios",
+          "method": "DELETE",
+          "paths": [
+            {
+              "candidate_count": 0,
+              "candidates": [],
+              "conditional": false,
+              "match": null,
+              "origin": null,
+              "resolution": "literal",
+              "status": "unmatched",
+              "template": "/{}"
+            }
+          ],
+          "status": "unmatched",
+          "url_expression": "`/${crypto.randomUUID()}`",
+          "wrapper": null
+        },
+        "content_hash": "sha256:977b60fb2f8dcdd6e2c25da9073cd92f668af2b8a2e717c6d9ca855e3f5aa21c",
+        "file": "web/src/http.ts",
+        "file_state": "unchanged",
+        "ide": {
+          "column": 10,
+          "exact": true,
+          "line": 39,
+          "link": "vscode://file/{ROOT}/web/src/http.ts:39:10"
+        },
+        "identity": "client_call:web/src/http.ts#remoteUnmatched.DELETE%20%60%2F%24%7Bcrypto.randomUUID%28%29%7D%60",
+        "kind": "client_call",
+        "level": 4,
+        "name": "DELETE `/${crypto.randomUUID()}`",
+        "qualified_name": "remoteUnmatched.DELETE `/${crypto.randomUUID()}`",
+        "source_root": "web",
+        "span": {
+          "end_column": 49,
+          "end_line": 39,
+          "start_column": 9,
+          "start_line": 39
+        },
+        "type": "node"
+      },
+      "owner": {
+        "id": "function:web/src/http.ts#remoteUnmatched",
+        "kind": "function",
+        "qualified_name": "remoteUnmatched"
+      },
+      "reasons": [
+        {
+          "code": "no_matching_route",
+          "detail": "DELETE /{}",
+          "text": "No route matches this method and path"
+        },
+        {
+          "code": "base_unresolved",
+          "detail": "process.env.T016D_API",
+          "text": "Base URL is not resolved"
+        }
+      ],
+      "targets": []
+    },
+    {
+      "node": {
+        "attributes": {
+          "base": "none",
+          "library": "fetch",
+          "method": "GET",
+          "paths": [
+            {
+              "candidate_count": 2,
+              "candidates": [
+                "route:server/app.ts#GET%20%2Ft016d-tie",
+                "route:server/app.ts#GET%20%2Ft016d-tie%402"
+              ],
+              "conditional": false,
+              "match": null,
+              "origin": null,
+              "resolution": "literal",
+              "status": "ambiguous",
+              "template": "/t016d-tie"
+            }
+          ],
+          "status": "ambiguous",
+          "url_expression": "'/t016d-tie'",
+          "wrapper": null
+        },
+        "content_hash": "sha256:87796e8a7ed7f48b220385991725733c21a669c80b2c3a1f8a4fa941a6c5c4a8",
+        "file": "web/src/http.ts",
+        "file_state": "unchanged",
+        "ide": {
+          "column": 10,
+          "exact": true,
+          "line": 43,
+          "link": "vscode://file/{ROOT}/web/src/http.ts:43:10"
+        },
+        "identity": "client_call:web/src/http.ts#ambiguous.GET%20%27%2Ft016d-tie%27",
+        "kind": "client_call",
+        "level": 4,
+        "name": "GET '/t016d-tie'",
+        "qualified_name": "ambiguous.GET '/t016d-tie'",
+        "source_root": "web",
+        "span": {
+          "end_column": 28,
+          "end_line": 43,
+          "start_column": 9,
+          "start_line": 43
+        },
+        "type": "node"
+      },
+      "owner": {
+        "id": "function:web/src/http.ts#ambiguous",
+        "kind": "function",
+        "qualified_name": "ambiguous"
+      },
+      "reasons": [
+        {
+          "code": "ambiguous",
+          "detail": "/t016d-tie",
+          "text": "2 routes match equally"
+        }
+      ],
+      "targets": []
+    },
+    {
+      "node": {
+        "attributes": {
+          "base": "none",
+          "library": "fetch",
+          "method": "GET",
+          "paths": [
+            {
+              "candidate_count": 0,
+              "candidates": [
+                "route:server/tests/routes.ts#GET%20%2Ft016d-test-only"
+              ],
+              "conditional": false,
+              "match": null,
+              "origin": null,
+              "resolution": "literal",
+              "status": "test_only",
+              "template": "/t016d-test-only"
+            }
+          ],
+          "status": "test_only",
+          "url_expression": "'/t016d-test-only'",
+          "wrapper": null
+        },
+        "content_hash": "sha256:db40ec3825ac51c23e768c7de1944a180e4248b42f14b5772ccb0c00ffde57aa",
+        "file": "web/src/http.ts",
+        "file_state": "unchanged",
+        "ide": {
+          "column": 10,
+          "exact": true,
+          "line": 47,
+          "link": "vscode://file/{ROOT}/web/src/http.ts:47:10"
+        },
+        "identity": "client_call:web/src/http.ts#testOnly.GET%20%27%2Ft016d-test-only%27",
+        "kind": "client_call",
+        "level": 4,
+        "name": "GET '/t016d-test-only'",
+        "qualified_name": "testOnly.GET '/t016d-test-only'",
+        "source_root": "web",
+        "span": {
+          "end_column": 34,
+          "end_line": 47,
+          "start_column": 9,
+          "start_line": 47
+        },
+        "type": "node"
+      },
+      "owner": {
+        "id": "function:web/src/http.ts#testOnly",
+        "kind": "function",
+        "qualified_name": "testOnly"
+      },
+      "reasons": [
+        {
+          "code": "test_only_target",
+          "detail": "/t016d-test-only",
+          "text": "Only test-scope routes match"
+        }
+      ],
+      "targets": []
+    },
+    {
+      "node": {
+        "attributes": {
+          "base": "unresolved",
+          "library": "fetch",
+          "method": "GET",
+          "paths": [
+            {
+              "base": "none",
+              "candidate_count": 0,
+              "candidates": [
+                "route:server/app.ts#GET%20%2Ft016d-items"
+              ],
+              "conditional": true,
+              "match": "exact",
+              "origin": null,
+              "resolution": "evaluated",
+              "status": "linked",
+              "template": "/t016d-items"
+            },
+            {
+              "candidate_count": 0,
+              "candidates": [],
+              "conditional": true,
+              "match": null,
+              "origin": null,
+              "resolution": "evaluated",
+              "status": "dynamic",
+              "template": null
+            }
+          ],
+          "status": "dynamic",
+          "url_expression": "flag?'/t016d-items':url",
+          "wrapper": null
+        },
+        "content_hash": "sha256:487f132a44616c44d8c01b5831932996b398742a21d779980798dc915ce25ea3",
+        "file": "web/src/http.ts",
+        "file_state": "unchanged",
+        "ide": {
+          "column": 10,
+          "exact": true,
+          "line": 55,
+          "link": "vscode://file/{ROOT}/web/src/http.ts:55:10"
+        },
+        "identity": "client_call:web/src/http.ts#partlyDynamic.GET%20flag%3F%27%2Ft016d-items%27%3Aurl",
+        "kind": "client_call",
+        "level": 4,
+        "name": "GET flag?'/t016d-items':url",
+        "qualified_name": "partlyDynamic.GET flag?'/t016d-items':url",
+        "source_root": "web",
+        "span": {
+          "end_column": 43,
+          "end_line": 55,
+          "start_column": 9,
+          "start_line": 55
+        },
+        "type": "node"
+      },
+      "owner": {
+        "id": "function:web/src/http.ts#partlyDynamic",
+        "kind": "function",
+        "qualified_name": "partlyDynamic"
+      },
+      "reasons": [
+        {
+          "code": "some_alternatives_unevaluated",
+          "detail": "flag?'/t016d-items':url",
+          "text": "Some URL alternatives are not evaluated"
+        },
+        {
+          "code": "alternative_linked",
+          "detail": null,
+          "text": "A stored link exists although the status is \"dynamic\""
+        }
+      ],
+      "targets": [
+        "route:server/app.ts#GET%20%2Ft016d-items"
+      ]
+    }
+  ],
+  "ide": {
+    "available": true,
+    "editor": "vscode",
+    "error": null,
+    "label": "Open in VS Code",
+    "source": "builtin"
+  },
+  "index": {
+    "contract_version": 1,
+    "finished_at": "2026-11-03T14:32:05.123Z",
+    "indexer": {
+      "name": "graphvein",
+      "version": "extractors-62"
+    }
+  },
+  "repository": "fixture",
+  "root": null,
+  "scope": "production",
+  "statuses": [
+    "ambiguous",
+    "dynamic",
+    "test_only",
+    "unmatched",
+    "wrapper"
+  ],
+  "total": 9,
+  "transport": "http"
+}

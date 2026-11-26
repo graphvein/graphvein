@@ -1,0 +1,5 @@
+CREATE TABLE t (a int);
+CREATE INDEX i ON t (a);
+CREATE TYPE e AS ENUM ('a');
+CREATE SCHEMA s;
+ALTER TYPE e ADD VALUE 'b' garbage;

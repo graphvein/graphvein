@@ -1,0 +1,546 @@
+{
+  "api_version": 0,
+  "index": {
+    "contract_version": 1,
+    "finished_at": "2026-11-03T14:32:05.123Z",
+    "indexer": {
+      "name": "graphvein",
+      "version": "extractors-62"
+    }
+  },
+  "repository": "fixture",
+  "root": "web",
+  "scope": "production",
+  "transports": [
+    {
+      "callers_precision": {
+        "label": "best_effort",
+        "reason": "default_branch",
+        "row": "D"
+      },
+      "calls": {
+        "by_status": {
+          "ambiguous": 1,
+          "dynamic": 3,
+          "linked": 6,
+          "test_only": 1,
+          "unmatched": 2,
+          "wrapper": 1
+        },
+        "edges_from_unlinked": 1,
+        "linked_without_edge": 0,
+        "total": 14,
+        "unknown_scope": 0
+      },
+      "endpoint_count": 9,
+      "endpoints": [
+        {
+          "caller_count": 3,
+          "documented": false,
+          "file": "server/app.ts",
+          "flags": [],
+          "framework": "express",
+          "id": "route:server/app.ts#GET%20%2Ft016d-api%2Ft016d-users",
+          "line": 16,
+          "method": "GET",
+          "name": "GET /t016d-api/t016d-users",
+          "path": "/t016d-api/t016d-users",
+          "path_count": 1,
+          "pattern": "/t016d-api/t016d-users",
+          "scope": null,
+          "shape": {
+            "depth_cap": 0,
+            "depth_limit": 6,
+            "sections": {
+              "body": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "items": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "security": {
+                "items": 0,
+                "state": "not_read"
+              }
+            }
+          }
+        },
+        {
+          "caller_count": 0,
+          "documented": false,
+          "file": "server/app.ts",
+          "flags": [
+            "handler_inline"
+          ],
+          "framework": "express",
+          "id": "route:server/app.ts#GET%20%2Ft016d-inline",
+          "line": 20,
+          "method": "GET",
+          "name": "GET /t016d-inline",
+          "path": "/t016d-inline",
+          "path_count": 1,
+          "pattern": "/t016d-inline",
+          "scope": null,
+          "shape": {
+            "depth_cap": 0,
+            "depth_limit": 6,
+            "sections": {
+              "body": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "items": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "items": 1,
+                "state": "partial"
+              },
+              "security": {
+                "items": 0,
+                "state": "not_read"
+              }
+            }
+          }
+        },
+        {
+          "caller_count": 3,
+          "documented": true,
+          "file": "server/app.ts",
+          "flags": [],
+          "framework": "express",
+          "id": "route:server/app.ts#GET%20%2Ft016d-items",
+          "line": 13,
+          "method": "GET",
+          "name": "GET /t016d-items",
+          "path": "/t016d-items",
+          "path_count": 1,
+          "pattern": "/t016d-items",
+          "scope": null,
+          "shape": {
+            "depth_cap": 0,
+            "depth_limit": 6,
+            "sections": {
+              "body": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "items": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "items": 1,
+                "state": "partial"
+              },
+              "security": {
+                "items": 0,
+                "state": "not_read"
+              }
+            }
+          }
+        },
+        {
+          "caller_count": 1,
+          "documented": false,
+          "file": "server/app.ts",
+          "flags": [],
+          "framework": "express",
+          "id": "route:server/app.ts#POST%20%2Ft016d-items",
+          "line": 15,
+          "method": "POST",
+          "name": "POST /t016d-items",
+          "path": "/t016d-items",
+          "path_count": 1,
+          "pattern": "/t016d-items",
+          "scope": null,
+          "shape": {
+            "depth_cap": 0,
+            "depth_limit": 6,
+            "sections": {
+              "body": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "items": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "security": {
+                "items": 0,
+                "state": "not_read"
+              }
+            }
+          }
+        },
+        {
+          "caller_count": 1,
+          "documented": false,
+          "file": "server/app.ts",
+          "flags": [],
+          "framework": "express",
+          "id": "route:server/app.ts#GET%20%2Ft016d-items%2F%3Aid",
+          "line": 14,
+          "method": "GET",
+          "name": "GET /t016d-items/:id",
+          "path": "/t016d-items/{id}",
+          "path_count": 1,
+          "pattern": "/t016d-items/:id",
+          "scope": null,
+          "shape": {
+            "depth_cap": 0,
+            "depth_limit": 6,
+            "sections": {
+              "body": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "items": 1,
+                "state": "complete"
+              },
+              "query": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "security": {
+                "items": 0,
+                "state": "not_read"
+              }
+            }
+          }
+        },
+        {
+          "caller_count": 0,
+          "documented": false,
+          "file": "server/app.ts",
+          "flags": [],
+          "framework": "express",
+          "id": "route:server/app.ts#GET%20%2Ft016d-never",
+          "line": 19,
+          "method": "GET",
+          "name": "GET /t016d-never",
+          "path": "/t016d-never",
+          "path_count": 1,
+          "pattern": "/t016d-never",
+          "scope": null,
+          "shape": {
+            "depth_cap": 0,
+            "depth_limit": 6,
+            "sections": {
+              "body": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "items": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "security": {
+                "items": 0,
+                "state": "not_read"
+              }
+            }
+          }
+        },
+        {
+          "caller_count": 0,
+          "documented": false,
+          "file": "server/app.ts",
+          "flags": [],
+          "framework": "express",
+          "id": "route:server/app.ts#GET%20%2Ft016d-tie",
+          "line": 17,
+          "method": "GET",
+          "name": "GET /t016d-tie",
+          "path": "/t016d-tie",
+          "path_count": 1,
+          "pattern": "/t016d-tie",
+          "scope": null,
+          "shape": {
+            "depth_cap": 0,
+            "depth_limit": 6,
+            "sections": {
+              "body": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "items": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "security": {
+                "items": 0,
+                "state": "not_read"
+              }
+            }
+          }
+        },
+        {
+          "caller_count": 0,
+          "documented": false,
+          "file": "server/app.ts",
+          "flags": [],
+          "framework": "express",
+          "id": "route:server/app.ts#GET%20%2Ft016d-tie%402",
+          "line": 18,
+          "method": "GET",
+          "name": "GET /t016d-tie@2",
+          "path": "/t016d-tie",
+          "path_count": 1,
+          "pattern": "/t016d-tie",
+          "scope": null,
+          "shape": {
+            "depth_cap": 0,
+            "depth_limit": 6,
+            "sections": {
+              "body": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "items": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "security": {
+                "items": 0,
+                "state": "not_read"
+              }
+            }
+          }
+        },
+        {
+          "caller_count": 0,
+          "documented": false,
+          "file": "server/app.ts",
+          "flags": [
+            "unmounted"
+          ],
+          "framework": "express",
+          "id": "route:server/app.ts#GET%20%2Ft016d-orphan",
+          "line": 26,
+          "method": "GET",
+          "name": "GET /t016d-orphan",
+          "path": null,
+          "path_count": 0,
+          "pattern": "/t016d-orphan",
+          "scope": null,
+          "shape": {
+            "depth_cap": 0,
+            "depth_limit": 6,
+            "sections": {
+              "body": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "query": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "security": {
+                "items": 0,
+                "state": "not_read"
+              }
+            }
+          }
+        }
+      ],
+      "frameworks": [
+        "express"
+      ],
+      "never_called": 5,
+      "openapi": {
+        "documented_endpoints": 1,
+        "specs": 1
+      },
+      "precision": {
+        "label": "best_effort",
+        "reason": "default_branch",
+        "row": "D"
+      },
+      "roots": [
+        {
+          "by_status": {
+            "linked": 1
+          },
+          "manifest": null,
+          "root": ".",
+          "total": 1
+        },
+        {
+          "by_status": {
+            "linked": 1
+          },
+          "manifest": null,
+          "root": "scripts",
+          "total": 1
+        },
+        {
+          "by_status": {
+            "unmatched": 1
+          },
+          "manifest": null,
+          "root": "tools",
+          "total": 1
+        },
+        {
+          "by_status": {
+            "ambiguous": 1,
+            "dynamic": 3,
+            "linked": 6,
+            "test_only": 1,
+            "unmatched": 2,
+            "wrapper": 1
+          },
+          "manifest": "web/package.json",
+          "root": "web",
+          "total": 14
+        },
+        {
+          "by_status": {
+            "linked": 1
+          },
+          "manifest": "web/packages/ui/package.json",
+          "root": "web/packages/ui",
+          "total": 1
+        }
+      ],
+      "transport": "http"
+    }
+  ]
+}

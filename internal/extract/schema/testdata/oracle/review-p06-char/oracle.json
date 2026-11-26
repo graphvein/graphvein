@@ -1,0 +1,29 @@
+{
+  "id": "review-p06-char",
+  "signature": "agreed at af6a883",
+  "class": "S1",
+  "owner": "P5",
+  "row": "review",
+  "history": {
+    "id": "p06-char"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "22001",
+        "message": "value too long for type character(1)",
+        "statement": 2,
+        "statement_text": "INSERT INTO t (c, d) VALUES ($$ab$$, $$abc$$);",
+        "row_free": true
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

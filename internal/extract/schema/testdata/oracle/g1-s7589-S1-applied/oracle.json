@@ -1,0 +1,57 @@
+{
+  "id": "g1-s7589-S1-applied",
+  "signature": "applied|S1|42804|",
+  "class": "S1",
+  "owner": "H1",
+  "row": "",
+  "history": {
+    "id": "g1-s7589",
+    "prelude": [
+      "CREATE TABLE ext_a (id int PRIMARY KEY, code text UNIQUE)"
+    ],
+    "tags": {
+      "1_m1.sql": [
+        "M1.create",
+        "N2.commit",
+        "M1.create"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42804",
+        "message": "foreign key constraint \"t4_c2_fkey\" cannot be implemented",
+        "detail": "Key columns \"c2\" and \"id\" are of incompatible types: double precision and integer.",
+        "statement": 3,
+        "statement_text": "CREATE TABLE t4 (c2 double precision REFERENCES ext_a);",
+        "assumption": "E1"
+      }
+    ],
+    "tables": [
+      {
+        "table": "history.t1",
+        "columns": [
+          {
+            "name": "id",
+            "type": "integer",
+            "not_null": true,
+            "has_default": true
+          }
+        ],
+        "primary_key": null,
+        "unique_keys": [],
+        "foreign_keys": [],
+        "indexes": []
+      }
+    ],
+    "prelude_tables": [
+      "history.ext_a",
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

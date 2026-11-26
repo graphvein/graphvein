@@ -1,0 +1,131 @@
+{
+  "go_version": "go version go1.27.1 windows/amd64",
+  "host": "windows/amd64",
+  "compiler": "gcc unavailable: exec: \"gcc\": executable file not found in %PATH%",
+  "options": [
+    {
+      "backend": "wasm",
+      "builds": [
+        {
+          "target": "windows/amd64",
+          "success": true,
+          "binary_bytes": 12368896
+        },
+        {
+          "target": "linux/amd64",
+          "success": true,
+          "binary_bytes": 12250884
+        },
+        {
+          "target": "darwin/arm64",
+          "success": true,
+          "binary_bytes": 11951394
+        }
+      ],
+      "measurement": {
+        "backend": "wasm",
+        "samples": [
+          {
+            "path": "samples/items.tsx",
+            "entries": [
+              {
+                "kind": "import",
+                "name": "\"react\"",
+                "line": 1
+              },
+              {
+                "kind": "import",
+                "name": "\"./client\"",
+                "line": 2
+              },
+              {
+                "kind": "function",
+                "name": "Items",
+                "line": 4
+              },
+              {
+                "kind": "function",
+                "name": "ItemCard",
+                "line": 9
+              },
+              {
+                "kind": "class",
+                "name": "ItemStore",
+                "line": 11
+              }
+            ],
+            "correct": true
+          },
+          {
+            "path": "samples/items.rs",
+            "entries": [
+              {
+                "kind": "use",
+                "name": "axum::{Router, routing::get}",
+                "line": 1
+              },
+              {
+                "kind": "use",
+                "name": "std::sync::Arc",
+                "line": 2
+              },
+              {
+                "kind": "struct",
+                "name": "Item",
+                "line": 4
+              },
+              {
+                "kind": "function",
+                "name": "new",
+                "line": 9
+              },
+              {
+                "kind": "function",
+                "name": "handler",
+                "line": 14
+              },
+              {
+                "kind": "function",
+                "name": "app",
+                "line": 18
+              }
+            ],
+            "correct": true
+          }
+        ],
+        "parse_ns": [
+          172130400,
+          171833600,
+          172239500,
+          173771600,
+          172905500
+        ],
+        "median_ns": 172239500,
+        "large_bytes": 314010,
+        "large_lines": 6000
+      },
+      "peak_memory": "not measured (no portable process peak-RSS probe)"
+    },
+    {
+      "backend": "native",
+      "builds": [
+        {
+          "target": "windows/amd64",
+          "success": false,
+          "log": "# runtime/cgo\ncgo: C compiler \"gcc\" not found: exec: \"gcc\": executable file not found in %PATH%"
+        },
+        {
+          "target": "linux/amd64",
+          "success": false,
+          "log": "# runtime/cgo\ncgo: C compiler \"gcc\" not found: exec: \"gcc\": executable file not found in %PATH%"
+        },
+        {
+          "target": "darwin/arm64",
+          "success": false,
+          "log": "# runtime/cgo\ncgo: C compiler \"clang\" not found: exec: \"clang\": executable file not found in %PATH%"
+        }
+      ],
+      "peak_memory": "not measured (no portable process peak-RSS probe)"
+    }
+  ]
+}

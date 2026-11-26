@@ -1,0 +1,28 @@
+{
+  "id": "review17-d35-drop-trigger-of-other-table",
+  "signature": "agreed at Revision 1.7",
+  "class": "S1",
+  "owner": "W1",
+  "row": "review17",
+  "history": {
+    "id": "d35-drop-trigger-of-other-table"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42704",
+        "message": "trigger \"tr\" for table \"u\" does not exist",
+        "statement": 5,
+        "statement_text": "DROP TRIGGER tr ON u;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

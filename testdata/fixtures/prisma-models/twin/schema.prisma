@@ -1,0 +1,11 @@
+// Discovered by twin and by twin/app (its config names this file): the
+// Prisma versions agree on every claim gate, so it is claimed once, with
+// pins null (7.10.0 and 7.9.1 differ).
+datasource db {
+  provider = "postgresql"
+}
+
+model Shared {
+  id   Int    @id
+  name String
+}

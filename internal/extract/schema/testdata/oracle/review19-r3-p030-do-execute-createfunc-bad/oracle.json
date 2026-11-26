@@ -1,0 +1,29 @@
+{
+  "id": "review19-r3-p030-do-execute-createfunc-bad",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y48",
+  "row": "review19",
+  "history": {
+    "id": "p030-do-execute-createfunc-bad"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42601",
+        "message": "syntax error at end of input",
+        "where": "PL/pgSQL function inline_code_block line 1 at EXECUTE",
+        "statement": 1,
+        "statement_text": "DO $$ BEGIN EXECUTE 'CREATE FUNCTION g() RETURNS int LANGUAGE plpgsql AS $b$ BEGIN RETURN 1 END $b$'; END $$;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

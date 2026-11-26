@@ -1,0 +1,33 @@
+{
+  "id": "g1-s762-S1-M4_forward_table_unnamed",
+  "signature": "applied|S1|42601|M4.forward_table_unnamed",
+  "class": "S1",
+  "owner": "P7",
+  "row": "M4.forward_table_unnamed",
+  "history": {
+    "id": "g1-s762",
+    "tags": {
+      "1_m1.sql": [
+        "M4.forward_table_unnamed"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42601",
+        "message": "syntax error at or near \"ON\"",
+        "statement": 1,
+        "statement_text": "CREATE INDEX IF NOT EXISTS ON t7 (id);"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

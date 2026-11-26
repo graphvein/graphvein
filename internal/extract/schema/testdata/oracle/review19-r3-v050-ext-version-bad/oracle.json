@@ -1,0 +1,30 @@
+{
+  "id": "review19-r3-v050-ext-version-bad",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y33",
+  "row": "review19",
+  "history": {
+    "id": "v050-ext-version-bad",
+    "fresh_db": true
+  },
+  "verdict": {
+    "default_schema": "public",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "22023",
+        "message": "extension \"pgcrypto\" has no installation script nor update path for version \"9.9\"",
+        "statement": 1,
+        "statement_text": "CREATE EXTENSION pgcrypto VERSION '9.9';",
+        "row_free": true
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "public._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

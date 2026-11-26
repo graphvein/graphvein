@@ -1,0 +1,29 @@
+{
+  "id": "review-q19-collate-bad",
+  "signature": "agreed at af6a883",
+  "class": "S1",
+  "owner": "P4",
+  "row": "review",
+  "history": {
+    "id": "q19-collate-bad"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42704",
+        "message": "collation \"nonexistent_coll\" for encoding \"UTF8\" does not exist",
+        "statement": 1,
+        "statement_text": "CREATE TABLE t (a text COLLATE \"nonexistent_coll\");",
+        "assumption": "E1"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

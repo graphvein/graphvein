@@ -1,0 +1,28 @@
+{
+  "id": "review19-r3-v072-grant-role-self",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y13",
+  "row": "review19",
+  "history": {
+    "id": "v072-grant-role-self"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "0LP01",
+        "message": "role \"rr_v072\" is a member of role \"rr_v072\"",
+        "statement": 2,
+        "statement_text": "GRANT rr_v072 TO rr_v072;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

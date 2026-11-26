@@ -1,0 +1,28 @@
+{
+  "id": "review-f05-check-type",
+  "signature": "applied|S1|42804|",
+  "class": "S1",
+  "owner": "P5",
+  "row": "review",
+  "history": {
+    "id": "f05-check-type"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42804",
+        "message": "argument of CHECK must be type boolean, not type text",
+        "statement": 1,
+        "statement_text": "CREATE TABLE t (a text CHECK (a));"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

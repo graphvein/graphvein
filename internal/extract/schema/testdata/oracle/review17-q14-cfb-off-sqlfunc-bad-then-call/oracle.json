@@ -1,0 +1,29 @@
+{
+  "id": "review17-q14-cfb-off-sqlfunc-bad-then-call",
+  "signature": "agreed at Revision 1.7",
+  "class": "S1",
+  "owner": "W3",
+  "row": "review17",
+  "history": {
+    "id": "q14-cfb-off-sqlfunc-bad-then-call"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42601",
+        "message": "syntax error at end of input",
+        "where": "SQL function \"f\" during inlining",
+        "statement": 3,
+        "statement_text": "SELECT f();"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

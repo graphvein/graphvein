@@ -1,0 +1,3 @@
+CREATE FUNCTION f() RETURNS void LANGUAGE plpgsql AS $$ BEGIN CREATE TABLE x (id serial); END $$;
+SELECT f();
+CREATE SEQUENCE x_id_seq;

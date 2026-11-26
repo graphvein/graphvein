@@ -1,0 +1,2 @@
+CREATE TABLE t (id int GENERATED ALWAYS AS IDENTITY, v int);
+INSERT INTO t (id, v) VALUES (1, 1);

@@ -1,0 +1,265 @@
+{
+  "links": [],
+  "members": [
+    {
+      "repository": "frontend",
+      "run": "\u003crun of frontend\u003e"
+    },
+    {
+      "repository": "backend",
+      "run": "\u003crun of backend\u003e"
+    },
+    {
+      "repository": "billing",
+      "run": ""
+    }
+  ],
+  "outcomes": [
+    {
+      "candidate_count": 0,
+      "candidates": [],
+      "kind": "calls_route",
+      "row": "PL-R2",
+      "source": {
+        "identity": "client_call:api.ts#anywhere.GET%20nextUrl%28%29",
+        "repository": "frontend"
+      },
+      "status": "dynamic"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [
+        {
+          "identity": "route:server.ts#POST%20%2Ft022%2Forders",
+          "repository": "backend"
+        }
+      ],
+      "kind": "calls_route",
+      "reason": "no stored index: billing",
+      "row": "PL-R7",
+      "source": {
+        "identity": "client_call:api.ts#createOrder.POST%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022%2Forders%60",
+        "repository": "frontend"
+      },
+      "status": "incomplete",
+      "template": "/t022/orders"
+    },
+    {
+      "candidate_count": 2,
+      "candidates": [
+        {
+          "identity": "route:server.ts#GET%20%2Ft022%2Fduplicate",
+          "repository": "backend"
+        },
+        {
+          "identity": "route:server.ts#GET%20%2Ft022%2Fduplicate%402",
+          "repository": "backend"
+        }
+      ],
+      "kind": "calls_route",
+      "reason": "no stored index: billing",
+      "row": "PL-R7",
+      "source": {
+        "identity": "client_call:api.ts#duplicate.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022%2Fduplicate%60",
+        "repository": "frontend"
+      },
+      "status": "incomplete",
+      "template": "/t022/duplicate"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [],
+      "kind": "calls_route",
+      "reason": "no stored index: billing; no route of an indexed provider matches",
+      "row": "PL-R7",
+      "source": {
+        "identity": "client_call:api.ts#either.GET%20flag%3F%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022%2Fusers%60%3A%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022%2Forders%60",
+        "repository": "frontend"
+      },
+      "status": "incomplete",
+      "template": "/t022/orders"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [
+        {
+          "identity": "route:server.ts#GET%20%2Ft022%2Fusers",
+          "repository": "backend"
+        }
+      ],
+      "kind": "calls_route",
+      "reason": "no stored index: billing",
+      "row": "PL-R7",
+      "source": {
+        "identity": "client_call:api.ts#either.GET%20flag%3F%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022%2Fusers%60%3A%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022%2Forders%60",
+        "repository": "frontend"
+      },
+      "status": "incomplete",
+      "template": "/t022/users"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [
+        {
+          "identity": "route:server.ts#GET%20%2Ft022%2Fusers%2F%3Aid",
+          "repository": "backend"
+        }
+      ],
+      "kind": "calls_route",
+      "reason": "no stored index: billing",
+      "row": "PL-R7",
+      "source": {
+        "identity": "client_call:api.ts#getUser.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022%2Fusers%2F%24%7Buser.id%7D%60",
+        "repository": "frontend"
+      },
+      "status": "incomplete",
+      "template": "/t022/users/{id}"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [],
+      "kind": "calls_route",
+      "reason": "no stored index: billing; no route of an indexed provider matches",
+      "row": "PL-R7",
+      "source": {
+        "identity": "client_call:api.ts#health.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022%2Fhealth%60",
+        "repository": "frontend"
+      },
+      "status": "incomplete",
+      "template": "/t022/health"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [
+        {
+          "identity": "route:server.ts#GET%20%2Ft022%2Fusers",
+          "repository": "backend"
+        }
+      ],
+      "kind": "calls_route",
+      "reason": "no stored index: billing",
+      "row": "PL-R7",
+      "source": {
+        "identity": "client_call:api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022%2Fusers%60",
+        "repository": "frontend"
+      },
+      "status": "incomplete",
+      "template": "/t022/users"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [
+        {
+          "identity": "route:server.ts#GET%20%2Ft022%2Fusers",
+          "repository": "backend"
+        }
+      ],
+      "kind": "calls_route",
+      "reason": "no stored index: billing",
+      "row": "PL-R7",
+      "source": {
+        "identity": "client_call:api.ts#mixed.GET%20flag%3F%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022%2Fusers%2F%24%7Bid%7D%60%3A%60%24%7Bimport.meta.env.VITE_PARTNER%7D%2Ft022%2Fusers%60",
+        "repository": "frontend"
+      },
+      "status": "incomplete",
+      "template": "/t022/users"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [
+        {
+          "identity": "route:server.ts#GET%20%2Ft022%2Fusers%2F%3Aid",
+          "repository": "backend"
+        }
+      ],
+      "kind": "calls_route",
+      "reason": "no stored index: billing",
+      "row": "PL-R7",
+      "source": {
+        "identity": "client_call:api.ts#mixed.GET%20flag%3F%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022%2Fusers%2F%24%7Bid%7D%60%3A%60%24%7Bimport.meta.env.VITE_PARTNER%7D%2Ft022%2Fusers%60",
+        "repository": "frontend"
+      },
+      "status": "incomplete",
+      "template": "/t022/users/{id}"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [],
+      "kind": "calls_route",
+      "row": "PL-R5",
+      "source": {
+        "identity": "client_call:api.ts#partner.GET%20%27https%3A%2F%2Fpartner.example.com%2Ft022%2Fusers%27",
+        "repository": "frontend"
+      },
+      "status": "unmatched",
+      "template": "/t022/users"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [
+        {
+          "identity": "route:server.ts#GET%20%2Ft022%2Fsame",
+          "repository": "backend"
+        }
+      ],
+      "kind": "calls_route",
+      "reason": "no stored index: billing",
+      "row": "PL-R7",
+      "source": {
+        "identity": "client_call:api.ts#sameRoute.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022%2Fsame%60",
+        "repository": "frontend"
+      },
+      "status": "incomplete",
+      "template": "/t022/same"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [],
+      "kind": "documents_route",
+      "reason": "no stored index: billing; no route of an indexed provider matches",
+      "row": "PL-R7",
+      "source": {
+        "identity": "api_operation:openapi.yaml#GET%20%2Ft022%2Fmissing",
+        "repository": "frontend"
+      },
+      "status": "incomplete",
+      "template": "/t022/missing"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [
+        {
+          "identity": "route:server.ts#GET%20%2Ft022%2Fusers",
+          "repository": "backend"
+        }
+      ],
+      "kind": "documents_route",
+      "reason": "no stored index: billing",
+      "row": "PL-R7",
+      "source": {
+        "identity": "api_operation:openapi.yaml#GET%20%2Ft022%2Fusers",
+        "repository": "frontend"
+      },
+      "status": "incomplete",
+      "template": "/t022/users"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [
+        {
+          "identity": "route:server.ts#POST%20%2Ft022%2Forders",
+          "repository": "backend"
+        }
+      ],
+      "kind": "documents_route",
+      "reason": "no stored index: billing",
+      "row": "PL-R7",
+      "source": {
+        "identity": "api_operation:openapi.yaml#POST%20%2Ft022%2Forders",
+        "repository": "frontend"
+      },
+      "status": "incomplete",
+      "template": "/t022/orders"
+    }
+  ]
+}

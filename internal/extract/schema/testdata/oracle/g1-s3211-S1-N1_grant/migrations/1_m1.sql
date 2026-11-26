@@ -1,0 +1,3 @@
+CREATE TABLE t1 (id serial PRIMARY KEY);
+DROP TABLE t1 CASCADE;
+GRANT SELECT ON t1 TO gv_oracle_role;

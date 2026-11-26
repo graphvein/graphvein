@@ -1,0 +1,29 @@
+{
+  "id": "review16-s21-top-insert-then-fk",
+  "signature": "agreed at Revision 1.6",
+  "class": "S1",
+  "owner": "V5",
+  "row": "review16",
+  "history": {
+    "id": "s21-top-insert-then-fk"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "23503",
+        "message": "insert or update on table \"c\" violates foreign key constraint \"c_pid_fkey\"",
+        "detail": "Key (pid)=(5) is not present in table \"p\".",
+        "statement": 4,
+        "statement_text": "ALTER TABLE c ADD FOREIGN KEY (pid) REFERENCES p;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

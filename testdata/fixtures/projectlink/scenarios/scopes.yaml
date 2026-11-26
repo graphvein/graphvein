@@ -1,0 +1,10 @@
+version: 1
+name: shop-scopes
+members:
+  - repository: frontend
+    path: frontend
+    scopes:
+      - name: legacy
+        path: legacy
+  - repository: backend
+    path: backend

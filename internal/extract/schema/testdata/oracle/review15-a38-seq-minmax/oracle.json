@@ -1,0 +1,29 @@
+{
+  "id": "review15-a38-seq-minmax",
+  "signature": "agreed at Revision 1.5",
+  "class": "S1",
+  "owner": "U5",
+  "row": "review15",
+  "history": {
+    "id": "a38-seq-minmax"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "22023",
+        "message": "MINVALUE (10) must be less than MAXVALUE (5)",
+        "statement": 1,
+        "statement_text": "CREATE SEQUENCE s MINVALUE 10 MAXVALUE 5;",
+        "row_free": true
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

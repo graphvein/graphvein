@@ -1,0 +1,165 @@
+{
+  "api_version": 0,
+  "columns": [],
+  "completeness": "partial",
+  "dialect": "postgres",
+  "history": [
+    {
+      "event": "created",
+      "evidence": [
+        {
+          "file": "a/migrations/2_more.sql",
+          "span": {
+            "end_column": 1,
+            "end_line": 1,
+            "start_column": 0,
+            "start_line": 1
+          }
+        }
+      ],
+      "migration": {
+        "description": "more",
+        "file": "a/migrations/2_more.sql",
+        "id": "migration:a/migrations/2_more.sql#migration",
+        "order": 2,
+        "version": "2"
+      }
+    }
+  ],
+  "ide": {
+    "available": true,
+    "editor": "vscode",
+    "error": null,
+    "label": "Open in VS Code",
+    "source": "builtin"
+  },
+  "index": {
+    "contract_version": 1,
+    "finished_at": "2026-11-03T14:32:05.123Z",
+    "indexer": {
+      "name": "crafted",
+      "version": "t018b1"
+    }
+  },
+  "indexes": [],
+  "neighbours": {
+    "incoming": [],
+    "outgoing": []
+  },
+  "opaque_sites": null,
+  "overlaps": null,
+  "precision": {
+    "label": "best_effort",
+    "reason": "external_indexer",
+    "row": "D"
+  },
+  "reasons": [
+    {
+      "link": {
+        "column": 1,
+        "exact": false,
+        "line": 5,
+        "link": "vscode://file/{ROOT}/a/migrations/2_more.sql:5:1"
+      },
+      "migration": "migration:a/migrations/2_more.sql#migration",
+      "migration_ref": {
+        "file": "a/migrations/2_more.sql",
+        "id": "migration:a/migrations/2_more.sql#migration",
+        "order": 2,
+        "version": "2"
+      },
+      "reason": "CREATE TABLE ... (LIKE other) is not read",
+      "span": {
+        "end_column": 30,
+        "end_line": 5,
+        "start_column": 0,
+        "start_line": 5
+      }
+    },
+    {
+      "link": null,
+      "migration": "migration:a/migrations/9_gone.sql#migration",
+      "migration_ref": null,
+      "reason": "a reason naming a migration that is not stored",
+      "span": {
+        "end_column": 10,
+        "end_line": 1,
+        "start_column": 0,
+        "start_line": 1
+      }
+    },
+    {
+      "link": null,
+      "migration": null,
+      "migration_ref": null,
+      "reason": "set-level reason",
+      "span": null
+    }
+  ],
+  "repository": "states",
+  "rests_on": null,
+  "set": "a/migrations",
+  "table": {
+    "attributes": {
+      "dialect": "postgres",
+      "name": "t_partial_empty",
+      "opaque_after": 0,
+      "previous_names": [],
+      "primary_key": null,
+      "reasons": [
+        {
+          "migration": "migration:a/migrations/2_more.sql#migration",
+          "reason": "CREATE TABLE ... (LIKE other) is not read",
+          "span": {
+            "end_column": 30,
+            "end_line": 5,
+            "start_column": 0,
+            "start_line": 5
+          }
+        },
+        {
+          "migration": "migration:a/migrations/9_gone.sql#migration",
+          "reason": "a reason naming a migration that is not stored",
+          "span": {
+            "end_column": 10,
+            "end_line": 1,
+            "start_column": 0,
+            "start_line": 1
+          }
+        },
+        {
+          "migration": null,
+          "reason": "set-level reason",
+          "span": null
+        }
+      ],
+      "schema": null,
+      "set": "a/migrations",
+      "state": "partial",
+      "unique_keys": null
+    },
+    "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "file": "a/migrations/2_more.sql",
+    "file_state": "missing",
+    "ide": {
+      "column": 1,
+      "exact": false,
+      "line": 1,
+      "link": "vscode://file/{ROOT}/a/migrations/2_more.sql:1:1"
+    },
+    "identity": "table:a/migrations/2_more.sql#t_partial_empty",
+    "kind": "table",
+    "level": 4,
+    "name": "t_partial_empty",
+    "qualified_name": "t_partial_empty",
+    "span": {
+      "end_column": 1,
+      "end_line": 1,
+      "start_column": 0,
+      "start_line": 1
+    },
+    "type": "node"
+  },
+  "truncated": null,
+  "unresolved_references": []
+}

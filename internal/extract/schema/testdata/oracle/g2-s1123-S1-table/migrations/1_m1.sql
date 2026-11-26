@@ -1,0 +1,2 @@
+CREATE TABLE t1 (id text PRIMARY KEY);
+CREATE TABLE IF NOT EXISTS t1_pkey (note text);

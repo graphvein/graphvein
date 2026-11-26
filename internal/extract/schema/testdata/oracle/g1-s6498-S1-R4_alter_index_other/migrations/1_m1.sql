@@ -1,0 +1,3 @@
+CREATE TABLE t1 (c1 char(3) NOT NULL);
+CREATE TABLE t2 (LIKE t1 INCLUDING ALL);
+ALTER INDEX t2_pkey SET (fillfactor = 80);

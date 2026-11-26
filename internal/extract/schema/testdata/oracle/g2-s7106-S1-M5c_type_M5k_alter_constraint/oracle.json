@@ -1,0 +1,34 @@
+{
+  "id": "g2-s7106-S1-M5c_type_M5k_alter_constraint",
+  "signature": "applied|S1|42809|M5c.type",
+  "class": "S1",
+  "owner": "P4",
+  "row": "M5c.type+M5k.alter_constraint",
+  "history": {
+    "id": "g2-s7106",
+    "tags": {
+      "1_m1.sql": [
+        "M1.create",
+        "M5c.type+M5k.alter_constraint"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42809",
+        "message": "constraint \"t1_c4_uq\" of relation \"t1\" is not a foreign key constraint",
+        "statement": 2,
+        "statement_text": "ALTER TABLE t1 ALTER COLUMN c3 TYPE varchar(80), ALTER CONSTRAINT t1_c4_uq DEFERRABLE;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

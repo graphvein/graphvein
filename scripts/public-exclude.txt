@@ -1,0 +1,23 @@
+# Paths that stay in the private repository and never enter the public tree
+# (ADR 0080). One path per line, relative to the repository root; a path
+# ending in "/" is a directory. Text after "#" is the reason.
+#
+# Read by scripts/public-snapshot.sh (removes them from the snapshot),
+# scripts/check-public-tree.sh (fails when one exists) and
+# scripts/hooks/pre-push-public (refuses a push whose commits contain one).
+# AGENTS.md is replaced rather than removed: the checks accept a root
+# AGENTS.md that is the public one (it does not mention the handoff notes).
+
+AGENTS.md                      # internal agent instructions; the snapshot replaces it with docs/public/AGENTS.md
+docs/HANDOFF.md                # notes for the reviewing assistant (index)
+docs/handoff/                  # the notes for the reviewing assistant, split by topic
+scripts/handoff-check.sh       # checks the structure of the internal notes
+scripts/test-handoff-check.sh  # offline test of that check
+docs/PLAN.md                   # internal plan with milestones, session estimates and private corpus notes
+docs/ci-budget.md              # CI cost analysis of the private repository
+docs/tasks/                    # task records, mockups and unit summaries
+docs/research/                 # internal research, including the launch audience study
+docs/corpora/                  # per-corpus notes (counts, censuses, private-task references)
+docs/perf/                     # profiling records of internal tasks, with developer machine details
+docs/public/launch-file-list.txt # generated from the snapshot itself; the private-side record of what launched
+scripts/private/               # private guard data: the privacy check's private name patterns

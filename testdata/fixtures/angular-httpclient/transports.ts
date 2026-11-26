@@ -1,0 +1,10 @@
+import axios from 'axios';
+fetch(`http://${host}:${port}/t012b-api/t012b-items`);
+fetch(`//example.test:${port}/t012b-api/t012b-items`);
+axios.get(`https://${host}/t012b-api/t012b-items`);
+fetch('/t012b-same');
+fetch('/t012b-handlers');
+fetch('/t012b-middleware');
+fetch('/t012b-routers');
+fetch('/t012b-anysame');
+fetch('/t012b-anymix', {method: 'HEAD'});

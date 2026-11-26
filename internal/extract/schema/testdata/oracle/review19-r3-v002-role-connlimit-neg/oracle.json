@@ -1,0 +1,29 @@
+{
+  "id": "review19-r3-v002-role-connlimit-neg",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y14",
+  "row": "review19",
+  "history": {
+    "id": "v002-role-connlimit-neg"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "22023",
+        "message": "invalid connection limit: -5",
+        "statement": 1,
+        "statement_text": "CREATE ROLE rr_v002_1 CONNECTION LIMIT -5;",
+        "row_free": true
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

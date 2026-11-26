@@ -1,0 +1,31 @@
+name: Public tree
+
+# Fails when the public repository's tree holds a private path, the internal
+# AGENTS.md or a file that names an internal record (ADR 0080,
+# scripts/check-public-tree.sh). No paths-ignore: documentation changes are
+# exactly what it checks. It runs only in the public repository; in the
+# maintainer's working repository the same check runs on a snapshot through
+# TestPublicSnapshot in the normal test suite.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: public-tree-${{ github.head_ref || github.ref_name }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  # Keep the job id: "public-tree" is a required check on main.
+  public-tree:
+    if: github.repository == 'graphvein/graphvein'
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Check the public tree
+        run: bash scripts/check-public-tree.sh

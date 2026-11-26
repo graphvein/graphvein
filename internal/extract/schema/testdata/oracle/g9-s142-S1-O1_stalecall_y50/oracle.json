@@ -1,0 +1,29 @@
+{
+  "id": "g9-s142-S1-O1_stalecall_y50",
+  "signature": "applied|S1|42P01|O1.stalecall_y50",
+  "class": "S1",
+  "owner": "Y49",
+  "row": "O1.stalecall_y50",
+  "history": {
+    "id": "g9-s142"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42P01",
+        "message": "relation \"t1\" does not exist",
+        "where": "PL/pgSQL function sf2() line 1 at RETURN",
+        "statement": 4,
+        "statement_text": "SELECT sf2();"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

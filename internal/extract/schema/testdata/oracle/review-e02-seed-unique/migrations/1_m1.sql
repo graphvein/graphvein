@@ -1,0 +1,3 @@
+CREATE TABLE t (a int);
+INSERT INTO t (a) VALUES (1), (1);
+CREATE UNIQUE INDEX t_a ON t (a);

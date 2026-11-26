@@ -1,0 +1,34 @@
+{
+  "id": "g1-s1776-K1-M4_forward_table",
+  "signature": "applied|K1|42P01|M4.forward_table",
+  "class": "K1",
+  "owner": "K1",
+  "row": "M4.forward_table",
+  "history": {
+    "id": "g1-s1776",
+    "tags": {
+      "1_m1.sql": [
+        "M4.forward_table",
+        "M1.create"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42P01",
+        "message": "relation \"t7\" does not exist",
+        "statement": 1,
+        "statement_text": "CREATE INDEX ix_8 ON t7 (id);"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

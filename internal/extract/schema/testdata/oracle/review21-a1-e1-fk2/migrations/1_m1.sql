@@ -1,0 +1,1 @@
+CREATE TABLE t1 (id int PRIMARY KEY, c2 int, FOREIGN KEY (c2) REFERENCES ext_a (k));

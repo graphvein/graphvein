@@ -1,0 +1,42 @@
+{
+  "id": "review18-h08-droptype-ifexists-func-ret",
+  "signature": "agreed at Revision 1.8",
+  "class": "S1",
+  "owner": "X1",
+  "row": "review18",
+  "history": {
+    "id": "h08-droptype-ifexists-func-ret"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "accepted"
+      },
+      {
+        "file": "2_drop.sql",
+        "status": "refused",
+        "sqlstate": "2BP01",
+        "message": "cannot drop type status because other objects depend on it",
+        "detail": "function default_status() depends on type status",
+        "statement": 1,
+        "statement_text": "drop type if exists status;"
+      }
+    ],
+    "tables": null,
+    "enums": [
+      {
+        "type": "history.status",
+        "labels": [
+          "active",
+          "inactive"
+        ]
+      }
+    ],
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

@@ -1,0 +1,3 @@
+CREATE TABLE t1 (id integer);
+CREATE TABLE t2 (c3 text[]);
+ALTER TABLE t1 INHERIT t2;

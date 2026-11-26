@@ -1,0 +1,1 @@
+CREATE FUNCTION f(a int) RETURNS trigger LANGUAGE plpgsql AS $$ BEGIN RETURN NEW; END $$;

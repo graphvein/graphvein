@@ -1,0 +1,42 @@
+{
+  "id": "g3-s8736-S1-M6_drop",
+  "signature": "applied|S1|2BP01|M6.drop",
+  "class": "S1",
+  "owner": "P8",
+  "row": "M6.drop",
+  "history": {
+    "id": "g3-s8736",
+    "prelude": [
+      "CREATE TABLE ext_a (id int PRIMARY KEY, code text UNIQUE)",
+      "CREATE TABLE ext_b (id bigint PRIMARY KEY)"
+    ],
+    "tags": {
+      "1_m1.sql": [
+        "M6.drop",
+        "M6.drop",
+        "M6.drop"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "2BP01",
+        "message": "cannot drop table t1 because other objects depend on it",
+        "detail": "default value for column c3 of table t2 depends on sequence t1_c3_seq",
+        "statement": 3,
+        "statement_text": "DROP TABLE t1;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history.ext_a",
+      "history.ext_b",
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

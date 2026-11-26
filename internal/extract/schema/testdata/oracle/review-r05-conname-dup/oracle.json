@@ -1,0 +1,28 @@
+{
+  "id": "review-r05-conname-dup",
+  "signature": "applied|S1|42710|",
+  "class": "S1",
+  "owner": "P2",
+  "row": "review",
+  "history": {
+    "id": "r05-conname-dup"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42710",
+        "message": "check constraint \"x\" already exists",
+        "statement": 1,
+        "statement_text": "CREATE TABLE t (a int CONSTRAINT x CHECK (a \u003e 0), b int CONSTRAINT x CHECK (b \u003e 0));"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

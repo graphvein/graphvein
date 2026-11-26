@@ -1,0 +1,5305 @@
+{
+  "components": {
+    "schemas": {
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object",
+        "x-graphvein": {
+          "additional": "unknown",
+          "model": "HTTPValidationError",
+          "provenance": {
+            "chain": [],
+            "confidence": 1,
+            "file": "api/app/main.py",
+            "kind": "fact",
+            "line": 16,
+            "rule": "SH-F30"
+          }
+        }
+      },
+      "ValidationError": {
+        "properties": {
+          "ctx": {
+            "type": "object"
+          },
+          "input": {
+            "x-graphvein": {
+              "unknown": "any value"
+            }
+          },
+          "loc": {
+            "items": {
+              "x-graphvein": {
+                "unknown": "a string or an integer"
+              }
+            },
+            "type": "array"
+          },
+          "msg": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "type": "object",
+        "x-graphvein": {
+          "additional": "unknown",
+          "model": "ValidationError",
+          "provenance": {
+            "chain": [],
+            "confidence": 1,
+            "file": "api/app/main.py",
+            "kind": "fact",
+            "line": 16,
+            "rule": "SH-F30"
+          }
+        }
+      }
+    }
+  },
+  "info": {
+    "description": "Routes registered in this repository's source, as Graphvein extracted them from its index. Graphvein ran no code and read no running server. A parameter, request body, response or security requirement that is absent was not read, which is not the same as none: each operation lists what was not read in x-graphvein.not_read. Routes Graphvein could not place on a path, forms OpenAPI cannot express and conflicting registrations are listed in the root x-graphvein, never guessed.",
+    "title": "fixture routes extracted by Graphvein",
+    "version": "unversioned"
+  },
+  "openapi": "3.1.1",
+  "paths": {
+    "/admin/stats": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [
+            {
+              "from": "graphvein.yaml explorer.path_values",
+              "id": "set_by_you",
+              "key": "route:web/app.js#GET%20%2Fstats",
+              "text": "the whole path of this route is set by you; Graphvein did not read it",
+              "value": "/admin/stats"
+            }
+          ],
+          "auth": {
+            "middleware": [],
+            "mounted_middleware_unknown": [
+              {
+                "reason": "not mounted from a proven app: middleware of the routers above is not read"
+              }
+            ]
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "web/app.js",
+          "framework": "express",
+          "handler": "function:web/app.js#list",
+          "handler_expression": null,
+          "line": 18,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "responses",
+            "operationId",
+            "summary",
+            "tags",
+            "security",
+            "path_parameter_types"
+          ],
+          "resolution": "set_by_you",
+          "route": "route:web/app.js#GET%20%2Fstats",
+          "rule": "Express routes (ADR 0013, docs/extract/routes.md)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [],
+            "sections": {
+              "body": {
+                "reason": "no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "reason": "the route has no composed path",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "query": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "reason": "response bodies not claimed: middleware mounted before the route is not proven (not mounted from a proven app: middleware of the routers above is not read) and may change the response; status of res.end at web/app.js:3 not proven: middleware mounted before the route is not proven (not mounted from a proven app: middleware of the routers above is not read) and may set a status",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 5
+            },
+            "version": 1
+          },
+          "template": "/admin/stats"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [
+              {
+                "from": "graphvein.yaml explorer.path_values",
+                "id": "set_by_you",
+                "key": "route:web/app.js#GET%20%2Fstats",
+                "text": "the whole path of this route is set by you; Graphvein did not read it",
+                "value": "/admin/stats"
+              }
+            ],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "set_by_you",
+            "route": "route:web/app.js#GET%20%2Fstats"
+          }
+        ]
+      }
+    },
+    "/api": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [
+            {
+              "from": "graphvein.yaml explorer.path_values",
+              "id": "set_by_you",
+              "key": "mount:web/app.js#%28module%29%20app.use%28base%29",
+              "text": "the part app.use(base,api) (web/app.js) adds to the path is set by you: you state that it passes requests on with this prefix, at the root; Graphvein did not read this part",
+              "value": "/api"
+            }
+          ],
+          "auth": {
+            "middleware": [],
+            "mounted_middleware_unknown": [
+              {
+                "reason": "not mounted from a proven app: middleware of the routers above is not read"
+              }
+            ]
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "web/app.js",
+          "framework": "express",
+          "handler": "function:web/app.js#list",
+          "handler_expression": null,
+          "line": 7,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "responses",
+            "operationId",
+            "summary",
+            "tags",
+            "security",
+            "path_parameter_types"
+          ],
+          "resolution": "set_by_you",
+          "route": "route:web/app.js#GET%20%2F",
+          "rule": "Express routes (ADR 0013, docs/extract/routes.md)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [],
+            "sections": {
+              "body": {
+                "reason": "no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "reason": "the route has no composed path",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "query": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "reason": "response bodies not claimed: middleware mounted before the route is not proven (not mounted from a proven app: middleware of the routers above is not read) and may change the response; status of res.end at web/app.js:3 not proven: middleware mounted before the route is not proven (not mounted from a proven app: middleware of the routers above is not read) and may set a status",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 5
+            },
+            "version": 1
+          },
+          "template": "/api"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [
+              {
+                "from": "graphvein.yaml explorer.path_values",
+                "id": "set_by_you",
+                "key": "mount:web/app.js#%28module%29%20app.use%28base%29",
+                "text": "the part app.use(base,api) (web/app.js) adds to the path is set by you: you state that it passes requests on with this prefix, at the root; Graphvein did not read this part",
+                "value": "/api"
+              }
+            ],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "set_by_you",
+            "route": "route:web/app.js#GET%20%2F"
+          }
+        ]
+      }
+    },
+    "/api/items": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [
+            {
+              "from": "graphvein.yaml explorer.path_values",
+              "id": "set_by_you",
+              "key": "mount:web/app.js#%28module%29%20app.use%28base%29",
+              "text": "the part app.use(base,api) (web/app.js) adds to the path is set by you: you state that it passes requests on with this prefix, at the root; Graphvein did not read this part",
+              "value": "/api"
+            }
+          ],
+          "auth": {
+            "middleware": [],
+            "mounted_middleware_unknown": [
+              {
+                "reason": "not mounted from a proven app: middleware of the routers above is not read"
+              }
+            ]
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "web/app.js",
+          "framework": "express",
+          "handler": "function:web/app.js#list",
+          "handler_expression": null,
+          "line": 8,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "responses",
+            "operationId",
+            "summary",
+            "tags",
+            "security",
+            "path_parameter_types"
+          ],
+          "resolution": "set_by_you",
+          "route": "route:web/app.js#GET%20%2Fitems",
+          "rule": "Express routes (ADR 0013, docs/extract/routes.md)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [],
+            "sections": {
+              "body": {
+                "reason": "no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "reason": "the route has no composed path",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "query": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "reason": "response bodies not claimed: middleware mounted before the route is not proven (not mounted from a proven app: middleware of the routers above is not read) and may change the response; status of res.end at web/app.js:3 not proven: middleware mounted before the route is not proven (not mounted from a proven app: middleware of the routers above is not read) and may set a status",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 5
+            },
+            "version": 1
+          },
+          "template": "/api/items"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [
+              {
+                "from": "graphvein.yaml explorer.path_values",
+                "id": "set_by_you",
+                "key": "mount:web/app.js#%28module%29%20app.use%28base%29",
+                "text": "the part app.use(base,api) (web/app.js) adds to the path is set by you: you state that it passes requests on with this prefix, at the root; Graphvein did not read this part",
+                "value": "/api"
+              }
+            ],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "set_by_you",
+            "route": "route:web/app.js#GET%20%2Fitems"
+          }
+        ]
+      }
+    },
+    "/api/items/{anything}": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "anything",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-graphvein": {
+              "provenance": {
+                "chain": [],
+                "confidence": 1,
+                "file": "web/app.js",
+                "kind": "fact",
+                "line": 15,
+                "rule": "SH-E1"
+              }
+            }
+          }
+        ],
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": [],
+            "mounted_middleware_unknown": [
+              {
+                "expression": "base",
+                "file": "web/app.js",
+                "reason": "first argument base may be a path",
+                "span": {
+                  "end_column": 18,
+                  "end_line": 12,
+                  "start_column": 0,
+                  "start_line": 12
+                }
+              }
+            ]
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "web/app.js",
+          "framework": "express",
+          "handler": "function:web/app.js#list",
+          "handler_expression": null,
+          "line": 15,
+          "may_be_shadowed": [
+            {
+              "key": "/api/items/{id}",
+              "method": "GET",
+              "order": "not_checked",
+              "route": "route:web/app.js#GET%20%2Fitems%2F%3Aid",
+              "set_by_you": "mount:web/app.js#%28module%29%20app.use%28base%29"
+            }
+          ],
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "responses",
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:web/app.js#GET%20%2Fapi%2Fitems%2F%3Aanything",
+          "rule": "Express routes (ADR 0013, docs/extract/routes.md)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [],
+            "sections": {
+              "body": {
+                "reason": "no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "web/app.js",
+                  "kind": "fact",
+                  "line": 15,
+                  "rule": "SH-E1"
+                },
+                "standard": 1,
+                "state": "complete"
+              },
+              "query": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "reason": "response bodies not claimed: middleware mounted before the route is not proven (first argument base may be a path) and may change the response; status of res.end at web/app.js:3 not proven: middleware mounted before the route is not proven (first argument base may be a path) and may set a status",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 5
+            },
+            "version": 1
+          },
+          "template": "/api/items/{anything}"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:web/app.js#GET%20%2Fapi%2Fitems%2F%3Aanything"
+          }
+        ]
+      }
+    },
+    "/dozzle/": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [
+            {
+              "from": "graphvein.yaml explorer.path_values",
+              "id": "set_by_you",
+              "key": "mount:goapp/chi.go#Router%20r.Route%28base%29",
+              "text": "the part r.Route(base,func(...){...}) (goapp/chi.go) adds to the path is set by you: you state that it passes requests on with this prefix, at the root; Graphvein did not read this part",
+              "value": "/dozzle"
+            }
+          ],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "goapp/chi.go",
+          "framework": "chi",
+          "handler": "function:goapp/chi.go#list",
+          "handler_expression": null,
+          "line": 17,
+          "not_read": [
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "set_by_you",
+          "route": "route:goapp/chi.go#GET%20%2F",
+          "rule": "Go routes, GR rows (ADR 0076)",
+          "shadowing": "not_checked",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [],
+            "sections": {
+              "body": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; no body read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "cookie": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; no cookie parameter read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "header": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; no header parameter read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "path": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; no path parameter read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "query": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; no query parameter read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "responses": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; middleware and error handlers may answer other statuses",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 1
+            },
+            "version": 1
+          },
+          "template": "/dozzle"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [
+              {
+                "from": "graphvein.yaml explorer.path_values",
+                "id": "set_by_you",
+                "key": "mount:goapp/chi.go#Router%20r.Route%28base%29",
+                "text": "the part r.Route(base,func(...){...}) (goapp/chi.go) adds to the path is set by you: you state that it passes requests on with this prefix, at the root; Graphvein did not read this part",
+                "value": "/dozzle"
+              }
+            ],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "set_by_you",
+            "route": "route:goapp/chi.go#GET%20%2F"
+          }
+        ]
+      }
+    },
+    "/dozzle/api/items": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [
+            {
+              "from": "graphvein.yaml explorer.path_values",
+              "id": "set_by_you",
+              "key": "mount:goapp/chi.go#Router%20r.Route%28base%29",
+              "text": "the part r.Route(base,func(...){...}) (goapp/chi.go) adds to the path is set by you: you state that it passes requests on with this prefix, at the root; Graphvein did not read this part",
+              "value": "/dozzle"
+            }
+          ],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "goapp/chi.go",
+          "framework": "chi",
+          "handler": "function:goapp/chi.go#list",
+          "handler_expression": null,
+          "line": 18,
+          "not_read": [
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "set_by_you",
+          "route": "route:goapp/chi.go#GET%20%2Fapi%2Fitems",
+          "rule": "Go routes, GR rows (ADR 0076)",
+          "shadowing": "not_checked",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [],
+            "sections": {
+              "body": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; no body read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "cookie": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; no cookie parameter read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "header": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; no header parameter read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "path": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; no path parameter read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "query": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; no query parameter read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "responses": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; middleware and error handlers may answer other statuses",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 1
+            },
+            "version": 1
+          },
+          "template": "/dozzle/api/items"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [
+              {
+                "from": "graphvein.yaml explorer.path_values",
+                "id": "set_by_you",
+                "key": "mount:goapp/chi.go#Router%20r.Route%28base%29",
+                "text": "the part r.Route(base,func(...){...}) (goapp/chi.go) adds to the path is set by you: you state that it passes requests on with this prefix, at the root; Graphvein did not read this part",
+                "value": "/dozzle"
+              }
+            ],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "set_by_you",
+            "route": "route:goapp/chi.go#GET%20%2Fapi%2Fitems"
+          }
+        ]
+      }
+    },
+    "/dozzle/api/users/{id}": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {},
+            "x-graphvein": {
+              "type": "not_read"
+            }
+          }
+        ],
+        "x-graphvein": {
+          "assumptions": [
+            {
+              "from": "graphvein.yaml explorer.path_values",
+              "id": "set_by_you",
+              "key": "mount:goapp/chi.go#Router%20r.Route%28base%29",
+              "text": "the part r.Route(base,func(...){...}) (goapp/chi.go) adds to the path is set by you: you state that it passes requests on with this prefix, at the root; Graphvein did not read this part",
+              "value": "/dozzle"
+            }
+          ],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "goapp/chi.go",
+          "framework": "chi",
+          "handler": "function:goapp/chi.go#list",
+          "handler_expression": null,
+          "line": 20,
+          "not_read": [
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "set_by_you",
+          "route": "route:goapp/chi.go#GET%20%2F%7Bid%7D",
+          "rule": "Go routes, GR rows (ADR 0076)",
+          "shadowing": "not_checked",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [],
+            "sections": {
+              "body": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; no body read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "cookie": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; no cookie parameter read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "header": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; no header parameter read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "path": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; no path parameter read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "query": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; no query parameter read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "responses": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; middleware and error handlers may answer other statuses",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 1
+            },
+            "version": 1
+          },
+          "template": "/dozzle/api/users/{id}"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [
+              {
+                "from": "graphvein.yaml explorer.path_values",
+                "id": "set_by_you",
+                "key": "mount:goapp/chi.go#Router%20r.Route%28base%29",
+                "text": "the part r.Route(base,func(...){...}) (goapp/chi.go) adds to the path is set by you: you state that it passes requests on with this prefix, at the root; Graphvein did not read this part",
+                "value": "/dozzle"
+              }
+            ],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "set_by_you",
+            "route": "route:goapp/chi.go#GET%20%2F%7Bid%7D"
+          }
+        ]
+      }
+    },
+    "/form": {
+      "post": {
+        "x-graphvein": {
+          "assumptions": [
+            {
+              "from": "route",
+              "id": "GR-V2"
+            },
+            {
+              "from": "graphvein.yaml explorer.path_values",
+              "id": "set_by_you",
+              "key": "mount:goapp/mux.go#ServeUI%20ui%28%29",
+              "text": "you state that ui() (router behind another call or a closure) (goapp/mux.go) passes requests on unchanged: Graphvein read that it adds no prefix, but did not prove that it passes them on",
+              "value": "/"
+            }
+          ],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "goapp/mux.go",
+          "framework": "net/http",
+          "handler": "function:goapp/chi.go#list",
+          "handler_expression": null,
+          "line": 19,
+          "not_read": [
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "set_by_you",
+          "route": "route:goapp/mux.go#POST%20%2Fform",
+          "rule": "Go routes, GR rows (ADR 0076)",
+          "shadowing": "not_checked",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [],
+            "sections": {
+              "body": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; no body read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "cookie": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; no cookie parameter read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "header": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; no header parameter read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "path": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; no path parameter read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "query": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; no query parameter read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "responses": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; middleware and error handlers may answer other statuses",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 1
+            },
+            "version": 1
+          },
+          "template": "/form"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [
+              {
+                "from": "route",
+                "id": "GR-V2"
+              },
+              {
+                "from": "graphvein.yaml explorer.path_values",
+                "id": "set_by_you",
+                "key": "mount:goapp/mux.go#ServeUI%20ui%28%29",
+                "text": "you state that ui() (router behind another call or a closure) (goapp/mux.go) passes requests on unchanged: Graphvein read that it adds no prefix, but did not prove that it passes them on",
+                "value": "/"
+              }
+            ],
+            "conditional": false,
+            "method": "POST",
+            "resolution": "set_by_you",
+            "route": "route:goapp/mux.go#POST%20%2Fform"
+          }
+        ]
+      }
+    },
+    "/healthz": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [
+            {
+              "from": "route",
+              "id": "GR-V2"
+            }
+          ],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "goapp/mux.go",
+          "framework": "net/http",
+          "handler": "function:goapp/chi.go#list",
+          "handler_expression": null,
+          "line": 34,
+          "not_read": [
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:goapp/mux.go#GET%20%2Fhealthz",
+          "rule": "Go routes, GR rows (ADR 0076)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [],
+            "sections": {
+              "body": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; no body read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "cookie": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; no cookie parameter read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "header": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; no header parameter read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "path": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; no path parameter read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "query": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; no query parameter read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "responses": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; middleware and error handlers may answer other statuses",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 1
+            },
+            "version": 1
+          },
+          "template": "/healthz"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [
+              {
+                "from": "route",
+                "id": "GR-V2"
+              }
+            ],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:goapp/mux.go#GET%20%2Fhealthz"
+          }
+        ]
+      }
+    },
+    "/hs": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [
+            {
+              "from": "graphvein.yaml explorer.path_values",
+              "id": "set_by_you",
+              "key": "mount:rustapp/src/lib.rs#service_hop%20.nest_service%28base%29",
+              "text": "the part .nest_service(base,served()) (rustapp/src/lib.rs) adds to the path is set by you: you state that it passes requests on with this prefix, at the root; Graphvein did not read this part",
+              "value": "/hs"
+            }
+          ],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "rustapp/src/lib.rs",
+          "framework": "axum",
+          "handler": "function:rustapp/src/lib.rs#root",
+          "handler_expression": null,
+          "line": 73,
+          "not_read": [
+            "header",
+            "cookie",
+            "operationId",
+            "summary",
+            "tags",
+            "security",
+            "path_parameter_types"
+          ],
+          "resolution": "set_by_you",
+          "route": "route:rustapp/src/lib.rs#GET%20%2F%404",
+          "rule": "Axum routes (ADR 0016)",
+          "shadowing": "not_checked",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [
+              {
+                "item": {
+                  "content_type": "text/plain; charset=utf-8",
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "rustapp/src/lib.rs",
+                    "kind": "returned",
+                    "line": 6,
+                    "rule": "SH-X25"
+                  },
+                  "schema": {
+                    "type": "string"
+                  },
+                  "status": "200"
+                },
+                "row": "OG-77",
+                "section": "responses",
+                "why": "the declared type of a returned value, not validated by the framework"
+              }
+            ],
+            "sections": {
+              "body": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "rustapp/src/lib.rs",
+                  "kind": "fact",
+                  "line": 6,
+                  "rule": "SH-X29"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "cookie": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "reason": "the route is not mounted",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "query": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "rustapp/src/lib.rs",
+                  "kind": "fact",
+                  "line": 6,
+                  "rule": "SH-X29"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "responses": {
+                "reason": "panics, extractor rejections and middleware (layers) are not read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {},
+            "version": 1
+          },
+          "template": "/hs"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [
+              {
+                "from": "graphvein.yaml explorer.path_values",
+                "id": "set_by_you",
+                "key": "mount:rustapp/src/lib.rs#service_hop%20.nest_service%28base%29",
+                "text": "the part .nest_service(base,served()) (rustapp/src/lib.rs) adds to the path is set by you: you state that it passes requests on with this prefix, at the root; Graphvein did not read this part",
+                "value": "/hs"
+              }
+            ],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "set_by_you",
+            "route": "route:rustapp/src/lib.rs#GET%20%2F%404"
+          }
+        ]
+      }
+    },
+    "/hs/": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [
+            {
+              "from": "graphvein.yaml explorer.path_values",
+              "id": "set_by_you",
+              "key": "mount:rustapp/src/lib.rs#service_hop%20.nest_service%28base%29",
+              "text": "the part .nest_service(base,served()) (rustapp/src/lib.rs) adds to the path is set by you: you state that it passes requests on with this prefix, at the root; Graphvein did not read this part",
+              "value": "/hs"
+            }
+          ],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "rustapp/src/lib.rs",
+          "framework": "axum",
+          "handler": "function:rustapp/src/lib.rs#root",
+          "handler_expression": null,
+          "line": 73,
+          "not_read": [
+            "header",
+            "cookie",
+            "operationId",
+            "summary",
+            "tags",
+            "security",
+            "path_parameter_types"
+          ],
+          "resolution": "set_by_you",
+          "route": "route:rustapp/src/lib.rs#GET%20%2F%404",
+          "rule": "Axum routes (ADR 0016)",
+          "shadowing": "not_checked",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [
+              {
+                "item": {
+                  "content_type": "text/plain; charset=utf-8",
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "rustapp/src/lib.rs",
+                    "kind": "returned",
+                    "line": 6,
+                    "rule": "SH-X25"
+                  },
+                  "schema": {
+                    "type": "string"
+                  },
+                  "status": "200"
+                },
+                "row": "OG-77",
+                "section": "responses",
+                "why": "the declared type of a returned value, not validated by the framework"
+              }
+            ],
+            "sections": {
+              "body": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "rustapp/src/lib.rs",
+                  "kind": "fact",
+                  "line": 6,
+                  "rule": "SH-X29"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "cookie": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "reason": "the route is not mounted",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "query": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "rustapp/src/lib.rs",
+                  "kind": "fact",
+                  "line": 6,
+                  "rule": "SH-X29"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "responses": {
+                "reason": "panics, extractor rejections and middleware (layers) are not read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {},
+            "version": 1
+          },
+          "template": "/hs"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [
+              {
+                "from": "graphvein.yaml explorer.path_values",
+                "id": "set_by_you",
+                "key": "mount:rustapp/src/lib.rs#service_hop%20.nest_service%28base%29",
+                "text": "the part .nest_service(base,served()) (rustapp/src/lib.rs) adds to the path is set by you: you state that it passes requests on with this prefix, at the root; Graphvein did not read this part",
+                "value": "/hs"
+              }
+            ],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "set_by_you",
+            "route": "route:rustapp/src/lib.rs#GET%20%2F%404"
+          }
+        ]
+      }
+    },
+    "/hs/s": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [
+            {
+              "from": "graphvein.yaml explorer.path_values",
+              "id": "set_by_you",
+              "key": "mount:rustapp/src/lib.rs#service_hop%20.nest_service%28base%29",
+              "text": "the part .nest_service(base,served()) (rustapp/src/lib.rs) adds to the path is set by you: you state that it passes requests on with this prefix, at the root; Graphvein did not read this part",
+              "value": "/hs"
+            }
+          ],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "rustapp/src/lib.rs",
+          "framework": "axum",
+          "handler": "function:rustapp/src/lib.rs#list",
+          "handler_expression": null,
+          "line": 73,
+          "not_read": [
+            "header",
+            "cookie",
+            "operationId",
+            "summary",
+            "tags",
+            "security",
+            "path_parameter_types"
+          ],
+          "resolution": "set_by_you",
+          "route": "route:rustapp/src/lib.rs#GET%20%2Fs",
+          "rule": "Axum routes (ADR 0016)",
+          "shadowing": "not_checked",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [
+              {
+                "item": {
+                  "content_type": "text/plain; charset=utf-8",
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "rustapp/src/lib.rs",
+                    "kind": "returned",
+                    "line": 10,
+                    "rule": "SH-X25"
+                  },
+                  "schema": {
+                    "type": "string"
+                  },
+                  "status": "200"
+                },
+                "row": "OG-77",
+                "section": "responses",
+                "why": "the declared type of a returned value, not validated by the framework"
+              }
+            ],
+            "sections": {
+              "body": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "rustapp/src/lib.rs",
+                  "kind": "fact",
+                  "line": 10,
+                  "rule": "SH-X29"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "cookie": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "reason": "the route is not mounted",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "query": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "rustapp/src/lib.rs",
+                  "kind": "fact",
+                  "line": 10,
+                  "rule": "SH-X29"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "responses": {
+                "reason": "panics, extractor rejections and middleware (layers) are not read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {},
+            "version": 1
+          },
+          "template": "/hs/s"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [
+              {
+                "from": "graphvein.yaml explorer.path_values",
+                "id": "set_by_you",
+                "key": "mount:rustapp/src/lib.rs#service_hop%20.nest_service%28base%29",
+                "text": "the part .nest_service(base,served()) (rustapp/src/lib.rs) adds to the path is set by you: you state that it passes requests on with this prefix, at the root; Graphvein did not read this part",
+                "value": "/hs"
+              }
+            ],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "set_by_you",
+            "route": "route:rustapp/src/lib.rs#GET%20%2Fs"
+          }
+        ]
+      }
+    },
+    "/live": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "rustapp/src/lib.rs",
+          "framework": "axum",
+          "handler": "function:rustapp/src/lib.rs#health",
+          "handler_expression": null,
+          "line": 41,
+          "not_read": [
+            "header",
+            "cookie",
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:rustapp/src/lib.rs#GET%20%2Flive",
+          "rule": "Axum routes (ADR 0016)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [
+              {
+                "item": {
+                  "content_type": "text/plain; charset=utf-8",
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "rustapp/src/lib.rs",
+                    "kind": "returned",
+                    "line": 18,
+                    "rule": "SH-X25"
+                  },
+                  "schema": {
+                    "type": "string"
+                  },
+                  "status": "200"
+                },
+                "row": "OG-77",
+                "section": "responses",
+                "why": "the declared type of a returned value, not validated by the framework"
+              }
+            ],
+            "sections": {
+              "body": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "rustapp/src/lib.rs",
+                  "kind": "fact",
+                  "line": 18,
+                  "rule": "SH-X29"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "cookie": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "rustapp/src/lib.rs",
+                  "kind": "fact",
+                  "line": 41,
+                  "rule": "SH-X1"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "rustapp/src/lib.rs",
+                  "kind": "fact",
+                  "line": 18,
+                  "rule": "SH-X29"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "responses": {
+                "reason": "panics, extractor rejections and middleware (layers) are not read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {},
+            "version": 1
+          },
+          "template": "/live"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:rustapp/src/lib.rs#GET%20%2Flive"
+          }
+        ]
+      }
+    },
+    "/old/items/{id}": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {},
+            "x-graphvein": {
+              "type": "not_read"
+            }
+          }
+        ],
+        "x-graphvein": {
+          "assumptions": [
+            {
+              "from": "graphvein.yaml explorer.path_values",
+              "id": "set_by_you",
+              "key": "mount:rustold/src/lib.rs#app%20.nest%28%26prefix%29",
+              "text": "the part .nest(\u0026prefix,inner()) (rustold/src/lib.rs) adds to the path is set by you: you state that it passes requests on with this prefix, at the root; Graphvein did not read this part",
+              "value": "/old"
+            }
+          ],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "rustold/src/lib.rs",
+          "framework": "axum",
+          "handler": "function:rustold/src/lib.rs#list",
+          "handler_expression": null,
+          "line": 13,
+          "not_read": [
+            "header",
+            "cookie",
+            "operationId",
+            "summary",
+            "tags",
+            "security",
+            "path_parameter_types"
+          ],
+          "resolution": "set_by_you",
+          "route": "route:rustold/src/lib.rs#GET%20%2Fitems%2F%3Aid",
+          "rule": "Axum routes (ADR 0016)",
+          "shadowing": "not_checked",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [
+              {
+                "item": {
+                  "content_type": "text/plain",
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "rustold/src/lib.rs",
+                    "kind": "returned",
+                    "line": 8,
+                    "rule": "SH-X25"
+                  },
+                  "schema": {
+                    "type": "string"
+                  },
+                  "status": "200"
+                },
+                "row": "OG-77",
+                "section": "responses",
+                "why": "the declared type of a returned value, not validated by the framework"
+              }
+            ],
+            "sections": {
+              "body": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "rustold/src/lib.rs",
+                  "kind": "fact",
+                  "line": 8,
+                  "rule": "SH-X29"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "cookie": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "reason": "the route is not mounted",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "query": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "rustold/src/lib.rs",
+                  "kind": "fact",
+                  "line": 8,
+                  "rule": "SH-X29"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "responses": {
+                "reason": "panics, extractor rejections and middleware (layers) are not read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {},
+            "version": 1
+          },
+          "template": "/old/items/{id}"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [
+              {
+                "from": "graphvein.yaml explorer.path_values",
+                "id": "set_by_you",
+                "key": "mount:rustold/src/lib.rs#app%20.nest%28%26prefix%29",
+                "text": "the part .nest(\u0026prefix,inner()) (rustold/src/lib.rs) adds to the path is set by you: you state that it passes requests on with this prefix, at the root; Graphvein did not read this part",
+                "value": "/old"
+              }
+            ],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "set_by_you",
+            "route": "route:rustold/src/lib.rs#GET%20%2Fitems%2F%3Aid"
+          }
+        ]
+      }
+    },
+    "/outer/b/n": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [
+            {
+              "from": "graphvein.yaml explorer.path_values",
+              "id": "set_by_you",
+              "key": "mount:goapp/chi.go#Nested%20r.Route%28base%29",
+              "text": "the part r.Route(base,func(...){...}) (goapp/chi.go) adds to the path is set by you: you state that it passes requests on with this prefix, after the prefix /outer read above it; Graphvein did not read this part",
+              "value": "/b"
+            }
+          ],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "goapp/chi.go",
+          "framework": "chi",
+          "handler": "function:goapp/chi.go#list",
+          "handler_expression": null,
+          "line": 45,
+          "not_read": [
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "set_by_you",
+          "route": "route:goapp/chi.go#GET%20%2Fn",
+          "rule": "Go routes, GR rows (ADR 0076)",
+          "shadowing": "not_checked",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [],
+            "sections": {
+              "body": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; no body read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "cookie": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; no cookie parameter read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "header": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; no header parameter read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "path": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; no path parameter read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "query": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; no query parameter read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "responses": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; middleware and error handlers may answer other statuses",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 1
+            },
+            "version": 1
+          },
+          "template": "/outer/b/n"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [
+              {
+                "from": "graphvein.yaml explorer.path_values",
+                "id": "set_by_you",
+                "key": "mount:goapp/chi.go#Nested%20r.Route%28base%29",
+                "text": "the part r.Route(base,func(...){...}) (goapp/chi.go) adds to the path is set by you: you state that it passes requests on with this prefix, after the prefix /outer read above it; Graphvein did not read this part",
+                "value": "/b"
+              }
+            ],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "set_by_you",
+            "route": "route:goapp/chi.go#GET%20%2Fn"
+          }
+        ]
+      }
+    },
+    "/outer/in": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [
+            {
+              "from": "graphvein.yaml explorer.path_values",
+              "id": "set_by_you",
+              "key": "mount:rustapp/src/lib.rs#outer%20.nest%28base%29",
+              "text": "the part .nest(base,deep()) (rustapp/src/lib.rs) adds to the path is set by you: you state that it passes requests on with this prefix, after the prefix /outer read above it; Graphvein did not read this part",
+              "value": "/in"
+            }
+          ],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "rustapp/src/lib.rs",
+          "framework": "axum",
+          "handler": "function:rustapp/src/lib.rs#root",
+          "handler_expression": null,
+          "line": 54,
+          "not_read": [
+            "header",
+            "cookie",
+            "operationId",
+            "summary",
+            "tags",
+            "security",
+            "path_parameter_types"
+          ],
+          "resolution": "set_by_you",
+          "route": "route:rustapp/src/lib.rs#GET%20%2F%403",
+          "rule": "Axum routes (ADR 0016)",
+          "shadowing": "not_checked",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [
+              {
+                "item": {
+                  "content_type": "text/plain; charset=utf-8",
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "rustapp/src/lib.rs",
+                    "kind": "returned",
+                    "line": 6,
+                    "rule": "SH-X25"
+                  },
+                  "schema": {
+                    "type": "string"
+                  },
+                  "status": "200"
+                },
+                "row": "OG-77",
+                "section": "responses",
+                "why": "the declared type of a returned value, not validated by the framework"
+              }
+            ],
+            "sections": {
+              "body": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "rustapp/src/lib.rs",
+                  "kind": "fact",
+                  "line": 6,
+                  "rule": "SH-X29"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "cookie": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "reason": "the route is not mounted",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "query": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "rustapp/src/lib.rs",
+                  "kind": "fact",
+                  "line": 6,
+                  "rule": "SH-X29"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "responses": {
+                "reason": "panics, extractor rejections and middleware (layers) are not read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {},
+            "version": 1
+          },
+          "template": "/outer/in"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [
+              {
+                "from": "graphvein.yaml explorer.path_values",
+                "id": "set_by_you",
+                "key": "mount:rustapp/src/lib.rs#outer%20.nest%28base%29",
+                "text": "the part .nest(base,deep()) (rustapp/src/lib.rs) adds to the path is set by you: you state that it passes requests on with this prefix, after the prefix /outer read above it; Graphvein did not read this part",
+                "value": "/in"
+              }
+            ],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "set_by_you",
+            "route": "route:rustapp/src/lib.rs#GET%20%2F%403"
+          }
+        ]
+      }
+    },
+    "/outer/in/d": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [
+            {
+              "from": "graphvein.yaml explorer.path_values",
+              "id": "set_by_you",
+              "key": "mount:rustapp/src/lib.rs#outer%20.nest%28base%29",
+              "text": "the part .nest(base,deep()) (rustapp/src/lib.rs) adds to the path is set by you: you state that it passes requests on with this prefix, after the prefix /outer read above it; Graphvein did not read this part",
+              "value": "/in"
+            }
+          ],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "rustapp/src/lib.rs",
+          "framework": "axum",
+          "handler": "function:rustapp/src/lib.rs#list",
+          "handler_expression": null,
+          "line": 54,
+          "not_read": [
+            "header",
+            "cookie",
+            "operationId",
+            "summary",
+            "tags",
+            "security",
+            "path_parameter_types"
+          ],
+          "resolution": "set_by_you",
+          "route": "route:rustapp/src/lib.rs#GET%20%2Fd",
+          "rule": "Axum routes (ADR 0016)",
+          "shadowing": "not_checked",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [
+              {
+                "item": {
+                  "content_type": "text/plain; charset=utf-8",
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "rustapp/src/lib.rs",
+                    "kind": "returned",
+                    "line": 10,
+                    "rule": "SH-X25"
+                  },
+                  "schema": {
+                    "type": "string"
+                  },
+                  "status": "200"
+                },
+                "row": "OG-77",
+                "section": "responses",
+                "why": "the declared type of a returned value, not validated by the framework"
+              }
+            ],
+            "sections": {
+              "body": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "rustapp/src/lib.rs",
+                  "kind": "fact",
+                  "line": 10,
+                  "rule": "SH-X29"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "cookie": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "reason": "the route is not mounted",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "query": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "rustapp/src/lib.rs",
+                  "kind": "fact",
+                  "line": 10,
+                  "rule": "SH-X29"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "responses": {
+                "reason": "panics, extractor rejections and middleware (layers) are not read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {},
+            "version": 1
+          },
+          "template": "/outer/in/d"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [
+              {
+                "from": "graphvein.yaml explorer.path_values",
+                "id": "set_by_you",
+                "key": "mount:rustapp/src/lib.rs#outer%20.nest%28base%29",
+                "text": "the part .nest(base,deep()) (rustapp/src/lib.rs) adds to the path is set by you: you state that it passes requests on with this prefix, after the prefix /outer read above it; Graphvein did not read this part",
+                "value": "/in"
+              }
+            ],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "set_by_you",
+            "route": "route:rustapp/src/lib.rs#GET%20%2Fd"
+          }
+        ]
+      }
+    },
+    "/own/": {
+      "get": {
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "x-graphvein": {
+                    "unknown": "no response model is declared"
+                  }
+                },
+                "x-graphvein": {
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "api/app/main.py",
+                    "kind": "fact",
+                    "line": 26,
+                    "rule": "SH-F27"
+                  }
+                }
+              }
+            },
+            "description": "Not read by Graphvein",
+            "x-graphvein": {
+              "description": "not_read"
+            }
+          }
+        },
+        "x-graphvein": {
+          "assumptions": [
+            {
+              "from": "graphvein.yaml explorer.path_values",
+              "id": "set_by_you",
+              "key": "mount:api/app/main.py#%28module%29%20APIRouter%28prefix%3Dos.environ%5B%22OWN%22%5D%29",
+              "text": "the part APIRouter(prefix=os.environ[\"OWN\"]) (api/app/main.py) adds to the path is set by you: you state that it passes requests on with this prefix, at the root; Graphvein did not read this part",
+              "value": "/own"
+            }
+          ],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "api/app/main.py",
+          "framework": "fastapi",
+          "handler": "function:api/app/main.py#own_root",
+          "handler_expression": null,
+          "line": 26,
+          "not_read": [
+            "operationId",
+            "summary",
+            "tags",
+            "security",
+            "path_parameter_types"
+          ],
+          "resolution": "set_by_you",
+          "route": "route:api/app/main.py#GET%20%2F",
+          "rule": "FastAPI routes (ADR 0015, ADR 0019)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [],
+            "sections": {
+              "body": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "api/app/main.py",
+                  "kind": "fact",
+                  "line": 27,
+                  "rule": "SH-F23"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "cookie": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "api/app/main.py",
+                  "kind": "fact",
+                  "line": 27,
+                  "rule": "SH-F23"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "header": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "api/app/main.py",
+                  "kind": "fact",
+                  "line": 27,
+                  "rule": "SH-F23"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "path": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "query": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "api/app/main.py",
+                  "kind": "fact",
+                  "line": 27,
+                  "rule": "SH-F23"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "responses": {
+                "reason": "statuses from exception handlers, middleware and calls not followed are not read; a returned value is not read (api/app/main.py:28)",
+                "standard": 1,
+                "state": "partial"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 2
+            },
+            "version": 1
+          },
+          "template": "/own"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [
+              {
+                "from": "graphvein.yaml explorer.path_values",
+                "id": "set_by_you",
+                "key": "mount:api/app/main.py#%28module%29%20APIRouter%28prefix%3Dos.environ%5B%22OWN%22%5D%29",
+                "text": "the part APIRouter(prefix=os.environ[\"OWN\"]) (api/app/main.py) adds to the path is set by you: you state that it passes requests on with this prefix, at the root; Graphvein did not read this part",
+                "value": "/own"
+              }
+            ],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "set_by_you",
+            "route": "route:api/app/main.py#GET%20%2F"
+          }
+        ]
+      }
+    },
+    "/own/status": {
+      "get": {
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "x-graphvein": {
+                    "unknown": "no response model is declared"
+                  }
+                },
+                "x-graphvein": {
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "api/app/main.py",
+                    "kind": "fact",
+                    "line": 31,
+                    "rule": "SH-F27"
+                  }
+                }
+              }
+            },
+            "description": "Not read by Graphvein",
+            "x-graphvein": {
+              "description": "not_read"
+            }
+          }
+        },
+        "x-graphvein": {
+          "assumptions": [
+            {
+              "from": "graphvein.yaml explorer.path_values",
+              "id": "set_by_you",
+              "key": "mount:api/app/main.py#%28module%29%20APIRouter%28prefix%3Dos.environ%5B%22OWN%22%5D%29",
+              "text": "the part APIRouter(prefix=os.environ[\"OWN\"]) (api/app/main.py) adds to the path is set by you: you state that it passes requests on with this prefix, at the root; Graphvein did not read this part",
+              "value": "/own"
+            }
+          ],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "api/app/main.py",
+          "framework": "fastapi",
+          "handler": "function:api/app/main.py#own_status",
+          "handler_expression": null,
+          "line": 31,
+          "not_read": [
+            "operationId",
+            "summary",
+            "tags",
+            "security",
+            "path_parameter_types"
+          ],
+          "resolution": "set_by_you",
+          "route": "route:api/app/main.py#GET%20%2Fstatus",
+          "rule": "FastAPI routes (ADR 0015, ADR 0019)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [],
+            "sections": {
+              "body": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "api/app/main.py",
+                  "kind": "fact",
+                  "line": 32,
+                  "rule": "SH-F23"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "cookie": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "api/app/main.py",
+                  "kind": "fact",
+                  "line": 32,
+                  "rule": "SH-F23"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "header": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "api/app/main.py",
+                  "kind": "fact",
+                  "line": 32,
+                  "rule": "SH-F23"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "path": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "query": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "api/app/main.py",
+                  "kind": "fact",
+                  "line": 32,
+                  "rule": "SH-F23"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "responses": {
+                "reason": "statuses from exception handlers, middleware and calls not followed are not read; a returned value is not read (api/app/main.py:33)",
+                "standard": 1,
+                "state": "partial"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 2
+            },
+            "version": 1
+          },
+          "template": "/own/status"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [
+              {
+                "from": "graphvein.yaml explorer.path_values",
+                "id": "set_by_you",
+                "key": "mount:api/app/main.py#%28module%29%20APIRouter%28prefix%3Dos.environ%5B%22OWN%22%5D%29",
+                "text": "the part APIRouter(prefix=os.environ[\"OWN\"]) (api/app/main.py) adds to the path is set by you: you state that it passes requests on with this prefix, at the root; Graphvein did not read this part",
+                "value": "/own"
+              }
+            ],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "set_by_you",
+            "route": "route:api/app/main.py#GET%20%2Fstatus"
+          }
+        ]
+      }
+    },
+    "/page/{id}": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {},
+            "x-graphvein": {
+              "type": "not_read"
+            }
+          }
+        ],
+        "x-graphvein": {
+          "assumptions": [
+            {
+              "from": "route",
+              "id": "GR-V2"
+            },
+            {
+              "from": "graphvein.yaml explorer.path_values",
+              "id": "set_by_you",
+              "key": "mount:goapp/mux.go#ServeUI%20ui%28%29",
+              "text": "you state that ui() (router behind another call or a closure) (goapp/mux.go) passes requests on unchanged: Graphvein read that it adds no prefix, but did not prove that it passes them on",
+              "value": "/"
+            }
+          ],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "goapp/mux.go",
+          "framework": "net/http",
+          "handler": "function:goapp/chi.go#list",
+          "handler_expression": null,
+          "line": 18,
+          "not_read": [
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "set_by_you",
+          "route": "route:goapp/mux.go#GET%20%2Fpage%2F%7Bid%7D",
+          "rule": "Go routes, GR rows (ADR 0076)",
+          "shadowing": "not_checked",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [],
+            "sections": {
+              "body": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; no body read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "cookie": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; no cookie parameter read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "header": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; no header parameter read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "path": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; no path parameter read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "query": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; no query parameter read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "responses": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; middleware and error handlers may answer other statuses",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 1
+            },
+            "version": 1
+          },
+          "template": "/page/{id}"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [
+              {
+                "from": "route",
+                "id": "GR-V2"
+              },
+              {
+                "from": "graphvein.yaml explorer.path_values",
+                "id": "set_by_you",
+                "key": "mount:goapp/mux.go#ServeUI%20ui%28%29",
+                "text": "you state that ui() (router behind another call or a closure) (goapp/mux.go) passes requests on unchanged: Graphvein read that it adds no prefix, but did not prove that it passes them on",
+                "value": "/"
+              }
+            ],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "set_by_you",
+            "route": "route:goapp/mux.go#GET%20%2Fpage%2F%7Bid%7D"
+          }
+        ]
+      }
+    },
+    "/ready": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "goapp/gin.go",
+          "framework": "gin",
+          "handler": "function:goapp/gin.go#ping",
+          "handler_expression": null,
+          "line": 10,
+          "not_read": [
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:goapp/gin.go#GET%20%2Fready",
+          "rule": "Go routes, GR rows (ADR 0076)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [],
+            "sections": {
+              "body": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; no body read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "cookie": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; no cookie parameter read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "header": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; no header parameter read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "path": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; no path parameter read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "query": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; no query parameter read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "responses": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; middleware and error handlers may answer other statuses",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 1
+            },
+            "version": 1
+          },
+          "template": "/ready"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:goapp/gin.go#GET%20%2Fready"
+          }
+        ]
+      }
+    },
+    "/rs": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [
+            {
+              "from": "graphvein.yaml explorer.path_values",
+              "id": "set_by_you",
+              "key": "mount:rustapp/src/lib.rs#app%20.nest%28base%29",
+              "text": "the part .nest(base,api()) (rustapp/src/lib.rs) adds to the path is set by you: you state that it passes requests on with this prefix, at the root; Graphvein did not read this part",
+              "value": "/rs"
+            }
+          ],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "rustapp/src/lib.rs",
+          "framework": "axum",
+          "handler": "function:rustapp/src/lib.rs#root",
+          "handler_expression": null,
+          "line": 30,
+          "not_read": [
+            "header",
+            "cookie",
+            "operationId",
+            "summary",
+            "tags",
+            "security",
+            "path_parameter_types"
+          ],
+          "resolution": "set_by_you",
+          "route": "route:rustapp/src/lib.rs#GET%20%2F",
+          "rule": "Axum routes (ADR 0016)",
+          "shadowing": "not_checked",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [
+              {
+                "item": {
+                  "content_type": "text/plain; charset=utf-8",
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "rustapp/src/lib.rs",
+                    "kind": "returned",
+                    "line": 6,
+                    "rule": "SH-X25"
+                  },
+                  "schema": {
+                    "type": "string"
+                  },
+                  "status": "200"
+                },
+                "row": "OG-77",
+                "section": "responses",
+                "why": "the declared type of a returned value, not validated by the framework"
+              }
+            ],
+            "sections": {
+              "body": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "rustapp/src/lib.rs",
+                  "kind": "fact",
+                  "line": 6,
+                  "rule": "SH-X29"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "cookie": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "reason": "the route is not mounted",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "query": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "rustapp/src/lib.rs",
+                  "kind": "fact",
+                  "line": 6,
+                  "rule": "SH-X29"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "responses": {
+                "reason": "panics, extractor rejections and middleware (layers) are not read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {},
+            "version": 1
+          },
+          "template": "/rs"
+        }
+      },
+      "post": {
+        "x-graphvein": {
+          "assumptions": [
+            {
+              "from": "graphvein.yaml explorer.path_values",
+              "id": "set_by_you",
+              "key": "mount:rustapp/src/lib.rs#app%20.nest%28base%29",
+              "text": "the part .nest(base,api()) (rustapp/src/lib.rs) adds to the path is set by you: you state that it passes requests on with this prefix, at the root; Graphvein did not read this part",
+              "value": "/rs"
+            }
+          ],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "rustapp/src/lib.rs",
+          "framework": "axum",
+          "handler": "function:rustapp/src/lib.rs#root",
+          "handler_expression": null,
+          "line": 25,
+          "not_read": [
+            "header",
+            "cookie",
+            "operationId",
+            "summary",
+            "tags",
+            "security",
+            "path_parameter_types"
+          ],
+          "resolution": "set_by_you",
+          "route": "route:rustapp/src/lib.rs#POST%20%2F",
+          "rule": "Axum routes (ADR 0016)",
+          "shadowing": "not_checked",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [
+              {
+                "item": {
+                  "content_type": "text/plain; charset=utf-8",
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "rustapp/src/lib.rs",
+                    "kind": "returned",
+                    "line": 6,
+                    "rule": "SH-X25"
+                  },
+                  "schema": {
+                    "type": "string"
+                  },
+                  "status": "200"
+                },
+                "row": "OG-77",
+                "section": "responses",
+                "why": "the declared type of a returned value, not validated by the framework"
+              }
+            ],
+            "sections": {
+              "body": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "rustapp/src/lib.rs",
+                  "kind": "fact",
+                  "line": 6,
+                  "rule": "SH-X29"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "cookie": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "reason": "the route is not mounted",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "query": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "rustapp/src/lib.rs",
+                  "kind": "fact",
+                  "line": 6,
+                  "rule": "SH-X29"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "responses": {
+                "reason": "panics, extractor rejections and middleware (layers) are not read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {},
+            "version": 1
+          },
+          "template": "/rs"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [
+              {
+                "from": "graphvein.yaml explorer.path_values",
+                "id": "set_by_you",
+                "key": "mount:rustapp/src/lib.rs#app%20.nest%28base%29",
+                "text": "the part .nest(base,api()) (rustapp/src/lib.rs) adds to the path is set by you: you state that it passes requests on with this prefix, at the root; Graphvein did not read this part",
+                "value": "/rs"
+              }
+            ],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "set_by_you",
+            "route": "route:rustapp/src/lib.rs#GET%20%2F"
+          },
+          {
+            "assumptions": [
+              {
+                "from": "graphvein.yaml explorer.path_values",
+                "id": "set_by_you",
+                "key": "mount:rustapp/src/lib.rs#app%20.nest%28base%29",
+                "text": "the part .nest(base,api()) (rustapp/src/lib.rs) adds to the path is set by you: you state that it passes requests on with this prefix, at the root; Graphvein did not read this part",
+                "value": "/rs"
+              }
+            ],
+            "conditional": false,
+            "method": "POST",
+            "resolution": "set_by_you",
+            "route": "route:rustapp/src/lib.rs#POST%20%2F"
+          }
+        ]
+      }
+    },
+    "/rs/extra": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [
+            {
+              "from": "graphvein.yaml explorer.path_values",
+              "id": "set_by_you",
+              "key": "mount:rustapp/src/lib.rs#app%20.nest%28base%29",
+              "text": "the part .nest(base,api()) (rustapp/src/lib.rs) adds to the path is set by you: you state that it passes requests on with this prefix, at the root; Graphvein did not read this part",
+              "value": "/rs"
+            }
+          ],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "rustapp/src/lib.rs",
+          "framework": "axum",
+          "handler": "function:rustapp/src/lib.rs#list",
+          "handler_expression": null,
+          "line": 25,
+          "not_read": [
+            "header",
+            "cookie",
+            "operationId",
+            "summary",
+            "tags",
+            "security",
+            "path_parameter_types"
+          ],
+          "resolution": "set_by_you",
+          "route": "route:rustapp/src/lib.rs#GET%20%2Fextra",
+          "rule": "Axum routes (ADR 0016)",
+          "shadowing": "not_checked",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [
+              {
+                "item": {
+                  "content_type": "text/plain; charset=utf-8",
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "rustapp/src/lib.rs",
+                    "kind": "returned",
+                    "line": 10,
+                    "rule": "SH-X25"
+                  },
+                  "schema": {
+                    "type": "string"
+                  },
+                  "status": "200"
+                },
+                "row": "OG-77",
+                "section": "responses",
+                "why": "the declared type of a returned value, not validated by the framework"
+              }
+            ],
+            "sections": {
+              "body": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "rustapp/src/lib.rs",
+                  "kind": "fact",
+                  "line": 10,
+                  "rule": "SH-X29"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "cookie": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "reason": "the route is not mounted",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "query": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "rustapp/src/lib.rs",
+                  "kind": "fact",
+                  "line": 10,
+                  "rule": "SH-X29"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "responses": {
+                "reason": "panics, extractor rejections and middleware (layers) are not read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {},
+            "version": 1
+          },
+          "template": "/rs/extra"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [
+              {
+                "from": "graphvein.yaml explorer.path_values",
+                "id": "set_by_you",
+                "key": "mount:rustapp/src/lib.rs#app%20.nest%28base%29",
+                "text": "the part .nest(base,api()) (rustapp/src/lib.rs) adds to the path is set by you: you state that it passes requests on with this prefix, at the root; Graphvein did not read this part",
+                "value": "/rs"
+              }
+            ],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "set_by_you",
+            "route": "route:rustapp/src/lib.rs#GET%20%2Fextra"
+          }
+        ]
+      }
+    },
+    "/rs/slash/": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [
+            {
+              "from": "graphvein.yaml explorer.path_values",
+              "id": "set_by_you",
+              "key": "mount:rustapp/src/lib.rs#app%20.nest%28base%29",
+              "text": "the part .nest(base,api()) (rustapp/src/lib.rs) adds to the path is set by you: you state that it passes requests on with this prefix, at the root; Graphvein did not read this part",
+              "value": "/rs"
+            }
+          ],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "rustapp/src/lib.rs",
+          "framework": "axum",
+          "handler": "function:rustapp/src/lib.rs#show",
+          "handler_expression": null,
+          "line": 33,
+          "not_read": [
+            "header",
+            "cookie",
+            "operationId",
+            "summary",
+            "tags",
+            "security",
+            "path_parameter_types"
+          ],
+          "resolution": "set_by_you",
+          "route": "route:rustapp/src/lib.rs#GET%20%2Fslash%2F",
+          "rule": "Axum routes (ADR 0016)",
+          "shadowing": "not_checked",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [
+              {
+                "item": {
+                  "content_type": "text/plain; charset=utf-8",
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "rustapp/src/lib.rs",
+                    "kind": "returned",
+                    "line": 14,
+                    "rule": "SH-X25"
+                  },
+                  "schema": {
+                    "type": "string"
+                  },
+                  "status": "200"
+                },
+                "row": "OG-77",
+                "section": "responses",
+                "why": "the declared type of a returned value, not validated by the framework"
+              }
+            ],
+            "sections": {
+              "body": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "rustapp/src/lib.rs",
+                  "kind": "fact",
+                  "line": 14,
+                  "rule": "SH-X29"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "cookie": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "reason": "the route is not mounted",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "query": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "rustapp/src/lib.rs",
+                  "kind": "fact",
+                  "line": 14,
+                  "rule": "SH-X29"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "responses": {
+                "reason": "panics, extractor rejections and middleware (layers) are not read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {},
+            "version": 1
+          },
+          "template": "/rs/slash"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [
+              {
+                "from": "graphvein.yaml explorer.path_values",
+                "id": "set_by_you",
+                "key": "mount:rustapp/src/lib.rs#app%20.nest%28base%29",
+                "text": "the part .nest(base,api()) (rustapp/src/lib.rs) adds to the path is set by you: you state that it passes requests on with this prefix, at the root; Graphvein did not read this part",
+                "value": "/rs"
+              }
+            ],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "set_by_you",
+            "route": "route:rustapp/src/lib.rs#GET%20%2Fslash%2F"
+          }
+        ]
+      }
+    },
+    "/rs/users": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [
+            {
+              "from": "graphvein.yaml explorer.path_values",
+              "id": "set_by_you",
+              "key": "mount:rustapp/src/lib.rs#app%20.nest%28base%29",
+              "text": "the part .nest(base,api()) (rustapp/src/lib.rs) adds to the path is set by you: you state that it passes requests on with this prefix, at the root; Graphvein did not read this part",
+              "value": "/rs"
+            }
+          ],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "rustapp/src/lib.rs",
+          "framework": "axum",
+          "handler": "function:rustapp/src/lib.rs#list",
+          "handler_expression": null,
+          "line": 31,
+          "not_read": [
+            "header",
+            "cookie",
+            "operationId",
+            "summary",
+            "tags",
+            "security",
+            "path_parameter_types"
+          ],
+          "resolution": "set_by_you",
+          "route": "route:rustapp/src/lib.rs#GET%20%2Fusers",
+          "rule": "Axum routes (ADR 0016)",
+          "shadowing": "not_checked",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [
+              {
+                "item": {
+                  "content_type": "text/plain; charset=utf-8",
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "rustapp/src/lib.rs",
+                    "kind": "returned",
+                    "line": 10,
+                    "rule": "SH-X25"
+                  },
+                  "schema": {
+                    "type": "string"
+                  },
+                  "status": "200"
+                },
+                "row": "OG-77",
+                "section": "responses",
+                "why": "the declared type of a returned value, not validated by the framework"
+              }
+            ],
+            "sections": {
+              "body": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "rustapp/src/lib.rs",
+                  "kind": "fact",
+                  "line": 10,
+                  "rule": "SH-X29"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "cookie": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "reason": "the route is not mounted",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "query": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "rustapp/src/lib.rs",
+                  "kind": "fact",
+                  "line": 10,
+                  "rule": "SH-X29"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "responses": {
+                "reason": "panics, extractor rejections and middleware (layers) are not read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {},
+            "version": 1
+          },
+          "template": "/rs/users"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [
+              {
+                "from": "graphvein.yaml explorer.path_values",
+                "id": "set_by_you",
+                "key": "mount:rustapp/src/lib.rs#app%20.nest%28base%29",
+                "text": "the part .nest(base,api()) (rustapp/src/lib.rs) adds to the path is set by you: you state that it passes requests on with this prefix, at the root; Graphvein did not read this part",
+                "value": "/rs"
+              }
+            ],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "set_by_you",
+            "route": "route:rustapp/src/lib.rs#GET%20%2Fusers"
+          }
+        ]
+      }
+    },
+    "/rs/users/{id}": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {},
+            "x-graphvein": {
+              "type": "not_read"
+            }
+          }
+        ],
+        "x-graphvein": {
+          "assumptions": [
+            {
+              "from": "graphvein.yaml explorer.path_values",
+              "id": "set_by_you",
+              "key": "mount:rustapp/src/lib.rs#app%20.nest%28base%29",
+              "text": "the part .nest(base,api()) (rustapp/src/lib.rs) adds to the path is set by you: you state that it passes requests on with this prefix, at the root; Graphvein did not read this part",
+              "value": "/rs"
+            }
+          ],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "rustapp/src/lib.rs",
+          "framework": "axum",
+          "handler": "function:rustapp/src/lib.rs#show",
+          "handler_expression": null,
+          "line": 32,
+          "not_read": [
+            "header",
+            "cookie",
+            "operationId",
+            "summary",
+            "tags",
+            "security",
+            "path_parameter_types"
+          ],
+          "resolution": "set_by_you",
+          "route": "route:rustapp/src/lib.rs#GET%20%2Fusers%2F%7Bid%7D",
+          "rule": "Axum routes (ADR 0016)",
+          "shadowing": "not_checked",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [
+              {
+                "item": {
+                  "content_type": "text/plain; charset=utf-8",
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "rustapp/src/lib.rs",
+                    "kind": "returned",
+                    "line": 14,
+                    "rule": "SH-X25"
+                  },
+                  "schema": {
+                    "type": "string"
+                  },
+                  "status": "200"
+                },
+                "row": "OG-77",
+                "section": "responses",
+                "why": "the declared type of a returned value, not validated by the framework"
+              }
+            ],
+            "sections": {
+              "body": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "rustapp/src/lib.rs",
+                  "kind": "fact",
+                  "line": 14,
+                  "rule": "SH-X29"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "cookie": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "reason": "the route is not mounted",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "query": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "rustapp/src/lib.rs",
+                  "kind": "fact",
+                  "line": 14,
+                  "rule": "SH-X29"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "responses": {
+                "reason": "panics, extractor rejections and middleware (layers) are not read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {},
+            "version": 1
+          },
+          "template": "/rs/users/{id}"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [
+              {
+                "from": "graphvein.yaml explorer.path_values",
+                "id": "set_by_you",
+                "key": "mount:rustapp/src/lib.rs#app%20.nest%28base%29",
+                "text": "the part .nest(base,api()) (rustapp/src/lib.rs) adds to the path is set by you: you state that it passes requests on with this prefix, at the root; Graphvein did not read this part",
+                "value": "/rs"
+              }
+            ],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "set_by_you",
+            "route": "route:rustapp/src/lib.rs#GET%20%2Fusers%2F%7Bid%7D"
+          }
+        ]
+      }
+    },
+    "/rs/v2": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [
+            {
+              "from": "graphvein.yaml explorer.path_values",
+              "id": "set_by_you",
+              "key": "mount:rustapp/src/lib.rs#app%20.nest%28base%29",
+              "text": "the part .nest(base,api()) (rustapp/src/lib.rs) adds to the path is set by you: you state that it passes requests on with this prefix, at the root; Graphvein did not read this part",
+              "value": "/rs"
+            }
+          ],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "rustapp/src/lib.rs",
+          "framework": "axum",
+          "handler": "function:rustapp/src/lib.rs#root",
+          "handler_expression": null,
+          "line": 34,
+          "not_read": [
+            "header",
+            "cookie",
+            "operationId",
+            "summary",
+            "tags",
+            "security",
+            "path_parameter_types"
+          ],
+          "resolution": "set_by_you",
+          "route": "route:rustapp/src/lib.rs#GET%20%2F%402",
+          "rule": "Axum routes (ADR 0016)",
+          "shadowing": "not_checked",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [
+              {
+                "item": {
+                  "content_type": "text/plain; charset=utf-8",
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "rustapp/src/lib.rs",
+                    "kind": "returned",
+                    "line": 6,
+                    "rule": "SH-X25"
+                  },
+                  "schema": {
+                    "type": "string"
+                  },
+                  "status": "200"
+                },
+                "row": "OG-77",
+                "section": "responses",
+                "why": "the declared type of a returned value, not validated by the framework"
+              }
+            ],
+            "sections": {
+              "body": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "rustapp/src/lib.rs",
+                  "kind": "fact",
+                  "line": 6,
+                  "rule": "SH-X29"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "cookie": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "reason": "the route is not mounted",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "query": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "rustapp/src/lib.rs",
+                  "kind": "fact",
+                  "line": 6,
+                  "rule": "SH-X29"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "responses": {
+                "reason": "panics, extractor rejections and middleware (layers) are not read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {},
+            "version": 1
+          },
+          "template": "/rs/v2"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [
+              {
+                "from": "graphvein.yaml explorer.path_values",
+                "id": "set_by_you",
+                "key": "mount:rustapp/src/lib.rs#app%20.nest%28base%29",
+                "text": "the part .nest(base,api()) (rustapp/src/lib.rs) adds to the path is set by you: you state that it passes requests on with this prefix, at the root; Graphvein did not read this part",
+                "value": "/rs"
+              }
+            ],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "set_by_you",
+            "route": "route:rustapp/src/lib.rs#GET%20%2F%402"
+          }
+        ]
+      }
+    },
+    "/rs/v2/x": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [
+            {
+              "from": "graphvein.yaml explorer.path_values",
+              "id": "set_by_you",
+              "key": "mount:rustapp/src/lib.rs#app%20.nest%28base%29",
+              "text": "the part .nest(base,api()) (rustapp/src/lib.rs) adds to the path is set by you: you state that it passes requests on with this prefix, at the root; Graphvein did not read this part",
+              "value": "/rs"
+            }
+          ],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "rustapp/src/lib.rs",
+          "framework": "axum",
+          "handler": "function:rustapp/src/lib.rs#list",
+          "handler_expression": null,
+          "line": 34,
+          "not_read": [
+            "header",
+            "cookie",
+            "operationId",
+            "summary",
+            "tags",
+            "security",
+            "path_parameter_types"
+          ],
+          "resolution": "set_by_you",
+          "route": "route:rustapp/src/lib.rs#GET%20%2Fx",
+          "rule": "Axum routes (ADR 0016)",
+          "shadowing": "not_checked",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [
+              {
+                "item": {
+                  "content_type": "text/plain; charset=utf-8",
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "rustapp/src/lib.rs",
+                    "kind": "returned",
+                    "line": 10,
+                    "rule": "SH-X25"
+                  },
+                  "schema": {
+                    "type": "string"
+                  },
+                  "status": "200"
+                },
+                "row": "OG-77",
+                "section": "responses",
+                "why": "the declared type of a returned value, not validated by the framework"
+              }
+            ],
+            "sections": {
+              "body": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "rustapp/src/lib.rs",
+                  "kind": "fact",
+                  "line": 10,
+                  "rule": "SH-X29"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "cookie": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "reason": "the route is not mounted",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "query": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "rustapp/src/lib.rs",
+                  "kind": "fact",
+                  "line": 10,
+                  "rule": "SH-X29"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "responses": {
+                "reason": "panics, extractor rejections and middleware (layers) are not read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {},
+            "version": 1
+          },
+          "template": "/rs/v2/x"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [
+              {
+                "from": "graphvein.yaml explorer.path_values",
+                "id": "set_by_you",
+                "key": "mount:rustapp/src/lib.rs#app%20.nest%28base%29",
+                "text": "the part .nest(base,api()) (rustapp/src/lib.rs) adds to the path is set by you: you state that it passes requests on with this prefix, at the root; Graphvein did not read this part",
+                "value": "/rs"
+              }
+            ],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "set_by_you",
+            "route": "route:rustapp/src/lib.rs#GET%20%2Fx"
+          }
+        ]
+      }
+    },
+    "/s/t/e": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [
+            {
+              "from": "graphvein.yaml explorer.path_values",
+              "id": "set_by_you",
+              "key": "mount:rustapp/src/lib.rs#stacked%20.nest%28b%29",
+              "text": "the whole prefix of the routes below .nest(b,deeper()) (rustapp/src/lib.rs) is set by you, from the root: the routers above this hop are not proven either; Graphvein did not read it",
+              "value": "/s/t"
+            }
+          ],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "rustapp/src/lib.rs",
+          "framework": "axum",
+          "handler": "function:rustapp/src/lib.rs#list",
+          "handler_expression": null,
+          "line": 63,
+          "not_read": [
+            "header",
+            "cookie",
+            "operationId",
+            "summary",
+            "tags",
+            "security",
+            "path_parameter_types"
+          ],
+          "resolution": "set_by_you",
+          "route": "route:rustapp/src/lib.rs#GET%20%2Fe",
+          "rule": "Axum routes (ADR 0016)",
+          "shadowing": "not_checked",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [
+              {
+                "item": {
+                  "content_type": "text/plain; charset=utf-8",
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "rustapp/src/lib.rs",
+                    "kind": "returned",
+                    "line": 10,
+                    "rule": "SH-X25"
+                  },
+                  "schema": {
+                    "type": "string"
+                  },
+                  "status": "200"
+                },
+                "row": "OG-77",
+                "section": "responses",
+                "why": "the declared type of a returned value, not validated by the framework"
+              }
+            ],
+            "sections": {
+              "body": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "rustapp/src/lib.rs",
+                  "kind": "fact",
+                  "line": 10,
+                  "rule": "SH-X29"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "cookie": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "reason": "the route is not mounted",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "query": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "rustapp/src/lib.rs",
+                  "kind": "fact",
+                  "line": 10,
+                  "rule": "SH-X29"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "responses": {
+                "reason": "panics, extractor rejections and middleware (layers) are not read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {},
+            "version": 1
+          },
+          "template": "/s/t/e"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [
+              {
+                "from": "graphvein.yaml explorer.path_values",
+                "id": "set_by_you",
+                "key": "mount:rustapp/src/lib.rs#stacked%20.nest%28b%29",
+                "text": "the whole prefix of the routes below .nest(b,deeper()) (rustapp/src/lib.rs) is set by you, from the root: the routers above this hop are not proven either; Graphvein did not read it",
+                "value": "/s/t"
+              }
+            ],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "set_by_you",
+            "route": "route:rustapp/src/lib.rs#GET%20%2Fe"
+          }
+        ]
+      }
+    },
+    "/svc/v1/status": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [
+            {
+              "from": "route",
+              "id": "GR-V2"
+            },
+            {
+              "from": "graphvein.yaml explorer.path_values",
+              "id": "set_by_you",
+              "key": "mount:goapp/mux.go#ServeAPI%20root.Handle%28prefix%2B%22%2F%22%29",
+              "text": "the part root.Handle(prefix+\"/\",http.StripPrefix(prefix,api)) (goapp/mux.go) adds to the path is set by you: you state that it passes requests on with this prefix, at the root; Graphvein did not read this part",
+              "value": "/svc"
+            }
+          ],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "goapp/mux.go",
+          "framework": "net/http",
+          "handler": "function:goapp/chi.go#list",
+          "handler_expression": null,
+          "line": 32,
+          "not_read": [
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "set_by_you",
+          "route": "route:goapp/mux.go#GET%20%2Fv1%2Fstatus",
+          "rule": "Go routes, GR rows (ADR 0076)",
+          "shadowing": "not_checked",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [],
+            "sections": {
+              "body": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; no body read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "cookie": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; no cookie parameter read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "header": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; no header parameter read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "path": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; no path parameter read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "query": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; no query parameter read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "responses": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; middleware and error handlers may answer other statuses",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 1
+            },
+            "version": 1
+          },
+          "template": "/svc/v1/status"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [
+              {
+                "from": "route",
+                "id": "GR-V2"
+              },
+              {
+                "from": "graphvein.yaml explorer.path_values",
+                "id": "set_by_you",
+                "key": "mount:goapp/mux.go#ServeAPI%20root.Handle%28prefix%2B%22%2F%22%29",
+                "text": "the part root.Handle(prefix+\"/\",http.StripPrefix(prefix,api)) (goapp/mux.go) adds to the path is set by you: you state that it passes requests on with this prefix, at the root; Graphvein did not read this part",
+                "value": "/svc"
+              }
+            ],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "set_by_you",
+            "route": "route:goapp/mux.go#GET%20%2Fv1%2Fstatus"
+          }
+        ]
+      }
+    },
+    "/v1": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [
+            {
+              "from": "graphvein.yaml explorer.path_values",
+              "id": "set_by_you",
+              "key": "mount:goapp/gin.go#Gin%20e.Group%28prefix%29",
+              "text": "the part e.Group(prefix) (goapp/gin.go) adds to the path is set by you: you state that it passes requests on with this prefix, at the root; Graphvein did not read this part",
+              "value": "/v1"
+            }
+          ],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "goapp/gin.go",
+          "framework": "gin",
+          "handler": "function:goapp/gin.go#ping",
+          "handler_expression": null,
+          "line": 15,
+          "not_read": [
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "set_by_you",
+          "route": "route:goapp/gin.go#GET%20",
+          "rule": "Go routes, GR rows (ADR 0076)",
+          "shadowing": "not_checked",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [],
+            "sections": {
+              "body": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; no body read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "cookie": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; no cookie parameter read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "header": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; no header parameter read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "path": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; no path parameter read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "query": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; no query parameter read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "responses": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; middleware and error handlers may answer other statuses",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 1
+            },
+            "version": 1
+          },
+          "template": "/v1"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [
+              {
+                "from": "graphvein.yaml explorer.path_values",
+                "id": "set_by_you",
+                "key": "mount:goapp/gin.go#Gin%20e.Group%28prefix%29",
+                "text": "the part e.Group(prefix) (goapp/gin.go) adds to the path is set by you: you state that it passes requests on with this prefix, at the root; Graphvein did not read this part",
+                "value": "/v1"
+              }
+            ],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "set_by_you",
+            "route": "route:goapp/gin.go#GET%20"
+          }
+        ]
+      }
+    },
+    "/v1/": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [
+            {
+              "from": "graphvein.yaml explorer.path_values",
+              "id": "set_by_you",
+              "key": "mount:goapp/gin.go#Gin%20e.Group%28prefix%29",
+              "text": "the part e.Group(prefix) (goapp/gin.go) adds to the path is set by you: you state that it passes requests on with this prefix, at the root; Graphvein did not read this part",
+              "value": "/v1"
+            }
+          ],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "goapp/gin.go",
+          "framework": "gin",
+          "handler": "function:goapp/gin.go#ping",
+          "handler_expression": null,
+          "line": 13,
+          "not_read": [
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "set_by_you",
+          "route": "route:goapp/gin.go#GET%20%2F",
+          "rule": "Go routes, GR rows (ADR 0076)",
+          "shadowing": "not_checked",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [],
+            "sections": {
+              "body": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; no body read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "cookie": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; no cookie parameter read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "header": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; no header parameter read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "path": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; no path parameter read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "query": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; no query parameter read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "responses": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; middleware and error handlers may answer other statuses",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 1
+            },
+            "version": 1
+          },
+          "template": "/v1"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [
+              {
+                "from": "graphvein.yaml explorer.path_values",
+                "id": "set_by_you",
+                "key": "mount:goapp/gin.go#Gin%20e.Group%28prefix%29",
+                "text": "the part e.Group(prefix) (goapp/gin.go) adds to the path is set by you: you state that it passes requests on with this prefix, at the root; Graphvein did not read this part",
+                "value": "/v1"
+              }
+            ],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "set_by_you",
+            "route": "route:goapp/gin.go#GET%20%2F"
+          }
+        ]
+      }
+    },
+    "/v1/items": {
+      "get": {
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "x-graphvein": {
+                    "unknown": "no response model is declared"
+                  }
+                },
+                "x-graphvein": {
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "api/app/main.py",
+                    "kind": "fact",
+                    "line": 11,
+                    "rule": "SH-F27"
+                  }
+                }
+              }
+            },
+            "description": "Not read by Graphvein",
+            "x-graphvein": {
+              "description": "not_read"
+            }
+          }
+        },
+        "x-graphvein": {
+          "assumptions": [
+            {
+              "from": "graphvein.yaml explorer.path_values",
+              "id": "set_by_you",
+              "key": "mount:api/app/main.py#%28module%29%20app.include_router%28prefix%3DPREFIX%29",
+              "text": "the part app.include_router(items,prefix=PREFIX) (api/app/main.py) adds to the path is set by you: you state that it passes requests on with this prefix, at the root; Graphvein did not read this part",
+              "value": "/v1"
+            }
+          ],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "api/app/main.py",
+          "framework": "fastapi",
+          "handler": "function:api/app/main.py#list_items",
+          "handler_expression": null,
+          "line": 11,
+          "not_read": [
+            "operationId",
+            "summary",
+            "tags",
+            "security",
+            "path_parameter_types"
+          ],
+          "resolution": "set_by_you",
+          "route": "route:api/app/main.py#GET%20%2Fitems",
+          "rule": "FastAPI routes (ADR 0015, ADR 0019)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [],
+            "sections": {
+              "body": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "api/app/main.py",
+                  "kind": "fact",
+                  "line": 12,
+                  "rule": "SH-F23"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "cookie": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "api/app/main.py",
+                  "kind": "fact",
+                  "line": 12,
+                  "rule": "SH-F23"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "header": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "api/app/main.py",
+                  "kind": "fact",
+                  "line": 12,
+                  "rule": "SH-F23"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "path": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "query": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "api/app/main.py",
+                  "kind": "fact",
+                  "line": 12,
+                  "rule": "SH-F23"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "responses": {
+                "reason": "statuses from exception handlers, middleware and calls not followed are not read; a returned value is not read (api/app/main.py:13)",
+                "standard": 1,
+                "state": "partial"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 2
+            },
+            "version": 1
+          },
+          "template": "/v1/items"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [
+              {
+                "from": "graphvein.yaml explorer.path_values",
+                "id": "set_by_you",
+                "key": "mount:api/app/main.py#%28module%29%20app.include_router%28prefix%3DPREFIX%29",
+                "text": "the part app.include_router(items,prefix=PREFIX) (api/app/main.py) adds to the path is set by you: you state that it passes requests on with this prefix, at the root; Graphvein did not read this part",
+                "value": "/v1"
+              }
+            ],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "set_by_you",
+            "route": "route:api/app/main.py#GET%20%2Fitems"
+          }
+        ]
+      }
+    },
+    "/v1/items/{item_id}": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "item_id",
+            "required": true,
+            "schema": {},
+            "x-graphvein": {
+              "type": "not_read"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "x-graphvein": {
+                    "unknown": "no response model is declared"
+                  }
+                },
+                "x-graphvein": {
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "api/app/main.py",
+                    "kind": "fact",
+                    "line": 16,
+                    "rule": "SH-F27"
+                  }
+                }
+              }
+            },
+            "description": "Not read by Graphvein",
+            "x-graphvein": {
+              "description": "not_read"
+            }
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                },
+                "x-graphvein": {
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "api/app/main.py",
+                    "kind": "fact",
+                    "line": 16,
+                    "rule": "SH-F30"
+                  }
+                }
+              }
+            },
+            "description": "Not read by Graphvein",
+            "x-graphvein": {
+              "description": "not_read"
+            }
+          }
+        },
+        "x-graphvein": {
+          "assumptions": [
+            {
+              "from": "graphvein.yaml explorer.path_values",
+              "id": "set_by_you",
+              "key": "mount:api/app/main.py#%28module%29%20app.include_router%28prefix%3DPREFIX%29",
+              "text": "the part app.include_router(items,prefix=PREFIX) (api/app/main.py) adds to the path is set by you: you state that it passes requests on with this prefix, at the root; Graphvein did not read this part",
+              "value": "/v1"
+            }
+          ],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "api/app/main.py",
+          "framework": "fastapi",
+          "handler": "function:api/app/main.py#get_item",
+          "handler_expression": null,
+          "line": 16,
+          "not_read": [
+            "operationId",
+            "summary",
+            "tags",
+            "security",
+            "path_parameter_types"
+          ],
+          "resolution": "set_by_you",
+          "route": "route:api/app/main.py#GET%20%2Fitems%2F%7Bitem_id%3Aint%7D",
+          "rule": "FastAPI routes (ADR 0015, ADR 0019)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [
+              {
+                "name": "HTTPValidationError",
+                "provenance": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "api/app/main.py",
+                  "kind": "fact",
+                  "line": 16,
+                  "rule": "SH-F30"
+                },
+                "schema": {
+                  "additional": "unknown",
+                  "fields": [
+                    {
+                      "name": "detail",
+                      "presence": "optional",
+                      "schema": {
+                        "items": {
+                          "ref": "ValidationError",
+                          "type": "ref"
+                        },
+                        "type": "array"
+                      }
+                    }
+                  ],
+                  "type": "object"
+                }
+              },
+              {
+                "name": "ValidationError",
+                "provenance": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "api/app/main.py",
+                  "kind": "fact",
+                  "line": 16,
+                  "rule": "SH-F30"
+                },
+                "schema": {
+                  "additional": "unknown",
+                  "fields": [
+                    {
+                      "name": "loc",
+                      "presence": "required",
+                      "schema": {
+                        "items": {
+                          "reason": "a string or an integer",
+                          "type": "unknown"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    {
+                      "name": "msg",
+                      "presence": "required",
+                      "schema": {
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "name": "type",
+                      "presence": "required",
+                      "schema": {
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "name": "input",
+                      "presence": "optional",
+                      "schema": {
+                        "reason": "any value",
+                        "type": "unknown"
+                      }
+                    },
+                    {
+                      "name": "ctx",
+                      "presence": "optional",
+                      "schema": {
+                        "additional": "allowed",
+                        "type": "object"
+                      }
+                    }
+                  ],
+                  "type": "object"
+                }
+              }
+            ],
+            "not_standard": [],
+            "sections": {
+              "body": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "api/app/main.py",
+                  "kind": "fact",
+                  "line": 17,
+                  "rule": "SH-F23"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "cookie": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "api/app/main.py",
+                  "kind": "fact",
+                  "line": 17,
+                  "rule": "SH-F23"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "header": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "api/app/main.py",
+                  "kind": "fact",
+                  "line": 17,
+                  "rule": "SH-F23"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "path": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "query": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "api/app/main.py",
+                  "kind": "fact",
+                  "line": 17,
+                  "rule": "SH-F23"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "responses": {
+                "reason": "statuses from exception handlers, middleware and calls not followed are not read; a returned value is not read (api/app/main.py:18)",
+                "standard": 2,
+                "state": "partial"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 2
+            },
+            "version": 1
+          },
+          "template": "/v1/items/{item_id}"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [
+              {
+                "from": "graphvein.yaml explorer.path_values",
+                "id": "set_by_you",
+                "key": "mount:api/app/main.py#%28module%29%20app.include_router%28prefix%3DPREFIX%29",
+                "text": "the part app.include_router(items,prefix=PREFIX) (api/app/main.py) adds to the path is set by you: you state that it passes requests on with this prefix, at the root; Graphvein did not read this part",
+                "value": "/v1"
+              }
+            ],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "set_by_you",
+            "route": "route:api/app/main.py#GET%20%2Fitems%2F%7Bitem_id%3Aint%7D"
+          }
+        ]
+      }
+    },
+    "/v1/ping": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [
+            {
+              "from": "graphvein.yaml explorer.path_values",
+              "id": "set_by_you",
+              "key": "mount:goapp/gin.go#Gin%20e.Group%28prefix%29",
+              "text": "the part e.Group(prefix) (goapp/gin.go) adds to the path is set by you: you state that it passes requests on with this prefix, at the root; Graphvein did not read this part",
+              "value": "/v1"
+            }
+          ],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "goapp/gin.go",
+          "framework": "gin",
+          "handler": "function:goapp/gin.go#ping",
+          "handler_expression": null,
+          "line": 12,
+          "not_read": [
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "set_by_you",
+          "route": "route:goapp/gin.go#GET%20%2Fping",
+          "rule": "Go routes, GR rows (ADR 0076)",
+          "shadowing": "not_checked",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [],
+            "sections": {
+              "body": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; no body read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "cookie": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; no cookie parameter read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "header": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; no header parameter read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "path": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; no path parameter read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "query": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; no query parameter read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "responses": {
+                "reason": "read from the handler and the calls followed from it; middleware is not read; middleware and error handlers may answer other statuses",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 1
+            },
+            "version": 1
+          },
+          "template": "/v1/ping"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [
+              {
+                "from": "graphvein.yaml explorer.path_values",
+                "id": "set_by_you",
+                "key": "mount:goapp/gin.go#Gin%20e.Group%28prefix%29",
+                "text": "the part e.Group(prefix) (goapp/gin.go) adds to the path is set by you: you state that it passes requests on with this prefix, at the root; Graphvein did not read this part",
+                "value": "/v1"
+              }
+            ],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "set_by_you",
+            "route": "route:goapp/gin.go#GET%20%2Fping"
+          }
+        ]
+      }
+    },
+    "/x/in/deep": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [
+            {
+              "from": "graphvein.yaml explorer.path_values",
+              "id": "set_by_you",
+              "key": "mount:web/app.js#%28module%29%20outer.use%28process.env.INNER%29",
+              "text": "the part outer.use(process.env.INNER,inner) (web/app.js) adds to the path is set by you: you state that it passes requests on with this prefix, after the prefix /x read above it; Graphvein did not read this part",
+              "value": "/in"
+            }
+          ],
+          "auth": {
+            "middleware": [],
+            "mounted_middleware_unknown": [
+              {
+                "reason": "not mounted from a proven app: middleware of the routers above is not read"
+              }
+            ]
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "web/app.js",
+          "framework": "express",
+          "handler": "function:web/app.js#list",
+          "handler_expression": null,
+          "line": 24,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "responses",
+            "operationId",
+            "summary",
+            "tags",
+            "security",
+            "path_parameter_types"
+          ],
+          "resolution": "set_by_you",
+          "route": "route:web/app.js#GET%20%2Fdeep",
+          "rule": "Express routes (ADR 0013, docs/extract/routes.md)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [],
+            "sections": {
+              "body": {
+                "reason": "no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "reason": "the route has no composed path",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "query": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "reason": "response bodies not claimed: middleware mounted before the route is not proven (not mounted from a proven app: middleware of the routers above is not read) and may change the response; status of res.end at web/app.js:3 not proven: middleware mounted before the route is not proven (not mounted from a proven app: middleware of the routers above is not read) and may set a status",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 5
+            },
+            "version": 1
+          },
+          "template": "/x/in/deep"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [
+              {
+                "from": "graphvein.yaml explorer.path_values",
+                "id": "set_by_you",
+                "key": "mount:web/app.js#%28module%29%20outer.use%28process.env.INNER%29",
+                "text": "the part outer.use(process.env.INNER,inner) (web/app.js) adds to the path is set by you: you state that it passes requests on with this prefix, after the prefix /x read above it; Graphvein did not read this part",
+                "value": "/in"
+              }
+            ],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "set_by_you",
+            "route": "route:web/app.js#GET%20%2Fdeep"
+          }
+        ]
+      }
+    },
+    "/x/own2/s2": {
+      "get": {
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "x-graphvein": {
+                    "unknown": "no response model is declared"
+                  }
+                },
+                "x-graphvein": {
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "api/app/main.py",
+                    "kind": "fact",
+                    "line": 42,
+                    "rule": "SH-F27"
+                  }
+                }
+              }
+            },
+            "description": "Not read by Graphvein",
+            "x-graphvein": {
+              "description": "not_read"
+            }
+          }
+        },
+        "x-graphvein": {
+          "assumptions": [
+            {
+              "from": "graphvein.yaml explorer.path_values",
+              "id": "set_by_you",
+              "key": "mount:api/app/main.py#%28module%29%20APIRouter%28prefix%3Dos.environ%5B%22OWN2%22%5D%29",
+              "text": "the part APIRouter(prefix=os.environ[\"OWN2\"]) (api/app/main.py) adds to the path is set by you: you state that it passes requests on with this prefix, after the prefix /x read above it; Graphvein did not read this part",
+              "value": "/own2"
+            }
+          ],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "api/app/main.py",
+          "framework": "fastapi",
+          "handler": "function:api/app/main.py#own2_s2",
+          "handler_expression": null,
+          "line": 42,
+          "not_read": [
+            "operationId",
+            "summary",
+            "tags",
+            "security",
+            "path_parameter_types"
+          ],
+          "resolution": "set_by_you",
+          "route": "route:api/app/main.py#GET%20%2Fs2",
+          "rule": "FastAPI routes (ADR 0015, ADR 0019)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [],
+            "sections": {
+              "body": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "api/app/main.py",
+                  "kind": "fact",
+                  "line": 43,
+                  "rule": "SH-F23"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "cookie": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "api/app/main.py",
+                  "kind": "fact",
+                  "line": 43,
+                  "rule": "SH-F23"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "header": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "api/app/main.py",
+                  "kind": "fact",
+                  "line": 43,
+                  "rule": "SH-F23"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "path": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "query": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "api/app/main.py",
+                  "kind": "fact",
+                  "line": 43,
+                  "rule": "SH-F23"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "responses": {
+                "reason": "statuses from exception handlers, middleware and calls not followed are not read; a returned value is not read (api/app/main.py:44)",
+                "standard": 1,
+                "state": "partial"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 2
+            },
+            "version": 1
+          },
+          "template": "/x/own2/s2"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [
+              {
+                "from": "graphvein.yaml explorer.path_values",
+                "id": "set_by_you",
+                "key": "mount:api/app/main.py#%28module%29%20APIRouter%28prefix%3Dos.environ%5B%22OWN2%22%5D%29",
+                "text": "the part APIRouter(prefix=os.environ[\"OWN2\"]) (api/app/main.py) adds to the path is set by you: you state that it passes requests on with this prefix, after the prefix /x read above it; Graphvein did not read this part",
+                "value": "/own2"
+              }
+            ],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "set_by_you",
+            "route": "route:api/app/main.py#GET%20%2Fs2"
+          }
+        ]
+      }
+    }
+  },
+  "x-graphvein": {
+    "conflicts": [
+      {
+        "keys": [
+          "/health"
+        ],
+        "method": "GET",
+        "reason": "duplicate_operation",
+        "routes": [
+          "route:api/app/main.py#GET%20%2Fhealth",
+          "route:goapp/chi.go#GET%20%2Fhealth",
+          "route:web/app.js#GET%20%2Fhealth"
+        ]
+      }
+    ],
+    "contract_version": 1,
+    "counts": {
+      "any_method": 0,
+      "conditional": 0,
+      "conflicts": 1,
+      "may_be_shadowed": 1,
+      "operations": 38,
+      "path_keys": 37,
+      "production_routes": 48,
+      "routes": 48,
+      "set_by_you": 34,
+      "settings_default": 0,
+      "unrepresentable": 1,
+      "unresolved": 6,
+      "with_shape": 38
+    },
+    "excluded_test": {
+      "path_entries": 0,
+      "routes": 0
+    },
+    "generator": "graphvein",
+    "group": "repository",
+    "imported_specs": [],
+    "index": {
+      "extractor": "graphvein EXTRACTOR",
+      "finished_at": "FINISHED",
+      "run": "RUN"
+    },
+    "repository": "fixture",
+    "scope": "production",
+    "shape_errors": 0,
+    "unrepresentable": [
+      {
+        "key": "/{*}",
+        "method": "ANY",
+        "reason": "wildcard",
+        "route": "route:goapp/mux.go#ANY%20%2F"
+      }
+    ],
+    "unresolved": [
+      {
+        "file": "goapp/chi.go",
+        "keys": [
+          "route:goapp/chi.go#GET%20%2Ffirst",
+          "mount:goapp/chi.go#Twin%20r.Route%28base%29"
+        ],
+        "line": 31,
+        "method": "GET",
+        "pattern": "/first",
+        "reason": "no_path",
+        "route": "route:goapp/chi.go#GET%20%2Ffirst",
+        "unknown": {
+          "part": "mount_or_prefix",
+          "text": "no chain from an app to this registration is proven: a mount, prefix or router argument on the way is not read as a constant"
+        }
+      },
+      {
+        "file": "goapp/chi.go",
+        "keys": [
+          "route:goapp/chi.go#GET%20%2Fsecond",
+          "mount:goapp/chi.go#Twin%20r.Route%28base%29%402"
+        ],
+        "line": 34,
+        "method": "GET",
+        "pattern": "/second",
+        "reason": "no_path",
+        "route": "route:goapp/chi.go#GET%20%2Fsecond",
+        "unknown": {
+          "part": "mount_or_prefix",
+          "text": "no chain from an app to this registration is proven: a mount, prefix or router argument on the way is not read as a constant"
+        }
+      },
+      {
+        "file": "goapp/mux.go",
+        "keys": [
+          "route:goapp/mux.go#GET%20%2Fv2%2Fstatus",
+          "mount:goapp/mux.go#ServeNoStrip%20root.Handle%28prefix%2B%22%2F%22%29"
+        ],
+        "line": 43,
+        "method": "GET",
+        "pattern": "GET /v2/status",
+        "reason": "no_path",
+        "route": "route:goapp/mux.go#GET%20%2Fv2%2Fstatus",
+        "unknown": {
+          "part": "mount_or_prefix",
+          "text": "no chain from an app to this registration is proven: a mount, prefix or router argument on the way is not read as a constant"
+        }
+      },
+      {
+        "file": "rustapp/src/lib.rs",
+        "keys": [
+          "route:rustapp/src/lib.rs#GET%20%2Fone",
+          "mount:rustapp/src/lib.rs#twin%20r.nest%28%26a%29"
+        ],
+        "line": 49,
+        "method": "GET",
+        "pattern": "/one",
+        "reason": "no_path",
+        "route": "route:rustapp/src/lib.rs#GET%20%2Fone",
+        "unknown": {
+          "part": "mount_or_prefix",
+          "text": "no chain from an app to this registration is proven: a mount, prefix or router argument on the way is not read as a constant"
+        }
+      },
+      {
+        "file": "rustapp/src/lib.rs",
+        "keys": [
+          "route:rustapp/src/lib.rs#GET%20%2Ftwo",
+          "mount:rustapp/src/lib.rs#twin%20r.nest%28%26a%29%402"
+        ],
+        "line": 50,
+        "method": "GET",
+        "pattern": "/two",
+        "reason": "no_path",
+        "route": "route:rustapp/src/lib.rs#GET%20%2Ftwo",
+        "unknown": {
+          "part": "mount_or_prefix",
+          "text": "no chain from an app to this registration is proven: a mount, prefix or router argument on the way is not read as a constant"
+        }
+      },
+      {
+        "file": "rustold/src/lib.rs",
+        "keys": [
+          "route:rustold/src/lib.rs#GET%20%2F"
+        ],
+        "line": 13,
+        "method": "GET",
+        "pattern": "/",
+        "reason": "no_path",
+        "route": "route:rustold/src/lib.rs#GET%20%2F",
+        "unknown": {
+          "diagnostic": "route_unmounted",
+          "expression": "\"/\"",
+          "part": "mount_or_prefix",
+          "text": "the router or app this route is registered on is not mounted on any app Graphvein can prove"
+        }
+      }
+    ],
+    "user_values": [
+      {
+        "key": "mount:goapp/chi.go#Router%20r.Route%28base%29",
+        "operations": 3,
+        "registration": "sha256:45a816f8c72aaa4b56b5958fcba82bbea904667ee50375c56546e568737cec12",
+        "status": "used",
+        "value": "/dozzle"
+      },
+      {
+        "key": "mount:goapp/chi.go#Nested%20r.Route%28base%29",
+        "operations": 1,
+        "registration": "sha256:2d958e15aa776baa9408fd92242aafcaa2f239888d0c12b26d8a2a518c625f0a",
+        "status": "used",
+        "value": "/b"
+      },
+      {
+        "key": "mount:goapp/chi.go#Twin%20r.Route%28base%29",
+        "operations": 0,
+        "status": "unused",
+        "value": "/twin",
+        "warning": "no registration hash is recorded: if a hop with the same text is added or removed above it in the function, the value moves to another hop; set it again from the explorer to record the hash",
+        "why": "ambiguous hop: another hop in the same function has the same text, so a recorded hash cannot tell which one the value was set for"
+      },
+      {
+        "key": "mount:goapp/gin.go#Gin%20e.Group%28prefix%29",
+        "operations": 3,
+        "registration": "sha256:a69607aaa3348d51dd6e2b7903ac9765bade78f715afc28ca6bece46d3d6d94d",
+        "status": "used",
+        "value": "/v1"
+      },
+      {
+        "key": "mount:goapp/mux.go#ui%20mux",
+        "operations": 0,
+        "registration": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+        "status": "unused",
+        "value": "/stale",
+        "why": "registration changed: the hop with this key is no longer the call the value was set for (its text changed, the routers or prefixes above it changed, or a hop with the same text was added or removed above it in the function); set it again"
+      },
+      {
+        "key": "mount:goapp/mux.go#ServeUI%20ui%28%29",
+        "operations": 2,
+        "registration": "sha256:ebf00b7476c4b71a6fa24c14991672c22e7bec6c046012ea80cb193e898d288e",
+        "status": "used",
+        "value": "/"
+      },
+      {
+        "key": "mount:goapp/mux.go#ServeAPI%20root.Handle%28prefix%2B%22%2F%22%29",
+        "operations": 1,
+        "status": "used",
+        "value": "/svc",
+        "warning": "no registration hash is recorded: if a hop with the same text is added or removed above it in the function, the value moves to another hop; set it again from the explorer to record the hash"
+      },
+      {
+        "key": "mount:goapp/mux.go#ServeNoStrip%20root.Handle%28prefix%2B%22%2F%22%29",
+        "operations": 0,
+        "registration": "sha256:a1e389fd9de0b34cd43e99e7e54d25e912fa2fbc0de8d818dae058e70554446a",
+        "status": "unused",
+        "value": "/svc",
+        "why": "this hop adds no prefix Graphvein could not read: the paths below it are the served paths, so the only value is / (the hop passes them on)"
+      },
+      {
+        "key": "mount:web/app.js#%28module%29%20app.use%28base%29",
+        "operations": 2,
+        "registration": "sha256:24525ad6999912090013fcd042f8ef5712de20a710c3b618b9ff0a653c50cfcc",
+        "status": "used",
+        "value": "/api",
+        "why": "its path /api/items/{id} equals the path /api/items/{anything} read from code up to parameter names; the operation read from code is kept"
+      },
+      {
+        "key": "mount:web/app.js#%28module%29%20app.use%28process.env.ADMIN%29",
+        "operations": 0,
+        "status": "unused",
+        "value": "/adm",
+        "warning": "no registration hash is recorded: if a hop with the same text is added or removed above it in the function, the value moves to another hop; set it again from the explorer to record the hash",
+        "why": "every route below the hop has its own value set by you (route keys come first)"
+      },
+      {
+        "key": "route:web/app.js#GET%20%2Fstats",
+        "operations": 1,
+        "status": "used",
+        "value": "/admin/stats",
+        "warning": "no registration hash is recorded: if a registration with the same method and pattern is added or removed above it in the file, the value moves to another route; set it again from the explorer to record the hash"
+      },
+      {
+        "key": "mount:web/app.js#%28module%29%20outer.use%28process.env.INNER%29",
+        "operations": 1,
+        "registration": "sha256:e239f965e10ba97342e886cef410d616f59fb4d090f067c6fd32ac8f7ef025e0",
+        "status": "used",
+        "value": "/in"
+      },
+      {
+        "key": "mount:api/app/main.py#%28module%29%20app.include_router%28prefix%3DPREFIX%29",
+        "operations": 2,
+        "registration": "sha256:19fed7ab0c812b775072e5ae213277cf0c78525ccd3068c6f94fc27a68cde8df",
+        "status": "used",
+        "value": "/v1"
+      },
+      {
+        "key": "mount:api/app/main.py#%28module%29%20APIRouter%28prefix%3Dos.environ%5B%22OWN%22%5D%29",
+        "operations": 2,
+        "registration": "sha256:b8f02f4c9f8c314e2392e011e460e05b853afae9c99788c0bc9ceeada0dd1c1b",
+        "status": "used",
+        "value": "/own"
+      },
+      {
+        "key": "mount:api/app/main.py#%28module%29%20APIRouter%28prefix%3Dos.environ%5B%22OWN2%22%5D%29",
+        "operations": 1,
+        "registration": "sha256:abf3b448425b110abdb1c1555188983baa2aee71f1e148169fa39bd94fe8032e",
+        "status": "used",
+        "value": "/own2"
+      },
+      {
+        "key": "mount:rustapp/src/lib.rs#app%20.nest%28base%29",
+        "operations": 8,
+        "registration": "sha256:d7d5c6ba3627ef0028bc8eca39ad5c71f1b2556a346514480561b6cea6cffed0",
+        "status": "used",
+        "value": "/rs"
+      },
+      {
+        "key": "mount:rustapp/src/lib.rs#twin%20r.nest%28%26a%29",
+        "operations": 0,
+        "status": "unused",
+        "value": "/twin",
+        "warning": "no registration hash is recorded: if a hop with the same text is added or removed above it in the function, the value moves to another hop; set it again from the explorer to record the hash",
+        "why": "ambiguous hop: another hop in the same function has the same text, so a recorded hash cannot tell which one the value was set for"
+      },
+      {
+        "key": "mount:rustold/src/lib.rs#app%20.nest%28%26prefix%29",
+        "operations": 1,
+        "registration": "sha256:9fb73c720b15366140612d5d5a2f0544937a556bfc891590582aaecfb8eacc46",
+        "status": "used",
+        "value": "/old"
+      },
+      {
+        "key": "mount:rustapp/src/lib.rs#outer%20.nest%28base%29",
+        "operations": 2,
+        "registration": "sha256:e4a2feb40d91c836330134a17661a3df56c94b204a9cb65007e6198ee3bdbe7c",
+        "status": "used",
+        "value": "/in"
+      },
+      {
+        "key": "mount:rustapp/src/lib.rs#stacked%20.nest%28b%29",
+        "operations": 1,
+        "registration": "sha256:0053d78b4a9b679bbc3d779ddd2f8b972f7834524ff3f61886c156c8d24af338",
+        "status": "used",
+        "value": "/s/t"
+      },
+      {
+        "key": "mount:rustapp/src/lib.rs#service_hop%20.nest_service%28base%29",
+        "operations": 3,
+        "registration": "sha256:e938c95cf2745367a7433434065707c85be37d57489ab2483a15cd8c2fb7bb2a",
+        "status": "used",
+        "value": "/hs"
+      }
+    ]
+  }
+}

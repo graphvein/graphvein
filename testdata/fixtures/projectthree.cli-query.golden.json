@@ -1,0 +1,1292 @@
+{
+  "1-callers-of-express-user": {
+    "blind_spot_data": false,
+    "bounds": [],
+    "candidates": [],
+    "caps": [],
+    "command": "callers",
+    "ends": [],
+    "link_pass": {
+      "links": 1,
+      "pass": 1,
+      "stale_reasons": [],
+      "stored": true
+    },
+    "members": [
+      {
+        "changed_files": [],
+        "checkout": true,
+        "indexed": true,
+        "repository": "web"
+      },
+      {
+        "changed_files": [],
+        "checkout": true,
+        "indexed": true,
+        "repository": "express"
+      },
+      {
+        "changed_files": [],
+        "checkout": true,
+        "indexed": true,
+        "repository": "axum"
+      }
+    ],
+    "possible_callers": [
+      {
+        "candidate_count": 2,
+        "candidate_repositories": [
+          "axum",
+          "express"
+        ],
+        "kind": "calls_route",
+        "reason": "",
+        "route": {
+          "identity": "route:src/server.ts#GET%20%2Ft022r%2Fuser",
+          "repository": "express"
+        },
+        "row": "PL-R11",
+        "source": {
+          "identity": "client_call:src/api.ts#loadUser.GET%20%60%24%7Bimport.meta.env.VITE_API_URL%7D%2Ft022r%2Fuser%60",
+          "repository": "web"
+        },
+        "status": "ambiguous",
+        "template": "/t022r/user",
+        "wording": "ambiguous across repositories"
+      }
+    ],
+    "possibly_missing_call_sites": [],
+    "possibly_missing_callers": 0,
+    "project": "three",
+    "results": [],
+    "target": {
+      "attributes": {
+        "framework": "express",
+        "handler": "function:src/server.ts#currentUser",
+        "handler_inline": false,
+        "method": "GET",
+        "middleware": [],
+        "paths": [
+          {
+            "conditional": false,
+            "resolution": "literal",
+            "template": "/t022r/user"
+          }
+        ],
+        "pattern": "/t022r/user",
+        "shape": {
+          "body": {
+            "items": [],
+            "reason": "no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+            "state": "not_read"
+          },
+          "cookie": {
+            "items": [],
+            "reason": "nothing read in the handler or the functions it passes the value to",
+            "state": "not_read"
+          },
+          "follow": {
+            "chains": [
+              {
+                "at": null,
+                "depth": 0,
+                "section": "query",
+                "start": {
+                  "file": "src/server.ts",
+                  "function": "currentUser",
+                  "line": 3
+                },
+                "steps": [],
+                "stop": "ended"
+              },
+              {
+                "at": null,
+                "depth": 0,
+                "section": "header",
+                "start": {
+                  "file": "src/server.ts",
+                  "function": "currentUser",
+                  "line": 3
+                },
+                "steps": [],
+                "stop": "ended"
+              },
+              {
+                "at": null,
+                "depth": 0,
+                "section": "cookie",
+                "start": {
+                  "file": "src/server.ts",
+                  "function": "currentUser",
+                  "line": 3
+                },
+                "steps": [],
+                "stop": "ended"
+              },
+              {
+                "at": null,
+                "depth": 0,
+                "section": "body",
+                "start": {
+                  "file": "src/server.ts",
+                  "function": "currentUser",
+                  "line": 3
+                },
+                "steps": [],
+                "stop": "ended"
+              },
+              {
+                "at": null,
+                "depth": 0,
+                "section": "responses",
+                "start": {
+                  "file": "src/server.ts",
+                  "function": "currentUser",
+                  "line": 3
+                },
+                "steps": [],
+                "stop": "ended"
+              }
+            ],
+            "depth_limit": 6
+          },
+          "header": {
+            "items": [],
+            "reason": "nothing read in the handler or the functions it passes the value to",
+            "state": "not_read"
+          },
+          "models": [],
+          "path": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/server.ts",
+              "kind": "fact",
+              "line": 17,
+              "rule": "SH-E2"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "query": {
+            "items": [],
+            "reason": "nothing read in the handler or the functions it passes the value to",
+            "state": "not_read"
+          },
+          "responses": {
+            "items": [
+              {
+                "content_type": "application/json",
+                "provenance": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "src/server.ts",
+                  "kind": "read_in_handler",
+                  "line": 4,
+                  "rule": "SH-E25"
+                },
+                "schema": {
+                  "additional": "unknown",
+                  "fields": [
+                    {
+                      "name": "user",
+                      "presence": "unknown",
+                      "schema": {
+                        "reason": "value not read",
+                        "type": "unknown"
+                      }
+                    }
+                  ],
+                  "type": "object"
+                },
+                "status": "200"
+              }
+            ],
+            "reason": "statuses read from code; errors thrown by called functions, error middleware and unread calls may add others",
+            "state": "partial"
+          },
+          "security": {
+            "items": [],
+            "state": "not_read"
+          },
+          "security_schemes": [],
+          "version": 1
+        }
+      },
+      "content_hash": "sha256:a42bd84e6b556fed6c05c9fc174c79942487c6d95a47069aa94d02525fe0390b",
+      "file": "src/server.ts",
+      "ide": {
+        "column": 1,
+        "exact": true,
+        "line": 17,
+        "link": "vscode://file/{ROOT}/express/src/server.ts:17:1"
+      },
+      "identity": "route:src/server.ts#GET%20%2Ft022r%2Fuser",
+      "kind": "route",
+      "level": 4,
+      "name": "GET /t022r/user",
+      "qualified_name": "GET /t022r/user",
+      "repository": "express",
+      "span": {
+        "end_column": 35,
+        "end_line": 17,
+        "start_column": 0,
+        "start_line": 17
+      },
+      "type": "node"
+    },
+    "unknown_calls_in_result_files": 0
+  },
+  "2-impact-of-express-handler": {
+    "blind_spot_data": true,
+    "bounds": [],
+    "candidates": [],
+    "caps": [],
+    "command": "impact",
+    "ends": [],
+    "link_pass": {
+      "links": 1,
+      "pass": 1,
+      "stale_reasons": [],
+      "stored": true
+    },
+    "members": [
+      {
+        "changed_files": [],
+        "checkout": true,
+        "indexed": true,
+        "repository": "web"
+      },
+      {
+        "changed_files": [],
+        "checkout": true,
+        "indexed": true,
+        "repository": "express"
+      },
+      {
+        "changed_files": [],
+        "checkout": true,
+        "indexed": true,
+        "repository": "axum"
+      }
+    ],
+    "possible_callers": [
+      {
+        "candidate_count": 2,
+        "candidate_repositories": [
+          "axum",
+          "express"
+        ],
+        "kind": "calls_route",
+        "reason": "",
+        "route": {
+          "identity": "route:src/server.ts#GET%20%2Ft022r%2Fuser",
+          "repository": "express"
+        },
+        "row": "PL-R11",
+        "source": {
+          "identity": "client_call:src/api.ts#loadUser.GET%20%60%24%7Bimport.meta.env.VITE_API_URL%7D%2Ft022r%2Fuser%60",
+          "repository": "web"
+        },
+        "status": "ambiguous",
+        "template": "/t022r/user",
+        "wording": "ambiguous across repositories"
+      }
+    ],
+    "possibly_missing_call_sites": [],
+    "possibly_missing_callers": 0,
+    "project": "three",
+    "results": [
+      {
+        "distance": 1,
+        "node": {
+          "attributes": {
+            "framework": "express",
+            "handler": "function:src/server.ts#currentUser",
+            "handler_inline": false,
+            "method": "GET",
+            "middleware": [],
+            "paths": [
+              {
+                "conditional": false,
+                "resolution": "literal",
+                "template": "/t022r/user"
+              }
+            ],
+            "pattern": "/t022r/user",
+            "shape": {
+              "body": {
+                "items": [],
+                "reason": "no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+                "state": "not_read"
+              },
+              "cookie": {
+                "items": [],
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "state": "not_read"
+              },
+              "follow": {
+                "chains": [
+                  {
+                    "at": null,
+                    "depth": 0,
+                    "section": "query",
+                    "start": {
+                      "file": "src/server.ts",
+                      "function": "currentUser",
+                      "line": 3
+                    },
+                    "steps": [],
+                    "stop": "ended"
+                  },
+                  {
+                    "at": null,
+                    "depth": 0,
+                    "section": "header",
+                    "start": {
+                      "file": "src/server.ts",
+                      "function": "currentUser",
+                      "line": 3
+                    },
+                    "steps": [],
+                    "stop": "ended"
+                  },
+                  {
+                    "at": null,
+                    "depth": 0,
+                    "section": "cookie",
+                    "start": {
+                      "file": "src/server.ts",
+                      "function": "currentUser",
+                      "line": 3
+                    },
+                    "steps": [],
+                    "stop": "ended"
+                  },
+                  {
+                    "at": null,
+                    "depth": 0,
+                    "section": "body",
+                    "start": {
+                      "file": "src/server.ts",
+                      "function": "currentUser",
+                      "line": 3
+                    },
+                    "steps": [],
+                    "stop": "ended"
+                  },
+                  {
+                    "at": null,
+                    "depth": 0,
+                    "section": "responses",
+                    "start": {
+                      "file": "src/server.ts",
+                      "function": "currentUser",
+                      "line": 3
+                    },
+                    "steps": [],
+                    "stop": "ended"
+                  }
+                ],
+                "depth_limit": 6
+              },
+              "header": {
+                "items": [],
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "state": "not_read"
+              },
+              "models": [],
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "src/server.ts",
+                  "kind": "fact",
+                  "line": 17,
+                  "rule": "SH-E2"
+                },
+                "items": [],
+                "state": "provably_none"
+              },
+              "query": {
+                "items": [],
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "state": "not_read"
+              },
+              "responses": {
+                "items": [
+                  {
+                    "content_type": "application/json",
+                    "provenance": {
+                      "chain": [],
+                      "confidence": 1,
+                      "file": "src/server.ts",
+                      "kind": "read_in_handler",
+                      "line": 4,
+                      "rule": "SH-E25"
+                    },
+                    "schema": {
+                      "additional": "unknown",
+                      "fields": [
+                        {
+                          "name": "user",
+                          "presence": "unknown",
+                          "schema": {
+                            "reason": "value not read",
+                            "type": "unknown"
+                          }
+                        }
+                      ],
+                      "type": "object"
+                    },
+                    "status": "200"
+                  }
+                ],
+                "reason": "statuses read from code; errors thrown by called functions, error middleware and unread calls may add others",
+                "state": "partial"
+              },
+              "security": {
+                "items": [],
+                "state": "not_read"
+              },
+              "security_schemes": [],
+              "version": 1
+            }
+          },
+          "content_hash": "sha256:a42bd84e6b556fed6c05c9fc174c79942487c6d95a47069aa94d02525fe0390b",
+          "file": "src/server.ts",
+          "ide": {
+            "column": 1,
+            "exact": true,
+            "line": 17,
+            "link": "vscode://file/{ROOT}/express/src/server.ts:17:1"
+          },
+          "identity": "route:src/server.ts#GET%20%2Ft022r%2Fuser",
+          "kind": "route",
+          "level": 4,
+          "name": "GET /t022r/user",
+          "qualified_name": "GET /t022r/user",
+          "repository": "express",
+          "span": {
+            "end_column": 35,
+            "end_line": 17,
+            "start_column": 0,
+            "start_line": 17
+          },
+          "type": "node"
+        },
+        "path": [
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "src/server.ts",
+                "span": {
+                  "end_column": 35,
+                  "end_line": 17,
+                  "start_column": 0,
+                  "start_line": 17
+                }
+              }
+            ],
+            "kind": "exposes_route",
+            "provenance": "fact",
+            "source": "function:src/server.ts#currentUser",
+            "source_repository": "express",
+            "target": "route:src/server.ts#GET%20%2Ft022r%2Fuser",
+            "target_repository": "express",
+            "type": "edge"
+          }
+        ]
+      }
+    ],
+    "target": {
+      "attributes": {},
+      "content_hash": "sha256:b6408b7698f54101c453661de0b00b471171ee8ea9124143dc2d73ce56803440",
+      "file": "src/server.ts",
+      "ide": {
+        "column": 1,
+        "exact": true,
+        "line": 3,
+        "link": "vscode://file/{ROOT}/express/src/server.ts:3:1"
+      },
+      "identity": "function:src/server.ts#currentUser",
+      "kind": "function",
+      "level": 4,
+      "name": "currentUser",
+      "qualified_name": "currentUser",
+      "repository": "express",
+      "span": {
+        "end_column": 1,
+        "end_line": 5,
+        "start_column": 0,
+        "start_line": 3
+      },
+      "type": "node"
+    },
+    "unknown_calls_in_result_files": 4
+  },
+  "3-callers-of-axum-user": {
+    "blind_spot_data": false,
+    "bounds": [],
+    "candidates": [],
+    "caps": [],
+    "command": "callers",
+    "ends": [],
+    "link_pass": {
+      "links": 1,
+      "pass": 1,
+      "stale_reasons": [],
+      "stored": true
+    },
+    "members": [
+      {
+        "changed_files": [],
+        "checkout": true,
+        "indexed": true,
+        "repository": "web"
+      },
+      {
+        "changed_files": [],
+        "checkout": true,
+        "indexed": true,
+        "repository": "express"
+      },
+      {
+        "changed_files": [],
+        "checkout": true,
+        "indexed": true,
+        "repository": "axum"
+      }
+    ],
+    "possible_callers": [
+      {
+        "candidate_count": 2,
+        "candidate_repositories": [
+          "axum",
+          "express"
+        ],
+        "kind": "calls_route",
+        "reason": "",
+        "route": {
+          "identity": "route:src/main.rs#GET%20%2Ft022r%2Fuser",
+          "repository": "axum"
+        },
+        "row": "PL-R11",
+        "source": {
+          "identity": "client_call:src/api.ts#loadUser.GET%20%60%24%7Bimport.meta.env.VITE_API_URL%7D%2Ft022r%2Fuser%60",
+          "repository": "web"
+        },
+        "status": "ambiguous",
+        "template": "/t022r/user",
+        "wording": "ambiguous across repositories"
+      }
+    ],
+    "possibly_missing_call_sites": [],
+    "possibly_missing_callers": 0,
+    "project": "three",
+    "results": [],
+    "target": {
+      "attributes": {
+        "framework": "axum",
+        "handler": "function:src/main.rs#current_user",
+        "handler_inline": false,
+        "method": "GET",
+        "middleware": [],
+        "paths": [
+          {
+            "conditional": false,
+            "resolution": "literal",
+            "template": "/t022r/user"
+          }
+        ],
+        "pattern": "/t022r/user",
+        "shape": {
+          "body": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/main.rs",
+              "kind": "fact",
+              "line": 3,
+              "rule": "SH-X29"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "cookie": {
+            "items": [],
+            "state": "not_read"
+          },
+          "follow": {
+            "chains": [],
+            "depth_limit": 6
+          },
+          "header": {
+            "items": [],
+            "state": "not_read"
+          },
+          "models": [],
+          "path": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/main.rs",
+              "kind": "fact",
+              "line": 13,
+              "rule": "SH-X1"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "query": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/main.rs",
+              "kind": "fact",
+              "line": 3,
+              "rule": "SH-X29"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "responses": {
+            "items": [
+              {
+                "content_type": "text/plain; charset=utf-8",
+                "provenance": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "src/main.rs",
+                  "kind": "returned",
+                  "line": 3,
+                  "rule": "SH-X25"
+                },
+                "schema": {
+                  "type": "string"
+                },
+                "status": "200"
+              }
+            ],
+            "reason": "panics, extractor rejections and middleware (layers) are not read",
+            "state": "partial"
+          },
+          "security": {
+            "items": [],
+            "state": "not_read"
+          },
+          "security_schemes": [],
+          "version": 1
+        }
+      },
+      "content_hash": "sha256:e14846fbce0950af83ec690f4cbb6d8a5addfe95078575c9f302a8bddb156cc7",
+      "file": "src/main.rs",
+      "ide": {
+        "column": 31,
+        "exact": true,
+        "line": 13,
+        "link": "vscode://file/{ROOT}/axum/src/main.rs:13:31"
+      },
+      "identity": "route:src/main.rs#GET%20%2Ft022r%2Fuser",
+      "kind": "route",
+      "level": 4,
+      "name": "GET /t022r/user",
+      "qualified_name": "GET /t022r/user",
+      "repository": "axum",
+      "span": {
+        "end_column": 47,
+        "end_line": 13,
+        "start_column": 30,
+        "start_line": 13
+      },
+      "type": "node"
+    },
+    "unknown_calls_in_result_files": 0
+  },
+  "4-callers-of-express-health": {
+    "blind_spot_data": false,
+    "bounds": [],
+    "candidates": [],
+    "caps": [],
+    "command": "callers",
+    "ends": [],
+    "link_pass": {
+      "links": 1,
+      "pass": 1,
+      "stale_reasons": [],
+      "stored": true
+    },
+    "members": [
+      {
+        "changed_files": [],
+        "checkout": true,
+        "indexed": true,
+        "repository": "web"
+      },
+      {
+        "changed_files": [],
+        "checkout": true,
+        "indexed": true,
+        "repository": "express"
+      },
+      {
+        "changed_files": [],
+        "checkout": true,
+        "indexed": true,
+        "repository": "axum"
+      }
+    ],
+    "possible_callers": [],
+    "possibly_missing_call_sites": [],
+    "possibly_missing_callers": 0,
+    "project": "three",
+    "results": [],
+    "target": {
+      "attributes": {
+        "framework": "express",
+        "handler": "function:src/server.ts#health",
+        "handler_inline": false,
+        "method": "GET",
+        "middleware": [],
+        "paths": [
+          {
+            "conditional": false,
+            "resolution": "literal",
+            "template": "/t022r/health"
+          }
+        ],
+        "pattern": "/t022r/health",
+        "shape": {
+          "body": {
+            "items": [],
+            "reason": "no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+            "state": "not_read"
+          },
+          "cookie": {
+            "items": [],
+            "reason": "nothing read in the handler or the functions it passes the value to",
+            "state": "not_read"
+          },
+          "follow": {
+            "chains": [
+              {
+                "at": null,
+                "depth": 0,
+                "section": "query",
+                "start": {
+                  "file": "src/server.ts",
+                  "function": "health",
+                  "line": 12
+                },
+                "steps": [],
+                "stop": "ended"
+              },
+              {
+                "at": null,
+                "depth": 0,
+                "section": "header",
+                "start": {
+                  "file": "src/server.ts",
+                  "function": "health",
+                  "line": 12
+                },
+                "steps": [],
+                "stop": "ended"
+              },
+              {
+                "at": null,
+                "depth": 0,
+                "section": "cookie",
+                "start": {
+                  "file": "src/server.ts",
+                  "function": "health",
+                  "line": 12
+                },
+                "steps": [],
+                "stop": "ended"
+              },
+              {
+                "at": null,
+                "depth": 0,
+                "section": "body",
+                "start": {
+                  "file": "src/server.ts",
+                  "function": "health",
+                  "line": 12
+                },
+                "steps": [],
+                "stop": "ended"
+              },
+              {
+                "at": null,
+                "depth": 0,
+                "section": "responses",
+                "start": {
+                  "file": "src/server.ts",
+                  "function": "health",
+                  "line": 12
+                },
+                "steps": [],
+                "stop": "ended"
+              }
+            ],
+            "depth_limit": 6
+          },
+          "header": {
+            "items": [],
+            "reason": "nothing read in the handler or the functions it passes the value to",
+            "state": "not_read"
+          },
+          "models": [],
+          "path": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/server.ts",
+              "kind": "fact",
+              "line": 20,
+              "rule": "SH-E2"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "query": {
+            "items": [],
+            "reason": "nothing read in the handler or the functions it passes the value to",
+            "state": "not_read"
+          },
+          "responses": {
+            "items": [
+              {
+                "content_type": "application/json",
+                "provenance": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "src/server.ts",
+                  "kind": "read_in_handler",
+                  "line": 13,
+                  "rule": "SH-E25"
+                },
+                "schema": {
+                  "additional": "unknown",
+                  "fields": [
+                    {
+                      "name": "ok",
+                      "presence": "unknown",
+                      "schema": {
+                        "reason": "value not read",
+                        "type": "unknown"
+                      }
+                    }
+                  ],
+                  "type": "object"
+                },
+                "status": "200"
+              }
+            ],
+            "reason": "statuses read from code; errors thrown by called functions, error middleware and unread calls may add others",
+            "state": "partial"
+          },
+          "security": {
+            "items": [],
+            "state": "not_read"
+          },
+          "security_schemes": [],
+          "version": 1
+        }
+      },
+      "content_hash": "sha256:a843f6b18bccc602974945605662138321c6b0375e8327ac3e10010d161b82c0",
+      "file": "src/server.ts",
+      "ide": {
+        "column": 1,
+        "exact": true,
+        "line": 20,
+        "link": "vscode://file/{ROOT}/express/src/server.ts:20:1"
+      },
+      "identity": "route:src/server.ts#GET%20%2Ft022r%2Fhealth",
+      "kind": "route",
+      "level": 4,
+      "name": "GET /t022r/health",
+      "qualified_name": "GET /t022r/health",
+      "repository": "express",
+      "span": {
+        "end_column": 32,
+        "end_line": 20,
+        "start_column": 0,
+        "start_line": 20
+      },
+      "type": "node"
+    },
+    "unknown_calls_in_result_files": 0
+  },
+  "5-change-impact-of-express-handler": {
+    "caps": [],
+    "depth": 3,
+    "paths": [
+      {
+        "claim": "may depend on",
+        "confidence": null,
+        "distance": 1,
+        "kind": "file",
+        "node": "file:src/server.ts#src%2Fserver.ts",
+        "provenance": "inferred",
+        "relation": "I15",
+        "repository": "express",
+        "seed": "function:src/server.ts#currentUser",
+        "steps": [
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "src/server.ts",
+                "span": {
+                  "end_column": 34,
+                  "end_line": 17,
+                  "start_column": 23,
+                  "start_line": 17
+                }
+              }
+            ],
+            "kind": "passes_function",
+            "provenance": "fact",
+            "relation": "I15",
+            "removed": false,
+            "source": "file:src/server.ts#src%2Fserver.ts",
+            "source_repository": "express",
+            "target": "function:src/server.ts#currentUser",
+            "target_repository": "express",
+            "via": null
+          }
+        ],
+        "wording": "passes this as callback, call not modelled"
+      },
+      {
+        "claim": "depends on",
+        "confidence": 1,
+        "distance": 1,
+        "kind": "route",
+        "node": "route:src/server.ts#GET%20%2Ft022r%2Fuser",
+        "provenance": "fact",
+        "relation": "I4",
+        "repository": "express",
+        "route_paths": [
+          {
+            "scope": null,
+            "template": "/t022r/user",
+            "trailing_slash": false
+          }
+        ],
+        "seed": "function:src/server.ts#currentUser",
+        "steps": [
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "src/server.ts",
+                "span": {
+                  "end_column": 35,
+                  "end_line": 17,
+                  "start_column": 0,
+                  "start_line": 17
+                }
+              }
+            ],
+            "kind": "exposes_route",
+            "provenance": "fact",
+            "relation": "I4",
+            "removed": false,
+            "source": "function:src/server.ts#currentUser",
+            "source_repository": "express",
+            "target": "route:src/server.ts#GET%20%2Ft022r%2Fuser",
+            "target_repository": "express",
+            "via": null
+          }
+        ],
+        "wording": "handled by the changed code"
+      }
+    ],
+    "possible_dependents": [
+      {
+        "claim": "may depend on",
+        "distance": 2,
+        "kind": "client_call",
+        "node": "client_call:src/api.ts#loadUser.GET%20%60%24%7Bimport.meta.env.VITE_API_URL%7D%2Ft022r%2Fuser%60",
+        "provenance": "inferred",
+        "reason": "ambiguous across repositories; 2 candidates in axum, express",
+        "relation": "I12",
+        "repository": "web",
+        "route": "route:src/server.ts#GET%20%2Ft022r%2Fuser",
+        "route_repository": "express",
+        "row": "PL-R11",
+        "seed": "function:src/server.ts#currentUser",
+        "status": "ambiguous",
+        "wording": "calls this route from another project repository"
+      }
+    ],
+    "project": "three",
+    "seeds": [
+      "function:src/server.ts#currentUser"
+    ],
+    "table_uses": [],
+    "unknowns": {
+      "blind_spots": [],
+      "gap_nodes": [],
+      "near_misses": [],
+      "not_extracted": [
+        {
+          "nodes": [],
+          "relation": "I11"
+        }
+      ],
+      "untraversed": {
+        "contains": 2,
+        "exposes_route": 1
+      }
+    }
+  },
+  "6-callers-incomplete": {
+    "blind_spot_data": false,
+    "bounds": [],
+    "candidates": [],
+    "caps": [],
+    "command": "callers",
+    "ends": [],
+    "link_pass": {
+      "links": 0,
+      "pass": 3,
+      "stale_reasons": [],
+      "stored": true
+    },
+    "members": [
+      {
+        "changed_files": [],
+        "checkout": true,
+        "indexed": true,
+        "repository": "web"
+      },
+      {
+        "changed_files": [],
+        "checkout": true,
+        "indexed": true,
+        "repository": "express"
+      },
+      {
+        "changed_files": [],
+        "checkout": true,
+        "indexed": true,
+        "repository": "axum"
+      },
+      {
+        "changed_files": [],
+        "checkout": false,
+        "indexed": false,
+        "repository": "ghost"
+      }
+    ],
+    "possible_callers": [
+      {
+        "candidate_count": 2,
+        "candidate_repositories": [
+          "axum",
+          "express"
+        ],
+        "kind": "calls_route",
+        "reason": "no stored index: ghost",
+        "route": {
+          "identity": "route:src/server.ts#GET%20%2Ft022r%2Fuser",
+          "repository": "express"
+        },
+        "row": "PL-R7",
+        "source": {
+          "identity": "client_call:src/api.ts#loadUser.GET%20%60%24%7Bimport.meta.env.VITE_API_URL%7D%2Ft022r%2Fuser%60",
+          "repository": "web"
+        },
+        "status": "incomplete",
+        "template": "/t022r/user",
+        "wording": "not linked: a candidate provider had no stored index"
+      }
+    ],
+    "possibly_missing_call_sites": [],
+    "possibly_missing_callers": 0,
+    "project": "three",
+    "results": [],
+    "target": {
+      "attributes": {
+        "framework": "express",
+        "handler": "function:src/server.ts#currentUser",
+        "handler_inline": false,
+        "method": "GET",
+        "middleware": [],
+        "paths": [
+          {
+            "conditional": false,
+            "resolution": "literal",
+            "template": "/t022r/user"
+          }
+        ],
+        "pattern": "/t022r/user",
+        "shape": {
+          "body": {
+            "items": [],
+            "reason": "no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+            "state": "not_read"
+          },
+          "cookie": {
+            "items": [],
+            "reason": "nothing read in the handler or the functions it passes the value to",
+            "state": "not_read"
+          },
+          "follow": {
+            "chains": [
+              {
+                "at": null,
+                "depth": 0,
+                "section": "query",
+                "start": {
+                  "file": "src/server.ts",
+                  "function": "currentUser",
+                  "line": 3
+                },
+                "steps": [],
+                "stop": "ended"
+              },
+              {
+                "at": null,
+                "depth": 0,
+                "section": "header",
+                "start": {
+                  "file": "src/server.ts",
+                  "function": "currentUser",
+                  "line": 3
+                },
+                "steps": [],
+                "stop": "ended"
+              },
+              {
+                "at": null,
+                "depth": 0,
+                "section": "cookie",
+                "start": {
+                  "file": "src/server.ts",
+                  "function": "currentUser",
+                  "line": 3
+                },
+                "steps": [],
+                "stop": "ended"
+              },
+              {
+                "at": null,
+                "depth": 0,
+                "section": "body",
+                "start": {
+                  "file": "src/server.ts",
+                  "function": "currentUser",
+                  "line": 3
+                },
+                "steps": [],
+                "stop": "ended"
+              },
+              {
+                "at": null,
+                "depth": 0,
+                "section": "responses",
+                "start": {
+                  "file": "src/server.ts",
+                  "function": "currentUser",
+                  "line": 3
+                },
+                "steps": [],
+                "stop": "ended"
+              }
+            ],
+            "depth_limit": 6
+          },
+          "header": {
+            "items": [],
+            "reason": "nothing read in the handler or the functions it passes the value to",
+            "state": "not_read"
+          },
+          "models": [],
+          "path": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/server.ts",
+              "kind": "fact",
+              "line": 17,
+              "rule": "SH-E2"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "query": {
+            "items": [],
+            "reason": "nothing read in the handler or the functions it passes the value to",
+            "state": "not_read"
+          },
+          "responses": {
+            "items": [
+              {
+                "content_type": "application/json",
+                "provenance": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "src/server.ts",
+                  "kind": "read_in_handler",
+                  "line": 4,
+                  "rule": "SH-E25"
+                },
+                "schema": {
+                  "additional": "unknown",
+                  "fields": [
+                    {
+                      "name": "user",
+                      "presence": "unknown",
+                      "schema": {
+                        "reason": "value not read",
+                        "type": "unknown"
+                      }
+                    }
+                  ],
+                  "type": "object"
+                },
+                "status": "200"
+              }
+            ],
+            "reason": "statuses read from code; errors thrown by called functions, error middleware and unread calls may add others",
+            "state": "partial"
+          },
+          "security": {
+            "items": [],
+            "state": "not_read"
+          },
+          "security_schemes": [],
+          "version": 1
+        }
+      },
+      "content_hash": "sha256:a42bd84e6b556fed6c05c9fc174c79942487c6d95a47069aa94d02525fe0390b",
+      "file": "src/server.ts",
+      "ide": {
+        "column": 1,
+        "exact": true,
+        "line": 17,
+        "link": "vscode://file/{ROOT}/express/src/server.ts:17:1"
+      },
+      "identity": "route:src/server.ts#GET%20%2Ft022r%2Fuser",
+      "kind": "route",
+      "level": 4,
+      "name": "GET /t022r/user",
+      "qualified_name": "GET /t022r/user",
+      "repository": "express",
+      "span": {
+        "end_column": 35,
+        "end_line": 17,
+        "start_column": 0,
+        "start_line": 17
+      },
+      "type": "node"
+    },
+    "unknown_calls_in_result_files": 0
+  }
+}

@@ -1,0 +1,3 @@
+CREATE TABLE cleanup (id int);
+CREATE PROCEDURE cleanup() BEGIN ATOMIC DELETE FROM cleanup; END;
+DROP TABLE cleanup;

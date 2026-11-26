@@ -1,0 +1,6063 @@
+{
+  "diagnostics": [
+    {
+      "code": "unresolved_calls",
+      "file": "alembic/versions/0001_backfill.py",
+      "message": "13 calls could not be resolved without a type checker (external=6, unknown=7)",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "python_structure_unread",
+      "file": "app/crud.py",
+      "message": "4 Python declarations or imports are outside the structural claim contract and claim nothing (dotted_parent_packages=4)",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "unresolved_calls",
+      "file": "app/crud.py",
+      "message": "124 calls could not be resolved without a type checker (external=48, unknown=76)",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "python_structure_unread",
+      "file": "app/gq.py",
+      "message": "2 Python declarations or imports are outside the structural claim contract and claim nothing (dotted_parent_packages=2)",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "unresolved_calls",
+      "file": "app/gq.py",
+      "message": "2 calls could not be resolved without a type checker (external=0, unknown=2)",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "unresolved_calls",
+      "file": "app/models.py",
+      "message": "10 calls could not be resolved without a type checker (external=10, unknown=0)",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "python_structure_unread",
+      "file": "tests/test_crud.py",
+      "message": "1 Python declarations or imports are outside the structural claim contract and claim nothing (dotted_parent_packages=1)",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "unresolved_calls",
+      "file": "tests/test_crud.py",
+      "message": "3 calls could not be resolved without a type checker (external=1, unknown=2)",
+      "severity": "info",
+      "type": "diagnostic"
+    }
+  ],
+  "edges": [
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 29,
+            "end_line": 107,
+            "start_column": 17,
+            "start_line": 107
+          }
+        }
+      ],
+      "kind": "calls",
+      "provenance": "fact",
+      "source": "function:app/crud.py#executions",
+      "target": "function:app/crud.py#p1_builder",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 51,
+            "end_line": 80,
+            "start_column": 37,
+            "start_line": 80
+          }
+        }
+      ],
+      "kind": "calls",
+      "provenance": "fact",
+      "source": "function:app/crud.py#p4_objects",
+      "target": "class:app/models.py#Team",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 30,
+            "end_line": 73,
+            "start_column": 16,
+            "start_line": 73
+          }
+        },
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 25,
+            "end_line": 76,
+            "start_column": 11,
+            "start_line": 76
+          }
+        },
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 35,
+            "end_line": 80,
+            "start_column": 21,
+            "start_line": 80
+          }
+        }
+      ],
+      "kind": "calls",
+      "provenance": "fact",
+      "source": "function:app/crud.py#p4_objects",
+      "target": "class:app/models.py#User",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/gq.py",
+          "span": {
+            "end_column": 34,
+            "end_line": 6,
+            "start_column": 19,
+            "start_line": 6
+          }
+        }
+      ],
+      "kind": "calls",
+      "provenance": "fact",
+      "source": "function:app/gq.py#create_user",
+      "target": "class:app/models.py#User",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 30,
+            "end_line": 66,
+            "start_column": 4,
+            "start_line": 65
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:app/crud.py#Repository",
+      "target": "method:app/crud.py#Repository.__init__",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 46,
+            "end_line": 69,
+            "start_column": 4,
+            "start_line": 68
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:app/crud.py#Repository",
+      "target": "method:app/crud.py#Repository.find",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/models.py",
+          "span": {
+            "end_column": 0,
+            "end_line": 25,
+            "start_column": 0,
+            "start_line": 22
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:app/models.py#Item",
+      "target": "table:app/models.py#Item",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/models.py",
+          "span": {
+            "end_column": 0,
+            "end_line": 11,
+            "start_column": 0,
+            "start_line": 8
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:app/models.py#Team",
+      "target": "table:app/models.py#Team",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/models.py",
+          "span": {
+            "end_column": 0,
+            "end_line": 19,
+            "start_column": 0,
+            "start_line": 14
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:app/models.py#User",
+      "target": "table:app/models.py#User",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "alembic/versions/0001_backfill.py",
+          "span": {
+            "end_column": 87,
+            "end_line": 18,
+            "start_column": 0,
+            "start_line": 17
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:alembic/versions/0001_backfill.py#alembic%2Fversions%2F0001_backfill.py",
+      "target": "function:alembic/versions/0001_backfill.py#downgrade",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "alembic/versions/0001_backfill.py",
+          "span": {
+            "end_column": 44,
+            "end_line": 14,
+            "start_column": 0,
+            "start_line": 9
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:alembic/versions/0001_backfill.py#alembic%2Fversions%2F0001_backfill.py",
+      "target": "function:alembic/versions/0001_backfill.py#upgrade",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 46,
+            "end_line": 69,
+            "start_column": 0,
+            "start_line": 64
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:app/crud.py#app%2Fcrud.py",
+      "target": "class:app/crud.py#Repository",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 24,
+            "end_line": 16,
+            "start_column": 0,
+            "start_line": 16
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:app/crud.py#app%2Fcrud.py",
+      "target": "constant:app/crud.py#ALL_TEAMS",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 30,
+            "end_line": 107,
+            "start_column": 0,
+            "start_line": 103
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:app/crud.py#app%2Fcrud.py",
+      "target": "function:app/crud.py#executions",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 23,
+            "end_line": 122,
+            "start_column": 0,
+            "start_line": 110
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:app/crud.py#app%2Fcrud.py",
+      "target": "function:app/crud.py#executions_local",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 47,
+            "end_line": 140,
+            "start_column": 0,
+            "start_line": 136
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:app/crud.py#app%2Fcrud.py",
+      "target": "function:app/crud.py#keyword_tables",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 42,
+            "end_line": 42,
+            "start_column": 0,
+            "start_line": 41
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:app/crud.py#app%2Fcrud.py",
+      "target": "function:app/crud.py#p1_builder",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 55,
+            "end_line": 32,
+            "start_column": 0,
+            "start_line": 29
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:app/crud.py#app%2Fcrud.py",
+      "target": "function:app/crud.py#p1_chains",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 15,
+            "end_line": 26,
+            "start_column": 0,
+            "start_line": 19
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:app/crud.py#app%2Fcrud.py",
+      "target": "function:app/crud.py#p1_entities",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 31,
+            "end_line": 38,
+            "start_column": 0,
+            "start_line": 35
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:app/crud.py#app%2Fcrud.py",
+      "target": "function:app/crud.py#p1_refusals",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 55,
+            "end_line": 51,
+            "start_column": 0,
+            "start_line": 45
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:app/crud.py#app%2Fcrud.py",
+      "target": "function:app/crud.py#p2_writes",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 14,
+            "end_line": 61,
+            "start_column": 0,
+            "start_line": 54
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:app/crud.py#app%2Fcrud.py",
+      "target": "function:app/crud.py#p3_gets",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 24,
+            "end_line": 85,
+            "start_column": 0,
+            "start_line": 72
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:app/crud.py#app%2Fcrud.py",
+      "target": "function:app/crud.py#p4_objects",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 18,
+            "end_line": 91,
+            "start_column": 0,
+            "start_line": 88
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:app/crud.py#app%2Fcrud.py",
+      "target": "function:app/crud.py#p4_unannotated",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 38,
+            "end_line": 100,
+            "start_column": 0,
+            "start_line": 94
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:app/crud.py#app%2Fcrud.py",
+      "target": "function:app/crud.py#p5_text",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 27,
+            "end_line": 133,
+            "start_column": 0,
+            "start_line": 125
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:app/crud.py#app%2Fcrud.py",
+      "target": "function:app/crud.py#shadowed",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 79,
+            "end_line": 148,
+            "start_column": 0,
+            "start_line": 143
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:app/crud.py#app%2Fcrud.py",
+      "target": "function:app/crud.py#write_predicates",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/gq.py",
+          "span": {
+            "end_column": 34,
+            "end_line": 7,
+            "start_column": 0,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:app/gq.py#app%2Fgq.py",
+      "target": "function:app/gq.py#create_user",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/models.py",
+          "span": {
+            "end_column": 72,
+            "end_line": 25,
+            "start_column": 0,
+            "start_line": 22
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:app/models.py#app%2Fmodels.py",
+      "target": "class:app/models.py#Item",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/models.py",
+          "span": {
+            "end_column": 14,
+            "end_line": 29,
+            "start_column": 0,
+            "start_line": 28
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:app/models.py#app%2Fmodels.py",
+      "target": "class:app/models.py#ItemCreate",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/models.py",
+          "span": {
+            "end_column": 13,
+            "end_line": 11,
+            "start_column": 0,
+            "start_line": 8
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:app/models.py#app%2Fmodels.py",
+      "target": "class:app/models.py#Team",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/models.py",
+          "span": {
+            "end_column": 114,
+            "end_line": 19,
+            "start_column": 0,
+            "start_line": 14
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:app/models.py#app%2Fmodels.py",
+      "target": "class:app/models.py#User",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "tests/test_crud.py",
+          "span": {
+            "end_column": 49,
+            "end_line": 7,
+            "start_column": 0,
+            "start_line": 6
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:tests/test_crud.py#tests%2Ftest_crud.py",
+      "target": "function:tests/test_crud.py#test_list_users",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/models.py",
+          "span": {
+            "end_column": 0,
+            "end_line": 23,
+            "start_column": 0,
+            "start_line": 23
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "table:app/models.py#Item",
+      "target": "column:app/models.py#Item.id",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/models.py",
+          "span": {
+            "end_column": 0,
+            "end_line": 25,
+            "start_column": 0,
+            "start_line": 25
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "table:app/models.py#Item",
+      "target": "column:app/models.py#Item.owner_id",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/models.py",
+          "span": {
+            "end_column": 0,
+            "end_line": 24,
+            "start_column": 0,
+            "start_line": 24
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "table:app/models.py#Item",
+      "target": "column:app/models.py#Item.title",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/models.py",
+          "span": {
+            "end_column": 0,
+            "end_line": 10,
+            "start_column": 0,
+            "start_line": 10
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "table:app/models.py#Team",
+      "target": "column:app/models.py#Team.id",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/models.py",
+          "span": {
+            "end_column": 0,
+            "end_line": 11,
+            "start_column": 0,
+            "start_line": 11
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "table:app/models.py#Team",
+      "target": "column:app/models.py#Team.name",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/models.py",
+          "span": {
+            "end_column": 0,
+            "end_line": 19,
+            "start_column": 0,
+            "start_line": 19
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "table:app/models.py#User",
+      "target": "column:app/models.py#User.created_at",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/models.py",
+          "span": {
+            "end_column": 0,
+            "end_line": 15,
+            "start_column": 0,
+            "start_line": 15
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "table:app/models.py#User",
+      "target": "column:app/models.py#User.id",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/models.py",
+          "span": {
+            "end_column": 0,
+            "end_line": 16,
+            "start_column": 0,
+            "start_line": 16
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "table:app/models.py#User",
+      "target": "column:app/models.py#User.name",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/models.py",
+          "span": {
+            "end_column": 0,
+            "end_line": 17,
+            "start_column": 0,
+            "start_line": 17
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "table:app/models.py#User",
+      "target": "column:app/models.py#User.team_id",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/models.py",
+          "span": {
+            "end_column": 0,
+            "end_line": 25,
+            "start_column": 0,
+            "start_line": 25
+          }
+        }
+      ],
+      "kind": "foreign_key",
+      "provenance": "fact",
+      "source": "column:app/models.py#Item.owner_id",
+      "target": "column:app/models.py#User.id",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/models.py",
+          "span": {
+            "end_column": 0,
+            "end_line": 17,
+            "start_column": 0,
+            "start_line": 17
+          }
+        }
+      ],
+      "kind": "foreign_key",
+      "provenance": "fact",
+      "source": "column:app/models.py#User.team_id",
+      "target": "column:app/models.py#Team.id",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "alembic/versions/0001_backfill.py",
+          "span": {
+            "end_column": 23,
+            "end_line": 2,
+            "start_column": 0,
+            "start_line": 2
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:alembic/versions/0001_backfill.py#alembic%2Fversions%2F0001_backfill.py",
+      "target": "external:.#pypi%3Asqlalchemy",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 27,
+            "end_line": 5,
+            "start_column": 0,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:app/crud.py#app%2Fcrud.py",
+      "target": "external:.#pypi%3Afastapi",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 23,
+            "end_line": 4,
+            "start_column": 0,
+            "start_line": 4
+          }
+        },
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 33,
+            "end_line": 6,
+            "start_column": 0,
+            "start_line": 6
+          }
+        },
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 33,
+            "end_line": 6,
+            "start_column": 0,
+            "start_line": 6
+          }
+        },
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 62,
+            "end_line": 7,
+            "start_column": 0,
+            "start_line": 7
+          }
+        },
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 34,
+            "end_line": 8,
+            "start_column": 0,
+            "start_line": 8
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:app/crud.py#app%2Fcrud.py",
+      "target": "external:.#pypi%3Asqlalchemy",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 65,
+            "end_line": 9,
+            "start_column": 0,
+            "start_line": 9
+          }
+        },
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 65,
+            "end_line": 9,
+            "start_column": 0,
+            "start_line": 9
+          }
+        },
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 65,
+            "end_line": 9,
+            "start_column": 0,
+            "start_line": 9
+          }
+        },
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 65,
+            "end_line": 9,
+            "start_column": 0,
+            "start_line": 9
+          }
+        },
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 65,
+            "end_line": 9,
+            "start_column": 0,
+            "start_line": 9
+          }
+        },
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 65,
+            "end_line": 9,
+            "start_column": 0,
+            "start_line": 9
+          }
+        },
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 40,
+            "end_line": 10,
+            "start_column": 0,
+            "start_line": 10
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:app/crud.py#app%2Fcrud.py",
+      "target": "external:.#pypi%3Asqlmodel",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 38,
+            "end_line": 2,
+            "start_column": 0,
+            "start_line": 2
+          }
+        },
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 38,
+            "end_line": 2,
+            "start_column": 0,
+            "start_line": 2
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:app/crud.py#app%2Fcrud.py",
+      "target": "external:.#python-stdlib%3Atyping",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 51,
+            "end_line": 12,
+            "start_column": 0,
+            "start_line": 12
+          }
+        },
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 51,
+            "end_line": 12,
+            "start_column": 0,
+            "start_line": 12
+          }
+        },
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 51,
+            "end_line": 12,
+            "start_column": 0,
+            "start_line": 12
+          }
+        },
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 51,
+            "end_line": 12,
+            "start_column": 0,
+            "start_line": 12
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:app/crud.py#app%2Fcrud.py",
+      "target": "file:app/models.py#app%2Fmodels.py",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/gq.py",
+          "span": {
+            "end_column": 33,
+            "end_line": 2,
+            "start_column": 0,
+            "start_line": 2
+          }
+        },
+        {
+          "file": "app/gq.py",
+          "span": {
+            "end_column": 33,
+            "end_line": 2,
+            "start_column": 0,
+            "start_line": 2
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:app/gq.py#app%2Fgq.py",
+      "target": "file:app/models.py#app%2Fmodels.py",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/models.py",
+          "span": {
+            "end_column": 52,
+            "end_line": 4,
+            "start_column": 0,
+            "start_line": 4
+          }
+        },
+        {
+          "file": "app/models.py",
+          "span": {
+            "end_column": 52,
+            "end_line": 4,
+            "start_column": 0,
+            "start_line": 4
+          }
+        },
+        {
+          "file": "app/models.py",
+          "span": {
+            "end_column": 52,
+            "end_line": 4,
+            "start_column": 0,
+            "start_line": 4
+          }
+        },
+        {
+          "file": "app/models.py",
+          "span": {
+            "end_column": 52,
+            "end_line": 4,
+            "start_column": 0,
+            "start_line": 4
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:app/models.py#app%2Fmodels.py",
+      "target": "external:.#pypi%3Asqlalchemy",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/models.py",
+          "span": {
+            "end_column": 36,
+            "end_line": 5,
+            "start_column": 0,
+            "start_line": 5
+          }
+        },
+        {
+          "file": "app/models.py",
+          "span": {
+            "end_column": 36,
+            "end_line": 5,
+            "start_column": 0,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:app/models.py#app%2Fmodels.py",
+      "target": "external:.#pypi%3Asqlmodel",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/models.py",
+          "span": {
+            "end_column": 29,
+            "end_line": 1,
+            "start_column": 0,
+            "start_line": 1
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:app/models.py#app%2Fmodels.py",
+      "target": "external:.#python-stdlib%3Adatetime",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/models.py",
+          "span": {
+            "end_column": 27,
+            "end_line": 2,
+            "start_column": 0,
+            "start_line": 2
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:app/models.py#app%2Fmodels.py",
+      "target": "external:.#python-stdlib%3Atyping",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "tests/test_crud.py",
+          "span": {
+            "end_column": 36,
+            "end_line": 1,
+            "start_column": 0,
+            "start_line": 1
+          }
+        },
+        {
+          "file": "tests/test_crud.py",
+          "span": {
+            "end_column": 36,
+            "end_line": 1,
+            "start_column": 0,
+            "start_line": 1
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:tests/test_crud.py#tests%2Ftest_crud.py",
+      "target": "external:.#pypi%3Asqlmodel",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "tests/test_crud.py",
+          "span": {
+            "end_column": 27,
+            "end_line": 3,
+            "start_column": 0,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:tests/test_crud.py#tests%2Ftest_crud.py",
+      "target": "file:app/models.py#app%2Fmodels.py",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 24,
+            "end_line": 16,
+            "start_column": 12,
+            "start_line": 16
+          }
+        }
+      ],
+      "kind": "reads_table",
+      "provenance": "fact",
+      "source": "constant:app/crud.py#ALL_TEAMS",
+      "target": "table:app/models.py#Team",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 24,
+            "end_line": 104,
+            "start_column": 12,
+            "start_line": 104
+          }
+        }
+      ],
+      "kind": "reads_table",
+      "provenance": "fact",
+      "source": "function:app/crud.py#executions",
+      "target": "table:app/models.py#Team",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 24,
+            "end_line": 118,
+            "start_column": 12,
+            "start_line": 118
+          }
+        }
+      ],
+      "kind": "reads_table",
+      "provenance": "fact",
+      "source": "function:app/crud.py#executions_local",
+      "target": "table:app/models.py#Item",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 24,
+            "end_line": 117,
+            "start_column": 12,
+            "start_line": 117
+          }
+        }
+      ],
+      "kind": "reads_table",
+      "provenance": "fact",
+      "source": "function:app/crud.py#executions_local",
+      "target": "table:app/models.py#Team",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 48,
+            "end_line": 113,
+            "start_column": 16,
+            "start_line": 113
+          }
+        }
+      ],
+      "kind": "reads_table",
+      "provenance": "fact",
+      "source": "function:app/crud.py#executions_local",
+      "target": "table:app/models.py#User",
+      "type": "edge"
+    },
+    {
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 46,
+            "end_line": 140,
+            "start_column": 17,
+            "start_line": 140
+          }
+        }
+      ],
+      "kind": "reads_table",
+      "provenance": "inferred",
+      "source": "function:app/crud.py#keyword_tables",
+      "target": "table:app/models.py#User",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 42,
+            "end_line": 42,
+            "start_column": 11,
+            "start_line": 42
+          }
+        }
+      ],
+      "kind": "reads_table",
+      "provenance": "fact",
+      "source": "function:app/crud.py#p1_builder",
+      "target": "table:app/models.py#Item",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 81,
+            "end_line": 30,
+            "start_column": 17,
+            "start_line": 30
+          }
+        }
+      ],
+      "kind": "reads_table",
+      "provenance": "fact",
+      "source": "function:app/crud.py#p1_chains",
+      "target": "table:app/models.py#Item",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 81,
+            "end_line": 30,
+            "start_column": 17,
+            "start_line": 30
+          }
+        },
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 55,
+            "end_line": 31,
+            "start_column": 17,
+            "start_line": 31
+          }
+        },
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 54,
+            "end_line": 32,
+            "start_column": 17,
+            "start_line": 32
+          }
+        }
+      ],
+      "kind": "reads_table",
+      "provenance": "fact",
+      "source": "function:app/crud.py#p1_chains",
+      "target": "table:app/models.py#Team",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 81,
+            "end_line": 30,
+            "start_column": 17,
+            "start_line": 30
+          }
+        },
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 54,
+            "end_line": 32,
+            "start_column": 17,
+            "start_line": 32
+          }
+        }
+      ],
+      "kind": "reads_table",
+      "provenance": "fact",
+      "source": "function:app/crud.py#p1_chains",
+      "target": "table:app/models.py#User",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 32,
+            "end_line": 24,
+            "start_column": 17,
+            "start_line": 24
+          }
+        }
+      ],
+      "kind": "reads_table",
+      "provenance": "fact",
+      "source": "function:app/crud.py#p1_entities",
+      "target": "table:app/models.py#Item",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 48,
+            "end_line": 21,
+            "start_column": 17,
+            "start_line": 21
+          }
+        },
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 38,
+            "end_line": 23,
+            "start_column": 17,
+            "start_line": 23
+          }
+        },
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 32,
+            "end_line": 25,
+            "start_column": 17,
+            "start_line": 25
+          }
+        }
+      ],
+      "kind": "reads_table",
+      "provenance": "fact",
+      "source": "function:app/crud.py#p1_entities",
+      "target": "table:app/models.py#Team",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 29,
+            "end_line": 20,
+            "start_column": 17,
+            "start_line": 20
+          }
+        },
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 48,
+            "end_line": 21,
+            "start_column": 17,
+            "start_line": 21
+          }
+        }
+      ],
+      "kind": "reads_table",
+      "provenance": "fact",
+      "source": "function:app/crud.py#p1_entities",
+      "target": "table:app/models.py#User",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 48,
+            "end_line": 37,
+            "start_column": 17,
+            "start_line": 37
+          }
+        }
+      ],
+      "kind": "reads_table",
+      "provenance": "fact",
+      "source": "function:app/crud.py#p1_refusals",
+      "target": "table:app/models.py#User",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 73,
+            "end_line": 50,
+            "start_column": 56,
+            "start_line": 50
+          }
+        }
+      ],
+      "kind": "reads_table",
+      "provenance": "fact",
+      "source": "function:app/crud.py#p2_writes",
+      "target": "table:app/models.py#Team",
+      "type": "edge"
+    },
+    {
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 19,
+            "end_line": 57,
+            "start_column": 4,
+            "start_line": 57
+          }
+        }
+      ],
+      "kind": "reads_table",
+      "provenance": "inferred",
+      "source": "function:app/crud.py#p3_gets",
+      "target": "table:app/models.py#Item",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 28,
+            "end_line": 56,
+            "start_column": 4,
+            "start_line": 56
+          }
+        }
+      ],
+      "kind": "reads_table",
+      "provenance": "fact",
+      "source": "function:app/crud.py#p3_gets",
+      "target": "table:app/models.py#Team",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 24,
+            "end_line": 55,
+            "start_column": 4,
+            "start_line": 55
+          }
+        }
+      ],
+      "kind": "reads_table",
+      "provenance": "fact",
+      "source": "function:app/crud.py#p3_gets",
+      "target": "table:app/models.py#User",
+      "type": "edge"
+    },
+    {
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 101,
+            "end_line": 96,
+            "start_column": 20,
+            "start_line": 96
+          }
+        }
+      ],
+      "kind": "reads_table",
+      "provenance": "inferred",
+      "source": "function:app/crud.py#p5_text",
+      "target": "table:app/models.py#Item",
+      "type": "edge"
+    },
+    {
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 66,
+            "end_line": 95,
+            "start_column": 17,
+            "start_line": 95
+          }
+        }
+      ],
+      "kind": "reads_table",
+      "provenance": "inferred",
+      "source": "function:app/crud.py#p5_text",
+      "target": "table:app/models.py#Team",
+      "type": "edge"
+    },
+    {
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "file": "app/gq.py",
+          "span": {
+            "end_column": 34,
+            "end_line": 7,
+            "start_column": 11,
+            "start_line": 7
+          }
+        }
+      ],
+      "kind": "reads_table",
+      "provenance": "inferred",
+      "source": "function:app/gq.py#create_user",
+      "target": "table:app/models.py#Team",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "tests/test_crud.py",
+          "span": {
+            "end_column": 36,
+            "end_line": 7,
+            "start_column": 24,
+            "start_line": 7
+          }
+        }
+      ],
+      "kind": "reads_table",
+      "provenance": "fact",
+      "source": "function:tests/test_crud.py#test_list_users",
+      "target": "table:app/models.py#User",
+      "type": "edge"
+    },
+    {
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 46,
+            "end_line": 69,
+            "start_column": 15,
+            "start_line": 69
+          }
+        }
+      ],
+      "kind": "reads_table",
+      "provenance": "inferred",
+      "source": "method:app/crud.py#Repository.find",
+      "target": "table:app/models.py#Item",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 28,
+            "end_line": 121,
+            "start_column": 16,
+            "start_line": 121
+          }
+        }
+      ],
+      "kind": "writes_table",
+      "provenance": "fact",
+      "source": "function:app/crud.py#executions_local",
+      "target": "table:app/models.py#Item",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 49,
+            "end_line": 48,
+            "start_column": 17,
+            "start_line": 48
+          }
+        },
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 74,
+            "end_line": 50,
+            "start_column": 17,
+            "start_line": 50
+          }
+        }
+      ],
+      "kind": "writes_table",
+      "provenance": "fact",
+      "source": "function:app/crud.py#p2_writes",
+      "target": "table:app/models.py#Item",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 66,
+            "end_line": 47,
+            "start_column": 17,
+            "start_line": 47
+          }
+        }
+      ],
+      "kind": "writes_table",
+      "provenance": "fact",
+      "source": "function:app/crud.py#p2_writes",
+      "target": "table:app/models.py#Team",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 46,
+            "end_line": 46,
+            "start_column": 17,
+            "start_line": 46
+          }
+        },
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 120,
+            "end_line": 49,
+            "start_column": 17,
+            "start_line": 49
+          }
+        }
+      ],
+      "kind": "writes_table",
+      "provenance": "fact",
+      "source": "function:app/crud.py#p2_writes",
+      "target": "table:app/models.py#User",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 45,
+            "end_line": 74,
+            "start_column": 4,
+            "start_line": 74
+          }
+        },
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 39,
+            "end_line": 75,
+            "start_column": 4,
+            "start_line": 75
+          }
+        },
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 24,
+            "end_line": 79,
+            "start_column": 4,
+            "start_line": 79
+          }
+        }
+      ],
+      "kind": "writes_table",
+      "provenance": "fact",
+      "source": "function:app/crud.py#p4_objects",
+      "target": "table:app/models.py#Item",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 23,
+            "end_line": 78,
+            "start_column": 4,
+            "start_line": 78
+          }
+        },
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 53,
+            "end_line": 80,
+            "start_column": 4,
+            "start_line": 80
+          }
+        }
+      ],
+      "kind": "writes_table",
+      "provenance": "fact",
+      "source": "function:app/crud.py#p4_objects",
+      "target": "table:app/models.py#Team",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 31,
+            "end_line": 73,
+            "start_column": 4,
+            "start_line": 73
+          }
+        },
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 21,
+            "end_line": 77,
+            "start_column": 4,
+            "start_line": 77
+          }
+        },
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 53,
+            "end_line": 80,
+            "start_column": 4,
+            "start_line": 80
+          }
+        }
+      ],
+      "kind": "writes_table",
+      "provenance": "fact",
+      "source": "function:app/crud.py#p4_objects",
+      "target": "table:app/models.py#User",
+      "type": "edge"
+    },
+    {
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 101,
+            "end_line": 96,
+            "start_column": 20,
+            "start_line": 96
+          }
+        }
+      ],
+      "kind": "writes_table",
+      "provenance": "inferred",
+      "source": "function:app/crud.py#p5_text",
+      "target": "table:app/models.py#User",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 77,
+            "end_line": 147,
+            "start_column": 17,
+            "start_line": 147
+          }
+        },
+        {
+          "file": "app/crud.py",
+          "span": {
+            "end_column": 78,
+            "end_line": 148,
+            "start_column": 17,
+            "start_line": 148
+          }
+        }
+      ],
+      "kind": "writes_table",
+      "provenance": "fact",
+      "source": "function:app/crud.py#write_predicates",
+      "target": "table:app/models.py#User",
+      "type": "edge"
+    },
+    {
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "file": "app/gq.py",
+          "span": {
+            "end_column": 35,
+            "end_line": 6,
+            "start_column": 4,
+            "start_line": 6
+          }
+        }
+      ],
+      "kind": "writes_table",
+      "provenance": "inferred",
+      "source": "function:app/gq.py#create_user",
+      "target": "table:app/models.py#User",
+      "type": "edge"
+    }
+  ],
+  "files": null,
+  "nodes": [
+    {
+      "attributes": {},
+      "content_hash": "sha256:83244fdc5f6a6e03a4b0add669c91c3e4740c7ae3d5b64b9144f114f0e428583",
+      "file": "app/crud.py",
+      "identity": "class:app/crud.py#Repository",
+      "kind": "class",
+      "level": 4,
+      "name": "Repository",
+      "qualified_name": "Repository",
+      "span": {
+        "end_column": 46,
+        "end_line": 69,
+        "start_column": 0,
+        "start_line": 64
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:ded0d14f856cdedd4bcbcb6dfd2e3ce79f1f979c311f3ec276fa625148d0c277",
+      "file": "app/models.py",
+      "identity": "class:app/models.py#Item",
+      "kind": "class",
+      "level": 4,
+      "name": "Item",
+      "qualified_name": "Item",
+      "span": {
+        "end_column": 72,
+        "end_line": 25,
+        "start_column": 0,
+        "start_line": 22
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:724ea47f105d63edb1e8b47c134b6eb7abe10991a568cfafa19515e658702e7d",
+      "file": "app/models.py",
+      "identity": "class:app/models.py#ItemCreate",
+      "kind": "class",
+      "level": 4,
+      "name": "ItemCreate",
+      "qualified_name": "ItemCreate",
+      "span": {
+        "end_column": 14,
+        "end_line": 29,
+        "start_column": 0,
+        "start_line": 28
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:e434a57a7751f5dc79bf8367574f9c61d887c17ecd1b035c27ec3811afa7f1d1",
+      "file": "app/models.py",
+      "identity": "class:app/models.py#Team",
+      "kind": "class",
+      "level": 4,
+      "name": "Team",
+      "qualified_name": "Team",
+      "span": {
+        "end_column": 13,
+        "end_line": 11,
+        "start_column": 0,
+        "start_line": 8
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:69a386588152ef15db27d2407b802e8a78d24c659514cce5172cb4640cc3de2c",
+      "file": "app/models.py",
+      "identity": "class:app/models.py#User",
+      "kind": "class",
+      "level": 4,
+      "name": "User",
+      "qualified_name": "User",
+      "span": {
+        "end_column": 114,
+        "end_line": 19,
+        "start_column": 0,
+        "start_line": 14
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "annotation": "Optional[int]",
+        "attribute": "id",
+        "claims": [
+          {
+            "fact": "name",
+            "file": "app/models.py",
+            "row": "M2",
+            "span": {
+              "end_column": 0,
+              "end_line": 23,
+              "start_column": 0,
+              "start_line": 23
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "type",
+            "file": "app/models.py",
+            "row": "F5",
+            "span": {
+              "end_column": 0,
+              "end_line": 23,
+              "start_column": 0,
+              "start_line": 23
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "nullable",
+            "file": "app/models.py",
+            "row": "F2",
+            "span": {
+              "end_column": 0,
+              "end_line": 23,
+              "start_column": 0,
+              "start_line": 23
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "primary_key",
+            "file": "app/models.py",
+            "row": "F1",
+            "span": {
+              "end_column": 0,
+              "end_line": 23,
+              "start_column": 0,
+              "start_line": 23
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "index",
+            "file": "app/models.py",
+            "row": "F1",
+            "span": {
+              "end_column": 0,
+              "end_line": 23,
+              "start_column": 0,
+              "start_line": 23
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "unique",
+            "file": "app/models.py",
+            "row": "F1",
+            "span": {
+              "end_column": 0,
+              "end_line": 23,
+              "start_column": 0,
+              "start_line": 23
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "default",
+            "file": "app/models.py",
+            "row": "F3",
+            "span": {
+              "end_column": 0,
+              "end_line": 23,
+              "start_column": 0,
+              "start_line": 23
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "server_default",
+            "file": "app/models.py",
+            "row": "M2",
+            "span": {
+              "end_column": 0,
+              "end_line": 23,
+              "start_column": 0,
+              "start_line": 23
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "foreign_keys",
+            "file": "app/models.py",
+            "row": "M2",
+            "span": {
+              "end_column": 0,
+              "end_line": 23,
+              "start_column": 0,
+              "start_line": 23
+            },
+            "verification": "oracle"
+          }
+        ],
+        "default": "absent",
+        "defined_in": {
+          "file": "app/models.py",
+          "line": 23
+        },
+        "foreign_keys": [],
+        "index": false,
+        "length": null,
+        "name": "id",
+        "nullable": false,
+        "precision": null,
+        "primary_key": true,
+        "reasons": [],
+        "scale": null,
+        "server_default": false,
+        "source": "model",
+        "state": "read",
+        "timezone": null,
+        "type": "Integer",
+        "unique": false
+      },
+      "content_hash": "sha256:df770e8d1ac5deb557af957956ea51d70c81c8b82d46279e71acb620571693c3",
+      "file": "app/models.py",
+      "identity": "column:app/models.py#Item.id",
+      "kind": "column",
+      "level": 4,
+      "name": "id",
+      "qualified_name": "Item.id",
+      "span": {
+        "end_column": 0,
+        "end_line": 23,
+        "start_column": 0,
+        "start_line": 23
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "annotation": "Optional[int]",
+        "attribute": "owner_id",
+        "claims": [
+          {
+            "fact": "name",
+            "file": "app/models.py",
+            "row": "M2",
+            "span": {
+              "end_column": 0,
+              "end_line": 25,
+              "start_column": 0,
+              "start_line": 25
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "type",
+            "file": "app/models.py",
+            "row": "F5",
+            "span": {
+              "end_column": 0,
+              "end_line": 25,
+              "start_column": 0,
+              "start_line": 25
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "nullable",
+            "file": "app/models.py",
+            "row": "A1",
+            "span": {
+              "end_column": 0,
+              "end_line": 25,
+              "start_column": 0,
+              "start_line": 25
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "primary_key",
+            "file": "app/models.py",
+            "row": "F1",
+            "span": {
+              "end_column": 0,
+              "end_line": 25,
+              "start_column": 0,
+              "start_line": 25
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "index",
+            "file": "app/models.py",
+            "row": "F1",
+            "span": {
+              "end_column": 0,
+              "end_line": 25,
+              "start_column": 0,
+              "start_line": 25
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "unique",
+            "file": "app/models.py",
+            "row": "F1",
+            "span": {
+              "end_column": 0,
+              "end_line": 25,
+              "start_column": 0,
+              "start_line": 25
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "default",
+            "file": "app/models.py",
+            "row": "F3",
+            "span": {
+              "end_column": 0,
+              "end_line": 25,
+              "start_column": 0,
+              "start_line": 25
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "server_default",
+            "file": "app/models.py",
+            "row": "M2",
+            "span": {
+              "end_column": 0,
+              "end_line": 25,
+              "start_column": 0,
+              "start_line": 25
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "foreign_keys",
+            "file": "app/models.py",
+            "row": "F4",
+            "span": {
+              "end_column": 0,
+              "end_line": 25,
+              "start_column": 0,
+              "start_line": 25
+            },
+            "verification": "oracle"
+          }
+        ],
+        "default": "absent",
+        "defined_in": {
+          "file": "app/models.py",
+          "line": 25
+        },
+        "foreign_keys": [
+          {
+            "column": "id",
+            "on_delete": null,
+            "schema": null,
+            "status": "resolved",
+            "table": "user"
+          }
+        ],
+        "index": false,
+        "length": null,
+        "name": "owner_id",
+        "nullable": true,
+        "precision": null,
+        "primary_key": false,
+        "reasons": [],
+        "scale": null,
+        "server_default": false,
+        "source": "model",
+        "state": "read",
+        "timezone": null,
+        "type": "Integer",
+        "unique": false
+      },
+      "content_hash": "sha256:830529352920a03be7a402f4b8fafe3b4f203a021f9b1bfd69645a77dcb0989a",
+      "file": "app/models.py",
+      "identity": "column:app/models.py#Item.owner_id",
+      "kind": "column",
+      "level": 4,
+      "name": "owner_id",
+      "qualified_name": "Item.owner_id",
+      "span": {
+        "end_column": 0,
+        "end_line": 25,
+        "start_column": 0,
+        "start_line": 25
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "annotation": "str",
+        "attribute": "title",
+        "claims": [
+          {
+            "fact": "name",
+            "file": "app/models.py",
+            "row": "M3",
+            "span": {
+              "end_column": 0,
+              "end_line": 24,
+              "start_column": 0,
+              "start_line": 24
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "type",
+            "file": "app/models.py",
+            "row": "F5",
+            "span": {
+              "end_column": 0,
+              "end_line": 24,
+              "start_column": 0,
+              "start_line": 24
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "length",
+            "file": "app/models.py",
+            "row": "F5",
+            "span": {
+              "end_column": 0,
+              "end_line": 24,
+              "start_column": 0,
+              "start_line": 24
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "nullable",
+            "file": "app/models.py",
+            "row": "A2",
+            "span": {
+              "end_column": 0,
+              "end_line": 24,
+              "start_column": 0,
+              "start_line": 24
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "primary_key",
+            "file": "app/models.py",
+            "row": "F1",
+            "span": {
+              "end_column": 0,
+              "end_line": 24,
+              "start_column": 0,
+              "start_line": 24
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "index",
+            "file": "app/models.py",
+            "row": "F1",
+            "span": {
+              "end_column": 0,
+              "end_line": 24,
+              "start_column": 0,
+              "start_line": 24
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "unique",
+            "file": "app/models.py",
+            "row": "F1",
+            "span": {
+              "end_column": 0,
+              "end_line": 24,
+              "start_column": 0,
+              "start_line": 24
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "default",
+            "file": "app/models.py",
+            "row": "M3",
+            "span": {
+              "end_column": 0,
+              "end_line": 24,
+              "start_column": 0,
+              "start_line": 24
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "server_default",
+            "file": "app/models.py",
+            "row": "M3",
+            "span": {
+              "end_column": 0,
+              "end_line": 24,
+              "start_column": 0,
+              "start_line": 24
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "foreign_keys",
+            "file": "app/models.py",
+            "row": "M3",
+            "span": {
+              "end_column": 0,
+              "end_line": 24,
+              "start_column": 0,
+              "start_line": 24
+            },
+            "verification": "oracle"
+          }
+        ],
+        "default": "absent",
+        "defined_in": {
+          "file": "app/models.py",
+          "line": 24
+        },
+        "foreign_keys": [],
+        "index": false,
+        "length": "none",
+        "name": "title",
+        "nullable": false,
+        "precision": null,
+        "primary_key": false,
+        "reasons": [],
+        "scale": null,
+        "server_default": false,
+        "source": "model",
+        "state": "read",
+        "timezone": null,
+        "type": "AutoString",
+        "unique": false
+      },
+      "content_hash": "sha256:8264e576c6af7770e7de23d537ca349de68ba155bf673ead5303d0269c94f092",
+      "file": "app/models.py",
+      "identity": "column:app/models.py#Item.title",
+      "kind": "column",
+      "level": 4,
+      "name": "title",
+      "qualified_name": "Item.title",
+      "span": {
+        "end_column": 0,
+        "end_line": 24,
+        "start_column": 0,
+        "start_line": 24
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "annotation": "Optional[int]",
+        "attribute": "id",
+        "claims": [
+          {
+            "fact": "name",
+            "file": "app/models.py",
+            "row": "M2",
+            "span": {
+              "end_column": 0,
+              "end_line": 10,
+              "start_column": 0,
+              "start_line": 10
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "type",
+            "file": "app/models.py",
+            "row": "F5",
+            "span": {
+              "end_column": 0,
+              "end_line": 10,
+              "start_column": 0,
+              "start_line": 10
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "nullable",
+            "file": "app/models.py",
+            "row": "F2",
+            "span": {
+              "end_column": 0,
+              "end_line": 10,
+              "start_column": 0,
+              "start_line": 10
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "primary_key",
+            "file": "app/models.py",
+            "row": "F1",
+            "span": {
+              "end_column": 0,
+              "end_line": 10,
+              "start_column": 0,
+              "start_line": 10
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "index",
+            "file": "app/models.py",
+            "row": "F1",
+            "span": {
+              "end_column": 0,
+              "end_line": 10,
+              "start_column": 0,
+              "start_line": 10
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "unique",
+            "file": "app/models.py",
+            "row": "F1",
+            "span": {
+              "end_column": 0,
+              "end_line": 10,
+              "start_column": 0,
+              "start_line": 10
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "default",
+            "file": "app/models.py",
+            "row": "F3",
+            "span": {
+              "end_column": 0,
+              "end_line": 10,
+              "start_column": 0,
+              "start_line": 10
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "server_default",
+            "file": "app/models.py",
+            "row": "M2",
+            "span": {
+              "end_column": 0,
+              "end_line": 10,
+              "start_column": 0,
+              "start_line": 10
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "foreign_keys",
+            "file": "app/models.py",
+            "row": "M2",
+            "span": {
+              "end_column": 0,
+              "end_line": 10,
+              "start_column": 0,
+              "start_line": 10
+            },
+            "verification": "oracle"
+          }
+        ],
+        "default": "absent",
+        "defined_in": {
+          "file": "app/models.py",
+          "line": 10
+        },
+        "foreign_keys": [],
+        "index": false,
+        "length": null,
+        "name": "id",
+        "nullable": false,
+        "precision": null,
+        "primary_key": true,
+        "reasons": [],
+        "scale": null,
+        "server_default": false,
+        "source": "model",
+        "state": "read",
+        "timezone": null,
+        "type": "Integer",
+        "unique": false
+      },
+      "content_hash": "sha256:df770e8d1ac5deb557af957956ea51d70c81c8b82d46279e71acb620571693c3",
+      "file": "app/models.py",
+      "identity": "column:app/models.py#Team.id",
+      "kind": "column",
+      "level": 4,
+      "name": "id",
+      "qualified_name": "Team.id",
+      "span": {
+        "end_column": 0,
+        "end_line": 10,
+        "start_column": 0,
+        "start_line": 10
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "annotation": "str",
+        "attribute": "name",
+        "claims": [
+          {
+            "fact": "name",
+            "file": "app/models.py",
+            "row": "M3",
+            "span": {
+              "end_column": 0,
+              "end_line": 11,
+              "start_column": 0,
+              "start_line": 11
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "type",
+            "file": "app/models.py",
+            "row": "F5",
+            "span": {
+              "end_column": 0,
+              "end_line": 11,
+              "start_column": 0,
+              "start_line": 11
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "length",
+            "file": "app/models.py",
+            "row": "F5",
+            "span": {
+              "end_column": 0,
+              "end_line": 11,
+              "start_column": 0,
+              "start_line": 11
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "nullable",
+            "file": "app/models.py",
+            "row": "A2",
+            "span": {
+              "end_column": 0,
+              "end_line": 11,
+              "start_column": 0,
+              "start_line": 11
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "primary_key",
+            "file": "app/models.py",
+            "row": "F1",
+            "span": {
+              "end_column": 0,
+              "end_line": 11,
+              "start_column": 0,
+              "start_line": 11
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "index",
+            "file": "app/models.py",
+            "row": "F1",
+            "span": {
+              "end_column": 0,
+              "end_line": 11,
+              "start_column": 0,
+              "start_line": 11
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "unique",
+            "file": "app/models.py",
+            "row": "F1",
+            "span": {
+              "end_column": 0,
+              "end_line": 11,
+              "start_column": 0,
+              "start_line": 11
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "default",
+            "file": "app/models.py",
+            "row": "M3",
+            "span": {
+              "end_column": 0,
+              "end_line": 11,
+              "start_column": 0,
+              "start_line": 11
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "server_default",
+            "file": "app/models.py",
+            "row": "M3",
+            "span": {
+              "end_column": 0,
+              "end_line": 11,
+              "start_column": 0,
+              "start_line": 11
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "foreign_keys",
+            "file": "app/models.py",
+            "row": "M3",
+            "span": {
+              "end_column": 0,
+              "end_line": 11,
+              "start_column": 0,
+              "start_line": 11
+            },
+            "verification": "oracle"
+          }
+        ],
+        "default": "absent",
+        "defined_in": {
+          "file": "app/models.py",
+          "line": 11
+        },
+        "foreign_keys": [],
+        "index": false,
+        "length": "none",
+        "name": "name",
+        "nullable": false,
+        "precision": null,
+        "primary_key": false,
+        "reasons": [],
+        "scale": null,
+        "server_default": false,
+        "source": "model",
+        "state": "read",
+        "timezone": null,
+        "type": "AutoString",
+        "unique": false
+      },
+      "content_hash": "sha256:11102ab537012f0e6dddd96c919d60e55eb3694d243ec16874064492eb4be929",
+      "file": "app/models.py",
+      "identity": "column:app/models.py#Team.name",
+      "kind": "column",
+      "level": 4,
+      "name": "name",
+      "qualified_name": "Team.name",
+      "span": {
+        "end_column": 0,
+        "end_line": 11,
+        "start_column": 0,
+        "start_line": 11
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "annotation": "Optional[datetime]",
+        "attribute": "created_at",
+        "claims": [
+          {
+            "fact": "name",
+            "file": "app/models.py",
+            "row": "M2",
+            "span": {
+              "end_column": 0,
+              "end_line": 19,
+              "start_column": 0,
+              "start_line": 19
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "type",
+            "file": "app/models.py",
+            "row": "T1",
+            "span": {
+              "end_column": 0,
+              "end_line": 19,
+              "start_column": 0,
+              "start_line": 19
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "timezone",
+            "file": "app/models.py",
+            "row": "T1",
+            "span": {
+              "end_column": 0,
+              "end_line": 19,
+              "start_column": 0,
+              "start_line": 19
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "nullable",
+            "file": "app/models.py",
+            "row": "K2",
+            "span": {
+              "end_column": 0,
+              "end_line": 19,
+              "start_column": 0,
+              "start_line": 19
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "primary_key",
+            "file": "app/models.py",
+            "row": "K2",
+            "span": {
+              "end_column": 0,
+              "end_line": 19,
+              "start_column": 0,
+              "start_line": 19
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "index",
+            "file": "app/models.py",
+            "row": "K2",
+            "span": {
+              "end_column": 0,
+              "end_line": 19,
+              "start_column": 0,
+              "start_line": 19
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "unique",
+            "file": "app/models.py",
+            "row": "K2",
+            "span": {
+              "end_column": 0,
+              "end_line": 19,
+              "start_column": 0,
+              "start_line": 19
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "default",
+            "file": "app/models.py",
+            "row": "K4",
+            "span": {
+              "end_column": 0,
+              "end_line": 19,
+              "start_column": 0,
+              "start_line": 19
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "server_default",
+            "file": "app/models.py",
+            "row": "K4",
+            "span": {
+              "end_column": 0,
+              "end_line": 19,
+              "start_column": 0,
+              "start_line": 19
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "foreign_keys",
+            "file": "app/models.py",
+            "row": "K1",
+            "span": {
+              "end_column": 0,
+              "end_line": 19,
+              "start_column": 0,
+              "start_line": 19
+            },
+            "verification": "oracle"
+          }
+        ],
+        "default": "absent",
+        "defined_in": {
+          "file": "app/models.py",
+          "line": 19
+        },
+        "foreign_keys": [],
+        "index": false,
+        "length": null,
+        "name": "created_at",
+        "nullable": true,
+        "precision": null,
+        "primary_key": false,
+        "reasons": [],
+        "scale": null,
+        "server_default": true,
+        "server_default_text": "now()",
+        "source": "model",
+        "state": "read",
+        "timezone": false,
+        "type": "DateTime",
+        "unique": false
+      },
+      "content_hash": "sha256:7c9a44a5aa2514bff15270f6449be9b5f0fb835aae4b0846247d5f5f905b1569",
+      "file": "app/models.py",
+      "identity": "column:app/models.py#User.created_at",
+      "kind": "column",
+      "level": 4,
+      "name": "created_at",
+      "qualified_name": "User.created_at",
+      "span": {
+        "end_column": 0,
+        "end_line": 19,
+        "start_column": 0,
+        "start_line": 19
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "annotation": "Optional[int]",
+        "attribute": "id",
+        "claims": [
+          {
+            "fact": "name",
+            "file": "app/models.py",
+            "row": "M2",
+            "span": {
+              "end_column": 0,
+              "end_line": 15,
+              "start_column": 0,
+              "start_line": 15
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "type",
+            "file": "app/models.py",
+            "row": "F5",
+            "span": {
+              "end_column": 0,
+              "end_line": 15,
+              "start_column": 0,
+              "start_line": 15
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "nullable",
+            "file": "app/models.py",
+            "row": "F2",
+            "span": {
+              "end_column": 0,
+              "end_line": 15,
+              "start_column": 0,
+              "start_line": 15
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "primary_key",
+            "file": "app/models.py",
+            "row": "F1",
+            "span": {
+              "end_column": 0,
+              "end_line": 15,
+              "start_column": 0,
+              "start_line": 15
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "index",
+            "file": "app/models.py",
+            "row": "F1",
+            "span": {
+              "end_column": 0,
+              "end_line": 15,
+              "start_column": 0,
+              "start_line": 15
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "unique",
+            "file": "app/models.py",
+            "row": "F1",
+            "span": {
+              "end_column": 0,
+              "end_line": 15,
+              "start_column": 0,
+              "start_line": 15
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "default",
+            "file": "app/models.py",
+            "row": "F3",
+            "span": {
+              "end_column": 0,
+              "end_line": 15,
+              "start_column": 0,
+              "start_line": 15
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "server_default",
+            "file": "app/models.py",
+            "row": "M2",
+            "span": {
+              "end_column": 0,
+              "end_line": 15,
+              "start_column": 0,
+              "start_line": 15
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "foreign_keys",
+            "file": "app/models.py",
+            "row": "M2",
+            "span": {
+              "end_column": 0,
+              "end_line": 15,
+              "start_column": 0,
+              "start_line": 15
+            },
+            "verification": "oracle"
+          }
+        ],
+        "default": "absent",
+        "defined_in": {
+          "file": "app/models.py",
+          "line": 15
+        },
+        "foreign_keys": [],
+        "index": false,
+        "length": null,
+        "name": "id",
+        "nullable": false,
+        "precision": null,
+        "primary_key": true,
+        "reasons": [],
+        "scale": null,
+        "server_default": false,
+        "source": "model",
+        "state": "read",
+        "timezone": null,
+        "type": "Integer",
+        "unique": false
+      },
+      "content_hash": "sha256:df770e8d1ac5deb557af957956ea51d70c81c8b82d46279e71acb620571693c3",
+      "file": "app/models.py",
+      "identity": "column:app/models.py#User.id",
+      "kind": "column",
+      "level": 4,
+      "name": "id",
+      "qualified_name": "User.id",
+      "span": {
+        "end_column": 0,
+        "end_line": 15,
+        "start_column": 0,
+        "start_line": 15
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "annotation": "str",
+        "attribute": "name",
+        "claims": [
+          {
+            "fact": "name",
+            "file": "app/models.py",
+            "row": "M3",
+            "span": {
+              "end_column": 0,
+              "end_line": 16,
+              "start_column": 0,
+              "start_line": 16
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "type",
+            "file": "app/models.py",
+            "row": "F5",
+            "span": {
+              "end_column": 0,
+              "end_line": 16,
+              "start_column": 0,
+              "start_line": 16
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "length",
+            "file": "app/models.py",
+            "row": "F5",
+            "span": {
+              "end_column": 0,
+              "end_line": 16,
+              "start_column": 0,
+              "start_line": 16
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "nullable",
+            "file": "app/models.py",
+            "row": "A2",
+            "span": {
+              "end_column": 0,
+              "end_line": 16,
+              "start_column": 0,
+              "start_line": 16
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "primary_key",
+            "file": "app/models.py",
+            "row": "F1",
+            "span": {
+              "end_column": 0,
+              "end_line": 16,
+              "start_column": 0,
+              "start_line": 16
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "index",
+            "file": "app/models.py",
+            "row": "F1",
+            "span": {
+              "end_column": 0,
+              "end_line": 16,
+              "start_column": 0,
+              "start_line": 16
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "unique",
+            "file": "app/models.py",
+            "row": "F1",
+            "span": {
+              "end_column": 0,
+              "end_line": 16,
+              "start_column": 0,
+              "start_line": 16
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "default",
+            "file": "app/models.py",
+            "row": "M3",
+            "span": {
+              "end_column": 0,
+              "end_line": 16,
+              "start_column": 0,
+              "start_line": 16
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "server_default",
+            "file": "app/models.py",
+            "row": "M3",
+            "span": {
+              "end_column": 0,
+              "end_line": 16,
+              "start_column": 0,
+              "start_line": 16
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "foreign_keys",
+            "file": "app/models.py",
+            "row": "M3",
+            "span": {
+              "end_column": 0,
+              "end_line": 16,
+              "start_column": 0,
+              "start_line": 16
+            },
+            "verification": "oracle"
+          }
+        ],
+        "default": "absent",
+        "defined_in": {
+          "file": "app/models.py",
+          "line": 16
+        },
+        "foreign_keys": [],
+        "index": false,
+        "length": "none",
+        "name": "name",
+        "nullable": false,
+        "precision": null,
+        "primary_key": false,
+        "reasons": [],
+        "scale": null,
+        "server_default": false,
+        "source": "model",
+        "state": "read",
+        "timezone": null,
+        "type": "AutoString",
+        "unique": false
+      },
+      "content_hash": "sha256:11102ab537012f0e6dddd96c919d60e55eb3694d243ec16874064492eb4be929",
+      "file": "app/models.py",
+      "identity": "column:app/models.py#User.name",
+      "kind": "column",
+      "level": 4,
+      "name": "name",
+      "qualified_name": "User.name",
+      "span": {
+        "end_column": 0,
+        "end_line": 16,
+        "start_column": 0,
+        "start_line": 16
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "annotation": "Optional[int]",
+        "attribute": "team_id",
+        "claims": [
+          {
+            "fact": "name",
+            "file": "app/models.py",
+            "row": "M2",
+            "span": {
+              "end_column": 0,
+              "end_line": 17,
+              "start_column": 0,
+              "start_line": 17
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "type",
+            "file": "app/models.py",
+            "row": "F5",
+            "span": {
+              "end_column": 0,
+              "end_line": 17,
+              "start_column": 0,
+              "start_line": 17
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "nullable",
+            "file": "app/models.py",
+            "row": "A1",
+            "span": {
+              "end_column": 0,
+              "end_line": 17,
+              "start_column": 0,
+              "start_line": 17
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "primary_key",
+            "file": "app/models.py",
+            "row": "F1",
+            "span": {
+              "end_column": 0,
+              "end_line": 17,
+              "start_column": 0,
+              "start_line": 17
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "index",
+            "file": "app/models.py",
+            "row": "F1",
+            "span": {
+              "end_column": 0,
+              "end_line": 17,
+              "start_column": 0,
+              "start_line": 17
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "unique",
+            "file": "app/models.py",
+            "row": "F1",
+            "span": {
+              "end_column": 0,
+              "end_line": 17,
+              "start_column": 0,
+              "start_line": 17
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "default",
+            "file": "app/models.py",
+            "row": "F3",
+            "span": {
+              "end_column": 0,
+              "end_line": 17,
+              "start_column": 0,
+              "start_line": 17
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "server_default",
+            "file": "app/models.py",
+            "row": "M2",
+            "span": {
+              "end_column": 0,
+              "end_line": 17,
+              "start_column": 0,
+              "start_line": 17
+            },
+            "verification": "oracle"
+          },
+          {
+            "fact": "foreign_keys",
+            "file": "app/models.py",
+            "row": "F4",
+            "span": {
+              "end_column": 0,
+              "end_line": 17,
+              "start_column": 0,
+              "start_line": 17
+            },
+            "verification": "oracle"
+          }
+        ],
+        "default": "absent",
+        "defined_in": {
+          "file": "app/models.py",
+          "line": 17
+        },
+        "foreign_keys": [
+          {
+            "column": "id",
+            "on_delete": null,
+            "schema": null,
+            "status": "resolved",
+            "table": "teams"
+          }
+        ],
+        "index": false,
+        "length": null,
+        "name": "team_id",
+        "nullable": true,
+        "precision": null,
+        "primary_key": false,
+        "reasons": [],
+        "scale": null,
+        "server_default": false,
+        "source": "model",
+        "state": "read",
+        "timezone": null,
+        "type": "Integer",
+        "unique": false
+      },
+      "content_hash": "sha256:a1996ce23f03678ed78c9abdbbc401de78dab47e32339e4d6133b526a8470a0a",
+      "file": "app/models.py",
+      "identity": "column:app/models.py#User.team_id",
+      "kind": "column",
+      "level": 4,
+      "name": "team_id",
+      "qualified_name": "User.team_id",
+      "span": {
+        "end_column": 0,
+        "end_line": 17,
+        "start_column": 0,
+        "start_line": 17
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "table_access": [
+          {
+            "kind": "reads_table",
+            "operations": [
+              "select"
+            ],
+            "role": "builds",
+            "rows": [
+              "CT-P1"
+            ],
+            "target": "table:app/models.py#Team",
+            "tool": "sqlmodel",
+            "verification": "oracle"
+          }
+        ]
+      },
+      "content_hash": "sha256:0e050224e83df68f50dc3e7efb8b16c841ce250ff2de7184cf3f2ad1df8ae0c2",
+      "file": "app/crud.py",
+      "identity": "constant:app/crud.py#ALL_TEAMS",
+      "kind": "constant",
+      "level": 4,
+      "name": "ALL_TEAMS",
+      "qualified_name": "ALL_TEAMS",
+      "span": {
+        "end_column": 24,
+        "end_line": 16,
+        "start_column": 0,
+        "start_line": 16
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "ecosystem": "pypi",
+        "name": "fastapi"
+      },
+      "content_hash": "sha256:718c12e5eba3db9f71e9d2b858008e23d0455c1b71d9f3f5adc4b4cb893109fc",
+      "file": ".",
+      "identity": "external:.#pypi%3Afastapi",
+      "kind": "external",
+      "level": 1,
+      "name": "fastapi",
+      "qualified_name": "pypi:fastapi",
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "ecosystem": "pypi",
+        "name": "sqlalchemy"
+      },
+      "content_hash": "sha256:11264814e3f27d70f170a9cc2e19e69c210f4e980b3f33d731c693dd9e3fa6a2",
+      "file": ".",
+      "identity": "external:.#pypi%3Asqlalchemy",
+      "kind": "external",
+      "level": 1,
+      "name": "sqlalchemy",
+      "qualified_name": "pypi:sqlalchemy",
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "ecosystem": "pypi",
+        "name": "sqlmodel"
+      },
+      "content_hash": "sha256:23d0cd01b0da19c417881cf2b98bfdac2639cb245fdacf4424fb60a82b6e1837",
+      "file": ".",
+      "identity": "external:.#pypi%3Asqlmodel",
+      "kind": "external",
+      "level": 1,
+      "name": "sqlmodel",
+      "qualified_name": "pypi:sqlmodel",
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "ecosystem": "python-stdlib",
+        "name": "datetime"
+      },
+      "content_hash": "sha256:a4b1245747365540de7b6509abbcea7ac785859785e7dc3d77cb024361448f93",
+      "file": ".",
+      "identity": "external:.#python-stdlib%3Adatetime",
+      "kind": "external",
+      "level": 1,
+      "name": "datetime",
+      "qualified_name": "python-stdlib:datetime",
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "ecosystem": "python-stdlib",
+        "name": "typing"
+      },
+      "content_hash": "sha256:035ce7a433236aafea1cb8a31fe44593bfb5a90ae7d96a8844e2796cbd32ea91",
+      "file": ".",
+      "identity": "external:.#python-stdlib%3Atyping",
+      "kind": "external",
+      "level": 1,
+      "name": "typing",
+      "qualified_name": "python-stdlib:typing",
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:aad738257b284e8e38244f2ac0623e11dbbeb320eba8a4013961092de6011bca",
+      "file": "README.md",
+      "identity": "file:README.md#README.md",
+      "kind": "file",
+      "level": 3,
+      "name": "README.md",
+      "qualified_name": "README.md",
+      "span": {
+        "end_column": 0,
+        "end_line": 20,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 6,
+        "unresolved_calls_unknown": 7,
+        "unresolved_unknown_call_sites": [
+          {
+            "caller": "function:alembic/versions/0001_backfill.py#upgrade",
+            "name": "get_bind",
+            "span": {
+              "end_column": 24,
+              "end_line": 10,
+              "start_column": 11,
+              "start_line": 10
+            }
+          },
+          {
+            "caller": "function:alembic/versions/0001_backfill.py#upgrade",
+            "name": "execute",
+            "span": {
+              "end_column": 49,
+              "end_line": 12,
+              "start_column": 4,
+              "start_line": 12
+            }
+          },
+          {
+            "caller": "function:alembic/versions/0001_backfill.py#upgrade",
+            "name": "values",
+            "span": {
+              "end_column": 48,
+              "end_line": 12,
+              "start_column": 17,
+              "start_line": 12
+            }
+          },
+          {
+            "caller": "function:alembic/versions/0001_backfill.py#upgrade",
+            "name": "update",
+            "span": {
+              "end_column": 31,
+              "end_line": 12,
+              "start_column": 17,
+              "start_line": 12
+            }
+          },
+          {
+            "caller": "function:alembic/versions/0001_backfill.py#upgrade",
+            "name": "execute",
+            "span": {
+              "end_column": 56,
+              "end_line": 13,
+              "start_column": 4,
+              "start_line": 13
+            }
+          },
+          {
+            "caller": "function:alembic/versions/0001_backfill.py#upgrade",
+            "name": "execute",
+            "span": {
+              "end_column": 44,
+              "end_line": 14,
+              "start_column": 4,
+              "start_line": 14
+            }
+          },
+          {
+            "caller": "function:alembic/versions/0001_backfill.py#downgrade",
+            "name": "add_column",
+            "span": {
+              "end_column": 87,
+              "end_line": 18,
+              "start_column": 4,
+              "start_line": 18
+            }
+          }
+        ]
+      },
+      "content_hash": "sha256:e4c806a6f8ef7de22ce262a90af1fb93596c1af7911291c1d619c84fd9ba730f",
+      "file": "alembic/versions/0001_backfill.py",
+      "identity": "file:alembic/versions/0001_backfill.py#alembic%2Fversions%2F0001_backfill.py",
+      "kind": "file",
+      "level": 3,
+      "name": "0001_backfill.py",
+      "qualified_name": "alembic/versions/0001_backfill.py",
+      "span": {
+        "end_column": 0,
+        "end_line": 19,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "file": "app/__init__.py",
+      "identity": "file:app/__init__.py#app%2F__init__.py",
+      "kind": "file",
+      "level": 3,
+      "name": "__init__.py",
+      "qualified_name": "app/__init__.py",
+      "span": {
+        "end_column": 0,
+        "end_line": 1,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 48,
+        "unresolved_calls_unknown": 76,
+        "unresolved_unknown_call_sites": [
+          {
+            "caller": "function:app/crud.py#p1_entities",
+            "name": "all",
+            "span": {
+              "end_column": 36,
+              "end_line": 20,
+              "start_column": 4,
+              "start_line": 20
+            }
+          },
+          {
+            "caller": "function:app/crud.py#p1_entities",
+            "name": "exec",
+            "span": {
+              "end_column": 30,
+              "end_line": 20,
+              "start_column": 4,
+              "start_line": 20
+            }
+          },
+          {
+            "caller": "function:app/crud.py#p1_entities",
+            "name": "exec",
+            "span": {
+              "end_column": 49,
+              "end_line": 21,
+              "start_column": 4,
+              "start_line": 21
+            }
+          },
+          {
+            "caller": "function:app/crud.py#p1_entities",
+            "name": "exec",
+            "span": {
+              "end_column": 39,
+              "end_line": 23,
+              "start_column": 4,
+              "start_line": 23
+            }
+          },
+          {
+            "caller": "function:app/crud.py#p1_entities",
+            "name": "exec",
+            "span": {
+              "end_column": 33,
+              "end_line": 24,
+              "start_column": 4,
+              "start_line": 24
+            }
+          },
+          {
+            "caller": "function:app/crud.py#p1_entities",
+            "name": "exec",
+            "span": {
+              "end_column": 33,
+              "end_line": 25,
+              "start_column": 4,
+              "start_line": 25
+            }
+          },
+          {
+            "caller": "function:app/crud.py#p1_chains",
+            "name": "exec",
+            "span": {
+              "end_column": 82,
+              "end_line": 30,
+              "start_column": 4,
+              "start_line": 30
+            }
+          },
+          {
+            "caller": "function:app/crud.py#p1_chains",
+            "name": "outerjoin",
+            "span": {
+              "end_column": 81,
+              "end_line": 30,
+              "start_column": 17,
+              "start_line": 30
+            }
+          },
+          {
+            "caller": "function:app/crud.py#p1_chains",
+            "name": "join",
+            "span": {
+              "end_column": 65,
+              "end_line": 30,
+              "start_column": 17,
+              "start_line": 30
+            }
+          },
+          {
+            "caller": "function:app/crud.py#p1_chains",
+            "name": "exec",
+            "span": {
+              "end_column": 56,
+              "end_line": 31,
+              "start_column": 4,
+              "start_line": 31
+            }
+          },
+          {
+            "caller": "function:app/crud.py#p1_chains",
+            "name": "select_from",
+            "span": {
+              "end_column": 55,
+              "end_line": 31,
+              "start_column": 17,
+              "start_line": 31
+            }
+          },
+          {
+            "caller": "function:app/crud.py#p1_chains",
+            "name": "exec",
+            "span": {
+              "end_column": 55,
+              "end_line": 32,
+              "start_column": 4,
+              "start_line": 32
+            }
+          },
+          {
+            "caller": "function:app/crud.py#p1_chains",
+            "name": "join_from",
+            "span": {
+              "end_column": 54,
+              "end_line": 32,
+              "start_column": 17,
+              "start_line": 32
+            }
+          },
+          {
+            "caller": "function:app/crud.py#p1_refusals",
+            "name": "exec",
+            "span": {
+              "end_column": 38,
+              "end_line": 36,
+              "start_column": 4,
+              "start_line": 36
+            }
+          },
+          {
+            "caller": "function:app/crud.py#p1_refusals",
+            "name": "exec",
+            "span": {
+              "end_column": 49,
+              "end_line": 37,
+              "start_column": 4,
+              "start_line": 37
+            }
+          },
+          {
+            "caller": "function:app/crud.py#p1_refusals",
+            "name": "exec",
+            "span": {
+              "end_column": 31,
+              "end_line": 38,
+              "start_column": 4,
+              "start_line": 38
+            }
+          },
+          {
+            "caller": "function:app/crud.py#p1_builder",
+            "name": "where",
+            "span": {
+              "end_column": 42,
+              "end_line": 42,
+              "start_column": 11,
+              "start_line": 42
+            }
+          },
+          {
+            "caller": "function:app/crud.py#p2_writes",
+            "name": "exec",
+            "span": {
+              "end_column": 47,
+              "end_line": 46,
+              "start_column": 4,
+              "start_line": 46
+            }
+          },
+          {
+            "caller": "function:app/crud.py#p2_writes",
+            "name": "values",
+            "span": {
+              "end_column": 46,
+              "end_line": 46,
+              "start_column": 17,
+              "start_line": 46
+            }
+          },
+          {
+            "caller": "function:app/crud.py#p2_writes",
+            "name": "exec",
+            "span": {
+              "end_column": 67,
+              "end_line": 47,
+              "start_column": 4,
+              "start_line": 47
+            }
+          },
+          {
+            "caller": "function:app/crud.py#p2_writes",
+            "name": "values",
+            "span": {
+              "end_column": 66,
+              "end_line": 47,
+              "start_column": 17,
+              "start_line": 47
+            }
+          },
+          {
+            "caller": "function:app/crud.py#p2_writes",
+            "name": "where",
+            "span": {
+              "end_column": 49,
+              "end_line": 47,
+              "start_column": 17,
+              "start_line": 47
+            }
+          },
+          {
+            "caller": "function:app/crud.py#p2_writes",
+            "name": "exec",
+            "span": {
+              "end_column": 50,
+              "end_line": 48,
+              "start_column": 4,
+              "start_line": 48
+            }
+          },
+          {
+            "caller": "function:app/crud.py#p2_writes",
+            "name": "where",
+            "span": {
+              "end_column": 49,
+              "end_line": 48,
+              "start_column": 17,
+              "start_line": 48
+            }
+          },
+          {
+            "caller": "function:app/crud.py#p2_writes",
+            "name": "exec",
+            "span": {
+              "end_column": 121,
+              "end_line": 49,
+              "start_column": 4,
+              "start_line": 49
+            }
+          },
+          {
+            "caller": "function:app/crud.py#p2_writes",
+            "name": "on_conflict_do_update",
+            "span": {
+              "end_column": 120,
+              "end_line": 49,
+              "start_column": 17,
+              "start_line": 49
+            }
+          },
+          {
+            "caller": "function:app/crud.py#p2_writes",
+            "name": "values",
+            "span": {
+              "end_column": 55,
+              "end_line": 49,
+              "start_column": 17,
+              "start_line": 49
+            }
+          },
+          {
+            "caller": "function:app/crud.py#p2_writes",
+            "name": "exec",
+            "span": {
+              "end_column": 75,
+              "end_line": 50,
+              "start_column": 4,
+              "start_line": 50
+            }
+          },
+          {
+            "caller": "function:app/crud.py#p2_writes",
+            "name": "exec",
+            "span": {
+              "end_column": 55,
+              "end_line": 51,
+              "start_column": 4,
+              "start_line": 51
+            }
+          },
+          {
+            "caller": "function:app/crud.py#p2_writes",
+            "name": "values",
+            "span": {
+              "end_column": 54,
+              "end_line": 51,
+              "start_column": 17,
+              "start_line": 51
+            }
+          },
+          {
+            "caller": "function:app/crud.py#p3_gets",
+            "name": "get",
+            "span": {
+              "end_column": 24,
+              "end_line": 55,
+              "start_column": 4,
+              "start_line": 55
+            }
+          },
+          {
+            "caller": "function:app/crud.py#p3_gets",
+            "name": "get_one",
+            "span": {
+              "end_column": 28,
+              "end_line": 56,
+              "start_column": 4,
+              "start_line": 56
+            }
+          },
+          {
+            "caller": "function:app/crud.py#p3_gets",
+            "name": "get",
+            "span": {
+              "end_column": 19,
+              "end_line": 57,
+              "start_column": 4,
+              "start_line": 57
+            }
+          },
+          {
+            "caller": "function:app/crud.py#p3_gets",
+            "name": "get",
+            "span": {
+              "end_column": 22,
+              "end_line": 58,
+              "start_column": 4,
+              "start_line": 58
+            }
+          },
+          {
+            "caller": "function:app/crud.py#p3_gets",
+            "name": "get",
+            "span": {
+              "end_column": 23,
+              "end_line": 59,
+              "start_column": 4,
+              "start_line": 59
+            }
+          },
+          {
+            "caller": "function:app/crud.py#p3_gets",
+            "name": "get",
+            "span": {
+              "end_column": 14,
+              "end_line": 61,
+              "start_column": 4,
+              "start_line": 61
+            }
+          },
+          {
+            "caller": "method:app/crud.py#Repository.find",
+            "name": "get",
+            "span": {
+              "end_column": 46,
+              "end_line": 69,
+              "start_column": 15,
+              "start_line": 69
+            }
+          },
+          {
+            "caller": "function:app/crud.py#p4_objects",
+            "name": "add",
+            "span": {
+              "end_column": 31,
+              "end_line": 73,
+              "start_column": 4,
+              "start_line": 73
+            }
+          },
+          {
+            "caller": "function:app/crud.py#p4_objects",
+            "name": "add",
+            "span": {
+              "end_column": 45,
+              "end_line": 74,
+              "start_column": 4,
+              "start_line": 74
+            }
+          },
+          {
+            "caller": "function:app/crud.py#p4_objects",
+            "name": "model_validate",
+            "span": {
+              "end_column": 44,
+              "end_line": 74,
+              "start_column": 16,
+              "start_line": 74
+            }
+          },
+          {
+            "caller": "function:app/crud.py#p4_objects",
+            "name": "add",
+            "span": {
+              "end_column": 39,
+              "end_line": 75,
+              "start_column": 4,
+              "start_line": 75
+            }
+          },
+          {
+            "caller": "function:app/crud.py#p4_objects",
+            "name": "from_orm",
+            "span": {
+              "end_column": 38,
+              "end_line": 75,
+              "start_column": 16,
+              "start_line": 75
+            }
+          },
+          {
+            "caller": "function:app/crud.py#p4_objects",
+            "name": "add",
+            "span": {
+              "end_column": 21,
+              "end_line": 77,
+              "start_column": 4,
+              "start_line": 77
+            }
+          },
+          {
+            "caller": "function:app/crud.py#p4_objects",
+            "name": "merge",
+            "span": {
+              "end_column": 23,
+              "end_line": 78,
+              "start_column": 4,
+              "start_line": 78
+            }
+          },
+          {
+            "caller": "function:app/crud.py#p4_objects",
+            "name": "delete",
+            "span": {
+              "end_column": 24,
+              "end_line": 79,
+              "start_column": 4,
+              "start_line": 79
+            }
+          },
+          {
+            "caller": "function:app/crud.py#p4_objects",
+            "name": "add_all",
+            "span": {
+              "end_column": 53,
+              "end_line": 80,
+              "start_column": 4,
+              "start_line": 80
+            }
+          },
+          {
+            "caller": "function:app/crud.py#p4_objects",
+            "name": "refresh",
+            "span": {
+              "end_column": 28,
+              "end_line": 82,
+              "start_column": 8,
+              "start_line": 82
+            }
+          },
+          {
+            "caller": "function:app/crud.py#p4_objects",
+            "name": "add_all",
+            "span": {
+              "end_column": 25,
+              "end_line": 83,
+              "start_column": 4,
+              "start_line": 83
+            }
+          },
+          {
+            "caller": "function:app/crud.py#p4_objects",
+            "name": "add",
+            "span": {
+              "end_column": 22,
+              "end_line": 84,
+              "start_column": 4,
+              "start_line": 84
+            }
+          },
+          {
+            "caller": "function:app/crud.py#p4_objects",
+            "name": "add",
+            "span": {
+              "end_column": 24,
+              "end_line": 85,
+              "start_column": 4,
+              "start_line": 85
+            }
+          },
+          {
+            "caller": "function:app/crud.py#p4_unannotated",
+            "name": "refresh",
+            "span": {
+              "end_column": 25,
+              "end_line": 89,
+              "start_column": 4,
+              "start_line": 89
+            }
+          },
+          {
+            "caller": "function:app/crud.py#p4_unannotated",
+            "name": "add",
+            "span": {
+              "end_column": 18,
+              "end_line": 91,
+              "start_column": 4,
+              "start_line": 91
+            }
+          },
+          {
+            "caller": "function:app/crud.py#p5_text",
+            "name": "exec",
+            "span": {
+              "end_column": 67,
+              "end_line": 95,
+              "start_column": 4,
+              "start_line": 95
+            }
+          },
+          {
+            "caller": "function:app/crud.py#p5_text",
+            "name": "execute",
+            "span": {
+              "end_column": 102,
+              "end_line": 96,
+              "start_column": 4,
+              "start_line": 96
+            }
+          },
+          {
+            "caller": "function:app/crud.py#p5_text",
+            "name": "exec",
+            "span": {
+              "end_column": 53,
+              "end_line": 97,
+              "start_column": 4,
+              "start_line": 97
+            }
+          },
+          {
+            "caller": "function:app/crud.py#p5_text",
+            "name": "exec",
+            "span": {
+              "end_column": 68,
+              "end_line": 98,
+              "start_column": 4,
+              "start_line": 98
+            }
+          },
+          {
+            "caller": "function:app/crud.py#p5_text",
+            "name": "exec",
+            "span": {
+              "end_column": 52,
+              "end_line": 99,
+              "start_column": 4,
+              "start_line": 99
+            }
+          },
+          {
+            "caller": "function:app/crud.py#p5_text",
+            "name": "exec",
+            "span": {
+              "end_column": 38,
+              "end_line": 100,
+              "start_column": 4,
+              "start_line": 100
+            }
+          },
+          {
+            "caller": "function:app/crud.py#executions",
+            "name": "exec",
+            "span": {
+              "end_column": 23,
+              "end_line": 105,
+              "start_column": 4,
+              "start_line": 105
+            }
+          },
+          {
+            "caller": "function:app/crud.py#executions",
+            "name": "exec",
+            "span": {
+              "end_column": 22,
+              "end_line": 106,
+              "start_column": 4,
+              "start_line": 106
+            }
+          },
+          {
+            "caller": "function:app/crud.py#executions",
+            "name": "exec",
+            "span": {
+              "end_column": 30,
+              "end_line": 107,
+              "start_column": 4,
+              "start_line": 107
+            }
+          },
+          {
+            "caller": "function:app/crud.py#executions_local",
+            "name": "where",
+            "span": {
+              "end_column": 48,
+              "end_line": 113,
+              "start_column": 16,
+              "start_line": 113
+            }
+          },
+          {
+            "caller": "function:app/crud.py#executions_local",
+            "name": "all",
+            "span": {
+              "end_column": 33,
+              "end_line": 114,
+              "start_column": 4,
+              "start_line": 114
+            }
+          },
+          {
+            "caller": "function:app/crud.py#executions_local",
+            "name": "exec",
+            "span": {
+              "end_column": 27,
+              "end_line": 114,
+              "start_column": 4,
+              "start_line": 114
+            }
+          },
+          {
+            "caller": "function:app/crud.py#executions_local",
+            "name": "exec",
+            "span": {
+              "end_column": 23,
+              "end_line": 119,
+              "start_column": 4,
+              "start_line": 119
+            }
+          },
+          {
+            "caller": "function:app/crud.py#executions_local",
+            "name": "exec",
+            "span": {
+              "end_column": 23,
+              "end_line": 122,
+              "start_column": 4,
+              "start_line": 122
+            }
+          },
+          {
+            "caller": "function:app/crud.py#shadowed",
+            "name": "exec",
+            "span": {
+              "end_column": 34,
+              "end_line": 131,
+              "start_column": 8,
+              "start_line": 131
+            }
+          },
+          {
+            "caller": "function:app/crud.py#keyword_tables",
+            "name": "exec",
+            "span": {
+              "end_column": 44,
+              "end_line": 139,
+              "start_column": 4,
+              "start_line": 139
+            }
+          },
+          {
+            "caller": "function:app/crud.py#keyword_tables",
+            "name": "exec",
+            "span": {
+              "end_column": 47,
+              "end_line": 140,
+              "start_column": 4,
+              "start_line": 140
+            }
+          },
+          {
+            "caller": "function:app/crud.py#write_predicates",
+            "name": "exec",
+            "span": {
+              "end_column": 78,
+              "end_line": 147,
+              "start_column": 4,
+              "start_line": 147
+            }
+          },
+          {
+            "caller": "function:app/crud.py#write_predicates",
+            "name": "values",
+            "span": {
+              "end_column": 77,
+              "end_line": 147,
+              "start_column": 17,
+              "start_line": 147
+            }
+          },
+          {
+            "caller": "function:app/crud.py#write_predicates",
+            "name": "where",
+            "span": {
+              "end_column": 60,
+              "end_line": 147,
+              "start_column": 17,
+              "start_line": 147
+            }
+          },
+          {
+            "caller": "function:app/crud.py#write_predicates",
+            "name": "is_not",
+            "span": {
+              "end_column": 59,
+              "end_line": 147,
+              "start_column": 36,
+              "start_line": 147
+            }
+          },
+          {
+            "caller": "function:app/crud.py#write_predicates",
+            "name": "exec",
+            "span": {
+              "end_column": 79,
+              "end_line": 148,
+              "start_column": 4,
+              "start_line": 148
+            }
+          },
+          {
+            "caller": "function:app/crud.py#write_predicates",
+            "name": "values",
+            "span": {
+              "end_column": 78,
+              "end_line": 148,
+              "start_column": 17,
+              "start_line": 148
+            }
+          },
+          {
+            "caller": "function:app/crud.py#write_predicates",
+            "name": "where",
+            "span": {
+              "end_column": 61,
+              "end_line": 148,
+              "start_column": 17,
+              "start_line": 148
+            }
+          }
+        ]
+      },
+      "content_hash": "sha256:ba8883e295a8720eecbae28a871a4ec4b4f2f4619301bf001d79e16c039eaef9",
+      "file": "app/crud.py",
+      "identity": "file:app/crud.py#app%2Fcrud.py",
+      "kind": "file",
+      "level": 3,
+      "name": "crud.py",
+      "qualified_name": "app/crud.py",
+      "span": {
+        "end_column": 0,
+        "end_line": 149,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 2,
+        "unresolved_unknown_call_sites": [
+          {
+            "caller": "function:app/gq.py#create_user",
+            "name": "add",
+            "span": {
+              "end_column": 35,
+              "end_line": 6,
+              "start_column": 4,
+              "start_line": 6
+            }
+          },
+          {
+            "caller": "function:app/gq.py#create_user",
+            "name": "get",
+            "span": {
+              "end_column": 34,
+              "end_line": 7,
+              "start_column": 11,
+              "start_line": 7
+            }
+          }
+        ]
+      },
+      "content_hash": "sha256:0ce8d24a3f5e08f5c04b6c5d0e41f66763bab6e313560c7c283857fdddd36ec4",
+      "file": "app/gq.py",
+      "identity": "file:app/gq.py#app%2Fgq.py",
+      "kind": "file",
+      "level": 3,
+      "name": "gq.py",
+      "qualified_name": "app/gq.py",
+      "span": {
+        "end_column": 0,
+        "end_line": 8,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 10,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:b5384dd40c1fc41c9c02a79f9bcee9a063bd6f2cba6481f7d83d1966b40e0939",
+      "file": "app/models.py",
+      "identity": "file:app/models.py#app%2Fmodels.py",
+      "kind": "file",
+      "level": 3,
+      "name": "models.py",
+      "qualified_name": "app/models.py",
+      "span": {
+        "end_column": 0,
+        "end_line": 33,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 1,
+        "unresolved_calls_unknown": 2,
+        "unresolved_unknown_call_sites": [
+          {
+            "caller": "function:tests/test_crud.py#test_list_users",
+            "name": "all",
+            "span": {
+              "end_column": 43,
+              "end_line": 7,
+              "start_column": 11,
+              "start_line": 7
+            }
+          },
+          {
+            "caller": "function:tests/test_crud.py#test_list_users",
+            "name": "exec",
+            "span": {
+              "end_column": 37,
+              "end_line": 7,
+              "start_column": 11,
+              "start_line": 7
+            }
+          }
+        ]
+      },
+      "content_hash": "sha256:71aed50bb3247d0c45896511ed02d3be68b422f790cb3ae71ab6bf5f183ebf2d",
+      "file": "tests/test_crud.py",
+      "identity": "file:tests/test_crud.py#tests%2Ftest_crud.py",
+      "kind": "file",
+      "level": 3,
+      "name": "test_crud.py",
+      "qualified_name": "tests/test_crud.py",
+      "span": {
+        "end_column": 0,
+        "end_line": 8,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:5aa18b515e68d6c46b77a7951bc15a397d264bc2932a60e13253976daa564b2c",
+      "file": "alembic/versions/0001_backfill.py",
+      "identity": "function:alembic/versions/0001_backfill.py#downgrade",
+      "kind": "function",
+      "level": 4,
+      "name": "downgrade",
+      "qualified_name": "downgrade",
+      "span": {
+        "end_column": 87,
+        "end_line": 18,
+        "start_column": 0,
+        "start_line": 17
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "table_access_unknown": [
+          {
+            "candidates": null,
+            "line": 12,
+            "partial": false,
+            "reason": "statement_not_traced",
+            "row": "D",
+            "span": {
+              "end_column": 49,
+              "end_line": 12,
+              "start_column": 4,
+              "start_line": 12
+            },
+            "tool": "sqlmodel"
+          },
+          {
+            "candidates": null,
+            "line": 13,
+            "partial": false,
+            "reason": "no_schema_source: an Alembic revision module runs against the schema at its revision",
+            "row": "CT-P5",
+            "span": {
+              "end_column": 55,
+              "end_line": 13,
+              "start_column": 17,
+              "start_line": 13
+            },
+            "tool": "sql"
+          },
+          {
+            "candidates": null,
+            "line": 14,
+            "partial": false,
+            "reason": "statement_not_traced",
+            "row": "D",
+            "span": {
+              "end_column": 44,
+              "end_line": 14,
+              "start_column": 4,
+              "start_line": 14
+            },
+            "tool": "sqlmodel"
+          }
+        ]
+      },
+      "content_hash": "sha256:2dcfe6efef96b0d78bff1bc7759398220e753e21ce6680e0beb1c83e5027a781",
+      "file": "alembic/versions/0001_backfill.py",
+      "identity": "function:alembic/versions/0001_backfill.py#upgrade",
+      "kind": "function",
+      "level": 4,
+      "name": "upgrade",
+      "qualified_name": "upgrade",
+      "span": {
+        "end_column": 44,
+        "end_line": 14,
+        "start_column": 0,
+        "start_line": 9
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "table_access": [
+          {
+            "kind": "reads_table",
+            "operations": [
+              "select"
+            ],
+            "role": "executes",
+            "rows": [
+              "CT-P1"
+            ],
+            "target": "table:app/models.py#Team",
+            "tool": "sqlmodel",
+            "verification": "oracle"
+          }
+        ],
+        "table_access_unknown": [
+          {
+            "candidates": null,
+            "line": 106,
+            "partial": false,
+            "reason": "statement_not_traced",
+            "row": "D",
+            "span": {
+              "end_column": 22,
+              "end_line": 106,
+              "start_column": 4,
+              "start_line": 106
+            },
+            "tool": "sqlmodel"
+          },
+          {
+            "candidates": null,
+            "line": 107,
+            "partial": false,
+            "reason": "statement_not_traced",
+            "row": "D",
+            "span": {
+              "end_column": 30,
+              "end_line": 107,
+              "start_column": 4,
+              "start_line": 107
+            },
+            "tool": "sqlmodel"
+          }
+        ]
+      },
+      "content_hash": "sha256:e44279fd72e44645df77901fe86177a9c37d58547169ea4e63c79b98e6ab8580",
+      "file": "app/crud.py",
+      "identity": "function:app/crud.py#executions",
+      "kind": "function",
+      "level": 4,
+      "name": "executions",
+      "qualified_name": "executions",
+      "span": {
+        "end_column": 30,
+        "end_line": 107,
+        "start_column": 0,
+        "start_line": 103
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "table_access": [
+          {
+            "kind": "reads_table",
+            "operations": [
+              "select"
+            ],
+            "role": "builds",
+            "rows": [
+              "CT-P1"
+            ],
+            "target": "table:app/models.py#Item",
+            "tool": "sqlmodel",
+            "verification": "oracle"
+          },
+          {
+            "kind": "reads_table",
+            "operations": [
+              "select"
+            ],
+            "role": "builds",
+            "rows": [
+              "CT-P1"
+            ],
+            "target": "table:app/models.py#Team",
+            "tool": "sqlmodel",
+            "verification": "oracle"
+          },
+          {
+            "kind": "reads_table",
+            "operations": [
+              "select"
+            ],
+            "role": "executes",
+            "rows": [
+              "CT-P1"
+            ],
+            "target": "table:app/models.py#User",
+            "tool": "sqlmodel",
+            "verification": "oracle"
+          },
+          {
+            "kind": "writes_table",
+            "operations": [
+              "delete"
+            ],
+            "role": "builds",
+            "rows": [
+              "CT-P2"
+            ],
+            "target": "table:app/models.py#Item",
+            "tool": "sqlmodel",
+            "verification": "oracle"
+          }
+        ],
+        "table_access_unknown": [
+          {
+            "candidates": null,
+            "line": 119,
+            "partial": false,
+            "reason": "statement_not_traced",
+            "row": "D",
+            "span": {
+              "end_column": 23,
+              "end_line": 119,
+              "start_column": 4,
+              "start_line": 119
+            },
+            "tool": "sqlmodel"
+          },
+          {
+            "candidates": null,
+            "line": 122,
+            "partial": false,
+            "reason": "statement_not_traced",
+            "row": "D",
+            "span": {
+              "end_column": 23,
+              "end_line": 122,
+              "start_column": 4,
+              "start_line": 122
+            },
+            "tool": "sqlmodel"
+          }
+        ]
+      },
+      "content_hash": "sha256:800fb56c0eae7a237bb3e79b01407b06a1da5eb804b4b0aabe7f339eee7a84a5",
+      "file": "app/crud.py",
+      "identity": "function:app/crud.py#executions_local",
+      "kind": "function",
+      "level": 4,
+      "name": "executions_local",
+      "qualified_name": "executions_local",
+      "span": {
+        "end_column": 23,
+        "end_line": 122,
+        "start_column": 0,
+        "start_line": 110
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "table_access": [
+          {
+            "assumes": [
+              "TA-V1"
+            ],
+            "kind": "reads_table",
+            "operations": [
+              "select"
+            ],
+            "role": "executes",
+            "rows": [
+              "CT-P5",
+              "CT-Q1",
+              "CT-Q2"
+            ],
+            "target": "table:app/models.py#User",
+            "tool": "sql",
+            "verification": "oracle"
+          }
+        ]
+      },
+      "content_hash": "sha256:a25f8857a4a1e662a616eff5ed6185b7ecbe2a8961c7365c160fab87d86ced1a",
+      "file": "app/crud.py",
+      "identity": "function:app/crud.py#keyword_tables",
+      "kind": "function",
+      "level": 4,
+      "name": "keyword_tables",
+      "qualified_name": "keyword_tables",
+      "span": {
+        "end_column": 47,
+        "end_line": 140,
+        "start_column": 0,
+        "start_line": 136
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "table_access": [
+          {
+            "kind": "reads_table",
+            "operations": [
+              "select"
+            ],
+            "role": "builds",
+            "rows": [
+              "CT-P1"
+            ],
+            "target": "table:app/models.py#Item",
+            "tool": "sqlmodel",
+            "verification": "oracle"
+          }
+        ]
+      },
+      "content_hash": "sha256:b1868289c778dce6e53f049300830777830d39d93807b7887d7af02e56228a56",
+      "file": "app/crud.py",
+      "identity": "function:app/crud.py#p1_builder",
+      "kind": "function",
+      "level": 4,
+      "name": "p1_builder",
+      "qualified_name": "p1_builder",
+      "span": {
+        "end_column": 42,
+        "end_line": 42,
+        "start_column": 0,
+        "start_line": 41
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "table_access": [
+          {
+            "kind": "reads_table",
+            "operations": [
+              "select"
+            ],
+            "role": "executes",
+            "rows": [
+              "CT-P1"
+            ],
+            "target": "table:app/models.py#Item",
+            "tool": "sqlmodel",
+            "verification": "oracle"
+          },
+          {
+            "kind": "reads_table",
+            "operations": [
+              "select"
+            ],
+            "role": "executes",
+            "rows": [
+              "CT-P1"
+            ],
+            "target": "table:app/models.py#Team",
+            "tool": "sqlmodel",
+            "verification": "oracle"
+          },
+          {
+            "kind": "reads_table",
+            "operations": [
+              "select"
+            ],
+            "role": "executes",
+            "rows": [
+              "CT-P1"
+            ],
+            "target": "table:app/models.py#User",
+            "tool": "sqlmodel",
+            "verification": "oracle"
+          }
+        ]
+      },
+      "content_hash": "sha256:4c4e679472f513334de5a5af84d8b70fb992e1cc26aca58a39a58df950846e94",
+      "file": "app/crud.py",
+      "identity": "function:app/crud.py#p1_chains",
+      "kind": "function",
+      "level": 4,
+      "name": "p1_chains",
+      "qualified_name": "p1_chains",
+      "span": {
+        "end_column": 55,
+        "end_line": 32,
+        "start_column": 0,
+        "start_line": 29
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "table_access": [
+          {
+            "kind": "reads_table",
+            "operations": [
+              "select"
+            ],
+            "role": "executes",
+            "rows": [
+              "CT-P1"
+            ],
+            "target": "table:app/models.py#Item",
+            "tool": "sqlmodel",
+            "verification": "oracle"
+          },
+          {
+            "kind": "reads_table",
+            "operations": [
+              "select"
+            ],
+            "role": "executes",
+            "rows": [
+              "CT-P1"
+            ],
+            "target": "table:app/models.py#Team",
+            "tool": "sqlmodel",
+            "verification": "oracle"
+          },
+          {
+            "kind": "reads_table",
+            "operations": [
+              "select"
+            ],
+            "role": "executes",
+            "rows": [
+              "CT-P1"
+            ],
+            "target": "table:app/models.py#User",
+            "tool": "sqlmodel",
+            "verification": "oracle"
+          }
+        ]
+      },
+      "content_hash": "sha256:c30cb37e3e4096c4b42c71e0438b148eb9d5f2812d085419e0e10099904ac338",
+      "file": "app/crud.py",
+      "identity": "function:app/crud.py#p1_entities",
+      "kind": "function",
+      "level": 4,
+      "name": "p1_entities",
+      "qualified_name": "p1_entities",
+      "span": {
+        "end_column": 15,
+        "end_line": 26,
+        "start_column": 0,
+        "start_line": 19
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "table_access": [
+          {
+            "kind": "reads_table",
+            "operations": [
+              "select"
+            ],
+            "role": "executes",
+            "rows": [
+              "CT-P1"
+            ],
+            "target": "table:app/models.py#User",
+            "tool": "sqlmodel",
+            "verification": "oracle"
+          }
+        ],
+        "table_access_unknown": [
+          {
+            "candidates": null,
+            "line": 36,
+            "partial": false,
+            "reason": "entity_unresolved",
+            "row": "CT-P1",
+            "span": {
+              "end_column": 37,
+              "end_line": 36,
+              "start_column": 17,
+              "start_line": 36
+            },
+            "tool": "sqlmodel"
+          },
+          {
+            "candidates": [
+              "table:app/models.py#Item"
+            ],
+            "line": 37,
+            "partial": true,
+            "reason": "site_partial: a function entity names a model the row does not claim (implicit FROM)",
+            "row": "CT-P1",
+            "span": {
+              "end_column": 48,
+              "end_line": 37,
+              "start_column": 17,
+              "start_line": 37
+            },
+            "tool": "sqlmodel"
+          },
+          {
+            "candidates": null,
+            "line": 38,
+            "partial": false,
+            "reason": "entity_unresolved",
+            "row": "CT-P1",
+            "span": {
+              "end_column": 30,
+              "end_line": 38,
+              "start_column": 17,
+              "start_line": 38
+            },
+            "tool": "sqlmodel"
+          }
+        ]
+      },
+      "content_hash": "sha256:dcb7776e54acb3f0dbf4866783f329d9d3831988965f4c09febcf2e2e69985d0",
+      "file": "app/crud.py",
+      "identity": "function:app/crud.py#p1_refusals",
+      "kind": "function",
+      "level": 4,
+      "name": "p1_refusals",
+      "qualified_name": "p1_refusals",
+      "span": {
+        "end_column": 31,
+        "end_line": 38,
+        "start_column": 0,
+        "start_line": 35
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "table_access": [
+          {
+            "kind": "reads_table",
+            "operations": [
+              "select"
+            ],
+            "role": "executes",
+            "rows": [
+              "CT-P1"
+            ],
+            "target": "table:app/models.py#Team",
+            "tool": "sqlmodel",
+            "verification": "oracle"
+          },
+          {
+            "kind": "writes_table",
+            "operations": [
+              "delete",
+              "insert"
+            ],
+            "role": "executes",
+            "rows": [
+              "CT-P2"
+            ],
+            "target": "table:app/models.py#Item",
+            "tool": "sqlmodel",
+            "verification": "oracle"
+          },
+          {
+            "kind": "writes_table",
+            "operations": [
+              "update"
+            ],
+            "role": "executes",
+            "rows": [
+              "CT-P2"
+            ],
+            "target": "table:app/models.py#Team",
+            "tool": "sqlmodel",
+            "verification": "oracle"
+          },
+          {
+            "kind": "writes_table",
+            "operations": [
+              "insert",
+              "upsert"
+            ],
+            "role": "executes",
+            "rows": [
+              "CT-P2"
+            ],
+            "target": "table:app/models.py#User",
+            "tool": "sqlmodel",
+            "verification": "oracle"
+          }
+        ],
+        "table_access_unknown": [
+          {
+            "candidates": null,
+            "line": 51,
+            "partial": false,
+            "reason": "entity_unresolved",
+            "row": "CT-P2",
+            "span": {
+              "end_column": 54,
+              "end_line": 51,
+              "start_column": 17,
+              "start_line": 51
+            },
+            "tool": "sqlmodel"
+          }
+        ]
+      },
+      "content_hash": "sha256:4ca346f09a9795cafdd72e15cff7c563de39c282088ffaeaecc1caec0b6910db",
+      "file": "app/crud.py",
+      "identity": "function:app/crud.py#p2_writes",
+      "kind": "function",
+      "level": 4,
+      "name": "p2_writes",
+      "qualified_name": "p2_writes",
+      "span": {
+        "end_column": 55,
+        "end_line": 51,
+        "start_column": 0,
+        "start_line": 45
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "table_access": [
+          {
+            "assumes": [
+              "TA-V3c"
+            ],
+            "kind": "reads_table",
+            "operations": [
+              "get"
+            ],
+            "role": "executes",
+            "rows": [
+              "CT-P3"
+            ],
+            "target": "table:app/models.py#Item",
+            "tool": "sqlmodel",
+            "verification": "mapped"
+          },
+          {
+            "kind": "reads_table",
+            "operations": [
+              "get"
+            ],
+            "role": "executes",
+            "rows": [
+              "CT-P3"
+            ],
+            "target": "table:app/models.py#Team",
+            "tool": "sqlmodel",
+            "verification": "mapped"
+          },
+          {
+            "kind": "reads_table",
+            "operations": [
+              "get"
+            ],
+            "role": "executes",
+            "rows": [
+              "CT-P3"
+            ],
+            "target": "table:app/models.py#User",
+            "tool": "sqlmodel",
+            "verification": "mapped"
+          }
+        ]
+      },
+      "content_hash": "sha256:601b4db387c53b296d846ada0ccd2bab9c410f9f0e0deb8875defe9b18c09227",
+      "file": "app/crud.py",
+      "identity": "function:app/crud.py#p3_gets",
+      "kind": "function",
+      "level": 4,
+      "name": "p3_gets",
+      "qualified_name": "p3_gets",
+      "span": {
+        "end_column": 14,
+        "end_line": 61,
+        "start_column": 0,
+        "start_line": 54
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "table_access": [
+          {
+            "kind": "writes_table",
+            "operations": [
+              "add",
+              "delete"
+            ],
+            "role": "executes",
+            "rows": [
+              "CT-P4"
+            ],
+            "target": "table:app/models.py#Item",
+            "tool": "sqlmodel",
+            "verification": "mapped"
+          },
+          {
+            "kind": "writes_table",
+            "operations": [
+              "add",
+              "merge"
+            ],
+            "role": "executes",
+            "rows": [
+              "CT-P4"
+            ],
+            "target": "table:app/models.py#Team",
+            "tool": "sqlmodel",
+            "verification": "mapped"
+          },
+          {
+            "kind": "writes_table",
+            "operations": [
+              "add"
+            ],
+            "role": "executes",
+            "rows": [
+              "CT-P4"
+            ],
+            "target": "table:app/models.py#User",
+            "tool": "sqlmodel",
+            "verification": "mapped"
+          }
+        ],
+        "table_access_unknown": [
+          {
+            "candidates": null,
+            "line": 82,
+            "partial": false,
+            "reason": "object_class_unproven",
+            "row": "CT-P4",
+            "span": {
+              "end_column": 28,
+              "end_line": 82,
+              "start_column": 8,
+              "start_line": 82
+            },
+            "tool": "sqlmodel"
+          },
+          {
+            "candidates": null,
+            "line": 83,
+            "partial": false,
+            "reason": "object_class_unproven",
+            "row": "CT-P4",
+            "span": {
+              "end_column": 25,
+              "end_line": 83,
+              "start_column": 4,
+              "start_line": 83
+            },
+            "tool": "sqlmodel"
+          },
+          {
+            "candidates": null,
+            "line": 84,
+            "partial": false,
+            "reason": "object_class_unproven",
+            "row": "CT-P4",
+            "span": {
+              "end_column": 22,
+              "end_line": 84,
+              "start_column": 4,
+              "start_line": 84
+            },
+            "tool": "sqlmodel"
+          },
+          {
+            "candidates": null,
+            "line": 85,
+            "partial": false,
+            "reason": "object_class_unproven",
+            "row": "CT-P4",
+            "span": {
+              "end_column": 24,
+              "end_line": 85,
+              "start_column": 4,
+              "start_line": 85
+            },
+            "tool": "sqlmodel"
+          }
+        ]
+      },
+      "content_hash": "sha256:7721f8b03383e29054fa079b9afd4df48a8c692c09c74eb03c9eb630ca277a06",
+      "file": "app/crud.py",
+      "identity": "function:app/crud.py#p4_objects",
+      "kind": "function",
+      "level": 4,
+      "name": "p4_objects",
+      "qualified_name": "p4_objects",
+      "span": {
+        "end_column": 24,
+        "end_line": 85,
+        "start_column": 0,
+        "start_line": 72
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "table_access_unknown": [
+          {
+            "candidates": null,
+            "line": 89,
+            "partial": false,
+            "reason": "object_class_unproven",
+            "row": "CT-P4",
+            "span": {
+              "end_column": 25,
+              "end_line": 89,
+              "start_column": 4,
+              "start_line": 89
+            },
+            "tool": "sqlmodel"
+          }
+        ]
+      },
+      "content_hash": "sha256:21e5decd9f6234acf817f32b2676c7c1f066c8aa9de29ce6bf5fb29eb90276a7",
+      "file": "app/crud.py",
+      "identity": "function:app/crud.py#p4_unannotated",
+      "kind": "function",
+      "level": 4,
+      "name": "p4_unannotated",
+      "qualified_name": "p4_unannotated",
+      "span": {
+        "end_column": 18,
+        "end_line": 91,
+        "start_column": 0,
+        "start_line": 88
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "table_access": [
+          {
+            "assumes": [
+              "TA-V1"
+            ],
+            "kind": "reads_table",
+            "operations": [
+              "select"
+            ],
+            "role": "executes",
+            "rows": [
+              "CT-P5",
+              "CT-Q1",
+              "CT-Q2"
+            ],
+            "target": "table:app/models.py#Item",
+            "tool": "sql",
+            "verification": "oracle"
+          },
+          {
+            "assumes": [
+              "TA-V1"
+            ],
+            "kind": "reads_table",
+            "operations": [
+              "select"
+            ],
+            "role": "executes",
+            "rows": [
+              "CT-P5",
+              "CT-Q1",
+              "CT-Q2"
+            ],
+            "target": "table:app/models.py#Team",
+            "tool": "sql",
+            "verification": "oracle"
+          },
+          {
+            "assumes": [
+              "TA-V1"
+            ],
+            "kind": "writes_table",
+            "operations": [
+              "update"
+            ],
+            "role": "executes",
+            "rows": [
+              "CT-P5",
+              "CT-Q1",
+              "CT-Q2"
+            ],
+            "target": "table:app/models.py#User",
+            "tool": "sql",
+            "verification": "oracle"
+          }
+        ],
+        "table_access_unknown": [
+          {
+            "candidates": null,
+            "line": 97,
+            "partial": false,
+            "reason": "sql_name_unresolved: public.missing_table",
+            "row": "CT-P5",
+            "span": {
+              "end_column": 52,
+              "end_line": 97,
+              "start_column": 17,
+              "start_line": 97
+            },
+            "tool": "sql"
+          },
+          {
+            "candidates": null,
+            "line": 98,
+            "partial": false,
+            "reason": "sql_not_literal",
+            "row": "CT-P5",
+            "span": {
+              "end_column": 67,
+              "end_line": 98,
+              "start_column": 17,
+              "start_line": 98
+            },
+            "tool": "sql"
+          },
+          {
+            "candidates": null,
+            "line": 99,
+            "partial": false,
+            "reason": "sql_outside_subset: several statements",
+            "row": "CT-P5",
+            "span": {
+              "end_column": 51,
+              "end_line": 99,
+              "start_column": 17,
+              "start_line": 99
+            },
+            "tool": "sql"
+          }
+        ]
+      },
+      "content_hash": "sha256:78112c732e2e6a50cd25946866799fd75150257e44e3391f455e6ad4914fa512",
+      "file": "app/crud.py",
+      "identity": "function:app/crud.py#p5_text",
+      "kind": "function",
+      "level": 4,
+      "name": "p5_text",
+      "qualified_name": "p5_text",
+      "span": {
+        "end_column": 38,
+        "end_line": 100,
+        "start_column": 0,
+        "start_line": 94
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "table_access_unknown": [
+          {
+            "candidates": null,
+            "line": 131,
+            "partial": false,
+            "reason": "entity_unresolved",
+            "row": "CT-P2",
+            "span": {
+              "end_column": 33,
+              "end_line": 131,
+              "start_column": 21,
+              "start_line": 131
+            },
+            "tool": "sqlmodel"
+          },
+          {
+            "candidates": null,
+            "line": 133,
+            "partial": false,
+            "reason": "entity_unresolved",
+            "row": "CT-P1",
+            "span": {
+              "end_column": 27,
+              "end_line": 133,
+              "start_column": 15,
+              "start_line": 133
+            },
+            "tool": "sqlmodel"
+          }
+        ]
+      },
+      "content_hash": "sha256:8ece677867ac5f3c9f1a6b84bbe4cf7547dc75cfd22c9b239e1532602395e64b",
+      "file": "app/crud.py",
+      "identity": "function:app/crud.py#shadowed",
+      "kind": "function",
+      "level": 4,
+      "name": "shadowed",
+      "qualified_name": "shadowed",
+      "span": {
+        "end_column": 27,
+        "end_line": 133,
+        "start_column": 0,
+        "start_line": 125
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "table_access": [
+          {
+            "kind": "writes_table",
+            "operations": [
+              "update"
+            ],
+            "role": "executes",
+            "rows": [
+              "CT-P2"
+            ],
+            "target": "table:app/models.py#User",
+            "tool": "sqlmodel",
+            "verification": "oracle"
+          }
+        ],
+        "table_access_unknown": [
+          {
+            "candidates": [
+              "table:app/models.py#Item"
+            ],
+            "line": 147,
+            "partial": true,
+            "reason": "site_partial: a predicate names a model the row does not claim",
+            "row": "CT-P2",
+            "span": {
+              "end_column": 77,
+              "end_line": 147,
+              "start_column": 17,
+              "start_line": 147
+            },
+            "tool": "sqlmodel"
+          }
+        ]
+      },
+      "content_hash": "sha256:94016931359c8c1f43cdbcfd894a2405aac82292681f5c37ec722f478838b5da",
+      "file": "app/crud.py",
+      "identity": "function:app/crud.py#write_predicates",
+      "kind": "function",
+      "level": 4,
+      "name": "write_predicates",
+      "qualified_name": "write_predicates",
+      "span": {
+        "end_column": 79,
+        "end_line": 148,
+        "start_column": 0,
+        "start_line": 143
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "table_access": [
+          {
+            "assumes": [
+              "TA-V3c"
+            ],
+            "kind": "reads_table",
+            "operations": [
+              "get"
+            ],
+            "role": "executes",
+            "rows": [
+              "CT-P3"
+            ],
+            "target": "table:app/models.py#Team",
+            "tool": "sqlmodel",
+            "verification": "mapped"
+          },
+          {
+            "assumes": [
+              "TA-V3c"
+            ],
+            "kind": "writes_table",
+            "operations": [
+              "add"
+            ],
+            "role": "executes",
+            "rows": [
+              "CT-P4"
+            ],
+            "target": "table:app/models.py#User",
+            "tool": "sqlmodel",
+            "verification": "mapped"
+          }
+        ]
+      },
+      "content_hash": "sha256:14c41056ff3b9db0faba684836cfacf40a11b0f262e6792e7d91e59afba87dd5",
+      "file": "app/gq.py",
+      "identity": "function:app/gq.py#create_user",
+      "kind": "function",
+      "level": 4,
+      "name": "create_user",
+      "qualified_name": "create_user",
+      "span": {
+        "end_column": 34,
+        "end_line": 7,
+        "start_column": 0,
+        "start_line": 5
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "table_access": [
+          {
+            "kind": "reads_table",
+            "operations": [
+              "select"
+            ],
+            "role": "executes",
+            "rows": [
+              "CT-P1"
+            ],
+            "target": "table:app/models.py#User",
+            "tool": "sqlmodel",
+            "verification": "oracle"
+          }
+        ]
+      },
+      "content_hash": "sha256:ac80aee1849376e16ca6c070ddf124e5a088bebd910a2ffe95334526856eec5b",
+      "file": "tests/test_crud.py",
+      "identity": "function:tests/test_crud.py#test_list_users",
+      "kind": "function",
+      "level": 4,
+      "name": "test_list_users",
+      "qualified_name": "test_list_users",
+      "span": {
+        "end_column": 49,
+        "end_line": 7,
+        "start_column": 0,
+        "start_line": 6
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:55639a1c5923ea3861c85fb789f93fea7c045d6ca362eb119a448363a1fe5e7c",
+      "file": "app/crud.py",
+      "identity": "method:app/crud.py#Repository.__init__",
+      "kind": "method",
+      "level": 4,
+      "name": "__init__",
+      "qualified_name": "Repository.__init__",
+      "span": {
+        "end_column": 30,
+        "end_line": 66,
+        "start_column": 4,
+        "start_line": 65
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "table_access": [
+          {
+            "assumes": [
+              "TA-V3c"
+            ],
+            "kind": "reads_table",
+            "operations": [
+              "get"
+            ],
+            "role": "executes",
+            "rows": [
+              "CT-P3"
+            ],
+            "target": "table:app/models.py#Item",
+            "tool": "sqlmodel",
+            "verification": "mapped"
+          }
+        ]
+      },
+      "content_hash": "sha256:01c365a7c5281ab0cd6b256793b861ee7b76fec66ceee0688f88b9159c634151",
+      "file": "app/crud.py",
+      "identity": "method:app/crud.py#Repository.find",
+      "kind": "method",
+      "level": 4,
+      "name": "find",
+      "qualified_name": "Repository.find",
+      "span": {
+        "end_column": 46,
+        "end_line": 69,
+        "start_column": 4,
+        "start_line": 68
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "check_constraints": [],
+        "class": "class:app/models.py#Item",
+        "column_set": "complete",
+        "constraint_set": "partial",
+        "ddl_hooks": false,
+        "indexes": [],
+        "name": "item",
+        "pins": {
+          "pydantic": "2.13.4",
+          "sqlalchemy": "2.0.51",
+          "sqlmodel": "0.0.39"
+        },
+        "primary_key": [
+          "id"
+        ],
+        "reasons": [
+          {
+            "fact": "constraint_set",
+            "file": "app/models.py",
+            "line": 32,
+            "reason": "constraint_call at app/models.py:32",
+            "row": "X1"
+          }
+        ],
+        "schema": null,
+        "schema_known": true,
+        "set": "models/sqlmodel/.",
+        "source": "model",
+        "state": "partial",
+        "tool": "sqlmodel",
+        "unique_constraints": [],
+        "verification": "oracle",
+        "verification_counts": {
+          "oracle": 28
+        }
+      },
+      "content_hash": "sha256:ded0d14f856cdedd4bcbcb6dfd2e3ce79f1f979c311f3ec276fa625148d0c277",
+      "file": "app/models.py",
+      "identity": "table:app/models.py#Item",
+      "kind": "table",
+      "level": 4,
+      "name": "item",
+      "qualified_name": "Item",
+      "span": {
+        "end_column": 0,
+        "end_line": 25,
+        "start_column": 0,
+        "start_line": 22
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "check_constraints": [],
+        "class": "class:app/models.py#Team",
+        "column_set": "complete",
+        "constraint_set": "complete",
+        "ddl_hooks": false,
+        "indexes": [],
+        "name": "teams",
+        "pins": {
+          "pydantic": "2.13.4",
+          "sqlalchemy": "2.0.51",
+          "sqlmodel": "0.0.39"
+        },
+        "primary_key": [
+          "id"
+        ],
+        "reasons": [],
+        "schema": null,
+        "schema_known": true,
+        "set": "models/sqlmodel/.",
+        "source": "model",
+        "state": "complete",
+        "tool": "sqlmodel",
+        "unique_constraints": [],
+        "verification": "oracle",
+        "verification_counts": {
+          "oracle": 19
+        }
+      },
+      "content_hash": "sha256:e434a57a7751f5dc79bf8367574f9c61d887c17ecd1b035c27ec3811afa7f1d1",
+      "file": "app/models.py",
+      "identity": "table:app/models.py#Team",
+      "kind": "table",
+      "level": 4,
+      "name": "teams",
+      "qualified_name": "Team",
+      "span": {
+        "end_column": 0,
+        "end_line": 11,
+        "start_column": 0,
+        "start_line": 8
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "check_constraints": [],
+        "class": "class:app/models.py#User",
+        "column_set": "complete",
+        "constraint_set": "complete",
+        "ddl_hooks": false,
+        "indexes": [],
+        "name": "user",
+        "pins": {
+          "pydantic": "2.13.4",
+          "sqlalchemy": "2.0.51",
+          "sqlmodel": "0.0.39"
+        },
+        "primary_key": [
+          "id"
+        ],
+        "reasons": [],
+        "schema": null,
+        "schema_known": true,
+        "set": "models/sqlmodel/.",
+        "source": "model",
+        "state": "complete",
+        "tool": "sqlmodel",
+        "unique_constraints": [],
+        "verification": "oracle",
+        "verification_counts": {
+          "oracle": 38
+        }
+      },
+      "content_hash": "sha256:69a386588152ef15db27d2407b802e8a78d24c659514cce5172cb4640cc3de2c",
+      "file": "app/models.py",
+      "identity": "table:app/models.py#User",
+      "kind": "table",
+      "level": 4,
+      "name": "user",
+      "qualified_name": "User",
+      "span": {
+        "end_column": 0,
+        "end_line": 19,
+        "start_column": 0,
+        "start_line": 14
+      },
+      "type": "node"
+    }
+  ]
+}

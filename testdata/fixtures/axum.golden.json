@@ -1,0 +1,35 @@
+{
+  "diagnostics": [
+    "api/src/routes.rs: route_dynamic_methods: mr at 19:15-19:36",
+    "api/src/routes.rs: route_dynamic_pattern: format!(\"/{}\", id) at 19:37-19:74",
+    "app/src/lib.rs: route_prefix_unresolved: format!(\"/{}\", value) at 12:8-12:56"
+  ],
+  "exposes_route": [
+    "function:api/src/custom.rs#h -\u003e route:api/src/routes.rs#GET%20%2F%3Aid%2F%2Arest",
+    "function:api/src/custom.rs#h -\u003e route:api/src/routes.rs#GET%20%2F%7Bid%7D",
+    "function:api/src/custom.rs#h -\u003e route:api/src/routes/nested.rs#GET%20%2Fnested",
+    "function:api/src/handlers/mod.rs#a -\u003e route:api/src/routes.rs#ANY%20%2Fany",
+    "function:api/src/handlers/mod.rs#a -\u003e route:api/src/routes.rs#GET%20%2F",
+    "function:api/src/handlers/mod.rs#a -\u003e route:api/src/routes.rs#GET%20%2F%402",
+    "function:api/src/handlers/mod.rs#a -\u003e route:api/src/routes.rs#GET%20%2Ffilter",
+    "function:api/src/handlers/mod.rs#a -\u003e route:api/src/routes.rs#POST%20%2Ffilter",
+    "function:api/src/handlers/mod.rs#b -\u003e route:api/src/routes.rs#POST%20%2F",
+    "function:app/src/lib.rs#inline.h -\u003e route:app/src/lib.rs#GET%20%2Finline",
+    "function:app/src/lib.rs#inline.h -\u003e route:app/src/lib.rs#GET%20%2Flost"
+  ],
+  "routes": [
+    "route:api/src/routes.rs#ANY%20%2Fany | 10 | function:api/src/handlers/mod.rs#a | function:api/src/routes.rs#factory | /copy/any:true:literal,/kit/any:false:constant,/local/any:true:constant",
+    "route:api/src/routes.rs#GET%20%2F | 9 | function:api/src/handlers/mod.rs#a | function:api/src/routes.rs#factory | /copy:true:constant,/kit:false:constant,/local:true:constant",
+    "route:api/src/routes.rs#GET%20%2F%3Aid%2F%2Arest | 12 | function:api/src/custom.rs#h | function:api/src/routes.rs#factory | /copy/{id}/{*rest}:true:literal,/kit/{id}/{*rest}:false:constant,/local/{id}/{*rest}:true:constant",
+    "route:api/src/routes.rs#GET%20%2F%402 | 16 | function:api/src/handlers/mod.rs#a | function:api/src/routes.rs#dead | /:false:literal",
+    "route:api/src/routes.rs#GET%20%2F%7Bid%7D | 12 | function:api/src/custom.rs#h | function:api/src/routes.rs#factory | /copy/{id}:true:literal,/kit/{id}:false:constant,/local/{id}:true:constant",
+    "route:api/src/routes.rs#GET%20%2Fclosure | 11 | inline | function:api/src/routes.rs#factory | /copy/closure:true:literal,/kit/closure:false:constant,/local/closure:true:constant",
+    "route:api/src/routes.rs#GET%20%2Ffilter | 10 | function:api/src/handlers/mod.rs#a | function:api/src/routes.rs#factory | /copy/filter:true:literal,/kit/filter:false:constant,/local/filter:true:constant",
+    "route:api/src/routes.rs#GET%20%2Fservice | 11 | expression:svc | function:api/src/routes.rs#factory | /copy/service:true:literal,/kit/service:false:constant,/local/service:true:constant",
+    "route:api/src/routes.rs#POST%20%2F | 9 | function:api/src/handlers/mod.rs#b | function:api/src/routes.rs#factory | /copy:true:constant,/kit:false:constant,/local:true:constant",
+    "route:api/src/routes.rs#POST%20%2Ffilter | 10 | function:api/src/handlers/mod.rs#a | function:api/src/routes.rs#factory | /copy/filter:true:literal,/kit/filter:false:constant,/local/filter:true:constant",
+    "route:api/src/routes/nested.rs#GET%20%2Fnested | 3 | function:api/src/custom.rs#h | function:api/src/routes/nested.rs#factory | /copy/nested:true:literal,/kit/nested:false:constant,/local/nested:true:constant",
+    "route:app/src/lib.rs#GET%20%2Finline | 5 | function:app/src/lib.rs#inline.h | function:app/src/lib.rs#inline.router | /inline:true:literal",
+    "route:app/src/lib.rs#GET%20%2Flost | 14 | function:app/src/lib.rs#inline.h | function:app/src/lib.rs#unresolved_prefix | "
+  ]
+}

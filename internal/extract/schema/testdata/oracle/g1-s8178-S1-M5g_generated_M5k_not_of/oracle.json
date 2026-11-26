@@ -1,0 +1,34 @@
+{
+  "id": "g1-s8178-S1-M5g_generated_M5k_not_of",
+  "signature": "applied|S1|42809|M5g.generated",
+  "class": "S1",
+  "owner": "P4",
+  "row": "M5g.generated+M5k.not_of",
+  "history": {
+    "id": "g1-s8178",
+    "tags": {
+      "1_m1.sql": [
+        "M1.create",
+        "M5g.generated+M5k.not_of"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42809",
+        "message": "\"t2\" is not a typed table",
+        "statement": 2,
+        "statement_text": "ALTER TABLE t2 DROP CONSTRAINT IF EXISTS t2_id_check, NOT OF;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

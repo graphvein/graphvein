@@ -1,0 +1,2 @@
+CREATE UNLOGGED TABLE t1 (id bigint);
+ALTER TABLE t1 VALIDATE CONSTRAINT nosuch_constraint;

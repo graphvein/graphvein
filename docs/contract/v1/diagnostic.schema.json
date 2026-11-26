@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "type",
+    "file",
+    "severity",
+    "code",
+    "message"
+  ],
+  "properties": {
+    "type": {
+      "const": "diagnostic"
+    },
+    "file": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[^/\\\\:\\x00\\r\\n][^\\\\:\\x00\\r\\n]*$"
+        },
+        {
+          "const": ""
+        }
+      ]
+    },
+    "severity": {
+      "enum": [
+        "info",
+        "warning",
+        "error"
+      ]
+    },
+    "code": {
+      "type": "string",
+      "minLength": 1
+    },
+    "message": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

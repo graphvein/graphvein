@@ -1,0 +1,3 @@
+CREATE TABLE t (a int);
+CREATE FUNCTION tf() RETURNS trigger LANGUAGE plpgsql AS $$ BEGIN RETURN NEW; END $$;
+COMMENT ON COLUMN t.a IS 'x' garbage;

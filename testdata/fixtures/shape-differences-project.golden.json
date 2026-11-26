@@ -1,0 +1,70 @@
+{
+  "client_call:src/api.ts#invite.POST%20%60%24%7BAPI%7D%2Fw4p%2Fusers%60": {
+    "call_links": {
+      "src/api.ts:5": {
+        "column": 1,
+        "exact": true,
+        "line": 5,
+        "link": "vscode://file/{ROOT}/web/src/api.ts:5:1"
+      },
+      "src/api.ts:8": {
+        "column": 1,
+        "exact": true,
+        "line": 8,
+        "link": "vscode://file/{ROOT}/web/src/api.ts:8:1"
+      }
+    },
+    "compared": [
+      "body"
+    ],
+    "cross_repository": true,
+    "differences": [
+      {
+        "call": {
+          "file": "src/api.ts",
+          "kind": "literal",
+          "line": 5,
+          "rule": "SD-2"
+        },
+        "direction": "read_not_sent",
+        "field": "name",
+        "route": {
+          "file": "app/main.py",
+          "kind": "fact",
+          "line": 7,
+          "rule": "SH-F22"
+        },
+        "row": "SD-9",
+        "section": "body",
+        "text": "read by the handler, not sent by this call"
+      },
+      {
+        "call": {
+          "file": "src/api.ts",
+          "kind": "literal",
+          "line": 8,
+          "rule": "SD-2"
+        },
+        "direction": "sent_not_read",
+        "field": "role",
+        "route": {
+          "file": "app/main.py",
+          "kind": "fact",
+          "line": 7,
+          "rule": "SH-F22"
+        },
+        "row": "SD-8",
+        "section": "body",
+        "text": "sent by the frontend, not read by the handler"
+      }
+    ],
+    "route_links": {
+      "app/main.py:7": {
+        "column": 1,
+        "exact": true,
+        "line": 7,
+        "link": "vscode://file/{ROOT}/api/app/main.py:7:1"
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": "g1-s8415-S1-table",
+  "signature": "table",
+  "class": "S1",
+  "owner": "P6",
+  "row": "",
+  "history": {
+    "id": "g1-s8415",
+    "tags": {
+      "1_m1.sql": [
+        "N2.begin",
+        "M1.create"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "accepted",
+        "no_transaction": true
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

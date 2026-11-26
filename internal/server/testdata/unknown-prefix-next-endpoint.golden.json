@@ -1,0 +1,496 @@
+{
+  "api_version": 0,
+  "callers": [
+    {
+      "edges": [
+        {
+          "confidence": 0.6,
+          "kind": "calls_route",
+          "match": "suffix",
+          "provenance": "inferred"
+        }
+      ],
+      "node": {
+        "attributes": {
+          "assumes": [
+            "NX-V1",
+            "UP-V1",
+            "UP-V2"
+          ],
+          "base": "unresolved",
+          "base_expression": "process.env.NEXT_PUBLIC_BASE_PATH",
+          "library": "fetch",
+          "method": "GET",
+          "paths": [
+            {
+              "assumes": [
+                "NX-V1",
+                "UP-V1",
+                "UP-V2"
+              ],
+              "candidate_count": 0,
+              "candidates": [
+                "route:docs/app/api/search/route.js#GET%20%2Fapi%2Fsearch"
+              ],
+              "conditional": false,
+              "match": "suffix",
+              "origin": null,
+              "resolution": "literal",
+              "route_prefix": "unresolved",
+              "status": "linked",
+              "template": "/api/search"
+            }
+          ],
+          "status": "linked",
+          "url_expression": "`${process.env.NEXT_PUBLIC_BASE_PATH}/api/search`",
+          "wrapper": null
+        },
+        "content_hash": "sha256:2002ba476f003449a7e62162cd8cb74dbe980e369f367ceb9c4e41b1035c02e4",
+        "file": "docs/app/search.js",
+        "file_state": "unchanged",
+        "ide": {
+          "column": 9,
+          "exact": true,
+          "line": 2,
+          "link": "vscode://file/{ROOT}/docs/app/search.js:2:9"
+        },
+        "identity": "client_call:docs/app/search.js#search.GET%20%60%24%7Bprocess.env.NEXT_PUBLIC_BASE_PATH%7D%2Fapi%2Fsearch%60",
+        "kind": "client_call",
+        "level": 4,
+        "name": "GET `${process.env.NEXT_PUBLIC_BASE_PATH}/api/search`",
+        "qualified_name": "search.GET `${process.env.NEXT_PUBLIC_BASE_PATH}/api/search`",
+        "source_root": "docs",
+        "span": {
+          "end_column": 64,
+          "end_line": 2,
+          "start_column": 8,
+          "start_line": 2
+        },
+        "type": "node"
+      },
+      "owner": {
+        "id": "function:docs/app/search.js#search",
+        "kind": "function",
+        "qualified_name": "search"
+      },
+      "reasons": [
+        {
+          "code": "prefix_assumed",
+          "detail": "UP-V1",
+          "text": "Assumption: The route is served below a prefix the code does not fix (configuration or an unproven hop); the call is taken to reach it because its path ends with the route's proven path below that prefix."
+        },
+        {
+          "code": "prefix_assumed",
+          "detail": "UP-V2",
+          "text": "Assumption: The call's unknown base and the route's unknown prefix are the same value (for example both read from the same configuration)."
+        }
+      ]
+    }
+  ],
+  "callers_precision": {
+    "label": "best_effort",
+    "reason": "default_branch",
+    "row": "D"
+  },
+  "endpoint": {
+    "attributes": {
+      "base_path": null,
+      "framework": "nextjs",
+      "handler": "function:docs/app/api/search/route.js#GET",
+      "handler_inline": false,
+      "method": "GET",
+      "middleware": [],
+      "paths": [
+        {
+          "conditional": false,
+          "resolution": "unresolved",
+          "template": "/api/search"
+        }
+      ],
+      "pattern": "/api/search",
+      "project": "docs",
+      "rewrites": {
+        "status": "unread"
+      },
+      "shape": {
+        "body": {
+          "items": [],
+          "reason": "nothing read in the handler or the functions it passes the value to",
+          "state": "not_read"
+        },
+        "cookie": {
+          "items": [],
+          "reason": "nothing read in the handler or the functions it passes the value to",
+          "state": "not_read"
+        },
+        "follow": {
+          "chains": [
+            {
+              "at": null,
+              "depth": 0,
+              "section": "query",
+              "start": {
+                "file": "docs/app/api/search/route.js",
+                "function": "GET",
+                "line": 1
+              },
+              "steps": [],
+              "stop": "ended"
+            },
+            {
+              "at": null,
+              "depth": 0,
+              "section": "header",
+              "start": {
+                "file": "docs/app/api/search/route.js",
+                "function": "GET",
+                "line": 1
+              },
+              "steps": [],
+              "stop": "ended"
+            },
+            {
+              "at": null,
+              "depth": 0,
+              "section": "cookie",
+              "start": {
+                "file": "docs/app/api/search/route.js",
+                "function": "GET",
+                "line": 1
+              },
+              "steps": [],
+              "stop": "ended"
+            },
+            {
+              "at": null,
+              "depth": 0,
+              "section": "body",
+              "start": {
+                "file": "docs/app/api/search/route.js",
+                "function": "GET",
+                "line": 1
+              },
+              "steps": [],
+              "stop": "ended"
+            },
+            {
+              "at": null,
+              "depth": 0,
+              "section": "responses",
+              "start": {
+                "file": "docs/app/api/search/route.js",
+                "function": "GET",
+                "line": 1
+              },
+              "steps": [],
+              "stop": "ended"
+            }
+          ],
+          "depth_limit": 6
+        },
+        "header": {
+          "items": [],
+          "reason": "nothing read in the handler or the functions it passes the value to",
+          "state": "not_read"
+        },
+        "models": [],
+        "path": {
+          "evidence": {
+            "chain": [],
+            "confidence": 1,
+            "file": "docs/app/api/search/route.js",
+            "kind": "fact",
+            "line": 1,
+            "rule": "SH-N2"
+          },
+          "items": [],
+          "state": "provably_none"
+        },
+        "query": {
+          "items": [],
+          "reason": "nothing read in the handler or the functions it passes the value to",
+          "state": "not_read"
+        },
+        "responses": {
+          "items": [
+            {
+              "content_type": "application/json",
+              "provenance": {
+                "chain": [],
+                "confidence": 1,
+                "file": "docs/app/api/search/route.js",
+                "kind": "read_in_handler",
+                "line": 2,
+                "rule": "SH-N17"
+              },
+              "schema": {
+                "additional": "unknown",
+                "fields": [
+                  {
+                    "name": "results",
+                    "presence": "unknown",
+                    "schema": {
+                      "reason": "value not read",
+                      "type": "unknown"
+                    }
+                  }
+                ],
+                "type": "object"
+              },
+              "status": "200"
+            }
+          ],
+          "reason": "statuses read from returned responses; thrown errors, middleware and unread calls may add others",
+          "state": "partial"
+        },
+        "security": {
+          "items": [],
+          "reason": "security is not read for Next.js route handlers and server actions",
+          "state": "not_read"
+        },
+        "security_schemes": [],
+        "version": 1
+      }
+    },
+    "content_hash": "sha256:3c5732595db8a120f0622d89f075f6f8075f354f37ff7518852cd54aa587c41c",
+    "file": "docs/app/api/search/route.js",
+    "file_state": "unchanged",
+    "ide": {
+      "column": 1,
+      "exact": true,
+      "line": 1,
+      "link": "vscode://file/{ROOT}/docs/app/api/search/route.js:1:1"
+    },
+    "identity": "route:docs/app/api/search/route.js#GET%20%2Fapi%2Fsearch",
+    "kind": "route",
+    "level": 4,
+    "name": "GET /api/search",
+    "qualified_name": "GET /api/search",
+    "span": {
+      "end_column": 1,
+      "end_line": 3,
+      "start_column": 0,
+      "start_line": 1
+    },
+    "type": "node"
+  },
+  "handler": {
+    "edge": {
+      "confidence": 1,
+      "kind": "exposes_route",
+      "provenance": "fact"
+    },
+    "expression": null,
+    "node": {
+      "attributes": {
+        "exported": true
+      },
+      "content_hash": "sha256:0a47b830f50dfa58c7ea4a834109f51ea1047d7214238ab8adb2726f239b41cc",
+      "file": "docs/app/api/search/route.js",
+      "file_state": "unchanged",
+      "ide": {
+        "column": 1,
+        "exact": true,
+        "line": 1,
+        "link": "vscode://file/{ROOT}/docs/app/api/search/route.js:1:1"
+      },
+      "identity": "function:docs/app/api/search/route.js#GET",
+      "kind": "function",
+      "level": 4,
+      "name": "GET",
+      "qualified_name": "GET",
+      "span": {
+        "end_column": 1,
+        "end_line": 3,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    "state": "resolved"
+  },
+  "ide": {
+    "available": true,
+    "editor": "vscode",
+    "error": null,
+    "label": "Open in VS Code",
+    "source": "builtin"
+  },
+  "index": {
+    "contract_version": 1,
+    "finished_at": "2026-11-03T14:32:05.123Z",
+    "indexer": {
+      "name": "graphvein",
+      "version": "extractors-62"
+    }
+  },
+  "model_tables": [],
+  "near_misses": [],
+  "near_misses_incomplete": 0,
+  "openapi": {
+    "operations": [],
+    "specs": 0
+  },
+  "precision": {
+    "label": "best_effort",
+    "reason": "default_branch",
+    "row": "D"
+  },
+  "repository": "next",
+  "root": null,
+  "scope": "all",
+  "shape": {
+    "body": {
+      "items": [],
+      "reason": "nothing read in the handler or the functions it passes the value to",
+      "state": "not_read"
+    },
+    "cookie": {
+      "items": [],
+      "reason": "nothing read in the handler or the functions it passes the value to",
+      "state": "not_read"
+    },
+    "follow": {
+      "chains": [
+        {
+          "at": null,
+          "depth": 0,
+          "section": "query",
+          "start": {
+            "file": "docs/app/api/search/route.js",
+            "function": "GET",
+            "line": 1
+          },
+          "steps": [],
+          "stop": "ended"
+        },
+        {
+          "at": null,
+          "depth": 0,
+          "section": "header",
+          "start": {
+            "file": "docs/app/api/search/route.js",
+            "function": "GET",
+            "line": 1
+          },
+          "steps": [],
+          "stop": "ended"
+        },
+        {
+          "at": null,
+          "depth": 0,
+          "section": "cookie",
+          "start": {
+            "file": "docs/app/api/search/route.js",
+            "function": "GET",
+            "line": 1
+          },
+          "steps": [],
+          "stop": "ended"
+        },
+        {
+          "at": null,
+          "depth": 0,
+          "section": "body",
+          "start": {
+            "file": "docs/app/api/search/route.js",
+            "function": "GET",
+            "line": 1
+          },
+          "steps": [],
+          "stop": "ended"
+        },
+        {
+          "at": null,
+          "depth": 0,
+          "section": "responses",
+          "start": {
+            "file": "docs/app/api/search/route.js",
+            "function": "GET",
+            "line": 1
+          },
+          "steps": [],
+          "stop": "ended"
+        }
+      ],
+      "depth_limit": 6
+    },
+    "header": {
+      "items": [],
+      "reason": "nothing read in the handler or the functions it passes the value to",
+      "state": "not_read"
+    },
+    "models": [],
+    "path": {
+      "evidence": {
+        "chain": [],
+        "confidence": 1,
+        "file": "docs/app/api/search/route.js",
+        "kind": "fact",
+        "line": 1,
+        "rule": "SH-N2"
+      },
+      "items": [],
+      "state": "provably_none"
+    },
+    "query": {
+      "items": [],
+      "reason": "nothing read in the handler or the functions it passes the value to",
+      "state": "not_read"
+    },
+    "responses": {
+      "items": [
+        {
+          "content_type": "application/json",
+          "provenance": {
+            "chain": [],
+            "confidence": 1,
+            "file": "docs/app/api/search/route.js",
+            "kind": "read_in_handler",
+            "line": 2,
+            "rule": "SH-N17"
+          },
+          "schema": {
+            "additional": "unknown",
+            "fields": [
+              {
+                "name": "results",
+                "presence": "unknown",
+                "schema": {
+                  "reason": "value not read",
+                  "type": "unknown"
+                }
+              }
+            ],
+            "type": "object"
+          },
+          "status": "200"
+        }
+      ],
+      "reason": "statuses read from returned responses; thrown errors, middleware and unread calls may add others",
+      "state": "partial"
+    },
+    "security": {
+      "items": [],
+      "reason": "security is not read for Next.js route handlers and server actions",
+      "state": "not_read"
+    },
+    "security_schemes": [],
+    "version": 1
+  },
+  "shape_links": {
+    "docs/app/api/search/route.js:1": {
+      "column": 1,
+      "exact": true,
+      "line": 1,
+      "link": "vscode://file/{ROOT}/docs/app/api/search/route.js:1:1"
+    },
+    "docs/app/api/search/route.js:2": {
+      "column": 1,
+      "exact": true,
+      "line": 2,
+      "link": "vscode://file/{ROOT}/docs/app/api/search/route.js:2:1"
+    }
+  },
+  "transport": "http"
+}

@@ -1,0 +1,88 @@
+{
+  "id": "g1-s6157-S1-foreign_key",
+  "signature": "foreign_key",
+  "class": "S1",
+  "owner": "H4",
+  "row": "",
+  "history": {
+    "id": "g1-s6157",
+    "tags": {
+      "1_m1.sql": [
+        "M1.create",
+        "M1.create",
+        "M5i.rename"
+      ],
+      "2_m2.sql": [
+        "M8.rename",
+        "M5a.if_not_exists"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "accepted"
+      },
+      {
+        "file": "2_m2.sql",
+        "status": "refused",
+        "sqlstate": "42P01",
+        "message": "relation \"t1\" does not exist",
+        "statement": 2,
+        "statement_text": "ALTER TABLE t1 ADD COLUMN IF NOT EXISTS id int;",
+        "assumption": "E1"
+      }
+    ],
+    "tables": [
+      {
+        "table": "history.t4",
+        "columns": [
+          {
+            "name": "id",
+            "type": "bigint",
+            "not_null": true,
+            "has_default": false
+          }
+        ],
+        "primary_key": [
+          "id"
+        ],
+        "unique_keys": [],
+        "foreign_keys": [],
+        "indexes": []
+      },
+      {
+        "table": "history.t7",
+        "columns": [
+          {
+            "name": "c2",
+            "type": "bigint",
+            "not_null": false,
+            "has_default": false
+          }
+        ],
+        "primary_key": null,
+        "unique_keys": [],
+        "foreign_keys": [
+          {
+            "name": "t5_c2_fkey",
+            "columns": [
+              "c2"
+            ],
+            "ref_table": "history.t4",
+            "ref_columns": [
+              "id"
+            ]
+          }
+        ],
+        "indexes": []
+      }
+    ],
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

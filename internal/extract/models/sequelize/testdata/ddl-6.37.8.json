@@ -1,0 +1,953 @@
+{
+ "generator": "sequelize 6.37.8 queryGenerator.attributesToSQL and createTableQuery (scratch, stub dialect module)",
+ "dialects": {
+  "postgres": {
+   "Kind": {
+    "table": "Kinds",
+    "attributes": {
+     "id": "INTEGER NOT NULL SERIAL PRIMARY KEY",
+     "s": "VARCHAR(255)",
+     "s40": "VARCHAR(40)",
+     "c": "CHAR(4)",
+     "t": "TEXT",
+     "i": "INTEGER",
+     "bi": "BIGINT",
+     "si": "SMALLINT",
+     "f": "FLOAT",
+     "d": "DOUBLE PRECISION",
+     "dec": "DECIMAL",
+     "dec2": "DECIMAL(10,2)",
+     "b": "BOOLEAN",
+     "dt": "TIMESTAMP WITH TIME ZONE",
+     "don": "DATE",
+     "tm": "TIME",
+     "u": "UUID",
+     "bl": "BYTEA",
+     "e": "ENUM('a', 'b')",
+     "ev": "ENUM('x', 'y')",
+     "createdAt": "TIMESTAMP WITH TIME ZONE NOT NULL",
+     "updatedAt": "TIMESTAMP WITH TIME ZONE NOT NULL"
+    },
+    "sql": "CREATE TABLE IF NOT EXISTS \"Kinds\" (\"id\"   SERIAL , \"s\" VARCHAR(255), \"s40\" VARCHAR(40), \"c\" CHAR(4), \"t\" TEXT, \"i\" INTEGER, \"bi\" BIGINT, \"si\" SMALLINT, \"f\" FLOAT, \"d\" DOUBLE PRECISION, \"dec\" DECIMAL, \"dec2\" DECIMAL(10,2), \"b\" BOOLEAN, \"dt\" TIMESTAMP WITH TIME ZONE, \"don\" DATE, \"tm\" TIME, \"u\" UUID, \"bl\" BYTEA, \"e\" \"public\".\"enum_Kinds_e\", \"ev\" \"public\".\"enum_Kinds_ev\", \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY (\"id\"));"
+   },
+   "Json": {
+    "table": "Jsons",
+    "attributes": {
+     "id": "INTEGER NOT NULL SERIAL PRIMARY KEY",
+     "j": "JSON DEFAULT '{\"a\":[1,\"x\"]}'",
+     "js": "JSON DEFAULT '\"{}\"'",
+     "createdAt": "TIMESTAMP WITH TIME ZONE NOT NULL",
+     "updatedAt": "TIMESTAMP WITH TIME ZONE NOT NULL"
+    },
+    "sql": "CREATE TABLE IF NOT EXISTS \"Jsons\" (\"id\"   SERIAL , \"j\" JSON DEFAULT '{\"a\":[1,\"x\"]}', \"js\" JSON DEFAULT '\"{}\"', \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY (\"id\"));"
+   },
+   "Defaults": {
+    "table": "Defaults",
+    "attributes": {
+     "id": "INTEGER NOT NULL SERIAL PRIMARY KEY",
+     "s": "VARCHAR(255) DEFAULT 'it''s'",
+     "c": "CHAR(2) DEFAULT 'ab'",
+     "t": "TEXT DEFAULT 'tt'",
+     "i": "INTEGER NOT NULL DEFAULT 3",
+     "n": "INTEGER DEFAULT -3",
+     "bi": "BIGINT DEFAULT 10",
+     "f": "FLOAT DEFAULT '1.5'",
+     "d": "DOUBLE PRECISION DEFAULT '2'",
+     "dec": "DECIMAL(10,2) DEFAULT 1.25",
+     "b": "BOOLEAN DEFAULT true",
+     "bf": "BOOLEAN NOT NULL DEFAULT false",
+     "e": "ENUM('x', 'y') DEFAULT 'y'",
+     "nul": "VARCHAR(255) DEFAULT NULL",
+     "now": "TIMESTAMP WITH TIME ZONE",
+     "uid": "UUID",
+     "lit": "VARCHAR(255) DEFAULT 'lit'",
+     "createdAt": "TIMESTAMP WITH TIME ZONE NOT NULL",
+     "updatedAt": "TIMESTAMP WITH TIME ZONE NOT NULL"
+    },
+    "sql": "CREATE TABLE IF NOT EXISTS \"Defaults\" (\"id\"   SERIAL , \"s\" VARCHAR(255) DEFAULT 'it''s', \"c\" CHAR(2) DEFAULT 'ab', \"t\" TEXT DEFAULT 'tt', \"i\" INTEGER NOT NULL DEFAULT 3, \"n\" INTEGER DEFAULT -3, \"bi\" BIGINT DEFAULT 10, \"f\" FLOAT DEFAULT '1.5', \"d\" DOUBLE PRECISION DEFAULT '2', \"dec\" DECIMAL(10,2) DEFAULT 1.25, \"b\" BOOLEAN DEFAULT true, \"bf\" BOOLEAN NOT NULL DEFAULT false, \"e\" \"public\".\"enum_Defaults_e\" DEFAULT 'y', \"nul\" VARCHAR(255) DEFAULT NULL, \"now\" TIMESTAMP WITH TIME ZONE, \"uid\" UUID, \"lit\" VARCHAR(255) DEFAULT 'lit', \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY (\"id\"));"
+   },
+   "Uniques": {
+    "table": "Uniques",
+    "attributes": {
+     "id": "INTEGER NOT NULL SERIAL PRIMARY KEY",
+     "a": "VARCHAR(255) UNIQUE",
+     "g1": "VARCHAR(255)",
+     "g2": "VARCHAR(255)",
+     "n": "VARCHAR(255)",
+     "off": "VARCHAR(255)",
+     "createdAt": "TIMESTAMP WITH TIME ZONE NOT NULL",
+     "updatedAt": "TIMESTAMP WITH TIME ZONE NOT NULL"
+    },
+    "sql": "CREATE TABLE IF NOT EXISTS \"Uniques\" (\"id\"   SERIAL , \"a\" VARCHAR(255) UNIQUE, \"g1\" VARCHAR(255), \"g2\" VARCHAR(255), \"n\" VARCHAR(255), \"off\" VARCHAR(255), \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, UNIQUE (\"g1\", \"g2\"), UNIQUE (\"n\"), PRIMARY KEY (\"id\"));"
+   },
+   "Keys": {
+    "table": "Keys",
+    "attributes": {
+     "code": "VARCHAR(255) PRIMARY KEY",
+     "other": "INTEGER NOT NULL"
+    },
+    "sql": "CREATE TABLE IF NOT EXISTS \"Keys\" (\"code\" VARCHAR(255) , \"other\" INTEGER NOT NULL, PRIMARY KEY (\"code\"));"
+   },
+   "UuidKey": {
+    "table": "UuidKeys",
+    "attributes": {
+     "id": "UUID PRIMARY KEY",
+     "v": "VARCHAR(255)"
+    },
+    "sql": "CREATE TABLE IF NOT EXISTS \"UuidKeys\" (\"id\" UUID , \"v\" VARCHAR(255), PRIMARY KEY (\"id\"));"
+   },
+   "BigKey": {
+    "table": "BigKeys",
+    "attributes": {
+     "id": "BIGINT SERIAL PRIMARY KEY",
+     "v": "VARCHAR(255)"
+    },
+    "sql": "CREATE TABLE IF NOT EXISTS \"BigKeys\" (\"id\"  BIGSERIAL , \"v\" VARCHAR(255), PRIMARY KEY (\"id\"));"
+   },
+   "Composite": {
+    "table": "Composites",
+    "attributes": {
+     "l": "INTEGER PRIMARY KEY",
+     "r": "INTEGER NOT NULL PRIMARY KEY",
+     "w": "INTEGER"
+    },
+    "sql": "CREATE TABLE IF NOT EXISTS \"Composites\" (\"l\" INTEGER , \"r\" INTEGER NOT NULL , \"w\" INTEGER, PRIMARY KEY (\"l\",\"r\"));"
+   },
+   "Stamps": {
+    "table": "Stamps",
+    "attributes": {
+     "id": "INTEGER NOT NULL SERIAL PRIMARY KEY",
+     "v": "VARCHAR(255)",
+     "made": "TIMESTAMP WITH TIME ZONE NOT NULL",
+     "deletedAt": "TIMESTAMP WITH TIME ZONE",
+     "version": "INTEGER NOT NULL DEFAULT 0"
+    },
+    "sql": "CREATE TABLE IF NOT EXISTS \"Stamps\" (\"id\"   SERIAL , \"v\" VARCHAR(255), \"made\" TIMESTAMP WITH TIME ZONE NOT NULL, \"deletedAt\" TIMESTAMP WITH TIME ZONE, \"version\" INTEGER NOT NULL DEFAULT 0, PRIMARY KEY (\"id\"));"
+   },
+   "Snake": {
+    "table": "snakes",
+    "attributes": {
+     "id": "INTEGER NOT NULL SERIAL PRIMARY KEY",
+     "read_count": "INTEGER",
+     "heading": "VARCHAR(255)",
+     "created_at": "TIMESTAMP WITH TIME ZONE NOT NULL",
+     "updated_at": "TIMESTAMP WITH TIME ZONE NOT NULL"
+    },
+    "sql": "CREATE TABLE IF NOT EXISTS \"snakes\" (\"id\"   SERIAL , \"read_count\" INTEGER, \"heading\" VARCHAR(255), \"created_at\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updated_at\" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY (\"id\"));"
+   },
+   "User": {
+    "table": "Users",
+    "attributes": {
+     "id": "INTEGER NOT NULL SERIAL PRIMARY KEY",
+     "name": "VARCHAR(255)",
+     "createdAt": "TIMESTAMP WITH TIME ZONE NOT NULL",
+     "updatedAt": "TIMESTAMP WITH TIME ZONE NOT NULL"
+    },
+    "sql": "CREATE TABLE IF NOT EXISTS \"Users\" (\"id\"   SERIAL , \"name\" VARCHAR(255), \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY (\"id\"));"
+   },
+   "Memo": {
+    "table": "Memos",
+    "attributes": {
+     "id": "INTEGER NOT NULL SERIAL PRIMARY KEY",
+     "title": "VARCHAR(255)",
+     "createdAt": "TIMESTAMP WITH TIME ZONE NOT NULL",
+     "updatedAt": "TIMESTAMP WITH TIME ZONE NOT NULL",
+     "authorId": "INTEGER REFERENCES \"Users\" (\"id\") ON DELETE CASCADE ON UPDATE CASCADE",
+     "editorId": "INTEGER REFERENCES \"Users\" (\"id\") ON DELETE CASCADE ON UPDATE CASCADE",
+     "parentId": "INTEGER REFERENCES \"Memos\" (\"id\") ON DELETE CASCADE ON UPDATE CASCADE"
+    },
+    "sql": "CREATE TABLE IF NOT EXISTS \"Memos\" (\"id\"   SERIAL , \"title\" VARCHAR(255), \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"authorId\" INTEGER REFERENCES \"Users\" (\"id\") ON DELETE CASCADE ON UPDATE CASCADE, \"editorId\" INTEGER REFERENCES \"Users\" (\"id\") ON DELETE CASCADE ON UPDATE CASCADE, \"parentId\" INTEGER REFERENCES \"Memos\" (\"id\") ON DELETE CASCADE ON UPDATE CASCADE, PRIMARY KEY (\"id\"));"
+   },
+   "Org": {
+    "table": "Orgs",
+    "attributes": {
+     "id": "INTEGER NOT NULL SERIAL PRIMARY KEY",
+     "name": "VARCHAR(255)",
+     "createdAt": "TIMESTAMP WITH TIME ZONE NOT NULL",
+     "updatedAt": "TIMESTAMP WITH TIME ZONE NOT NULL"
+    },
+    "sql": "CREATE TABLE IF NOT EXISTS \"Orgs\" (\"id\"   SERIAL , \"name\" VARCHAR(255), \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY (\"id\"));"
+   },
+   "Team": {
+    "table": "Teams",
+    "attributes": {
+     "id": "INTEGER NOT NULL SERIAL PRIMARY KEY",
+     "name": "VARCHAR(255)",
+     "createdAt": "TIMESTAMP WITH TIME ZONE NOT NULL",
+     "updatedAt": "TIMESTAMP WITH TIME ZONE NOT NULL",
+     "OrgId": "INTEGER REFERENCES \"Orgs\" (\"id\") ON DELETE SET NULL ON UPDATE CASCADE"
+    },
+    "sql": "CREATE TABLE IF NOT EXISTS \"Teams\" (\"id\"   SERIAL , \"name\" VARCHAR(255), \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"OrgId\" INTEGER REFERENCES \"Orgs\" (\"id\") ON DELETE SET NULL ON UPDATE CASCADE, PRIMARY KEY (\"id\"));"
+   },
+   "Pin": {
+    "table": "Pins",
+    "attributes": {
+     "id": "INTEGER NOT NULL SERIAL PRIMARY KEY",
+     "a": "INTEGER REFERENCES \"Orgs\" (\"id\") ON DELETE SET NULL ON UPDATE CASCADE",
+     "b": "INTEGER REFERENCES \"Orgs\" (\"id\") ON DELETE CASCADE ON UPDATE CASCADE",
+     "c": "INTEGER REFERENCES \"Users\" (\"id\") ON UPDATE RESTRICT",
+     "createdAt": "TIMESTAMP WITH TIME ZONE NOT NULL",
+     "updatedAt": "TIMESTAMP WITH TIME ZONE NOT NULL"
+    },
+    "sql": "CREATE TABLE IF NOT EXISTS \"Pins\" (\"id\"   SERIAL , \"a\" INTEGER REFERENCES \"Orgs\" (\"id\") ON DELETE SET NULL ON UPDATE CASCADE, \"b\" INTEGER REFERENCES \"Orgs\" (\"id\") ON DELETE CASCADE ON UPDATE CASCADE, \"c\" INTEGER REFERENCES \"Users\" (\"id\") ON UPDATE RESTRICT, \"createdAt\" TIMESTAMP WITH TIME ZONE NOT NULL, \"updatedAt\" TIMESTAMP WITH TIME ZONE NOT NULL, PRIMARY KEY (\"id\"));"
+   }
+  },
+  "sqlite": {
+   "Kind": {
+    "table": "Kinds",
+    "attributes": {
+     "id": "INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT",
+     "s": "VARCHAR(255)",
+     "s40": "VARCHAR(40)",
+     "c": "CHAR(4)",
+     "t": "TEXT",
+     "i": "INTEGER",
+     "bi": "BIGINT",
+     "si": "SMALLINT",
+     "f": "FLOAT",
+     "d": "DOUBLE PRECISION",
+     "dec": "DECIMAL",
+     "dec2": "DECIMAL(10,2)",
+     "b": "TINYINT(1)",
+     "dt": "DATETIME",
+     "don": "DATE",
+     "tm": "TIME",
+     "u": "UUID",
+     "bl": "BLOB",
+     "e": "TEXT",
+     "ev": "TEXT",
+     "createdAt": "DATETIME NOT NULL",
+     "updatedAt": "DATETIME NOT NULL"
+    },
+    "sql": "CREATE TABLE IF NOT EXISTS `Kinds` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `s` VARCHAR(255), `s40` VARCHAR(40), `c` CHAR(4), `t` TEXT, `i` INTEGER, `bi` BIGINT, `si` SMALLINT, `f` FLOAT, `d` DOUBLE PRECISION, `dec` DECIMAL, `dec2` DECIMAL(10,2), `b` TINYINT(1), `dt` DATETIME, `don` DATE, `tm` TIME, `u` UUID, `bl` BLOB, `e` TEXT, `ev` TEXT, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL);"
+   },
+   "Json": {
+    "table": "Jsons",
+    "attributes": {
+     "id": "INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT",
+     "j": "JSON DEFAULT '{\"a\":[1,\"x\"]}'",
+     "js": "JSON DEFAULT '\"{}\"'",
+     "createdAt": "DATETIME NOT NULL",
+     "updatedAt": "DATETIME NOT NULL"
+    },
+    "sql": "CREATE TABLE IF NOT EXISTS `Jsons` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `j` JSON DEFAULT '{\"a\":[1,\"x\"]}', `js` JSON DEFAULT '\"{}\"', `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL);"
+   },
+   "Defaults": {
+    "table": "Defaults",
+    "attributes": {
+     "id": "INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT",
+     "s": "VARCHAR(255) DEFAULT 'it''s'",
+     "c": "CHAR(2) DEFAULT 'ab'",
+     "t": "TEXT DEFAULT 'tt'",
+     "i": "INTEGER NOT NULL DEFAULT 3",
+     "n": "INTEGER DEFAULT -3",
+     "bi": "BIGINT DEFAULT 10",
+     "f": "FLOAT DEFAULT '1.5'",
+     "d": "DOUBLE PRECISION DEFAULT '2'",
+     "dec": "DECIMAL(10,2) DEFAULT 1.25",
+     "b": "TINYINT(1) DEFAULT 1",
+     "bf": "TINYINT(1) NOT NULL DEFAULT 0",
+     "e": "TEXT DEFAULT 'y'",
+     "nul": "VARCHAR(255) DEFAULT NULL",
+     "now": "DATETIME",
+     "uid": "UUID",
+     "lit": "VARCHAR(255) DEFAULT 'lit'",
+     "createdAt": "DATETIME NOT NULL",
+     "updatedAt": "DATETIME NOT NULL"
+    },
+    "sql": "CREATE TABLE IF NOT EXISTS `Defaults` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `s` VARCHAR(255) DEFAULT 'it''s', `c` CHAR(2) DEFAULT 'ab', `t` TEXT DEFAULT 'tt', `i` INTEGER NOT NULL DEFAULT 3, `n` INTEGER DEFAULT -3, `bi` BIGINT DEFAULT 10, `f` FLOAT DEFAULT '1.5', `d` DOUBLE PRECISION DEFAULT '2', `dec` DECIMAL(10,2) DEFAULT 1.25, `b` TINYINT(1) DEFAULT 1, `bf` TINYINT(1) NOT NULL DEFAULT 0, `e` TEXT DEFAULT 'y', `nul` VARCHAR(255) DEFAULT NULL, `now` DATETIME, `uid` UUID, `lit` VARCHAR(255) DEFAULT 'lit', `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL);"
+   },
+   "Uniques": {
+    "table": "Uniques",
+    "attributes": {
+     "id": "INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT",
+     "a": "VARCHAR(255) UNIQUE",
+     "g1": "VARCHAR(255)",
+     "g2": "VARCHAR(255)",
+     "n": "VARCHAR(255)",
+     "off": "VARCHAR(255)",
+     "createdAt": "DATETIME NOT NULL",
+     "updatedAt": "DATETIME NOT NULL"
+    },
+    "sql": "CREATE TABLE IF NOT EXISTS `Uniques` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `a` VARCHAR(255) UNIQUE, `g1` VARCHAR(255), `g2` VARCHAR(255), `n` VARCHAR(255), `off` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, UNIQUE (`g1`, `g2`), UNIQUE (`n`));"
+   },
+   "Keys": {
+    "table": "Keys",
+    "attributes": {
+     "code": "VARCHAR(255) PRIMARY KEY",
+     "other": "INTEGER NOT NULL"
+    },
+    "sql": "CREATE TABLE IF NOT EXISTS `Keys` (`code` VARCHAR(255) PRIMARY KEY, `other` INTEGER NOT NULL);"
+   },
+   "UuidKey": {
+    "table": "UuidKeys",
+    "attributes": {
+     "id": "UUID PRIMARY KEY",
+     "v": "VARCHAR(255)"
+    },
+    "sql": "CREATE TABLE IF NOT EXISTS `UuidKeys` (`id` UUID PRIMARY KEY, `v` VARCHAR(255));"
+   },
+   "BigKey": {
+    "table": "BigKeys",
+    "attributes": {
+     "id": "BIGINT PRIMARY KEY AUTOINCREMENT",
+     "v": "VARCHAR(255)"
+    },
+    "sql": "CREATE TABLE IF NOT EXISTS `BigKeys` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `v` VARCHAR(255));"
+   },
+   "Composite": {
+    "table": "Composites",
+    "attributes": {
+     "l": "INTEGER PRIMARY KEY",
+     "r": "INTEGER NOT NULL PRIMARY KEY",
+     "w": "INTEGER"
+    },
+    "sql": "CREATE TABLE IF NOT EXISTS `Composites` (`l` INTEGER NOT NULL, `r` INTEGER NOT NULL, `w` INTEGER, PRIMARY KEY (`l`, `r`));"
+   },
+   "Stamps": {
+    "table": "Stamps",
+    "attributes": {
+     "id": "INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT",
+     "v": "VARCHAR(255)",
+     "made": "DATETIME NOT NULL",
+     "deletedAt": "DATETIME",
+     "version": "INTEGER NOT NULL DEFAULT 0"
+    },
+    "sql": "CREATE TABLE IF NOT EXISTS `Stamps` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `v` VARCHAR(255), `made` DATETIME NOT NULL, `deletedAt` DATETIME, `version` INTEGER NOT NULL DEFAULT 0);"
+   },
+   "Snake": {
+    "table": "snakes",
+    "attributes": {
+     "id": "INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT",
+     "read_count": "INTEGER",
+     "heading": "VARCHAR(255)",
+     "created_at": "DATETIME NOT NULL",
+     "updated_at": "DATETIME NOT NULL"
+    },
+    "sql": "CREATE TABLE IF NOT EXISTS `snakes` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `read_count` INTEGER, `heading` VARCHAR(255), `created_at` DATETIME NOT NULL, `updated_at` DATETIME NOT NULL);"
+   },
+   "User": {
+    "table": "Users",
+    "attributes": {
+     "id": "INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT",
+     "name": "VARCHAR(255)",
+     "createdAt": "DATETIME NOT NULL",
+     "updatedAt": "DATETIME NOT NULL"
+    },
+    "sql": "CREATE TABLE IF NOT EXISTS `Users` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `name` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL);"
+   },
+   "Memo": {
+    "table": "Memos",
+    "attributes": {
+     "id": "INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT",
+     "title": "VARCHAR(255)",
+     "createdAt": "DATETIME NOT NULL",
+     "updatedAt": "DATETIME NOT NULL",
+     "authorId": "INTEGER REFERENCES `Users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE",
+     "editorId": "INTEGER REFERENCES `Users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE",
+     "parentId": "INTEGER REFERENCES `Memos` (`id`) ON DELETE CASCADE ON UPDATE CASCADE"
+    },
+    "sql": "CREATE TABLE IF NOT EXISTS `Memos` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `title` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, `authorId` INTEGER REFERENCES `Users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE, `editorId` INTEGER REFERENCES `Users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE, `parentId` INTEGER REFERENCES `Memos` (`id`) ON DELETE CASCADE ON UPDATE CASCADE);"
+   },
+   "Org": {
+    "table": "Orgs",
+    "attributes": {
+     "id": "INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT",
+     "name": "VARCHAR(255)",
+     "createdAt": "DATETIME NOT NULL",
+     "updatedAt": "DATETIME NOT NULL"
+    },
+    "sql": "CREATE TABLE IF NOT EXISTS `Orgs` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `name` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL);"
+   },
+   "Team": {
+    "table": "Teams",
+    "attributes": {
+     "id": "INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT",
+     "name": "VARCHAR(255)",
+     "createdAt": "DATETIME NOT NULL",
+     "updatedAt": "DATETIME NOT NULL",
+     "OrgId": "INTEGER REFERENCES `Orgs` (`id`) ON DELETE SET NULL ON UPDATE CASCADE"
+    },
+    "sql": "CREATE TABLE IF NOT EXISTS `Teams` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `name` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, `OrgId` INTEGER REFERENCES `Orgs` (`id`) ON DELETE SET NULL ON UPDATE CASCADE);"
+   },
+   "Pin": {
+    "table": "Pins",
+    "attributes": {
+     "id": "INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT",
+     "a": "INTEGER REFERENCES `Orgs` (`id`) ON DELETE SET NULL ON UPDATE CASCADE",
+     "b": "INTEGER REFERENCES `Orgs` (`id`) ON DELETE CASCADE ON UPDATE CASCADE",
+     "c": "INTEGER REFERENCES `Users` (`id`) ON UPDATE RESTRICT",
+     "createdAt": "DATETIME NOT NULL",
+     "updatedAt": "DATETIME NOT NULL"
+    },
+    "sql": "CREATE TABLE IF NOT EXISTS `Pins` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `a` INTEGER REFERENCES `Orgs` (`id`) ON DELETE SET NULL ON UPDATE CASCADE, `b` INTEGER REFERENCES `Orgs` (`id`) ON DELETE CASCADE ON UPDATE CASCADE, `c` INTEGER REFERENCES `Users` (`id`) ON UPDATE RESTRICT, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL);"
+   }
+  },
+  "mysql": {
+   "Kind": {
+    "table": "Kinds",
+    "attributes": {
+     "id": "INTEGER NOT NULL auto_increment PRIMARY KEY",
+     "s": "VARCHAR(255)",
+     "s40": "VARCHAR(40)",
+     "c": "CHAR(4)",
+     "t": "TEXT",
+     "i": "INTEGER",
+     "bi": "BIGINT",
+     "si": "SMALLINT",
+     "f": "FLOAT",
+     "d": "DOUBLE PRECISION",
+     "dec": "DECIMAL",
+     "dec2": "DECIMAL(10,2)",
+     "b": "TINYINT(1)",
+     "dt": "DATETIME",
+     "don": "DATE",
+     "tm": "TIME",
+     "u": "CHAR(36) BINARY",
+     "bl": "BLOB",
+     "e": "ENUM('a', 'b')",
+     "ev": "ENUM('x', 'y')",
+     "createdAt": "DATETIME NOT NULL",
+     "updatedAt": "DATETIME NOT NULL"
+    },
+    "sql": "CREATE TABLE IF NOT EXISTS `Kinds` (`id` INTEGER NOT NULL auto_increment , `s` VARCHAR(255), `s40` VARCHAR(40), `c` CHAR(4), `t` TEXT, `i` INTEGER, `bi` BIGINT, `si` SMALLINT, `f` FLOAT, `d` DOUBLE PRECISION, `dec` DECIMAL, `dec2` DECIMAL(10,2), `b` TINYINT(1), `dt` DATETIME, `don` DATE, `tm` TIME, `u` CHAR(36) BINARY, `bl` BLOB, `e` ENUM('a', 'b'), `ev` ENUM('x', 'y'), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;"
+   },
+   "Json": {
+    "table": "Jsons",
+    "attributes": {
+     "id": "INTEGER NOT NULL auto_increment PRIMARY KEY",
+     "j": "JSON",
+     "js": "JSON",
+     "createdAt": "DATETIME NOT NULL",
+     "updatedAt": "DATETIME NOT NULL"
+    },
+    "sql": "CREATE TABLE IF NOT EXISTS `Jsons` (`id` INTEGER NOT NULL auto_increment , `j` JSON, `js` JSON, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;"
+   },
+   "Defaults": {
+    "table": "Defaults",
+    "attributes": {
+     "id": "INTEGER NOT NULL auto_increment PRIMARY KEY",
+     "s": "VARCHAR(255) DEFAULT 'it\\'s'",
+     "c": "CHAR(2) DEFAULT 'ab'",
+     "t": "TEXT",
+     "i": "INTEGER NOT NULL DEFAULT 3",
+     "n": "INTEGER DEFAULT -3",
+     "bi": "BIGINT DEFAULT 10",
+     "f": "FLOAT DEFAULT 1.5",
+     "d": "DOUBLE PRECISION DEFAULT 2",
+     "dec": "DECIMAL(10,2) DEFAULT 1.25",
+     "b": "TINYINT(1) DEFAULT true",
+     "bf": "TINYINT(1) NOT NULL DEFAULT false",
+     "e": "ENUM('x', 'y') DEFAULT 'y'",
+     "nul": "VARCHAR(255) DEFAULT NULL",
+     "now": "DATETIME",
+     "uid": "CHAR(36) BINARY",
+     "lit": "VARCHAR(255) DEFAULT 'lit'",
+     "createdAt": "DATETIME NOT NULL",
+     "updatedAt": "DATETIME NOT NULL"
+    },
+    "sql": "CREATE TABLE IF NOT EXISTS `Defaults` (`id` INTEGER NOT NULL auto_increment , `s` VARCHAR(255) DEFAULT 'it\\'s', `c` CHAR(2) DEFAULT 'ab', `t` TEXT, `i` INTEGER NOT NULL DEFAULT 3, `n` INTEGER DEFAULT -3, `bi` BIGINT DEFAULT 10, `f` FLOAT DEFAULT 1.5, `d` DOUBLE PRECISION DEFAULT 2, `dec` DECIMAL(10,2) DEFAULT 1.25, `b` TINYINT(1) DEFAULT true, `bf` TINYINT(1) NOT NULL DEFAULT false, `e` ENUM('x', 'y') DEFAULT 'y', `nul` VARCHAR(255) DEFAULT NULL, `now` DATETIME, `uid` CHAR(36) BINARY, `lit` VARCHAR(255) DEFAULT 'lit', `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;"
+   },
+   "Uniques": {
+    "table": "Uniques",
+    "attributes": {
+     "id": "INTEGER NOT NULL auto_increment PRIMARY KEY",
+     "a": "VARCHAR(255) UNIQUE",
+     "g1": "VARCHAR(255)",
+     "g2": "VARCHAR(255)",
+     "n": "VARCHAR(255)",
+     "off": "VARCHAR(255)",
+     "createdAt": "DATETIME NOT NULL",
+     "updatedAt": "DATETIME NOT NULL"
+    },
+    "sql": "CREATE TABLE IF NOT EXISTS `Uniques` (`id` INTEGER NOT NULL auto_increment , `a` VARCHAR(255) UNIQUE, `g1` VARCHAR(255), `g2` VARCHAR(255), `n` VARCHAR(255), `off` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, UNIQUE `pair` (`g1`, `g2`), UNIQUE `solo` (`n`), PRIMARY KEY (`id`)) ENGINE=InnoDB;"
+   },
+   "Keys": {
+    "table": "Keys",
+    "attributes": {
+     "code": "VARCHAR(255) PRIMARY KEY",
+     "other": "INTEGER NOT NULL"
+    },
+    "sql": "CREATE TABLE IF NOT EXISTS `Keys` (`code` VARCHAR(255) , `other` INTEGER NOT NULL, PRIMARY KEY (`code`)) ENGINE=InnoDB;"
+   },
+   "UuidKey": {
+    "table": "UuidKeys",
+    "attributes": {
+     "id": "CHAR(36) BINARY PRIMARY KEY",
+     "v": "VARCHAR(255)"
+    },
+    "sql": "CREATE TABLE IF NOT EXISTS `UuidKeys` (`id` CHAR(36) BINARY , `v` VARCHAR(255), PRIMARY KEY (`id`)) ENGINE=InnoDB;"
+   },
+   "BigKey": {
+    "table": "BigKeys",
+    "attributes": {
+     "id": "BIGINT auto_increment PRIMARY KEY",
+     "v": "VARCHAR(255)"
+    },
+    "sql": "CREATE TABLE IF NOT EXISTS `BigKeys` (`id` BIGINT auto_increment , `v` VARCHAR(255), PRIMARY KEY (`id`)) ENGINE=InnoDB;"
+   },
+   "Composite": {
+    "table": "Composites",
+    "attributes": {
+     "l": "INTEGER PRIMARY KEY",
+     "r": "INTEGER NOT NULL PRIMARY KEY",
+     "w": "INTEGER"
+    },
+    "sql": "CREATE TABLE IF NOT EXISTS `Composites` (`l` INTEGER , `r` INTEGER NOT NULL , `w` INTEGER, PRIMARY KEY (`l`, `r`)) ENGINE=InnoDB;"
+   },
+   "Stamps": {
+    "table": "Stamps",
+    "attributes": {
+     "id": "INTEGER NOT NULL auto_increment PRIMARY KEY",
+     "v": "VARCHAR(255)",
+     "made": "DATETIME NOT NULL",
+     "deletedAt": "DATETIME",
+     "version": "INTEGER NOT NULL DEFAULT 0"
+    },
+    "sql": "CREATE TABLE IF NOT EXISTS `Stamps` (`id` INTEGER NOT NULL auto_increment , `v` VARCHAR(255), `made` DATETIME NOT NULL, `deletedAt` DATETIME, `version` INTEGER NOT NULL DEFAULT 0, PRIMARY KEY (`id`)) ENGINE=InnoDB;"
+   },
+   "Snake": {
+    "table": "snakes",
+    "attributes": {
+     "id": "INTEGER NOT NULL auto_increment PRIMARY KEY",
+     "read_count": "INTEGER",
+     "heading": "VARCHAR(255)",
+     "created_at": "DATETIME NOT NULL",
+     "updated_at": "DATETIME NOT NULL"
+    },
+    "sql": "CREATE TABLE IF NOT EXISTS `snakes` (`id` INTEGER NOT NULL auto_increment , `read_count` INTEGER, `heading` VARCHAR(255), `created_at` DATETIME NOT NULL, `updated_at` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;"
+   },
+   "User": {
+    "table": "Users",
+    "attributes": {
+     "id": "INTEGER NOT NULL auto_increment PRIMARY KEY",
+     "name": "VARCHAR(255)",
+     "createdAt": "DATETIME NOT NULL",
+     "updatedAt": "DATETIME NOT NULL"
+    },
+    "sql": "CREATE TABLE IF NOT EXISTS `Users` (`id` INTEGER NOT NULL auto_increment , `name` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;"
+   },
+   "Memo": {
+    "table": "Memos",
+    "attributes": {
+     "id": "INTEGER NOT NULL auto_increment PRIMARY KEY",
+     "title": "VARCHAR(255)",
+     "createdAt": "DATETIME NOT NULL",
+     "updatedAt": "DATETIME NOT NULL",
+     "authorId": "INTEGER REFERENCES `Users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE",
+     "editorId": "INTEGER REFERENCES `Users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE",
+     "parentId": "INTEGER REFERENCES `Memos` (`id`) ON DELETE CASCADE ON UPDATE CASCADE"
+    },
+    "sql": "CREATE TABLE IF NOT EXISTS `Memos` (`id` INTEGER NOT NULL auto_increment , `title` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, `authorId` INTEGER, `editorId` INTEGER, `parentId` INTEGER, PRIMARY KEY (`id`), FOREIGN KEY (`authorId`) REFERENCES `Users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE, FOREIGN KEY (`editorId`) REFERENCES `Users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE, FOREIGN KEY (`parentId`) REFERENCES `Memos` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) ENGINE=InnoDB;"
+   },
+   "Org": {
+    "table": "Orgs",
+    "attributes": {
+     "id": "INTEGER NOT NULL auto_increment PRIMARY KEY",
+     "name": "VARCHAR(255)",
+     "createdAt": "DATETIME NOT NULL",
+     "updatedAt": "DATETIME NOT NULL"
+    },
+    "sql": "CREATE TABLE IF NOT EXISTS `Orgs` (`id` INTEGER NOT NULL auto_increment , `name` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;"
+   },
+   "Team": {
+    "table": "Teams",
+    "attributes": {
+     "id": "INTEGER NOT NULL auto_increment PRIMARY KEY",
+     "name": "VARCHAR(255)",
+     "createdAt": "DATETIME NOT NULL",
+     "updatedAt": "DATETIME NOT NULL",
+     "OrgId": "INTEGER REFERENCES `Orgs` (`id`) ON DELETE SET NULL ON UPDATE CASCADE"
+    },
+    "sql": "CREATE TABLE IF NOT EXISTS `Teams` (`id` INTEGER NOT NULL auto_increment , `name` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, `OrgId` INTEGER, PRIMARY KEY (`id`), FOREIGN KEY (`OrgId`) REFERENCES `Orgs` (`id`) ON DELETE SET NULL ON UPDATE CASCADE) ENGINE=InnoDB;"
+   },
+   "Pin": {
+    "table": "Pins",
+    "attributes": {
+     "id": "INTEGER NOT NULL auto_increment PRIMARY KEY",
+     "a": "INTEGER REFERENCES `Orgs` (`id`) ON DELETE SET NULL ON UPDATE CASCADE",
+     "b": "INTEGER REFERENCES `Orgs` (`id`) ON DELETE CASCADE ON UPDATE CASCADE",
+     "c": "INTEGER REFERENCES `Users` (`id`) ON UPDATE RESTRICT",
+     "createdAt": "DATETIME NOT NULL",
+     "updatedAt": "DATETIME NOT NULL"
+    },
+    "sql": "CREATE TABLE IF NOT EXISTS `Pins` (`id` INTEGER NOT NULL auto_increment , `a` INTEGER, `b` INTEGER, `c` INTEGER, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`), FOREIGN KEY (`a`) REFERENCES `Orgs` (`id`) ON DELETE SET NULL ON UPDATE CASCADE, FOREIGN KEY (`b`) REFERENCES `Orgs` (`id`) ON DELETE CASCADE ON UPDATE CASCADE, FOREIGN KEY (`c`) REFERENCES `Users` (`id`) ON UPDATE RESTRICT) ENGINE=InnoDB;"
+   }
+  },
+  "mariadb": {
+   "Kind": {
+    "table": "Kinds",
+    "attributes": {
+     "id": "INTEGER NOT NULL auto_increment PRIMARY KEY",
+     "s": "VARCHAR(255)",
+     "s40": "VARCHAR(40)",
+     "c": "CHAR(4)",
+     "t": "TEXT",
+     "i": "INTEGER",
+     "bi": "BIGINT",
+     "si": "SMALLINT",
+     "f": "FLOAT",
+     "d": "DOUBLE PRECISION",
+     "dec": "DECIMAL",
+     "dec2": "DECIMAL(10,2)",
+     "b": "TINYINT(1)",
+     "dt": "DATETIME",
+     "don": "DATE",
+     "tm": "TIME",
+     "u": "CHAR(36) BINARY",
+     "bl": "BLOB",
+     "e": "ENUM('a', 'b')",
+     "ev": "ENUM('x', 'y')",
+     "createdAt": "DATETIME NOT NULL",
+     "updatedAt": "DATETIME NOT NULL"
+    },
+    "sql": "CREATE TABLE IF NOT EXISTS `Kinds` (`id` INTEGER NOT NULL auto_increment , `s` VARCHAR(255), `s40` VARCHAR(40), `c` CHAR(4), `t` TEXT, `i` INTEGER, `bi` BIGINT, `si` SMALLINT, `f` FLOAT, `d` DOUBLE PRECISION, `dec` DECIMAL, `dec2` DECIMAL(10,2), `b` TINYINT(1), `dt` DATETIME, `don` DATE, `tm` TIME, `u` CHAR(36) BINARY, `bl` BLOB, `e` ENUM('a', 'b'), `ev` ENUM('x', 'y'), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;"
+   },
+   "Json": {
+    "table": "Jsons",
+    "attributes": {
+     "id": "INTEGER NOT NULL auto_increment PRIMARY KEY",
+     "j": "JSON",
+     "js": "JSON",
+     "createdAt": "DATETIME NOT NULL",
+     "updatedAt": "DATETIME NOT NULL"
+    },
+    "sql": "CREATE TABLE IF NOT EXISTS `Jsons` (`id` INTEGER NOT NULL auto_increment , `j` JSON, `js` JSON, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;"
+   },
+   "Defaults": {
+    "table": "Defaults",
+    "attributes": {
+     "id": "INTEGER NOT NULL auto_increment PRIMARY KEY",
+     "s": "VARCHAR(255) DEFAULT 'it\\'s'",
+     "c": "CHAR(2) DEFAULT 'ab'",
+     "t": "TEXT",
+     "i": "INTEGER NOT NULL DEFAULT 3",
+     "n": "INTEGER DEFAULT -3",
+     "bi": "BIGINT DEFAULT 10",
+     "f": "FLOAT DEFAULT 1.5",
+     "d": "DOUBLE PRECISION DEFAULT 2",
+     "dec": "DECIMAL(10,2) DEFAULT 1.25",
+     "b": "TINYINT(1) DEFAULT true",
+     "bf": "TINYINT(1) NOT NULL DEFAULT false",
+     "e": "ENUM('x', 'y') DEFAULT 'y'",
+     "nul": "VARCHAR(255) DEFAULT NULL",
+     "now": "DATETIME",
+     "uid": "CHAR(36) BINARY",
+     "lit": "VARCHAR(255) DEFAULT 'lit'",
+     "createdAt": "DATETIME NOT NULL",
+     "updatedAt": "DATETIME NOT NULL"
+    },
+    "sql": "CREATE TABLE IF NOT EXISTS `Defaults` (`id` INTEGER NOT NULL auto_increment , `s` VARCHAR(255) DEFAULT 'it\\'s', `c` CHAR(2) DEFAULT 'ab', `t` TEXT, `i` INTEGER NOT NULL DEFAULT 3, `n` INTEGER DEFAULT -3, `bi` BIGINT DEFAULT 10, `f` FLOAT DEFAULT 1.5, `d` DOUBLE PRECISION DEFAULT 2, `dec` DECIMAL(10,2) DEFAULT 1.25, `b` TINYINT(1) DEFAULT true, `bf` TINYINT(1) NOT NULL DEFAULT false, `e` ENUM('x', 'y') DEFAULT 'y', `nul` VARCHAR(255) DEFAULT NULL, `now` DATETIME, `uid` CHAR(36) BINARY, `lit` VARCHAR(255) DEFAULT 'lit', `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;"
+   },
+   "Uniques": {
+    "table": "Uniques",
+    "attributes": {
+     "id": "INTEGER NOT NULL auto_increment PRIMARY KEY",
+     "a": "VARCHAR(255) UNIQUE",
+     "g1": "VARCHAR(255)",
+     "g2": "VARCHAR(255)",
+     "n": "VARCHAR(255)",
+     "off": "VARCHAR(255)",
+     "createdAt": "DATETIME NOT NULL",
+     "updatedAt": "DATETIME NOT NULL"
+    },
+    "sql": "CREATE TABLE IF NOT EXISTS `Uniques` (`id` INTEGER NOT NULL auto_increment , `a` VARCHAR(255) UNIQUE, `g1` VARCHAR(255), `g2` VARCHAR(255), `n` VARCHAR(255), `off` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, UNIQUE `pair` (`g1`, `g2`), UNIQUE `solo` (`n`), PRIMARY KEY (`id`)) ENGINE=InnoDB;"
+   },
+   "Keys": {
+    "table": "Keys",
+    "attributes": {
+     "code": "VARCHAR(255) PRIMARY KEY",
+     "other": "INTEGER NOT NULL"
+    },
+    "sql": "CREATE TABLE IF NOT EXISTS `Keys` (`code` VARCHAR(255) , `other` INTEGER NOT NULL, PRIMARY KEY (`code`)) ENGINE=InnoDB;"
+   },
+   "UuidKey": {
+    "table": "UuidKeys",
+    "attributes": {
+     "id": "CHAR(36) BINARY PRIMARY KEY",
+     "v": "VARCHAR(255)"
+    },
+    "sql": "CREATE TABLE IF NOT EXISTS `UuidKeys` (`id` CHAR(36) BINARY , `v` VARCHAR(255), PRIMARY KEY (`id`)) ENGINE=InnoDB;"
+   },
+   "BigKey": {
+    "table": "BigKeys",
+    "attributes": {
+     "id": "BIGINT auto_increment PRIMARY KEY",
+     "v": "VARCHAR(255)"
+    },
+    "sql": "CREATE TABLE IF NOT EXISTS `BigKeys` (`id` BIGINT auto_increment , `v` VARCHAR(255), PRIMARY KEY (`id`)) ENGINE=InnoDB;"
+   },
+   "Composite": {
+    "table": "Composites",
+    "attributes": {
+     "l": "INTEGER PRIMARY KEY",
+     "r": "INTEGER NOT NULL PRIMARY KEY",
+     "w": "INTEGER"
+    },
+    "sql": "CREATE TABLE IF NOT EXISTS `Composites` (`l` INTEGER , `r` INTEGER NOT NULL , `w` INTEGER, PRIMARY KEY (`l`, `r`)) ENGINE=InnoDB;"
+   },
+   "Stamps": {
+    "table": "Stamps",
+    "attributes": {
+     "id": "INTEGER NOT NULL auto_increment PRIMARY KEY",
+     "v": "VARCHAR(255)",
+     "made": "DATETIME NOT NULL",
+     "deletedAt": "DATETIME",
+     "version": "INTEGER NOT NULL DEFAULT 0"
+    },
+    "sql": "CREATE TABLE IF NOT EXISTS `Stamps` (`id` INTEGER NOT NULL auto_increment , `v` VARCHAR(255), `made` DATETIME NOT NULL, `deletedAt` DATETIME, `version` INTEGER NOT NULL DEFAULT 0, PRIMARY KEY (`id`)) ENGINE=InnoDB;"
+   },
+   "Snake": {
+    "table": "snakes",
+    "attributes": {
+     "id": "INTEGER NOT NULL auto_increment PRIMARY KEY",
+     "read_count": "INTEGER",
+     "heading": "VARCHAR(255)",
+     "created_at": "DATETIME NOT NULL",
+     "updated_at": "DATETIME NOT NULL"
+    },
+    "sql": "CREATE TABLE IF NOT EXISTS `snakes` (`id` INTEGER NOT NULL auto_increment , `read_count` INTEGER, `heading` VARCHAR(255), `created_at` DATETIME NOT NULL, `updated_at` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;"
+   },
+   "User": {
+    "table": "Users",
+    "attributes": {
+     "id": "INTEGER NOT NULL auto_increment PRIMARY KEY",
+     "name": "VARCHAR(255)",
+     "createdAt": "DATETIME NOT NULL",
+     "updatedAt": "DATETIME NOT NULL"
+    },
+    "sql": "CREATE TABLE IF NOT EXISTS `Users` (`id` INTEGER NOT NULL auto_increment , `name` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;"
+   },
+   "Memo": {
+    "table": "Memos",
+    "attributes": {
+     "id": "INTEGER NOT NULL auto_increment PRIMARY KEY",
+     "title": "VARCHAR(255)",
+     "createdAt": "DATETIME NOT NULL",
+     "updatedAt": "DATETIME NOT NULL",
+     "authorId": "INTEGER REFERENCES `Users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE",
+     "editorId": "INTEGER REFERENCES `Users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE",
+     "parentId": "INTEGER REFERENCES `Memos` (`id`) ON DELETE CASCADE ON UPDATE CASCADE"
+    },
+    "sql": "CREATE TABLE IF NOT EXISTS `Memos` (`id` INTEGER NOT NULL auto_increment , `title` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, `authorId` INTEGER, `editorId` INTEGER, `parentId` INTEGER, PRIMARY KEY (`id`), FOREIGN KEY (`authorId`) REFERENCES `Users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE, FOREIGN KEY (`editorId`) REFERENCES `Users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE, FOREIGN KEY (`parentId`) REFERENCES `Memos` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) ENGINE=InnoDB;"
+   },
+   "Org": {
+    "table": "Orgs",
+    "attributes": {
+     "id": "INTEGER NOT NULL auto_increment PRIMARY KEY",
+     "name": "VARCHAR(255)",
+     "createdAt": "DATETIME NOT NULL",
+     "updatedAt": "DATETIME NOT NULL"
+    },
+    "sql": "CREATE TABLE IF NOT EXISTS `Orgs` (`id` INTEGER NOT NULL auto_increment , `name` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;"
+   },
+   "Team": {
+    "table": "Teams",
+    "attributes": {
+     "id": "INTEGER NOT NULL auto_increment PRIMARY KEY",
+     "name": "VARCHAR(255)",
+     "createdAt": "DATETIME NOT NULL",
+     "updatedAt": "DATETIME NOT NULL",
+     "OrgId": "INTEGER REFERENCES `Orgs` (`id`) ON DELETE SET NULL ON UPDATE CASCADE"
+    },
+    "sql": "CREATE TABLE IF NOT EXISTS `Teams` (`id` INTEGER NOT NULL auto_increment , `name` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, `OrgId` INTEGER, PRIMARY KEY (`id`), FOREIGN KEY (`OrgId`) REFERENCES `Orgs` (`id`) ON DELETE SET NULL ON UPDATE CASCADE) ENGINE=InnoDB;"
+   },
+   "Pin": {
+    "table": "Pins",
+    "attributes": {
+     "id": "INTEGER NOT NULL auto_increment PRIMARY KEY",
+     "a": "INTEGER REFERENCES `Orgs` (`id`) ON DELETE SET NULL ON UPDATE CASCADE",
+     "b": "INTEGER REFERENCES `Orgs` (`id`) ON DELETE CASCADE ON UPDATE CASCADE",
+     "c": "INTEGER REFERENCES `Users` (`id`) ON UPDATE RESTRICT",
+     "createdAt": "DATETIME NOT NULL",
+     "updatedAt": "DATETIME NOT NULL"
+    },
+    "sql": "CREATE TABLE IF NOT EXISTS `Pins` (`id` INTEGER NOT NULL auto_increment , `a` INTEGER, `b` INTEGER, `c` INTEGER, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`), FOREIGN KEY (`a`) REFERENCES `Orgs` (`id`) ON DELETE SET NULL ON UPDATE CASCADE, FOREIGN KEY (`b`) REFERENCES `Orgs` (`id`) ON DELETE CASCADE ON UPDATE CASCADE, FOREIGN KEY (`c`) REFERENCES `Users` (`id`) ON UPDATE RESTRICT) ENGINE=InnoDB;"
+   }
+  },
+  "mssql": {
+   "Kind": {
+    "table": "Kinds",
+    "attributes": {
+     "id": "INTEGER NOT NULL IDENTITY(1,1) PRIMARY KEY",
+     "s": "NVARCHAR(255) NULL",
+     "s40": "NVARCHAR(40) NULL",
+     "c": "CHAR(4) NULL",
+     "t": "NVARCHAR(MAX) NULL",
+     "i": "INTEGER NULL",
+     "bi": "BIGINT NULL",
+     "si": "SMALLINT NULL",
+     "f": "FLOAT NULL",
+     "d": "DOUBLE PRECISION NULL",
+     "dec": "DECIMAL NULL",
+     "dec2": "DECIMAL(10,2) NULL",
+     "b": "BIT NULL",
+     "dt": "DATETIMEOFFSET NULL",
+     "don": "DATE NULL",
+     "tm": "TIME NULL",
+     "u": "CHAR(36) NULL",
+     "bl": "VARBINARY(MAX) NULL",
+     "e": "VARCHAR(255) CHECK ([e] IN(N'a', N'b'))",
+     "ev": "VARCHAR(255) CHECK ([ev] IN(N'x', N'y'))",
+     "createdAt": "DATETIMEOFFSET NOT NULL",
+     "updatedAt": "DATETIMEOFFSET NOT NULL"
+    },
+    "sql": "IF OBJECT_ID('[Kinds]', 'U') IS NULL CREATE TABLE [Kinds] ([id] INTEGER NOT NULL IDENTITY(1,1) , [s] NVARCHAR(255) NULL, [s40] NVARCHAR(40) NULL, [c] CHAR(4) NULL, [t] NVARCHAR(MAX) NULL, [i] INTEGER NULL, [bi] BIGINT NULL, [si] SMALLINT NULL, [f] FLOAT NULL, [d] DOUBLE PRECISION NULL, [dec] DECIMAL NULL, [dec2] DECIMAL(10,2) NULL, [b] BIT NULL, [dt] DATETIMEOFFSET NULL, [don] DATE NULL, [tm] TIME NULL, [u] CHAR(36) NULL, [bl] VARBINARY(MAX) NULL, [e] VARCHAR(255) CHECK ([e] IN(N'a', N'b')), [ev] VARCHAR(255) CHECK ([ev] IN(N'x', N'y')), [createdAt] DATETIMEOFFSET NOT NULL, [updatedAt] DATETIMEOFFSET NOT NULL, PRIMARY KEY ([id]));"
+   },
+   "Json": {
+    "table": "Jsons",
+    "throws": "Invalid value { a: [ 1, 'x' ] }"
+   },
+   "Defaults": {
+    "table": "Defaults",
+    "attributes": {
+     "id": "INTEGER NOT NULL IDENTITY(1,1) PRIMARY KEY",
+     "s": "NVARCHAR(255) DEFAULT N'it''s'",
+     "c": "CHAR(2) DEFAULT N'ab'",
+     "t": "NVARCHAR(MAX) DEFAULT N'tt'",
+     "i": "INTEGER NOT NULL DEFAULT 3",
+     "n": "INTEGER DEFAULT -3",
+     "bi": "BIGINT DEFAULT 10",
+     "f": "FLOAT DEFAULT 1.5",
+     "d": "DOUBLE PRECISION DEFAULT 2",
+     "dec": "DECIMAL(10,2) DEFAULT 1.25",
+     "b": "BIT DEFAULT 1",
+     "bf": "BIT NOT NULL DEFAULT 0",
+     "e": "VARCHAR(255) CHECK ([e] IN(N'x', N'y'))",
+     "nul": "NVARCHAR(255) DEFAULT NULL",
+     "now": "DATETIMEOFFSET NULL",
+     "uid": "CHAR(36) NULL",
+     "lit": "NVARCHAR(255) DEFAULT 'lit'",
+     "createdAt": "DATETIMEOFFSET NOT NULL",
+     "updatedAt": "DATETIMEOFFSET NOT NULL"
+    },
+    "sql": "IF OBJECT_ID('[Defaults]', 'U') IS NULL CREATE TABLE [Defaults] ([id] INTEGER NOT NULL IDENTITY(1,1) , [s] NVARCHAR(255) DEFAULT N'it''s', [c] CHAR(2) DEFAULT N'ab', [t] NVARCHAR(MAX) DEFAULT N'tt', [i] INTEGER NOT NULL DEFAULT 3, [n] INTEGER DEFAULT -3, [bi] BIGINT DEFAULT 10, [f] FLOAT DEFAULT 1.5, [d] DOUBLE PRECISION DEFAULT 2, [dec] DECIMAL(10,2) DEFAULT 1.25, [b] BIT DEFAULT 1, [bf] BIT NOT NULL DEFAULT 0, [e] VARCHAR(255) CHECK ([e] IN(N'x', N'y')), [nul] NVARCHAR(255) DEFAULT NULL, [now] DATETIMEOFFSET NULL, [uid] CHAR(36) NULL, [lit] NVARCHAR(255) DEFAULT 'lit', [createdAt] DATETIMEOFFSET NOT NULL, [updatedAt] DATETIMEOFFSET NOT NULL, PRIMARY KEY ([id]));"
+   },
+   "Uniques": {
+    "table": "Uniques",
+    "attributes": {
+     "id": "INTEGER NOT NULL IDENTITY(1,1) PRIMARY KEY",
+     "a": "NVARCHAR(255) NULL UNIQUE",
+     "g1": "NVARCHAR(255) NULL",
+     "g2": "NVARCHAR(255) NULL",
+     "n": "NVARCHAR(255) NULL",
+     "off": "NVARCHAR(255) NULL",
+     "createdAt": "DATETIMEOFFSET NOT NULL",
+     "updatedAt": "DATETIMEOFFSET NOT NULL"
+    },
+    "sql": "IF OBJECT_ID('[Uniques]', 'U') IS NULL CREATE TABLE [Uniques] ([id] INTEGER NOT NULL IDENTITY(1,1) , [a] NVARCHAR(255) NULL UNIQUE, [g1] NVARCHAR(255) NULL, [g2] NVARCHAR(255) NULL, [n] NVARCHAR(255) NULL, [off] NVARCHAR(255) NULL, [createdAt] DATETIMEOFFSET NOT NULL, [updatedAt] DATETIMEOFFSET NOT NULL, CONSTRAINT [pair] UNIQUE ([g1], [g2]), CONSTRAINT [solo] UNIQUE ([n]), PRIMARY KEY ([id]));"
+   },
+   "Keys": {
+    "table": "Keys",
+    "attributes": {
+     "code": "NVARCHAR(255) PRIMARY KEY",
+     "other": "INTEGER NOT NULL"
+    },
+    "sql": "IF OBJECT_ID('[Keys]', 'U') IS NULL CREATE TABLE [Keys] ([code] NVARCHAR(255) , [other] INTEGER NOT NULL, PRIMARY KEY ([code]));"
+   },
+   "UuidKey": {
+    "table": "UuidKeys",
+    "attributes": {
+     "id": "CHAR(36) PRIMARY KEY",
+     "v": "NVARCHAR(255) NULL"
+    },
+    "sql": "IF OBJECT_ID('[UuidKeys]', 'U') IS NULL CREATE TABLE [UuidKeys] ([id] CHAR(36) , [v] NVARCHAR(255) NULL, PRIMARY KEY ([id]));"
+   },
+   "BigKey": {
+    "table": "BigKeys",
+    "attributes": {
+     "id": "BIGINT IDENTITY(1,1) PRIMARY KEY",
+     "v": "NVARCHAR(255) NULL"
+    },
+    "sql": "IF OBJECT_ID('[BigKeys]', 'U') IS NULL CREATE TABLE [BigKeys] ([id] BIGINT IDENTITY(1,1) , [v] NVARCHAR(255) NULL, PRIMARY KEY ([id]));"
+   },
+   "Composite": {
+    "table": "Composites",
+    "attributes": {
+     "l": "INTEGER PRIMARY KEY",
+     "r": "INTEGER NOT NULL PRIMARY KEY",
+     "w": "INTEGER NULL"
+    },
+    "sql": "IF OBJECT_ID('[Composites]', 'U') IS NULL CREATE TABLE [Composites] ([l] INTEGER , [r] INTEGER NOT NULL , [w] INTEGER NULL, PRIMARY KEY ([l], [r]));"
+   },
+   "Stamps": {
+    "table": "Stamps",
+    "attributes": {
+     "id": "INTEGER NOT NULL IDENTITY(1,1) PRIMARY KEY",
+     "v": "NVARCHAR(255) NULL",
+     "made": "DATETIMEOFFSET NOT NULL",
+     "deletedAt": "DATETIMEOFFSET NULL",
+     "version": "INTEGER NOT NULL DEFAULT 0"
+    },
+    "sql": "IF OBJECT_ID('[Stamps]', 'U') IS NULL CREATE TABLE [Stamps] ([id] INTEGER NOT NULL IDENTITY(1,1) , [v] NVARCHAR(255) NULL, [made] DATETIMEOFFSET NOT NULL, [deletedAt] DATETIMEOFFSET NULL, [version] INTEGER NOT NULL DEFAULT 0, PRIMARY KEY ([id]));"
+   },
+   "Snake": {
+    "table": "snakes",
+    "attributes": {
+     "id": "INTEGER NOT NULL IDENTITY(1,1) PRIMARY KEY",
+     "read_count": "INTEGER NULL",
+     "heading": "NVARCHAR(255) NULL",
+     "created_at": "DATETIMEOFFSET NOT NULL",
+     "updated_at": "DATETIMEOFFSET NOT NULL"
+    },
+    "sql": "IF OBJECT_ID('[snakes]', 'U') IS NULL CREATE TABLE [snakes] ([id] INTEGER NOT NULL IDENTITY(1,1) , [read_count] INTEGER NULL, [heading] NVARCHAR(255) NULL, [created_at] DATETIMEOFFSET NOT NULL, [updated_at] DATETIMEOFFSET NOT NULL, PRIMARY KEY ([id]));"
+   },
+   "User": {
+    "table": "Users",
+    "attributes": {
+     "id": "INTEGER NOT NULL IDENTITY(1,1) PRIMARY KEY",
+     "name": "NVARCHAR(255) NULL",
+     "createdAt": "DATETIMEOFFSET NOT NULL",
+     "updatedAt": "DATETIMEOFFSET NOT NULL"
+    },
+    "sql": "IF OBJECT_ID('[Users]', 'U') IS NULL CREATE TABLE [Users] ([id] INTEGER NOT NULL IDENTITY(1,1) , [name] NVARCHAR(255) NULL, [createdAt] DATETIMEOFFSET NOT NULL, [updatedAt] DATETIMEOFFSET NOT NULL, PRIMARY KEY ([id]));"
+   },
+   "Memo": {
+    "table": "Memos",
+    "attributes": {
+     "id": "INTEGER NOT NULL IDENTITY(1,1) PRIMARY KEY",
+     "title": "NVARCHAR(255) NULL",
+     "createdAt": "DATETIMEOFFSET NOT NULL",
+     "updatedAt": "DATETIMEOFFSET NOT NULL",
+     "authorId": "INTEGER NULL REFERENCES [Users] ([id]) ON DELETE CASCADE",
+     "editorId": "INTEGER NULL REFERENCES [Users] ([id])",
+     "parentId": "INTEGER NULL REFERENCES [Memos] ([id])"
+    },
+    "sql": "IF OBJECT_ID('[Memos]', 'U') IS NULL CREATE TABLE [Memos] ([id] INTEGER NOT NULL IDENTITY(1,1) , [title] NVARCHAR(255) NULL, [createdAt] DATETIMEOFFSET NOT NULL, [updatedAt] DATETIMEOFFSET NOT NULL, [authorId] INTEGER NULL, [editorId] INTEGER NULL, [parentId] INTEGER NULL, PRIMARY KEY ([id]), FOREIGN KEY ([authorId]) REFERENCES [Users] ([id]) ON DELETE CASCADE, FOREIGN KEY ([editorId]) REFERENCES [Users] ([id]), FOREIGN KEY ([parentId]) REFERENCES [Memos] ([id]));"
+   },
+   "Org": {
+    "table": "Orgs",
+    "attributes": {
+     "id": "INTEGER NOT NULL IDENTITY(1,1) PRIMARY KEY",
+     "name": "NVARCHAR(255) NULL",
+     "createdAt": "DATETIMEOFFSET NOT NULL",
+     "updatedAt": "DATETIMEOFFSET NOT NULL"
+    },
+    "sql": "IF OBJECT_ID('[Orgs]', 'U') IS NULL CREATE TABLE [Orgs] ([id] INTEGER NOT NULL IDENTITY(1,1) , [name] NVARCHAR(255) NULL, [createdAt] DATETIMEOFFSET NOT NULL, [updatedAt] DATETIMEOFFSET NOT NULL, PRIMARY KEY ([id]));"
+   },
+   "Team": {
+    "table": "Teams",
+    "attributes": {
+     "id": "INTEGER NOT NULL IDENTITY(1,1) PRIMARY KEY",
+     "name": "NVARCHAR(255) NULL",
+     "createdAt": "DATETIMEOFFSET NOT NULL",
+     "updatedAt": "DATETIMEOFFSET NOT NULL",
+     "OrgId": "INTEGER NULL REFERENCES [Orgs] ([id]) ON DELETE SET NULL"
+    },
+    "sql": "IF OBJECT_ID('[Teams]', 'U') IS NULL CREATE TABLE [Teams] ([id] INTEGER NOT NULL IDENTITY(1,1) , [name] NVARCHAR(255) NULL, [createdAt] DATETIMEOFFSET NOT NULL, [updatedAt] DATETIMEOFFSET NOT NULL, [OrgId] INTEGER NULL, PRIMARY KEY ([id]), FOREIGN KEY ([OrgId]) REFERENCES [Orgs] ([id]) ON DELETE SET NULL);"
+   },
+   "Pin": {
+    "table": "Pins",
+    "attributes": {
+     "id": "INTEGER NOT NULL IDENTITY(1,1) PRIMARY KEY",
+     "a": "INTEGER NULL REFERENCES [Orgs] ([id]) ON DELETE SET NULL",
+     "b": "INTEGER NULL REFERENCES [Orgs] ([id])",
+     "c": "INTEGER NULL REFERENCES [Users] ([id])",
+     "createdAt": "DATETIMEOFFSET NOT NULL",
+     "updatedAt": "DATETIMEOFFSET NOT NULL"
+    },
+    "sql": "IF OBJECT_ID('[Pins]', 'U') IS NULL CREATE TABLE [Pins] ([id] INTEGER NOT NULL IDENTITY(1,1) , [a] INTEGER NULL, [b] INTEGER NULL, [c] INTEGER NULL, [createdAt] DATETIMEOFFSET NOT NULL, [updatedAt] DATETIMEOFFSET NOT NULL, PRIMARY KEY ([id]), FOREIGN KEY ([a]) REFERENCES [Orgs] ([id]) ON DELETE SET NULL, FOREIGN KEY ([b]) REFERENCES [Orgs] ([id]), FOREIGN KEY ([c]) REFERENCES [Users] ([id]));"
+   }
+  }
+ }
+}

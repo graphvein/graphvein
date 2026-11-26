@@ -1,0 +1,341 @@
+{
+  "api_version": 0,
+  "callers": [
+    {
+      "edges": [
+        {
+          "confidence": 1,
+          "kind": "invokes_command",
+          "provenance": "fact"
+        }
+      ],
+      "node": {
+        "attributes": {
+          "command": "s",
+          "conditional": false,
+          "form": "direct",
+          "framework": "tauri",
+          "status": "linked",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "file": "src/ipc.ts",
+        "file_state": "missing",
+        "ide": {
+          "column": 1,
+          "exact": false,
+          "line": 33,
+          "link": "vscode://file/{ROOT}/src/ipc.ts:33:1"
+        },
+        "identity": "ipc_call:src/ipc.ts#owner.INVOKE%20%27s%27",
+        "kind": "ipc_call",
+        "level": 4,
+        "name": "INVOKE 's'",
+        "qualified_name": "owner.INVOKE 's'",
+        "source_root": "src",
+        "span": {
+          "end_column": 1,
+          "end_line": 33,
+          "start_column": 0,
+          "start_line": 33
+        },
+        "type": "node"
+      },
+      "owner": null,
+      "reasons": []
+    },
+    {
+      "edges": [
+        {
+          "confidence": 1,
+          "kind": "invokes_command",
+          "provenance": "fact"
+        }
+      ],
+      "node": {
+        "attributes": {
+          "command": "LINKED",
+          "conditional": false,
+          "form": "direct",
+          "framework": "tauri",
+          "status": "LINKED",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "file": "src/ipc.ts",
+        "file_state": "missing",
+        "ide": {
+          "column": 1,
+          "exact": false,
+          "line": 36,
+          "link": "vscode://file/{ROOT}/src/ipc.ts:36:1"
+        },
+        "identity": "ipc_call:src/ipc.ts#owner.INVOKE%20%27LINKED%27",
+        "kind": "ipc_call",
+        "level": 4,
+        "name": "INVOKE 'LINKED'",
+        "qualified_name": "owner.INVOKE 'LINKED'",
+        "source_root": "src",
+        "span": {
+          "end_column": 1,
+          "end_line": 36,
+          "start_column": 0,
+          "start_line": 36
+        },
+        "type": "node"
+      },
+      "owner": null,
+      "reasons": [
+        {
+          "code": "status_unknown",
+          "detail": "LINKED",
+          "text": "Status \"LINKED\" is not known to this Graphvein version"
+        }
+      ]
+    },
+    {
+      "edges": [
+        {
+          "confidence": 1,
+          "kind": "invokes_command",
+          "provenance": "fact"
+        }
+      ],
+      "node": {
+        "attributes": {
+          "alternatives": [
+            {
+              "cfg_gated": false,
+              "command": "s",
+              "conditional": true,
+              "status": "linked",
+              "target": "ipc_command:app/main.rs#main.COMMAND%20s"
+            },
+            {
+              "command": "nope",
+              "conditional": true,
+              "status": "unmatched"
+            }
+          ],
+          "command": null,
+          "conditional": true,
+          "form": "direct",
+          "framework": "tauri",
+          "status": "unmatched",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "file": "src/ipc.ts",
+        "file_state": "missing",
+        "ide": {
+          "column": 1,
+          "exact": false,
+          "line": 39,
+          "link": "vscode://file/{ROOT}/src/ipc.ts:39:1"
+        },
+        "identity": "ipc_call:src/ipc.ts#owner.INVOKE%20%27alternatives%27",
+        "kind": "ipc_call",
+        "level": 4,
+        "name": "INVOKE 'alternatives'",
+        "qualified_name": "owner.INVOKE 'alternatives'",
+        "source_root": "src",
+        "span": {
+          "end_column": 1,
+          "end_line": 39,
+          "start_column": 0,
+          "start_line": 39
+        },
+        "type": "node"
+      },
+      "owner": null,
+      "reasons": [
+        {
+          "code": "unmatched",
+          "detail": "nope",
+          "text": "No registered command has this name"
+        },
+        {
+          "code": "alternative_linked",
+          "detail": null,
+          "text": "A stored link exists although the status is \"unmatched\""
+        }
+      ]
+    }
+  ],
+  "callers_precision": {
+    "label": "best_effort",
+    "reason": "external_indexer",
+    "row": "D"
+  },
+  "endpoint": {
+    "attributes": {
+      "cfg_gated": false,
+      "command": "s",
+      "framework": "tauri",
+      "handler": null,
+      "reason": "closure",
+      "registry": "unproven",
+      "transport": "tauri_ipc"
+    },
+    "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "file": "app/main.rs",
+    "file_state": "missing",
+    "ide": {
+      "column": 1,
+      "exact": false,
+      "line": 4,
+      "link": "vscode://file/{ROOT}/app/main.rs:4:1"
+    },
+    "identity": "ipc_command:app/main.rs#main.COMMAND%20s",
+    "kind": "ipc_command",
+    "level": 4,
+    "name": "COMMAND s",
+    "qualified_name": "main.COMMAND s",
+    "span": {
+      "end_column": 1,
+      "end_line": 4,
+      "start_column": 0,
+      "start_line": 4
+    },
+    "type": "node"
+  },
+  "handler": {
+    "edge": null,
+    "expression": null,
+    "node": null,
+    "state": "unresolved"
+  },
+  "ide": {
+    "available": true,
+    "editor": "vscode",
+    "error": null,
+    "label": "Open in VS Code",
+    "source": "builtin"
+  },
+  "index": {
+    "contract_version": 1,
+    "finished_at": "2026-11-03T14:32:05.123Z",
+    "indexer": {
+      "name": "crafted",
+      "version": "t016d1"
+    }
+  },
+  "near_misses": [
+    {
+      "candidate_count": 10,
+      "candidate_count_exact": false,
+      "node": {
+        "attributes": {
+          "candidates": [
+            "ipc_command:app/main.rs#main.COMMAND%20s",
+            "ipc_command:app/other.rs#main.COMMAND%20s%402",
+            "ipc_command:app/other.rs#main.COMMAND%20s%403",
+            "ipc_command:app/other.rs#main.COMMAND%20s%404",
+            "ipc_command:app/other.rs#main.COMMAND%20s%405",
+            "ipc_command:app/other.rs#main.COMMAND%20s%406",
+            "ipc_command:app/other.rs#main.COMMAND%20s%407",
+            "ipc_command:app/other.rs#main.COMMAND%20s%408",
+            "ipc_command:app/other.rs#main.COMMAND%20s%409",
+            "ipc_command:app/other.rs#main.COMMAND%20s%4010"
+          ],
+          "command": "ambiguous",
+          "conditional": false,
+          "form": "direct",
+          "framework": "tauri",
+          "status": "ambiguous",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "file": "src/ipc.ts",
+        "file_state": "missing",
+        "ide": {
+          "column": 1,
+          "exact": false,
+          "line": 29,
+          "link": "vscode://file/{ROOT}/src/ipc.ts:29:1"
+        },
+        "identity": "ipc_call:src/ipc.ts#owner.INVOKE%20%27ambiguous%27",
+        "kind": "ipc_call",
+        "level": 4,
+        "name": "INVOKE 'ambiguous'",
+        "qualified_name": "owner.INVOKE 'ambiguous'",
+        "source_root": "src",
+        "span": {
+          "end_column": 1,
+          "end_line": 29,
+          "start_column": 0,
+          "start_line": 29
+        },
+        "type": "node"
+      },
+      "owner": null,
+      "reasons": [
+        {
+          "code": "ambiguous",
+          "detail": null,
+          "text": "More than one Tauri app could receive this call"
+        }
+      ],
+      "relation": "ambiguous_candidate"
+    },
+    {
+      "candidate_count": 1,
+      "candidate_count_exact": true,
+      "node": {
+        "attributes": {
+          "candidates": [
+            "ipc_command:app/main.rs#main.COMMAND%20s"
+          ],
+          "command": "test_only",
+          "conditional": false,
+          "form": "direct",
+          "framework": "tauri",
+          "status": "test_only",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "file": "src/ipc.ts",
+        "file_state": "missing",
+        "ide": {
+          "column": 1,
+          "exact": false,
+          "line": 30,
+          "link": "vscode://file/{ROOT}/src/ipc.ts:30:1"
+        },
+        "identity": "ipc_call:src/ipc.ts#owner.INVOKE%20%27test_only%27",
+        "kind": "ipc_call",
+        "level": 4,
+        "name": "INVOKE 'test_only'",
+        "qualified_name": "owner.INVOKE 'test_only'",
+        "source_root": "src",
+        "span": {
+          "end_column": 1,
+          "end_line": 30,
+          "start_column": 0,
+          "start_line": 30
+        },
+        "type": "node"
+      },
+      "owner": null,
+      "reasons": [
+        {
+          "code": "test_only",
+          "detail": null,
+          "text": "Only test-scope or test-only commands have this name"
+        }
+      ],
+      "relation": "test_only_candidate"
+    }
+  ],
+  "near_misses_incomplete": 0,
+  "openapi": null,
+  "precision": {
+    "label": "best_effort",
+    "reason": "external_indexer",
+    "row": "D"
+  },
+  "repository": "statuses",
+  "root": null,
+  "scope": "all",
+  "transport": "tauri_ipc"
+}

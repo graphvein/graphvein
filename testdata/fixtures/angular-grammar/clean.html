@@ -1,0 +1,9 @@
+<section *ngIf="ready">
+  <p *ngFor="let item of items" [title]="item.name" (click)="select(item)">{{ item.name | uppercase }}</p>
+  <input [(ngModel)]="name" />
+</section>
+@if (ready) {
+  @for (item of items; track item.id) {
+    <app-item [item]="item" />
+  } @empty { <p>No items</p> }
+} @else { <p>Loading</p> }

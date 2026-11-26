@@ -1,0 +1,6216 @@
+{
+  "Diagnostics": [
+    {
+      "code": "angular_route_target_invalid",
+      "file": "ngmodule/src/app/app-routing.module.ts",
+      "message": "route at ngmodule/src/app/app-routing.module.ts:8:3: loadChildren target class:ngmodule/src/app/app.component.ts#AppComponent: target has Angular role component, not ng_module",
+      "severity": "warning",
+      "type": "diagnostic"
+    },
+    {
+      "code": "angular_route_cycle",
+      "file": "ngmodule/src/app/cycle/cycle-b.module.ts",
+      "message": "route at ngmodule/src/app/cycle/cycle-b.module.ts:5:36: lazy module chain revisits class:ngmodule/src/app/cycle/cycle-a.module.ts#CycleAModule",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "angular_route_root_unproven",
+      "file": "ngmodule/src/app/lazy-providers/lazy-providers.module.ts",
+      "message": "route at ngmodule/src/app/lazy-providers/lazy-providers.module.ts:7:25: registration is not reached from a proven root; paths are not composed",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "angular_route_for_root_lazy",
+      "file": "ngmodule/src/app/lazy-root/lazy-root.module.ts",
+      "message": "route at ngmodule/src/app/lazy-root/lazy-root.module.ts:9:13: RouterModule.forRoot is reached through the lazy module class:ngmodule/src/app/lazy-root/lazy-root.module.ts#LazyRootModule; no path is composed from this chain",
+      "severity": "warning",
+      "type": "diagnostic"
+    },
+    {
+      "code": "angular_route_root_unproven",
+      "file": "ngmodule/src/app/orphan/orphan.module.ts",
+      "message": "route at ngmodule/src/app/orphan/orphan.module.ts:9:13: registration is not reached from a proven root; paths are not composed",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "angular_route_target_invalid",
+      "file": "standalone/src/app/admin.routes.ts",
+      "message": "route at standalone/src/app/admin.routes.ts:6:3: component target class:standalone/src/app/pages/docs.ts#LegacyPage: a lazily loaded routes array requires standalone components",
+      "severity": "warning",
+      "type": "diagnostic"
+    },
+    {
+      "code": "angular_route_root_unproven",
+      "file": "standalone/src/app/app.config.ts",
+      "message": "route at standalone/src/app/app.config.ts:8:62: registration is not reached from a proven root; paths are not composed",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "angular_route_root_unproven",
+      "file": "standalone/src/app/app.config.ts",
+      "message": "route at standalone/src/app/app.config.ts:9:62: registration is not reached from a proven root; paths are not composed",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "angular_route_invalid",
+      "file": "standalone/src/app/app.routes.ts",
+      "message": "route at standalone/src/app/app.routes.ts:64:3: invalid route configuration: children_with_load_children",
+      "severity": "warning",
+      "type": "diagnostic"
+    },
+    {
+      "code": "angular_route_root_unproven",
+      "file": "standalone/src/app/app.routes.ts",
+      "message": "route at standalone/src/app/app.routes.ts:42:54: registration is not reached from a proven root; paths are not composed",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "angular_route_target_invalid",
+      "file": "standalone/src/app/app.routes.ts",
+      "message": "route at standalone/src/app/app.routes.ts:43:3: component target class:standalone/src/app/pages/docs.ts#DocsModule: target has Angular role ng_module, not component",
+      "severity": "warning",
+      "type": "diagnostic"
+    },
+    {
+      "code": "angular_route_target_invalid",
+      "file": "standalone/src/app/app.routes.ts",
+      "message": "route at standalone/src/app/app.routes.ts:44:3: component target class:standalone/src/app/pages/docs.ts#Plain: target class has no Angular role",
+      "severity": "warning",
+      "type": "diagnostic"
+    },
+    {
+      "code": "angular_route_target_invalid",
+      "file": "standalone/src/app/app.routes.ts",
+      "message": "route at standalone/src/app/app.routes.ts:52:3: component target class:standalone/src/app/pages/docs.ts#DocsModule: target has Angular role ng_module, not component",
+      "severity": "warning",
+      "type": "diagnostic"
+    },
+    {
+      "code": "angular_route_target_invalid",
+      "file": "standalone/src/app/app.routes.ts",
+      "message": "route at standalone/src/app/app.routes.ts:53:3: component target class:standalone/src/app/pages/docs.ts#LegacyPage: loadComponent requires a standalone component",
+      "severity": "warning",
+      "type": "diagnostic"
+    },
+    {
+      "code": "angular_route_target_invalid",
+      "file": "standalone/src/app/app.routes.ts",
+      "message": "route at standalone/src/app/app.routes.ts:58:3: loadChildren target class:standalone/src/app/pages/home.ts#HomePage: target has Angular role component, not ng_module",
+      "severity": "warning",
+      "type": "diagnostic"
+    },
+    {
+      "code": "angular_route_root_unproven",
+      "file": "standalone/src/app/factories.ts",
+      "message": "route at standalone/src/app/factories.ts:8:51: registration is not reached from a proven root; paths are not composed",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "angular_route_root_unproven",
+      "file": "standalone/src/app/factories.ts",
+      "message": "route at standalone/src/app/factories.ts:13:10: registration is not reached from a proven root; paths are not composed",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "angular_route_entry_unresolved",
+      "file": "standalone/src/app/forms.ts",
+      "message": "route at standalone/src/app/forms.ts:14:41: mutated const array",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "angular_route_root_unproven",
+      "file": "standalone/src/app/forms.ts",
+      "message": "route at standalone/src/app/forms.ts:14:31: registration is not reached from a proven root; paths are not composed",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "angular_route_root_unproven",
+      "file": "standalone/src/app/forms.ts",
+      "message": "route at standalone/src/app/forms.ts:24:10: registration is not reached from a proven root; paths are not composed",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "angular_route_root_unproven",
+      "file": "standalone/src/app/forms.ts",
+      "message": "route at standalone/src/app/forms.ts:27:63: registration is not reached from a proven root; paths are not composed",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "angular_route_invalid",
+      "file": "standalone/src/app/invalid.routes.ts",
+      "message": "route at standalone/src/app/invalid.routes.ts:9:5: invalid route configuration: leading_slash",
+      "severity": "warning",
+      "type": "diagnostic"
+    },
+    {
+      "code": "angular_route_invalid",
+      "file": "standalone/src/app/invalid.routes.ts",
+      "message": "route at standalone/src/app/invalid.routes.ts:10:5: invalid route configuration: component_with_load_component",
+      "severity": "warning",
+      "type": "diagnostic"
+    },
+    {
+      "code": "angular_route_invalid",
+      "file": "standalone/src/app/invalid.routes.ts",
+      "message": "route at standalone/src/app/invalid.routes.ts:11:5: invalid route configuration: missing_target",
+      "severity": "warning",
+      "type": "diagnostic"
+    },
+    {
+      "code": "angular_route_invalid",
+      "file": "standalone/src/app/invalid.routes.ts",
+      "message": "route at standalone/src/app/invalid.routes.ts:12:5: invalid route configuration: missing_path",
+      "severity": "warning",
+      "type": "diagnostic"
+    },
+    {
+      "code": "angular_route_invalid",
+      "file": "standalone/src/app/invalid.routes.ts",
+      "message": "route at standalone/src/app/invalid.routes.ts:13:5: invalid route configuration: empty_path_redirect_without_path_match",
+      "severity": "warning",
+      "type": "diagnostic"
+    },
+    {
+      "code": "angular_route_invalid",
+      "file": "standalone/src/app/invalid.routes.ts",
+      "message": "route at standalone/src/app/invalid.routes.ts:14:5: invalid route configuration: path_with_matcher",
+      "severity": "warning",
+      "type": "diagnostic"
+    },
+    {
+      "code": "angular_route_invalid",
+      "file": "standalone/src/app/invalid.routes.ts",
+      "message": "route at standalone/src/app/invalid.routes.ts:16:5: invalid route configuration: redirect_with_children",
+      "severity": "warning",
+      "type": "diagnostic"
+    },
+    {
+      "code": "angular_route_invalid",
+      "file": "standalone/src/app/invalid.routes.ts",
+      "message": "route at standalone/src/app/invalid.routes.ts:16:5: invalid route configuration: redirect_with_guard",
+      "severity": "warning",
+      "type": "diagnostic"
+    },
+    {
+      "code": "angular_route_invalid",
+      "file": "standalone/src/app/invalid.routes.ts",
+      "message": "route at standalone/src/app/invalid.routes.ts:17:5: invalid route configuration: missing_target",
+      "severity": "warning",
+      "type": "diagnostic"
+    },
+    {
+      "code": "angular_route_invalid",
+      "file": "standalone/src/app/invalid.routes.ts",
+      "message": "route at standalone/src/app/invalid.routes.ts:17:5: invalid route configuration: named_outlet_without_target",
+      "severity": "warning",
+      "type": "diagnostic"
+    },
+    {
+      "code": "angular_route_invalid",
+      "file": "standalone/src/app/invalid.routes.ts",
+      "message": "route at standalone/src/app/invalid.routes.ts:18:5: invalid route configuration: redirect_with_guard",
+      "severity": "warning",
+      "type": "diagnostic"
+    },
+    {
+      "code": "angular_route_invalid",
+      "file": "standalone/src/app/invalid.routes.ts",
+      "message": "route at standalone/src/app/invalid.routes.ts:18:5: invalid route configuration: redirect_with_load_children",
+      "severity": "warning",
+      "type": "diagnostic"
+    },
+    {
+      "code": "angular_route_root_unproven",
+      "file": "standalone/src/app/invalid.routes.ts",
+      "message": "route at standalone/src/app/invalid.routes.ts:8:3: registration is not reached from a proven root; paths are not composed",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "angular_route_root_unproven",
+      "file": "standalone/src/app/route-providers.ts",
+      "message": "route at standalone/src/app/route-providers.ts:4:33: registration is not reached from a proven root; paths are not composed",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "angular_route_target_invalid",
+      "file": "standalone/src/app/shared.routes.ts",
+      "message": "route at standalone/src/app/shared.routes.ts:5:75: component target class:standalone/src/app/pages/docs.ts#LegacyPage: a lazily loaded routes array requires standalone components (lazy reach only)",
+      "severity": "warning",
+      "type": "diagnostic"
+    }
+  ],
+  "Edges": [
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "ngmodule/src/app/cycle/cycle-a.module.ts",
+          "span": {
+            "end_column": 122,
+            "end_line": 5,
+            "start_column": 35,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:ngmodule/src/app/cycle/cycle-a.module.ts#CycleAModule",
+      "target": "ui_route:ngmodule/src/app/cycle/cycle-a.module.ts#CycleAModule.ROUTE%20b",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "ngmodule/src/app/cycle/cycle-b.module.ts",
+          "span": {
+            "end_column": 122,
+            "end_line": 5,
+            "start_column": 35,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:ngmodule/src/app/cycle/cycle-b.module.ts#CycleBModule",
+      "target": "ui_route:ngmodule/src/app/cycle/cycle-b.module.ts#CycleBModule.ROUTE%20a",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "ngmodule/src/app/exported/exported.module.ts",
+          "span": {
+            "end_column": 85,
+            "end_line": 9,
+            "start_column": 35,
+            "start_line": 9
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:ngmodule/src/app/exported/exported.module.ts#ExportedRoutingModule",
+      "target": "ui_route:ngmodule/src/app/exported/exported.module.ts#ExportedRoutingModule.ROUTE%20exported",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "ngmodule/src/app/home.module.ts",
+          "span": {
+            "end_column": 73,
+            "end_line": 9,
+            "start_column": 35,
+            "start_line": 9
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:ngmodule/src/app/home.module.ts#HomeModule",
+      "target": "ui_route:ngmodule/src/app/home.module.ts#HomeModule.ROUTE%20%22%22",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "ngmodule/src/app/lazy-root/lazy-root.module.ts",
+          "span": {
+            "end_column": 81,
+            "end_line": 9,
+            "start_column": 34,
+            "start_line": 9
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:ngmodule/src/app/lazy-root/lazy-root.module.ts#LazyRootModule",
+      "target": "ui_route:ngmodule/src/app/lazy-root/lazy-root.module.ts#LazyRootModule.ROUTE%20again",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "ngmodule/src/app/orphan/orphan.module.ts",
+          "span": {
+            "end_column": 81,
+            "end_line": 9,
+            "start_column": 35,
+            "start_line": 9
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:ngmodule/src/app/orphan/orphan.module.ts#OrphanModule",
+      "target": "ui_route:ngmodule/src/app/orphan/orphan.module.ts#OrphanModule.ROUTE%20orphan",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "ngmodule/src/app/profile/profile.module.ts",
+          "span": {
+            "end_column": 175,
+            "end_line": 10,
+            "start_column": 35,
+            "start_line": 10
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:ngmodule/src/app/profile/profile.module.ts#ProfileModule",
+      "target": "ui_route:ngmodule/src/app/profile/profile.module.ts#ProfileModule.ROUTE%20%3Ausername",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "ngmodule/src/app/provided/provided.module.ts",
+          "span": {
+            "end_column": 79,
+            "end_line": 9,
+            "start_column": 29,
+            "start_line": 9
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:ngmodule/src/app/provided/provided.module.ts#ProvidedModule",
+      "target": "ui_route:ngmodule/src/app/provided/provided.module.ts#ProvidedModule.ROUTE%20provided",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/forms.ts",
+          "span": {
+            "end_column": 125,
+            "end_line": 27,
+            "start_column": 73,
+            "start_line": 27
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:standalone/src/app/forms.ts#Shell",
+      "target": "ui_route:standalone/src/app/forms.ts#Shell.ROUTE%20component-providers",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "ngmodule/src/app/app-routing.module.ts",
+          "span": {
+            "end_column": 105,
+            "end_line": 8,
+            "start_column": 2,
+            "start_line": 8
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:ngmodule/src/app/app-routing.module.ts#ngmodule%2Fsrc%2Fapp%2Fapp-routing.module.ts",
+      "target": "ui_route:ngmodule/src/app/app-routing.module.ts#ROUTE%20component-children",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "ngmodule/src/app/app-routing.module.ts",
+          "span": {
+            "end_column": 99,
+            "end_line": 7,
+            "start_column": 2,
+            "start_line": 7
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:ngmodule/src/app/app-routing.module.ts#ngmodule%2Fsrc%2Fapp%2Fapp-routing.module.ts",
+      "target": "ui_route:ngmodule/src/app/app-routing.module.ts#ROUTE%20cycle",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "ngmodule/src/app/app-routing.module.ts",
+          "span": {
+            "end_column": 131,
+            "end_line": 9,
+            "start_column": 2,
+            "start_line": 9
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:ngmodule/src/app/app-routing.module.ts#ngmodule%2Fsrc%2Fapp%2Fapp-routing.module.ts",
+      "target": "ui_route:ngmodule/src/app/app-routing.module.ts#ROUTE%20lazy-providers",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "ngmodule/src/app/app-routing.module.ts",
+          "span": {
+            "end_column": 111,
+            "end_line": 6,
+            "start_column": 2,
+            "start_line": 6
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:ngmodule/src/app/app-routing.module.ts#ngmodule%2Fsrc%2Fapp%2Fapp-routing.module.ts",
+      "target": "ui_route:ngmodule/src/app/app-routing.module.ts#ROUTE%20lazy-root",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "ngmodule/src/app/app-routing.module.ts",
+          "span": {
+            "end_column": 104,
+            "end_line": 10,
+            "start_column": 2,
+            "start_line": 10
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:ngmodule/src/app/app-routing.module.ts#ngmodule%2Fsrc%2Fapp%2Fapp-routing.module.ts",
+      "target": "ui_route:ngmodule/src/app/app-routing.module.ts#ROUTE%20partial",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "ngmodule/src/app/app-routing.module.ts",
+          "span": {
+            "end_column": 108,
+            "end_line": 5,
+            "start_column": 2,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:ngmodule/src/app/app-routing.module.ts#ngmodule%2Fsrc%2Fapp%2Fapp-routing.module.ts",
+      "target": "ui_route:ngmodule/src/app/app-routing.module.ts#ROUTE%20settings",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "ngmodule/src/app/help.module.ts",
+          "span": {
+            "end_column": 70,
+            "end_line": 7,
+            "start_column": 28,
+            "start_line": 7
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:ngmodule/src/app/help.module.ts#ngmodule%2Fsrc%2Fapp%2Fhelp.module.ts",
+      "target": "ui_route:ngmodule/src/app/help.module.ts#ROUTE%20help",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "ngmodule/src/app/lazy-providers/lazy-providers.module.ts",
+          "span": {
+            "end_column": 87,
+            "end_line": 7,
+            "start_column": 39,
+            "start_line": 7
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:ngmodule/src/app/lazy-providers/lazy-providers.module.ts#ngmodule%2Fsrc%2Fapp%2Flazy-providers%2Flazy-providers.module.ts",
+      "target": "ui_route:ngmodule/src/app/lazy-providers/lazy-providers.module.ts#ROUTE%20x",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "ngmodule/src/app/settings/settings.module.ts",
+          "span": {
+            "end_column": 3,
+            "end_line": 24,
+            "start_column": 2,
+            "start_line": 18
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:ngmodule/src/app/settings/settings.module.ts#ngmodule%2Fsrc%2Fapp%2Fsettings%2Fsettings.module.ts",
+      "target": "ui_route:ngmodule/src/app/settings/settings.module.ts#ROUTE%20%22%22",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "ngmodule/src/app/settings/settings.module.ts",
+          "span": {
+            "end_column": 105,
+            "end_line": 25,
+            "start_column": 2,
+            "start_line": 25
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:ngmodule/src/app/settings/settings.module.ts#ngmodule%2Fsrc%2Fapp%2Fsettings%2Fsettings.module.ts",
+      "target": "ui_route:ngmodule/src/app/settings/settings.module.ts#ROUTE%20profile",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/admin.routes.ts",
+          "span": {
+            "end_column": 35,
+            "end_line": 5,
+            "start_column": 2,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:standalone/src/app/admin.routes.ts#standalone%2Fsrc%2Fapp%2Fadmin.routes.ts",
+      "target": "ui_route:standalone/src/app/admin.routes.ts#ROUTE%20%22%22",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/admin.routes.ts",
+          "span": {
+            "end_column": 43,
+            "end_line": 6,
+            "start_column": 2,
+            "start_line": 6
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:standalone/src/app/admin.routes.ts#standalone%2Fsrc%2Fapp%2Fadmin.routes.ts",
+      "target": "ui_route:standalone/src/app/admin.routes.ts#ROUTE%20legacy",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/forms.ts",
+          "span": {
+            "end_column": 59,
+            "end_line": 9,
+            "start_column": 15,
+            "start_line": 9
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:standalone/src/app/forms.ts#standalone%2Fsrc%2Fapp%2Fforms.ts",
+      "target": "ui_route:standalone/src/app/forms.ts#ROUTE%20local-const",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/lists.ts",
+          "span": {
+            "end_column": 58,
+            "end_line": 4,
+            "start_column": 14,
+            "start_line": 4
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:standalone/src/app/lists.ts#standalone%2Fsrc%2Fapp%2Flists.ts",
+      "target": "ui_route:standalone/src/app/lists.ts#ROUTE%20spread-head",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/profile.routes.ts",
+          "span": {
+            "end_column": 3,
+            "end_line": 10,
+            "start_column": 2,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:standalone/src/app/profile.routes.ts#standalone%2Fsrc%2Fapp%2Fprofile.routes.ts",
+      "target": "ui_route:standalone/src/app/profile.routes.ts#ROUTE%20%22%22",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/twins.routes.ts",
+          "span": {
+            "end_column": 53,
+            "end_line": 5,
+            "start_column": 16,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:standalone/src/app/twins.routes.ts#standalone%2Fsrc%2Fapp%2Ftwins.routes.ts",
+      "target": "ui_route:standalone/src/app/twins.routes.ts#ROUTE%20twin%402",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/forms.main.ts",
+          "span": {
+            "end_column": 100,
+            "end_line": 12,
+            "start_column": 53,
+            "start_line": 12
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:standalone/src/forms.main.ts#standalone%2Fsrc%2Fforms.main.ts",
+      "target": "ui_route:standalone/src/forms.main.ts#ROUTE%20inline-options",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/factories.ts",
+          "span": {
+            "end_column": 69,
+            "end_line": 13,
+            "start_column": 24,
+            "start_line": 13
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "function:standalone/src/app/factories.ts#neverCalled",
+      "target": "ui_route:standalone/src/app/factories.ts#neverCalled.ROUTE%20never-called",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/forms.ts",
+          "span": {
+            "end_column": 66,
+            "end_line": 24,
+            "start_column": 20,
+            "start_line": 24
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "function:standalone/src/app/forms.ts#inlineShadow",
+      "target": "ui_route:standalone/src/app/forms.ts#inlineShadow.ROUTE%20inline-shadow",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/factories.ts",
+          "span": {
+            "end_column": 109,
+            "end_line": 8,
+            "start_column": 65,
+            "start_line": 8
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "method:standalone/src/app/factories.ts#FeatureModule.forRoot",
+      "target": "ui_route:standalone/src/app/factories.ts#FeatureModule.forRoot.ROUTE%20from-static",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "ngmodule/src/app/profile/profile.module.ts",
+          "span": {
+            "end_column": 172,
+            "end_line": 10,
+            "start_column": 122,
+            "start_line": 10
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "ui_route:ngmodule/src/app/profile/profile.module.ts#ProfileModule.ROUTE%20%3Ausername",
+      "target": "ui_route:ngmodule/src/app/profile/profile.module.ts#ProfileModule.ROUTE%20%3Ausername.ROUTE%20favorites",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.routes.ts",
+          "span": {
+            "end_column": 105,
+            "end_line": 28,
+            "start_column": 67,
+            "start_line": 28
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20aside",
+      "target": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20aside.ROUTE%20inner",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.routes.ts",
+          "span": {
+            "end_column": 39,
+            "end_line": 22,
+            "start_column": 6,
+            "start_line": 22
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20docs",
+      "target": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20docs.ROUTE%20%22%22",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.routes.ts",
+          "span": {
+            "end_column": 55,
+            "end_line": 24,
+            "start_column": 6,
+            "start_line": 24
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20docs",
+      "target": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20docs.ROUTE%20%2A%2A",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.routes.ts",
+          "span": {
+            "end_column": 68,
+            "end_line": 23,
+            "start_column": 6,
+            "start_line": 23
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20docs",
+      "target": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20docs.ROUTE%20%3Aid",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/profile.routes.ts",
+          "span": {
+            "end_column": 128,
+            "end_line": 8,
+            "start_column": 6,
+            "start_line": 8
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "ui_route:standalone/src/app/profile.routes.ts#ROUTE%20%22%22",
+      "target": "ui_route:standalone/src/app/profile.routes.ts#ROUTE%20%22%22.ROUTE%20%3Ausername",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/profile.routes.ts",
+          "span": {
+            "end_column": 125,
+            "end_line": 8,
+            "start_column": 59,
+            "start_line": 8
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "ui_route:standalone/src/app/profile.routes.ts#ROUTE%20%22%22.ROUTE%20%3Ausername",
+      "target": "ui_route:standalone/src/app/profile.routes.ts#ROUTE%20%22%22.ROUTE%20%3Ausername.ROUTE%20favorites",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.config.ts",
+          "span": {
+            "end_column": 115,
+            "end_line": 9,
+            "start_column": 76,
+            "start_line": 9
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "variable:standalone/src/app/app.config.ts#mergedConfig",
+      "target": "ui_route:standalone/src/app/app.config.ts#mergedConfig.ROUTE%20merged",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.config.ts",
+          "span": {
+            "end_column": 99,
+            "end_line": 10,
+            "start_column": 49,
+            "start_line": 10
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "variable:standalone/src/app/app.config.ts#specOnlyProviders",
+      "target": "ui_route:standalone/src/app/app.config.ts#specOnlyProviders.ROUTE%20spec-bootstrapped",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.config.ts",
+          "span": {
+            "end_column": 123,
+            "end_line": 8,
+            "start_column": 76,
+            "start_line": 8
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "variable:standalone/src/app/app.config.ts#unusedConfig",
+      "target": "ui_route:standalone/src/app/app.config.ts#unusedConfig.ROUTE%20unbootstrapped",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.routes.ts",
+          "span": {
+            "end_column": 69,
+            "end_line": 17,
+            "start_column": 2,
+            "start_line": 17
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "variable:standalone/src/app/app.routes.ts#routes",
+      "target": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20%22%22",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.routes.ts",
+          "span": {
+            "end_column": 40,
+            "end_line": 34,
+            "start_column": 2,
+            "start_line": 34
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "variable:standalone/src/app/app.routes.ts#routes",
+      "target": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20%28dynamic%29",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.routes.ts",
+          "span": {
+            "end_column": 47,
+            "end_line": 27,
+            "start_column": 2,
+            "start_line": 27
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "variable:standalone/src/app/app.routes.ts#routes",
+      "target": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20%28matcher%29",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.routes.ts",
+          "span": {
+            "end_column": 41,
+            "end_line": 67,
+            "start_column": 2,
+            "start_line": 67
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "variable:standalone/src/app/app.routes.ts#routes",
+      "target": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20%2A%2A",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.routes.ts",
+          "span": {
+            "end_column": 65,
+            "end_line": 54,
+            "start_column": 2,
+            "start_line": 54
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "variable:standalone/src/app/app.routes.ts#routes",
+      "target": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20admin",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.routes.ts",
+          "span": {
+            "end_column": 63,
+            "end_line": 62,
+            "start_column": 2,
+            "start_line": 62
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "variable:standalone/src/app/app.routes.ts#routes",
+      "target": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20anon",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.routes.ts",
+          "span": {
+            "end_column": 108,
+            "end_line": 28,
+            "start_column": 2,
+            "start_line": 28
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "variable:standalone/src/app/app.routes.ts#routes",
+      "target": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20aside",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.routes.ts",
+          "span": {
+            "end_column": 80,
+            "end_line": 59,
+            "start_column": 2,
+            "start_line": 59
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "variable:standalone/src/app/app.routes.ts#routes",
+      "target": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20async-children",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.routes.ts",
+          "span": {
+            "end_column": 123,
+            "end_line": 64,
+            "start_column": 2,
+            "start_line": 64
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "variable:standalone/src/app/app.routes.ts#routes",
+      "target": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20both-children",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.routes.ts",
+          "span": {
+            "end_column": 48,
+            "end_line": 66,
+            "start_column": 2,
+            "start_line": 66
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "variable:standalone/src/app/app.routes.ts#routes",
+      "target": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20cast",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.routes.ts",
+          "span": {
+            "end_column": 3,
+            "end_line": 26,
+            "start_column": 2,
+            "start_line": 18
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "variable:standalone/src/app/app.routes.ts#routes",
+      "target": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20docs",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.routes.ts",
+          "span": {
+            "end_column": 38,
+            "end_line": 32,
+            "start_column": 2,
+            "start_line": 32
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "variable:standalone/src/app/app.routes.ts#routes",
+      "target": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20dup",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.routes.ts",
+          "span": {
+            "end_column": 38,
+            "end_line": 33,
+            "start_column": 2,
+            "start_line": 33
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "variable:standalone/src/app/app.routes.ts#routes",
+      "target": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20dup%402",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.routes.ts",
+          "span": {
+            "end_column": 49,
+            "end_line": 30,
+            "start_column": 2,
+            "start_line": 30
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "variable:standalone/src/app/app.routes.ts#routes",
+      "target": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20fn-redirect",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.routes.ts",
+          "span": {
+            "end_column": 3,
+            "end_line": 41,
+            "start_column": 2,
+            "start_line": 35
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "variable:standalone/src/app/app.routes.ts#routes",
+      "target": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20guarded",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.routes.ts",
+          "span": {
+            "end_column": 55,
+            "end_line": 31,
+            "start_column": 2,
+            "start_line": 31
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "variable:standalone/src/app/app.routes.ts#routes",
+      "target": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20inline-redirect",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.routes.ts",
+          "span": {
+            "end_column": 74,
+            "end_line": 58,
+            "start_column": 2,
+            "start_line": 58
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "variable:standalone/src/app/app.routes.ts#routes",
+      "target": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20invalid-children",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.routes.ts",
+          "span": {
+            "end_column": 71,
+            "end_line": 49,
+            "start_column": 2,
+            "start_line": 49
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "variable:standalone/src/app/app.routes.ts#routes",
+      "target": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20lazy-default",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.routes.ts",
+          "span": {
+            "end_column": 94,
+            "end_line": 53,
+            "start_column": 2,
+            "start_line": 53
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "variable:standalone/src/app/app.routes.ts#routes",
+      "target": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20lazy-legacy",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.routes.ts",
+          "span": {
+            "end_column": 92,
+            "end_line": 50,
+            "start_column": 2,
+            "start_line": 50
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "variable:standalone/src/app/app.routes.ts#routes",
+      "target": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20lazy-member",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.routes.ts",
+          "span": {
+            "end_column": 104,
+            "end_line": 52,
+            "start_column": 2,
+            "start_line": 52
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "variable:standalone/src/app/app.routes.ts#routes",
+      "target": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20lazy-module-component",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.routes.ts",
+          "span": {
+            "end_column": 58,
+            "end_line": 51,
+            "start_column": 2,
+            "start_line": 51
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "variable:standalone/src/app/app.routes.ts#routes",
+      "target": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20lazy-sync",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.routes.ts",
+          "span": {
+            "end_column": 72,
+            "end_line": 48,
+            "start_column": 2,
+            "start_line": 48
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "variable:standalone/src/app/app.routes.ts#routes",
+      "target": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20method",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.routes.ts",
+          "span": {
+            "end_column": 56,
+            "end_line": 29,
+            "start_column": 2,
+            "start_line": 29
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "variable:standalone/src/app/app.routes.ts#routes",
+      "target": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20old",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.routes.ts",
+          "span": {
+            "end_column": 42,
+            "end_line": 65,
+            "start_column": 2,
+            "start_line": 65
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "variable:standalone/src/app/app.routes.ts#routes",
+      "target": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20paren",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.routes.ts",
+          "span": {
+            "end_column": 30,
+            "end_line": 47,
+            "start_column": 2,
+            "start_line": 47
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "variable:standalone/src/app/app.routes.ts#routes",
+      "target": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20partial",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.routes.ts",
+          "span": {
+            "end_column": 37,
+            "end_line": 44,
+            "start_column": 2,
+            "start_line": 44
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "variable:standalone/src/app/app.routes.ts#routes",
+      "target": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20plain",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.routes.ts",
+          "span": {
+            "end_column": 69,
+            "end_line": 55,
+            "start_column": 2,
+            "start_line": 55
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "variable:standalone/src/app/app.routes.ts#routes",
+      "target": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20profile",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.routes.ts",
+          "span": {
+            "end_column": 77,
+            "end_line": 60,
+            "start_column": 2,
+            "start_line": 60
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "variable:standalone/src/app/app.routes.ts#routes",
+      "target": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20provider-const",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.routes.ts",
+          "span": {
+            "end_column": 96,
+            "end_line": 56,
+            "start_column": 2,
+            "start_line": 56
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "variable:standalone/src/app/app.routes.ts#routes",
+      "target": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20reports",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.routes.ts",
+          "span": {
+            "end_column": 116,
+            "end_line": 42,
+            "start_column": 68,
+            "start_line": 42
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "variable:standalone/src/app/app.routes.ts#routes",
+      "target": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20route-providers",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.routes.ts",
+          "span": {
+            "end_column": 121,
+            "end_line": 42,
+            "start_column": 2,
+            "start_line": 42
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "variable:standalone/src/app/app.routes.ts#routes",
+      "target": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20scoped",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.routes.ts",
+          "span": {
+            "end_column": 38,
+            "end_line": 61,
+            "start_column": 2,
+            "start_line": 61
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "variable:standalone/src/app/app.routes.ts#routes",
+      "target": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20spread-lazy",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.routes.ts",
+          "span": {
+            "end_column": 53,
+            "end_line": 45,
+            "start_column": 2,
+            "start_line": 45
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "variable:standalone/src/app/app.routes.ts#routes",
+      "target": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20standalone-false",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.routes.ts",
+          "span": {
+            "end_column": 55,
+            "end_line": 57,
+            "start_column": 2,
+            "start_line": 57
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "variable:standalone/src/app/app.routes.ts#routes",
+      "target": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20sync-children",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.routes.ts",
+          "span": {
+            "end_column": 65,
+            "end_line": 63,
+            "start_column": 2,
+            "start_line": 63
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "variable:standalone/src/app/app.routes.ts#routes",
+      "target": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20twins",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.routes.ts",
+          "span": {
+            "end_column": 47,
+            "end_line": 43,
+            "start_column": 2,
+            "start_line": 43
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "variable:standalone/src/app/app.routes.ts#routes",
+      "target": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20wrong-role",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/invalid.routes.ts",
+          "span": {
+            "end_column": 36,
+            "end_line": 13,
+            "start_column": 4,
+            "start_line": 13
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "variable:standalone/src/app/invalid.routes.ts#invalidConfig",
+      "target": "ui_route:standalone/src/app/invalid.routes.ts#invalidConfig.ROUTE%20%22%22",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/invalid.routes.ts",
+          "span": {
+            "end_column": 56,
+            "end_line": 15,
+            "start_column": 4,
+            "start_line": 15
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "variable:standalone/src/app/invalid.routes.ts#invalidConfig",
+      "target": "ui_route:standalone/src/app/invalid.routes.ts#invalidConfig.ROUTE%20%22%22%402",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/invalid.routes.ts",
+          "span": {
+            "end_column": 27,
+            "end_line": 12,
+            "start_column": 4,
+            "start_line": 12
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "variable:standalone/src/app/invalid.routes.ts#invalidConfig",
+      "target": "ui_route:standalone/src/app/invalid.routes.ts#invalidConfig.ROUTE%20%28no%20path%29",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/invalid.routes.ts",
+          "span": {
+            "end_column": 44,
+            "end_line": 9,
+            "start_column": 4,
+            "start_line": 9
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "variable:standalone/src/app/invalid.routes.ts#invalidConfig",
+      "target": "ui_route:standalone/src/app/invalid.routes.ts#invalidConfig.ROUTE%20%2Frooted",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/invalid.routes.ts",
+          "span": {
+            "end_column": 86,
+            "end_line": 10,
+            "start_column": 4,
+            "start_line": 10
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "variable:standalone/src/app/invalid.routes.ts#invalidConfig",
+      "target": "ui_route:standalone/src/app/invalid.routes.ts#invalidConfig.ROUTE%20both",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/invalid.routes.ts",
+          "span": {
+            "end_column": 28,
+            "end_line": 11,
+            "start_column": 4,
+            "start_line": 11
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "variable:standalone/src/app/invalid.routes.ts#invalidConfig",
+      "target": "ui_route:standalone/src/app/invalid.routes.ts#invalidConfig.ROUTE%20empty-target",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/invalid.routes.ts",
+          "span": {
+            "end_column": 57,
+            "end_line": 14,
+            "start_column": 4,
+            "start_line": 14
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "variable:standalone/src/app/invalid.routes.ts#invalidConfig",
+      "target": "ui_route:standalone/src/app/invalid.routes.ts#invalidConfig.ROUTE%20m",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/invalid.routes.ts",
+          "span": {
+            "end_column": 37,
+            "end_line": 17,
+            "start_column": 4,
+            "start_line": 17
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "variable:standalone/src/app/invalid.routes.ts#invalidConfig",
+      "target": "ui_route:standalone/src/app/invalid.routes.ts#invalidConfig.ROUTE%20named",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/invalid.routes.ts",
+          "span": {
+            "end_column": 77,
+            "end_line": 16,
+            "start_column": 4,
+            "start_line": 16
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "variable:standalone/src/app/invalid.routes.ts#invalidConfig",
+      "target": "ui_route:standalone/src/app/invalid.routes.ts#invalidConfig.ROUTE%20r",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/invalid.routes.ts",
+          "span": {
+            "end_column": 111,
+            "end_line": 18,
+            "start_column": 4,
+            "start_line": 18
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "variable:standalone/src/app/invalid.routes.ts#invalidConfig",
+      "target": "ui_route:standalone/src/app/invalid.routes.ts#invalidConfig.ROUTE%20r-load",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/lists.ts",
+          "span": {
+            "end_column": 68,
+            "end_line": 6,
+            "start_column": 26,
+            "start_line": 6
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "variable:standalone/src/app/lists.ts#satisfied",
+      "target": "ui_route:standalone/src/app/lists.ts#satisfied.ROUTE%20satisfied",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/lists.ts",
+          "span": {
+            "end_column": 90,
+            "end_line": 7,
+            "start_column": 46,
+            "start_line": 7
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "variable:standalone/src/app/lists.ts#spreadRoutes",
+      "target": "ui_route:standalone/src/app/lists.ts#spreadRoutes.ROUTE%20spread-tail",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/reports.routes.ts",
+          "span": {
+            "end_column": 40,
+            "end_line": 5,
+            "start_column": 2,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "variable:standalone/src/app/reports.routes.ts#REPORT_ROUTES",
+      "target": "ui_route:standalone/src/app/reports.routes.ts#REPORT_ROUTES.ROUTE%20%3Ayear",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/route-providers.ts",
+          "span": {
+            "end_column": 92,
+            "end_line": 4,
+            "start_column": 47,
+            "start_line": 4
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "variable:standalone/src/app/route-providers.ts#ROUTE_PROVIDERS",
+      "target": "ui_route:standalone/src/app/route-providers.ts#ROUTE_PROVIDERS.ROUTE%20route-scoped",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/shared.routes.ts",
+          "span": {
+            "end_column": 72,
+            "end_line": 5,
+            "start_column": 31,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "variable:standalone/src/app/shared.routes.ts#shared",
+      "target": "ui_route:standalone/src/app/shared.routes.ts#shared.ROUTE%20help",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/shared.routes.ts",
+          "span": {
+            "end_column": 122,
+            "end_line": 5,
+            "start_column": 74,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "variable:standalone/src/app/shared.routes.ts#shared",
+      "target": "ui_route:standalone/src/app/shared.routes.ts#shared.ROUTE%20legacy-shared",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/testing/router.spec.ts",
+          "span": {
+            "end_column": 61,
+            "end_line": 11,
+            "start_column": 17,
+            "start_line": 11
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "variable:standalone/src/testing/router.spec.ts#testProviders",
+      "target": "ui_route:standalone/src/testing/router.spec.ts#testProviders.ROUTE%20harness",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/testing/router.spec.ts",
+          "span": {
+            "end_column": 105,
+            "end_line": 11,
+            "start_column": 63,
+            "start_line": 11
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "variable:standalone/src/testing/router.spec.ts#testProviders",
+      "target": "ui_route:standalone/src/testing/router.spec.ts#testProviders.ROUTE%20test-only",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "ngmodule/src/app/app-routing.module.ts",
+          "span": {
+            "end_column": 97,
+            "end_line": 7,
+            "start_column": 33,
+            "start_line": 7
+          }
+        }
+      ],
+      "kind": "loads_children",
+      "provenance": "fact",
+      "source": "ui_route:ngmodule/src/app/app-routing.module.ts#ROUTE%20cycle",
+      "target": "class:ngmodule/src/app/cycle/cycle-a.module.ts#CycleAModule",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "ngmodule/src/app/app-routing.module.ts",
+          "span": {
+            "end_column": 129,
+            "end_line": 9,
+            "start_column": 42,
+            "start_line": 9
+          }
+        }
+      ],
+      "kind": "loads_children",
+      "provenance": "fact",
+      "source": "ui_route:ngmodule/src/app/app-routing.module.ts#ROUTE%20lazy-providers",
+      "target": "class:ngmodule/src/app/lazy-providers/lazy-providers.module.ts#LazyProvidersModule",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "ngmodule/src/app/app-routing.module.ts",
+          "span": {
+            "end_column": 109,
+            "end_line": 6,
+            "start_column": 37,
+            "start_line": 6
+          }
+        }
+      ],
+      "kind": "loads_children",
+      "provenance": "fact",
+      "source": "ui_route:ngmodule/src/app/app-routing.module.ts#ROUTE%20lazy-root",
+      "target": "class:ngmodule/src/app/lazy-root/lazy-root.module.ts#LazyRootModule",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "ngmodule/src/app/app-routing.module.ts",
+          "span": {
+            "end_column": 106,
+            "end_line": 5,
+            "start_column": 36,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "loads_children",
+      "provenance": "fact",
+      "source": "ui_route:ngmodule/src/app/app-routing.module.ts#ROUTE%20settings",
+      "target": "class:ngmodule/src/app/settings/settings.module.ts#SettingsModule",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "ngmodule/src/app/cycle/cycle-a.module.ts",
+          "span": {
+            "end_column": 120,
+            "end_line": 5,
+            "start_column": 62,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "loads_children",
+      "provenance": "fact",
+      "source": "ui_route:ngmodule/src/app/cycle/cycle-a.module.ts#CycleAModule.ROUTE%20b",
+      "target": "class:ngmodule/src/app/cycle/cycle-b.module.ts#CycleBModule",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "ngmodule/src/app/cycle/cycle-b.module.ts",
+          "span": {
+            "end_column": 120,
+            "end_line": 5,
+            "start_column": 62,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "loads_children",
+      "provenance": "fact",
+      "source": "ui_route:ngmodule/src/app/cycle/cycle-b.module.ts#CycleBModule.ROUTE%20a",
+      "target": "class:ngmodule/src/app/cycle/cycle-a.module.ts#CycleAModule",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "ngmodule/src/app/settings/settings.module.ts",
+          "span": {
+            "end_column": 103,
+            "end_line": 25,
+            "start_column": 35,
+            "start_line": 25
+          }
+        }
+      ],
+      "kind": "loads_children",
+      "provenance": "fact",
+      "source": "ui_route:ngmodule/src/app/settings/settings.module.ts#ROUTE%20profile",
+      "target": "class:ngmodule/src/app/profile/profile.module.ts#ProfileModule",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.routes.ts",
+          "span": {
+            "end_column": 63,
+            "end_line": 54,
+            "start_column": 33,
+            "start_line": 54
+          }
+        }
+      ],
+      "kind": "loads_children",
+      "provenance": "fact",
+      "source": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20admin",
+      "target": "file:standalone/src/app/admin.routes.ts#standalone%2Fsrc%2Fapp%2Fadmin.routes.ts",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.routes.ts",
+          "span": {
+            "end_column": 67,
+            "end_line": 55,
+            "start_column": 35,
+            "start_line": 55
+          }
+        }
+      ],
+      "kind": "loads_children",
+      "provenance": "fact",
+      "source": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20profile",
+      "target": "file:standalone/src/app/profile.routes.ts#standalone%2Fsrc%2Fapp%2Fprofile.routes.ts",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.routes.ts",
+          "span": {
+            "end_column": 94,
+            "end_line": 56,
+            "start_column": 35,
+            "start_line": 56
+          }
+        }
+      ],
+      "kind": "loads_children",
+      "provenance": "fact",
+      "source": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20reports",
+      "target": "variable:standalone/src/app/reports.routes.ts#REPORT_ROUTES",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.routes.ts",
+          "span": {
+            "end_column": 53,
+            "end_line": 57,
+            "start_column": 41,
+            "start_line": 57
+          }
+        }
+      ],
+      "kind": "loads_children",
+      "provenance": "fact",
+      "source": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20sync-children",
+      "target": "variable:standalone/src/app/shared.routes.ts#shared",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.routes.ts",
+          "span": {
+            "end_column": 63,
+            "end_line": 63,
+            "start_column": 33,
+            "start_line": 63
+          }
+        }
+      ],
+      "kind": "loads_children",
+      "provenance": "fact",
+      "source": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20twins",
+      "target": "file:standalone/src/app/twins.routes.ts#standalone%2Fsrc%2Fapp%2Ftwins.routes.ts",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "ngmodule/src/app/exported/exported.module.ts",
+          "span": {
+            "end_column": 83,
+            "end_line": 9,
+            "start_column": 66,
+            "start_line": 9
+          }
+        }
+      ],
+      "kind": "routes_to",
+      "provenance": "fact",
+      "source": "ui_route:ngmodule/src/app/exported/exported.module.ts#ExportedRoutingModule.ROUTE%20exported",
+      "target": "class:ngmodule/src/app/exported/exported.module.ts#ExportedComponent",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "ngmodule/src/app/help.module.ts",
+          "span": {
+            "end_column": 68,
+            "end_line": 7,
+            "start_column": 55,
+            "start_line": 7
+          }
+        }
+      ],
+      "kind": "routes_to",
+      "provenance": "fact",
+      "source": "ui_route:ngmodule/src/app/help.module.ts#ROUTE%20help",
+      "target": "class:ngmodule/src/app/help.module.ts#HelpComponent",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "ngmodule/src/app/home.module.ts",
+          "span": {
+            "end_column": 71,
+            "end_line": 9,
+            "start_column": 58,
+            "start_line": 9
+          }
+        }
+      ],
+      "kind": "routes_to",
+      "provenance": "fact",
+      "source": "ui_route:ngmodule/src/app/home.module.ts#HomeModule.ROUTE%20%22%22",
+      "target": "class:ngmodule/src/app/home.module.ts#HomeComponent",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "ngmodule/src/app/lazy-providers/lazy-providers.module.ts",
+          "span": {
+            "end_column": 85,
+            "end_line": 7,
+            "start_column": 63,
+            "start_line": 7
+          }
+        }
+      ],
+      "kind": "routes_to",
+      "provenance": "fact",
+      "source": "ui_route:ngmodule/src/app/lazy-providers/lazy-providers.module.ts#ROUTE%20x",
+      "target": "class:ngmodule/src/app/lazy-providers/lazy-providers.module.ts#LazyProvidersComponent",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "ngmodule/src/app/lazy-root/lazy-root.module.ts",
+          "span": {
+            "end_column": 79,
+            "end_line": 9,
+            "start_column": 62,
+            "start_line": 9
+          }
+        }
+      ],
+      "kind": "routes_to",
+      "provenance": "fact",
+      "source": "ui_route:ngmodule/src/app/lazy-root/lazy-root.module.ts#LazyRootModule.ROUTE%20again",
+      "target": "class:ngmodule/src/app/lazy-root/lazy-root.module.ts#LazyRootComponent",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "ngmodule/src/app/orphan/orphan.module.ts",
+          "span": {
+            "end_column": 79,
+            "end_line": 9,
+            "start_column": 64,
+            "start_line": 9
+          }
+        }
+      ],
+      "kind": "routes_to",
+      "provenance": "fact",
+      "source": "ui_route:ngmodule/src/app/orphan/orphan.module.ts#OrphanModule.ROUTE%20orphan",
+      "target": "class:ngmodule/src/app/orphan/orphan.module.ts#OrphanComponent",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "ngmodule/src/app/profile/profile.module.ts",
+          "span": {
+            "end_column": 83,
+            "end_line": 10,
+            "start_column": 67,
+            "start_line": 10
+          }
+        }
+      ],
+      "kind": "routes_to",
+      "provenance": "fact",
+      "source": "ui_route:ngmodule/src/app/profile/profile.module.ts#ProfileModule.ROUTE%20%3Ausername",
+      "target": "class:ngmodule/src/app/profile/profile.module.ts#ProfileComponent",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "ngmodule/src/app/profile/profile.module.ts",
+          "span": {
+            "end_column": 170,
+            "end_line": 10,
+            "start_column": 154,
+            "start_line": 10
+          }
+        }
+      ],
+      "kind": "routes_to",
+      "provenance": "fact",
+      "source": "ui_route:ngmodule/src/app/profile/profile.module.ts#ProfileModule.ROUTE%20%3Ausername.ROUTE%20favorites",
+      "target": "class:ngmodule/src/app/profile/profile.module.ts#ProfileComponent",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "ngmodule/src/app/provided/provided.module.ts",
+          "span": {
+            "end_column": 77,
+            "end_line": 9,
+            "start_column": 60,
+            "start_line": 9
+          }
+        }
+      ],
+      "kind": "routes_to",
+      "provenance": "fact",
+      "source": "ui_route:ngmodule/src/app/provided/provided.module.ts#ProvidedModule.ROUTE%20provided",
+      "target": "class:ngmodule/src/app/provided/provided.module.ts#ProvidedComponent",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "ngmodule/src/app/settings/settings.module.ts",
+          "span": {
+            "end_column": 32,
+            "end_line": 20,
+            "start_column": 15,
+            "start_line": 20
+          }
+        }
+      ],
+      "kind": "routes_to",
+      "provenance": "fact",
+      "source": "ui_route:ngmodule/src/app/settings/settings.module.ts#ROUTE%20%22%22",
+      "target": "class:ngmodule/src/app/settings/settings.module.ts#SettingsComponent",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/admin.routes.ts",
+          "span": {
+            "end_column": 33,
+            "end_line": 5,
+            "start_column": 25,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "routes_to",
+      "provenance": "fact",
+      "source": "ui_route:standalone/src/app/admin.routes.ts#ROUTE%20%22%22",
+      "target": "class:standalone/src/app/pages/docs.ts#DocsPage",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.config.ts",
+          "span": {
+            "end_column": 113,
+            "end_line": 9,
+            "start_column": 105,
+            "start_line": 9
+          }
+        }
+      ],
+      "kind": "routes_to",
+      "provenance": "fact",
+      "source": "ui_route:standalone/src/app/app.config.ts#mergedConfig.ROUTE%20merged",
+      "target": "class:standalone/src/app/pages/home.ts#HomePage",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.config.ts",
+          "span": {
+            "end_column": 97,
+            "end_line": 10,
+            "start_column": 89,
+            "start_line": 10
+          }
+        }
+      ],
+      "kind": "routes_to",
+      "provenance": "fact",
+      "source": "ui_route:standalone/src/app/app.config.ts#specOnlyProviders.ROUTE%20spec-bootstrapped",
+      "target": "class:standalone/src/app/pages/home.ts#HomePage",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.config.ts",
+          "span": {
+            "end_column": 121,
+            "end_line": 8,
+            "start_column": 113,
+            "start_line": 8
+          }
+        }
+      ],
+      "kind": "routes_to",
+      "provenance": "fact",
+      "source": "ui_route:standalone/src/app/app.config.ts#unusedConfig.ROUTE%20unbootstrapped",
+      "target": "class:standalone/src/app/pages/home.ts#HomePage",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.routes.ts",
+          "span": {
+            "end_column": 33,
+            "end_line": 17,
+            "start_column": 25,
+            "start_line": 17
+          }
+        }
+      ],
+      "kind": "routes_to",
+      "provenance": "fact",
+      "source": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20%22%22",
+      "target": "class:standalone/src/app/pages/home.ts#HomePage",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.routes.ts",
+          "span": {
+            "end_column": 38,
+            "end_line": 34,
+            "start_column": 30,
+            "start_line": 34
+          }
+        }
+      ],
+      "kind": "routes_to",
+      "provenance": "fact",
+      "source": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20%28dynamic%29",
+      "target": "class:standalone/src/app/pages/home.ts#HomePage",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.routes.ts",
+          "span": {
+            "end_column": 45,
+            "end_line": 27,
+            "start_column": 37,
+            "start_line": 27
+          }
+        }
+      ],
+      "kind": "routes_to",
+      "provenance": "fact",
+      "source": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20%28matcher%29",
+      "target": "class:standalone/src/app/pages/docs.ts#DocsPage",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.routes.ts",
+          "span": {
+            "end_column": 39,
+            "end_line": 67,
+            "start_column": 27,
+            "start_line": 67
+          }
+        }
+      ],
+      "kind": "routes_to",
+      "provenance": "fact",
+      "source": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20%2A%2A",
+      "target": "class:standalone/src/app/pages/home.ts#NotFoundPage",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.routes.ts",
+          "span": {
+            "end_column": 38,
+            "end_line": 28,
+            "start_column": 30,
+            "start_line": 28
+          }
+        }
+      ],
+      "kind": "routes_to",
+      "provenance": "fact",
+      "source": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20aside",
+      "target": "class:standalone/src/app/pages/docs.ts#DocsPage",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.routes.ts",
+          "span": {
+            "end_column": 103,
+            "end_line": 28,
+            "start_column": 95,
+            "start_line": 28
+          }
+        }
+      ],
+      "kind": "routes_to",
+      "provenance": "fact",
+      "source": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20aside.ROUTE%20inner",
+      "target": "class:standalone/src/app/pages/docs.ts#DocsPage",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.routes.ts",
+          "span": {
+            "end_column": 46,
+            "end_line": 66,
+            "start_column": 38,
+            "start_line": 66
+          }
+        }
+      ],
+      "kind": "routes_to",
+      "provenance": "fact",
+      "source": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20cast",
+      "target": "class:standalone/src/app/pages/home.ts#HomePage",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.routes.ts",
+          "span": {
+            "end_column": 37,
+            "end_line": 22,
+            "start_column": 29,
+            "start_line": 22
+          }
+        }
+      ],
+      "kind": "routes_to",
+      "provenance": "fact",
+      "source": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20docs.ROUTE%20%22%22",
+      "target": "class:standalone/src/app/pages/docs.ts#DocsPage",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.routes.ts",
+          "span": {
+            "end_column": 40,
+            "end_line": 23,
+            "start_column": 32,
+            "start_line": 23
+          }
+        }
+      ],
+      "kind": "routes_to",
+      "provenance": "fact",
+      "source": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20docs.ROUTE%20%3Aid",
+      "target": "class:standalone/src/app/pages/docs.ts#DocsPage",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.routes.ts",
+          "span": {
+            "end_column": 36,
+            "end_line": 32,
+            "start_column": 28,
+            "start_line": 32
+          }
+        }
+      ],
+      "kind": "routes_to",
+      "provenance": "fact",
+      "source": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20dup",
+      "target": "class:standalone/src/app/pages/home.ts#HomePage",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.routes.ts",
+          "span": {
+            "end_column": 36,
+            "end_line": 33,
+            "start_column": 28,
+            "start_line": 33
+          }
+        }
+      ],
+      "kind": "routes_to",
+      "provenance": "fact",
+      "source": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20dup%402",
+      "target": "class:standalone/src/app/pages/docs.ts#DocsPage",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.routes.ts",
+          "span": {
+            "end_column": 23,
+            "end_line": 37,
+            "start_column": 15,
+            "start_line": 37
+          }
+        }
+      ],
+      "kind": "routes_to",
+      "provenance": "fact",
+      "source": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20guarded",
+      "target": "class:standalone/src/app/pages/docs.ts#DocsPage",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.routes.ts",
+          "span": {
+            "end_column": 69,
+            "end_line": 49,
+            "start_column": 41,
+            "start_line": 49
+          }
+        }
+      ],
+      "kind": "routes_to",
+      "provenance": "fact",
+      "source": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20lazy-default",
+      "target": "class:standalone/src/app/pages/home.ts#HomePage",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.routes.ts",
+          "span": {
+            "end_column": 90,
+            "end_line": 50,
+            "start_column": 40,
+            "start_line": 50
+          }
+        }
+      ],
+      "kind": "routes_to",
+      "provenance": "fact",
+      "source": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20lazy-member",
+      "target": "class:standalone/src/app/pages/docs.ts#DocsPage",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.routes.ts",
+          "span": {
+            "end_column": 56,
+            "end_line": 51,
+            "start_column": 38,
+            "start_line": 51
+          }
+        }
+      ],
+      "kind": "routes_to",
+      "provenance": "fact",
+      "source": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20lazy-sync",
+      "target": "class:standalone/src/app/pages/home.ts#NotFoundPage",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.routes.ts",
+          "span": {
+            "end_column": 40,
+            "end_line": 65,
+            "start_column": 32,
+            "start_line": 65
+          }
+        }
+      ],
+      "kind": "routes_to",
+      "provenance": "fact",
+      "source": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20paren",
+      "target": "class:standalone/src/app/pages/home.ts#HomePage",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.routes.ts",
+          "span": {
+            "end_column": 47,
+            "end_line": 60,
+            "start_column": 39,
+            "start_line": 60
+          }
+        }
+      ],
+      "kind": "routes_to",
+      "provenance": "fact",
+      "source": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20provider-const",
+      "target": "class:standalone/src/app/pages/home.ts#HomePage",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.routes.ts",
+          "span": {
+            "end_column": 114,
+            "end_line": 42,
+            "start_column": 106,
+            "start_line": 42
+          }
+        }
+      ],
+      "kind": "routes_to",
+      "provenance": "fact",
+      "source": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20route-providers",
+      "target": "class:standalone/src/app/pages/home.ts#HomePage",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.routes.ts",
+          "span": {
+            "end_column": 39,
+            "end_line": 42,
+            "start_column": 31,
+            "start_line": 42
+          }
+        }
+      ],
+      "kind": "routes_to",
+      "provenance": "fact",
+      "source": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20scoped",
+      "target": "class:standalone/src/app/pages/home.ts#HomePage",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/app.routes.ts",
+          "span": {
+            "end_column": 51,
+            "end_line": 45,
+            "start_column": 41,
+            "start_line": 45
+          }
+        }
+      ],
+      "kind": "routes_to",
+      "provenance": "fact",
+      "source": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20standalone-false",
+      "target": "class:standalone/src/app/pages/docs.ts#LegacyPage",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/factories.ts",
+          "span": {
+            "end_column": 107,
+            "end_line": 8,
+            "start_column": 99,
+            "start_line": 8
+          }
+        }
+      ],
+      "kind": "routes_to",
+      "provenance": "fact",
+      "source": "ui_route:standalone/src/app/factories.ts#FeatureModule.forRoot.ROUTE%20from-static",
+      "target": "class:standalone/src/app/pages/home.ts#HomePage",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/factories.ts",
+          "span": {
+            "end_column": 67,
+            "end_line": 13,
+            "start_column": 59,
+            "start_line": 13
+          }
+        }
+      ],
+      "kind": "routes_to",
+      "provenance": "fact",
+      "source": "ui_route:standalone/src/app/factories.ts#neverCalled.ROUTE%20never-called",
+      "target": "class:standalone/src/app/pages/home.ts#HomePage",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/forms.ts",
+          "span": {
+            "end_column": 57,
+            "end_line": 9,
+            "start_column": 49,
+            "start_line": 9
+          }
+        }
+      ],
+      "kind": "routes_to",
+      "provenance": "fact",
+      "source": "ui_route:standalone/src/app/forms.ts#ROUTE%20local-const",
+      "target": "class:standalone/src/app/pages/home.ts#HomePage",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/forms.ts",
+          "span": {
+            "end_column": 123,
+            "end_line": 27,
+            "start_column": 115,
+            "start_line": 27
+          }
+        }
+      ],
+      "kind": "routes_to",
+      "provenance": "fact",
+      "source": "ui_route:standalone/src/app/forms.ts#Shell.ROUTE%20component-providers",
+      "target": "class:standalone/src/app/pages/home.ts#HomePage",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/invalid.routes.ts",
+          "span": {
+            "end_column": 54,
+            "end_line": 15,
+            "start_column": 46,
+            "start_line": 15
+          }
+        }
+      ],
+      "kind": "routes_to",
+      "provenance": "fact",
+      "source": "ui_route:standalone/src/app/invalid.routes.ts#invalidConfig.ROUTE%20%22%22%402",
+      "target": "class:standalone/src/app/pages/home.ts#HomePage",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/invalid.routes.ts",
+          "span": {
+            "end_column": 25,
+            "end_line": 12,
+            "start_column": 17,
+            "start_line": 12
+          }
+        }
+      ],
+      "kind": "routes_to",
+      "provenance": "fact",
+      "source": "ui_route:standalone/src/app/invalid.routes.ts#invalidConfig.ROUTE%20%28no%20path%29",
+      "target": "class:standalone/src/app/pages/home.ts#HomePage",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/invalid.routes.ts",
+          "span": {
+            "end_column": 42,
+            "end_line": 9,
+            "start_column": 34,
+            "start_line": 9
+          }
+        }
+      ],
+      "kind": "routes_to",
+      "provenance": "fact",
+      "source": "ui_route:standalone/src/app/invalid.routes.ts#invalidConfig.ROUTE%20%2Frooted",
+      "target": "class:standalone/src/app/pages/home.ts#HomePage",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/invalid.routes.ts",
+          "span": {
+            "end_column": 39,
+            "end_line": 10,
+            "start_column": 31,
+            "start_line": 10
+          }
+        }
+      ],
+      "kind": "routes_to",
+      "provenance": "fact",
+      "source": "ui_route:standalone/src/app/invalid.routes.ts#invalidConfig.ROUTE%20both",
+      "target": "class:standalone/src/app/pages/home.ts#HomePage",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/invalid.routes.ts",
+          "span": {
+            "end_column": 55,
+            "end_line": 14,
+            "start_column": 47,
+            "start_line": 14
+          }
+        }
+      ],
+      "kind": "routes_to",
+      "provenance": "fact",
+      "source": "ui_route:standalone/src/app/invalid.routes.ts#invalidConfig.ROUTE%20m",
+      "target": "class:standalone/src/app/pages/home.ts#HomePage",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/lists.ts",
+          "span": {
+            "end_column": 56,
+            "end_line": 4,
+            "start_column": 48,
+            "start_line": 4
+          }
+        }
+      ],
+      "kind": "routes_to",
+      "provenance": "fact",
+      "source": "ui_route:standalone/src/app/lists.ts#ROUTE%20spread-head",
+      "target": "class:standalone/src/app/pages/home.ts#HomePage",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/lists.ts",
+          "span": {
+            "end_column": 66,
+            "end_line": 6,
+            "start_column": 58,
+            "start_line": 6
+          }
+        }
+      ],
+      "kind": "routes_to",
+      "provenance": "fact",
+      "source": "ui_route:standalone/src/app/lists.ts#satisfied.ROUTE%20satisfied",
+      "target": "class:standalone/src/app/pages/home.ts#HomePage",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/lists.ts",
+          "span": {
+            "end_column": 88,
+            "end_line": 7,
+            "start_column": 80,
+            "start_line": 7
+          }
+        }
+      ],
+      "kind": "routes_to",
+      "provenance": "fact",
+      "source": "ui_route:standalone/src/app/lists.ts#spreadRoutes.ROUTE%20spread-tail",
+      "target": "class:standalone/src/app/pages/home.ts#HomePage",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/profile.routes.ts",
+          "span": {
+            "end_column": 46,
+            "end_line": 8,
+            "start_column": 38,
+            "start_line": 8
+          }
+        }
+      ],
+      "kind": "routes_to",
+      "provenance": "fact",
+      "source": "ui_route:standalone/src/app/profile.routes.ts#ROUTE%20%22%22.ROUTE%20%3Ausername",
+      "target": "class:standalone/src/app/pages/docs.ts#DocsPage",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/profile.routes.ts",
+          "span": {
+            "end_column": 123,
+            "end_line": 8,
+            "start_column": 95,
+            "start_line": 8
+          }
+        }
+      ],
+      "kind": "routes_to",
+      "provenance": "fact",
+      "source": "ui_route:standalone/src/app/profile.routes.ts#ROUTE%20%22%22.ROUTE%20%3Ausername.ROUTE%20favorites",
+      "target": "class:standalone/src/app/pages/home.ts#HomePage",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/reports.routes.ts",
+          "span": {
+            "end_column": 38,
+            "end_line": 5,
+            "start_column": 30,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "routes_to",
+      "provenance": "fact",
+      "source": "ui_route:standalone/src/app/reports.routes.ts#REPORT_ROUTES.ROUTE%20%3Ayear",
+      "target": "class:standalone/src/app/pages/docs.ts#DocsPage",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/route-providers.ts",
+          "span": {
+            "end_column": 90,
+            "end_line": 4,
+            "start_column": 82,
+            "start_line": 4
+          }
+        }
+      ],
+      "kind": "routes_to",
+      "provenance": "fact",
+      "source": "ui_route:standalone/src/app/route-providers.ts#ROUTE_PROVIDERS.ROUTE%20route-scoped",
+      "target": "class:standalone/src/app/pages/home.ts#HomePage",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/shared.routes.ts",
+          "span": {
+            "end_column": 70,
+            "end_line": 5,
+            "start_column": 58,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "routes_to",
+      "provenance": "fact",
+      "source": "ui_route:standalone/src/app/shared.routes.ts#shared.ROUTE%20help",
+      "target": "class:standalone/src/app/pages/home.ts#NotFoundPage",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/shared.routes.ts",
+          "span": {
+            "end_column": 120,
+            "end_line": 5,
+            "start_column": 110,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "routes_to",
+      "provenance": "fact",
+      "source": "ui_route:standalone/src/app/shared.routes.ts#shared.ROUTE%20legacy-shared",
+      "target": "class:standalone/src/app/pages/docs.ts#LegacyPage",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/app/twins.routes.ts",
+          "span": {
+            "end_column": 51,
+            "end_line": 5,
+            "start_column": 43,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "routes_to",
+      "provenance": "fact",
+      "source": "ui_route:standalone/src/app/twins.routes.ts#ROUTE%20twin%402",
+      "target": "class:standalone/src/app/pages/docs.ts#DocsPage",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/forms.main.ts",
+          "span": {
+            "end_column": 98,
+            "end_line": 12,
+            "start_column": 90,
+            "start_line": 12
+          }
+        }
+      ],
+      "kind": "routes_to",
+      "provenance": "fact",
+      "source": "ui_route:standalone/src/forms.main.ts#ROUTE%20inline-options",
+      "target": "class:standalone/src/app/pages/home.ts#HomePage",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "standalone/src/testing/router.spec.ts",
+          "span": {
+            "end_column": 103,
+            "end_line": 11,
+            "start_column": 95,
+            "start_line": 11
+          }
+        }
+      ],
+      "kind": "routes_to",
+      "provenance": "fact",
+      "source": "ui_route:standalone/src/testing/router.spec.ts#testProviders.ROUTE%20test-only",
+      "target": "class:standalone/src/app/pages/home.ts#HomePage",
+      "type": "edge"
+    }
+  ],
+  "Nodes": [
+    {
+      "attributes": {
+        "children_load": {
+          "reason": "target has Angular role component, not ng_module",
+          "status": "invalid",
+          "target": "class:ngmodule/src/app/app.component.ts#AppComponent"
+        },
+        "framework": "angular",
+        "lazy": false,
+        "path": "component-children",
+        "paths": [
+          {
+            "path": "/component-children"
+          }
+        ]
+      },
+      "content_hash": "sha256:212841243c8f581194bcd1a7e2eca192d11af165dc248060069e1daad664a479",
+      "file": "ngmodule/src/app/app-routing.module.ts",
+      "identity": "ui_route:ngmodule/src/app/app-routing.module.ts#ROUTE%20component-children",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE component-children",
+      "qualified_name": "ROUTE component-children",
+      "span": {
+        "end_column": 105,
+        "end_line": 8,
+        "start_column": 2,
+        "start_line": 8
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "children_load": {
+          "status": "linked",
+          "target": "class:ngmodule/src/app/cycle/cycle-a.module.ts#CycleAModule"
+        },
+        "framework": "angular",
+        "lazy": false,
+        "path": "cycle",
+        "paths": [
+          {
+            "path": "/cycle"
+          }
+        ]
+      },
+      "content_hash": "sha256:b1a1812bd7445256f88e21a8be6ddbf976eb7baed23b515fe156d6a3144df57c",
+      "file": "ngmodule/src/app/app-routing.module.ts",
+      "identity": "ui_route:ngmodule/src/app/app-routing.module.ts#ROUTE%20cycle",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE cycle",
+      "qualified_name": "ROUTE cycle",
+      "span": {
+        "end_column": 99,
+        "end_line": 7,
+        "start_column": 2,
+        "start_line": 7
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "children_load": {
+          "status": "linked",
+          "target": "class:ngmodule/src/app/lazy-providers/lazy-providers.module.ts#LazyProvidersModule"
+        },
+        "framework": "angular",
+        "lazy": false,
+        "path": "lazy-providers",
+        "paths": [
+          {
+            "path": "/lazy-providers"
+          }
+        ]
+      },
+      "content_hash": "sha256:e21081134d7a556b9c461b50b9c3af882f07946c8e2986b56f6c390e7d0ea6e6",
+      "file": "ngmodule/src/app/app-routing.module.ts",
+      "identity": "ui_route:ngmodule/src/app/app-routing.module.ts#ROUTE%20lazy-providers",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE lazy-providers",
+      "qualified_name": "ROUTE lazy-providers",
+      "span": {
+        "end_column": 131,
+        "end_line": 9,
+        "start_column": 2,
+        "start_line": 9
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "children_load": {
+          "status": "linked",
+          "target": "class:ngmodule/src/app/lazy-root/lazy-root.module.ts#LazyRootModule"
+        },
+        "framework": "angular",
+        "lazy": false,
+        "path": "lazy-root",
+        "paths": [
+          {
+            "path": "/lazy-root"
+          }
+        ]
+      },
+      "content_hash": "sha256:815dd7bfdd546ee29699d3ee577308f3b5f90a12f38635b21e4497e9175cfacc",
+      "file": "ngmodule/src/app/app-routing.module.ts",
+      "identity": "ui_route:ngmodule/src/app/app-routing.module.ts#ROUTE%20lazy-root",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE lazy-root",
+      "qualified_name": "ROUTE lazy-root",
+      "span": {
+        "end_column": 111,
+        "end_line": 6,
+        "start_column": 2,
+        "start_line": 6
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "children_load": {
+          "reason": "NgModule metadata cannot be evaluated",
+          "status": "unresolved"
+        },
+        "framework": "angular",
+        "lazy": false,
+        "path": "partial",
+        "paths": [
+          {
+            "path": "/partial"
+          }
+        ]
+      },
+      "content_hash": "sha256:00665c18fb43dd17cf6c9a2fda9fba5b2e46223ed6e80a878f32ff3589923406",
+      "file": "ngmodule/src/app/app-routing.module.ts",
+      "identity": "ui_route:ngmodule/src/app/app-routing.module.ts#ROUTE%20partial",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE partial",
+      "qualified_name": "ROUTE partial",
+      "span": {
+        "end_column": 104,
+        "end_line": 10,
+        "start_column": 2,
+        "start_line": 10
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "children_load": {
+          "status": "linked",
+          "target": "class:ngmodule/src/app/settings/settings.module.ts#SettingsModule"
+        },
+        "framework": "angular",
+        "lazy": false,
+        "path": "settings",
+        "paths": [
+          {
+            "path": "/settings"
+          }
+        ]
+      },
+      "content_hash": "sha256:e0555477b58fe1072dd67baae317e8ea5b7bf2b78589223b1beb5db53ba7d952",
+      "file": "ngmodule/src/app/app-routing.module.ts",
+      "identity": "ui_route:ngmodule/src/app/app-routing.module.ts#ROUTE%20settings",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE settings",
+      "qualified_name": "ROUTE settings",
+      "span": {
+        "end_column": 108,
+        "end_line": 5,
+        "start_column": 2,
+        "start_line": 5
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "children_load": {
+          "status": "linked",
+          "target": "class:ngmodule/src/app/cycle/cycle-b.module.ts#CycleBModule"
+        },
+        "framework": "angular",
+        "lazy": false,
+        "path": "b",
+        "paths": [
+          {
+            "path": "/cycle/b"
+          }
+        ]
+      },
+      "content_hash": "sha256:4a8f4b5da9efd528db22e16ea93e70c21f3b0e64d4b692e55ac8b8857b0a8b5b",
+      "file": "ngmodule/src/app/cycle/cycle-a.module.ts",
+      "identity": "ui_route:ngmodule/src/app/cycle/cycle-a.module.ts#CycleAModule.ROUTE%20b",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE b",
+      "qualified_name": "CycleAModule.ROUTE b",
+      "span": {
+        "end_column": 122,
+        "end_line": 5,
+        "start_column": 35,
+        "start_line": 5
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "children_load": {
+          "status": "linked",
+          "target": "class:ngmodule/src/app/cycle/cycle-a.module.ts#CycleAModule"
+        },
+        "framework": "angular",
+        "lazy": false,
+        "path": "a",
+        "paths": [
+          {
+            "path": "/cycle/b/a"
+          }
+        ]
+      },
+      "content_hash": "sha256:e2920804fb90360e698de2c89b661c67f65dc029ea3b008a70e76a64e35d2272",
+      "file": "ngmodule/src/app/cycle/cycle-b.module.ts",
+      "identity": "ui_route:ngmodule/src/app/cycle/cycle-b.module.ts#CycleBModule.ROUTE%20a",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE a",
+      "qualified_name": "CycleBModule.ROUTE a",
+      "span": {
+        "end_column": 122,
+        "end_line": 5,
+        "start_column": 35,
+        "start_line": 5
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "component": {
+          "status": "linked",
+          "target": "class:ngmodule/src/app/exported/exported.module.ts#ExportedComponent"
+        },
+        "framework": "angular",
+        "lazy": false,
+        "path": "exported",
+        "paths": [
+          {
+            "path": "/exported"
+          }
+        ]
+      },
+      "content_hash": "sha256:a1c3a5bcfcc2072e3558795abd94ebe6265db00e64406fffb0b353337ece2c9b",
+      "file": "ngmodule/src/app/exported/exported.module.ts",
+      "identity": "ui_route:ngmodule/src/app/exported/exported.module.ts#ExportedRoutingModule.ROUTE%20exported",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE exported",
+      "qualified_name": "ExportedRoutingModule.ROUTE exported",
+      "span": {
+        "end_column": 85,
+        "end_line": 9,
+        "start_column": 35,
+        "start_line": 9
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "component": {
+          "status": "linked",
+          "target": "class:ngmodule/src/app/help.module.ts#HelpComponent"
+        },
+        "framework": "angular",
+        "lazy": false,
+        "path": "help",
+        "paths": [
+          {
+            "path": "/help"
+          },
+          {
+            "path": "/settings/help"
+          }
+        ]
+      },
+      "content_hash": "sha256:229756d7cbc55b040c8299eccc8856030897bfd87e7ef95d444eb9cd9e2eb917",
+      "file": "ngmodule/src/app/help.module.ts",
+      "identity": "ui_route:ngmodule/src/app/help.module.ts#ROUTE%20help",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE help",
+      "qualified_name": "ROUTE help",
+      "span": {
+        "end_column": 70,
+        "end_line": 7,
+        "start_column": 28,
+        "start_line": 7
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "component": {
+          "status": "linked",
+          "target": "class:ngmodule/src/app/home.module.ts#HomeComponent"
+        },
+        "framework": "angular",
+        "lazy": false,
+        "path": "",
+        "paths": [
+          {
+            "path": "/"
+          }
+        ]
+      },
+      "content_hash": "sha256:6730fa24a57a602ef9d57b3f489a1eb7c03a9a80d21ad20050cdf827f9ae2330",
+      "file": "ngmodule/src/app/home.module.ts",
+      "identity": "ui_route:ngmodule/src/app/home.module.ts#HomeModule.ROUTE%20%22%22",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE \"\"",
+      "qualified_name": "HomeModule.ROUTE \"\"",
+      "span": {
+        "end_column": 73,
+        "end_line": 9,
+        "start_column": 35,
+        "start_line": 9
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "component": {
+          "status": "linked",
+          "target": "class:ngmodule/src/app/lazy-providers/lazy-providers.module.ts#LazyProvidersComponent"
+        },
+        "framework": "angular",
+        "lazy": false,
+        "path": "x",
+        "paths": []
+      },
+      "content_hash": "sha256:9920be0f5694b1a06c50194a490e4af799b060bd658533f1dc3216b6cecdcd69",
+      "file": "ngmodule/src/app/lazy-providers/lazy-providers.module.ts",
+      "identity": "ui_route:ngmodule/src/app/lazy-providers/lazy-providers.module.ts#ROUTE%20x",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE x",
+      "qualified_name": "ROUTE x",
+      "span": {
+        "end_column": 87,
+        "end_line": 7,
+        "start_column": 39,
+        "start_line": 7
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "component": {
+          "status": "linked",
+          "target": "class:ngmodule/src/app/lazy-root/lazy-root.module.ts#LazyRootComponent"
+        },
+        "framework": "angular",
+        "lazy": false,
+        "path": "again",
+        "paths": []
+      },
+      "content_hash": "sha256:288703234e5dc4dc3a7df4edeba79f23297a10561f390614f3bd79a0acce1182",
+      "file": "ngmodule/src/app/lazy-root/lazy-root.module.ts",
+      "identity": "ui_route:ngmodule/src/app/lazy-root/lazy-root.module.ts#LazyRootModule.ROUTE%20again",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE again",
+      "qualified_name": "LazyRootModule.ROUTE again",
+      "span": {
+        "end_column": 81,
+        "end_line": 9,
+        "start_column": 34,
+        "start_line": 9
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "component": {
+          "status": "linked",
+          "target": "class:ngmodule/src/app/orphan/orphan.module.ts#OrphanComponent"
+        },
+        "framework": "angular",
+        "lazy": false,
+        "path": "orphan",
+        "paths": []
+      },
+      "content_hash": "sha256:e57d217b6e8b53bc598107cff05ebb4cb1a1add60eb991fbe38e4d9dd77dd5e9",
+      "file": "ngmodule/src/app/orphan/orphan.module.ts",
+      "identity": "ui_route:ngmodule/src/app/orphan/orphan.module.ts#OrphanModule.ROUTE%20orphan",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE orphan",
+      "qualified_name": "OrphanModule.ROUTE orphan",
+      "span": {
+        "end_column": 81,
+        "end_line": 9,
+        "start_column": 35,
+        "start_line": 9
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "component": {
+          "status": "linked",
+          "target": "class:ngmodule/src/app/profile/profile.module.ts#ProfileComponent"
+        },
+        "framework": "angular",
+        "guards": {
+          "can_activate": [
+            {
+              "status": "linked",
+              "target": "class:ngmodule/src/app/core/auth-guard.service.ts#AuthGuard"
+            }
+          ]
+        },
+        "lazy": false,
+        "path": ":username",
+        "paths": [
+          {
+            "path": "/settings/profile/:username"
+          }
+        ]
+      },
+      "content_hash": "sha256:c7988d80ea139f4470cf97200708119a4a62caf2c7cee69b950c0705a73f460a",
+      "file": "ngmodule/src/app/profile/profile.module.ts",
+      "identity": "ui_route:ngmodule/src/app/profile/profile.module.ts#ProfileModule.ROUTE%20%3Ausername",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE :username",
+      "qualified_name": "ProfileModule.ROUTE :username",
+      "span": {
+        "end_column": 175,
+        "end_line": 10,
+        "start_column": 35,
+        "start_line": 10
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "component": {
+          "status": "linked",
+          "target": "class:ngmodule/src/app/profile/profile.module.ts#ProfileComponent"
+        },
+        "framework": "angular",
+        "lazy": false,
+        "path": "favorites",
+        "paths": [
+          {
+            "path": "/settings/profile/:username/favorites"
+          }
+        ]
+      },
+      "content_hash": "sha256:0a1d92015dbf7ffa3de15c85066cfdd098378ac3df7043c3cb3a6d7f3d77ffff",
+      "file": "ngmodule/src/app/profile/profile.module.ts",
+      "identity": "ui_route:ngmodule/src/app/profile/profile.module.ts#ProfileModule.ROUTE%20%3Ausername.ROUTE%20favorites",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE favorites",
+      "qualified_name": "ProfileModule.ROUTE :username.ROUTE favorites",
+      "span": {
+        "end_column": 172,
+        "end_line": 10,
+        "start_column": 122,
+        "start_line": 10
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "component": {
+          "status": "linked",
+          "target": "class:ngmodule/src/app/provided/provided.module.ts#ProvidedComponent"
+        },
+        "framework": "angular",
+        "lazy": false,
+        "path": "provided",
+        "paths": [
+          {
+            "path": "/provided"
+          }
+        ]
+      },
+      "content_hash": "sha256:62b8fdcca99f88f9fdfb9faa798105aa6ac2951884cc7ea65265ee53af8415cf",
+      "file": "ngmodule/src/app/provided/provided.module.ts",
+      "identity": "ui_route:ngmodule/src/app/provided/provided.module.ts#ProvidedModule.ROUTE%20provided",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE provided",
+      "qualified_name": "ProvidedModule.ROUTE provided",
+      "span": {
+        "end_column": 79,
+        "end_line": 9,
+        "start_column": 29,
+        "start_line": 9
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "component": {
+          "status": "linked",
+          "target": "class:ngmodule/src/app/settings/settings.module.ts#SettingsComponent"
+        },
+        "framework": "angular",
+        "guards": {
+          "can_activate": [
+            {
+              "status": "linked",
+              "target": "class:ngmodule/src/app/settings/settings.module.ts#SettingsGuard"
+            },
+            {
+              "status": "external",
+              "target": "external:.#npm%3Aguards-lib"
+            },
+            {
+              "status": "inline"
+            }
+          ],
+          "can_deactivate": [
+            {
+              "status": "linked",
+              "target": "function:ngmodule/src/app/settings/settings.module.ts#canLeave"
+            }
+          ]
+        },
+        "lazy": false,
+        "path": "",
+        "paths": [
+          {
+            "path": "/settings"
+          }
+        ],
+        "resolve": {
+          "settings": {
+            "status": "linked",
+            "target": "class:ngmodule/src/app/settings/settings.module.ts#SettingsResolver"
+          }
+        }
+      },
+      "content_hash": "sha256:3609e6dcb2d3328969028312ed9873ec6d8bdc38857e798c12cf6b25424df777",
+      "file": "ngmodule/src/app/settings/settings.module.ts",
+      "identity": "ui_route:ngmodule/src/app/settings/settings.module.ts#ROUTE%20%22%22",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE \"\"",
+      "qualified_name": "ROUTE \"\"",
+      "span": {
+        "end_column": 3,
+        "end_line": 24,
+        "start_column": 2,
+        "start_line": 18
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "children_load": {
+          "status": "linked",
+          "target": "class:ngmodule/src/app/profile/profile.module.ts#ProfileModule"
+        },
+        "framework": "angular",
+        "lazy": false,
+        "path": "profile",
+        "paths": [
+          {
+            "path": "/settings/profile"
+          }
+        ]
+      },
+      "content_hash": "sha256:7652ffd4d621860f807a1e85a13be4702e45f0cfdab5be962ead5f418e0b27ab",
+      "file": "ngmodule/src/app/settings/settings.module.ts",
+      "identity": "ui_route:ngmodule/src/app/settings/settings.module.ts#ROUTE%20profile",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE profile",
+      "qualified_name": "ROUTE profile",
+      "span": {
+        "end_column": 105,
+        "end_line": 25,
+        "start_column": 2,
+        "start_line": 25
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "component": {
+          "status": "linked",
+          "target": "class:standalone/src/app/pages/docs.ts#DocsPage"
+        },
+        "framework": "angular",
+        "lazy": false,
+        "path": "",
+        "paths": [
+          {
+            "path": "/admin"
+          }
+        ]
+      },
+      "content_hash": "sha256:72db3e0a7eda2cf1a23a44a9ba9e5ea33b1b56bae6b2d6ce109f9a6d2bea06d8",
+      "file": "standalone/src/app/admin.routes.ts",
+      "identity": "ui_route:standalone/src/app/admin.routes.ts#ROUTE%20%22%22",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE \"\"",
+      "qualified_name": "ROUTE \"\"",
+      "span": {
+        "end_column": 35,
+        "end_line": 5,
+        "start_column": 2,
+        "start_line": 5
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "component": {
+          "reason": "a lazily loaded routes array requires standalone components",
+          "status": "invalid",
+          "target": "class:standalone/src/app/pages/docs.ts#LegacyPage"
+        },
+        "framework": "angular",
+        "lazy": false,
+        "path": "legacy",
+        "paths": [
+          {
+            "path": "/admin/legacy"
+          }
+        ]
+      },
+      "content_hash": "sha256:e5ce7e2b808bcd527d0abb1657fe4f0255a74e0ad49c491df2fbb8f9c90cf8c8",
+      "file": "standalone/src/app/admin.routes.ts",
+      "identity": "ui_route:standalone/src/app/admin.routes.ts#ROUTE%20legacy",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE legacy",
+      "qualified_name": "ROUTE legacy",
+      "span": {
+        "end_column": 43,
+        "end_line": 6,
+        "start_column": 2,
+        "start_line": 6
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "component": {
+          "status": "linked",
+          "target": "class:standalone/src/app/pages/home.ts#HomePage"
+        },
+        "framework": "angular",
+        "lazy": false,
+        "path": "merged",
+        "paths": []
+      },
+      "content_hash": "sha256:2064a24e7ffdd44616acaa00bf1dfc67d2b3c452099c31ca24528e68359d15ac",
+      "file": "standalone/src/app/app.config.ts",
+      "identity": "ui_route:standalone/src/app/app.config.ts#mergedConfig.ROUTE%20merged",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE merged",
+      "qualified_name": "mergedConfig.ROUTE merged",
+      "span": {
+        "end_column": 115,
+        "end_line": 9,
+        "start_column": 76,
+        "start_line": 9
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "component": {
+          "status": "linked",
+          "target": "class:standalone/src/app/pages/home.ts#HomePage"
+        },
+        "framework": "angular",
+        "lazy": false,
+        "path": "spec-bootstrapped",
+        "paths": [
+          {
+            "path": "/spec-bootstrapped",
+            "scope": "test"
+          }
+        ]
+      },
+      "content_hash": "sha256:77a854642865d1562693a64cde98dbb335b52a686b37a66b66daf2b37dc2923f",
+      "file": "standalone/src/app/app.config.ts",
+      "identity": "ui_route:standalone/src/app/app.config.ts#specOnlyProviders.ROUTE%20spec-bootstrapped",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE spec-bootstrapped",
+      "qualified_name": "specOnlyProviders.ROUTE spec-bootstrapped",
+      "span": {
+        "end_column": 99,
+        "end_line": 10,
+        "start_column": 49,
+        "start_line": 10
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "component": {
+          "status": "linked",
+          "target": "class:standalone/src/app/pages/home.ts#HomePage"
+        },
+        "framework": "angular",
+        "lazy": false,
+        "path": "unbootstrapped",
+        "paths": []
+      },
+      "content_hash": "sha256:e1e14c5d55f0852c124854c19df92326357a30c56e05d126560b08351170ab53",
+      "file": "standalone/src/app/app.config.ts",
+      "identity": "ui_route:standalone/src/app/app.config.ts#unusedConfig.ROUTE%20unbootstrapped",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE unbootstrapped",
+      "qualified_name": "unusedConfig.ROUTE unbootstrapped",
+      "span": {
+        "end_column": 123,
+        "end_line": 8,
+        "start_column": 76,
+        "start_line": 8
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "component": {
+          "status": "linked",
+          "target": "class:standalone/src/app/pages/home.ts#HomePage"
+        },
+        "framework": "angular",
+        "lazy": false,
+        "path": "",
+        "path_match": "full",
+        "paths": [
+          {
+            "path": "/"
+          }
+        ],
+        "title": "Home"
+      },
+      "content_hash": "sha256:32d8dc3bd59cd9906c37fc611703baf243c9c24966bc0a76ae7d72663abef374",
+      "file": "standalone/src/app/app.routes.ts",
+      "identity": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20%22%22",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE \"\"",
+      "qualified_name": "routes.ROUTE \"\"",
+      "span": {
+        "end_column": 69,
+        "end_line": 17,
+        "start_column": 2,
+        "start_line": 17
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "component": {
+          "status": "linked",
+          "target": "class:standalone/src/app/pages/home.ts#HomePage"
+        },
+        "framework": "angular",
+        "lazy": false,
+        "path": "dyn",
+        "paths": [
+          {
+            "path": "/dyn"
+          }
+        ]
+      },
+      "content_hash": "sha256:44363e4d9e71d8bf53e81adb0ee90310757dfd9a9a05aa4943bfbdcc7e29fc69",
+      "file": "standalone/src/app/app.routes.ts",
+      "identity": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20%28dynamic%29",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE (dynamic)",
+      "qualified_name": "routes.ROUTE (dynamic)",
+      "span": {
+        "end_column": 40,
+        "end_line": 34,
+        "start_column": 2,
+        "start_line": 34
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "component": {
+          "status": "linked",
+          "target": "class:standalone/src/app/pages/docs.ts#DocsPage"
+        },
+        "framework": "angular",
+        "lazy": false,
+        "matcher": true,
+        "paths": []
+      },
+      "content_hash": "sha256:c39d886e451a574ff87bb5e5aa63a45d1adf7d9428ce2811b2f8a7c41cebf8c4",
+      "file": "standalone/src/app/app.routes.ts",
+      "identity": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20%28matcher%29",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE (matcher)",
+      "qualified_name": "routes.ROUTE (matcher)",
+      "span": {
+        "end_column": 47,
+        "end_line": 27,
+        "start_column": 2,
+        "start_line": 27
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "component": {
+          "status": "linked",
+          "target": "class:standalone/src/app/pages/home.ts#NotFoundPage"
+        },
+        "framework": "angular",
+        "lazy": false,
+        "path": "**",
+        "paths": [
+          {
+            "path": "/**"
+          }
+        ]
+      },
+      "content_hash": "sha256:daa86151841a066653372c62790c70dd45e2f880ca89bf5d8c1f7a1bcdfd6b85",
+      "file": "standalone/src/app/app.routes.ts",
+      "identity": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20%2A%2A",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE **",
+      "qualified_name": "routes.ROUTE **",
+      "span": {
+        "end_column": 41,
+        "end_line": 67,
+        "start_column": 2,
+        "start_line": 67
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "children_load": {
+          "status": "linked",
+          "target": "file:standalone/src/app/admin.routes.ts#standalone%2Fsrc%2Fapp%2Fadmin.routes.ts"
+        },
+        "framework": "angular",
+        "lazy": false,
+        "path": "admin",
+        "paths": [
+          {
+            "path": "/admin"
+          }
+        ]
+      },
+      "content_hash": "sha256:ef4edcf2ea2d7a4e9bcfb0c984451e8b7dba2981a58566c6a4dd9551a3acbae6",
+      "file": "standalone/src/app/app.routes.ts",
+      "identity": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20admin",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE admin",
+      "qualified_name": "routes.ROUTE admin",
+      "span": {
+        "end_column": 65,
+        "end_line": 54,
+        "start_column": 2,
+        "start_line": 54
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "children_load": {
+          "reason": "mutated const array",
+          "status": "unresolved"
+        },
+        "framework": "angular",
+        "lazy": false,
+        "path": "anon",
+        "paths": [
+          {
+            "path": "/anon"
+          }
+        ]
+      },
+      "content_hash": "sha256:eba9b0a60bccfd87ae71a47944110dfff0522e3575faa8377fbaba7db97d7038",
+      "file": "standalone/src/app/app.routes.ts",
+      "identity": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20anon",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE anon",
+      "qualified_name": "routes.ROUTE anon",
+      "span": {
+        "end_column": 63,
+        "end_line": 62,
+        "start_column": 2,
+        "start_line": 62
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "component": {
+          "status": "linked",
+          "target": "class:standalone/src/app/pages/docs.ts#DocsPage"
+        },
+        "framework": "angular",
+        "lazy": false,
+        "outlet": "side",
+        "path": "aside",
+        "paths": []
+      },
+      "content_hash": "sha256:5135500094791ce5a100fc6e6fc487ca7d8201a8751ff6d328c0bce42db4ec5b",
+      "file": "standalone/src/app/app.routes.ts",
+      "identity": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20aside",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE aside",
+      "qualified_name": "routes.ROUTE aside",
+      "span": {
+        "end_column": 108,
+        "end_line": 28,
+        "start_column": 2,
+        "start_line": 28
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "component": {
+          "status": "linked",
+          "target": "class:standalone/src/app/pages/docs.ts#DocsPage"
+        },
+        "framework": "angular",
+        "lazy": false,
+        "path": "inner",
+        "paths": []
+      },
+      "content_hash": "sha256:98683ceb4d147cdbfe7dbdd984a9a882d10060560e0e0ae7a3d7626fd165cbde",
+      "file": "standalone/src/app/app.routes.ts",
+      "identity": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20aside.ROUTE%20inner",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE inner",
+      "qualified_name": "routes.ROUTE aside.ROUTE inner",
+      "span": {
+        "end_column": 105,
+        "end_line": 28,
+        "start_column": 67,
+        "start_line": 28
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "children_load": {
+          "reason": "inadmissible loader: async",
+          "status": "unresolved"
+        },
+        "framework": "angular",
+        "lazy": false,
+        "path": "async-children",
+        "paths": [
+          {
+            "path": "/async-children"
+          }
+        ]
+      },
+      "content_hash": "sha256:5ae6996399d45392f73f9440627d41289ca241cd0d6a837bfe9351861bbcf7de",
+      "file": "standalone/src/app/app.routes.ts",
+      "identity": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20async-children",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE async-children",
+      "qualified_name": "routes.ROUTE async-children",
+      "span": {
+        "end_column": 80,
+        "end_line": 59,
+        "start_column": 2,
+        "start_line": 59
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "children_load": {
+          "reason": "loadChildren is never used: invalid route configuration (children_with_load_children)",
+          "status": "invalid",
+          "target": "file:standalone/src/app/admin.routes.ts#standalone%2Fsrc%2Fapp%2Fadmin.routes.ts"
+        },
+        "framework": "angular",
+        "invalid": [
+          "children_with_load_children"
+        ],
+        "lazy": false,
+        "path": "both-children",
+        "paths": [
+          {
+            "path": "/both-children"
+          }
+        ]
+      },
+      "content_hash": "sha256:8b506d8e81525928a908e2d96696d82dfa1fe244baf966559dfe9d80fc60e69e",
+      "file": "standalone/src/app/app.routes.ts",
+      "identity": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20both-children",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE both-children",
+      "qualified_name": "routes.ROUTE both-children",
+      "span": {
+        "end_column": 123,
+        "end_line": 64,
+        "start_column": 2,
+        "start_line": 64
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "component": {
+          "status": "linked",
+          "target": "class:standalone/src/app/pages/home.ts#HomePage"
+        },
+        "framework": "angular",
+        "lazy": false,
+        "path": "cast",
+        "paths": [
+          {
+            "path": "/cast"
+          }
+        ]
+      },
+      "content_hash": "sha256:dd43aba160f45f629035fdbb036a2552c0c0eae43fdd65ccfccb8d6cd1859d63",
+      "file": "standalone/src/app/app.routes.ts",
+      "identity": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20cast",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE cast",
+      "qualified_name": "routes.ROUTE cast",
+      "span": {
+        "end_column": 48,
+        "end_line": 66,
+        "start_column": 2,
+        "start_line": 66
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "framework": "angular",
+        "lazy": false,
+        "path": "docs",
+        "paths": [
+          {
+            "path": "/docs"
+          }
+        ],
+        "title": {
+          "status": "linked",
+          "target": "class:standalone/src/app/pages/docs.ts#TitleResolver"
+        }
+      },
+      "content_hash": "sha256:6a5c2305edd4cfd5a9abfefcde22e4b52d42234c0fb038085de62c964fc21edd",
+      "file": "standalone/src/app/app.routes.ts",
+      "identity": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20docs",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE docs",
+      "qualified_name": "routes.ROUTE docs",
+      "span": {
+        "end_column": 3,
+        "end_line": 26,
+        "start_column": 2,
+        "start_line": 18
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "component": {
+          "status": "linked",
+          "target": "class:standalone/src/app/pages/docs.ts#DocsPage"
+        },
+        "framework": "angular",
+        "lazy": false,
+        "path": "",
+        "paths": [
+          {
+            "path": "/docs"
+          }
+        ]
+      },
+      "content_hash": "sha256:72db3e0a7eda2cf1a23a44a9ba9e5ea33b1b56bae6b2d6ce109f9a6d2bea06d8",
+      "file": "standalone/src/app/app.routes.ts",
+      "identity": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20docs.ROUTE%20%22%22",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE \"\"",
+      "qualified_name": "routes.ROUTE docs.ROUTE \"\"",
+      "span": {
+        "end_column": 39,
+        "end_line": 22,
+        "start_column": 6,
+        "start_line": 22
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "framework": "angular",
+        "lazy": false,
+        "path": "**",
+        "path_match": "full",
+        "paths": [
+          {
+            "path": "/docs/**"
+          }
+        ],
+        "redirect_to": ""
+      },
+      "content_hash": "sha256:7bcd8da972fed97ce6edfaccbd176f8baaf6527e3d33917b90e0f0c5f9600e4f",
+      "file": "standalone/src/app/app.routes.ts",
+      "identity": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20docs.ROUTE%20%2A%2A",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE **",
+      "qualified_name": "routes.ROUTE docs.ROUTE **",
+      "span": {
+        "end_column": 55,
+        "end_line": 24,
+        "start_column": 6,
+        "start_line": 24
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "component": {
+          "status": "linked",
+          "target": "class:standalone/src/app/pages/docs.ts#DocsPage"
+        },
+        "framework": "angular",
+        "guards": {
+          "can_deactivate": [
+            {
+              "status": "linked",
+              "target": "function:standalone/src/app/guards.ts#canEdit"
+            }
+          ]
+        },
+        "lazy": false,
+        "path": ":id",
+        "paths": [
+          {
+            "path": "/docs/:id"
+          }
+        ]
+      },
+      "content_hash": "sha256:399b1b0e7bc519bab1449b090bb37031435705d35fdaef658bba741df3b49eba",
+      "file": "standalone/src/app/app.routes.ts",
+      "identity": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20docs.ROUTE%20%3Aid",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE :id",
+      "qualified_name": "routes.ROUTE docs.ROUTE :id",
+      "span": {
+        "end_column": 68,
+        "end_line": 23,
+        "start_column": 6,
+        "start_line": 23
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "component": {
+          "status": "linked",
+          "target": "class:standalone/src/app/pages/home.ts#HomePage"
+        },
+        "framework": "angular",
+        "lazy": false,
+        "path": "dup",
+        "paths": [
+          {
+            "path": "/dup"
+          }
+        ]
+      },
+      "content_hash": "sha256:606c0e7d83e99a542ceeaec4e93238e74333066b879fb51e6f93399b248a69da",
+      "file": "standalone/src/app/app.routes.ts",
+      "identity": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20dup",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE dup",
+      "qualified_name": "routes.ROUTE dup",
+      "span": {
+        "end_column": 38,
+        "end_line": 32,
+        "start_column": 2,
+        "start_line": 32
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "component": {
+          "status": "linked",
+          "target": "class:standalone/src/app/pages/docs.ts#DocsPage"
+        },
+        "framework": "angular",
+        "lazy": false,
+        "path": "dup",
+        "paths": [
+          {
+            "path": "/dup"
+          }
+        ]
+      },
+      "content_hash": "sha256:956fa254284bd1321fef46e106dfe4e8ed702c3d32cf6d9bc165515a33885901",
+      "file": "standalone/src/app/app.routes.ts",
+      "identity": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20dup%402",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE dup@2",
+      "qualified_name": "routes.ROUTE dup@2",
+      "span": {
+        "end_column": 38,
+        "end_line": 33,
+        "start_column": 2,
+        "start_line": 33
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "framework": "angular",
+        "lazy": false,
+        "path": "fn-redirect",
+        "paths": [
+          {
+            "path": "/fn-redirect"
+          }
+        ],
+        "redirect_to": {
+          "status": "linked",
+          "target": "function:standalone/src/app/app.routes.ts#redirectFn"
+        }
+      },
+      "content_hash": "sha256:607f99d31a8a9e47e3f657416b2832906f09aea308c9ed8670db4147dcebbbf3",
+      "file": "standalone/src/app/app.routes.ts",
+      "identity": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20fn-redirect",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE fn-redirect",
+      "qualified_name": "routes.ROUTE fn-redirect",
+      "span": {
+        "end_column": 49,
+        "end_line": 30,
+        "start_column": 2,
+        "start_line": 30
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "component": {
+          "status": "linked",
+          "target": "class:standalone/src/app/pages/docs.ts#DocsPage"
+        },
+        "framework": "angular",
+        "guards": {
+          "can_activate": [
+            {
+              "status": "linked",
+              "target": "class:standalone/src/app/guards.ts#AuthGuard"
+            },
+            {
+              "status": "linked",
+              "target": "function:standalone/src/app/guards.ts#canEdit"
+            },
+            {
+              "status": "inline"
+            },
+            {
+              "status": "external",
+              "target": "external:.#npm%3Aguards-lib"
+            },
+            {
+              "reason": "unsupported expression: call_expression",
+              "status": "unresolved"
+            }
+          ],
+          "can_match": [
+            {
+              "status": "linked",
+              "target": "class:standalone/src/app/guards.ts#AuthGuard"
+            }
+          ]
+        },
+        "lazy": false,
+        "path": "guarded",
+        "paths": [
+          {
+            "path": "/guarded"
+          }
+        ],
+        "resolve": {
+          "inline": {
+            "status": "inline"
+          },
+          "missing": {
+            "reason": "target is unresolved",
+            "status": "unresolved"
+          },
+          "user": {
+            "status": "linked",
+            "target": "class:standalone/src/app/guards.ts#UserResolver"
+          }
+        }
+      },
+      "content_hash": "sha256:150fb20bc00ca1dca488174d0986ee91912f0c9cd8ec228f4c52cd2c2828997d",
+      "file": "standalone/src/app/app.routes.ts",
+      "identity": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20guarded",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE guarded",
+      "qualified_name": "routes.ROUTE guarded",
+      "span": {
+        "end_column": 3,
+        "end_line": 41,
+        "start_column": 2,
+        "start_line": 35
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "framework": "angular",
+        "lazy": false,
+        "path": "inline-redirect",
+        "paths": [
+          {
+            "path": "/inline-redirect"
+          }
+        ],
+        "redirect_to": {
+          "status": "inline"
+        }
+      },
+      "content_hash": "sha256:d977f13e0e7a1c3c5e9722c8f7ddabca76ba5a696952cf83f34b76328ffac20b",
+      "file": "standalone/src/app/app.routes.ts",
+      "identity": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20inline-redirect",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE inline-redirect",
+      "qualified_name": "routes.ROUTE inline-redirect",
+      "span": {
+        "end_column": 55,
+        "end_line": 31,
+        "start_column": 2,
+        "start_line": 31
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "children_load": {
+          "reason": "target has Angular role component, not ng_module",
+          "status": "invalid",
+          "target": "class:standalone/src/app/pages/home.ts#HomePage"
+        },
+        "framework": "angular",
+        "lazy": false,
+        "path": "invalid-children",
+        "paths": [
+          {
+            "path": "/invalid-children"
+          }
+        ]
+      },
+      "content_hash": "sha256:4501a4e006b75cbb04d069bd18e861ff6e41eba5e406558bd39f348da72fb787",
+      "file": "standalone/src/app/app.routes.ts",
+      "identity": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20invalid-children",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE invalid-children",
+      "qualified_name": "routes.ROUTE invalid-children",
+      "span": {
+        "end_column": 74,
+        "end_line": 58,
+        "start_column": 2,
+        "start_line": 58
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "component": {
+          "status": "linked",
+          "target": "class:standalone/src/app/pages/home.ts#HomePage"
+        },
+        "framework": "angular",
+        "lazy": true,
+        "path": "lazy-default",
+        "paths": [
+          {
+            "path": "/lazy-default"
+          }
+        ]
+      },
+      "content_hash": "sha256:805618f9a4348852f8e73841b11c2b923a1c041619eb36ab7bdebb23c281df24",
+      "file": "standalone/src/app/app.routes.ts",
+      "identity": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20lazy-default",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE lazy-default",
+      "qualified_name": "routes.ROUTE lazy-default",
+      "span": {
+        "end_column": 71,
+        "end_line": 49,
+        "start_column": 2,
+        "start_line": 49
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "component": {
+          "reason": "loadComponent requires a standalone component",
+          "status": "invalid",
+          "target": "class:standalone/src/app/pages/docs.ts#LegacyPage"
+        },
+        "framework": "angular",
+        "lazy": true,
+        "path": "lazy-legacy",
+        "paths": [
+          {
+            "path": "/lazy-legacy"
+          }
+        ]
+      },
+      "content_hash": "sha256:da0526d7efcee13aad9154d2729d380862a6f2fd65f367bd14224b4acc188e6c",
+      "file": "standalone/src/app/app.routes.ts",
+      "identity": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20lazy-legacy",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE lazy-legacy",
+      "qualified_name": "routes.ROUTE lazy-legacy",
+      "span": {
+        "end_column": 94,
+        "end_line": 53,
+        "start_column": 2,
+        "start_line": 53
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "component": {
+          "status": "linked",
+          "target": "class:standalone/src/app/pages/docs.ts#DocsPage"
+        },
+        "framework": "angular",
+        "lazy": true,
+        "path": "lazy-member",
+        "paths": [
+          {
+            "path": "/lazy-member"
+          }
+        ]
+      },
+      "content_hash": "sha256:15b54ee7b4b2a911159635247fcae07f1f0cd6be0cc707b5f785f2a44d154911",
+      "file": "standalone/src/app/app.routes.ts",
+      "identity": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20lazy-member",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE lazy-member",
+      "qualified_name": "routes.ROUTE lazy-member",
+      "span": {
+        "end_column": 92,
+        "end_line": 50,
+        "start_column": 2,
+        "start_line": 50
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "component": {
+          "reason": "target has Angular role ng_module, not component",
+          "status": "invalid",
+          "target": "class:standalone/src/app/pages/docs.ts#DocsModule"
+        },
+        "framework": "angular",
+        "lazy": true,
+        "path": "lazy-module-component",
+        "paths": [
+          {
+            "path": "/lazy-module-component"
+          }
+        ]
+      },
+      "content_hash": "sha256:3ec3068aa356ab6f8567bd52de1c6191d2cf1754a68c34c78278a810376dc8a4",
+      "file": "standalone/src/app/app.routes.ts",
+      "identity": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20lazy-module-component",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE lazy-module-component",
+      "qualified_name": "routes.ROUTE lazy-module-component",
+      "span": {
+        "end_column": 104,
+        "end_line": 52,
+        "start_column": 2,
+        "start_line": 52
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "component": {
+          "status": "linked",
+          "target": "class:standalone/src/app/pages/home.ts#NotFoundPage"
+        },
+        "framework": "angular",
+        "lazy": true,
+        "path": "lazy-sync",
+        "paths": [
+          {
+            "path": "/lazy-sync"
+          }
+        ]
+      },
+      "content_hash": "sha256:fb8ac5a13f33aa5c05a2ea816b71c0fe09ba53c395a6e98f9b15fc80176495e2",
+      "file": "standalone/src/app/app.routes.ts",
+      "identity": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20lazy-sync",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE lazy-sync",
+      "qualified_name": "routes.ROUTE lazy-sync",
+      "span": {
+        "end_column": 58,
+        "end_line": 51,
+        "start_column": 2,
+        "start_line": 51
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "component": {
+          "reason": "value is a method or accessor; not evaluated",
+          "status": "unresolved"
+        },
+        "framework": "angular",
+        "lazy": true,
+        "partial": true,
+        "path": "method",
+        "paths": [
+          {
+            "path": "/method"
+          }
+        ]
+      },
+      "content_hash": "sha256:aa944a99de05de5ebdca607e4288d1d0fe4c9ec0c1f39d9ee17889e062559406",
+      "file": "standalone/src/app/app.routes.ts",
+      "identity": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20method",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE method",
+      "qualified_name": "routes.ROUTE method",
+      "span": {
+        "end_column": 72,
+        "end_line": 48,
+        "start_column": 2,
+        "start_line": 48
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "framework": "angular",
+        "lazy": false,
+        "path": "old",
+        "path_match": "full",
+        "paths": [
+          {
+            "path": "/old"
+          }
+        ],
+        "redirect_to": "docs"
+      },
+      "content_hash": "sha256:74b2f5ce68d3a4b6cc444b7b8ad594b7d34483e18baf97f2e167f19e47df0890",
+      "file": "standalone/src/app/app.routes.ts",
+      "identity": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20old",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE old",
+      "qualified_name": "routes.ROUTE old",
+      "span": {
+        "end_column": 56,
+        "end_line": 29,
+        "start_column": 2,
+        "start_line": 29
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "component": {
+          "status": "linked",
+          "target": "class:standalone/src/app/pages/home.ts#HomePage"
+        },
+        "framework": "angular",
+        "lazy": false,
+        "path": "paren",
+        "paths": [
+          {
+            "path": "/paren"
+          }
+        ]
+      },
+      "content_hash": "sha256:291f7eba10fd4f4f4c735504dd5e23879ae00cb3f7a654621ba9542ec4f94358",
+      "file": "standalone/src/app/app.routes.ts",
+      "identity": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20paren",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE paren",
+      "qualified_name": "routes.ROUTE paren",
+      "span": {
+        "end_column": 42,
+        "end_line": 65,
+        "start_column": 2,
+        "start_line": 65
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "children_load": {
+          "reason": "may be supplied by a spread or computed key",
+          "status": "unresolved"
+        },
+        "component": {
+          "reason": "may be supplied by a spread or computed key",
+          "status": "unresolved"
+        },
+        "framework": "angular",
+        "guards": {
+          "can_activate": null,
+          "can_activate_child": null,
+          "can_deactivate": null,
+          "can_load": null,
+          "can_match": null
+        },
+        "lazy": null,
+        "matcher": null,
+        "outlet": null,
+        "partial": true,
+        "path": "partial",
+        "path_match": null,
+        "paths": [],
+        "providers": null,
+        "redirect_to": null,
+        "resolve": null,
+        "title": null
+      },
+      "content_hash": "sha256:5ce253c4261500da90408dccf90b34596bdae672ce900152ab7830d10c7590ed",
+      "file": "standalone/src/app/app.routes.ts",
+      "identity": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20partial",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE partial",
+      "qualified_name": "routes.ROUTE partial",
+      "span": {
+        "end_column": 30,
+        "end_line": 47,
+        "start_column": 2,
+        "start_line": 47
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "component": {
+          "reason": "target class has no Angular role",
+          "status": "invalid",
+          "target": "class:standalone/src/app/pages/docs.ts#Plain"
+        },
+        "framework": "angular",
+        "lazy": false,
+        "path": "plain",
+        "paths": [
+          {
+            "path": "/plain"
+          }
+        ]
+      },
+      "content_hash": "sha256:d7a52e78123fdb59cab02a48e40bb9ad20e7087db8096be3fb214d199f03e698",
+      "file": "standalone/src/app/app.routes.ts",
+      "identity": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20plain",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE plain",
+      "qualified_name": "routes.ROUTE plain",
+      "span": {
+        "end_column": 37,
+        "end_line": 44,
+        "start_column": 2,
+        "start_line": 44
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "children_load": {
+          "status": "linked",
+          "target": "file:standalone/src/app/profile.routes.ts#standalone%2Fsrc%2Fapp%2Fprofile.routes.ts"
+        },
+        "framework": "angular",
+        "lazy": false,
+        "path": "profile",
+        "paths": [
+          {
+            "path": "/profile"
+          }
+        ]
+      },
+      "content_hash": "sha256:62e98082178f1c3cac4e53aa7edc882a527d95fc6fc8122885a3209fd7894bba",
+      "file": "standalone/src/app/app.routes.ts",
+      "identity": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20profile",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE profile",
+      "qualified_name": "routes.ROUTE profile",
+      "span": {
+        "end_column": 69,
+        "end_line": 55,
+        "start_column": 2,
+        "start_line": 55
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "component": {
+          "status": "linked",
+          "target": "class:standalone/src/app/pages/home.ts#HomePage"
+        },
+        "framework": "angular",
+        "lazy": false,
+        "path": "provider-const",
+        "paths": [
+          {
+            "path": "/provider-const"
+          }
+        ],
+        "providers": true
+      },
+      "content_hash": "sha256:209d3110d45031ea0b345b685607d6f8f6e587b806b755c14a6c5e737399cded",
+      "file": "standalone/src/app/app.routes.ts",
+      "identity": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20provider-const",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE provider-const",
+      "qualified_name": "routes.ROUTE provider-const",
+      "span": {
+        "end_column": 77,
+        "end_line": 60,
+        "start_column": 2,
+        "start_line": 60
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "children_load": {
+          "status": "linked",
+          "target": "variable:standalone/src/app/reports.routes.ts#REPORT_ROUTES"
+        },
+        "framework": "angular",
+        "lazy": false,
+        "path": "reports",
+        "paths": [
+          {
+            "path": "/reports"
+          }
+        ]
+      },
+      "content_hash": "sha256:6693a26a78ea9b8879df7ec2b261e31cfb7b826878a9a43ad5d999a309c7c504",
+      "file": "standalone/src/app/app.routes.ts",
+      "identity": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20reports",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE reports",
+      "qualified_name": "routes.ROUTE reports",
+      "span": {
+        "end_column": 96,
+        "end_line": 56,
+        "start_column": 2,
+        "start_line": 56
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "component": {
+          "status": "linked",
+          "target": "class:standalone/src/app/pages/home.ts#HomePage"
+        },
+        "framework": "angular",
+        "lazy": false,
+        "path": "route-providers",
+        "paths": []
+      },
+      "content_hash": "sha256:47bd5ef563a11da9180724b49d38fa5f84c738a19ea579c7e3929a63428bec68",
+      "file": "standalone/src/app/app.routes.ts",
+      "identity": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20route-providers",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE route-providers",
+      "qualified_name": "routes.ROUTE route-providers",
+      "span": {
+        "end_column": 116,
+        "end_line": 42,
+        "start_column": 68,
+        "start_line": 42
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "component": {
+          "status": "linked",
+          "target": "class:standalone/src/app/pages/home.ts#HomePage"
+        },
+        "framework": "angular",
+        "lazy": false,
+        "path": "scoped",
+        "paths": [
+          {
+            "path": "/scoped"
+          }
+        ],
+        "providers": true
+      },
+      "content_hash": "sha256:f6cef8f199409c67df23828879c9fdd761e4e8b49ca2c3e035bf1d640d27b838",
+      "file": "standalone/src/app/app.routes.ts",
+      "identity": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20scoped",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE scoped",
+      "qualified_name": "routes.ROUTE scoped",
+      "span": {
+        "end_column": 121,
+        "end_line": 42,
+        "start_column": 2,
+        "start_line": 42
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "children_load": {
+          "reason": "may be supplied by a spread or computed key",
+          "status": "unresolved"
+        },
+        "component": {
+          "reason": "may be supplied by a spread or computed key",
+          "status": "unresolved"
+        },
+        "framework": "angular",
+        "guards": {
+          "can_activate": null,
+          "can_activate_child": null,
+          "can_deactivate": null,
+          "can_load": null,
+          "can_match": null
+        },
+        "lazy": null,
+        "matcher": null,
+        "outlet": null,
+        "partial": true,
+        "path": "spread-lazy",
+        "path_match": null,
+        "paths": [],
+        "providers": null,
+        "redirect_to": null,
+        "resolve": null,
+        "title": null
+      },
+      "content_hash": "sha256:8dc9057738eaaf20f6544bb986f88c7c5ac66acc535f2a4fe9436b5e36879c4a",
+      "file": "standalone/src/app/app.routes.ts",
+      "identity": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20spread-lazy",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE spread-lazy",
+      "qualified_name": "routes.ROUTE spread-lazy",
+      "span": {
+        "end_column": 38,
+        "end_line": 61,
+        "start_column": 2,
+        "start_line": 61
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "component": {
+          "status": "linked",
+          "target": "class:standalone/src/app/pages/docs.ts#LegacyPage"
+        },
+        "framework": "angular",
+        "lazy": false,
+        "path": "standalone-false",
+        "paths": [
+          {
+            "path": "/standalone-false"
+          }
+        ]
+      },
+      "content_hash": "sha256:993355a2f5e6f8ba910bf945d258a3eb1a3222ab95d6a641448459751640f2cd",
+      "file": "standalone/src/app/app.routes.ts",
+      "identity": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20standalone-false",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE standalone-false",
+      "qualified_name": "routes.ROUTE standalone-false",
+      "span": {
+        "end_column": 53,
+        "end_line": 45,
+        "start_column": 2,
+        "start_line": 45
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "children_load": {
+          "status": "linked",
+          "target": "variable:standalone/src/app/shared.routes.ts#shared"
+        },
+        "framework": "angular",
+        "lazy": false,
+        "path": "sync-children",
+        "paths": [
+          {
+            "path": "/sync-children"
+          }
+        ]
+      },
+      "content_hash": "sha256:8170c0c20882af0fd61f68f39a724e5dc133fe16ef4c227697be29b949e979f2",
+      "file": "standalone/src/app/app.routes.ts",
+      "identity": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20sync-children",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE sync-children",
+      "qualified_name": "routes.ROUTE sync-children",
+      "span": {
+        "end_column": 55,
+        "end_line": 57,
+        "start_column": 2,
+        "start_line": 57
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "children_load": {
+          "status": "linked",
+          "target": "file:standalone/src/app/twins.routes.ts#standalone%2Fsrc%2Fapp%2Ftwins.routes.ts"
+        },
+        "framework": "angular",
+        "lazy": false,
+        "path": "twins",
+        "paths": [
+          {
+            "path": "/twins"
+          }
+        ]
+      },
+      "content_hash": "sha256:41201981e8b5ef0e686afc779c36902056e2e058cac8ebe6c4a93c3f928e6171",
+      "file": "standalone/src/app/app.routes.ts",
+      "identity": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20twins",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE twins",
+      "qualified_name": "routes.ROUTE twins",
+      "span": {
+        "end_column": 65,
+        "end_line": 63,
+        "start_column": 2,
+        "start_line": 63
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "component": {
+          "reason": "target has Angular role ng_module, not component",
+          "status": "invalid",
+          "target": "class:standalone/src/app/pages/docs.ts#DocsModule"
+        },
+        "framework": "angular",
+        "lazy": false,
+        "path": "wrong-role",
+        "paths": [
+          {
+            "path": "/wrong-role"
+          }
+        ]
+      },
+      "content_hash": "sha256:b438962f78026883668c355ac8fa8c1641f82d6cf7663c8a596df65038733ecd",
+      "file": "standalone/src/app/app.routes.ts",
+      "identity": "ui_route:standalone/src/app/app.routes.ts#routes.ROUTE%20wrong-role",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE wrong-role",
+      "qualified_name": "routes.ROUTE wrong-role",
+      "span": {
+        "end_column": 47,
+        "end_line": 43,
+        "start_column": 2,
+        "start_line": 43
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "component": {
+          "status": "linked",
+          "target": "class:standalone/src/app/pages/home.ts#HomePage"
+        },
+        "framework": "angular",
+        "lazy": false,
+        "path": "from-static",
+        "paths": []
+      },
+      "content_hash": "sha256:905894cad6ff060bb34c770b712d4cd395c0d8267a2e272cd25aab4c316e4e1c",
+      "file": "standalone/src/app/factories.ts",
+      "identity": "ui_route:standalone/src/app/factories.ts#FeatureModule.forRoot.ROUTE%20from-static",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE from-static",
+      "qualified_name": "FeatureModule.forRoot.ROUTE from-static",
+      "span": {
+        "end_column": 109,
+        "end_line": 8,
+        "start_column": 65,
+        "start_line": 8
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "component": {
+          "status": "linked",
+          "target": "class:standalone/src/app/pages/home.ts#HomePage"
+        },
+        "framework": "angular",
+        "lazy": false,
+        "path": "never-called",
+        "paths": []
+      },
+      "content_hash": "sha256:5c727c3428e2f4cfe84792c3eb5c35b0445dae1a9de57cfabe792a25a22f282a",
+      "file": "standalone/src/app/factories.ts",
+      "identity": "ui_route:standalone/src/app/factories.ts#neverCalled.ROUTE%20never-called",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE never-called",
+      "qualified_name": "neverCalled.ROUTE never-called",
+      "span": {
+        "end_column": 69,
+        "end_line": 13,
+        "start_column": 24,
+        "start_line": 13
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "component": {
+          "status": "linked",
+          "target": "class:standalone/src/app/pages/home.ts#HomePage"
+        },
+        "framework": "angular",
+        "lazy": false,
+        "path": "local-const",
+        "paths": [
+          {
+            "path": "/local-const"
+          }
+        ]
+      },
+      "content_hash": "sha256:4b1c1a3f323e60b8e46777d019760b14e4f908b4cf9cbb2cd84ca18003d3ca37",
+      "file": "standalone/src/app/forms.ts",
+      "identity": "ui_route:standalone/src/app/forms.ts#ROUTE%20local-const",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE local-const",
+      "qualified_name": "ROUTE local-const",
+      "span": {
+        "end_column": 59,
+        "end_line": 9,
+        "start_column": 15,
+        "start_line": 9
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "component": {
+          "status": "linked",
+          "target": "class:standalone/src/app/pages/home.ts#HomePage"
+        },
+        "framework": "angular",
+        "lazy": false,
+        "path": "component-providers",
+        "paths": []
+      },
+      "content_hash": "sha256:9f10c5b06f0763b5b2901b855f828ce3af72b24811662b5001dad120b469e888",
+      "file": "standalone/src/app/forms.ts",
+      "identity": "ui_route:standalone/src/app/forms.ts#Shell.ROUTE%20component-providers",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE component-providers",
+      "qualified_name": "Shell.ROUTE component-providers",
+      "span": {
+        "end_column": 125,
+        "end_line": 27,
+        "start_column": 73,
+        "start_line": 27
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "component": {
+          "reason": "locally shadowed",
+          "status": "unresolved"
+        },
+        "framework": "angular",
+        "lazy": false,
+        "path": "inline-shadow",
+        "paths": []
+      },
+      "content_hash": "sha256:4ee14ea0acc6add21d662694b0bf1964614272fce27027ed3d06335bc161d058",
+      "file": "standalone/src/app/forms.ts",
+      "identity": "ui_route:standalone/src/app/forms.ts#inlineShadow.ROUTE%20inline-shadow",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE inline-shadow",
+      "qualified_name": "inlineShadow.ROUTE inline-shadow",
+      "span": {
+        "end_column": 66,
+        "end_line": 24,
+        "start_column": 20,
+        "start_line": 24
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "framework": "angular",
+        "invalid": [
+          "empty_path_redirect_without_path_match"
+        ],
+        "lazy": false,
+        "path": "",
+        "paths": [],
+        "redirect_to": "docs"
+      },
+      "content_hash": "sha256:f601756124203f48b2cd89909ba24673c0b9c9c50e7a2830e8f1b5e29591dc47",
+      "file": "standalone/src/app/invalid.routes.ts",
+      "identity": "ui_route:standalone/src/app/invalid.routes.ts#invalidConfig.ROUTE%20%22%22",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE \"\"",
+      "qualified_name": "invalidConfig.ROUTE \"\"",
+      "span": {
+        "end_column": 36,
+        "end_line": 13,
+        "start_column": 4,
+        "start_line": 13
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "component": {
+          "status": "linked",
+          "target": "class:standalone/src/app/pages/home.ts#HomePage"
+        },
+        "framework": "angular",
+        "lazy": false,
+        "matcher": true,
+        "path": "",
+        "paths": []
+      },
+      "content_hash": "sha256:c40ab08ac37b0ef595d78b0f6a9c444e6e21a2f4c6198d55ae46ba05359dc18e",
+      "file": "standalone/src/app/invalid.routes.ts",
+      "identity": "ui_route:standalone/src/app/invalid.routes.ts#invalidConfig.ROUTE%20%22%22%402",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE \"\"@2",
+      "qualified_name": "invalidConfig.ROUTE \"\"@2",
+      "span": {
+        "end_column": 56,
+        "end_line": 15,
+        "start_column": 4,
+        "start_line": 15
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "component": {
+          "status": "linked",
+          "target": "class:standalone/src/app/pages/home.ts#HomePage"
+        },
+        "framework": "angular",
+        "invalid": [
+          "missing_path"
+        ],
+        "lazy": false,
+        "paths": []
+      },
+      "content_hash": "sha256:179ed8cb502a41fb44b74ff768786d44f1b429bac38e1e23ac5124e4af40a2e4",
+      "file": "standalone/src/app/invalid.routes.ts",
+      "identity": "ui_route:standalone/src/app/invalid.routes.ts#invalidConfig.ROUTE%20%28no%20path%29",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE (no path)",
+      "qualified_name": "invalidConfig.ROUTE (no path)",
+      "span": {
+        "end_column": 27,
+        "end_line": 12,
+        "start_column": 4,
+        "start_line": 12
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "component": {
+          "status": "linked",
+          "target": "class:standalone/src/app/pages/home.ts#HomePage"
+        },
+        "framework": "angular",
+        "invalid": [
+          "leading_slash"
+        ],
+        "lazy": false,
+        "path": "/rooted",
+        "paths": []
+      },
+      "content_hash": "sha256:fe8447351e0300e9abd3c6c846f54aec10f3abd976290c5f7a16e6f7b288c751",
+      "file": "standalone/src/app/invalid.routes.ts",
+      "identity": "ui_route:standalone/src/app/invalid.routes.ts#invalidConfig.ROUTE%20%2Frooted",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE /rooted",
+      "qualified_name": "invalidConfig.ROUTE /rooted",
+      "span": {
+        "end_column": 44,
+        "end_line": 9,
+        "start_column": 4,
+        "start_line": 9
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "component": {
+          "status": "linked",
+          "target": "class:standalone/src/app/pages/home.ts#HomePage"
+        },
+        "framework": "angular",
+        "invalid": [
+          "component_with_load_component"
+        ],
+        "lazy": true,
+        "path": "both",
+        "paths": []
+      },
+      "content_hash": "sha256:8952c0a84576be0fa61d196c01edaa8fa0d2b0fa34c553a2298d57aa07973135",
+      "file": "standalone/src/app/invalid.routes.ts",
+      "identity": "ui_route:standalone/src/app/invalid.routes.ts#invalidConfig.ROUTE%20both",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE both",
+      "qualified_name": "invalidConfig.ROUTE both",
+      "span": {
+        "end_column": 86,
+        "end_line": 10,
+        "start_column": 4,
+        "start_line": 10
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "framework": "angular",
+        "invalid": [
+          "missing_target"
+        ],
+        "lazy": false,
+        "path": "empty-target",
+        "paths": []
+      },
+      "content_hash": "sha256:22b8d0e14a5e3fea47d1f44c8d95282c1ee05084f938e48bb0a8395d2cf52ab7",
+      "file": "standalone/src/app/invalid.routes.ts",
+      "identity": "ui_route:standalone/src/app/invalid.routes.ts#invalidConfig.ROUTE%20empty-target",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE empty-target",
+      "qualified_name": "invalidConfig.ROUTE empty-target",
+      "span": {
+        "end_column": 28,
+        "end_line": 11,
+        "start_column": 4,
+        "start_line": 11
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "component": {
+          "status": "linked",
+          "target": "class:standalone/src/app/pages/home.ts#HomePage"
+        },
+        "framework": "angular",
+        "invalid": [
+          "path_with_matcher"
+        ],
+        "lazy": false,
+        "matcher": true,
+        "path": "m",
+        "paths": []
+      },
+      "content_hash": "sha256:832553afe53c90ede6470e58f964c3f14b1dc990b2b3ac18ee699d53879eb103",
+      "file": "standalone/src/app/invalid.routes.ts",
+      "identity": "ui_route:standalone/src/app/invalid.routes.ts#invalidConfig.ROUTE%20m",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE m",
+      "qualified_name": "invalidConfig.ROUTE m",
+      "span": {
+        "end_column": 57,
+        "end_line": 14,
+        "start_column": 4,
+        "start_line": 14
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "framework": "angular",
+        "invalid": [
+          "missing_target",
+          "named_outlet_without_target"
+        ],
+        "lazy": false,
+        "outlet": "side",
+        "path": "named",
+        "paths": []
+      },
+      "content_hash": "sha256:47a069abb3dc47039f2bcfb57d36e7b12738692cf7e51e35d91d4f3bb2654ffb",
+      "file": "standalone/src/app/invalid.routes.ts",
+      "identity": "ui_route:standalone/src/app/invalid.routes.ts#invalidConfig.ROUTE%20named",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE named",
+      "qualified_name": "invalidConfig.ROUTE named",
+      "span": {
+        "end_column": 37,
+        "end_line": 17,
+        "start_column": 4,
+        "start_line": 17
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "framework": "angular",
+        "guards": {
+          "can_activate": [
+            {
+              "status": "linked",
+              "target": "class:standalone/src/app/guards.ts#AuthGuard"
+            }
+          ]
+        },
+        "invalid": [
+          "redirect_with_children",
+          "redirect_with_guard"
+        ],
+        "lazy": false,
+        "path": "r",
+        "paths": [],
+        "redirect_to": "docs"
+      },
+      "content_hash": "sha256:3d17cd4b2adbd243e59fda3371bafce9cee5b6dfa91b7bfdd0b39fc0992cc6d9",
+      "file": "standalone/src/app/invalid.routes.ts",
+      "identity": "ui_route:standalone/src/app/invalid.routes.ts#invalidConfig.ROUTE%20r",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE r",
+      "qualified_name": "invalidConfig.ROUTE r",
+      "span": {
+        "end_column": 77,
+        "end_line": 16,
+        "start_column": 4,
+        "start_line": 16
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "children_load": {
+          "reason": "loadChildren is never used: invalid route configuration (redirect_with_load_children)",
+          "status": "invalid",
+          "target": "file:standalone/src/app/admin.routes.ts#standalone%2Fsrc%2Fapp%2Fadmin.routes.ts"
+        },
+        "framework": "angular",
+        "guards": {
+          "can_match": [
+            {
+              "status": "linked",
+              "target": "class:standalone/src/app/guards.ts#AuthGuard"
+            }
+          ]
+        },
+        "invalid": [
+          "redirect_with_guard",
+          "redirect_with_load_children"
+        ],
+        "lazy": false,
+        "path": "r-load",
+        "paths": [],
+        "redirect_to": "docs"
+      },
+      "content_hash": "sha256:a0dbb606a78945db881054b74b92edebe91b1c86587a0fdabf9f24dddb88ab7a",
+      "file": "standalone/src/app/invalid.routes.ts",
+      "identity": "ui_route:standalone/src/app/invalid.routes.ts#invalidConfig.ROUTE%20r-load",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE r-load",
+      "qualified_name": "invalidConfig.ROUTE r-load",
+      "span": {
+        "end_column": 111,
+        "end_line": 18,
+        "start_column": 4,
+        "start_line": 18
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "component": {
+          "status": "linked",
+          "target": "class:standalone/src/app/pages/home.ts#HomePage"
+        },
+        "framework": "angular",
+        "lazy": false,
+        "path": "spread-head",
+        "paths": [
+          {
+            "path": "/spread-head"
+          }
+        ]
+      },
+      "content_hash": "sha256:4e2c9914f1a5a8b43fdff54b2cf8b7776fa975cb521e1229cb29f8e7cf422ab9",
+      "file": "standalone/src/app/lists.ts",
+      "identity": "ui_route:standalone/src/app/lists.ts#ROUTE%20spread-head",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE spread-head",
+      "qualified_name": "ROUTE spread-head",
+      "span": {
+        "end_column": 58,
+        "end_line": 4,
+        "start_column": 14,
+        "start_line": 4
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "component": {
+          "status": "linked",
+          "target": "class:standalone/src/app/pages/home.ts#HomePage"
+        },
+        "framework": "angular",
+        "lazy": false,
+        "path": "satisfied",
+        "paths": [
+          {
+            "path": "/satisfied"
+          }
+        ]
+      },
+      "content_hash": "sha256:8b313afe3dc3cb8bf985a08bda139d8a36e41decc18160f0d651310ad2a70256",
+      "file": "standalone/src/app/lists.ts",
+      "identity": "ui_route:standalone/src/app/lists.ts#satisfied.ROUTE%20satisfied",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE satisfied",
+      "qualified_name": "satisfied.ROUTE satisfied",
+      "span": {
+        "end_column": 68,
+        "end_line": 6,
+        "start_column": 26,
+        "start_line": 6
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "component": {
+          "status": "linked",
+          "target": "class:standalone/src/app/pages/home.ts#HomePage"
+        },
+        "framework": "angular",
+        "lazy": false,
+        "path": "spread-tail",
+        "paths": [
+          {
+            "path": "/spread-tail"
+          }
+        ]
+      },
+      "content_hash": "sha256:6d924ed9eb53e428754e933da76dab1f5ceeb8676bbcf076513b89cddb84d96b",
+      "file": "standalone/src/app/lists.ts",
+      "identity": "ui_route:standalone/src/app/lists.ts#spreadRoutes.ROUTE%20spread-tail",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE spread-tail",
+      "qualified_name": "spreadRoutes.ROUTE spread-tail",
+      "span": {
+        "end_column": 90,
+        "end_line": 7,
+        "start_column": 46,
+        "start_line": 7
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "framework": "angular",
+        "lazy": false,
+        "path": "",
+        "paths": [
+          {
+            "path": "/profile"
+          }
+        ]
+      },
+      "content_hash": "sha256:a774c2538591a70a8bd1acb226dd0305c3f3396450258ad91dd1495f48baa756",
+      "file": "standalone/src/app/profile.routes.ts",
+      "identity": "ui_route:standalone/src/app/profile.routes.ts#ROUTE%20%22%22",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE \"\"",
+      "qualified_name": "ROUTE \"\"",
+      "span": {
+        "end_column": 3,
+        "end_line": 10,
+        "start_column": 2,
+        "start_line": 5
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "component": {
+          "status": "linked",
+          "target": "class:standalone/src/app/pages/docs.ts#DocsPage"
+        },
+        "framework": "angular",
+        "lazy": false,
+        "path": ":username",
+        "paths": [
+          {
+            "path": "/profile/:username"
+          }
+        ]
+      },
+      "content_hash": "sha256:bdf313439dc46d4c22c96553e61241a117f491c8eaf278d1d21ccbef75bbd349",
+      "file": "standalone/src/app/profile.routes.ts",
+      "identity": "ui_route:standalone/src/app/profile.routes.ts#ROUTE%20%22%22.ROUTE%20%3Ausername",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE :username",
+      "qualified_name": "ROUTE \"\".ROUTE :username",
+      "span": {
+        "end_column": 128,
+        "end_line": 8,
+        "start_column": 6,
+        "start_line": 8
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "component": {
+          "status": "linked",
+          "target": "class:standalone/src/app/pages/home.ts#HomePage"
+        },
+        "framework": "angular",
+        "lazy": true,
+        "path": "favorites",
+        "paths": [
+          {
+            "path": "/profile/:username/favorites"
+          }
+        ]
+      },
+      "content_hash": "sha256:1fe547820e12785c57fe7f1a799c97f45966893f80adc0f019216746cf3d96dd",
+      "file": "standalone/src/app/profile.routes.ts",
+      "identity": "ui_route:standalone/src/app/profile.routes.ts#ROUTE%20%22%22.ROUTE%20%3Ausername.ROUTE%20favorites",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE favorites",
+      "qualified_name": "ROUTE \"\".ROUTE :username.ROUTE favorites",
+      "span": {
+        "end_column": 125,
+        "end_line": 8,
+        "start_column": 59,
+        "start_line": 8
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "component": {
+          "status": "linked",
+          "target": "class:standalone/src/app/pages/docs.ts#DocsPage"
+        },
+        "framework": "angular",
+        "lazy": false,
+        "path": ":year",
+        "paths": [
+          {
+            "path": "/harness/:year",
+            "scope": "test"
+          },
+          {
+            "path": "/reports/:year"
+          }
+        ]
+      },
+      "content_hash": "sha256:0e70c3d5d3669755abfdd1683003b5726ce65dee757a0538b50c289ce962f824",
+      "file": "standalone/src/app/reports.routes.ts",
+      "identity": "ui_route:standalone/src/app/reports.routes.ts#REPORT_ROUTES.ROUTE%20%3Ayear",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE :year",
+      "qualified_name": "REPORT_ROUTES.ROUTE :year",
+      "span": {
+        "end_column": 40,
+        "end_line": 5,
+        "start_column": 2,
+        "start_line": 5
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "component": {
+          "status": "linked",
+          "target": "class:standalone/src/app/pages/home.ts#HomePage"
+        },
+        "framework": "angular",
+        "lazy": false,
+        "path": "route-scoped",
+        "paths": []
+      },
+      "content_hash": "sha256:71aa856478105aa83f3460efac5ada38905dabb7d5b1e484fe3687a01389444d",
+      "file": "standalone/src/app/route-providers.ts",
+      "identity": "ui_route:standalone/src/app/route-providers.ts#ROUTE_PROVIDERS.ROUTE%20route-scoped",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE route-scoped",
+      "qualified_name": "ROUTE_PROVIDERS.ROUTE route-scoped",
+      "span": {
+        "end_column": 92,
+        "end_line": 4,
+        "start_column": 47,
+        "start_line": 4
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "component": {
+          "status": "linked",
+          "target": "class:standalone/src/app/pages/home.ts#NotFoundPage"
+        },
+        "framework": "angular",
+        "lazy": false,
+        "path": "help",
+        "paths": [
+          {
+            "path": "/help"
+          },
+          {
+            "path": "/sync-children/help"
+          }
+        ]
+      },
+      "content_hash": "sha256:057e4a857c780cf04ca9ccb25baf7d3f1224011cb61370b1652d755a1160165e",
+      "file": "standalone/src/app/shared.routes.ts",
+      "identity": "ui_route:standalone/src/app/shared.routes.ts#shared.ROUTE%20help",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE help",
+      "qualified_name": "shared.ROUTE help",
+      "span": {
+        "end_column": 72,
+        "end_line": 5,
+        "start_column": 31,
+        "start_line": 5
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "component": {
+          "status": "linked",
+          "target": "class:standalone/src/app/pages/docs.ts#LegacyPage"
+        },
+        "framework": "angular",
+        "lazy": false,
+        "path": "legacy-shared",
+        "paths": [
+          {
+            "path": "/legacy-shared"
+          },
+          {
+            "path": "/sync-children/legacy-shared"
+          }
+        ]
+      },
+      "content_hash": "sha256:ac73aced429def639ea897c5ae56edb5c30e68927e575590ace87b76dfc9061a",
+      "file": "standalone/src/app/shared.routes.ts",
+      "identity": "ui_route:standalone/src/app/shared.routes.ts#shared.ROUTE%20legacy-shared",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE legacy-shared",
+      "qualified_name": "shared.ROUTE legacy-shared",
+      "span": {
+        "end_column": 122,
+        "end_line": 5,
+        "start_column": 74,
+        "start_line": 5
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "component": {
+          "status": "linked",
+          "target": "class:standalone/src/app/pages/docs.ts#DocsPage"
+        },
+        "framework": "angular",
+        "lazy": false,
+        "path": "twin",
+        "paths": [
+          {
+            "path": "/twins/twin"
+          }
+        ]
+      },
+      "content_hash": "sha256:20eac8cac523aa7268c8816b321921e7a554cba2f3d19ff82902735ef6d7be6e",
+      "file": "standalone/src/app/twins.routes.ts",
+      "identity": "ui_route:standalone/src/app/twins.routes.ts#ROUTE%20twin%402",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE twin@2",
+      "qualified_name": "ROUTE twin@2",
+      "span": {
+        "end_column": 53,
+        "end_line": 5,
+        "start_column": 16,
+        "start_line": 5
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "component": {
+          "status": "linked",
+          "target": "class:standalone/src/app/pages/home.ts#HomePage"
+        },
+        "framework": "angular",
+        "lazy": false,
+        "path": "inline-options",
+        "paths": [
+          {
+            "path": "/inline-options"
+          }
+        ]
+      },
+      "content_hash": "sha256:1aa6e8051201a71b6b165ae1f81307b179a220da131dee3bd6e04bbfba77d671",
+      "file": "standalone/src/forms.main.ts",
+      "identity": "ui_route:standalone/src/forms.main.ts#ROUTE%20inline-options",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE inline-options",
+      "qualified_name": "ROUTE inline-options",
+      "span": {
+        "end_column": 100,
+        "end_line": 12,
+        "start_column": 53,
+        "start_line": 12
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "framework": "angular",
+        "lazy": false,
+        "path": "harness",
+        "paths": [
+          {
+            "path": "/harness",
+            "scope": "test"
+          }
+        ],
+        "scope": "test"
+      },
+      "content_hash": "sha256:1ff1c664a6ad71c549de60e1df69058e3f3da74366d75b233d1ecd8af6bb2701",
+      "file": "standalone/src/testing/router.spec.ts",
+      "identity": "ui_route:standalone/src/testing/router.spec.ts#testProviders.ROUTE%20harness",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE harness",
+      "qualified_name": "testProviders.ROUTE harness",
+      "span": {
+        "end_column": 61,
+        "end_line": 11,
+        "start_column": 17,
+        "start_line": 11
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "component": {
+          "status": "linked",
+          "target": "class:standalone/src/app/pages/home.ts#HomePage"
+        },
+        "framework": "angular",
+        "lazy": false,
+        "path": "test-only",
+        "paths": [
+          {
+            "path": "/test-only",
+            "scope": "test"
+          }
+        ],
+        "scope": "test"
+      },
+      "content_hash": "sha256:199f7484f6379226598df563672c6c06f00225968800f06e1103266ae2064057",
+      "file": "standalone/src/testing/router.spec.ts",
+      "identity": "ui_route:standalone/src/testing/router.spec.ts#testProviders.ROUTE%20test-only",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE test-only",
+      "qualified_name": "testProviders.ROUTE test-only",
+      "span": {
+        "end_column": 105,
+        "end_line": 11,
+        "start_column": 63,
+        "start_line": 11
+      },
+      "type": "node"
+    }
+  ]
+}

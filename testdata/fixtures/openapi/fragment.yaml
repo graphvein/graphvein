@@ -1,0 +1,12 @@
+item:
+  parameters:
+    - {$ref: '#/parameter'}
+  get:
+    summary: Fragment
+    requestBody: {$ref: '#/body'}
+    responses:
+      '204': {$ref: '#/response'}
+parameter: {name: limit, in: query, required: false}
+body: {content: {application/json: {schema: {type: object}}}}
+response: {description: Empty}
+cycle: {$ref: '#/cycle'}

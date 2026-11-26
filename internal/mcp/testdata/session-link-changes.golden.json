@@ -1,0 +1,797 @@
+{
+  "one_pass": [
+    {
+      "call": {
+        "arguments": {},
+        "name": "link_changes"
+      },
+      "envelope": {
+        "assumptions": [],
+        "bounds": [],
+        "envelope": 1,
+        "freshness": {
+          "changed_count": null,
+          "changed_files": [],
+          "changed_more": 0,
+          "checked_at": "2026-11-23T09:00:00Z",
+          "index": null,
+          "link_pass": {
+            "links": 3,
+            "pass": 1,
+            "stale_links": 3,
+            "stale_reasons": [
+              "frontend indexed again",
+              "backend indexed again"
+            ],
+            "state": "stale"
+          },
+          "members": [
+            {
+              "changed_count": 0,
+              "changed_files": [],
+              "changed_more": 0,
+              "checkout": true,
+              "index": {
+                "commit": null,
+                "contract_version": 1,
+                "extractor_current": "extractors-62",
+                "extractor_matches": true,
+                "finished_at": "\u003cfinished_at\u003e",
+                "indexer": "graphvein",
+                "indexer_version": "extractors-62"
+              },
+              "repository": "frontend",
+              "state": "fresh"
+            },
+            {
+              "changed_count": 0,
+              "changed_files": [],
+              "changed_more": 0,
+              "checkout": true,
+              "index": {
+                "commit": null,
+                "contract_version": 1,
+                "extractor_current": "extractors-62",
+                "extractor_matches": true,
+                "finished_at": "\u003cfinished_at\u003e",
+                "indexer": "graphvein",
+                "indexer_version": "extractors-62"
+              },
+              "repository": "backend",
+              "state": "fresh"
+            }
+          ],
+          "state": "fresh",
+          "text": "project freshness is the weakest member's; see members and link_pass"
+        },
+        "labels": {
+          "freshness:fresh": "no file added, changed or deleted since the last index (same scan and ignore rules as indexing), as of checked_at",
+          "link_pass:stale": "the link pass would link differently if run now: see stale_reasons"
+        },
+        "omitted": [],
+        "page": {
+          "more": 0,
+          "returned": 0,
+          "total": 0
+        },
+        "project": "users",
+        "request": {
+          "base": "previous",
+          "cursor": "",
+          "limit": 50
+        },
+        "results": [],
+        "summary": {
+          "base": "previous",
+          "compared": false,
+          "state": "no_comparison"
+        },
+        "tool": "link_changes",
+        "unknowns": [
+          {
+            "kind": "no_comparison",
+            "row": "MC-32",
+            "text": "only one link pass is kept; nothing to compare it with: nothing compared, not proof that no link changed"
+          },
+          {
+            "data": [
+              "frontend indexed again",
+              "backend indexed again"
+            ],
+            "kind": "link_pass_stale",
+            "row": "MC-18",
+            "text": "the newest link pass is stale: the links would differ if linked now, and this comparison does not show that"
+          }
+        ]
+      },
+      "is_error": false
+    }
+  ],
+  "two_passes": [
+    {
+      "call": {
+        "arguments": {},
+        "name": "link_changes"
+      },
+      "envelope": {
+        "assumptions": [],
+        "bounds": [],
+        "envelope": 1,
+        "freshness": {
+          "changed_count": null,
+          "changed_files": [],
+          "changed_more": 0,
+          "checked_at": "2026-11-23T09:00:00Z",
+          "index": null,
+          "link_pass": {
+            "links": 3,
+            "pass": 2,
+            "stale_links": 0,
+            "stale_reasons": [],
+            "state": "fresh"
+          },
+          "members": [
+            {
+              "changed_count": 0,
+              "changed_files": [],
+              "changed_more": 0,
+              "checkout": true,
+              "index": {
+                "commit": null,
+                "contract_version": 1,
+                "extractor_current": "extractors-62",
+                "extractor_matches": true,
+                "finished_at": "\u003cfinished_at\u003e",
+                "indexer": "graphvein",
+                "indexer_version": "extractors-62"
+              },
+              "repository": "frontend",
+              "state": "fresh"
+            },
+            {
+              "changed_count": 0,
+              "changed_files": [],
+              "changed_more": 0,
+              "checkout": true,
+              "index": {
+                "commit": null,
+                "contract_version": 1,
+                "extractor_current": "extractors-62",
+                "extractor_matches": true,
+                "finished_at": "\u003cfinished_at\u003e",
+                "indexer": "graphvein",
+                "indexer_version": "extractors-62"
+              },
+              "repository": "backend",
+              "state": "fresh"
+            }
+          ],
+          "state": "fresh",
+          "text": "project freshness is the weakest member's; see members and link_pass"
+        },
+        "labels": {
+          "freshness:fresh": "no file added, changed or deleted since the last index (same scan and ignore rules as indexing), as of checked_at",
+          "link_change:added": "the link is in the newer pass and not in the base pass",
+          "link_change:changed": "both passes keep the link (same kind and ends) with a different stored payload (confidence, evidence, assumption or another field; the endpoints' runs left out)",
+          "link_change:removed": "the link is in the base pass and not in the newer one",
+          "link_pass:fresh": "the stored link pass matches the members' current indexes and declarations"
+        },
+        "omitted": [
+          {
+            "field": "link.payload",
+            "how": "the link journal keeps a payload hash per link, not the payload: the endpoint tool shows a route's current project callers with their confidence, evidence and assumption"
+          }
+        ],
+        "page": {
+          "more": 0,
+          "returned": 3,
+          "total": 3
+        },
+        "project": "users",
+        "request": {
+          "base": "previous",
+          "cursor": "",
+          "limit": 50
+        },
+        "results": [
+          {
+            "change": "added",
+            "kind": "calls_route",
+            "source_identity": "client_call:src/api.ts#reloadUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+            "source_repository": "frontend",
+            "target_identity": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+            "target_repository": "backend"
+          },
+          {
+            "change": "removed",
+            "kind": "calls_route",
+            "source_identity": "client_call:src/api.ts#createUser.POST%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+            "source_repository": "frontend",
+            "target_identity": "route:src/server.ts#POST%20%2Ft022b7%2Fusers",
+            "target_repository": "backend"
+          },
+          {
+            "change": "changed",
+            "kind": "calls_route",
+            "source_identity": "client_call:src/api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+            "source_repository": "frontend",
+            "target_identity": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+            "target_repository": "backend"
+          }
+        ],
+        "summary": {
+          "added": 1,
+          "base": "previous",
+          "changed": 1,
+          "compared": true,
+          "from_pass": 1,
+          "manifest_changed": false,
+          "members": {
+            "from_pass": [
+              {
+                "repository": "frontend",
+                "run": "\u003crun-1\u003e"
+              },
+              {
+                "repository": "backend",
+                "run": "\u003crun-2\u003e"
+              }
+            ],
+            "to_pass": [
+              {
+                "repository": "frontend",
+                "run": "\u003crun-3\u003e"
+              },
+              {
+                "repository": "backend",
+                "run": "\u003crun-4\u003e"
+              }
+            ]
+          },
+          "removed": 1,
+          "state": "compared",
+          "to_pass": 2
+        },
+        "tool": "link_changes",
+        "unknowns": []
+      },
+      "is_error": false
+    },
+    {
+      "call": {
+        "arguments": {
+          "base": "pass:1",
+          "limit": 1
+        },
+        "name": "link_changes"
+      },
+      "envelope": {
+        "assumptions": [],
+        "bounds": [],
+        "envelope": 1,
+        "freshness": {
+          "changed_count": null,
+          "changed_files": [],
+          "changed_more": 0,
+          "checked_at": "2026-11-23T09:00:00Z",
+          "index": null,
+          "link_pass": {
+            "links": 3,
+            "pass": 2,
+            "stale_links": 0,
+            "stale_reasons": [],
+            "state": "fresh"
+          },
+          "members": [
+            {
+              "changed_count": 0,
+              "changed_files": [],
+              "changed_more": 0,
+              "checkout": true,
+              "index": {
+                "commit": null,
+                "contract_version": 1,
+                "extractor_current": "extractors-62",
+                "extractor_matches": true,
+                "finished_at": "\u003cfinished_at\u003e",
+                "indexer": "graphvein",
+                "indexer_version": "extractors-62"
+              },
+              "repository": "frontend",
+              "state": "fresh"
+            },
+            {
+              "changed_count": 0,
+              "changed_files": [],
+              "changed_more": 0,
+              "checkout": true,
+              "index": {
+                "commit": null,
+                "contract_version": 1,
+                "extractor_current": "extractors-62",
+                "extractor_matches": true,
+                "finished_at": "\u003cfinished_at\u003e",
+                "indexer": "graphvein",
+                "indexer_version": "extractors-62"
+              },
+              "repository": "backend",
+              "state": "fresh"
+            }
+          ],
+          "reused": true,
+          "state": "fresh",
+          "text": "project freshness is the weakest member's; see members and link_pass; reused from a check started less than 1h0m0s before this call with the same latest run (one check per call batch); checked_at is that check's time"
+        },
+        "labels": {
+          "freshness:fresh": "no file added, changed or deleted since the last index (same scan and ignore rules as indexing), as of checked_at",
+          "link_change:added": "the link is in the newer pass and not in the base pass",
+          "link_pass:fresh": "the stored link pass matches the members' current indexes and declarations"
+        },
+        "omitted": [],
+        "page": {
+          "more": 2,
+          "next_cursor": "1",
+          "returned": 1,
+          "text": "2 more not shown; call again with cursor \"1\"",
+          "total": 3
+        },
+        "project": "users",
+        "request": {
+          "base": "pass:1",
+          "cursor": "",
+          "limit": 1
+        },
+        "results": [
+          {
+            "change": "added",
+            "kind": "calls_route",
+            "source_identity": "client_call:src/api.ts#reloadUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+            "source_repository": "frontend",
+            "target_identity": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+            "target_repository": "backend"
+          }
+        ],
+        "summary": {
+          "added": 1,
+          "base": "pass:1",
+          "changed": 1,
+          "compared": true,
+          "from_pass": 1,
+          "manifest_changed": false,
+          "members": {
+            "from_pass": [
+              {
+                "repository": "frontend",
+                "run": "\u003crun-1\u003e"
+              },
+              {
+                "repository": "backend",
+                "run": "\u003crun-2\u003e"
+              }
+            ],
+            "to_pass": [
+              {
+                "repository": "frontend",
+                "run": "\u003crun-3\u003e"
+              },
+              {
+                "repository": "backend",
+                "run": "\u003crun-4\u003e"
+              }
+            ]
+          },
+          "removed": 1,
+          "state": "compared",
+          "to_pass": 2
+        },
+        "tool": "link_changes",
+        "unknowns": []
+      },
+      "is_error": false
+    },
+    {
+      "call": {
+        "arguments": {
+          "base": "pass:1",
+          "cursor": "1",
+          "limit": 1
+        },
+        "name": "link_changes"
+      },
+      "envelope": {
+        "assumptions": [],
+        "bounds": [],
+        "envelope": 1,
+        "freshness": {
+          "changed_count": null,
+          "changed_files": [],
+          "changed_more": 0,
+          "checked_at": "2026-11-23T09:00:00Z",
+          "index": null,
+          "link_pass": {
+            "links": 3,
+            "pass": 2,
+            "stale_links": 0,
+            "stale_reasons": [],
+            "state": "fresh"
+          },
+          "members": [
+            {
+              "changed_count": 0,
+              "changed_files": [],
+              "changed_more": 0,
+              "checkout": true,
+              "index": {
+                "commit": null,
+                "contract_version": 1,
+                "extractor_current": "extractors-62",
+                "extractor_matches": true,
+                "finished_at": "\u003cfinished_at\u003e",
+                "indexer": "graphvein",
+                "indexer_version": "extractors-62"
+              },
+              "repository": "frontend",
+              "state": "fresh"
+            },
+            {
+              "changed_count": 0,
+              "changed_files": [],
+              "changed_more": 0,
+              "checkout": true,
+              "index": {
+                "commit": null,
+                "contract_version": 1,
+                "extractor_current": "extractors-62",
+                "extractor_matches": true,
+                "finished_at": "\u003cfinished_at\u003e",
+                "indexer": "graphvein",
+                "indexer_version": "extractors-62"
+              },
+              "repository": "backend",
+              "state": "fresh"
+            }
+          ],
+          "reused": true,
+          "state": "fresh",
+          "text": "project freshness is the weakest member's; see members and link_pass; reused from a check started less than 1h0m0s before this call with the same latest run (one check per call batch); checked_at is that check's time"
+        },
+        "labels": {
+          "freshness:fresh": "no file added, changed or deleted since the last index (same scan and ignore rules as indexing), as of checked_at",
+          "link_change:removed": "the link is in the base pass and not in the newer one",
+          "link_pass:fresh": "the stored link pass matches the members' current indexes and declarations"
+        },
+        "omitted": [],
+        "page": {
+          "more": 1,
+          "next_cursor": "2",
+          "returned": 1,
+          "text": "1 more not shown; call again with cursor \"2\"",
+          "total": 3
+        },
+        "project": "users",
+        "request": {
+          "base": "pass:1",
+          "cursor": "1",
+          "limit": 1
+        },
+        "results": [
+          {
+            "change": "removed",
+            "kind": "calls_route",
+            "source_identity": "client_call:src/api.ts#createUser.POST%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+            "source_repository": "frontend",
+            "target_identity": "route:src/server.ts#POST%20%2Ft022b7%2Fusers",
+            "target_repository": "backend"
+          }
+        ],
+        "summary": {
+          "added": 1,
+          "base": "pass:1",
+          "changed": 1,
+          "compared": true,
+          "from_pass": 1,
+          "manifest_changed": false,
+          "members": {
+            "from_pass": [
+              {
+                "repository": "frontend",
+                "run": "\u003crun-1\u003e"
+              },
+              {
+                "repository": "backend",
+                "run": "\u003crun-2\u003e"
+              }
+            ],
+            "to_pass": [
+              {
+                "repository": "frontend",
+                "run": "\u003crun-3\u003e"
+              },
+              {
+                "repository": "backend",
+                "run": "\u003crun-4\u003e"
+              }
+            ]
+          },
+          "removed": 1,
+          "state": "compared",
+          "to_pass": 2
+        },
+        "tool": "link_changes",
+        "unknowns": []
+      },
+      "is_error": false
+    },
+    {
+      "call": {
+        "arguments": {
+          "base": "pass:2"
+        },
+        "name": "link_changes"
+      },
+      "envelope": {
+        "assumptions": [],
+        "bounds": [],
+        "envelope": 1,
+        "freshness": {
+          "changed_count": null,
+          "changed_files": [],
+          "changed_more": 0,
+          "checked_at": "2026-11-23T09:00:00Z",
+          "index": null,
+          "link_pass": {
+            "links": 3,
+            "pass": 2,
+            "stale_links": 0,
+            "stale_reasons": [],
+            "state": "fresh"
+          },
+          "members": [
+            {
+              "changed_count": 0,
+              "changed_files": [],
+              "changed_more": 0,
+              "checkout": true,
+              "index": {
+                "commit": null,
+                "contract_version": 1,
+                "extractor_current": "extractors-62",
+                "extractor_matches": true,
+                "finished_at": "\u003cfinished_at\u003e",
+                "indexer": "graphvein",
+                "indexer_version": "extractors-62"
+              },
+              "repository": "frontend",
+              "state": "fresh"
+            },
+            {
+              "changed_count": 0,
+              "changed_files": [],
+              "changed_more": 0,
+              "checkout": true,
+              "index": {
+                "commit": null,
+                "contract_version": 1,
+                "extractor_current": "extractors-62",
+                "extractor_matches": true,
+                "finished_at": "\u003cfinished_at\u003e",
+                "indexer": "graphvein",
+                "indexer_version": "extractors-62"
+              },
+              "repository": "backend",
+              "state": "fresh"
+            }
+          ],
+          "reused": true,
+          "state": "fresh",
+          "text": "project freshness is the weakest member's; see members and link_pass; reused from a check started less than 1h0m0s before this call with the same latest run (one check per call batch); checked_at is that check's time"
+        },
+        "labels": {
+          "freshness:fresh": "no file added, changed or deleted since the last index (same scan and ignore rules as indexing), as of checked_at",
+          "link_pass:fresh": "the stored link pass matches the members' current indexes and declarations"
+        },
+        "omitted": [],
+        "page": {
+          "more": 0,
+          "returned": 0,
+          "total": 0
+        },
+        "project": "users",
+        "request": {
+          "base": "pass:2",
+          "cursor": "",
+          "limit": 50
+        },
+        "results": [],
+        "summary": {
+          "base": "pass:2",
+          "compared": false,
+          "state": "same_pass"
+        },
+        "tool": "link_changes",
+        "unknowns": [
+          {
+            "kind": "same_pass",
+            "row": "MC-32",
+            "text": "the base is pass 2, the newest kept link pass: nothing compared, not proof that no link changed; use base previous or an older pass"
+          }
+        ]
+      },
+      "is_error": false
+    },
+    {
+      "call": {
+        "arguments": {
+          "base": "pass:99"
+        },
+        "name": "link_changes"
+      },
+      "envelope": {
+        "assumptions": [],
+        "bounds": [],
+        "envelope": 1,
+        "error": {
+          "code": "base_unknown",
+          "message": "comparing passes 99 and 2 of project users: the project link journal keeps no such pass"
+        },
+        "freshness": {
+          "changed_count": null,
+          "changed_files": [],
+          "changed_more": 0,
+          "checked_at": "2026-11-23T09:00:00Z",
+          "index": null,
+          "link_pass": {
+            "links": 3,
+            "pass": 2,
+            "stale_links": 0,
+            "stale_reasons": [],
+            "state": "fresh"
+          },
+          "members": [
+            {
+              "changed_count": 0,
+              "changed_files": [],
+              "changed_more": 0,
+              "checkout": true,
+              "index": {
+                "commit": null,
+                "contract_version": 1,
+                "extractor_current": "extractors-62",
+                "extractor_matches": true,
+                "finished_at": "\u003cfinished_at\u003e",
+                "indexer": "graphvein",
+                "indexer_version": "extractors-62"
+              },
+              "repository": "frontend",
+              "state": "fresh"
+            },
+            {
+              "changed_count": 0,
+              "changed_files": [],
+              "changed_more": 0,
+              "checkout": true,
+              "index": {
+                "commit": null,
+                "contract_version": 1,
+                "extractor_current": "extractors-62",
+                "extractor_matches": true,
+                "finished_at": "\u003cfinished_at\u003e",
+                "indexer": "graphvein",
+                "indexer_version": "extractors-62"
+              },
+              "repository": "backend",
+              "state": "fresh"
+            }
+          ],
+          "reused": true,
+          "state": "fresh",
+          "text": "project freshness is the weakest member's; see members and link_pass; reused from a check started less than 1h0m0s before this call with the same latest run (one check per call batch); checked_at is that check's time"
+        },
+        "labels": {
+          "freshness:fresh": "no file added, changed or deleted since the last index (same scan and ignore rules as indexing), as of checked_at",
+          "link_pass:fresh": "the stored link pass matches the members' current indexes and declarations"
+        },
+        "omitted": [],
+        "page": null,
+        "project": "users",
+        "request": {
+          "base": "pass:99",
+          "cursor": "",
+          "limit": 50
+        },
+        "results": [],
+        "summary": null,
+        "tool": "link_changes",
+        "unknowns": []
+      },
+      "is_error": true
+    },
+    {
+      "call": {
+        "arguments": {
+          "base": "yesterday"
+        },
+        "name": "link_changes"
+      },
+      "envelope": {
+        "assumptions": [],
+        "bounds": [],
+        "envelope": 1,
+        "error": {
+          "code": "bad_request",
+          "message": "base \"yesterday\": want previous or pass:N"
+        },
+        "freshness": {
+          "changed_count": null,
+          "changed_files": [],
+          "changed_more": 0,
+          "checked_at": "2026-11-23T09:00:00Z",
+          "index": null,
+          "link_pass": {
+            "links": 3,
+            "pass": 2,
+            "stale_links": 0,
+            "stale_reasons": [],
+            "state": "fresh"
+          },
+          "members": [
+            {
+              "changed_count": 0,
+              "changed_files": [],
+              "changed_more": 0,
+              "checkout": true,
+              "index": {
+                "commit": null,
+                "contract_version": 1,
+                "extractor_current": "extractors-62",
+                "extractor_matches": true,
+                "finished_at": "\u003cfinished_at\u003e",
+                "indexer": "graphvein",
+                "indexer_version": "extractors-62"
+              },
+              "repository": "frontend",
+              "state": "fresh"
+            },
+            {
+              "changed_count": 0,
+              "changed_files": [],
+              "changed_more": 0,
+              "checkout": true,
+              "index": {
+                "commit": null,
+                "contract_version": 1,
+                "extractor_current": "extractors-62",
+                "extractor_matches": true,
+                "finished_at": "\u003cfinished_at\u003e",
+                "indexer": "graphvein",
+                "indexer_version": "extractors-62"
+              },
+              "repository": "backend",
+              "state": "fresh"
+            }
+          ],
+          "reused": true,
+          "state": "fresh",
+          "text": "project freshness is the weakest member's; see members and link_pass; reused from a check started less than 1h0m0s before this call with the same latest run (one check per call batch); checked_at is that check's time"
+        },
+        "labels": {
+          "freshness:fresh": "no file added, changed or deleted since the last index (same scan and ignore rules as indexing), as of checked_at",
+          "link_pass:fresh": "the stored link pass matches the members' current indexes and declarations"
+        },
+        "omitted": [],
+        "page": null,
+        "project": "users",
+        "request": {
+          "base": "yesterday",
+          "cursor": "",
+          "limit": 50
+        },
+        "results": [],
+        "summary": null,
+        "tool": "link_changes",
+        "unknowns": []
+      },
+      "is_error": true
+    }
+  ]
+}

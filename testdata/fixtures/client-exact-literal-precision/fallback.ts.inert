@@ -1,0 +1,5 @@
+import express from 'express';
+const app = express();
+export function fallback() {}
+app.get('/:id', fallback);
+app.all('*', fallback);

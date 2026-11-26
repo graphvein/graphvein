@@ -1,0 +1,1670 @@
+{
+  "api_version": 0,
+  "failed_sets": [
+    {
+      "message": "f/Cargo.toml: the schema pass failed on sqlx set f/migrations and emitted nothing for it: crafted",
+      "package": "f/Cargo.toml"
+    }
+  ],
+  "index": {
+    "contract_version": 1,
+    "finished_at": "2026-11-03T14:32:05.123Z",
+    "indexer": {
+      "name": "crafted",
+      "version": "t018b1"
+    }
+  },
+  "model_list_reasons": null,
+  "repository": "states",
+  "scan_gaps": [],
+  "sets": [
+    {
+      "conflicts": [],
+      "diagnostic_counts": {
+        "schema_partial_table": 1,
+        "schema_unresolved_reference": 1,
+        "schema_unsupported_dialect": 1
+      },
+      "dialect": "postgres",
+      "foreign_keys": [
+        {
+          "edge": {
+            "confidence": 1,
+            "kind": "foreign_key",
+            "provenance": "fact"
+          },
+          "source_column": "column:a/migrations/1_init.sql#t_self.parent",
+          "source_table": "table:a/migrations/1_init.sql#t_self",
+          "target_column": "column:a/migrations/1_init.sql#t_self.id",
+          "target_table": "table:a/migrations/1_init.sql#t_self"
+        },
+        {
+          "edge": {
+            "confidence": 1,
+            "kind": "foreign_key",
+            "provenance": "fact"
+          },
+          "source_column": "column:a/migrations/2_more.sql#t_multi.loose_ref",
+          "source_table": "table:a/migrations/2_more.sql#t_multi",
+          "target_column": "column:x/loose.sql#loose.loose_col",
+          "target_table": null
+        },
+        {
+          "edge": {
+            "confidence": 1,
+            "kind": "foreign_key",
+            "provenance": "fact"
+          },
+          "source_column": "column:a/migrations/2_more.sql#t_multi.m",
+          "source_table": "table:a/migrations/2_more.sql#t_multi",
+          "target_column": "column:a/migrations/1_init.sql#t_linked.id",
+          "target_table": "table:a/migrations/1_init.sql#t_linked"
+        },
+        {
+          "edge": {
+            "confidence": 1,
+            "kind": "foreign_key",
+            "provenance": "fact"
+          },
+          "source_column": "column:a/migrations/2_more.sql#t_multi.m",
+          "source_table": "table:a/migrations/2_more.sql#t_multi",
+          "target_column": "column:a/migrations/1_init.sql#t_self.id",
+          "target_table": "table:a/migrations/1_init.sql#t_self"
+        }
+      ],
+      "linked_without_edge": 1,
+      "migrations": [
+        {
+          "alters": [],
+          "attributes": {
+            "applied": true,
+            "description": "init",
+            "dialect": "postgres",
+            "direction": "simple",
+            "errors": 0,
+            "extensions": [],
+            "modeled": 1,
+            "no_effect": 0,
+            "order": 1,
+            "package": "a/Cargo.toml",
+            "set": "a/migrations",
+            "set_opaque_statements": {
+              "by_kind": {},
+              "total": 0
+            },
+            "statements": 1,
+            "tool": "sqlx",
+            "unsupported": 0,
+            "version": "1",
+            "version_text": "1"
+          },
+          "creates": [
+            "table:a/migrations/1_init.sql#t_linked",
+            "table:a/migrations/1_init.sql#t_nokey",
+            "table:a/migrations/1_init.sql#t_nostate",
+            "table:a/migrations/1_init.sql#t_self",
+            "table:a/migrations/1_init.sql#t_stropaque",
+            "table:a/migrations/1_init.sql#t_weird"
+          ],
+          "file": "a/migrations/1_init.sql",
+          "id": "migration:a/migrations/1_init.sql#migration"
+        },
+        {
+          "alters": [
+            "table:a/migrations/1_init.sql#t_self"
+          ],
+          "attributes": {
+            "applied": true,
+            "description": "more",
+            "dialect": "postgres",
+            "direction": "simple",
+            "errors": 0,
+            "extensions": [],
+            "modeled": 1,
+            "no_effect": 0,
+            "opaque": 0,
+            "order": 2,
+            "package": "a/Cargo.toml",
+            "set": "a/migrations",
+            "set_opaque_statements": {
+              "by_kind": {},
+              "total": 0
+            },
+            "statements": 1,
+            "tool": "sqlx",
+            "unsupported": 0,
+            "version": "2",
+            "version_text": "2"
+          },
+          "creates": [
+            "table:a/migrations/2_more.sql#t_multi",
+            "table:a/migrations/2_more.sql#t_partial_empty"
+          ],
+          "file": "a/migrations/2_more.sql",
+          "id": "migration:a/migrations/2_more.sql#migration"
+        }
+      ],
+      "not_modeled_reasons": [],
+      "objects": "modeled",
+      "opaque_by_kind": {},
+      "opaque_total": 0,
+      "package": "a/Cargo.toml",
+      "precision": {
+        "label": "best_effort",
+        "reason": "external_indexer",
+        "row": "D"
+      },
+      "rests_on": null,
+      "set": "a/migrations",
+      "source": "migrations",
+      "table_list": "complete",
+      "table_list_reasons": [],
+      "tables": [
+        {
+          "altered_by": [],
+          "columns": [
+            {
+              "default_state": "none",
+              "node": {
+                "attributes": {
+                  "collation": null,
+                  "default": null,
+                  "generated": null,
+                  "identity": null,
+                  "name": "id",
+                  "nullable": false,
+                  "position": 1,
+                  "previous_names": [],
+                  "primary_key": true,
+                  "references": null,
+                  "type": "integer",
+                  "unique": true
+                },
+                "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "file": "a/migrations/1_init.sql",
+                "identity": "column:a/migrations/1_init.sql#t_linked.id",
+                "kind": "column",
+                "level": 4,
+                "name": "id",
+                "qualified_name": "t_linked.id",
+                "span": {
+                  "end_column": 1,
+                  "end_line": 1,
+                  "start_column": 0,
+                  "start_line": 1
+                },
+                "type": "node"
+              }
+            },
+            {
+              "default_state": "none",
+              "node": {
+                "attributes": {
+                  "collation": null,
+                  "default": null,
+                  "generated": null,
+                  "identity": null,
+                  "name": "ref",
+                  "nullable": false,
+                  "position": 2,
+                  "previous_names": [],
+                  "primary_key": false,
+                  "references": {
+                    "columns": [
+                      "id"
+                    ],
+                    "constraint": null,
+                    "local_columns": [
+                      "ref"
+                    ],
+                    "on_delete": null,
+                    "on_update": null,
+                    "status": "linked",
+                    "table": "t_self"
+                  },
+                  "type": "integer",
+                  "unique": false
+                },
+                "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "file": "a/migrations/1_init.sql",
+                "identity": "column:a/migrations/1_init.sql#t_linked.ref",
+                "kind": "column",
+                "level": 4,
+                "name": "ref",
+                "qualified_name": "t_linked.ref",
+                "span": {
+                  "end_column": 1,
+                  "end_line": 1,
+                  "start_column": 0,
+                  "start_line": 1
+                },
+                "type": "node"
+              }
+            }
+          ],
+          "completeness": "complete",
+          "created_by": "migration:a/migrations/1_init.sql#migration",
+          "foreign_keys_in": 1,
+          "foreign_keys_out": 0,
+          "indexes": [],
+          "node": {
+            "attributes": {
+              "dialect": "postgres",
+              "name": "t_linked",
+              "opaque_after": 0,
+              "previous_names": [],
+              "primary_key": [
+                "id"
+              ],
+              "reasons": [],
+              "schema": null,
+              "set": "a/migrations",
+              "state": "complete",
+              "unique_keys": []
+            },
+            "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "file": "a/migrations/1_init.sql",
+            "identity": "table:a/migrations/1_init.sql#t_linked",
+            "kind": "table",
+            "level": 4,
+            "name": "t_linked",
+            "qualified_name": "t_linked",
+            "span": {
+              "end_column": 1,
+              "end_line": 1,
+              "start_column": 0,
+              "start_line": 1
+            },
+            "type": "node"
+          },
+          "opaque_sites": null,
+          "overlaps": null,
+          "rests_on": null,
+          "unresolved_references": 0,
+          "verification_counts": null
+        },
+        {
+          "altered_by": [],
+          "columns": [
+            {
+              "default_state": "implied",
+              "node": {
+                "attributes": {
+                  "collation": null,
+                  "default": null,
+                  "default_implied": "sequence",
+                  "generated": null,
+                  "identity": null,
+                  "name": "id",
+                  "nullable": false,
+                  "position": 1,
+                  "previous_names": [],
+                  "primary_key": true,
+                  "references": null,
+                  "type": "serial",
+                  "type_resolved": "integer",
+                  "unique": true
+                },
+                "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "file": "a/migrations/2_more.sql",
+                "identity": "column:a/migrations/2_more.sql#t_multi.id",
+                "kind": "column",
+                "level": 4,
+                "name": "id",
+                "qualified_name": "t_multi.id",
+                "span": {
+                  "end_column": 1,
+                  "end_line": 1,
+                  "start_column": 0,
+                  "start_line": 1
+                },
+                "type": "node"
+              }
+            },
+            {
+              "default_state": "none",
+              "node": {
+                "attributes": {
+                  "additional_references": [
+                    {
+                      "columns": [
+                        "id"
+                      ],
+                      "constraint": "m_b",
+                      "local_columns": [
+                        "m"
+                      ],
+                      "on_delete": null,
+                      "on_update": null,
+                      "status": "linked",
+                      "table": "t_linked"
+                    },
+                    {
+                      "columns": null,
+                      "constraint": "m_c",
+                      "local_columns": [
+                        "m"
+                      ],
+                      "on_delete": null,
+                      "on_update": null,
+                      "reason": "no table elsewhere in the set",
+                      "status": "unresolved",
+                      "table": "elsewhere"
+                    }
+                  ],
+                  "collation": null,
+                  "default": null,
+                  "generated": null,
+                  "identity": null,
+                  "name": "m",
+                  "nullable": false,
+                  "position": 2,
+                  "previous_names": [],
+                  "primary_key": false,
+                  "references": {
+                    "columns": [
+                      "id"
+                    ],
+                    "constraint": "m_a",
+                    "local_columns": [
+                      "m"
+                    ],
+                    "on_delete": null,
+                    "on_update": null,
+                    "status": "linked",
+                    "table": "t_self"
+                  },
+                  "type": "integer",
+                  "unique": false
+                },
+                "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "file": "a/migrations/2_more.sql",
+                "identity": "column:a/migrations/2_more.sql#t_multi.m",
+                "kind": "column",
+                "level": 4,
+                "name": "m",
+                "qualified_name": "t_multi.m",
+                "span": {
+                  "end_column": 1,
+                  "end_line": 1,
+                  "start_column": 0,
+                  "start_line": 1
+                },
+                "type": "node"
+              }
+            },
+            {
+              "default_state": "none",
+              "node": {
+                "attributes": {
+                  "collation": null,
+                  "default": null,
+                  "generated": null,
+                  "identity": null,
+                  "name": "loose_ref",
+                  "nullable": false,
+                  "position": 3,
+                  "previous_names": [],
+                  "primary_key": false,
+                  "references": {
+                    "columns": [
+                      "loose_col"
+                    ],
+                    "constraint": null,
+                    "local_columns": [
+                      "loose_ref"
+                    ],
+                    "on_delete": null,
+                    "on_update": null,
+                    "status": "linked",
+                    "table": "loose"
+                  },
+                  "type": "integer",
+                  "unique": false
+                },
+                "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "file": "a/migrations/2_more.sql",
+                "identity": "column:a/migrations/2_more.sql#t_multi.loose_ref",
+                "kind": "column",
+                "level": 4,
+                "name": "loose_ref",
+                "qualified_name": "t_multi.loose_ref",
+                "span": {
+                  "end_column": 1,
+                  "end_line": 1,
+                  "start_column": 0,
+                  "start_line": 1
+                },
+                "type": "node"
+              }
+            }
+          ],
+          "completeness": "complete",
+          "created_by": "migration:a/migrations/2_more.sql#migration",
+          "foreign_keys_in": 0,
+          "foreign_keys_out": 3,
+          "indexes": [],
+          "node": {
+            "attributes": {
+              "dialect": "postgres",
+              "name": "t_multi",
+              "opaque_after": 0,
+              "previous_names": [],
+              "primary_key": [
+                "id"
+              ],
+              "reasons": [],
+              "schema": null,
+              "set": "a/migrations",
+              "state": "complete",
+              "unique_keys": []
+            },
+            "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "file": "a/migrations/2_more.sql",
+            "identity": "table:a/migrations/2_more.sql#t_multi",
+            "kind": "table",
+            "level": 4,
+            "name": "t_multi",
+            "qualified_name": "t_multi",
+            "span": {
+              "end_column": 1,
+              "end_line": 1,
+              "start_column": 0,
+              "start_line": 1
+            },
+            "type": "node"
+          },
+          "opaque_sites": null,
+          "overlaps": null,
+          "rests_on": null,
+          "unresolved_references": 1,
+          "verification_counts": null
+        },
+        {
+          "altered_by": [],
+          "columns": [
+            {
+              "default_state": "written",
+              "node": {
+                "attributes": {
+                  "collation": null,
+                  "default": "'x'",
+                  "generated": null,
+                  "identity": null,
+                  "name": "v",
+                  "nullable": true,
+                  "position": 1,
+                  "previous_names": [],
+                  "primary_key": false,
+                  "references": null,
+                  "type": "text",
+                  "unique": false
+                },
+                "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "file": "a/migrations/1_init.sql",
+                "identity": "column:a/migrations/1_init.sql#t_nokey.v",
+                "kind": "column",
+                "level": 4,
+                "name": "v",
+                "qualified_name": "t_nokey.v",
+                "span": {
+                  "end_column": 1,
+                  "end_line": 1,
+                  "start_column": 0,
+                  "start_line": 1
+                },
+                "type": "node"
+              }
+            }
+          ],
+          "completeness": "complete",
+          "created_by": "migration:a/migrations/1_init.sql#migration",
+          "foreign_keys_in": 0,
+          "foreign_keys_out": 0,
+          "indexes": [],
+          "node": {
+            "attributes": {
+              "dialect": "postgres",
+              "name": "t_nokey",
+              "opaque_after": 0,
+              "previous_names": [],
+              "primary_key": [],
+              "reasons": [],
+              "schema": null,
+              "set": "a/migrations",
+              "state": "complete",
+              "unique_keys": []
+            },
+            "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "file": "a/migrations/1_init.sql",
+            "identity": "table:a/migrations/1_init.sql#t_nokey",
+            "kind": "table",
+            "level": 4,
+            "name": "t_nokey",
+            "qualified_name": "t_nokey",
+            "span": {
+              "end_column": 1,
+              "end_line": 1,
+              "start_column": 0,
+              "start_line": 1
+            },
+            "type": "node"
+          },
+          "opaque_sites": null,
+          "overlaps": null,
+          "rests_on": null,
+          "unresolved_references": 0,
+          "verification_counts": null
+        },
+        {
+          "altered_by": [],
+          "columns": [
+            {
+              "default_state": "unknown",
+              "node": {
+                "attributes": {
+                  "collation": null,
+                  "default": null,
+                  "generated": null,
+                  "identity": null,
+                  "name": "id",
+                  "nullable": false,
+                  "position": 1,
+                  "previous_names": [],
+                  "primary_key": false,
+                  "references": null,
+                  "type": "integer",
+                  "unique": false
+                },
+                "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "file": "a/migrations/1_init.sql",
+                "identity": "column:a/migrations/1_init.sql#t_nostate.id",
+                "kind": "column",
+                "level": 4,
+                "name": "id",
+                "qualified_name": "t_nostate.id",
+                "span": {
+                  "end_column": 1,
+                  "end_line": 1,
+                  "start_column": 0,
+                  "start_line": 1
+                },
+                "type": "node"
+              }
+            }
+          ],
+          "completeness": "unknown",
+          "created_by": "migration:a/migrations/1_init.sql#migration",
+          "foreign_keys_in": 0,
+          "foreign_keys_out": 0,
+          "indexes": [],
+          "node": {
+            "attributes": {
+              "dialect": "postgres",
+              "name": "t_nostate",
+              "opaque_after": 0,
+              "previous_names": [],
+              "primary_key": [
+                "id"
+              ],
+              "reasons": [],
+              "schema": null,
+              "set": "a/migrations",
+              "unique_keys": []
+            },
+            "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "file": "a/migrations/1_init.sql",
+            "identity": "table:a/migrations/1_init.sql#t_nostate",
+            "kind": "table",
+            "level": 4,
+            "name": "t_nostate",
+            "qualified_name": "t_nostate",
+            "span": {
+              "end_column": 1,
+              "end_line": 1,
+              "start_column": 0,
+              "start_line": 1
+            },
+            "type": "node"
+          },
+          "opaque_sites": null,
+          "overlaps": null,
+          "rests_on": null,
+          "unresolved_references": 0,
+          "verification_counts": null
+        },
+        {
+          "altered_by": [],
+          "columns": [],
+          "completeness": "partial",
+          "created_by": "migration:a/migrations/2_more.sql#migration",
+          "foreign_keys_in": 0,
+          "foreign_keys_out": 0,
+          "indexes": [],
+          "node": {
+            "attributes": {
+              "dialect": "postgres",
+              "name": "t_partial_empty",
+              "opaque_after": 0,
+              "previous_names": [],
+              "primary_key": null,
+              "reasons": [
+                {
+                  "migration": "migration:a/migrations/2_more.sql#migration",
+                  "reason": "CREATE TABLE ... (LIKE other) is not read",
+                  "span": {
+                    "end_column": 30,
+                    "end_line": 5,
+                    "start_column": 0,
+                    "start_line": 5
+                  }
+                },
+                {
+                  "migration": "migration:a/migrations/9_gone.sql#migration",
+                  "reason": "a reason naming a migration that is not stored",
+                  "span": {
+                    "end_column": 10,
+                    "end_line": 1,
+                    "start_column": 0,
+                    "start_line": 1
+                  }
+                },
+                {
+                  "migration": null,
+                  "reason": "set-level reason",
+                  "span": null
+                }
+              ],
+              "schema": null,
+              "set": "a/migrations",
+              "state": "partial",
+              "unique_keys": null
+            },
+            "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "file": "a/migrations/2_more.sql",
+            "identity": "table:a/migrations/2_more.sql#t_partial_empty",
+            "kind": "table",
+            "level": 4,
+            "name": "t_partial_empty",
+            "qualified_name": "t_partial_empty",
+            "span": {
+              "end_column": 1,
+              "end_line": 1,
+              "start_column": 0,
+              "start_line": 1
+            },
+            "type": "node"
+          },
+          "opaque_sites": null,
+          "overlaps": null,
+          "rests_on": null,
+          "unresolved_references": 0,
+          "verification_counts": null
+        },
+        {
+          "altered_by": [
+            "migration:a/migrations/2_more.sql#migration"
+          ],
+          "columns": [
+            {
+              "default_state": "unknown",
+              "node": {
+                "attributes": {
+                  "collation": null,
+                  "generated": null,
+                  "identity": null,
+                  "name": "id",
+                  "nullable": false,
+                  "position": 1,
+                  "previous_names": [],
+                  "primary_key": true,
+                  "references": null,
+                  "type": "integer",
+                  "unique": true
+                },
+                "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "file": "a/migrations/1_init.sql",
+                "identity": "column:a/migrations/1_init.sql#t_self.id",
+                "kind": "column",
+                "level": 4,
+                "name": "id",
+                "qualified_name": "t_self.id",
+                "span": {
+                  "end_column": 1,
+                  "end_line": 1,
+                  "start_column": 0,
+                  "start_line": 1
+                },
+                "type": "node"
+              }
+            },
+            {
+              "default_state": "unknown",
+              "node": {
+                "attributes": {
+                  "collation": null,
+                  "default": 5,
+                  "generated": null,
+                  "identity": null,
+                  "name": "parent",
+                  "nullable": true,
+                  "position": 2,
+                  "previous_names": [],
+                  "primary_key": false,
+                  "references": {
+                    "columns": [
+                      "id"
+                    ],
+                    "constraint": null,
+                    "local_columns": [
+                      "parent"
+                    ],
+                    "on_delete": null,
+                    "on_update": null,
+                    "status": "linked",
+                    "table": "t_self"
+                  },
+                  "type": "integer",
+                  "unique": false
+                },
+                "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "file": "a/migrations/1_init.sql",
+                "identity": "column:a/migrations/1_init.sql#t_self.parent",
+                "kind": "column",
+                "level": 4,
+                "name": "parent",
+                "qualified_name": "t_self.parent",
+                "span": {
+                  "end_column": 1,
+                  "end_line": 1,
+                  "start_column": 0,
+                  "start_line": 1
+                },
+                "type": "node"
+              }
+            },
+            {
+              "default_state": "none",
+              "node": {
+                "attributes": {
+                  "collation": null,
+                  "default": null,
+                  "generated": null,
+                  "identity": null,
+                  "name": "note",
+                  "nullable": true,
+                  "previous_names": [],
+                  "primary_key": false,
+                  "references": null,
+                  "type": "text",
+                  "unique": false
+                },
+                "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "file": "a/migrations/1_init.sql",
+                "identity": "column:a/migrations/1_init.sql#t_self.note",
+                "kind": "column",
+                "level": 4,
+                "name": "note",
+                "qualified_name": "t_self.note",
+                "span": {
+                  "end_column": 1,
+                  "end_line": 1,
+                  "start_column": 0,
+                  "start_line": 1
+                },
+                "type": "node"
+              }
+            }
+          ],
+          "completeness": "complete",
+          "created_by": "migration:a/migrations/1_init.sql#migration",
+          "foreign_keys_in": 2,
+          "foreign_keys_out": 1,
+          "indexes": [],
+          "node": {
+            "attributes": {
+              "dialect": "postgres",
+              "name": "t_self",
+              "opaque_after": 0,
+              "previous_names": [],
+              "primary_key": [
+                "id"
+              ],
+              "reasons": [],
+              "schema": null,
+              "set": "a/migrations",
+              "state": "complete",
+              "unique_keys": []
+            },
+            "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "file": "a/migrations/1_init.sql",
+            "identity": "table:a/migrations/1_init.sql#t_self",
+            "kind": "table",
+            "level": 4,
+            "name": "t_self",
+            "qualified_name": "t_self",
+            "span": {
+              "end_column": 1,
+              "end_line": 1,
+              "start_column": 0,
+              "start_line": 1
+            },
+            "type": "node"
+          },
+          "opaque_sites": null,
+          "overlaps": null,
+          "rests_on": null,
+          "unresolved_references": 0,
+          "verification_counts": null
+        },
+        {
+          "altered_by": [],
+          "columns": [
+            {
+              "default_state": "unknown",
+              "node": {
+                "attributes": {
+                  "collation": null,
+                  "default": null,
+                  "generated": null,
+                  "identity": null,
+                  "name": "id",
+                  "nullable": false,
+                  "position": 1,
+                  "previous_names": [],
+                  "primary_key": false,
+                  "references": null,
+                  "type": "integer",
+                  "unique": false
+                },
+                "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "file": "a/migrations/1_init.sql",
+                "identity": "column:a/migrations/1_init.sql#t_stropaque.id",
+                "kind": "column",
+                "level": 4,
+                "name": "id",
+                "qualified_name": "t_stropaque.id",
+                "span": {
+                  "end_column": 1,
+                  "end_line": 1,
+                  "start_column": 0,
+                  "start_line": 1
+                },
+                "type": "node"
+              }
+            }
+          ],
+          "completeness": "unknown",
+          "created_by": "migration:a/migrations/1_init.sql#migration",
+          "foreign_keys_in": 0,
+          "foreign_keys_out": 0,
+          "indexes": [],
+          "node": {
+            "attributes": {
+              "dialect": "postgres",
+              "name": "t_stropaque",
+              "opaque_after": "3",
+              "previous_names": [],
+              "primary_key": [
+                "id"
+              ],
+              "reasons": [],
+              "schema": null,
+              "set": "a/migrations",
+              "state": "complete",
+              "unique_keys": []
+            },
+            "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "file": "a/migrations/1_init.sql",
+            "identity": "table:a/migrations/1_init.sql#t_stropaque",
+            "kind": "table",
+            "level": 4,
+            "name": "t_stropaque",
+            "qualified_name": "t_stropaque",
+            "span": {
+              "end_column": 1,
+              "end_line": 1,
+              "start_column": 0,
+              "start_line": 1
+            },
+            "type": "node"
+          },
+          "opaque_sites": null,
+          "overlaps": null,
+          "rests_on": null,
+          "unresolved_references": 0,
+          "verification_counts": null
+        },
+        {
+          "altered_by": [],
+          "columns": [
+            {
+              "default_state": "unknown",
+              "node": {
+                "attributes": {
+                  "collation": null,
+                  "default": null,
+                  "generated": null,
+                  "identity": null,
+                  "name": "id",
+                  "nullable": false,
+                  "position": 1,
+                  "previous_names": [],
+                  "primary_key": false,
+                  "references": null,
+                  "type": "integer",
+                  "unique": false
+                },
+                "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "file": "a/migrations/1_init.sql",
+                "identity": "column:a/migrations/1_init.sql#t_weird.id",
+                "kind": "column",
+                "level": 4,
+                "name": "id",
+                "qualified_name": "t_weird.id",
+                "span": {
+                  "end_column": 1,
+                  "end_line": 1,
+                  "start_column": 0,
+                  "start_line": 1
+                },
+                "type": "node"
+              }
+            }
+          ],
+          "completeness": "unknown",
+          "created_by": "migration:a/migrations/1_init.sql#migration",
+          "foreign_keys_in": 0,
+          "foreign_keys_out": 0,
+          "indexes": [],
+          "node": {
+            "attributes": {
+              "dialect": "postgres",
+              "name": "t_weird",
+              "opaque_after": 0,
+              "previous_names": [],
+              "primary_key": [
+                "id"
+              ],
+              "reasons": [],
+              "schema": null,
+              "set": "a/migrations",
+              "state": "weird",
+              "unique_keys": []
+            },
+            "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "file": "a/migrations/1_init.sql",
+            "identity": "table:a/migrations/1_init.sql#t_weird",
+            "kind": "table",
+            "level": 4,
+            "name": "t_weird",
+            "qualified_name": "t_weird",
+            "span": {
+              "end_column": 1,
+              "end_line": 1,
+              "start_column": 0,
+              "start_line": 1
+            },
+            "type": "node"
+          },
+          "opaque_sites": null,
+          "overlaps": null,
+          "rests_on": null,
+          "unresolved_references": 0,
+          "verification_counts": null
+        }
+      ],
+      "tables_by_scope": {
+        "production": 8,
+        "test": 0
+      },
+      "test_only": false,
+      "tool": "sqlx",
+      "unattached": {
+        "columns": 0,
+        "indexes": 0
+      }
+    },
+    {
+      "conflicts": [
+        "dialect"
+      ],
+      "diagnostic_counts": {},
+      "dialect": null,
+      "foreign_keys": [],
+      "linked_without_edge": 0,
+      "migrations": [
+        {
+          "alters": [],
+          "attributes": {
+            "applied": true,
+            "description": "pg",
+            "dialect": "postgres",
+            "direction": "simple",
+            "errors": 0,
+            "extensions": [],
+            "modeled": 1,
+            "no_effect": 0,
+            "opaque": 0,
+            "order": 1,
+            "package": "b/Cargo.toml",
+            "set": "b/migrations",
+            "set_opaque_statements": {
+              "by_kind": {},
+              "total": 0
+            },
+            "statements": 1,
+            "tool": "sqlx",
+            "unsupported": 0,
+            "version": "1",
+            "version_text": "1"
+          },
+          "creates": [],
+          "file": "b/migrations/1_pg.sql",
+          "id": "migration:b/migrations/1_pg.sql#migration"
+        },
+        {
+          "alters": [],
+          "attributes": {
+            "applied": true,
+            "description": "lite",
+            "dialect": "sqlite",
+            "direction": "simple",
+            "errors": 0,
+            "extensions": [],
+            "modeled": 1,
+            "no_effect": 0,
+            "opaque": 0,
+            "order": 2,
+            "package": "b/Cargo.toml",
+            "set": "b/migrations",
+            "set_opaque_statements": null,
+            "statements": 1,
+            "tool": "sqlx",
+            "unsupported": 0,
+            "version": "2",
+            "version_text": "2"
+          },
+          "creates": [],
+          "file": "b/migrations/2_lite.sql",
+          "id": "migration:b/migrations/2_lite.sql#migration"
+        }
+      ],
+      "not_modeled_reasons": [
+        "dialect_unsupported"
+      ],
+      "objects": "not_modeled",
+      "opaque_by_kind": null,
+      "opaque_total": null,
+      "package": "b/Cargo.toml",
+      "precision": {
+        "label": "best_effort",
+        "reason": "external_indexer",
+        "row": "D"
+      },
+      "rests_on": null,
+      "set": "b/migrations",
+      "source": "migrations",
+      "table_list": "not_modeled",
+      "table_list_reasons": [],
+      "tables": [],
+      "tables_by_scope": {
+        "production": 0,
+        "test": 0
+      },
+      "test_only": false,
+      "tool": "sqlx",
+      "unattached": {
+        "columns": 0,
+        "indexes": 0
+      }
+    },
+    {
+      "conflicts": [],
+      "diagnostic_counts": {},
+      "dialect": "postgres",
+      "foreign_keys": [],
+      "linked_without_edge": 0,
+      "migrations": [
+        {
+          "alters": [],
+          "attributes": {
+            "applied": true,
+            "description": "x",
+            "dialect": "postgres",
+            "direction": "simple",
+            "errors": 0,
+            "extensions": [],
+            "modeled": 1,
+            "no_effect": 0,
+            "opaque": 0,
+            "order": 1,
+            "package": "c/Cargo.toml",
+            "set": "c/migrations",
+            "set_opaque_statements": {
+              "by_kind": {
+                "do": 1
+              },
+              "total": 1
+            },
+            "statements": 1,
+            "tool": "sqlx",
+            "unsupported": 0,
+            "version": "1",
+            "version_text": "1"
+          },
+          "creates": [],
+          "file": "c/migrations/1_x.sql",
+          "id": "migration:c/migrations/1_x.sql#migration"
+        },
+        {
+          "alters": [],
+          "attributes": {
+            "applied": true,
+            "description": "y",
+            "dialect": "postgres",
+            "direction": "simple",
+            "errors": 0,
+            "extensions": [],
+            "modeled": 1,
+            "no_effect": 0,
+            "opaque": 0,
+            "order": 2,
+            "package": "c/Cargo.toml",
+            "set": "c/migrations",
+            "set_opaque_statements": {
+              "by_kind": {
+                "do": 2
+              },
+              "total": 2
+            },
+            "statements": 1,
+            "tool": "sqlx",
+            "unsupported": 0,
+            "version": "2",
+            "version_text": "2"
+          },
+          "creates": [],
+          "file": "c/migrations/2_y.sql",
+          "id": "migration:c/migrations/2_y.sql#migration"
+        }
+      ],
+      "not_modeled_reasons": [
+        "not_analysed"
+      ],
+      "objects": "not_modeled",
+      "opaque_by_kind": null,
+      "opaque_total": null,
+      "package": "c/Cargo.toml",
+      "precision": {
+        "label": "best_effort",
+        "reason": "external_indexer",
+        "row": "D"
+      },
+      "rests_on": null,
+      "set": "c/migrations",
+      "source": "migrations",
+      "table_list": "not_modeled",
+      "table_list_reasons": [],
+      "tables": [],
+      "tables_by_scope": {
+        "production": 0,
+        "test": 0
+      },
+      "test_only": false,
+      "tool": "sqlx",
+      "unattached": {
+        "columns": 0,
+        "indexes": 0
+      }
+    },
+    {
+      "conflicts": [],
+      "diagnostic_counts": {},
+      "dialect": "postgres",
+      "foreign_keys": [],
+      "linked_without_edge": 0,
+      "migrations": [
+        {
+          "alters": [],
+          "attributes": {
+            "applied": true,
+            "description": "d",
+            "dialect": "postgres",
+            "direction": "simple",
+            "errors": 0,
+            "extensions": [],
+            "modeled": 1,
+            "no_effect": 0,
+            "opaque": 0,
+            "order": 1,
+            "package": "d/Cargo.toml",
+            "set": "d/migrations",
+            "set_opaque_statements": null,
+            "statements": 1,
+            "tool": "sqlx",
+            "unsupported": 0,
+            "version": "1",
+            "version_text": "1"
+          },
+          "creates": [],
+          "file": "d/migrations/1_d.sql",
+          "id": "migration:d/migrations/1_d.sql#migration"
+        }
+      ],
+      "not_modeled_reasons": [
+        "not_analysed"
+      ],
+      "objects": "not_modeled",
+      "opaque_by_kind": null,
+      "opaque_total": null,
+      "package": "d/Cargo.toml",
+      "precision": {
+        "label": "best_effort",
+        "reason": "external_indexer",
+        "row": "D"
+      },
+      "rests_on": null,
+      "set": "d/migrations",
+      "source": "migrations",
+      "table_list": "not_modeled",
+      "table_list_reasons": [],
+      "tables": [],
+      "tables_by_scope": {
+        "production": 0,
+        "test": 0
+      },
+      "test_only": false,
+      "tool": "sqlx",
+      "unattached": {
+        "columns": 0,
+        "indexes": 0
+      }
+    },
+    {
+      "conflicts": [],
+      "diagnostic_counts": {
+        "schema_member_unreadable": 1
+      },
+      "dialect": "postgres",
+      "foreign_keys": [],
+      "linked_without_edge": 0,
+      "migrations": [
+        {
+          "alters": [],
+          "attributes": {
+            "applied": true,
+            "description": "t",
+            "dialect": "postgres",
+            "direction": "simple",
+            "errors": 0,
+            "extensions": [],
+            "modeled": 1,
+            "no_effect": 0,
+            "opaque": 0,
+            "order": 1,
+            "package": "e/Cargo.toml",
+            "scope": "test",
+            "set": "e/tests/migrations",
+            "set_opaque_statements": {
+              "by_kind": {
+                "do": 2
+              },
+              "total": 2
+            },
+            "statements": 1,
+            "tool": "sqlx",
+            "unsupported": null,
+            "version": "1",
+            "version_text": "1"
+          },
+          "creates": [
+            "table:e/tests/migrations/1_t.sql#fixture_rows"
+          ],
+          "file": "e/tests/migrations/1_t.sql",
+          "id": "migration:e/tests/migrations/1_t.sql#migration"
+        }
+      ],
+      "not_modeled_reasons": [],
+      "objects": "modeled",
+      "opaque_by_kind": {
+        "do": 2
+      },
+      "opaque_total": 2,
+      "package": "e/Cargo.toml",
+      "precision": {
+        "label": "best_effort",
+        "reason": "external_indexer",
+        "row": "D"
+      },
+      "rests_on": null,
+      "set": "e/tests/migrations",
+      "source": "migrations",
+      "table_list": "may_be_incomplete",
+      "table_list_reasons": [
+        "member_unreadable",
+        "opaque_statements",
+        "statement_counts_unknown"
+      ],
+      "tables": [
+        {
+          "altered_by": [],
+          "columns": [
+            {
+              "default_state": "none",
+              "node": {
+                "attributes": {
+                  "collation": null,
+                  "default": null,
+                  "generated": null,
+                  "identity": null,
+                  "name": "id",
+                  "nullable": false,
+                  "position": 1,
+                  "previous_names": [],
+                  "primary_key": true,
+                  "references": null,
+                  "scope": "test",
+                  "type": "integer",
+                  "unique": true
+                },
+                "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "file": "e/tests/migrations/1_t.sql",
+                "identity": "column:e/tests/migrations/1_t.sql#fixture_rows.id",
+                "kind": "column",
+                "level": 4,
+                "name": "id",
+                "qualified_name": "fixture_rows.id",
+                "span": {
+                  "end_column": 1,
+                  "end_line": 1,
+                  "start_column": 0,
+                  "start_line": 1
+                },
+                "type": "node"
+              }
+            }
+          ],
+          "completeness": "complete_in_source",
+          "created_by": "migration:e/tests/migrations/1_t.sql#migration",
+          "foreign_keys_in": 0,
+          "foreign_keys_out": 0,
+          "indexes": [],
+          "node": {
+            "attributes": {
+              "dialect": "postgres",
+              "name": "fixture_rows",
+              "opaque_after": 2,
+              "previous_names": [],
+              "primary_key": [
+                "id"
+              ],
+              "reasons": [],
+              "schema": null,
+              "scope": "test",
+              "set": "e/tests/migrations",
+              "state": "complete",
+              "unique_keys": []
+            },
+            "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "file": "e/tests/migrations/1_t.sql",
+            "identity": "table:e/tests/migrations/1_t.sql#fixture_rows",
+            "kind": "table",
+            "level": 4,
+            "name": "fixture_rows",
+            "qualified_name": "fixture_rows",
+            "span": {
+              "end_column": 1,
+              "end_line": 1,
+              "start_column": 0,
+              "start_line": 1
+            },
+            "type": "node"
+          },
+          "opaque_sites": null,
+          "overlaps": null,
+          "rests_on": null,
+          "unresolved_references": 0,
+          "verification_counts": null
+        }
+      ],
+      "tables_by_scope": {
+        "production": 0,
+        "test": 1
+      },
+      "test_only": true,
+      "tool": "sqlx",
+      "unattached": {
+        "columns": 0,
+        "indexes": 0
+      }
+    },
+    {
+      "conflicts": [],
+      "diagnostic_counts": {
+        "schema_unsupported_statement": 1
+      },
+      "dialect": "postgres",
+      "foreign_keys": [],
+      "linked_without_edge": 0,
+      "migrations": [
+        {
+          "alters": [],
+          "attributes": {
+            "applied": true,
+            "description": "i",
+            "dialect": "postgres",
+            "direction": "simple",
+            "errors": 0,
+            "extensions": [],
+            "modeled": 0,
+            "no_effect": 0,
+            "opaque": 0,
+            "order": 1,
+            "package": "i/Cargo.toml",
+            "set": "i/migrations",
+            "set_opaque_statements": {
+              "by_kind": {},
+              "total": 0
+            },
+            "statements": 1,
+            "tool": "sqlx",
+            "unsupported": 1,
+            "version": "1",
+            "version_text": "1"
+          },
+          "creates": [],
+          "file": "i/migrations/1_i.sql",
+          "id": "migration:i/migrations/1_i.sql#migration"
+        },
+        {
+          "alters": [],
+          "attributes": {
+            "applied": false,
+            "description": "i",
+            "dialect": "postgres",
+            "direction": "down",
+            "errors": null,
+            "extensions": null,
+            "modeled": null,
+            "no_effect": null,
+            "opaque": null,
+            "order": null,
+            "package": "i/Cargo.toml",
+            "set": "i/migrations",
+            "set_opaque_statements": {
+              "by_kind": {},
+              "total": 0
+            },
+            "statements": null,
+            "tool": "sqlx",
+            "unsupported": null,
+            "version": "1",
+            "version_text": "1"
+          },
+          "creates": [],
+          "file": "i/migrations/1_i.down.sql",
+          "id": "migration:i/migrations/1_i.down.sql#migration"
+        }
+      ],
+      "not_modeled_reasons": [],
+      "objects": "modeled",
+      "opaque_by_kind": {},
+      "opaque_total": 0,
+      "package": "i/Cargo.toml",
+      "precision": {
+        "label": "best_effort",
+        "reason": "external_indexer",
+        "row": "D"
+      },
+      "rests_on": null,
+      "set": "i/migrations",
+      "source": "migrations",
+      "table_list": "may_be_incomplete",
+      "table_list_reasons": [
+        "unsupported_statements"
+      ],
+      "tables": [],
+      "tables_by_scope": {
+        "production": 0,
+        "test": 0
+      },
+      "test_only": false,
+      "tool": "sqlx",
+      "unattached": {
+        "columns": 0,
+        "indexes": 0
+      }
+    },
+    {
+      "conflicts": [],
+      "diagnostic_counts": {},
+      "dialect": null,
+      "foreign_keys": [],
+      "linked_without_edge": 0,
+      "migrations": [],
+      "not_modeled_reasons": [],
+      "objects": null,
+      "opaque_by_kind": null,
+      "opaque_total": null,
+      "package": null,
+      "precision": {
+        "label": "best_effort",
+        "reason": "external_indexer",
+        "row": "D"
+      },
+      "rests_on": null,
+      "set": null,
+      "source": null,
+      "table_list": null,
+      "table_list_reasons": [],
+      "tables": [
+        {
+          "altered_by": [],
+          "columns": [
+            {
+              "default_state": "none",
+              "node": {
+                "attributes": {
+                  "collation": null,
+                  "default": null,
+                  "generated": null,
+                  "identity": null,
+                  "name": "id",
+                  "nullable": false,
+                  "position": 1,
+                  "previous_names": [],
+                  "primary_key": false,
+                  "references": null,
+                  "type": "integer",
+                  "unique": false
+                },
+                "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "file": "x/loose.sql",
+                "identity": "column:x/loose.sql#t_noset.id",
+                "kind": "column",
+                "level": 4,
+                "name": "id",
+                "qualified_name": "t_noset.id",
+                "span": {
+                  "end_column": 1,
+                  "end_line": 1,
+                  "start_column": 0,
+                  "start_line": 1
+                },
+                "type": "node"
+              }
+            }
+          ],
+          "completeness": "complete",
+          "created_by": null,
+          "foreign_keys_in": 0,
+          "foreign_keys_out": 0,
+          "indexes": [],
+          "node": {
+            "attributes": {
+              "dialect": "postgres",
+              "name": "t_noset",
+              "opaque_after": 0,
+              "previous_names": [],
+              "primary_key": [
+                "id"
+              ],
+              "reasons": [],
+              "schema": null,
+              "state": "complete",
+              "unique_keys": []
+            },
+            "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "file": "x/loose.sql",
+            "identity": "table:x/loose.sql#t_noset",
+            "kind": "table",
+            "level": 4,
+            "name": "t_noset",
+            "qualified_name": "t_noset",
+            "span": {
+              "end_column": 1,
+              "end_line": 1,
+              "start_column": 0,
+              "start_line": 1
+            },
+            "type": "node"
+          },
+          "opaque_sites": null,
+          "overlaps": null,
+          "rests_on": null,
+          "unresolved_references": 0,
+          "verification_counts": null
+        }
+      ],
+      "tables_by_scope": {
+        "production": 1,
+        "test": 0
+      },
+      "test_only": null,
+      "tool": null,
+      "unattached": {
+        "columns": 1,
+        "indexes": 1
+      }
+    }
+  ],
+  "sets_without_records": [
+    {
+      "diagnostic_counts": {
+        "schema_member_unreadable": 1,
+        "schema_migration_order": 1,
+        "schema_unsupported_config": 1
+      },
+      "package": "g/Cargo.toml"
+    }
+  ],
+  "unread_tools": [],
+  "unreadable_manifests": [
+    {
+      "code": "schema_manifest_unreadable",
+      "file": "h/Cargo.toml",
+      "message": "h/Cargo.toml: crafted: the manifest could not be read"
+    }
+  ]
+}

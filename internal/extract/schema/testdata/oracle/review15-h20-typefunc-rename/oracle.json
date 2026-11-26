@@ -1,0 +1,28 @@
+{
+  "id": "review15-h20-typefunc-rename",
+  "signature": "agreed at Revision 1.5",
+  "class": "S1",
+  "owner": "U8",
+  "row": "review15",
+  "history": {
+    "id": "h20-typefunc-rename"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42601",
+        "message": "syntax error at or near \"similar\"",
+        "statement": 2,
+        "statement_text": "ALTER TABLE t RENAME COLUMN x TO similar;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

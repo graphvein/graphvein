@@ -1,0 +1,12 @@
+[package]
+name = "axum-shape-oracle03"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+route-shape-axum03 = { path = "../../../../testdata/fixtures/route-shape-axum03" }
+axum = "=0.3.4"
+serde_json = "1"
+tokio = { version = "1", features = ["full"] }
+hyper = { version = "0.14", features = ["server", "tcp", "http1"] }

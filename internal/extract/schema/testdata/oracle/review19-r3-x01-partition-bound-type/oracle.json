@@ -1,0 +1,28 @@
+{
+  "id": "review19-r3-x01-partition-bound-type",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y29",
+  "row": "review19",
+  "history": {
+    "id": "x01-partition-bound-type"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "22P02",
+        "message": "invalid input syntax for type integer: \"x\"",
+        "statement": 2,
+        "statement_text": "CREATE TABLE p1 PARTITION OF p FOR VALUES FROM ('x') TO ('y');"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

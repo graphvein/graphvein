@@ -1,0 +1,1792 @@
+{
+  "info": {
+    "description": "Routes registered in this repository's source, as Graphvein extracted them from its index. Graphvein ran no code and read no running server. A parameter, request body, response or security requirement that is absent was not read, which is not the same as none: each operation lists what was not read in x-graphvein.not_read. Routes Graphvein could not place on a path, forms OpenAPI cannot express and conflicting registrations are listed in the root x-graphvein, never guessed.",
+    "title": "fixture routes extracted by Graphvein",
+    "version": "unversioned"
+  },
+  "openapi": "3.1.1",
+  "paths": {
+    "/api/created": {
+      "post": {
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "layers": [
+              {
+                "expression": "AddExtensionLayer::new(ApiContext { name: String::new() })",
+                "file": "src/lib.rs",
+                "method": "layer",
+                "span": {
+                  "end_column": 74,
+                  "end_line": 31,
+                  "start_column": 9,
+                  "start_line": 31
+                }
+              }
+            ],
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "src/lib.rs",
+          "framework": "axum",
+          "handler": "function:src/review.rs#created",
+          "handler_expression": null,
+          "line": 28,
+          "not_read": [
+            "header",
+            "cookie",
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:src/lib.rs#POST%20%2Fapi%2Fcreated",
+          "rule": "Axum routes (ADR 0016)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [
+              {
+                "item": {
+                  "content_type": "text/plain",
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "src/review.rs",
+                    "kind": "returned",
+                    "line": 29,
+                    "rule": "SH-X22"
+                  },
+                  "schema": {
+                    "type": "string"
+                  },
+                  "status": "201"
+                },
+                "row": "OG-77",
+                "section": "responses",
+                "why": "the declared type of a returned value, not validated by the framework"
+              }
+            ],
+            "sections": {
+              "body": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "src/review.rs",
+                  "kind": "fact",
+                  "line": 28,
+                  "rule": "SH-X29"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "cookie": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "src/lib.rs",
+                  "kind": "fact",
+                  "line": 28,
+                  "rule": "SH-X1"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "src/review.rs",
+                  "kind": "fact",
+                  "line": 28,
+                  "rule": "SH-X29"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "responses": {
+                "reason": "panics, extractor rejections and middleware (layers) are not read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {},
+            "version": 1
+          },
+          "template": "/api/created"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "POST",
+            "resolution": "literal",
+            "route": "route:src/lib.rs#POST%20%2Fapi%2Fcreated"
+          }
+        ]
+      }
+    },
+    "/api/feed": {
+      "get": {
+        "parameters": [
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            },
+            "x-graphvein": {
+              "provenance": {
+                "chain": [],
+                "confidence": 1,
+                "file": "src/users.rs",
+                "kind": "fact",
+                "line": 60,
+                "rule": "SH-X4"
+              }
+            }
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            },
+            "x-graphvein": {
+              "provenance": {
+                "chain": [],
+                "confidence": 1,
+                "file": "src/users.rs",
+                "kind": "fact",
+                "line": 60,
+                "rule": "SH-X4"
+              }
+            }
+          }
+        ],
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "layers": [
+              {
+                "expression": "AddExtensionLayer::new(ApiContext { name: String::new() })",
+                "file": "src/lib.rs",
+                "method": "layer",
+                "span": {
+                  "end_column": 74,
+                  "end_line": 31,
+                  "start_column": 9,
+                  "start_line": 31
+                }
+              }
+            ],
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "src/lib.rs",
+          "framework": "axum",
+          "handler": "function:src/users.rs#feed",
+          "handler_expression": null,
+          "line": 24,
+          "not_read": [
+            "cookie",
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:src/lib.rs#GET%20%2Fapi%2Ffeed",
+          "rule": "Axum routes (ADR 0016)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [
+              {
+                "item": {
+                  "access": "read_by_dependency",
+                  "name": "authorization",
+                  "presence": "unknown",
+                  "provenance": {
+                    "chain": [
+                      {
+                        "file": "src/users.rs",
+                        "function": "AuthUser.from_request",
+                        "line": 60
+                      }
+                    ],
+                    "confidence": 1,
+                    "file": "src/extractor.rs",
+                    "kind": "read_in_handler",
+                    "line": 22,
+                    "rule": "SH-X13"
+                  },
+                  "schema": null
+                },
+                "row": "OG-76",
+                "section": "header",
+                "why": "a name read in code: its type and whether it must be sent are not read"
+              },
+              {
+                "item": {
+                  "content_type": "application/json",
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "src/users.rs",
+                    "kind": "returned",
+                    "line": 60,
+                    "rule": "SH-X21"
+                  },
+                  "schema": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  },
+                  "status": "200"
+                },
+                "row": "OG-77",
+                "section": "responses",
+                "why": "the declared type of a returned value, not validated by the framework"
+              }
+            ],
+            "sections": {
+              "body": {
+                "reason": "extractor AuthUser implements FromRequest and may read the body",
+                "standard": 0,
+                "state": "partial"
+              },
+              "cookie": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "reason": "middleware (layers) is not read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "src/lib.rs",
+                  "kind": "fact",
+                  "line": 24,
+                  "rule": "SH-X1"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "src/users.rs",
+                  "kind": "fact",
+                  "line": 60,
+                  "rule": "SH-X29"
+                },
+                "standard": 2,
+                "state": "complete"
+              },
+              "responses": {
+                "reason": "panics, extractor rejections and middleware (layers) are not read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 1
+            },
+            "version": 1
+          },
+          "template": "/api/feed"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:src/lib.rs#GET%20%2Fapi%2Ffeed"
+          }
+        ]
+      }
+    },
+    "/api/form-head": {
+      "head": {
+        "requestBody": {
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "properties": {
+                  "user": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "user"
+                ],
+                "type": "object"
+              },
+              "x-graphvein": {
+                "provenance": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "src/review.rs",
+                  "kind": "fact",
+                  "line": 42,
+                  "rule": "SH-X7"
+                }
+              }
+            }
+          },
+          "x-graphvein": {
+            "required": "not_read"
+          }
+        },
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "layers": [
+              {
+                "expression": "AddExtensionLayer::new(ApiContext { name: String::new() })",
+                "file": "src/lib.rs",
+                "method": "layer",
+                "span": {
+                  "end_column": 74,
+                  "end_line": 31,
+                  "start_column": 9,
+                  "start_line": 31
+                }
+              }
+            ],
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "src/lib.rs",
+          "framework": "axum",
+          "handler": "function:src/review.rs#form_head",
+          "handler_expression": null,
+          "line": 30,
+          "not_read": [
+            "header",
+            "cookie",
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:src/lib.rs#HEAD%20%2Fapi%2Fform-head",
+          "rule": "Axum routes (ADR 0016)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [
+              {
+                "item": {
+                  "content_type": null,
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "src/review.rs",
+                    "kind": "returned",
+                    "line": 46,
+                    "rule": "SH-X23"
+                  },
+                  "schema": {
+                    "type": "null"
+                  },
+                  "status": "200"
+                },
+                "row": "OG-77",
+                "section": "responses",
+                "why": "the declared type of a returned value, not validated by the framework"
+              },
+              {
+                "item": {
+                  "content_type": null,
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "src/review.rs",
+                    "kind": "returned",
+                    "line": 44,
+                    "rule": "SH-X23"
+                  },
+                  "schema": {
+                    "type": "null"
+                  },
+                  "status": "202"
+                },
+                "row": "OG-77",
+                "section": "responses",
+                "why": "the declared type of a returned value, not validated by the framework"
+              }
+            ],
+            "sections": {
+              "body": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "src/review.rs",
+                  "kind": "fact",
+                  "line": 42,
+                  "rule": "SH-X29"
+                },
+                "standard": 1,
+                "state": "complete"
+              },
+              "cookie": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "src/lib.rs",
+                  "kind": "fact",
+                  "line": 30,
+                  "rule": "SH-X1"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "src/review.rs",
+                  "kind": "fact",
+                  "line": 42,
+                  "rule": "SH-X29"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "responses": {
+                "reason": "panics, extractor rejections and middleware (layers) are not read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {},
+            "version": 1
+          },
+          "template": "/api/form-head"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "HEAD",
+            "resolution": "literal",
+            "route": "route:src/lib.rs#HEAD%20%2Fapi%2Fform-head"
+          }
+        ]
+      }
+    },
+    "/api/headers-first": {
+      "post": {
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "layers": [
+              {
+                "expression": "AddExtensionLayer::new(ApiContext { name: String::new() })",
+                "file": "src/lib.rs",
+                "method": "layer",
+                "span": {
+                  "end_column": 74,
+                  "end_line": 31,
+                  "start_column": 9,
+                  "start_line": 31
+                }
+              }
+            ],
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "src/lib.rs",
+          "framework": "axum",
+          "handler": "function:src/review.rs#headers_first",
+          "handler_expression": null,
+          "line": 29,
+          "not_read": [
+            "cookie",
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:src/lib.rs#POST%20%2Fapi%2Fheaders-first",
+          "rule": "Axum routes (ADR 0016)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [
+              {
+                "item": {
+                  "access": "read_by_handler",
+                  "name": "x-a",
+                  "presence": "unknown",
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "src/review.rs",
+                    "kind": "read_in_handler",
+                    "line": 34,
+                    "rule": "SH-X11"
+                  },
+                  "schema": null
+                },
+                "row": "OG-76",
+                "section": "header",
+                "why": "a name read in code: its type and whether it must be sent are not read"
+              }
+            ],
+            "sections": {
+              "body": {
+                "reason": "HeaderMap at src/review.rs:33 takes the headers before a later extractor in axum before 0.5, and the axum version is not proven to be later (axum 0.3.4 (Cargo.toml))",
+                "standard": 0,
+                "state": "partial"
+              },
+              "cookie": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "reason": "middleware (layers) is not read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "src/lib.rs",
+                  "kind": "fact",
+                  "line": 29,
+                  "rule": "SH-X1"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "src/review.rs",
+                  "kind": "fact",
+                  "line": 33,
+                  "rule": "SH-X29"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "responses": {
+                "reason": "HeaderMap at src/review.rs:33 takes the headers before a later extractor in axum before 0.5, and the axum version is not proven to be later (axum 0.3.4 (Cargo.toml)); panics, extractor rejections and middleware (layers) are not read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 1
+            },
+            "version": 1
+          },
+          "template": "/api/headers-first"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "POST",
+            "resolution": "literal",
+            "route": "route:src/lib.rs#POST%20%2Fapi%2Fheaders-first"
+          }
+        ]
+      }
+    },
+    "/api/hello": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "layers": [
+              {
+                "expression": "AddExtensionLayer::new(ApiContext { name: String::new() })",
+                "file": "src/lib.rs",
+                "method": "layer",
+                "span": {
+                  "end_column": 74,
+                  "end_line": 31,
+                  "start_column": 9,
+                  "start_line": 31
+                }
+              }
+            ],
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "src/lib.rs",
+          "framework": "axum",
+          "handler": "function:src/review.rs#hello",
+          "handler_expression": null,
+          "line": 27,
+          "not_read": [
+            "header",
+            "cookie",
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:src/lib.rs#GET%20%2Fapi%2Fhello",
+          "rule": "Axum routes (ADR 0016)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [
+              {
+                "item": {
+                  "content_type": "text/plain",
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "src/review.rs",
+                    "kind": "returned",
+                    "line": 25,
+                    "rule": "SH-X25"
+                  },
+                  "schema": {
+                    "type": "string"
+                  },
+                  "status": "200"
+                },
+                "row": "OG-77",
+                "section": "responses",
+                "why": "the declared type of a returned value, not validated by the framework"
+              }
+            ],
+            "sections": {
+              "body": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "src/review.rs",
+                  "kind": "fact",
+                  "line": 24,
+                  "rule": "SH-X29"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "cookie": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "src/lib.rs",
+                  "kind": "fact",
+                  "line": 27,
+                  "rule": "SH-X1"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "src/review.rs",
+                  "kind": "fact",
+                  "line": 24,
+                  "rule": "SH-X29"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "responses": {
+                "reason": "panics, extractor rejections and middleware (layers) are not read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {},
+            "version": 1
+          },
+          "template": "/api/hello"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:src/lib.rs#GET%20%2Fapi%2Fhello"
+          }
+        ]
+      }
+    },
+    "/api/page": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "layers": [
+              {
+                "expression": "AddExtensionLayer::new(ApiContext { name: String::new() })",
+                "file": "src/lib.rs",
+                "method": "layer",
+                "span": {
+                  "end_column": 74,
+                  "end_line": 31,
+                  "start_column": 9,
+                  "start_line": 31
+                }
+              }
+            ],
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "src/lib.rs",
+          "framework": "axum",
+          "handler": "function:src/review.rs#page",
+          "handler_expression": null,
+          "line": 26,
+          "not_read": [
+            "header",
+            "cookie",
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:src/lib.rs#GET%20%2Fapi%2Fpage",
+          "rule": "Axum routes (ADR 0016)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [
+              {
+                "item": {
+                  "content_type": "text/html",
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "src/review.rs",
+                    "kind": "returned",
+                    "line": 20,
+                    "rule": "SH-X25"
+                  },
+                  "schema": {
+                    "type": "string"
+                  },
+                  "status": "200"
+                },
+                "row": "OG-77",
+                "section": "responses",
+                "why": "the declared type of a returned value, not validated by the framework"
+              }
+            ],
+            "sections": {
+              "body": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "src/review.rs",
+                  "kind": "fact",
+                  "line": 20,
+                  "rule": "SH-X29"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "cookie": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "src/lib.rs",
+                  "kind": "fact",
+                  "line": 26,
+                  "rule": "SH-X1"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "src/review.rs",
+                  "kind": "fact",
+                  "line": 20,
+                  "rule": "SH-X29"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "responses": {
+                "reason": "panics, extractor rejections and middleware (layers) are not read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {},
+            "version": 1
+          },
+          "template": "/api/page"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:src/lib.rs#GET%20%2Fapi%2Fpage"
+          }
+        ]
+      }
+    },
+    "/api/ping": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "layers": [
+              {
+                "expression": "AddExtensionLayer::new(ApiContext { name: String::new() })",
+                "file": "src/lib.rs",
+                "method": "layer",
+                "span": {
+                  "end_column": 74,
+                  "end_line": 31,
+                  "start_column": 9,
+                  "start_line": 31
+                }
+              }
+            ],
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "src/lib.rs",
+          "framework": "axum",
+          "handler": "function:src/review.rs#ping",
+          "handler_expression": null,
+          "line": 25,
+          "not_read": [
+            "header",
+            "cookie",
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:src/lib.rs#GET%20%2Fapi%2Fping",
+          "rule": "Axum routes (ADR 0016)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [
+              {
+                "item": {
+                  "content_type": "text/plain",
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "src/review.rs",
+                    "kind": "returned",
+                    "line": 16,
+                    "rule": "SH-X25"
+                  },
+                  "schema": {
+                    "type": "string"
+                  },
+                  "status": "200"
+                },
+                "row": "OG-77",
+                "section": "responses",
+                "why": "the declared type of a returned value, not validated by the framework"
+              }
+            ],
+            "sections": {
+              "body": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "src/review.rs",
+                  "kind": "fact",
+                  "line": 16,
+                  "rule": "SH-X29"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "cookie": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "src/lib.rs",
+                  "kind": "fact",
+                  "line": 25,
+                  "rule": "SH-X1"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "src/review.rs",
+                  "kind": "fact",
+                  "line": 16,
+                  "rule": "SH-X29"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "responses": {
+                "reason": "panics, extractor rejections and middleware (layers) are not read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {},
+            "version": 1
+          },
+          "template": "/api/ping"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:src/lib.rs#GET%20%2Fapi%2Fping"
+          }
+        ]
+      }
+    },
+    "/api/users": {
+      "post": {
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "user": {
+                    "properties": {
+                      "email": {
+                        "type": "string"
+                      },
+                      "username": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "username",
+                      "email"
+                    ],
+                    "type": "object"
+                  }
+                },
+                "required": [
+                  "user"
+                ],
+                "type": "object"
+              },
+              "x-graphvein": {
+                "provenance": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "src/users.rs",
+                  "kind": "fact",
+                  "line": 53,
+                  "rule": "SH-X6"
+                }
+              }
+            }
+          },
+          "x-graphvein": {
+            "required": "not_read"
+          }
+        },
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "layers": [
+              {
+                "expression": "AddExtensionLayer::new(ApiContext { name: String::new() })",
+                "file": "src/lib.rs",
+                "method": "layer",
+                "span": {
+                  "end_column": 74,
+                  "end_line": 31,
+                  "start_column": 9,
+                  "start_line": 31
+                }
+              }
+            ],
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "src/lib.rs",
+          "framework": "axum",
+          "handler": "function:src/users.rs#create_user",
+          "handler_expression": null,
+          "line": 23,
+          "not_read": [
+            "header",
+            "cookie",
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:src/lib.rs#POST%20%2Fapi%2Fusers",
+          "rule": "Axum routes (ADR 0016)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [
+              {
+                "item": {
+                  "content_type": "application/json",
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "src/users.rs",
+                    "kind": "returned",
+                    "line": 53,
+                    "rule": "SH-X21"
+                  },
+                  "schema": {
+                    "additional": "forbidden",
+                    "fields": [
+                      {
+                        "name": "user",
+                        "presence": "unknown",
+                        "schema": {
+                          "additional": "forbidden",
+                          "fields": [
+                            {
+                              "name": "username",
+                              "presence": "unknown",
+                              "schema": {
+                                "type": "string"
+                              }
+                            },
+                            {
+                              "name": "bio",
+                              "presence": "unknown",
+                              "schema": {
+                                "nullable": true,
+                                "type": "string"
+                              }
+                            }
+                          ],
+                          "type": "object"
+                        }
+                      }
+                    ],
+                    "type": "object"
+                  },
+                  "status": "200"
+                },
+                "row": "OG-77",
+                "section": "responses",
+                "why": "the declared type of a returned value, not validated by the framework"
+              },
+              {
+                "item": {
+                  "content_type": null,
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "src/users.rs",
+                    "kind": "returned",
+                    "line": 55,
+                    "rule": "SH-X26"
+                  },
+                  "schema": null,
+                  "status": "409"
+                },
+                "row": "OG-77",
+                "section": "responses",
+                "why": "the declared type of a returned value, not validated by the framework"
+              }
+            ],
+            "sections": {
+              "body": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "src/users.rs",
+                  "kind": "fact",
+                  "line": 53,
+                  "rule": "SH-X29"
+                },
+                "standard": 1,
+                "state": "complete"
+              },
+              "cookie": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "src/lib.rs",
+                  "kind": "fact",
+                  "line": 23,
+                  "rule": "SH-X1"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "src/users.rs",
+                  "kind": "fact",
+                  "line": 53,
+                  "rule": "SH-X29"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "responses": {
+                "reason": "panics, extractor rejections and middleware (layers) are not read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {},
+            "version": 1
+          },
+          "template": "/api/users"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "POST",
+            "resolution": "literal",
+            "route": "route:src/lib.rs#POST%20%2Fapi%2Fusers"
+          }
+        ]
+      }
+    },
+    "/api/users/{id}": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "x-graphvein": {
+              "provenance": {
+                "chain": [],
+                "confidence": 1,
+                "file": "src/users.rs",
+                "kind": "fact",
+                "line": 37,
+                "rule": "SH-X2"
+              }
+            }
+          }
+        ],
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "layers": [
+              {
+                "expression": "AddExtensionLayer::new(ApiContext { name: String::new() })",
+                "file": "src/lib.rs",
+                "method": "layer",
+                "span": {
+                  "end_column": 74,
+                  "end_line": 31,
+                  "start_column": 9,
+                  "start_line": 31
+                }
+              }
+            ],
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "src/lib.rs",
+          "framework": "axum",
+          "handler": "function:src/users.rs#get_user",
+          "handler_expression": null,
+          "line": 22,
+          "not_read": [
+            "header",
+            "cookie",
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:src/lib.rs#GET%20%2Fapi%2Fusers%2F%3Aid",
+          "rule": "Axum routes (ADR 0016)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [
+              {
+                "item": {
+                  "content_type": "application/json",
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "src/users.rs",
+                    "kind": "returned",
+                    "line": 37,
+                    "rule": "SH-X21"
+                  },
+                  "schema": {
+                    "additional": "forbidden",
+                    "fields": [
+                      {
+                        "name": "user",
+                        "presence": "unknown",
+                        "schema": {
+                          "additional": "forbidden",
+                          "fields": [
+                            {
+                              "name": "username",
+                              "presence": "unknown",
+                              "schema": {
+                                "type": "string"
+                              }
+                            },
+                            {
+                              "name": "bio",
+                              "presence": "unknown",
+                              "schema": {
+                                "nullable": true,
+                                "type": "string"
+                              }
+                            }
+                          ],
+                          "type": "object"
+                        }
+                      }
+                    ],
+                    "type": "object"
+                  },
+                  "status": "200"
+                },
+                "row": "OG-77",
+                "section": "responses",
+                "why": "the declared type of a returned value, not validated by the framework"
+              },
+              {
+                "item": {
+                  "content_type": null,
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "src/users.rs",
+                    "kind": "returned",
+                    "line": 39,
+                    "rule": "SH-X26"
+                  },
+                  "schema": null,
+                  "status": "404"
+                },
+                "row": "OG-77",
+                "section": "responses",
+                "why": "the declared type of a returned value, not validated by the framework"
+              }
+            ],
+            "sections": {
+              "body": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "src/users.rs",
+                  "kind": "fact",
+                  "line": 37,
+                  "rule": "SH-X29"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "cookie": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "src/lib.rs",
+                  "kind": "fact",
+                  "line": 22,
+                  "rule": "SH-X1"
+                },
+                "standard": 1,
+                "state": "complete"
+              },
+              "query": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "src/users.rs",
+                  "kind": "fact",
+                  "line": 37,
+                  "rule": "SH-X29"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "responses": {
+                "reason": "panics, extractor rejections and middleware (layers) are not read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {},
+            "version": 1
+          },
+          "template": "/api/users/{id}"
+        }
+      },
+      "put": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "x-graphvein": {
+              "provenance": {
+                "chain": [],
+                "confidence": 1,
+                "file": "src/users.rs",
+                "kind": "fact",
+                "line": 46,
+                "rule": "SH-X2"
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "user": {
+                    "properties": {
+                      "bio": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "email": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      }
+                    },
+                    "type": "object"
+                  }
+                },
+                "required": [
+                  "user"
+                ],
+                "type": "object"
+              },
+              "x-graphvein": {
+                "provenance": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "src/users.rs",
+                  "kind": "fact",
+                  "line": 47,
+                  "rule": "SH-X6"
+                }
+              }
+            }
+          },
+          "x-graphvein": {
+            "required": "not_read"
+          }
+        },
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "layers": [
+              {
+                "expression": "AddExtensionLayer::new(ApiContext { name: String::new() })",
+                "file": "src/lib.rs",
+                "method": "layer",
+                "span": {
+                  "end_column": 74,
+                  "end_line": 31,
+                  "start_column": 9,
+                  "start_line": 31
+                }
+              }
+            ],
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "src/lib.rs",
+          "framework": "axum",
+          "handler": "function:src/users.rs#update_user",
+          "handler_expression": null,
+          "line": 22,
+          "not_read": [
+            "cookie",
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:src/lib.rs#PUT%20%2Fapi%2Fusers%2F%3Aid",
+          "rule": "Axum routes (ADR 0016)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [
+              {
+                "item": {
+                  "access": "read_by_dependency",
+                  "name": "authorization",
+                  "presence": "unknown",
+                  "provenance": {
+                    "chain": [
+                      {
+                        "file": "src/users.rs",
+                        "function": "AuthUser.from_request",
+                        "line": 45
+                      }
+                    ],
+                    "confidence": 1,
+                    "file": "src/extractor.rs",
+                    "kind": "read_in_handler",
+                    "line": 22,
+                    "rule": "SH-X13"
+                  },
+                  "schema": null
+                },
+                "row": "OG-76",
+                "section": "header",
+                "why": "a name read in code: its type and whether it must be sent are not read"
+              },
+              {
+                "item": {
+                  "content_type": "application/json",
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "src/users.rs",
+                    "kind": "returned",
+                    "line": 44,
+                    "rule": "SH-X21"
+                  },
+                  "schema": {
+                    "additional": "forbidden",
+                    "fields": [
+                      {
+                        "name": "user",
+                        "presence": "unknown",
+                        "schema": {
+                          "additional": "forbidden",
+                          "fields": [
+                            {
+                              "name": "username",
+                              "presence": "unknown",
+                              "schema": {
+                                "type": "string"
+                              }
+                            },
+                            {
+                              "name": "bio",
+                              "presence": "unknown",
+                              "schema": {
+                                "nullable": true,
+                                "type": "string"
+                              }
+                            }
+                          ],
+                          "type": "object"
+                        }
+                      }
+                    ],
+                    "type": "object"
+                  },
+                  "status": "200"
+                },
+                "row": "OG-77",
+                "section": "responses",
+                "why": "the declared type of a returned value, not validated by the framework"
+              }
+            ],
+            "sections": {
+              "body": {
+                "reason": "extractor AuthUser implements FromRequest and may read the body",
+                "standard": 1,
+                "state": "partial"
+              },
+              "cookie": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "reason": "middleware (layers) is not read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "src/lib.rs",
+                  "kind": "fact",
+                  "line": 22,
+                  "rule": "SH-X1"
+                },
+                "standard": 1,
+                "state": "complete"
+              },
+              "query": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "src/users.rs",
+                  "kind": "fact",
+                  "line": 44,
+                  "rule": "SH-X29"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "responses": {
+                "reason": "panics, extractor rejections and middleware (layers) are not read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 1
+            },
+            "version": 1
+          },
+          "template": "/api/users/{id}"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:src/lib.rs#GET%20%2Fapi%2Fusers%2F%3Aid"
+          },
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "PUT",
+            "resolution": "literal",
+            "route": "route:src/lib.rs#PUT%20%2Fapi%2Fusers%2F%3Aid"
+          }
+        ]
+      }
+    }
+  },
+  "x-graphvein": {
+    "conflicts": [],
+    "contract_version": 1,
+    "counts": {
+      "any_method": 0,
+      "conditional": 0,
+      "conflicts": 0,
+      "may_be_shadowed": 0,
+      "operations": 10,
+      "path_keys": 9,
+      "production_routes": 10,
+      "routes": 10,
+      "set_by_you": 0,
+      "settings_default": 0,
+      "unrepresentable": 0,
+      "unresolved": 0,
+      "with_shape": 10
+    },
+    "excluded_test": {
+      "path_entries": 0,
+      "routes": 0
+    },
+    "generator": "graphvein",
+    "group": "repository",
+    "imported_specs": [],
+    "index": {
+      "extractor": "graphvein EXTRACTOR",
+      "finished_at": "FINISHED",
+      "run": "RUN"
+    },
+    "repository": "fixture",
+    "scope": "production",
+    "shape_errors": 0,
+    "unrepresentable": [],
+    "unresolved": [],
+    "user_values": []
+  }
+}

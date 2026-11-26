@@ -1,0 +1,37 @@
+[workspace]
+resolver = "2"
+members = [
+    "pg-app",
+    "pg-workspace-dep",
+    "pg-serial",
+    "pg-search-path",
+    "pg-opaque-exists",
+    "pg-set-opacity",
+    "pg-unreadable",
+    "sqlite-app",
+    "bad-version",
+    "dup-version",
+    "no-sqlx",
+    "with-config",
+    "pg-rev2-columns",
+    "pg-rev2-relations",
+    "pg-rev2-shadow",
+    "pg-rev2-schema",
+    "pg-rev2-types",
+    "pg-rev2-roles",
+    "pg-drops",
+    "pg-all-unreadable",
+    "pg-select-into",
+]
+
+# A multi-line inline table, as in kftray's workspace root.
+[workspace.dependencies]
+sqlx = {
+    version = "0.8.6",
+    default-features = false,
+    features = [
+        "runtime-tokio",
+        "postgres",
+        "migrate",
+    ]
+}

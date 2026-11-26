@@ -1,0 +1,35 @@
+{
+  "id": "g1-s20371-S1-R4_rename_view",
+  "signature": "applied|S1|42809|R4.rename_view",
+  "class": "S1",
+  "owner": "P4",
+  "row": "R4.rename_view",
+  "history": {
+    "id": "g1-s20371",
+    "tags": {
+      "1_m1.sql": [
+        "R1.composite_type",
+        "O4.lexing",
+        "R4.rename_view"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42809",
+        "message": "\"ct1\" is not a view",
+        "statement": 3,
+        "statement_text": "ALTER VIEW ct1 RENAME TO v4;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

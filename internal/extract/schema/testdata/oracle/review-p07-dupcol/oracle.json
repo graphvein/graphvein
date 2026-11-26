@@ -1,0 +1,28 @@
+{
+  "id": "review-p07-dupcol",
+  "signature": "agreed at af6a883",
+  "class": "S1",
+  "owner": "P1",
+  "row": "review",
+  "history": {
+    "id": "p07-dupcol"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42701",
+        "message": "column \"v\" specified more than once",
+        "statement": 2,
+        "statement_text": "INSERT INTO t (v, v) VALUES (1, 2);"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

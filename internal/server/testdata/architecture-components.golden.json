@@ -1,0 +1,973 @@
+{
+  "api_version": 0,
+  "components": [
+    {
+      "counts": {
+        "client_calls": 0,
+        "files": 9,
+        "ipc_calls": 0,
+        "ipc_commands": 0,
+        "manifests": 0,
+        "routes": 0,
+        "tables": 0,
+        "test_files": 0,
+        "wrapper_calls": 0
+      },
+      "directory": ".",
+      "frameworks": [],
+      "hidden_by": null,
+      "id": ".",
+      "kinds": [
+        "unassigned_files"
+      ],
+      "manifests": [],
+      "markers": [],
+      "name": "unassigned",
+      "reason": "files under no package manifest",
+      "rows": [
+        "CK7"
+      ],
+      "state": "unassigned",
+      "visibility": "shown"
+    },
+    {
+      "counts": {
+        "client_calls": 0,
+        "files": 3,
+        "ipc_calls": 0,
+        "ipc_commands": 0,
+        "manifests": 1,
+        "routes": 2,
+        "tables": 0,
+        "test_files": 0,
+        "wrapper_calls": 0
+      },
+      "directory": "api",
+      "frameworks": [
+        "express"
+      ],
+      "hidden_by": null,
+      "id": "api",
+      "kinds": [
+        "server"
+      ],
+      "manifests": [
+        {
+          "ecosystem": "npm",
+          "file": "api/package.json",
+          "name": "api",
+          "package": "package:api/package.json#api",
+          "unread": null
+        }
+      ],
+      "markers": [],
+      "name": "api",
+      "reason": null,
+      "rows": [
+        "CK1"
+      ],
+      "state": "read",
+      "visibility": "shown"
+    },
+    {
+      "counts": {
+        "client_calls": 0,
+        "files": 2,
+        "ipc_calls": 0,
+        "ipc_commands": 0,
+        "manifests": 1,
+        "routes": 0,
+        "tables": 0,
+        "test_files": 0,
+        "wrapper_calls": 0
+      },
+      "directory": "badgo",
+      "frameworks": [],
+      "hidden_by": null,
+      "id": "badgo",
+      "kinds": [
+        "unknown"
+      ],
+      "manifests": [
+        {
+          "ecosystem": null,
+          "file": "badgo/go.mod",
+          "name": null,
+          "package": null,
+          "unread": "badgo/go.mod: no module directive; its directory is an unread component of unknown kind (row CM-U1)"
+        }
+      ],
+      "markers": [],
+      "name": "badgo",
+      "reason": "manifest unread: kind unknown",
+      "rows": [],
+      "state": "unread",
+      "visibility": "shown"
+    },
+    {
+      "counts": {
+        "client_calls": 0,
+        "files": 2,
+        "ipc_calls": 0,
+        "ipc_commands": 0,
+        "manifests": 1,
+        "routes": 0,
+        "tables": 0,
+        "test_files": 0,
+        "wrapper_calls": 0
+      },
+      "directory": "broken",
+      "frameworks": [],
+      "hidden_by": null,
+      "id": "broken",
+      "kinds": [
+        "unknown"
+      ],
+      "manifests": [
+        {
+          "ecosystem": null,
+          "file": "broken/package.json",
+          "name": null,
+          "package": null,
+          "unread": "broken/package.json: invalid JSON; its directory is an unread component of unknown kind (row CM-U1)"
+        }
+      ],
+      "markers": [],
+      "name": "broken",
+      "reason": "manifest unread: kind unknown",
+      "rows": [],
+      "state": "unread",
+      "visibility": "shown"
+    },
+    {
+      "counts": {
+        "client_calls": 0,
+        "files": 5,
+        "ipc_calls": 0,
+        "ipc_commands": 0,
+        "manifests": 2,
+        "routes": 0,
+        "tables": 1,
+        "test_files": 0,
+        "wrapper_calls": 0
+      },
+      "directory": "crates/app",
+      "frameworks": [],
+      "hidden_by": null,
+      "id": "crates/app",
+      "kinds": [
+        "schema_source",
+        "binary"
+      ],
+      "manifests": [
+        {
+          "ecosystem": "cargo",
+          "file": "crates/app/Cargo.toml",
+          "name": "t026-app",
+          "package": "package:crates/app/Cargo.toml#t026-app",
+          "unread": null
+        },
+        {
+          "ecosystem": "npm",
+          "file": "crates/app/package.json",
+          "name": "t026-app-ui",
+          "package": "package:crates/app/package.json#t026-app-ui",
+          "unread": null
+        }
+      ],
+      "markers": [
+        {
+          "file": "crates/app/tauri.conf.json",
+          "kind": "tauri_app",
+          "label": "Tauri app",
+          "row": "CD2"
+        }
+      ],
+      "name": "t026-app, t026-app-ui",
+      "reason": null,
+      "rows": [
+        "CK4",
+        "CK5"
+      ],
+      "state": "read",
+      "visibility": "shown"
+    },
+    {
+      "counts": {
+        "client_calls": 0,
+        "files": 2,
+        "ipc_calls": 0,
+        "ipc_commands": 0,
+        "manifests": 1,
+        "routes": 0,
+        "tables": 0,
+        "test_files": 0,
+        "wrapper_calls": 0
+      },
+      "directory": "crates/core",
+      "frameworks": [],
+      "hidden_by": null,
+      "id": "crates/core",
+      "kinds": [
+        "package"
+      ],
+      "manifests": [
+        {
+          "ecosystem": "cargo",
+          "file": "crates/core/Cargo.toml",
+          "name": "t026-core",
+          "package": "package:crates/core/Cargo.toml#t026-core",
+          "unread": null
+        }
+      ],
+      "markers": [],
+      "name": "t026-core",
+      "reason": null,
+      "rows": [
+        "CKD",
+        "CV3"
+      ],
+      "state": "read",
+      "visibility": "folded"
+    },
+    {
+      "counts": {
+        "client_calls": 0,
+        "files": 2,
+        "ipc_calls": 0,
+        "ipc_commands": 0,
+        "manifests": 1,
+        "routes": 0,
+        "tables": 0,
+        "test_files": 0,
+        "wrapper_calls": 0
+      },
+      "directory": "docs-site",
+      "frameworks": [],
+      "hidden_by": "docs",
+      "id": "docs-site",
+      "kinds": [
+        "docs_site"
+      ],
+      "manifests": [
+        {
+          "ecosystem": "npm",
+          "file": "docs-site/package.json",
+          "name": "docs-site",
+          "package": "package:docs-site/package.json#docs-site",
+          "unread": null
+        }
+      ],
+      "markers": [],
+      "name": "docs-site",
+      "reason": null,
+      "rows": [
+        "CK6",
+        "CV2"
+      ],
+      "state": "read",
+      "visibility": "hidden"
+    },
+    {
+      "counts": {
+        "client_calls": 0,
+        "files": 2,
+        "ipc_calls": 0,
+        "ipc_commands": 0,
+        "manifests": 1,
+        "routes": 0,
+        "tables": 0,
+        "test_files": 1,
+        "wrapper_calls": 0
+      },
+      "directory": "e2e",
+      "frameworks": [],
+      "hidden_by": "tests",
+      "id": "e2e",
+      "kinds": [
+        "package"
+      ],
+      "manifests": [
+        {
+          "ecosystem": "npm",
+          "file": "e2e/package.json",
+          "name": "e2e",
+          "package": "package:e2e/package.json#e2e",
+          "unread": null
+        }
+      ],
+      "markers": [],
+      "name": "e2e",
+      "reason": null,
+      "rows": [
+        "CKD",
+        "CV1"
+      ],
+      "state": "read",
+      "visibility": "hidden"
+    },
+    {
+      "counts": {
+        "client_calls": 0,
+        "files": 2,
+        "ipc_calls": 0,
+        "ipc_commands": 0,
+        "manifests": 1,
+        "routes": 0,
+        "tables": 0,
+        "test_files": 0,
+        "wrapper_calls": 0
+      },
+      "directory": "gomod",
+      "frameworks": [],
+      "hidden_by": null,
+      "id": "gomod",
+      "kinds": [
+        "binary"
+      ],
+      "manifests": [
+        {
+          "ecosystem": "go",
+          "file": "gomod/go.mod",
+          "name": "example.test/t026",
+          "package": "package:gomod/go.mod#example.test%2Ft026",
+          "unread": null
+        }
+      ],
+      "markers": [],
+      "name": "example.test/t026",
+      "reason": null,
+      "rows": [
+        "CK5"
+      ],
+      "state": "read",
+      "visibility": "shown"
+    },
+    {
+      "counts": {
+        "client_calls": 0,
+        "files": 2,
+        "ipc_calls": 0,
+        "ipc_commands": 0,
+        "manifests": 1,
+        "routes": 0,
+        "tables": 0,
+        "test_files": 0,
+        "wrapper_calls": 0
+      },
+      "directory": "internal-tools",
+      "frameworks": [],
+      "hidden_by": "configured",
+      "id": "internal-tools",
+      "kinds": [
+        "package"
+      ],
+      "manifests": [
+        {
+          "ecosystem": "npm",
+          "file": "internal-tools/package.json",
+          "name": "internal-tools",
+          "package": "package:internal-tools/package.json#internal-tools",
+          "unread": null
+        }
+      ],
+      "markers": [],
+      "name": "internal-tools",
+      "reason": null,
+      "rows": [
+        "CKD",
+        "CV4"
+      ],
+      "state": "read",
+      "visibility": "hidden"
+    },
+    {
+      "counts": {
+        "client_calls": 0,
+        "files": 2,
+        "ipc_calls": 0,
+        "ipc_commands": 0,
+        "manifests": 1,
+        "routes": 0,
+        "tables": 0,
+        "test_files": 0,
+        "wrapper_calls": 0
+      },
+      "directory": "legacy",
+      "frameworks": [],
+      "hidden_by": null,
+      "id": "legacy",
+      "kinds": [
+        "package"
+      ],
+      "manifests": [
+        {
+          "ecosystem": "python",
+          "file": "legacy/setup.py",
+          "name": "t026-legacy",
+          "package": "package:legacy/setup.py#t026-legacy",
+          "unread": null
+        }
+      ],
+      "markers": [],
+      "name": "t026-legacy",
+      "reason": null,
+      "rows": [
+        "CKD",
+        "CV3"
+      ],
+      "state": "read",
+      "visibility": "folded"
+    },
+    {
+      "counts": {
+        "client_calls": 0,
+        "files": 1,
+        "ipc_calls": 0,
+        "ipc_commands": 0,
+        "manifests": 1,
+        "routes": 0,
+        "tables": 0,
+        "test_files": 0,
+        "wrapper_calls": 0
+      },
+      "directory": "legacy2",
+      "frameworks": [],
+      "hidden_by": null,
+      "id": "legacy2",
+      "kinds": [
+        "package"
+      ],
+      "manifests": [
+        {
+          "ecosystem": "python",
+          "file": "legacy2/setup.cfg",
+          "name": "t026-legacy2",
+          "package": "package:legacy2/setup.cfg#t026-legacy2",
+          "unread": null
+        }
+      ],
+      "markers": [],
+      "name": "t026-legacy2",
+      "reason": null,
+      "rows": [
+        "CKD",
+        "CV3"
+      ],
+      "state": "read",
+      "visibility": "folded"
+    },
+    {
+      "counts": {
+        "client_calls": 0,
+        "files": 3,
+        "ipc_calls": 0,
+        "ipc_commands": 0,
+        "manifests": 1,
+        "routes": 0,
+        "tables": 0,
+        "test_files": 0,
+        "wrapper_calls": 0
+      },
+      "directory": "py",
+      "frameworks": [],
+      "hidden_by": null,
+      "id": "py",
+      "kinds": [
+        "binary"
+      ],
+      "manifests": [
+        {
+          "ecosystem": "python",
+          "file": "py/pyproject.toml",
+          "name": "t026-py",
+          "package": "package:py/pyproject.toml#t026-py",
+          "unread": null
+        }
+      ],
+      "markers": [],
+      "name": "t026-py",
+      "reason": null,
+      "rows": [
+        "CK5"
+      ],
+      "state": "read",
+      "visibility": "shown"
+    },
+    {
+      "counts": {
+        "client_calls": 0,
+        "files": 2,
+        "ipc_calls": 0,
+        "ipc_commands": 0,
+        "manifests": 1,
+        "routes": 0,
+        "tables": 0,
+        "test_files": 0,
+        "wrapper_calls": 0
+      },
+      "directory": "shared",
+      "frameworks": [],
+      "hidden_by": null,
+      "id": "shared",
+      "kinds": [
+        "package"
+      ],
+      "manifests": [
+        {
+          "ecosystem": "npm",
+          "file": "shared/package.json",
+          "name": "shared",
+          "package": "package:shared/package.json#shared",
+          "unread": null
+        }
+      ],
+      "markers": [],
+      "name": "shared",
+      "reason": null,
+      "rows": [
+        "CKD",
+        "CV3"
+      ],
+      "state": "read",
+      "visibility": "folded"
+    },
+    {
+      "counts": {
+        "client_calls": 0,
+        "files": 2,
+        "ipc_calls": 0,
+        "ipc_commands": 0,
+        "manifests": 1,
+        "routes": 0,
+        "tables": 0,
+        "test_files": 0,
+        "wrapper_calls": 0
+      },
+      "directory": "tools/cli",
+      "frameworks": [],
+      "hidden_by": null,
+      "id": "tools/cli",
+      "kinds": [
+        "binary"
+      ],
+      "manifests": [
+        {
+          "ecosystem": "npm",
+          "file": "tools/cli/package.json",
+          "name": "@t026/cli",
+          "package": "package:tools/cli/package.json#%40t026%2Fcli",
+          "unread": null
+        }
+      ],
+      "markers": [],
+      "name": "@t026/cli",
+      "reason": null,
+      "rows": [
+        "CK5"
+      ],
+      "state": "read",
+      "visibility": "shown"
+    },
+    {
+      "counts": {
+        "client_calls": 5,
+        "files": 2,
+        "ipc_calls": 0,
+        "ipc_commands": 0,
+        "manifests": 1,
+        "routes": 0,
+        "tables": 0,
+        "test_files": 0,
+        "wrapper_calls": 0
+      },
+      "directory": "web",
+      "frameworks": [],
+      "hidden_by": null,
+      "id": "web",
+      "kinds": [
+        "client"
+      ],
+      "manifests": [
+        {
+          "ecosystem": "npm",
+          "file": "web/package.json",
+          "name": "web",
+          "package": "package:web/package.json#web",
+          "unread": null
+        }
+      ],
+      "markers": [],
+      "name": "web",
+      "reason": null,
+      "rows": [
+        "CK3"
+      ],
+      "state": "read",
+      "visibility": "shown"
+    }
+  ],
+  "databases": [
+    {
+      "accessors": [
+        {
+          "builds": 0,
+          "component": "crates/app",
+          "link": "sql:crates/app-\u003edatabase:crates/app/migrations",
+          "may_also_use": 0,
+          "reads": 1,
+          "writes": 1
+        }
+      ],
+      "engine": {
+        "rows": [
+          "AE1"
+        ],
+        "source": "proven: migration dialect",
+        "state": "proven",
+        "value": "PostgreSQL"
+      },
+      "evidence": [
+        "driver sqlx declared in crates/app/Cargo.toml"
+      ],
+      "id": "database:crates/app/migrations",
+      "set": "crates/app/migrations",
+      "tables": 1,
+      "tool": "sqlx"
+    }
+  ],
+  "documents": [
+    {
+      "by_kind": {
+        "documents_route": 2
+      },
+      "row": "CE5",
+      "source": "api",
+      "target": "api"
+    }
+  ],
+  "ghosts": [
+    {
+      "by_status": {
+        "dynamic": 1,
+        "unmatched": 1
+      },
+      "component": "web",
+      "family": "http",
+      "row": "CE1",
+      "total": 2
+    }
+  ],
+  "hidden": {
+    "configured_components": 1,
+    "docs_components": 1,
+    "test_components": 1,
+    "test_edges": {}
+  },
+  "index": {
+    "contract_version": 1,
+    "finished_at": "2026-11-03T14:32:05.123Z",
+    "indexer": {
+      "name": "graphvein",
+      "version": "extractors-62"
+    }
+  },
+  "libraries": {
+    "components": [
+      "crates/core",
+      "legacy",
+      "legacy2",
+      "shared"
+    ],
+    "links_in": 2,
+    "links_out": 0
+  },
+  "links": [
+    {
+      "back_count": 0,
+      "by_kind": {
+        "calls_route": 3
+      },
+      "cells": {
+        "auth": {
+          "counts": {
+            "middleware auth (as written); documented: bearerAuth": 1,
+            "no route middleware (as written); documented: none": 2
+          },
+          "rows": [
+            "AA1",
+            "AA2"
+          ],
+          "source": "members differ; counts per value",
+          "state": "mixed",
+          "value": "mixed"
+        },
+        "protocol": {
+          "rows": [
+            "AP1"
+          ],
+          "source": "proven: route and client-call facts",
+          "state": "proven",
+          "value": "HTTP"
+        },
+        "tls": {
+          "rows": [
+            "ATD"
+          ],
+          "source": "unknown: transport security comes from deployment; no deploy config proves this hop",
+          "state": "unknown",
+          "value": "TLS ?"
+        }
+      },
+      "count": 3,
+      "family": "http",
+      "id": "http:web-\u003eapi",
+      "members": [
+        {
+          "auth": "no route middleware (as written); documented: none",
+          "full_path": "/t026/health",
+          "method": "GET",
+          "path": "/t026/health",
+          "source": "client_call:web/src/api.ts#health.GET%20%27%2Ft026%2Fhealth%27",
+          "target": "route:api/server.ts#GET%20%2Ft026%2Fhealth",
+          "tier": "inferred 0.9"
+        },
+        {
+          "auth": "middleware auth (as written); documented: bearerAuth",
+          "full_path": "/t026/items",
+          "method": "GET",
+          "path": "/t026/items",
+          "source": "client_call:web/src/api.ts#loadItems.GET%20%27%2Ft026%2Fitems%27",
+          "target": "route:api/server.ts#GET%20%2Ft026%2Fitems",
+          "tier": "inferred 0.9"
+        },
+        {
+          "assumptions": [
+            {
+              "id": "origin",
+              "text": "origin https://api.example.test assumed to be this repository's server"
+            }
+          ],
+          "auth": "no route middleware (as written); documented: none",
+          "full_path": "/t026/health",
+          "method": "GET",
+          "path": "/t026/health",
+          "source": "client_call:web/src/api.ts#remote.GET%20%27https%3A%2F%2Fapi.example.test%2Ft026%2Fhealth%27",
+          "target": "route:api/server.ts#GET%20%2Ft026%2Fhealth",
+          "tier": "inferred 0.7"
+        }
+      ],
+      "methods": [
+        "GET"
+      ],
+      "origins": [
+        {
+          "origin": "https://api.example.test",
+          "row": "AT3",
+          "source": "documented origin in web/src/api.ts, not this link's TLS"
+        },
+        {
+          "origin": "https://api.example.test",
+          "row": "AT3",
+          "source": "documented server in api/openapi.json, not this link's TLS"
+        }
+      ],
+      "row": "CE1",
+      "source": "web",
+      "target": "api",
+      "tiers": {
+        "inferred 0.7": 1,
+        "inferred 0.9": 2
+      },
+      "weakest": "inferred 0.7"
+    },
+    {
+      "back_count": 0,
+      "by_kind": {
+        "calls": 1,
+        "imports": 1
+      },
+      "cells": {
+        "auth": {
+          "rows": [
+            "AAD"
+          ],
+          "source": "unknown: no auth model for in-process calls",
+          "state": "unknown",
+          "value": "auth ?"
+        },
+        "protocol": {
+          "rows": [
+            "AP4"
+          ],
+          "source": "proven: calls and imports",
+          "state": "proven",
+          "value": "in-process"
+        },
+        "tls": {
+          "rows": [
+            "AT1"
+          ],
+          "source": "in-process",
+          "state": "not_applicable",
+          "value": "n/a, in-app"
+        }
+      },
+      "count": 2,
+      "family": "in_process",
+      "id": "in_process:web-\u003eshared",
+      "members": [],
+      "methods": [],
+      "origins": [],
+      "row": "CE4",
+      "source": "web",
+      "target": "shared",
+      "tiers": {
+        "fact": 2
+      },
+      "weakest": "fact"
+    },
+    {
+      "back_count": 0,
+      "by_kind": {
+        "reads_table": 1,
+        "writes_table": 1
+      },
+      "cells": {
+        "auth": {
+          "rows": [
+            "AAD"
+          ],
+          "source": "unknown: database credentials are not read",
+          "state": "unknown",
+          "value": "auth ?"
+        },
+        "protocol": {
+          "rows": [
+            "AP3"
+          ],
+          "source": "proven: schema set tool",
+          "state": "proven",
+          "value": "SQL via sqlx"
+        },
+        "tls": {
+          "rows": [
+            "ATD"
+          ],
+          "source": "unknown: transport security comes from deployment; no deploy config proves this hop",
+          "state": "unknown",
+          "value": "TLS ?"
+        }
+      },
+      "count": 2,
+      "family": "sql",
+      "id": "sql:crates/app-\u003edatabase:crates/app/migrations",
+      "members": [],
+      "methods": [],
+      "origins": [],
+      "row": "CE3",
+      "source": "crates/app",
+      "target": "database:crates/app/migrations",
+      "tiers": {
+        "fact": 2
+      },
+      "weakest": "fact"
+    }
+  ],
+  "manifests": "read",
+  "not_drawn": {
+    "calls": 1,
+    "passes_function": 3
+  },
+  "not_proven": [
+    {
+      "component": "badgo",
+      "count": 1,
+      "kind": "component_unread",
+      "row": "CM-U1",
+      "text": "kind unknown: manifest unread"
+    },
+    {
+      "component": "broken",
+      "count": 1,
+      "kind": "component_unread",
+      "row": "CM-U1",
+      "text": "kind unknown: manifest unread"
+    },
+    {
+      "component": "api",
+      "count": 1,
+      "kind": "documented_no_route",
+      "row": "CE5",
+      "text": "documented, no route: 1 operation"
+    },
+    {
+      "component": "web",
+      "count": 2,
+      "kind": "calls_not_linked",
+      "row": "CE1",
+      "text": "not linked (2): http calls without a stored link"
+    }
+  ],
+  "notice": null,
+  "repository": "fixture",
+  "scope": "production",
+  "stubs": [
+    {
+      "component": "api",
+      "packages": 1,
+      "protocol": {
+        "rows": [
+          "APD"
+        ],
+        "source": "unknown: not modelled",
+        "state": "unknown",
+        "value": "protocol ?"
+      },
+      "row": "CE6",
+      "text": "imports 1 external package"
+    },
+    {
+      "component": "legacy",
+      "packages": 1,
+      "protocol": {
+        "rows": [
+          "APD"
+        ],
+        "source": "unknown: not modelled",
+        "state": "unknown",
+        "value": "protocol ?"
+      },
+      "row": "CE6",
+      "text": "imports 1 external package"
+    },
+    {
+      "component": "py",
+      "packages": 1,
+      "protocol": {
+        "rows": [
+          "APD"
+        ],
+        "source": "unknown: not modelled",
+        "state": "unknown",
+        "value": "protocol ?"
+      },
+      "row": "CE6",
+      "text": "imports 1 external package"
+    },
+    {
+      "component": "web",
+      "packages": 1,
+      "protocol": {
+        "rows": [
+          "APD"
+        ],
+        "source": "unknown: not modelled",
+        "state": "unknown",
+        "value": "protocol ?"
+      },
+      "row": "CE6",
+      "text": "imports 1 external package"
+    }
+  ]
+}

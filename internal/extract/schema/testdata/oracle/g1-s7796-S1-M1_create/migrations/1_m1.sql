@@ -1,0 +1,3 @@
+CREATE TYPE e2 AS ENUM ('c');
+ROLLBACK;
+CREATE TABLE t5 (status e2);

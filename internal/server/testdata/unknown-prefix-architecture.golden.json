@@ -1,0 +1,113 @@
+{
+  "api_version": 0,
+  "components": [
+    {
+      "counts": {
+        "client_calls": 24,
+        "files": 5,
+        "ipc_calls": 0,
+        "ipc_commands": 0,
+        "manifests": 1,
+        "routes": 15,
+        "tables": 0,
+        "test_files": 1,
+        "wrapper_calls": 0
+      },
+      "directory": ".",
+      "frameworks": [
+        "chi",
+        "net/http"
+      ],
+      "hidden_by": null,
+      "id": ".",
+      "kinds": [
+        "server"
+      ],
+      "manifests": [
+        {
+          "ecosystem": "go",
+          "file": "go.mod",
+          "name": "example.com/unknownprefixlinks",
+          "package": "package:go.mod#example.com%2Funknownprefixlinks",
+          "unread": null
+        }
+      ],
+      "markers": [],
+      "name": "example.com/unknownprefixlinks",
+      "reason": null,
+      "rows": [
+        "CK1"
+      ],
+      "state": "read",
+      "visibility": "shown"
+    }
+  ],
+  "databases": [],
+  "documents": [],
+  "ghosts": [
+    {
+      "by_status": {
+        "ambiguous": 4,
+        "test_only": 1,
+        "unmatched": 9
+      },
+      "component": ".",
+      "family": "http",
+      "row": "CE1",
+      "total": 14
+    }
+  ],
+  "hidden": {
+    "configured_components": 0,
+    "docs_components": 0,
+    "test_components": 0,
+    "test_edges": {}
+  },
+  "index": {
+    "contract_version": 1,
+    "finished_at": "2026-11-03T14:32:05.123Z",
+    "indexer": {
+      "name": "graphvein",
+      "version": "extractors-62"
+    }
+  },
+  "libraries": {
+    "components": [],
+    "links_in": 0,
+    "links_out": 0
+  },
+  "links": [],
+  "manifests": "read",
+  "not_drawn": {
+    "calls": 3,
+    "calls_route": 10
+  },
+  "not_proven": [
+    {
+      "component": ".",
+      "count": 14,
+      "kind": "calls_not_linked",
+      "row": "CE1",
+      "text": "not linked (14): http calls without a stored link"
+    }
+  ],
+  "notice": null,
+  "repository": "up",
+  "scope": "all",
+  "stubs": [
+    {
+      "component": ".",
+      "packages": 1,
+      "protocol": {
+        "rows": [
+          "APD"
+        ],
+        "source": "unknown: not modelled",
+        "state": "unknown",
+        "value": "protocol ?"
+      },
+      "row": "CE6",
+      "text": "imports 1 external package"
+    }
+  ]
+}

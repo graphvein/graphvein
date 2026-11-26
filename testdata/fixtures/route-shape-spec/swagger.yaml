@@ -1,0 +1,66 @@
+swagger: "2.0"
+info: {title: Spec shape 2.0, version: "1"}
+consumes: [application/json]
+produces: [application/json]
+security:
+  - basicAuth: []
+paths:
+  /v2/pets:
+    post:
+      parameters:
+        - in: body
+          name: pet
+          required: true
+          schema: {$ref: '#/definitions/Pet'}
+      responses:
+        "200":
+          description: ok
+          schema: {$ref: '#/definitions/Pet'}
+        "405": {description: invalid}
+    get:
+      produces: [application/json, application/xml]
+      security:
+        - apiKey: []
+        - petAuth: [read:pets]
+      parameters:
+        - {name: tags, in: query, type: array, items: {type: string}, collectionFormat: csv}
+        - {name: X-Request-Id, in: header, type: string, required: true}
+        - {name: status, in: query, type: string, enum: [available, sold]}
+      responses:
+        "200":
+          description: ok
+          schema:
+            type: array
+            items: {$ref: '#/definitions/Pet'}
+  /v2/pets/{pet_id}/photo:
+    post:
+      consumes: [multipart/form-data]
+      parameters:
+        - {name: pet_id, in: path, required: true, type: integer}
+        - {name: note, in: formData, type: string}
+        - {name: file, in: formData, type: file, required: true}
+      responses:
+        "200": {description: ok}
+        2XX: {description: not a Swagger 2.0 status}
+  /dup:
+    get:
+      responses:
+        "200": {description: ok}
+securityDefinitions:
+  basicAuth: {type: basic}
+  apiKey: {type: apiKey, in: header, name: X-API-Key}
+  petAuth:
+    type: oauth2
+    flow: password
+    tokenUrl: https://pets.example.com/token
+    scopes: {read:pets: read}
+definitions:
+  Pet:
+    type: object
+    required: [id, name]
+    properties:
+      id: {type: integer, readOnly: true}
+      name: {type: string}
+      nick: {type: string, x-nullable: true}
+      photo: {type: file}
+      kinds: {type: [string, "null"]}

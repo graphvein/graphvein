@@ -1,0 +1,2307 @@
+{
+  "diagnostics": [
+    {
+      "code": "route_unmounted",
+      "file": "children.py",
+      "message": "unused at 21:1-21:17",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "route_unmounted",
+      "file": "children.py",
+      "message": "nested at 24:1-24:17",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "route_unmounted",
+      "file": "children.py",
+      "message": "unpacked at 27:1-27:19",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "route_unmounted",
+      "file": "children.py",
+      "message": "defaulted at 30:1-30:20",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "route_unmounted",
+      "file": "children.py",
+      "message": "decorated at 33:1-33:20",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "route_unmounted",
+      "file": "children.py",
+      "message": "reassigned at 36:1-36:21",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "route_unmounted",
+      "file": "children.py",
+      "message": "bare_async at 45:1-45:21",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "route_mount_unresolved",
+      "file": "helpers.py",
+      "message": "router at 26:4-26:33",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "route_prefix_unresolved",
+      "file": "helpers.py",
+      "message": "prefix at 40:4-40:52",
+      "severity": "info",
+      "type": "diagnostic"
+    }
+  ],
+  "edges": [
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "children.py",
+          "span": {
+            "end_column": 14,
+            "end_line": 15,
+            "start_column": 1,
+            "start_line": 15
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:children.py#children.py",
+      "target": "route:children.py#GET%20",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "children.py",
+          "span": {
+            "end_column": 15,
+            "end_line": 18,
+            "start_column": 1,
+            "start_line": 18
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:children.py#children.py",
+      "target": "route:children.py#GET%20%2F",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "children.py",
+          "span": {
+            "end_column": 17,
+            "end_line": 48,
+            "start_column": 1,
+            "start_line": 48
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:children.py#children.py",
+      "target": "route:children.py#GET%20%2Fsub%2F",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "children.py",
+          "span": {
+            "end_column": 17,
+            "end_line": 21,
+            "start_column": 1,
+            "start_line": 21
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:children.py#children.py",
+      "target": "route:children.py#GET%20%2Fx",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "children.py",
+          "span": {
+            "end_column": 17,
+            "end_line": 24,
+            "start_column": 1,
+            "start_line": 24
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:children.py#children.py",
+      "target": "route:children.py#GET%20%2Fx%402",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "children.py",
+          "span": {
+            "end_column": 19,
+            "end_line": 27,
+            "start_column": 1,
+            "start_line": 27
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:children.py#children.py",
+      "target": "route:children.py#GET%20%2Fx%403",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "children.py",
+          "span": {
+            "end_column": 20,
+            "end_line": 30,
+            "start_column": 1,
+            "start_line": 30
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:children.py#children.py",
+      "target": "route:children.py#GET%20%2Fx%404",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "children.py",
+          "span": {
+            "end_column": 20,
+            "end_line": 33,
+            "start_column": 1,
+            "start_line": 33
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:children.py#children.py",
+      "target": "route:children.py#GET%20%2Fx%405",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "children.py",
+          "span": {
+            "end_column": 21,
+            "end_line": 36,
+            "start_column": 1,
+            "start_line": 36
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:children.py#children.py",
+      "target": "route:children.py#GET%20%2Fx%406",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "children.py",
+          "span": {
+            "end_column": 21,
+            "end_line": 39,
+            "start_column": 1,
+            "start_line": 39
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:children.py#children.py",
+      "target": "route:children.py#GET%20%2Fx%407",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "children.py",
+          "span": {
+            "end_column": 22,
+            "end_line": 42,
+            "start_column": 1,
+            "start_line": 42
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:children.py#children.py",
+      "target": "route:children.py#GET%20%2Fx%408",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "children.py",
+          "span": {
+            "end_column": 21,
+            "end_line": 45,
+            "start_column": 1,
+            "start_line": 45
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:children.py#children.py",
+      "target": "route:children.py#GET%20%2Fx%409",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "children.py",
+          "span": {
+            "end_column": 22,
+            "end_line": 42,
+            "start_column": 1,
+            "start_line": 42
+          }
+        }
+      ],
+      "kind": "exposes_route",
+      "provenance": "fact",
+      "source": "function:children.py#async_handler",
+      "target": "route:children.py#GET%20%2Fx%408",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "children.py",
+          "span": {
+            "end_column": 21,
+            "end_line": 45,
+            "start_column": 1,
+            "start_line": 45
+          }
+        }
+      ],
+      "kind": "exposes_route",
+      "provenance": "fact",
+      "source": "function:children.py#bare_async_handler",
+      "target": "route:children.py#GET%20%2Fx%409",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "children.py",
+          "span": {
+            "end_column": 20,
+            "end_line": 33,
+            "start_column": 1,
+            "start_line": 33
+          }
+        }
+      ],
+      "kind": "exposes_route",
+      "provenance": "fact",
+      "source": "function:children.py#decorated_handler",
+      "target": "route:children.py#GET%20%2Fx%405",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "children.py",
+          "span": {
+            "end_column": 20,
+            "end_line": 30,
+            "start_column": 1,
+            "start_line": 30
+          }
+        }
+      ],
+      "kind": "exposes_route",
+      "provenance": "fact",
+      "source": "function:children.py#defaulted_handler",
+      "target": "route:children.py#GET%20%2Fx%404",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "children.py",
+          "span": {
+            "end_column": 14,
+            "end_line": 15,
+            "start_column": 1,
+            "start_line": 15
+          }
+        }
+      ],
+      "kind": "exposes_route",
+      "provenance": "fact",
+      "source": "function:children.py#empty",
+      "target": "route:children.py#GET%20",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "children.py",
+          "span": {
+            "end_column": 17,
+            "end_line": 24,
+            "start_column": 1,
+            "start_line": 24
+          }
+        }
+      ],
+      "kind": "exposes_route",
+      "provenance": "fact",
+      "source": "function:children.py#nested_handler",
+      "target": "route:children.py#GET%20%2Fx%402",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "children.py",
+          "span": {
+            "end_column": 21,
+            "end_line": 39,
+            "start_column": 1,
+            "start_line": 39
+          }
+        }
+      ],
+      "kind": "exposes_route",
+      "provenance": "fact",
+      "source": "function:children.py#prefix_handler",
+      "target": "route:children.py#GET%20%2Fx%407",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "children.py",
+          "span": {
+            "end_column": 21,
+            "end_line": 36,
+            "start_column": 1,
+            "start_line": 36
+          }
+        }
+      ],
+      "kind": "exposes_route",
+      "provenance": "fact",
+      "source": "function:children.py#reassigned_handler",
+      "target": "route:children.py#GET%20%2Fx%406",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "children.py",
+          "span": {
+            "end_column": 15,
+            "end_line": 18,
+            "start_column": 1,
+            "start_line": 18
+          }
+        }
+      ],
+      "kind": "exposes_route",
+      "provenance": "fact",
+      "source": "function:children.py#slash",
+      "target": "route:children.py#GET%20%2F",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "children.py",
+          "span": {
+            "end_column": 17,
+            "end_line": 48,
+            "start_column": 1,
+            "start_line": 48
+          }
+        }
+      ],
+      "kind": "exposes_route",
+      "provenance": "fact",
+      "source": "function:children.py#sub_handler",
+      "target": "route:children.py#GET%20%2Fsub%2F",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "children.py",
+          "span": {
+            "end_column": 19,
+            "end_line": 27,
+            "start_column": 1,
+            "start_line": 27
+          }
+        }
+      ],
+      "kind": "exposes_route",
+      "provenance": "fact",
+      "source": "function:children.py#unpacked_handler",
+      "target": "route:children.py#GET%20%2Fx%403",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "children.py",
+          "span": {
+            "end_column": 17,
+            "end_line": 21,
+            "start_column": 1,
+            "start_line": 21
+          }
+        }
+      ],
+      "kind": "exposes_route",
+      "provenance": "fact",
+      "source": "function:children.py#unused_handler",
+      "target": "route:children.py#GET%20%2Fx",
+      "type": "edge"
+    }
+  ],
+  "files": null,
+  "nodes": [
+    {
+      "attributes": {
+        "framework": "fastapi",
+        "handler": "function:children.py#empty",
+        "handler_inline": false,
+        "method": "GET",
+        "middleware": [],
+        "paths": [
+          {
+            "conditional": false,
+            "resolution": "literal",
+            "template": "/first/argument/child"
+          },
+          {
+            "conditional": true,
+            "resolution": "literal",
+            "template": "/first/included/child"
+          },
+          {
+            "conditional": false,
+            "resolution": "literal",
+            "template": "/first/local/deep/child"
+          },
+          {
+            "conditional": true,
+            "resolution": "literal",
+            "template": "/second/argument/child"
+          },
+          {
+            "conditional": true,
+            "resolution": "literal",
+            "template": "/second/included/child"
+          }
+        ],
+        "pattern": "",
+        "shape": {
+          "body": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "children.py",
+              "kind": "fact",
+              "line": 16,
+              "rule": "SH-F23"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "cookie": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "children.py",
+              "kind": "fact",
+              "line": 16,
+              "rule": "SH-F23"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "follow": {
+            "chains": [
+              {
+                "at": null,
+                "depth": 0,
+                "section": "query",
+                "start": {
+                  "file": "children.py",
+                  "function": "empty",
+                  "line": 16
+                },
+                "steps": [],
+                "stop": "ended"
+              },
+              {
+                "at": null,
+                "depth": 0,
+                "section": "responses",
+                "start": {
+                  "file": "children.py",
+                  "function": "empty",
+                  "line": 16
+                },
+                "steps": [],
+                "stop": "ended"
+              }
+            ],
+            "depth_limit": 6
+          },
+          "header": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "children.py",
+              "kind": "fact",
+              "line": 16,
+              "rule": "SH-F23"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "models": [],
+          "path": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "children.py",
+              "kind": "fact",
+              "line": 15,
+              "rule": "SH-F3"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "query": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "children.py",
+              "kind": "fact",
+              "line": 16,
+              "rule": "SH-F23"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "responses": {
+            "items": [
+              {
+                "content_type": "application/json",
+                "provenance": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "children.py",
+                  "kind": "fact",
+                  "line": 15,
+                  "rule": "SH-F27"
+                },
+                "schema": {
+                  "reason": "no response model is declared",
+                  "type": "unknown"
+                },
+                "status": "200"
+              }
+            ],
+            "reason": "statuses from exception handlers, middleware and calls not followed are not read",
+            "state": "partial"
+          },
+          "security": {
+            "items": [],
+            "state": "not_read"
+          },
+          "security_schemes": [],
+          "version": 1
+        }
+      },
+      "content_hash": "sha256:549c92c02234ec09cd8f9be1bfeffc8d6dde7efe51f916458df3a74d5213db38",
+      "file": "children.py",
+      "identity": "route:children.py#GET%20",
+      "kind": "route",
+      "level": 4,
+      "name": "GET ",
+      "qualified_name": "GET ",
+      "span": {
+        "end_column": 14,
+        "end_line": 15,
+        "start_column": 1,
+        "start_line": 15
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "framework": "fastapi",
+        "handler": "function:children.py#slash",
+        "handler_inline": false,
+        "method": "GET",
+        "middleware": [],
+        "paths": [
+          {
+            "conditional": false,
+            "resolution": "literal",
+            "template": "/first/argument/child",
+            "trailing_slash": true
+          },
+          {
+            "conditional": true,
+            "resolution": "literal",
+            "template": "/first/included/child",
+            "trailing_slash": true
+          },
+          {
+            "conditional": false,
+            "resolution": "literal",
+            "template": "/first/local/deep/child",
+            "trailing_slash": true
+          },
+          {
+            "conditional": true,
+            "resolution": "literal",
+            "template": "/second/argument/child",
+            "trailing_slash": true
+          },
+          {
+            "conditional": true,
+            "resolution": "literal",
+            "template": "/second/included/child",
+            "trailing_slash": true
+          }
+        ],
+        "pattern": "/",
+        "shape": {
+          "body": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "children.py",
+              "kind": "fact",
+              "line": 19,
+              "rule": "SH-F23"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "cookie": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "children.py",
+              "kind": "fact",
+              "line": 19,
+              "rule": "SH-F23"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "follow": {
+            "chains": [
+              {
+                "at": null,
+                "depth": 0,
+                "section": "query",
+                "start": {
+                  "file": "children.py",
+                  "function": "slash",
+                  "line": 19
+                },
+                "steps": [],
+                "stop": "ended"
+              },
+              {
+                "at": null,
+                "depth": 0,
+                "section": "responses",
+                "start": {
+                  "file": "children.py",
+                  "function": "slash",
+                  "line": 19
+                },
+                "steps": [],
+                "stop": "ended"
+              }
+            ],
+            "depth_limit": 6
+          },
+          "header": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "children.py",
+              "kind": "fact",
+              "line": 19,
+              "rule": "SH-F23"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "models": [],
+          "path": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "children.py",
+              "kind": "fact",
+              "line": 18,
+              "rule": "SH-F3"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "query": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "children.py",
+              "kind": "fact",
+              "line": 19,
+              "rule": "SH-F23"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "responses": {
+            "items": [
+              {
+                "content_type": "application/json",
+                "provenance": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "children.py",
+                  "kind": "fact",
+                  "line": 18,
+                  "rule": "SH-F27"
+                },
+                "schema": {
+                  "reason": "no response model is declared",
+                  "type": "unknown"
+                },
+                "status": "200"
+              }
+            ],
+            "reason": "statuses from exception handlers, middleware and calls not followed are not read",
+            "state": "partial"
+          },
+          "security": {
+            "items": [],
+            "state": "not_read"
+          },
+          "security_schemes": [],
+          "version": 1
+        }
+      },
+      "content_hash": "sha256:85cc8e64f4229532cf781fca4afc4768becd8856bcc135e5d119f3331490be0d",
+      "file": "children.py",
+      "identity": "route:children.py#GET%20%2F",
+      "kind": "route",
+      "level": 4,
+      "name": "GET /",
+      "qualified_name": "GET /",
+      "span": {
+        "end_column": 15,
+        "end_line": 18,
+        "start_column": 1,
+        "start_line": 18
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "framework": "fastapi",
+        "handler": "function:children.py#sub_handler",
+        "handler_inline": false,
+        "method": "GET",
+        "middleware": [],
+        "paths": [
+          {
+            "conditional": false,
+            "resolution": "literal",
+            "template": "/mounted/sub",
+            "trailing_slash": true
+          }
+        ],
+        "pattern": "/sub/",
+        "shape": {
+          "body": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "children.py",
+              "kind": "fact",
+              "line": 49,
+              "rule": "SH-F23"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "cookie": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "children.py",
+              "kind": "fact",
+              "line": 49,
+              "rule": "SH-F23"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "follow": {
+            "chains": [
+              {
+                "at": null,
+                "depth": 0,
+                "section": "query",
+                "start": {
+                  "file": "children.py",
+                  "function": "sub_handler",
+                  "line": 49
+                },
+                "steps": [],
+                "stop": "ended"
+              },
+              {
+                "at": null,
+                "depth": 0,
+                "section": "responses",
+                "start": {
+                  "file": "children.py",
+                  "function": "sub_handler",
+                  "line": 49
+                },
+                "steps": [],
+                "stop": "ended"
+              }
+            ],
+            "depth_limit": 6
+          },
+          "header": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "children.py",
+              "kind": "fact",
+              "line": 49,
+              "rule": "SH-F23"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "models": [],
+          "path": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "children.py",
+              "kind": "fact",
+              "line": 48,
+              "rule": "SH-F3"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "query": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "children.py",
+              "kind": "fact",
+              "line": 49,
+              "rule": "SH-F23"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "responses": {
+            "items": [
+              {
+                "content_type": "application/json",
+                "provenance": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "children.py",
+                  "kind": "fact",
+                  "line": 48,
+                  "rule": "SH-F27"
+                },
+                "schema": {
+                  "reason": "no response model is declared",
+                  "type": "unknown"
+                },
+                "status": "200"
+              }
+            ],
+            "reason": "statuses from exception handlers, middleware and calls not followed are not read",
+            "state": "partial"
+          },
+          "security": {
+            "items": [],
+            "state": "not_read"
+          },
+          "security_schemes": [],
+          "version": 1
+        }
+      },
+      "content_hash": "sha256:12646bb9900b6bff86f05ddbb129eadcdf5ae2a28cfb2bbcb2f1e8def53a91ad",
+      "file": "children.py",
+      "identity": "route:children.py#GET%20%2Fsub%2F",
+      "kind": "route",
+      "level": 4,
+      "name": "GET /sub/",
+      "qualified_name": "GET /sub/",
+      "span": {
+        "end_column": 17,
+        "end_line": 48,
+        "start_column": 1,
+        "start_line": 48
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "framework": "fastapi",
+        "handler": "function:children.py#unused_handler",
+        "handler_inline": false,
+        "method": "GET",
+        "middleware": [],
+        "paths": [],
+        "pattern": "/x",
+        "shape": {
+          "body": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "children.py",
+              "kind": "fact",
+              "line": 22,
+              "rule": "SH-F23"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "cookie": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "children.py",
+              "kind": "fact",
+              "line": 22,
+              "rule": "SH-F23"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "follow": {
+            "chains": [
+              {
+                "at": null,
+                "depth": 0,
+                "section": "query",
+                "start": {
+                  "file": "children.py",
+                  "function": "unused_handler",
+                  "line": 22
+                },
+                "steps": [],
+                "stop": "ended"
+              },
+              {
+                "at": null,
+                "depth": 0,
+                "section": "responses",
+                "start": {
+                  "file": "children.py",
+                  "function": "unused_handler",
+                  "line": 22
+                },
+                "steps": [],
+                "stop": "ended"
+              }
+            ],
+            "depth_limit": 6
+          },
+          "header": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "children.py",
+              "kind": "fact",
+              "line": 22,
+              "rule": "SH-F23"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "models": [],
+          "path": {
+            "items": [],
+            "state": "not_read"
+          },
+          "query": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "children.py",
+              "kind": "fact",
+              "line": 22,
+              "rule": "SH-F23"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "responses": {
+            "items": [
+              {
+                "content_type": "application/json",
+                "provenance": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "children.py",
+                  "kind": "fact",
+                  "line": 21,
+                  "rule": "SH-F27"
+                },
+                "schema": {
+                  "reason": "no response model is declared",
+                  "type": "unknown"
+                },
+                "status": "200"
+              }
+            ],
+            "reason": "statuses from exception handlers, middleware and calls not followed are not read",
+            "state": "partial"
+          },
+          "security": {
+            "items": [],
+            "state": "not_read"
+          },
+          "security_schemes": [],
+          "version": 1
+        }
+      },
+      "content_hash": "sha256:d7ee647ccd8f25a2e104038dd16bd9b14468b51fc99ffa479cb66b1ee62ac4bf",
+      "file": "children.py",
+      "identity": "route:children.py#GET%20%2Fx",
+      "kind": "route",
+      "level": 4,
+      "name": "GET /x",
+      "qualified_name": "GET /x",
+      "span": {
+        "end_column": 17,
+        "end_line": 21,
+        "start_column": 1,
+        "start_line": 21
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "framework": "fastapi",
+        "handler": "function:children.py#nested_handler",
+        "handler_inline": false,
+        "method": "GET",
+        "middleware": [],
+        "paths": [],
+        "pattern": "/x",
+        "shape": {
+          "body": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "children.py",
+              "kind": "fact",
+              "line": 25,
+              "rule": "SH-F23"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "cookie": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "children.py",
+              "kind": "fact",
+              "line": 25,
+              "rule": "SH-F23"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "follow": {
+            "chains": [
+              {
+                "at": null,
+                "depth": 0,
+                "section": "query",
+                "start": {
+                  "file": "children.py",
+                  "function": "nested_handler",
+                  "line": 25
+                },
+                "steps": [],
+                "stop": "ended"
+              },
+              {
+                "at": null,
+                "depth": 0,
+                "section": "responses",
+                "start": {
+                  "file": "children.py",
+                  "function": "nested_handler",
+                  "line": 25
+                },
+                "steps": [],
+                "stop": "ended"
+              }
+            ],
+            "depth_limit": 6
+          },
+          "header": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "children.py",
+              "kind": "fact",
+              "line": 25,
+              "rule": "SH-F23"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "models": [],
+          "path": {
+            "items": [],
+            "state": "not_read"
+          },
+          "query": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "children.py",
+              "kind": "fact",
+              "line": 25,
+              "rule": "SH-F23"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "responses": {
+            "items": [
+              {
+                "content_type": "application/json",
+                "provenance": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "children.py",
+                  "kind": "fact",
+                  "line": 24,
+                  "rule": "SH-F27"
+                },
+                "schema": {
+                  "reason": "no response model is declared",
+                  "type": "unknown"
+                },
+                "status": "200"
+              }
+            ],
+            "reason": "statuses from exception handlers, middleware and calls not followed are not read",
+            "state": "partial"
+          },
+          "security": {
+            "items": [],
+            "state": "not_read"
+          },
+          "security_schemes": [],
+          "version": 1
+        }
+      },
+      "content_hash": "sha256:fb7917e4f05f310233a27db674b0b1dffd9ed26af1773b0e88b505f7a98a9b85",
+      "file": "children.py",
+      "identity": "route:children.py#GET%20%2Fx%402",
+      "kind": "route",
+      "level": 4,
+      "name": "GET /x@2",
+      "qualified_name": "GET /x@2",
+      "span": {
+        "end_column": 17,
+        "end_line": 24,
+        "start_column": 1,
+        "start_line": 24
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "framework": "fastapi",
+        "handler": "function:children.py#unpacked_handler",
+        "handler_inline": false,
+        "method": "GET",
+        "middleware": [],
+        "paths": [],
+        "pattern": "/x",
+        "shape": {
+          "body": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "children.py",
+              "kind": "fact",
+              "line": 28,
+              "rule": "SH-F23"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "cookie": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "children.py",
+              "kind": "fact",
+              "line": 28,
+              "rule": "SH-F23"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "follow": {
+            "chains": [
+              {
+                "at": null,
+                "depth": 0,
+                "section": "query",
+                "start": {
+                  "file": "children.py",
+                  "function": "unpacked_handler",
+                  "line": 28
+                },
+                "steps": [],
+                "stop": "ended"
+              },
+              {
+                "at": null,
+                "depth": 0,
+                "section": "responses",
+                "start": {
+                  "file": "children.py",
+                  "function": "unpacked_handler",
+                  "line": 28
+                },
+                "steps": [],
+                "stop": "ended"
+              }
+            ],
+            "depth_limit": 6
+          },
+          "header": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "children.py",
+              "kind": "fact",
+              "line": 28,
+              "rule": "SH-F23"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "models": [],
+          "path": {
+            "items": [],
+            "state": "not_read"
+          },
+          "query": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "children.py",
+              "kind": "fact",
+              "line": 28,
+              "rule": "SH-F23"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "responses": {
+            "items": [
+              {
+                "content_type": "application/json",
+                "provenance": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "children.py",
+                  "kind": "fact",
+                  "line": 27,
+                  "rule": "SH-F27"
+                },
+                "schema": {
+                  "reason": "no response model is declared",
+                  "type": "unknown"
+                },
+                "status": "200"
+              }
+            ],
+            "reason": "statuses from exception handlers, middleware and calls not followed are not read",
+            "state": "partial"
+          },
+          "security": {
+            "items": [],
+            "state": "not_read"
+          },
+          "security_schemes": [],
+          "version": 1
+        }
+      },
+      "content_hash": "sha256:8b5e1001cafb1943ae3140c7a859d0be47c40be371ca48f0f05ccda4ad0859f3",
+      "file": "children.py",
+      "identity": "route:children.py#GET%20%2Fx%403",
+      "kind": "route",
+      "level": 4,
+      "name": "GET /x@3",
+      "qualified_name": "GET /x@3",
+      "span": {
+        "end_column": 19,
+        "end_line": 27,
+        "start_column": 1,
+        "start_line": 27
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "framework": "fastapi",
+        "handler": "function:children.py#defaulted_handler",
+        "handler_inline": false,
+        "method": "GET",
+        "middleware": [],
+        "paths": [],
+        "pattern": "/x",
+        "shape": {
+          "body": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "children.py",
+              "kind": "fact",
+              "line": 31,
+              "rule": "SH-F23"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "cookie": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "children.py",
+              "kind": "fact",
+              "line": 31,
+              "rule": "SH-F23"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "follow": {
+            "chains": [
+              {
+                "at": null,
+                "depth": 0,
+                "section": "query",
+                "start": {
+                  "file": "children.py",
+                  "function": "defaulted_handler",
+                  "line": 31
+                },
+                "steps": [],
+                "stop": "ended"
+              },
+              {
+                "at": null,
+                "depth": 0,
+                "section": "responses",
+                "start": {
+                  "file": "children.py",
+                  "function": "defaulted_handler",
+                  "line": 31
+                },
+                "steps": [],
+                "stop": "ended"
+              }
+            ],
+            "depth_limit": 6
+          },
+          "header": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "children.py",
+              "kind": "fact",
+              "line": 31,
+              "rule": "SH-F23"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "models": [],
+          "path": {
+            "items": [],
+            "state": "not_read"
+          },
+          "query": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "children.py",
+              "kind": "fact",
+              "line": 31,
+              "rule": "SH-F23"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "responses": {
+            "items": [
+              {
+                "content_type": "application/json",
+                "provenance": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "children.py",
+                  "kind": "fact",
+                  "line": 30,
+                  "rule": "SH-F27"
+                },
+                "schema": {
+                  "reason": "no response model is declared",
+                  "type": "unknown"
+                },
+                "status": "200"
+              }
+            ],
+            "reason": "statuses from exception handlers, middleware and calls not followed are not read",
+            "state": "partial"
+          },
+          "security": {
+            "items": [],
+            "state": "not_read"
+          },
+          "security_schemes": [],
+          "version": 1
+        }
+      },
+      "content_hash": "sha256:6fc6d43510ba0e6e10ba785b85b23dd6edcdb69bfa39552908cebe9365b75db7",
+      "file": "children.py",
+      "identity": "route:children.py#GET%20%2Fx%404",
+      "kind": "route",
+      "level": 4,
+      "name": "GET /x@4",
+      "qualified_name": "GET /x@4",
+      "span": {
+        "end_column": 20,
+        "end_line": 30,
+        "start_column": 1,
+        "start_line": 30
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "framework": "fastapi",
+        "handler": "function:children.py#decorated_handler",
+        "handler_inline": false,
+        "method": "GET",
+        "middleware": [],
+        "paths": [],
+        "pattern": "/x",
+        "shape": {
+          "body": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "children.py",
+              "kind": "fact",
+              "line": 34,
+              "rule": "SH-F23"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "cookie": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "children.py",
+              "kind": "fact",
+              "line": 34,
+              "rule": "SH-F23"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "follow": {
+            "chains": [
+              {
+                "at": null,
+                "depth": 0,
+                "section": "query",
+                "start": {
+                  "file": "children.py",
+                  "function": "decorated_handler",
+                  "line": 34
+                },
+                "steps": [],
+                "stop": "ended"
+              },
+              {
+                "at": null,
+                "depth": 0,
+                "section": "responses",
+                "start": {
+                  "file": "children.py",
+                  "function": "decorated_handler",
+                  "line": 34
+                },
+                "steps": [],
+                "stop": "ended"
+              }
+            ],
+            "depth_limit": 6
+          },
+          "header": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "children.py",
+              "kind": "fact",
+              "line": 34,
+              "rule": "SH-F23"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "models": [],
+          "path": {
+            "items": [],
+            "state": "not_read"
+          },
+          "query": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "children.py",
+              "kind": "fact",
+              "line": 34,
+              "rule": "SH-F23"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "responses": {
+            "items": [
+              {
+                "content_type": "application/json",
+                "provenance": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "children.py",
+                  "kind": "fact",
+                  "line": 33,
+                  "rule": "SH-F27"
+                },
+                "schema": {
+                  "reason": "no response model is declared",
+                  "type": "unknown"
+                },
+                "status": "200"
+              }
+            ],
+            "reason": "statuses from exception handlers, middleware and calls not followed are not read",
+            "state": "partial"
+          },
+          "security": {
+            "items": [],
+            "state": "not_read"
+          },
+          "security_schemes": [],
+          "version": 1
+        }
+      },
+      "content_hash": "sha256:899b255b2c971808bf12d215fb1dbacb0e2bde71fd8f20b902dd15195e23a160",
+      "file": "children.py",
+      "identity": "route:children.py#GET%20%2Fx%405",
+      "kind": "route",
+      "level": 4,
+      "name": "GET /x@5",
+      "qualified_name": "GET /x@5",
+      "span": {
+        "end_column": 20,
+        "end_line": 33,
+        "start_column": 1,
+        "start_line": 33
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "framework": "fastapi",
+        "handler": "function:children.py#reassigned_handler",
+        "handler_inline": false,
+        "method": "GET",
+        "middleware": [],
+        "paths": [],
+        "pattern": "/x",
+        "shape": {
+          "body": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "children.py",
+              "kind": "fact",
+              "line": 37,
+              "rule": "SH-F23"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "cookie": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "children.py",
+              "kind": "fact",
+              "line": 37,
+              "rule": "SH-F23"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "follow": {
+            "chains": [
+              {
+                "at": null,
+                "depth": 0,
+                "section": "query",
+                "start": {
+                  "file": "children.py",
+                  "function": "reassigned_handler",
+                  "line": 37
+                },
+                "steps": [],
+                "stop": "ended"
+              },
+              {
+                "at": null,
+                "depth": 0,
+                "section": "responses",
+                "start": {
+                  "file": "children.py",
+                  "function": "reassigned_handler",
+                  "line": 37
+                },
+                "steps": [],
+                "stop": "ended"
+              }
+            ],
+            "depth_limit": 6
+          },
+          "header": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "children.py",
+              "kind": "fact",
+              "line": 37,
+              "rule": "SH-F23"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "models": [],
+          "path": {
+            "items": [],
+            "state": "not_read"
+          },
+          "query": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "children.py",
+              "kind": "fact",
+              "line": 37,
+              "rule": "SH-F23"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "responses": {
+            "items": [
+              {
+                "content_type": "application/json",
+                "provenance": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "children.py",
+                  "kind": "fact",
+                  "line": 36,
+                  "rule": "SH-F27"
+                },
+                "schema": {
+                  "reason": "no response model is declared",
+                  "type": "unknown"
+                },
+                "status": "200"
+              }
+            ],
+            "reason": "statuses from exception handlers, middleware and calls not followed are not read",
+            "state": "partial"
+          },
+          "security": {
+            "items": [],
+            "state": "not_read"
+          },
+          "security_schemes": [],
+          "version": 1
+        }
+      },
+      "content_hash": "sha256:83b0fec2be5a72540901e78089bf148d94a4d8731f5fa08636fa5a826f96fb03",
+      "file": "children.py",
+      "identity": "route:children.py#GET%20%2Fx%406",
+      "kind": "route",
+      "level": 4,
+      "name": "GET /x@6",
+      "qualified_name": "GET /x@6",
+      "span": {
+        "end_column": 21,
+        "end_line": 36,
+        "start_column": 1,
+        "start_line": 36
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "framework": "fastapi",
+        "handler": "function:children.py#prefix_handler",
+        "handler_inline": false,
+        "method": "GET",
+        "middleware": [],
+        "paths": [],
+        "pattern": "/x",
+        "shape": {
+          "body": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "children.py",
+              "kind": "fact",
+              "line": 40,
+              "rule": "SH-F23"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "cookie": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "children.py",
+              "kind": "fact",
+              "line": 40,
+              "rule": "SH-F23"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "follow": {
+            "chains": [
+              {
+                "at": null,
+                "depth": 0,
+                "section": "query",
+                "start": {
+                  "file": "children.py",
+                  "function": "prefix_handler",
+                  "line": 40
+                },
+                "steps": [],
+                "stop": "ended"
+              },
+              {
+                "at": null,
+                "depth": 0,
+                "section": "responses",
+                "start": {
+                  "file": "children.py",
+                  "function": "prefix_handler",
+                  "line": 40
+                },
+                "steps": [],
+                "stop": "ended"
+              }
+            ],
+            "depth_limit": 6
+          },
+          "header": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "children.py",
+              "kind": "fact",
+              "line": 40,
+              "rule": "SH-F23"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "models": [],
+          "path": {
+            "items": [],
+            "state": "not_read"
+          },
+          "query": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "children.py",
+              "kind": "fact",
+              "line": 40,
+              "rule": "SH-F23"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "responses": {
+            "items": [
+              {
+                "content_type": "application/json",
+                "provenance": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "children.py",
+                  "kind": "fact",
+                  "line": 39,
+                  "rule": "SH-F27"
+                },
+                "schema": {
+                  "reason": "no response model is declared",
+                  "type": "unknown"
+                },
+                "status": "200"
+              }
+            ],
+            "reason": "statuses from exception handlers, middleware and calls not followed are not read",
+            "state": "partial"
+          },
+          "security": {
+            "items": [],
+            "state": "not_read"
+          },
+          "security_schemes": [],
+          "version": 1
+        },
+        "unresolved_mounts": [
+          {
+            "file": "helpers.py",
+            "hop": "target.include_router(prefix_arg,prefix=prefix)",
+            "key": "mount:helpers.py#parameter_prefix%20target.include_router%28prefix%3Dprefix%29",
+            "line": 40,
+            "paths": [
+              {
+                "conditional": false,
+                "resolution": "literal",
+                "template": "/prefix-arg/x"
+              }
+            ],
+            "reason": "route_prefix_unresolved",
+            "registration": "sha256:d82132adc7e6304fadf0e40cd0664ad19b2526a1aea3df5ed2234ccb40a17d6a",
+            "value_covers": "hop"
+          }
+        ],
+        "unresolved_prefix_paths": [
+          {
+            "conditional": false,
+            "hop": "mount:helpers.py#parameter_prefix%20target.include_router%28prefix%3Dprefix%29",
+            "prefix": "unresolved",
+            "prefix_reason": "route_prefix_unresolved",
+            "resolution": "literal",
+            "template": "/prefix-arg/x"
+          }
+        ]
+      },
+      "content_hash": "sha256:5bb830e856b18de361d41377ae88b3a8669574105071256638e457dc486cdc7d",
+      "file": "children.py",
+      "identity": "route:children.py#GET%20%2Fx%407",
+      "kind": "route",
+      "level": 4,
+      "name": "GET /x@7",
+      "qualified_name": "GET /x@7",
+      "span": {
+        "end_column": 21,
+        "end_line": 39,
+        "start_column": 1,
+        "start_line": 39
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "framework": "fastapi",
+        "handler": "function:children.py#async_handler",
+        "handler_inline": false,
+        "method": "GET",
+        "middleware": [],
+        "paths": [
+          {
+            "conditional": false,
+            "resolution": "literal",
+            "template": "/async/x"
+          },
+          {
+            "conditional": false,
+            "resolution": "literal",
+            "template": "/second/local/deep/async/x"
+          }
+        ],
+        "pattern": "/x",
+        "shape": {
+          "body": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "children.py",
+              "kind": "fact",
+              "line": 43,
+              "rule": "SH-F23"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "cookie": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "children.py",
+              "kind": "fact",
+              "line": 43,
+              "rule": "SH-F23"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "follow": {
+            "chains": [
+              {
+                "at": null,
+                "depth": 0,
+                "section": "query",
+                "start": {
+                  "file": "children.py",
+                  "function": "async_handler",
+                  "line": 43
+                },
+                "steps": [],
+                "stop": "ended"
+              },
+              {
+                "at": null,
+                "depth": 0,
+                "section": "responses",
+                "start": {
+                  "file": "children.py",
+                  "function": "async_handler",
+                  "line": 43
+                },
+                "steps": [],
+                "stop": "ended"
+              }
+            ],
+            "depth_limit": 6
+          },
+          "header": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "children.py",
+              "kind": "fact",
+              "line": 43,
+              "rule": "SH-F23"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "models": [],
+          "path": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "children.py",
+              "kind": "fact",
+              "line": 42,
+              "rule": "SH-F3"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "query": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "children.py",
+              "kind": "fact",
+              "line": 43,
+              "rule": "SH-F23"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "responses": {
+            "items": [
+              {
+                "content_type": "application/json",
+                "provenance": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "children.py",
+                  "kind": "fact",
+                  "line": 42,
+                  "rule": "SH-F27"
+                },
+                "schema": {
+                  "reason": "no response model is declared",
+                  "type": "unknown"
+                },
+                "status": "200"
+              }
+            ],
+            "reason": "statuses from exception handlers, middleware and calls not followed are not read",
+            "state": "partial"
+          },
+          "security": {
+            "items": [],
+            "state": "not_read"
+          },
+          "security_schemes": [],
+          "version": 1
+        }
+      },
+      "content_hash": "sha256:674a0d976eb75faea739cef3326f2759de6f939f167d62f073a249caf1cccafe",
+      "file": "children.py",
+      "identity": "route:children.py#GET%20%2Fx%408",
+      "kind": "route",
+      "level": 4,
+      "name": "GET /x@8",
+      "qualified_name": "GET /x@8",
+      "span": {
+        "end_column": 22,
+        "end_line": 42,
+        "start_column": 1,
+        "start_line": 42
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "framework": "fastapi",
+        "handler": "function:children.py#bare_async_handler",
+        "handler_inline": false,
+        "method": "GET",
+        "middleware": [],
+        "paths": [],
+        "pattern": "/x",
+        "shape": {
+          "body": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "children.py",
+              "kind": "fact",
+              "line": 46,
+              "rule": "SH-F23"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "cookie": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "children.py",
+              "kind": "fact",
+              "line": 46,
+              "rule": "SH-F23"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "follow": {
+            "chains": [
+              {
+                "at": null,
+                "depth": 0,
+                "section": "query",
+                "start": {
+                  "file": "children.py",
+                  "function": "bare_async_handler",
+                  "line": 46
+                },
+                "steps": [],
+                "stop": "ended"
+              },
+              {
+                "at": null,
+                "depth": 0,
+                "section": "responses",
+                "start": {
+                  "file": "children.py",
+                  "function": "bare_async_handler",
+                  "line": 46
+                },
+                "steps": [],
+                "stop": "ended"
+              }
+            ],
+            "depth_limit": 6
+          },
+          "header": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "children.py",
+              "kind": "fact",
+              "line": 46,
+              "rule": "SH-F23"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "models": [],
+          "path": {
+            "items": [],
+            "state": "not_read"
+          },
+          "query": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "children.py",
+              "kind": "fact",
+              "line": 46,
+              "rule": "SH-F23"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "responses": {
+            "items": [
+              {
+                "content_type": "application/json",
+                "provenance": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "children.py",
+                  "kind": "fact",
+                  "line": 45,
+                  "rule": "SH-F27"
+                },
+                "schema": {
+                  "reason": "no response model is declared",
+                  "type": "unknown"
+                },
+                "status": "200"
+              }
+            ],
+            "reason": "statuses from exception handlers, middleware and calls not followed are not read",
+            "state": "partial"
+          },
+          "security": {
+            "items": [],
+            "state": "not_read"
+          },
+          "security_schemes": [],
+          "version": 1
+        }
+      },
+      "content_hash": "sha256:3b5a40c155d7bd2cee538bf96317f0aaa254199bc97331b77bff0674c4e3be01",
+      "file": "children.py",
+      "identity": "route:children.py#GET%20%2Fx%409",
+      "kind": "route",
+      "level": 4,
+      "name": "GET /x@9",
+      "qualified_name": "GET /x@9",
+      "span": {
+        "end_column": 21,
+        "end_line": 45,
+        "start_column": 1,
+        "start_line": 45
+      },
+      "type": "node"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "id": "g1-s3072-K1-M5f_foreign_key",
+  "signature": "applied|K1|42P01|M5f.foreign_key",
+  "class": "K1",
+  "owner": "K1",
+  "row": "M5f.foreign_key",
+  "history": {
+    "id": "g1-s3072",
+    "tags": {
+      "1_m1.sql": [
+        "M1.create",
+        "M5f.foreign_key",
+        "M1.enum_default"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42P01",
+        "message": "relation \"t15\" does not exist",
+        "statement": 2,
+        "statement_text": "ALTER TABLE t8 ADD FOREIGN KEY (id) REFERENCES t15;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

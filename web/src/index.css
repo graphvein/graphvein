@@ -1,0 +1,149 @@
+/* Scan only src/ for class names, so files outside the sources (scripts, a
+   local coverage report) cannot change the built CSS. Markdown under src/
+   (components/ui/README.md) is excluded too: Markdown-only changes skip CI,
+   so a class name in a README would change the bundle unchecked. */
+@import "tailwindcss" source(".");
+@source not "./**/*.md";
+@import "tw-animate-css";
+@import "./styles/tokens.css";
+
+/* M5 switches from the coverage cards to the compact summary strip below
+   1400 px wide or 820 px high (T016d D8). */
+@custom-variant compact (@media (max-width: 1400px), (max-height: 820px));
+
+/* Map every token to a Tailwind colour, so components use token classes
+   (bg-background, text-muted-foreground, bg-stale) instead of dark:
+   variants. `inline` makes utilities reference the token directly, so the
+   OS colour scheme switch in tokens.css applies everywhere. */
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-sidebar: hsl(var(--sidebar));
+  --color-ring: hsl(var(--ring));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-brand: hsl(var(--brand));
+  --color-brand-foreground: hsl(var(--brand-foreground));
+  --color-brand-soft: hsl(var(--brand-soft));
+  --color-brand-text: hsl(var(--brand-text));
+  --color-http: hsl(var(--http));
+  --color-http-soft: hsl(var(--http-soft));
+  --color-http-bar: hsl(var(--http-bar));
+  --color-ipc: hsl(var(--ipc));
+  --color-ipc-soft: hsl(var(--ipc-soft));
+  --color-ipc-bar: hsl(var(--ipc-bar));
+  --color-action: hsl(var(--action));
+  --color-action-soft: hsl(var(--action-soft));
+  --color-action-bar: hsl(var(--action-bar));
+  --color-linked: hsl(var(--linked));
+  --color-linked-soft: hsl(var(--linked-soft));
+  --color-linked-bar: hsl(var(--linked-bar));
+  --color-unmatched: hsl(var(--unmatched));
+  --color-unmatched-soft: hsl(var(--unmatched-soft));
+  --color-unmatched-bar: hsl(var(--unmatched-bar));
+  --color-dynamic: hsl(var(--dynamic));
+  --color-dynamic-soft: hsl(var(--dynamic-soft));
+  --color-dynamic-bar: hsl(var(--dynamic-bar));
+  --color-wrapper: hsl(var(--wrapper));
+  --color-wrapper-soft: hsl(var(--wrapper-soft));
+  --color-wrapper-bar: hsl(var(--wrapper-bar));
+  --color-never: hsl(var(--never));
+  --color-never-soft: hsl(var(--never-soft));
+  --color-never-bar: hsl(var(--never-bar));
+  --color-other: hsl(var(--other));
+  --color-other-soft: hsl(var(--other-soft));
+  --color-other-bar: hsl(var(--other-bar));
+  --color-stale: hsl(var(--stale));
+  --color-stale-foreground: hsl(var(--stale-foreground));
+  --color-fresh: hsl(var(--fresh));
+  --color-fresh-soft: hsl(var(--fresh-soft));
+  --color-m-get: hsl(var(--m-get));
+  --color-m-post: hsl(var(--m-post));
+  --color-m-put: hsl(var(--m-put));
+  --color-m-patch: hsl(var(--m-patch));
+  --color-m-delete: hsl(var(--m-delete));
+  --color-overlay: hsl(var(--overlay));
+  --color-code-bg: hsl(var(--code-bg));
+  --color-code-hl: hsl(var(--code-hl));
+  --color-code-sp: hsl(var(--code-sp));
+  --color-edge: hsl(var(--edge));
+  --color-canvas: hsl(var(--canvas));
+  --color-dotgrid: hsl(var(--dotgrid));
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --font-sans: var(--sans);
+  --font-mono: var(--mono);
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+  html,
+  body {
+    margin: 0;
+    height: 100%;
+  }
+  body {
+    background: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font: 14px/1.5 var(--sans);
+    overflow: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+  :focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+  }
+}
+
+/* T016j: the indeterminate bar of the Re-index slot (no fraction is known,
+   so it moves instead of claiming one). Without motion it stands still. */
+@keyframes gv-slide {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(265%);
+  }
+}
+@layer utilities {
+  .gv-indet {
+    animation: gv-slide 1.4s linear infinite;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .gv-indet {
+      animation: none;
+      left: 31%;
+    }
+  }
+}
+/* The Workspace list's own scroll (T038 A3): a thin thumb in the theme's
+   border colour, shown only while the pointer is over the list, it has
+   focus, or it scrolls (data-scrolling, set for a moment by the list). */
+@layer utilities {
+  .gv-thin-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+  }
+  .gv-thin-scroll:hover,
+  .gv-thin-scroll:focus-within,
+  .gv-thin-scroll[data-scrolling] {
+    scrollbar-color: color-mix(in oklab, var(--color-muted-foreground) 50%, transparent) transparent;
+  }
+}

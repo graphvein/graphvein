@@ -1,0 +1,2 @@
+CREATE TEMP TABLE p (a int);
+CREATE TABLE c () INHERITS (p);

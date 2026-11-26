@@ -1,0 +1,28 @@
+{
+  "id": "review17-n16-drop-trigger-twice",
+  "signature": "agreed at Revision 1.7",
+  "class": "S1",
+  "owner": "W1",
+  "row": "review17",
+  "history": {
+    "id": "n16-drop-trigger-twice"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42704",
+        "message": "trigger \"tr\" for table \"t\" does not exist",
+        "statement": 5,
+        "statement_text": "DROP TRIGGER tr ON t;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

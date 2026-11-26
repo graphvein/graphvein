@@ -1,0 +1,28 @@
+{
+  "id": "review-q12-gen-def",
+  "signature": "applied|S1|42601|",
+  "class": "S1",
+  "owner": "P4",
+  "row": "review",
+  "history": {
+    "id": "q12-gen-def"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42601",
+        "message": "both default and generation expression specified for column \"b\" of table \"t\"",
+        "statement": 1,
+        "statement_text": "CREATE TABLE t (a int, b int GENERATED ALWAYS AS (a) STORED DEFAULT 1);"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

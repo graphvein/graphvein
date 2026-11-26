@@ -1,0 +1,185 @@
+name: CI
+
+on:
+  push:
+    paths-ignore: ['docs/**', '**/*.md']
+  pull_request:
+    paths-ignore: ['docs/**', '**/*.md']
+  workflow_dispatch:
+
+# The same workflow runs in the public repository (graphvein/graphvein) and
+# in the maintainer's working repository. In the public repository every pull
+# request and push to main runs the postgres job and the main job on Windows
+# and macOS. Elsewhere, scripts/ci-changes.sh runs Windows on main and on
+# marked branch heads, macOS on manual dispatch, and skips a merge to main
+# that was already tested. The public tree check is in public-tree.yml.
+
+concurrency:
+  group: ci-${{ github.head_ref || github.ref_name }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+env:
+  CGO_ENABLED: '0'
+
+jobs:
+  changes:
+    runs-on: ubuntu-24.04
+    # actions: read serves only the merge-skip lookup, which never runs in
+    # the public repository.
+    permissions:
+      contents: read
+      actions: read
+    outputs:
+      spike: ${{ steps.paths.outputs.spike }}
+      skip_tests: ${{ steps.paths.outputs.skip_tests }}
+      web: ${{ steps.paths.outputs.web }}
+      windows: ${{ steps.paths.outputs.windows }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+      - id: paths
+        shell: bash
+        env:
+          BEFORE: ${{ github.event.pull_request.base.sha || github.event.before }}
+          GH_TOKEN: ${{ github.token }}
+        run: bash scripts/ci-changes.sh
+
+  # Windows and macOS; Linux runs in the postgres job. Keep the job id and
+  # the runner names: "main (windows-2025)" and "main (macos-15)" are
+  # required checks in the public repository. In the public repository both
+  # legs always run (scripts/ci-changes.sh sets windows=true there). In any
+  # other repository Windows runs when ci-changes.sh selects it (main,
+  # schedule, dispatch, or a head commit marked [ci windows]) and macOS on
+  # dispatch and schedule only.
+  main:
+    needs: changes
+    if: needs.changes.outputs.skip_tests != 'true' && needs.changes.outputs.windows == 'true'
+    strategy:
+      fail-fast: false
+      matrix:
+        os: ${{ fromJSON((github.repository == 'graphvein/graphvein' || github.event_name == 'workflow_dispatch' || github.event_name == 'schedule') && '["windows-2025","macos-15"]' || '["windows-2025"]') }}
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-go@d8cbb8045d7f43706b9177cceb36c1f91a6644d5 # v7.1.0
+        with:
+          go-version-file: go.mod
+          cache-dependency-path: go.sum
+      - name: Download modules for every GOOS (dependency surface test runs offline)
+        run: go mod download
+      - name: Check line endings
+        run: bash scripts/check-line-endings.sh
+      - name: Vet and test (including golden self-tests)
+        run: bash scripts/test.sh
+      - name: Build
+        run: bash scripts/build.sh
+      - name: Version smoke test
+        run: ./bin/graphvein$(go env GOEXE) version
+      - name: Serve smoke test
+        run: bash scripts/smoke-serve.sh ./bin/graphvein$(go env GOEXE)
+
+  parsing-spike:
+    needs: changes
+    if: needs.changes.outputs.spike == 'true' && needs.changes.outputs.skip_tests != 'true'
+    runs-on: windows-2025
+    defaults:
+      run:
+        shell: bash
+        working-directory: spike/parsing
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-go@d8cbb8045d7f43706b9177cceb36c1f91a6644d5 # v7.1.0
+        with:
+          go-version-file: go.mod
+          cache-dependency-path: spike/parsing/go.sum
+      - run: go vet ./...
+      - run: go test ./...
+
+  # The only Linux test job: the full suite once, with the Postgres backend
+  # tests enabled, plus the Linux-only web UI check, vulnerability scans,
+  # build and smoke tests.
+  # Keep the name: it is a required check in the public repository,
+  # Postgres verification greps this job's log, and the merge skip in
+  # scripts/ci-changes.sh looks this job up by name.
+  postgres:
+    needs: changes
+    if: needs.changes.outputs.skip_tests != 'true'
+    runs-on: ubuntu-24.04
+    services:
+      postgres:
+        image: mirror.gcr.io/library/postgres:17
+        env:
+          POSTGRES_USER: graphvein
+          POSTGRES_PASSWORD: graphvein_test
+          POSTGRES_DB: graphvein_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U graphvein -d graphvein_test"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    env:
+      GRAPHVEIN_TEST_POSTGRES_URL: postgres://graphvein:graphvein_test@127.0.0.1:5432/graphvein_test?sslmode=disable
+      GRAPHVEIN_REQUIRE_POSTGRES: '1'
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-go@d8cbb8045d7f43706b9177cceb36c1f91a6644d5 # v7.1.0
+        with:
+          go-version-file: go.mod
+          cache-dependency-path: go.sum
+      - name: Download modules for every GOOS (dependency surface test runs offline)
+        run: go mod download
+      - name: Check line endings
+        run: bash scripts/check-line-endings.sh
+      # The reference CPython of the Python structural claim contract (ADR
+      # 0069): TestPythonStructureOracle runs the fixture oracle and
+      # TestPythonStdlibNames / TestPythonMetaPathNames check the committed
+      # module lists against it; without it they skip.
+      - name: Set up Python for the structure oracle
+        id: python
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
+        with:
+          python-version: '3.14'
+      - name: Vet and test (including golden self-tests and Postgres)
+        env:
+          GRAPHVEIN_PYTHON_ORACLE: ${{ steps.python.outputs.python-path }}
+        run: bash scripts/test.sh -v
+      # The web UI drift check runs on Linux only: the Linux build is canonical
+      # (ADR 0041). Node 24.22.2 bundles npm 11.19.1, the pinned version.
+      - name: Set up Node for the web UI check
+        if: needs.changes.outputs.web == 'true'
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version-file: web/.nvmrc
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - name: Web UI check (lint, tests, build drift)
+        if: needs.changes.outputs.web == 'true'
+        run: bash scripts/check-web.sh
+      # npm audit (ADR 0086): fails on high or critical advisories in the web
+      # UI's production dependencies, reports the rest. Same trigger as the
+      # web check.
+      - name: Vulnerability scan (web dependencies)
+        if: needs.changes.outputs.web == 'true'
+        run: bash scripts/vulncheck.sh web
+      - name: Build
+        run: bash scripts/build.sh
+      # govulncheck in binary mode on the built binary (ADR 0086): fails on a
+      # linked vulnerable symbol not covered by scripts/vulncheck/allowlist.txt.
+      - name: Vulnerability scan (Go, binary mode)
+        run: bash scripts/vulncheck.sh go
+      - name: Version smoke test
+        run: ./bin/graphvein$(go env GOEXE) version
+      - name: Serve smoke test
+        run: bash scripts/smoke-serve.sh ./bin/graphvein$(go env GOEXE)

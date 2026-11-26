@@ -1,0 +1,28 @@
+{
+  "id": "review16-j01-role-junk",
+  "signature": "agreed at Revision 1.6",
+  "class": "S1",
+  "owner": "V7",
+  "row": "review16",
+  "history": {
+    "id": "j01-role-junk"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42601",
+        "message": "unrecognized role option \"garbage\"",
+        "statement": 1,
+        "statement_text": "CREATE ROLE r1 WITH BYPASSRLS garbage;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

@@ -1,0 +1,1 @@
+CREATE FUNCTION f() RETURNS int LANGUAGE plpgsql AS $$ DECLARE x nosuchtype; BEGIN RETURN 1; END $$;

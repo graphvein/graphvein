@@ -1,0 +1,2 @@
+ALTER TABLE t2 ADD COLUMN z int;
+CREATE TABLE t2 (id integer);

@@ -1,0 +1,68 @@
+{
+  "id": "review-r04-fk-vc-char",
+  "signature": "agreed at af6a883",
+  "class": "S1",
+  "owner": "P5",
+  "row": "review",
+  "history": {
+    "id": "r04-fk-vc-char"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "accepted"
+      }
+    ],
+    "tables": [
+      {
+        "table": "history.c",
+        "columns": [
+          {
+            "name": "a",
+            "type": "character(3)",
+            "not_null": false,
+            "has_default": false
+          }
+        ],
+        "primary_key": null,
+        "unique_keys": [],
+        "foreign_keys": [
+          {
+            "name": "c_a_fkey",
+            "columns": [
+              "a"
+            ],
+            "ref_table": "history.p",
+            "ref_columns": [
+              "a"
+            ]
+          }
+        ],
+        "indexes": []
+      },
+      {
+        "table": "history.p",
+        "columns": [
+          {
+            "name": "a",
+            "type": "character varying(5)",
+            "not_null": true,
+            "has_default": false
+          }
+        ],
+        "primary_key": [
+          "a"
+        ],
+        "unique_keys": [],
+        "foreign_keys": [],
+        "indexes": []
+      }
+    ],
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

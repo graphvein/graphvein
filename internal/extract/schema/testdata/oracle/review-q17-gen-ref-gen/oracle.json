@@ -1,0 +1,29 @@
+{
+  "id": "review-q17-gen-ref-gen",
+  "signature": "agreed at af6a883",
+  "class": "S1",
+  "owner": "P5",
+  "row": "review",
+  "history": {
+    "id": "q17-gen-ref-gen"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42P17",
+        "message": "cannot use generated column \"b\" in column generation expression",
+        "detail": "A generated column cannot reference another generated column.",
+        "statement": 1,
+        "statement_text": "CREATE TABLE t (a int, b int GENERATED ALWAYS AS (a) STORED, c int GENERATED ALWAYS AS (b) STORED);"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

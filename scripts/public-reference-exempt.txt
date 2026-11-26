@@ -1,0 +1,12 @@
+# Files of the public tree that may name the private paths of
+# scripts/public-exclude.txt (ADR 0080). scripts/check-public-tree.sh skips
+# them in its reference scan. Text after "#" is the reason.
+
+scripts/public-exclude.txt                       # the guard's list itself
+scripts/public-reference-exempt.txt              # this file
+scripts/check-public-tree.sh                     # the guard
+scripts/public-snapshot.sh                       # the snapshot tool
+scripts/hooks/pre-push-public                    # the push guard
+scripts/publictree/publictree_test.go            # the guard's test
+docs/adr/0080-public-tree-and-licence-checks.md  # the decision record of the guard
+docs/public/ci-plan.md                           # plan for the public CI; names what stays private

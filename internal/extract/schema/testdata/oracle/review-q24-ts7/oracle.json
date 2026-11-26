@@ -1,0 +1,40 @@
+{
+  "id": "review-q24-ts7",
+  "signature": "type",
+  "class": "S1",
+  "owner": "P5",
+  "row": "review",
+  "history": {
+    "id": "q24-ts7"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "accepted"
+      }
+    ],
+    "tables": [
+      {
+        "table": "history.t",
+        "columns": [
+          {
+            "name": "c",
+            "type": "timestamp(6) without time zone",
+            "not_null": false,
+            "has_default": false
+          }
+        ],
+        "primary_key": null,
+        "unique_keys": [],
+        "foreign_keys": [],
+        "indexes": []
+      }
+    ],
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

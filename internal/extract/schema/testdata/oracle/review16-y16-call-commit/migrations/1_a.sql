@@ -1,0 +1,2 @@
+CREATE PROCEDURE p() LANGUAGE plpgsql AS $$ BEGIN COMMIT; END $$;
+CALL p();

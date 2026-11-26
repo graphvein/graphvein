@@ -1,0 +1,711 @@
+LOG:  parse tree:
+DETAIL:     {QUERY 
+   :commandType 6 
+   :querySource 0 
+   :canSetTag true 
+   :utilityStmt 
+      {PREPARESTMT 
+      :name p 
+      :argtypes <> 
+      :query 
+         {INSERTSTMT 
+         :relation 
+            {RANGEVAR 
+            :catalogname <> 
+            :schemaname <> 
+            :relname comments_archive 
+            :inh true 
+            :relpersistence p 
+            :alias <> 
+            :location 109
+            }
+         :cols <> 
+         :selectStmt 
+            {SELECTSTMT 
+            :distinctClause <> 
+            :intoClause <> 
+            :targetList (
+               {RESTARGET 
+               :name <> 
+               :indirection <> 
+               :val 
+                  {COLUMNREF 
+                  :fields ("id")
+                  :location 133
+                  }
+               :location 133
+               }
+               {RESTARGET 
+               :name <> 
+               :indirection <> 
+               :val 
+                  {COLUMNREF 
+                  :fields ("post_id")
+                  :location 137
+                  }
+               :location 137
+               }
+               {RESTARGET 
+               :name <> 
+               :indirection <> 
+               :val 
+                  {COLUMNREF 
+                  :fields ("body")
+                  :location 146
+                  }
+               :location 146
+               }
+            )
+            :fromClause (
+               {RANGEVAR 
+               :catalogname <> 
+               :schemaname <> 
+               :relname moved 
+               :inh true 
+               :relpersistence p 
+               :alias <> 
+               :location 156
+               }
+            )
+            :whereClause <> 
+            :groupClause <> 
+            :groupDistinct false 
+            :havingClause <> 
+            :windowClause <> 
+            :valuesLists <> 
+            :sortClause <> 
+            :limitOffset <> 
+            :limitCount <> 
+            :limitOption 0 
+            :lockingClause <> 
+            :withClause <> 
+            :op 0 
+            :all false 
+            :larg <> 
+            :rarg <>
+            }
+         :onConflictClause <> 
+         :returningList <> 
+         :withClause 
+            {WITHCLAUSE 
+            :ctes (
+               {COMMONTABLEEXPR 
+               :ctename moved 
+               :aliascolnames <> 
+               :ctematerialized 0 
+               :ctequery 
+                  {DELETESTMT 
+                  :relation 
+                     {RANGEVAR 
+                     :catalogname <> 
+                     :schemaname <> 
+                     :relname comments 
+                     :inh true 
+                     :relpersistence p 
+                     :alias <> 
+                     :location 40
+                     }
+                  :usingClause <> 
+                  :whereClause 
+                     {A_EXPR 
+                     :name ("=")
+                     :lexpr 
+                        {COLUMNREF 
+                        :fields ("post_id")
+                        :location 55
+                        }
+                     :rexpr 
+                        {PARAMREF 
+                        :number 1 
+                        :location 65
+                        }
+                     :location 63
+                     }
+                  :returningList (
+                     {RESTARGET 
+                     :name <> 
+                     :indirection <> 
+                     :val 
+                        {COLUMNREF 
+                        :fields ("id")
+                        :location 78
+                        }
+                     :location 78
+                     }
+                     {RESTARGET 
+                     :name <> 
+                     :indirection <> 
+                     :val 
+                        {COLUMNREF 
+                        :fields ("post_id")
+                        :location 82
+                        }
+                     :location 82
+                     }
+                     {RESTARGET 
+                     :name <> 
+                     :indirection <> 
+                     :val 
+                        {COLUMNREF 
+                        :fields ("body")
+                        :location 91
+                        }
+                     :location 91
+                     }
+                  )
+                  :withClause <>
+                  }
+               :search_clause <> 
+               :cycle_clause <> 
+               :location 18 
+               :cterecursive false 
+               :cterefcount 0 
+               :ctecolnames <> 
+               :ctecoltypes <> 
+               :ctecoltypmods <> 
+               :ctecolcollations <>
+               }
+            )
+            :recursive false 
+            :location 13
+            }
+         :override 0
+         }
+      }
+   :resultRelation 0 
+   :hasAggs false 
+   :hasWindowFuncs false 
+   :hasTargetSRFs false 
+   :hasSubLinks false 
+   :hasDistinctOn false 
+   :hasRecursive false 
+   :hasModifyingCTE false 
+   :hasForUpdate false 
+   :hasRowSecurity false 
+   :isReturn false 
+   :cteList <> 
+   :rtable <> 
+   :rteperminfos <> 
+   :jointree <> 
+   :mergeActionList <> 
+   :mergeTargetRelation 0 
+   :mergeJoinCondition <> 
+   :targetList <> 
+   :override 0 
+   :onConflict <> 
+   :returningList <> 
+   :groupClause <> 
+   :groupDistinct false 
+   :groupingSets <> 
+   :havingQual <> 
+   :windowClause <> 
+   :distinctClause <> 
+   :sortClause <> 
+   :limitOffset <> 
+   :limitCount <> 
+   :limitOption 0 
+   :rowMarks <> 
+   :setOperations <> 
+   :constraintDeps <> 
+   :withCheckOptions <> 
+   :stmt_location 0 
+   :stmt_len 0
+   }
+
+LOG:  parse tree:
+DETAIL:     {QUERY 
+   :commandType 3 
+   :querySource 0 
+   :canSetTag true 
+   :utilityStmt <> 
+   :resultRelation 1 
+   :hasAggs false 
+   :hasWindowFuncs false 
+   :hasTargetSRFs false 
+   :hasSubLinks false 
+   :hasDistinctOn false 
+   :hasRecursive false 
+   :hasModifyingCTE true 
+   :hasForUpdate false 
+   :hasRowSecurity false 
+   :isReturn false 
+   :cteList (
+      {COMMONTABLEEXPR 
+      :ctename moved 
+      :aliascolnames <> 
+      :ctematerialized 0 
+      :ctequery 
+         {QUERY 
+         :commandType 4 
+         :querySource 0 
+         :canSetTag false 
+         :utilityStmt <> 
+         :resultRelation 1 
+         :hasAggs false 
+         :hasWindowFuncs false 
+         :hasTargetSRFs false 
+         :hasSubLinks false 
+         :hasDistinctOn false 
+         :hasRecursive false 
+         :hasModifyingCTE false 
+         :hasForUpdate false 
+         :hasRowSecurity false 
+         :isReturn false 
+         :cteList <> 
+         :rtable (
+            {RANGETBLENTRY 
+            :alias <> 
+            :eref 
+               {ALIAS 
+               :aliasname comments 
+               :colnames ("id" "post_id" "body")
+               }
+            :rtekind 0 
+            :relid 16559 
+            :inh true 
+            :relkind r 
+            :rellockmode 3 
+            :perminfoindex 1 
+            :tablesample <> 
+            :lateral false 
+            :inFromCl false 
+            :securityQuals <>
+            }
+         )
+         :rteperminfos (
+            {RTEPERMISSIONINFO 
+            :relid 16559 
+            :inh true 
+            :requiredPerms 10 
+            :checkAsUser 0 
+            :selectedCols (b 8 9 10)
+            :insertedCols (b)
+            :updatedCols (b)
+            }
+         )
+         :jointree 
+            {FROMEXPR 
+            :fromlist (
+               {RANGETBLREF 
+               :rtindex 1
+               }
+            )
+            :quals 
+               {OPEXPR 
+               :opno 96 
+               :opfuncid 65 
+               :opresulttype 16 
+               :opretset false 
+               :opcollid 0 
+               :inputcollid 0 
+               :args (
+                  {VAR 
+                  :varno 1 
+                  :varattno 2 
+                  :vartype 23 
+                  :vartypmod -1 
+                  :varcollid 0 
+                  :varnullingrels (b)
+                  :varlevelsup 0 
+                  :varnosyn 1 
+                  :varattnosyn 2 
+                  :location 55
+                  }
+                  {PARAM 
+                  :paramkind 0 
+                  :paramid 1 
+                  :paramtype 23 
+                  :paramtypmod -1 
+                  :paramcollid 0 
+                  :location 65
+                  }
+               )
+               :location 63
+               }
+            }
+         :mergeActionList <> 
+         :mergeTargetRelation 0 
+         :mergeJoinCondition <> 
+         :targetList <> 
+         :override 0 
+         :onConflict <> 
+         :returningList (
+            {TARGETENTRY 
+            :expr 
+               {VAR 
+               :varno 1 
+               :varattno 1 
+               :vartype 23 
+               :vartypmod -1 
+               :varcollid 0 
+               :varnullingrels (b)
+               :varlevelsup 0 
+               :varnosyn 1 
+               :varattnosyn 1 
+               :location 78
+               }
+            :resno 1 
+            :resname id 
+            :ressortgroupref 0 
+            :resorigtbl 16559 
+            :resorigcol 1 
+            :resjunk false
+            }
+            {TARGETENTRY 
+            :expr 
+               {VAR 
+               :varno 1 
+               :varattno 2 
+               :vartype 23 
+               :vartypmod -1 
+               :varcollid 0 
+               :varnullingrels (b)
+               :varlevelsup 0 
+               :varnosyn 1 
+               :varattnosyn 2 
+               :location 82
+               }
+            :resno 2 
+            :resname post_id 
+            :ressortgroupref 0 
+            :resorigtbl 16559 
+            :resorigcol 2 
+            :resjunk false
+            }
+            {TARGETENTRY 
+            :expr 
+               {VAR 
+               :varno 1 
+               :varattno 3 
+               :vartype 25 
+               :vartypmod -1 
+               :varcollid 100 
+               :varnullingrels (b)
+               :varlevelsup 0 
+               :varnosyn 1 
+               :varattnosyn 3 
+               :location 91
+               }
+            :resno 3 
+            :resname body 
+            :ressortgroupref 0 
+            :resorigtbl 16559 
+            :resorigcol 3 
+            :resjunk false
+            }
+         )
+         :groupClause <> 
+         :groupDistinct false 
+         :groupingSets <> 
+         :havingQual <> 
+         :windowClause <> 
+         :distinctClause <> 
+         :sortClause <> 
+         :limitOffset <> 
+         :limitCount <> 
+         :limitOption 0 
+         :rowMarks <> 
+         :setOperations <> 
+         :constraintDeps <> 
+         :withCheckOptions <> 
+         :stmt_location 0 
+         :stmt_len 0
+         }
+      :search_clause <> 
+      :cycle_clause <> 
+      :location 18 
+      :cterecursive false 
+      :cterefcount 1 
+      :ctecolnames ("id" "post_id" "body")
+      :ctecoltypes (o 23 23 25)
+      :ctecoltypmods (i -1 -1 -1)
+      :ctecolcollations (o 0 0 100)
+      }
+   )
+   :rtable (
+      {RANGETBLENTRY 
+      :alias <> 
+      :eref 
+         {ALIAS 
+         :aliasname comments_archive 
+         :colnames ("id" "post_id" "body")
+         }
+      :rtekind 0 
+      :relid 16572 
+      :inh false 
+      :relkind r 
+      :rellockmode 3 
+      :perminfoindex 1 
+      :tablesample <> 
+      :lateral false 
+      :inFromCl false 
+      :securityQuals <>
+      }
+      {RANGETBLENTRY 
+      :alias 
+         {ALIAS 
+         :aliasname *SELECT* 
+         :colnames <>
+         }
+      :eref 
+         {ALIAS 
+         :aliasname *SELECT* 
+         :colnames ("id" "post_id" "body")
+         }
+      :rtekind 1 
+      :subquery 
+         {QUERY 
+         :commandType 1 
+         :querySource 0 
+         :canSetTag true 
+         :utilityStmt <> 
+         :resultRelation 0 
+         :hasAggs false 
+         :hasWindowFuncs false 
+         :hasTargetSRFs false 
+         :hasSubLinks false 
+         :hasDistinctOn false 
+         :hasRecursive false 
+         :hasModifyingCTE false 
+         :hasForUpdate false 
+         :hasRowSecurity false 
+         :isReturn false 
+         :cteList <> 
+         :rtable (
+            {RANGETBLENTRY 
+            :alias <> 
+            :eref 
+               {ALIAS 
+               :aliasname moved 
+               :colnames ("id" "post_id" "body")
+               }
+            :rtekind 6 
+            :ctename moved 
+            :ctelevelsup 1 
+            :self_reference false 
+            :coltypes (o 23 23 25)
+            :coltypmods (i -1 -1 -1)
+            :colcollations (o 0 0 100)
+            :lateral false 
+            :inFromCl true 
+            :securityQuals <>
+            }
+         )
+         :rteperminfos <> 
+         :jointree 
+            {FROMEXPR 
+            :fromlist (
+               {RANGETBLREF 
+               :rtindex 1
+               }
+            )
+            :quals <>
+            }
+         :mergeActionList <> 
+         :mergeTargetRelation 0 
+         :mergeJoinCondition <> 
+         :targetList (
+            {TARGETENTRY 
+            :expr 
+               {VAR 
+               :varno 1 
+               :varattno 1 
+               :vartype 23 
+               :vartypmod -1 
+               :varcollid 0 
+               :varnullingrels (b)
+               :varlevelsup 0 
+               :varnosyn 1 
+               :varattnosyn 1 
+               :location 133
+               }
+            :resno 1 
+            :resname id 
+            :ressortgroupref 0 
+            :resorigtbl 16559 
+            :resorigcol 1 
+            :resjunk false
+            }
+            {TARGETENTRY 
+            :expr 
+               {VAR 
+               :varno 1 
+               :varattno 2 
+               :vartype 23 
+               :vartypmod -1 
+               :varcollid 0 
+               :varnullingrels (b)
+               :varlevelsup 0 
+               :varnosyn 1 
+               :varattnosyn 2 
+               :location 137
+               }
+            :resno 2 
+            :resname post_id 
+            :ressortgroupref 0 
+            :resorigtbl 16559 
+            :resorigcol 2 
+            :resjunk false
+            }
+            {TARGETENTRY 
+            :expr 
+               {VAR 
+               :varno 1 
+               :varattno 3 
+               :vartype 25 
+               :vartypmod -1 
+               :varcollid 100 
+               :varnullingrels (b)
+               :varlevelsup 0 
+               :varnosyn 1 
+               :varattnosyn 3 
+               :location 146
+               }
+            :resno 3 
+            :resname body 
+            :ressortgroupref 0 
+            :resorigtbl 16559 
+            :resorigcol 3 
+            :resjunk false
+            }
+         )
+         :override 0 
+         :onConflict <> 
+         :returningList <> 
+         :groupClause <> 
+         :groupDistinct false 
+         :groupingSets <> 
+         :havingQual <> 
+         :windowClause <> 
+         :distinctClause <> 
+         :sortClause <> 
+         :limitOffset <> 
+         :limitCount <> 
+         :limitOption 0 
+         :rowMarks <> 
+         :setOperations <> 
+         :constraintDeps <> 
+         :withCheckOptions <> 
+         :stmt_location 0 
+         :stmt_len 0
+         }
+      :security_barrier false 
+      :relid 0 
+      :inh false 
+      :relkind <> 
+      :rellockmode 0 
+      :perminfoindex 0 
+      :lateral false 
+      :inFromCl false 
+      :securityQuals <>
+      }
+   )
+   :rteperminfos (
+      {RTEPERMISSIONINFO 
+      :relid 16572 
+      :inh false 
+      :requiredPerms 1 
+      :checkAsUser 0 
+      :selectedCols (b)
+      :insertedCols (b 8 9 10)
+      :updatedCols (b)
+      }
+   )
+   :jointree 
+      {FROMEXPR 
+      :fromlist (
+         {RANGETBLREF 
+         :rtindex 2
+         }
+      )
+      :quals <>
+      }
+   :mergeActionList <> 
+   :mergeTargetRelation 0 
+   :mergeJoinCondition <> 
+   :targetList (
+      {TARGETENTRY 
+      :expr 
+         {VAR 
+         :varno 2 
+         :varattno 1 
+         :vartype 23 
+         :vartypmod -1 
+         :varcollid 0 
+         :varnullingrels (b)
+         :varlevelsup 0 
+         :varnosyn 2 
+         :varattnosyn 1 
+         :location 133
+         }
+      :resno 1 
+      :resname id 
+      :ressortgroupref 0 
+      :resorigtbl 0 
+      :resorigcol 0 
+      :resjunk false
+      }
+      {TARGETENTRY 
+      :expr 
+         {VAR 
+         :varno 2 
+         :varattno 2 
+         :vartype 23 
+         :vartypmod -1 
+         :varcollid 0 
+         :varnullingrels (b)
+         :varlevelsup 0 
+         :varnosyn 2 
+         :varattnosyn 2 
+         :location 137
+         }
+      :resno 2 
+      :resname post_id 
+      :ressortgroupref 0 
+      :resorigtbl 0 
+      :resorigcol 0 
+      :resjunk false
+      }
+      {TARGETENTRY 
+      :expr 
+         {VAR 
+         :varno 2 
+         :varattno 3 
+         :vartype 25 
+         :vartypmod -1 
+         :varcollid 100 
+         :varnullingrels (b)
+         :varlevelsup 0 
+         :varnosyn 2 
+         :varattnosyn 3 
+         :location 146
+         }
+      :resno 3 
+      :resname body 
+      :ressortgroupref 0 
+      :resorigtbl 0 
+      :resorigcol 0 
+      :resjunk false
+      }
+   )
+   :override 0 
+   :onConflict <> 
+   :returningList <> 
+   :groupClause <> 
+   :groupDistinct false 
+   :groupingSets <> 
+   :havingQual <> 
+   :windowClause <> 
+   :distinctClause <> 
+   :sortClause <> 
+   :limitOffset <> 
+   :limitCount <> 
+   :limitOption 0 
+   :rowMarks <> 
+   :setOperations <> 
+   :constraintDeps <> 
+   :withCheckOptions <> 
+   :stmt_location 0 
+   :stmt_len 0
+   }
+

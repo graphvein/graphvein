@@ -1,0 +1,41 @@
+{
+  "id": "review15-b21-set-searchpath-public",
+  "signature": "agreed at Revision 1.5",
+  "class": "S1",
+  "owner": "U3",
+  "row": "review15",
+  "history": {
+    "id": "b21-set-searchpath-public",
+    "fresh_db": true
+  },
+  "verdict": {
+    "default_schema": "public",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "accepted"
+      }
+    ],
+    "tables": [
+      {
+        "table": "other.t",
+        "columns": [
+          {
+            "name": "a",
+            "type": "integer",
+            "not_null": false,
+            "has_default": false
+          }
+        ],
+        "primary_key": null,
+        "unique_keys": [],
+        "foreign_keys": [],
+        "indexes": []
+      }
+    ],
+    "prelude_tables": [
+      "public._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

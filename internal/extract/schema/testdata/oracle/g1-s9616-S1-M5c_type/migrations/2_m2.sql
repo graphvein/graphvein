@@ -1,0 +1,1 @@
+ALTER TABLE t1 ALTER COLUMN c2 TYPE integer USING c2::integer;

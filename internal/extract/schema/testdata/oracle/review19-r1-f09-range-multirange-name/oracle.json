@@ -1,0 +1,28 @@
+{
+  "id": "review19-r1-f09-range-multirange-name",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y21",
+  "row": "review19",
+  "history": {
+    "id": "f09-range-multirange-name"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42710",
+        "message": "type \"mymultirange\" already exists",
+        "statement": 2,
+        "statement_text": "CREATE TABLE mymultirange (id int);"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

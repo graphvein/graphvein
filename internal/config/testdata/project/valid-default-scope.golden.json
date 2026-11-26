@@ -1,0 +1,71 @@
+{
+  "dir": ".",
+  "members": [
+    {
+      "checkout": false,
+      "consumes": [
+        {
+          "bases": [
+            "VITE_API"
+          ],
+          "default_scope": true,
+          "origins": null,
+          "path_prefixes": null,
+          "repository": "api",
+          "scope": ""
+        }
+      ],
+      "path": "",
+      "path_source": "",
+      "repository": "web",
+      "repository_source": "manifest",
+      "scopes": null
+    },
+    {
+      "checkout": false,
+      "consumes": null,
+      "path": "",
+      "path_source": "",
+      "repository": "api",
+      "repository_source": "manifest",
+      "scopes": [
+        {
+          "consumes": [
+            {
+              "bases": null,
+              "default_scope": true,
+              "origins": null,
+              "path_prefixes": null,
+              "repository": "api",
+              "scope": ""
+            }
+          ],
+          "name": "admin",
+          "path": "apps/admin"
+        },
+        {
+          "consumes": [
+            {
+              "bases": null,
+              "origins": null,
+              "path_prefixes": null,
+              "repository": "api",
+              "scope": "admin"
+            },
+            {
+              "bases": null,
+              "default_scope": true,
+              "origins": null,
+              "path_prefixes": null,
+              "repository": "api",
+              "scope": ""
+            }
+          ],
+          "name": "tools",
+          "path": "tools"
+        }
+      ]
+    }
+  ],
+  "name": "shop"
+}

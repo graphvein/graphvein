@@ -1,0 +1,28 @@
+{
+  "id": "review19-r5-r02-comment-on-table-seq",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y42",
+  "row": "review19",
+  "history": {
+    "id": "r02-comment-on-table-seq"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42809",
+        "message": "\"s\" is not a table",
+        "statement": 2,
+        "statement_text": "COMMENT ON TABLE s IS 'x';"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

@@ -1,0 +1,36 @@
+{
+  "id": "g1-s6483-S1-N1_create_policy",
+  "signature": "applied|S1|42P01|N1.create_policy",
+  "class": "S1",
+  "owner": "P1",
+  "row": "N1.create_policy",
+  "history": {
+    "id": "g1-s6483",
+    "fresh_db": true,
+    "tags": {
+      "1_m1.sql": [
+        "M1.create",
+        "M6.drop",
+        "N1.create_policy"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "public",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42P01",
+        "message": "relation \"t1\" does not exist",
+        "statement": 3,
+        "statement_text": "CREATE POLICY pol ON t1 USING (true);"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "public._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

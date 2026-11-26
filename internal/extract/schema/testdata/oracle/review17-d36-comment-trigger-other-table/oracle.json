@@ -1,0 +1,28 @@
+{
+  "id": "review17-d36-comment-trigger-other-table",
+  "signature": "agreed at Revision 1.7",
+  "class": "S1",
+  "owner": "W1",
+  "row": "review17",
+  "history": {
+    "id": "d36-comment-trigger-other-table"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42704",
+        "message": "trigger \"tr\" for table \"u\" does not exist",
+        "statement": 5,
+        "statement_text": "COMMENT ON TRIGGER tr ON u IS 'x';"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

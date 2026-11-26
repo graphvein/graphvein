@@ -1,0 +1,8 @@
+CREATE TABLE projects (project TEXT COLLATE "C" PRIMARY KEY, payload TEXT NOT NULL);
+CREATE TABLE project_members (project TEXT COLLATE "C" NOT NULL REFERENCES projects(project) ON DELETE CASCADE, repository TEXT COLLATE "C" NOT NULL, ordinal INTEGER NOT NULL, payload TEXT NOT NULL, PRIMARY KEY(project,repository));
+CREATE TABLE project_links (project TEXT COLLATE "C" NOT NULL, kind TEXT COLLATE "C" NOT NULL, source_repository TEXT COLLATE "C" NOT NULL, source_identity TEXT COLLATE "C" NOT NULL, target_repository TEXT COLLATE "C" NOT NULL, target_identity TEXT COLLATE "C" NOT NULL, payload TEXT NOT NULL, PRIMARY KEY(project,kind,source_repository,source_identity,target_repository,target_identity), FOREIGN KEY(project,source_repository) REFERENCES project_members(project,repository) ON DELETE CASCADE, FOREIGN KEY(project,target_repository) REFERENCES project_members(project,repository) ON DELETE CASCADE);
+CREATE INDEX project_links_source ON project_links(project,source_repository,source_identity);
+CREATE INDEX project_links_target ON project_links(project,target_repository,target_identity);
+CREATE TABLE project_link_runs (project TEXT COLLATE "C" NOT NULL REFERENCES projects(project) ON DELETE CASCADE, seq INTEGER NOT NULL, payload TEXT NOT NULL, PRIMARY KEY(project,seq));
+CREATE TABLE project_outcomes (project TEXT COLLATE "C" NOT NULL, ordinal INTEGER NOT NULL, source_repository TEXT COLLATE "C" NOT NULL, source_identity TEXT COLLATE "C" NOT NULL, status TEXT COLLATE "C" NOT NULL, payload TEXT NOT NULL, PRIMARY KEY(project,ordinal), FOREIGN KEY(project,source_repository) REFERENCES project_members(project,repository) ON DELETE CASCADE);
+CREATE INDEX project_outcomes_source ON project_outcomes(project,source_repository,source_identity);

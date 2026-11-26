@@ -1,0 +1,28 @@
+{
+  "id": "review16-r41-plpgsql-return-value-void",
+  "signature": "agreed at Revision 1.6",
+  "class": "S1",
+  "owner": "V1",
+  "row": "review16",
+  "history": {
+    "id": "r41-plpgsql-return-value-void"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42804",
+        "message": "RETURN cannot have a parameter in function returning void",
+        "statement": 1,
+        "statement_text": "CREATE FUNCTION f() RETURNS void LANGUAGE plpgsql AS $$ BEGIN RETURN 1; END $$;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

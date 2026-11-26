@@ -1,0 +1,28 @@
+{
+  "id": "review-s05-gen-checkname",
+  "signature": "applied|S1|42710|",
+  "class": "S1",
+  "owner": "P2",
+  "row": "review",
+  "history": {
+    "id": "s05-gen-checkname"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42710",
+        "message": "check constraint \"t_a_check\" already exists",
+        "statement": 1,
+        "statement_text": "CREATE TABLE t (a int CHECK (a \u003e 0), CONSTRAINT t_a_check CHECK (a \u003c 5));"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

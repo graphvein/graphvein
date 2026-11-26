@@ -1,0 +1,4165 @@
+{
+  "api_version": 0,
+  "assumptions": [
+    {
+      "folded_into": null,
+      "id": "E1",
+      "source": "migrations",
+      "text": "roles, extensions, schemas, tables, functions and operators the set never creates in any migration exist with a signature that fits their use, as do server files COPY names.",
+      "title": "Objects outside the set"
+    },
+    {
+      "folded_into": null,
+      "id": "E2",
+      "source": "migrations",
+      "text": "no existing row breaks a constraint, NOT NULL or cast that a later ALTER TABLE or CREATE INDEX checks, and the rows of a server file COPY reads are valid.",
+      "title": "Rows"
+    },
+    {
+      "folded_into": null,
+      "id": "E3",
+      "source": "migrations",
+      "text": "DO, CALL, function and trigger bodies and extension scripts finish without raising.",
+      "title": "Code"
+    },
+    {
+      "folded_into": null,
+      "id": "E4",
+      "source": "migrations",
+      "text": "Postgres's default settings (standard_conforming_strings on, check_function_bodies on) and the history's schema as search_path (\"$user\", public), in a UTF8 database (the built-in collations ucs_basic and pg_c_utf8 of M2.P1 exist only in UTF8 databases, pg_collation.dat collencoding 6).",
+      "title": "Session"
+    },
+    {
+      "folded_into": null,
+      "id": "E5",
+      "source": "migrations",
+      "text": "the database has the schemas initdb creates in every database, public (owned by pg_database_owner) and information_schema, besides pg_catalog and pg_toast; the pass already relies on public for unqualified names and sqlx's bookkeeping table.",
+      "title": "Built-in schemas"
+    },
+    {
+      "folded_into": null,
+      "id": "E6",
+      "source": "migrations",
+      "text": "the migrating role is not a superuser.",
+      "title": "Privileges short of superuser"
+    },
+    {
+      "folded_into": "E8",
+      "id": "E7",
+      "source": "migrations",
+      "text": "Runtime resources the migrations need are available; now covered by E8 (History applies).",
+      "title": "Runtime resources"
+    },
+    {
+      "folded_into": null,
+      "id": "E8",
+      "source": "migrations",
+      "text": "the committed migration history applies cleanly, in order, as it did in the project's own environments.",
+      "title": "History applies"
+    },
+    {
+      "folded_into": null,
+      "id": "DI-V1",
+      "source": "models",
+      "text": "The diesel version in the workspace's Cargo.lock is the one the code is built with (pins: {\"diesel\": \"\u003cv\u003e\"}); a missing or ambiguous pin gives pins: null with DI-V1 still listed.",
+      "title": "Pins"
+    },
+    {
+      "folded_into": null,
+      "id": "DI-V2",
+      "source": "models",
+      "text": "A generated schema file is print-schema output from the deployed database, with only the configured patch_file applied afterwards, regenerated after the latest migration and not edited by hand outside the patch.",
+      "title": "Generated file is current"
+    },
+    {
+      "folded_into": null,
+      "id": "DI-V3",
+      "source": "models",
+      "text": "No column's type is a domain (print-schema writes a domain's base type unless pg_domains_as_custom_types matches it; pg.rs:136-147).",
+      "title": "No domains"
+    },
+    {
+      "folded_into": null,
+      "id": "DI-V4",
+      "source": "models",
+      "text": "The database is of the dialect the workspace's Diesel backend features name, the backends the known companion crates enable included.",
+      "title": "Dialect"
+    },
+    {
+      "folded_into": null,
+      "id": "DI-V5",
+      "source": "models",
+      "text": "The schema file was generated with the [print_schema] section that names it as it stands (its schema, filter, import_types, pg_domains_as_custom_types, sqlite_integer_primary_key_is_bigint).",
+      "title": "Generation settings"
+    },
+    {
+      "folded_into": null,
+      "id": "DI-V6",
+      "source": "models",
+      "text": "The diesel_cli that generated the file follows the print-schema rules the claim contract cites, verified at diesel_cli 2.3.14 and 2.4.0. diesel_cli is a separate binary, not in Cargo.lock; the diesel library pin does not pin it.",
+      "title": "diesel_cli rules"
+    },
+    {
+      "folded_into": null,
+      "id": "DI-V7",
+      "source": "models",
+      "text": "A schema.rs that no diesel.toml names is not configured by diesel.toml and may be stale.",
+      "title": "Unconfigured schema file"
+    },
+    {
+      "folded_into": null,
+      "id": "DI-V8",
+      "source": "models",
+      "text": "Rules verified at diesel_cli 2.3.14 and 2.4.0: the diesel pin is newer than these versions, and the diesel_cli that generated the file is assumed to write the forms the claim contract reads as they do.",
+      "title": "Newer diesel pin"
+    },
+    {
+      "folded_into": null,
+      "id": "DI-V9",
+      "source": "models",
+      "text": "Rules verified at diesel_cli 2.3.14 and 2.4.0; older diesel_cli output checked for the header, the pub mod wrap, Nullable, the type idents, #[sql_name], the key list, base tables only, sql_types structs, SQLite nullability, the MySQL type rule and the patch (diffy 0.3, whose parser and hunk search are 0.4's) at 2.0.1, 2.1.1 and 2.2.0, and for #[max_length] and the joinable! filters at 2.1.1 and 2.2.0 (SQLite's joinable! set also at 2.0.1): the diesel pin is older than 2.3.14 (or not proven), or the file shows no diesel_cli 2.1 or later output (no #[max_length] and no database comment on a generated line), and the diesel_cli that generated the file is assumed to write those forms as the checked releases do.",
+      "title": "Older diesel_cli output"
+    },
+    {
+      "folded_into": null,
+      "id": "DR-V1",
+      "source": "models",
+      "text": "The drizzle-orm and drizzle-kit versions in the package's lockfile are the ones that created the database.",
+      "title": "Pins"
+    },
+    {
+      "folded_into": null,
+      "id": "DR-V2",
+      "source": "models",
+      "text": "The database was created from this schema by drizzle-kit push, or by generate + migrate of migrations generated from it (the config's out folder is not read), so schema and database agree.",
+      "title": "Schema deployed"
+    },
+    {
+      "folded_into": null,
+      "id": "DR-V3",
+      "source": "models",
+      "text": "When a column name is derived from the config's casing, the application's drizzle({ casing }) uses the same value.",
+      "title": "Runtime casing"
+    },
+    {
+      "folded_into": null,
+      "id": "DR-V4",
+      "source": "models",
+      "text": "The database is of the config's literal dialect, and the table builders come from that dialect's module.",
+      "title": "Dialect"
+    },
+    {
+      "folded_into": null,
+      "id": "DR-V5",
+      "source": "models",
+      "text": "drizzle-kit runs in the package directory (as the package's own scripts run it), so the config's schema paths and the default config file name resolve against that directory.",
+      "title": "Working directory"
+    },
+    {
+      "folded_into": null,
+      "id": "DR-V6",
+      "source": "models",
+      "text": "drizzle-kit's MySQL serializer behaves as its source states at the pinned version, and the server is MySQL 8.0.19 or later, whose information_schema.COLUMNS.COLUMN_TYPE reports the forms \"MySQL mapping\" lists (facts with verification: \"mapped\": mysql).",
+      "title": "Mapped MySQL"
+    },
+    {
+      "folded_into": null,
+      "id": "GO-V1",
+      "source": "models",
+      "text": "The gorm.io/gorm, dialector driver and github.com/jinzhu/inflection versions in the module's go.mod are the ones that built the binary that migrated the database (pins: {\"gorm.io/gorm\": \"\u003cv\u003e\", \"gorm.io/driver/\u003cd\u003e\": \"\u003cv\u003e\", ...}), and gorm's DDL code is the same as at the verified pins for every version in the accepted range (O5: verified at 1.25.12 and 1.31.2; a newer v1 version is read under this assumption, shown as \"rules verified at gorm 1.25.12-1.31.2\"); a dialector driver pin outside the verified driver versions (postgres v1.5.11 and v1.6.3, sqlite v1.5.7 and v1.6.0, glebarez sqlite v1.11.0, mysql v1.6.0) is read under it too and shown with the verified versions.",
+      "title": "Pins"
+    },
+    {
+      "folded_into": null,
+      "id": "GO-V2",
+      "source": "models",
+      "text": "The database was created by the migrate calls read, on an empty database, and every call succeeded (the application started), and no other code changed the schema: a read Migrator() DDL call or Exec/Raw with DDL text is marked (the tables it may change keep partial sets, the table list may be incomplete), while SQL the application builds at run time or a separate migration tool runs is outside the records. AutoMigrate on existing tables only adds columns, indexes and constraints; a database created by older versions of the application (gotify has kept one since 2018) can hold more.",
+      "title": "Schema deployed"
+    },
+    {
+      "folded_into": null,
+      "id": "GO-V3",
+      "source": "models",
+      "text": "The database is of the group's dialect: the single dialector every read gorm.Open site uses, or one of several chosen at runtime (then the dialect-dependent facts are claimed per dialect).",
+      "title": "Dialect"
+    },
+    {
+      "folded_into": null,
+      "id": "GO-V4",
+      "source": "models",
+      "text": "No code changes the naming strategy, inflection's rules or the configuration after gorm.Open beyond what is read (a read mutation makes the dependent facts unknown).",
+      "title": "No runtime naming changes"
+    },
+    {
+      "folded_into": null,
+      "id": "GO-V5",
+      "source": "models",
+      "text": "MySQL facts follow gorm.io/driver/mysql as its source states at the pinned version, for a MySQL server 5.6 or later (SELECT VERSION() switches datetime precision off for 5.0-5.5 and changes options for MariaDB, mysql.go:128-161); never oracle.",
+      "title": "Mapped dialect"
+    },
+    {
+      "folded_into": null,
+      "id": "GO-V6",
+      "source": "models",
+      "text": "No code parses a model's schema (a query, db.Model(...), another goroutine) before the migrate calls that the order rule reads, so GORM's schema cache holds what the migrate calls put there.",
+      "title": "Schema parse order"
+    },
+    {
+      "folded_into": null,
+      "id": "GO-V7",
+      "source": "models",
+      "text": "The packages compile as read: no build constraint, generated file or vendor copy changes the struct set or the migrate calls.",
+      "title": "Build"
+    },
+    {
+      "folded_into": null,
+      "id": "PR-V1",
+      "source": "models",
+      "text": "The Prisma version in the package's lockfile is the one that creates the database.",
+      "title": "Pins"
+    },
+    {
+      "folded_into": null,
+      "id": "PR-V2",
+      "source": "models",
+      "text": "The database was created from this schema by Prisma Migrate or db push; hand-edited migration.sql is outside it.",
+      "title": "Schema deployed"
+    },
+    {
+      "folded_into": null,
+      "id": "PR-V3",
+      "source": "models",
+      "text": "The datasource URL points to a database of the declared provider.",
+      "title": "Provider"
+    },
+    {
+      "folded_into": null,
+      "id": "PR-V4",
+      "source": "models",
+      "text": "The schema found is the one the CLI uses (no --schema flag; the CLI runs in the package directory).",
+      "title": "Schema location"
+    },
+    {
+      "folded_into": null,
+      "id": "PR-V5",
+      "source": "models",
+      "text": "The datasource URL has no schema parameter (or names public).",
+      "title": "Default schema"
+    },
+    {
+      "folded_into": null,
+      "id": "PR-V6",
+      "source": "models",
+      "text": "Prisma's \u003cprovider\u003e connector behaves as its source states at the locked version (facts with verification: \"mapped\": mysql, sqlserver, cockroachdb).",
+      "title": "Mapped provider"
+    },
+    {
+      "folded_into": null,
+      "id": "SQ-V1",
+      "source": "models",
+      "text": "The sequelize and inflection versions in the package's lockfile are the ones that created the database (pins: {\"sequelize\": \"\u003cv\u003e\", \"inflection\": \"\u003cv\u003e\"}).",
+      "title": "Pins"
+    },
+    {
+      "folded_into": null,
+      "id": "SQ-V2",
+      "source": "models",
+      "text": "The database was created by the models' sync or by migrations that match the models (sequelize-cli or umzug migrations are not read). Gladys never calls sync (umzug migrations only); opencollective-api calls it in a dev setup script only.",
+      "title": "Schema deployed"
+    },
+    {
+      "folded_into": null,
+      "id": "SQ-V3",
+      "source": "models",
+      "text": "Module side effects do not change the models beyond what is read, and values the rules do not read (ENUM label lists from imported constants) are valid on the dialect.",
+      "title": "Models load"
+    },
+    {
+      "folded_into": null,
+      "id": "SQ-V4",
+      "source": "models",
+      "text": "The database is of the instance's literal dialect, or of the dialect the package's single installed Sequelize driver implies (open point O3).",
+      "title": "Dialect"
+    },
+    {
+      "folded_into": null,
+      "id": "SQ-V5",
+      "source": "models",
+      "text": "The instance has no define options beyond the ones read (open point O1).",
+      "title": "Global define"
+    },
+    {
+      "folded_into": null,
+      "id": "SQ-V6",
+      "source": "models",
+      "text": "MySQL, MariaDB and MSSQL facts follow Sequelize's query generator as its source states at the pinned version (never oracle).",
+      "title": "Mapped dialects"
+    },
+    {
+      "folded_into": null,
+      "id": "V1",
+      "source": "models",
+      "text": "SQLModel 0.0.39, SQLAlchemy 2.0.51, Pydantic 2.13.4 (pydantic-core 2.46.4).",
+      "title": "Library versions"
+    },
+    {
+      "folded_into": null,
+      "id": "V2",
+      "source": "models",
+      "text": "3.14 (fastapi requires \u003e=3.14; langflow allows 3.10-3.14).",
+      "title": "Python"
+    },
+    {
+      "folded_into": "V7",
+      "id": "V3",
+      "source": "models",
+      "text": "A table claim means: importing the module defines this table in SQLModel.metadata with these facts.",
+      "title": "Import succeeds"
+    },
+    {
+      "folded_into": null,
+      "id": "V4",
+      "source": "models",
+      "text": "Every SQLModel table class registers in the one default registry (sqlmodel/main.py 799-804) unless a registry= class keyword says otherwise (row C4, D).",
+      "title": "Same metadata"
+    },
+    {
+      "folded_into": null,
+      "id": "V6",
+      "source": "models",
+      "text": "Mutations of a model table that need no import (X1's set adds and attribute assignments) in a file that does not pass G1 are not captured; the table is assumed unmodified by them.",
+      "title": "Import-free mutations outside G1"
+    },
+    {
+      "folded_into": null,
+      "id": "V7",
+      "source": "models",
+      "text": "The model modules import successfully, as they do when the application runs; an import failure the source proves is reported, not assumed away.",
+      "title": "Import succeeds (assumption)"
+    },
+    {
+      "folded_into": null,
+      "id": "SB-V6",
+      "source": "models",
+      "text": "A generated types file (SB-G1) was generated from the database the client talks to and is current; it is the package's schema source only when the package has no Supabase migration set.",
+      "title": "Generated types are current"
+    },
+    {
+      "folded_into": null,
+      "id": "TO-V1",
+      "source": "models",
+      "text": "The typeorm version in the package's lockfile (pins: {\"typeorm\": \"\u003cv\u003e\", \"typescript\": \"\u003cv\u003e\"}) created the database and the typescript version compiled the entities.",
+      "title": "Pins"
+    },
+    {
+      "folded_into": null,
+      "id": "TO-V2",
+      "source": "models",
+      "text": "The database was created by synchronize for the reached entities or by migrations that match them (TypeORM migration classes are not read, TO-U1). seerr: production runs its migrations (synchronize: false, migrationsRun in dev Postgres); the 55 SQLite and 20 Postgres migrations give the synchronize catalog except generated constraint names.",
+      "title": "Schema deployed"
+    },
+    {
+      "folded_into": null,
+      "id": "TO-V3",
+      "source": "models",
+      "text": "The entities are compiled by tsc (the pinned typescript) with experimentalDecorators and emitDecoratorMetadata as the nearest tsconfig chain states them, and strictNullChecks as that chain states it (strict implies it). Without both decorator flags proven true, every design-type inferred type is unknown; with experimentalDecorators not true, the group is D (TypeORM 0.3 needs legacy decorators).",
+      "title": "Decorator metadata"
+    },
+    {
+      "folded_into": null,
+      "id": "TO-V4",
+      "source": "models",
+      "text": "The database is of the DataSource's literal type; when the options are selected at run time among several literal option objects (seerr: five objects, sqlite and postgres), the dialect is one of that set (open point O1).",
+      "title": "Dialect"
+    },
+    {
+      "folded_into": null,
+      "id": "TO-V5",
+      "source": "models",
+      "text": "Entity module side effects do not change the metadata beyond what is read (no getMetadataArgsStorage() mutation, no decorator applied conditionally or in a loop), and when an entities glob is read, the process runs with the package directory as working directory (cwd-relative globs) and a compiled output mirrors the source tree (__dirname globs). NestJS (TO-K4): an import declaration loads its module (TypeScript elides an import used only as a type; such a module is still counted), and a module loaded only by a dynamic import() is not seen (it leaves a list incomplete only when no root reaches the forFeature file).",
+      "title": "Modules load"
+    },
+    {
+      "folded_into": null,
+      "id": "TO-V6",
+      "source": "models",
+      "text": "MySQL, MariaDB and MSSQL facts follow TypeORM 0.3.31's driver source (driver/mysql/MysqlDriver.js, driver/sqlserver/SqlServerDriver.js) as cited (never oracle).",
+      "title": "Mapped dialects"
+    },
+    {
+      "folded_into": null,
+      "id": "TO-V7",
+      "source": "models",
+      "text": "An entity schema on Postgres names a schema that exists: synchronize does not create it.",
+      "title": "Schemas exist"
+    },
+    {
+      "folded_into": null,
+      "id": "TO-V9",
+      "source": "models",
+      "text": "The rules were verified at TypeORM 0.3.22, 0.3.31, 1.1.2 and 1.1.3 (oracle) and TypeScript 5.4.5, 5.8.3, 5.9.3 and 6.0.3; a pin of another 0.3.x or 1.x version is read with the per-major rules and this assumption shown (open point O14).",
+      "title": "Verified versions (TA3)"
+    },
+    {
+      "folded_into": null,
+      "id": "TO-V10",
+      "source": "models",
+      "text": "The typeorm-naming-strategies version in the lockfile is 4.x (verified at 4.1.0, the latest; its peer range names TypeORM 0.2/0.3, and under 1.x it is installed past that range and behaves the same).",
+      "title": "Naming-strategy package (TA3, only with TO-K6)"
+    },
+    {
+      "folded_into": null,
+      "id": "TO-V8",
+      "source": "models",
+      "text": "A registerAs namespace read through configService.get('\u003ctoken\u003e') is in the ConfigModule load list at run time (nest-admin: load: [...Object.values(config)], src/app.module.ts:39).",
+      "title": "Config namespaces load (TA2, only with TO-K5)"
+    },
+    {
+      "folded_into": null,
+      "id": "TA-V1",
+      "source": "table_access",
+      "text": "The SQL text a modelled carrier runs, runs against the database the resolved schema source describes. sqlx query! checks this at compile time; for the other carriers it is an assumption, so their SQL edges are inferred.",
+      "title": "SQL runs against the schema source"
+    },
+    {
+      "folded_into": null,
+      "id": "TA-V2",
+      "source": "table_access",
+      "text": "An ORM model class, delegate or table const names the table its schema source emits; runtime table renames are not followed.",
+      "title": "Model names its table"
+    },
+    {
+      "folded_into": null,
+      "id": "TA-V3a",
+      "source": "table_access",
+      "text": "A Prisma client receiver is what its name says.",
+      "title": "Prisma receiver"
+    },
+    {
+      "folded_into": null,
+      "id": "TA-V3b",
+      "source": "table_access",
+      "text": "A Drizzle database or transaction receiver is what its name says.",
+      "title": "Drizzle receiver"
+    },
+    {
+      "folded_into": null,
+      "id": "TA-V3c",
+      "source": "table_access",
+      "text": "A SQLAlchemy session or connection receiver is what its name says.",
+      "title": "SQLAlchemy receiver"
+    },
+    {
+      "folded_into": null,
+      "id": "TA-V4",
+      "source": "table_access",
+      "text": "Postgres semantics for SQL text: search_path public, identifiers folded to lower case unless quoted.",
+      "title": "Postgres SQL semantics"
+    },
+    {
+      "folded_into": null,
+      "id": "SB-V1",
+      "source": "table_access",
+      "text": "The database the client talks to is the one the repository's Supabase migrations describe (as TA-V1): every SB edge is inferred.",
+      "title": "Supabase client talks to the migrated database"
+    }
+  ],
+  "extractor": "extractors-62",
+  "index": {
+    "contract_version": 1,
+    "finished_at": "2026-11-03T14:32:05.123Z",
+    "indexer": {
+      "name": "graphvein",
+      "version": "extractors-62"
+    }
+  },
+  "repository": "fixture",
+  "rows": {
+    "migrations": {
+      "D": {
+        "assumptions": [],
+        "branch": "every other form",
+        "source": "migrations",
+        "summary": "tables it may name partial; the migration may fail",
+        "tool": null
+      },
+      "F1": {
+        "assumptions": [],
+        "branch": "VACUUM, REINDEX ... CONCURRENTLY, DROP DATABASE, DROP TABLESPACE, ...",
+        "source": "migrations",
+        "summary": "migration may fail",
+        "tool": null
+      },
+      "F1.P6": {
+        "assumptions": [],
+        "branch": "statements PreventInTransactionBlock refuses in any block",
+        "source": "migrations",
+        "summary": "migration may fail",
+        "tool": null
+      },
+      "M1": {
+        "assumptions": [
+          "E1",
+          "E4",
+          "E5",
+          "E6",
+          "E8"
+        ],
+        "branch": "CREATE [UNLOGGED] TABLE [IF NOT EXISTS] n (cols, table constraints)",
+        "source": "migrations",
+        "summary": "table, columns, keys, foreign keys, CHECK presence",
+        "tool": null
+      },
+      "M1.P1": {
+        "assumptions": [
+          "E1"
+        ],
+        "branch": "CREATE TABLE: column types, defaults, checks and parents the set creates must be held",
+        "source": "migrations",
+        "summary": "table, columns, keys, foreign keys, CHECK presence",
+        "tool": null
+      },
+      "M1.P12": {
+        "assumptions": [
+          "E1",
+          "E3"
+        ],
+        "branch": "CREATE TABLE of a name code may have created or left behind may fail; with IF NOT EXISTS its facts are unknown",
+        "source": "migrations",
+        "summary": "table, columns, keys, foreign keys, CHECK presence",
+        "tool": null
+      },
+      "M1.P2": {
+        "assumptions": [],
+        "branch": "CREATE TABLE: index-backed constraint names need a free pg_class name; constraint names are unique per table across every kind, and a written name that may be the generated name of an unnamed constraint of the statement may fail; a column named ctid, xmin, cmin, xmax, cmax or tableoid is refused; a table created in pg_catalog or pg_toast refused (42501, Y07); a statement that creates a pg_type entry named like a multirange type the set holds refused (42710, Y21)",
+        "source": "migrations",
+        "summary": "table, columns, keys, foreign keys, CHECK presence",
+        "tool": null
+      },
+      "M1.P3": {
+        "assumptions": [],
+        "branch": "CREATE TABLE IF NOT EXISTS whose skip depends on an unknown writes no known facts",
+        "source": "migrations",
+        "summary": "table, columns, keys, foreign keys, CHECK presence",
+        "tool": null
+      },
+      "M1.P4": {
+        "assumptions": [],
+        "branch": "CREATE TEMP TABLE with a foreign key: the referenced table's persistence is not proven; a column definition is applied only in the allowlisted clause combinations (one DEFAULT, serial or identity; identity on smallint, integer or bigint without options; no generation expression with a default or identity; one PRIMARY KEY and COLLATE; COLLATE on a collatable type; no STORAGE or COMPRESSION), key columns written once, no table options other than TABLESPACE and WITH storage parameters proven by reloptions.c for a heap table (refused on a partitioned one), a key's WITH (...) proven for btree, ON COMMIT refused, PARTITION BY RANGE or LIST over plain btree columns that every key includes (as every unique index on a partitioned table)",
+        "source": "migrations",
+        "summary": "table, columns, keys, foreign keys, CHECK presence",
+        "tool": null
+      },
+      "M1.P5": {
+        "assumptions": [],
+        "branch": "CREATE TABLE: DEFAULT result types assignable to the column; generation expressions IMMUTABLE and typed; CHECK expressions proven boolean over held columns with proven functions and operators, EXCLUDE only btree WITH = or gist over ranges; a generation expression, partition key or EXCLUDE element holding a SQL value function written as a keyword refused (42P17); a DEFAULT that is NULL, (NULL), or NULL cast (::, CAST) any number of times to unknown or to the column's type, with or without COLLATE, on a column whose type is not a domain and has no modifier, is stored as no default (atthasdef false)",
+        "source": "migrations",
+        "summary": "table, columns, keys, foreign keys, CHECK presence",
+        "tool": null
+      },
+      "M1.P7": {
+        "assumptions": [],
+        "branch": "CREATE TABLE (also M1b): an unquoted keyword in a name position whose gram.y nonterminal (ColId, type_function_name, ColLabel) does not accept its kwlist.h category is a syntax error; partition keys, EXCLUDE elements, CHECK and generation expressions likewise (part_elem, ExclusionConstraintElem, columnref); constraint attributes of CREATE TABLE as M5f.P7",
+        "source": "migrations",
+        "summary": "table, columns, keys, foreign keys, CHECK presence",
+        "tool": null
+      },
+      "M1b": {
+        "assumptions": [
+          "E1",
+          "E4",
+          "E5",
+          "E6",
+          "E8"
+        ],
+        "branch": "CREATE TABLE n (LIKE ...) / OF t / PARTITION OF p / INHERITS (...)",
+        "source": "migrations",
+        "summary": "partial node with the name only",
+        "tool": null
+      },
+      "M1b.P1": {
+        "assumptions": [
+          "E1"
+        ],
+        "branch": "CREATE TABLE LIKE/OF/PARTITION OF/INHERITS: the source the set creates must be held; a WITH OPTIONS column list of PARTITION OF or OF is not read (row D, M1b.P7)",
+        "source": "migrations",
+        "summary": "partial node with the name only",
+        "tool": null
+      },
+      "M1b.P12": {
+        "assumptions": [
+          "E1",
+          "E3"
+        ],
+        "branch": "CREATE TABLE ... PARTITION OF, LIKE, OF or INHERITS of a source code names (partitions, columns or objects the pass does not see) may fail",
+        "source": "migrations",
+        "summary": "partial node with the name only",
+        "tool": null
+      },
+      "M1b.P2": {
+        "assumptions": [],
+        "branch": "CREATE TABLE ... LIKE / INHERITS: an explicit column named like a system column refused (42701); CREATE TABLE ... OF a composite type with such an attribute refused; LIKE of a held table whose columns are known: a column another LIKE source or a column definition also has refused (42701), LIKE of a source whose columns are not held may fail when the table has other columns, LIKE with INHERITS may fail; OF a name the pass holds as a type other than a composite type (an enum, domain or base type, or a table's row type) refused (42809); INHERITS of a temporary table from a permanent one, of a partitioned table, a partition or a relation that is not a table refused (42809), of the same parent twice refused (42P07), and inherited columns whose types or collations differ between parents or from the column definition refused (42804)",
+        "source": "migrations",
+        "summary": "partial node with the name only",
+        "tool": null
+      },
+      "M1b.P4": {
+        "assumptions": [],
+        "branch": "CREATE TABLE ... PARTITION OF p ... PARTITION BY: the new partition receives p's unique indexes and keys, each of which must include its partition key (RANGE or LIST over plain columns); p's unique indexes not known: not proven; PARTITION OF a table the pass holds under a certain name as not partitioned refused (42P17), may fail when the name or its partitioning is not certain",
+        "source": "migrations",
+        "summary": "partial node with the name only",
+        "tool": null
+      },
+      "M1b.P5": {
+        "assumptions": [
+          "E2",
+          "E3"
+        ],
+        "branch": "Partition bounds (parse_utilcmd.c transformPartitionBound, partbounds.c check_new_partition_bound): for a partitioned table the set created, the bounds of its partitions created by PARTITION OF or ATTACH PARTITION, until DETACH or the partition's drop; a bound of the wrong kind for the strategy, DEFAULT on a hash-partitioned table, a hash remainder not below its modulus, FROM or TO with more than one value for a one-column key (42P16), a second DEFAULT, an empty range, a list value or a range another partition holds, a hash modulus that is not a factor or multiple of the others or a hash remainder another holds (42P17), a NULL range bound (42601) and a string without a digit for an integer key (22P02) refused, for one-column keys of integer types, text and varchar (lists), date (ISO literals) and boolean with constant bounds (MINVALUE, MAXVALUE); other key types, multi-column and expression keys, values not proven, a table whose partitioning is not held, partitions code may have created, and a new partition while the default partition may hold rows the set wrote may fail",
+        "source": "migrations",
+        "summary": "partial node with the name only",
+        "tool": null
+      },
+      "M1b.P7": {
+        "assumptions": [],
+        "branch": "CREATE TABLE ... LIKE / OF / PARTITION OF / INHERITS read whole (elements, bound, OptPartitionSpec, USING, WITH, ON COMMIT, TABLESPACE in gram.y's order), otherwise row D",
+        "source": "migrations",
+        "summary": "partial node with the name only",
+        "tool": null
+      },
+      "M2": {
+        "assumptions": [
+          "E1",
+          "E4",
+          "E5",
+          "E6",
+          "E8"
+        ],
+        "branch": "column type (Typename grammar)",
+        "source": "migrations",
+        "summary": "written type; alias-normalised type for comparisons",
+        "tool": null
+      },
+      "M2.P1": {
+        "assumptions": [
+          "E1",
+          "E4"
+        ],
+        "branch": "a written type exists: a pg_catalog type of pg_type.dat or a gram.y SQL type name, an array of one, a type the set holds, or an E1 type of contrib; COLLATE names default, C, POSIX, ucs_basic, pg_c_utf8 or a collation the set holds; anything else may fail; serial and its aliases are a type only in a column definition of CREATE TABLE or ADD COLUMN, anywhere else (composite attributes, domains, ALTER COLUMN TYPE, routine signatures) refused (42704); the built-in collations ucs_basic and pg_c_utf8 are proven under E4's UTF8 database only; every type of a routine signature (parameters, RETURNS [SETOF], RETURNS TABLE), a pg_catalog pseudo-type there included",
+        "source": "migrations",
+        "summary": "written type; alias-normalised type for comparisons",
+        "tool": null
+      },
+      "M2.P4": {
+        "assumptions": [],
+        "branch": "a pg_type.dat pseudo-type (typtype p) as a column or composite attribute type refused (42P16), as a domain base refused (42804)",
+        "source": "migrations",
+        "summary": "written type; alias-normalised type for comparisons",
+        "tool": null
+      },
+      "M2.P5": {
+        "assumptions": [],
+        "branch": "column types: modifiers that the type's typmodin accepts; a time precision above 6 is recorded as 6; other modifiers are not proven",
+        "source": "migrations",
+        "summary": "written type; alias-normalised type for comparisons",
+        "tool": null
+      },
+      "M3": {
+        "assumptions": [
+          "E1",
+          "E4",
+          "E5",
+          "E6",
+          "E8"
+        ],
+        "branch": "REFERENCES t [(c)] / FOREIGN KEY (...) REFERENCES in M1, M5f",
+        "source": "migrations",
+        "summary": "foreign_key edge to a proven key",
+        "tool": null
+      },
+      "M3.P1": {
+        "assumptions": [
+          "E1"
+        ],
+        "branch": "REFERENCES: a referenced table the set creates must be held; a referenced name the pass holds as a view, materialized view, sequence, composite type or index is refused (42809), may fail when its kind is not certain, and a table that may hold another relation kind (CREATE TABLE IF NOT EXISTS) is not proven",
+        "source": "migrations",
+        "summary": "foreign_key edge to a proven key",
+        "tool": null
+      },
+      "M3.P4": {
+        "assumptions": [],
+        "branch": "REFERENCES: a permanent table cannot reference an unlogged one; MATCH PARTIAL and an ON UPDATE column list are refused, an ON DELETE SET column list names key columns only, a generated key column takes no action that writes it",
+        "source": "migrations",
+        "summary": "foreign_key edge to a proven key",
+        "tool": null
+      },
+      "M4": {
+        "assumptions": [
+          "E1",
+          "E2",
+          "E4",
+          "E5",
+          "E6",
+          "E8"
+        ],
+        "branch": "CREATE [UNIQUE] INDEX [CONCURRENTLY] [IF NOT EXISTS] [n] ON [ONLY] t ...",
+        "source": "migrations",
+        "summary": "db_index, column unique",
+        "tool": null
+      },
+      "M4.P1": {
+        "assumptions": [
+          "E1"
+        ],
+        "branch": "CREATE INDEX: the table and the functions the elements call must be held; a table the pass holds as a view, sequence, composite type, foreign table or index is refused (42809), may fail when its kind is not certain; an index on a materialized view (its columns not proven) or on a table that may hold another relation kind may fail",
+        "source": "migrations",
+        "summary": "db_index, column unique",
+        "tool": null
+      },
+      "M4.P11": {
+        "assumptions": [
+          "E2",
+          "E3"
+        ],
+        "branch": "CREATE UNIQUE INDEX or an index with expressions or a predicate on a table holding rows the set wrote (rows the set wrote include rows its code may write, O1.P12; and rows of the table's known inheritance children and partitions, recursively)",
+        "source": "migrations",
+        "summary": "db_index, column unique",
+        "tool": null
+      },
+      "M4.P12": {
+        "assumptions": [
+          "E1",
+          "E3"
+        ],
+        "branch": "CREATE INDEX of a name code may have created or left behind may fail",
+        "source": "migrations",
+        "summary": "db_index, column unique",
+        "tool": null
+      },
+      "M4.P2": {
+        "assumptions": [
+          "E1"
+        ],
+        "branch": "CREATE INDEX on a table the pass does not hold that the set changed earlier (an index created on it, ALTER TABLE): its names and columns are not proven; an index on a relation in pg_catalog or pg_toast refused (42501)",
+        "source": "migrations",
+        "summary": "db_index, column unique",
+        "tool": null
+      },
+      "M4.P3": {
+        "assumptions": [],
+        "branch": "CREATE INDEX IF NOT EXISTS whose skip depends on an unknown writes no index",
+        "source": "migrations",
+        "summary": "db_index, column unique",
+        "tool": null
+      },
+      "M4.P4": {
+        "assumptions": [
+          "E1"
+        ],
+        "branch": "CREATE INDEX WITH (...) and ALTER INDEX SET/RESET (...): storage parameters proven by reloptions.c for the access method; unknown names, repeats and values out of bounds refused, fractions for integer options and other forms not proven; CREATE UNIQUE INDEX on a partitioned table (or one with partitioned partitions): btree, every partition key column a bare key column (not INCLUDE), else refused; a column with an operator class or COLLATE, or a table whose partitioning is not known, not proven; a written operator class of pg_opclass.dat for the method must accept the column type (equal to opcintype, binary-coercible, or polymorphically matched), a proven pg_catalog type it does not accept refused (42804), an E1 class as its extension declares, otherwise may fail; a UNIQUE index of a method other than btree refused (0A000, amcanunique); the access method's capabilities (amcaps.go, generated from the REL_17_6 handlers): UNIQUE, more than one key column, INCLUDE and ASC, DESC or NULLS FIRST / LAST where the method lacks them (0A000), more than 32 key and INCLUDE columns (54011), in CREATE INDEX and in EXCLUDE (which also needs amgettuple); an access method outside the core six may fail",
+        "source": "migrations",
+        "summary": "db_index, column unique",
+        "tool": null
+      },
+      "M4.P5": {
+        "assumptions": [],
+        "branch": "CREATE INDEX: expression elements and the predicate IMMUTABLE and typed; an element or the predicate holding a SQL value function written as a keyword (user, current_user, ...: STABLE) refused (42P17)",
+        "source": "migrations",
+        "summary": "db_index, column unique",
+        "tool": null
+      },
+      "M4.P6": {
+        "assumptions": [
+          "E1"
+        ],
+        "branch": "CREATE INDEX CONCURRENTLY is refused in any block; outside one (C4) it is refused on a partitioned table and not proven on a table the pass does not hold",
+        "source": "migrations",
+        "summary": "db_index, column unique",
+        "tool": null
+      },
+      "M4.P7": {
+        "assumptions": [],
+        "branch": "CREATE INDEX IF NOT EXISTS needs a name; a keyword its name position does not accept; index elements, operator classes and expression column references follow the keyword categories of index_elem, opt_qualified_name and columnref",
+        "source": "migrations",
+        "summary": "db_index, column unique",
+        "tool": null
+      },
+      "M5a": {
+        "assumptions": [
+          "E1",
+          "E2",
+          "E4",
+          "E5",
+          "E6",
+          "E8"
+        ],
+        "branch": "ALTER TABLE ... ADD [COLUMN] [IF NOT EXISTS] coldef",
+        "source": "migrations",
+        "summary": "new column",
+        "tool": null
+      },
+      "M5a.P1": {
+        "assumptions": [
+          "E1",
+          "E4",
+          "E6"
+        ],
+        "branch": "ALTER TABLE (every M5 row): the table, and the types and expression objects the set creates, must be held; on a table the pass does not hold that the set changed earlier, the statement is not proven; on a name that is an index only RENAME, RENAME COLUMN, OWNER TO, SET/RESET (...) and SET TABLESPACE are accepted, other actions are refused (42809) or not proven; on a name held as a view, materialized view, sequence or foreign table, also with IF EXISTS, an action whose ATSimplePermissions mask excludes that kind is refused (42809) and only RENAME, SET SCHEMA, OWNER TO and (on a sequence) SET LOGGED/UNLOGGED are accepted without further proof; on a name held only as a type or domain the statement (without IF EXISTS) may fail",
+        "source": "migrations",
+        "summary": "new column",
+        "tool": null
+      },
+      "M5a.P11": {
+        "assumptions": [
+          "E2",
+          "E3"
+        ],
+        "branch": "ADD COLUMN with NOT NULL (no default), a key, CHECK, REFERENCES or a generation expression on a table holding rows the set wrote (rows the set wrote include rows its code may write, O1.P12; and rows of the table's known inheritance children and partitions, recursively)",
+        "source": "migrations",
+        "summary": "new column",
+        "tool": null
+      },
+      "M5a.P12": {
+        "assumptions": [
+          "E1",
+          "E3"
+        ],
+        "branch": "ALTER TABLE (every M5 row): a constraint or new name code may have created, a name code may have dropped, and DROP COLUMN or DROP CONSTRAINT without CASCADE, ALTER COLUMN TYPE or RENAME on a table code names (dependents the pass does not see) may fail",
+        "source": "migrations",
+        "summary": "new column",
+        "tool": null
+      },
+      "M5a.P2": {
+        "assumptions": [],
+        "branch": "ADD COLUMN: as M1.P2, and the column's constraint names must not be held on the table; a system column name is refused, also under IF NOT EXISTS",
+        "source": "migrations",
+        "summary": "new column",
+        "tool": null
+      },
+      "M5a.P3": {
+        "assumptions": [],
+        "branch": "ADD COLUMN IF NOT EXISTS on a table whose facts are not known writes no known facts, and its constraints and expressions are not proven",
+        "source": "migrations",
+        "summary": "new column",
+        "tool": null
+      },
+      "M5a.P4": {
+        "assumptions": [],
+        "branch": "ADD COLUMN: the column definition as M1.P4; a PRIMARY KEY or UNIQUE column on a partitioned table as M4.P4's unique indexes",
+        "source": "migrations",
+        "summary": "new column",
+        "tool": null
+      },
+      "M5a.P5": {
+        "assumptions": [],
+        "branch": "ADD COLUMN: as M1.P5; the NULL defaults of M1.P5",
+        "source": "migrations",
+        "summary": "new column",
+        "tool": null
+      },
+      "M5a.P7": {
+        "assumptions": [],
+        "branch": "ALTER TABLE (every M5 row): a keyword a name position does not accept, and a storage parameter list item that is not name [= value]; CHECK, generation and EXCLUDE expressions of ADD likewise",
+        "source": "migrations",
+        "summary": "new column",
+        "tool": null
+      },
+      "M5a.P8": {
+        "assumptions": [
+          "E1",
+          "E3",
+          "E6"
+        ],
+        "branch": "ALTER TABLE ONLY ... ADD COLUMN, ALTER COLUMN TYPE, ADD CHECK (without NO INHERIT) or RENAME COLUMN is refused while the table has inheritance children (the last two); the columns of a CREATE TABLE ... INHERITS child are recorded (its parents' columns merged with its own) and follow the parent's ADD and RENAME COLUMN: ALTER TABLE p ADD COLUMN c t without ONLY refused (42804) when a child or grandchild holds c with another type or collation (the same merges), may fail when a child's columns are not held or the column has constraints, NOT NULL, identity or generation; ALTER COLUMN TYPE without ONLY on a table with inheritance children may fail; on a recorded child, RENAME, DROP or ALTER COLUMN TYPE of an inherited column refused (42P16)",
+        "source": "migrations",
+        "summary": "new column",
+        "tool": null
+      },
+      "M5a.P9": {
+        "assumptions": [],
+        "branch": "ALTER TABLE subcommands that name one column run in the P9 pass order, or may fail",
+        "source": "migrations",
+        "summary": "new column",
+        "tool": null
+      },
+      "M5b": {
+        "assumptions": [
+          "E1",
+          "E4",
+          "E5",
+          "E6",
+          "E8"
+        ],
+        "branch": "ALTER TABLE ... DROP [COLUMN] [IF EXISTS] c [CASCADE|RESTRICT]",
+        "source": "migrations",
+        "summary": "column removed with its dependents",
+        "tool": null
+      },
+      "M5c": {
+        "assumptions": [
+          "E1",
+          "E2",
+          "E4",
+          "E5",
+          "E6",
+          "E8"
+        ],
+        "branch": "ALTER TABLE ... ALTER [COLUMN] c [SET DATA] TYPE t [COLLATE] [USING]",
+        "source": "migrations",
+        "summary": "new type",
+        "tool": null
+      },
+      "M5c.P11": {
+        "assumptions": [
+          "E2",
+          "E3"
+        ],
+        "branch": "ALTER COLUMN TYPE on a table holding rows the set wrote (rows the set wrote include rows its code may write, O1.P12; and rows of the table's known inheritance children and partitions, recursively)",
+        "source": "migrations",
+        "summary": "new type",
+        "tool": null
+      },
+      "M5c.P5": {
+        "assumptions": [],
+        "branch": "ALTER COLUMN TYPE: an assignment cast without USING, a proven USING result, the default re-coerced; the new type of an identity column must be smallint, integer or bigint after alias normalisation (22023; a domain over them too)",
+        "source": "migrations",
+        "summary": "new type",
+        "tool": null
+      },
+      "M5c.P8": {
+        "assumptions": [
+          "E1",
+          "E3"
+        ],
+        "branch": "ALTER COLUMN TYPE: indexes, keys, CHECK constraints and expression indexes that use the column; ALTER COLUMN TYPE and DROP COLUMN without CASCADE: a trigger the set created that depends on the column (UPDATE OF, WHEN other than OLD IS DISTINCT FROM NEW;); any ALTER COLUMN TYPE of a table is refused (0A000) while a column of a table the pass holds has a written type that reaches the table's row type, under any name the table has had, through arrays, domains, composite attributes or a range subtype; it may fail while a live dependency entry of a statement that creates columns whose types the pass does not hold (LIKE, OF, INHERITS, CREATE TABLE AS, SELECT INTO, a materialized view) names the table; DROP COLUMN c and ALTER COLUMN c DROP IDENTITY without CASCADE may fail while a live dependency entry names a sequence c owns; DROP COLUMN and ALTER COLUMN TYPE of table t without CASCADE may fail while a live entry of a SQL-standard body (BEGIN ATOMIC, RETURN expr) names t, and no fact of the statement is claimed; with CASCADE, DROP COLUMN makes such routines, and the objects whose entries name the column's sequence, no longer held",
+        "source": "migrations",
+        "summary": "new type",
+        "tool": null
+      },
+      "M5d": {
+        "assumptions": [
+          "E1",
+          "E2",
+          "E4",
+          "E5",
+          "E6",
+          "E8"
+        ],
+        "branch": "ALTER TABLE ... ALTER [COLUMN] c SET / DROP NOT NULL",
+        "source": "migrations",
+        "summary": "nullable",
+        "tool": null
+      },
+      "M5d.P11": {
+        "assumptions": [
+          "E2",
+          "E3"
+        ],
+        "branch": "SET NOT NULL on a table holding rows the set wrote (rows the set wrote include rows its code may write, O1.P12; and rows of the table's known inheritance children and partitions, recursively)",
+        "source": "migrations",
+        "summary": "nullable",
+        "tool": null
+      },
+      "M5e": {
+        "assumptions": [
+          "E1",
+          "E4",
+          "E5",
+          "E6",
+          "E8"
+        ],
+        "branch": "ALTER TABLE ... ALTER [COLUMN] c SET DEFAULT e / DROP DEFAULT",
+        "source": "migrations",
+        "summary": "default",
+        "tool": null
+      },
+      "M5e.P5": {
+        "assumptions": [],
+        "branch": "SET DEFAULT: the result type assignable to the column; SET DEFAULT of a NULL form M1.P5 lists removes the default",
+        "source": "migrations",
+        "summary": "default",
+        "tool": null
+      },
+      "M5e.P7": {
+        "assumptions": [
+          "E1"
+        ],
+        "branch": "SET DEFAULT on a table the pass does not hold: the expression read whole by the syntax-only expression reader, otherwise may fail",
+        "source": "migrations",
+        "summary": "default",
+        "tool": null
+      },
+      "M5f": {
+        "assumptions": [
+          "E1",
+          "E2",
+          "E4",
+          "E5",
+          "E6",
+          "E8"
+        ],
+        "branch": "ALTER TABLE ... ADD [CONSTRAINT n] PRIMARY KEY / UNIQUE / FOREIGN KEY / CHECK / EXCLUDE",
+        "source": "migrations",
+        "summary": "key, foreign key, CHECK presence",
+        "tool": null
+      },
+      "M5f-u": {
+        "assumptions": [
+          "E1",
+          "E2",
+          "E4",
+          "E5",
+          "E6",
+          "E8"
+        ],
+        "branch": "ALTER TABLE [ONLY] t ADD [CONSTRAINT n] PRIMARY KEY | UNIQUE USING INDEX i [DEFERRABLE ...] as the statement's only subcommand",
+        "source": "migrations",
+        "summary": "the constraint over the index's key columns; the index renamed to n; primary-key columns NOT NULL",
+        "tool": null
+      },
+      "M5f-u.P1": {
+        "assumptions": [
+          "E1"
+        ],
+        "branch": "USING INDEX: the index held under a certain name on the table, with its columns, method, predicate, expressions, ordering, NULLS NOT DISTINCT and validity known",
+        "source": "migrations",
+        "summary": "the constraint over the index's key columns; the index renamed to n; primary-key columns NOT NULL",
+        "tool": null
+      },
+      "M5f-u.P11": {
+        "assumptions": [
+          "E2",
+          "E3"
+        ],
+        "branch": "USING INDEX PRIMARY KEY over a nullable column on a table holding rows the set wrote (rows the set wrote include rows its code may write, O1.P12; and rows of the table's known inheritance children and partitions, recursively)",
+        "source": "migrations",
+        "summary": "the constraint over the index's key columns; the index renamed to n; primary-key columns NOT NULL",
+        "tool": null
+      },
+      "M5f-u.P2": {
+        "assumptions": [],
+        "branch": "USING INDEX: the constraint name free among the table's constraints and, when it differs from the index name, free in the pg_class namespace",
+        "source": "migrations",
+        "summary": "the constraint over the index's key columns; the index renamed to n; primary-key columns NOT NULL",
+        "tool": null
+      },
+      "M5f-u.P4": {
+        "assumptions": [
+          "E3"
+        ],
+        "branch": "USING INDEX: a unique, non-partial btree index over plain columns with default ordering, not built CONCURRENTLY, no constraint attributes, not NULLS NOT DISTINCT under PRIMARY KEY, no second primary key, the table not partitioned; a property the records prove false is refused, one they do not prove may fail",
+        "source": "migrations",
+        "summary": "the constraint over the index's key columns; the index renamed to n; primary-key columns NOT NULL",
+        "tool": null
+      },
+      "M5f.P11": {
+        "assumptions": [
+          "E2",
+          "E3"
+        ],
+        "branch": "ADD CONSTRAINT other than NOT VALID (keys, CHECK, EXCLUDE, FOREIGN KEY) on a table holding rows the set wrote (rows the set wrote include rows its code may write, O1.P12; and rows of the table's known inheritance children and partitions, recursively)",
+        "source": "migrations",
+        "summary": "key, foreign key, CHECK presence",
+        "tool": null
+      },
+      "M5f.P2": {
+        "assumptions": [],
+        "branch": "ADD CONSTRAINT: an index-backed constraint name needs a free pg_class name; a name held by any constraint of the table is refused, one the table may hold may fail",
+        "source": "migrations",
+        "summary": "key, foreign key, CHECK presence",
+        "tool": null
+      },
+      "M5f.P4": {
+        "assumptions": [],
+        "branch": "ADD CONSTRAINT: key columns written once; PRIMARY KEY and UNIQUE on a partitioned table as M4.P4's unique indexes, EXCLUDE on one not proven",
+        "source": "migrations",
+        "summary": "key, foreign key, CHECK presence",
+        "tool": null
+      },
+      "M5f.P5": {
+        "assumptions": [],
+        "branch": "ADD CONSTRAINT: CHECK and EXCLUDE as M1.P5",
+        "source": "migrations",
+        "summary": "key, foreign key, CHECK presence",
+        "tool": null
+      },
+      "M5f.P7": {
+        "assumptions": [],
+        "branch": "constraint attributes in CREATE TABLE and ALTER TABLE ADD: NOT DEFERRABLE with INITIALLY DEFERRED and conflicting attribute words refused (42601); DEFERRABLE or INITIALLY DEFERRED on CHECK, NOT VALID on UNIQUE, PRIMARY KEY or EXCLUDE, NO INHERIT on any but CHECK refused (0A000, processCASbits); a column constraint's DEFERRABLE, NOT DEFERRABLE and INITIALLY words only after PRIMARY KEY, UNIQUE or REFERENCES, once each (42601); NOT VALID on a column constraint, and NO INHERIT after one other than CHECK, refused (42601)",
+        "source": "migrations",
+        "summary": "key, foreign key, CHECK presence",
+        "tool": null
+      },
+      "M5g": {
+        "assumptions": [
+          "E1",
+          "E4",
+          "E5",
+          "E6",
+          "E8"
+        ],
+        "branch": "ALTER TABLE ... DROP CONSTRAINT [IF EXISTS] n [CASCADE|RESTRICT]",
+        "source": "migrations",
+        "summary": "every key of each table the name may mean is forgotten",
+        "tool": null
+      },
+      "M5g-1": {
+        "assumptions": [
+          "E1",
+          "E4",
+          "E5",
+          "E6",
+          "E8"
+        ],
+        "branch": "DROP CONSTRAINT of a name the set wrote on this table, tracked exactly",
+        "source": "migrations",
+        "summary": "that constraint removed",
+        "tool": null
+      },
+      "M5g-1.P1": {
+        "assumptions": [
+          "E1"
+        ],
+        "branch": "DROP CONSTRAINT of a name the table does not hold, on a table whose constraint names are exact, is refused without IF EXISTS",
+        "source": "migrations",
+        "summary": "that constraint removed",
+        "tool": null
+      },
+      "M5g-1.P8": {
+        "assumptions": [
+          "E1",
+          "E3"
+        ],
+        "branch": "DROP CONSTRAINT of a key a foreign key uses is refused without CASCADE; with CASCADE the foreign key is dropped when the key was its only candidate",
+        "source": "migrations",
+        "summary": "that constraint removed",
+        "tool": null
+      },
+      "M5h": {
+        "assumptions": [
+          "E1",
+          "E4",
+          "E5",
+          "E6",
+          "E8"
+        ],
+        "branch": "ALTER TABLE ... RENAME [COLUMN] a TO b",
+        "source": "migrations",
+        "summary": "column name",
+        "tool": null
+      },
+      "M5h.P2": {
+        "assumptions": [],
+        "branch": "RENAME COLUMN to a system column name is refused; RENAME COLUMN a TO b without ONLY refused (42701) when an inheritance child holds b, may fail when a child's columns are not held",
+        "source": "migrations",
+        "summary": "column name",
+        "tool": null
+      },
+      "M5i": {
+        "assumptions": [
+          "E1",
+          "E4",
+          "E5",
+          "E6",
+          "E8"
+        ],
+        "branch": "ALTER TABLE ... RENAME TO n",
+        "source": "migrations",
+        "summary": "name",
+        "tool": null
+      },
+      "M5j": {
+        "assumptions": [
+          "E1",
+          "E4",
+          "E5",
+          "E6",
+          "E8"
+        ],
+        "branch": "ALTER TABLE ... SET SCHEMA s",
+        "source": "migrations",
+        "summary": "schema",
+        "tool": null
+      },
+      "M5k-a": {
+        "assumptions": [
+          "E1",
+          "E4",
+          "E5",
+          "E6",
+          "E8"
+        ],
+        "branch": "ALTER TABLE words whose success depends only on the table and E1",
+        "source": "migrations",
+        "summary": "table partial; SET LOGGED/UNLOGGED records persistence",
+        "tool": null
+      },
+      "M5k-a.P4": {
+        "assumptions": [],
+        "branch": "SET LOGGED/UNLOGGED: foreign-key persistence pairs must be proven; ALTER INDEX SET (...) or RESET (...) of a partitioned index refused (42809)",
+        "source": "migrations",
+        "summary": "table partial; SET LOGGED/UNLOGGED records persistence",
+        "tool": null
+      },
+      "M5k-a.P5": {
+        "assumptions": [],
+        "branch": "ALTER TABLE SET/RESET (...): storage parameters proven by reloptions.c for a table whose kind is known (heap; any parameter on a partitioned table refused); RESET of any name without a value accepted; on a relation held as a view or materialized view, against the view or heap options",
+        "source": "migrations",
+        "summary": "table partial; SET LOGGED/UNLOGGED records persistence",
+        "tool": null
+      },
+      "M5k-a.P7": {
+        "assumptions": [],
+        "branch": "the subcommand read whole by its alter_table_cmd production, otherwise row D",
+        "source": "migrations",
+        "summary": "table partial; SET LOGGED/UNLOGGED records persistence",
+        "tool": null
+      },
+      "M5k-b": {
+        "assumptions": [
+          "E1",
+          "E4",
+          "E5",
+          "E6",
+          "E8"
+        ],
+        "branch": "ALTER TABLE words that depend on an object or option",
+        "source": "migrations",
+        "summary": "table partial",
+        "tool": null
+      },
+      "M5k-b.P4": {
+        "assumptions": [
+          "E6"
+        ],
+        "branch": "ALTER TABLE words that depend on an object or option the pass does not track may fail; identity needs an integer type; ENABLE or DISABLE [REPLICA | ALWAYS] TRIGGER ALL, or of a system trigger, may fail (a table's internal triggers need a superuser); E6: OWNER TO a role the set created may fail",
+        "source": "migrations",
+        "summary": "table partial",
+        "tool": null
+      },
+      "M5k-b.P7": {
+        "assumptions": [],
+        "branch": "RENAME, SET SCHEMA and ATTACH/DETACH PARTITION are whole statements, not list items; the subcommand read whole by its alter_table_cmd or partition_cmd production, otherwise row D",
+        "source": "migrations",
+        "summary": "table partial",
+        "tool": null
+      },
+      "M6": {
+        "assumptions": [
+          "E1",
+          "E4",
+          "E5",
+          "E6",
+          "E8"
+        ],
+        "branch": "DROP TABLE [IF EXISTS] names [CASCADE|RESTRICT]",
+        "source": "migrations",
+        "summary": "tables removed",
+        "tool": null
+      },
+      "M6.P1": {
+        "assumptions": [
+          "E1"
+        ],
+        "branch": "DROP TABLE: each name the set creates must be held (without IF EXISTS)",
+        "source": "migrations",
+        "summary": "tables removed",
+        "tool": null
+      },
+      "M6.P12": {
+        "assumptions": [
+          "E1",
+          "E3"
+        ],
+        "branch": "DROP TABLE without CASCADE of a table code names (dependents the pass does not see) may fail",
+        "source": "migrations",
+        "summary": "tables removed",
+        "tool": null
+      },
+      "M6.P8": {
+        "assumptions": [
+          "E1",
+          "E3",
+          "E6"
+        ],
+        "branch": "DROP TABLE without CASCADE: a table created LIKE it may use its sequences; and any dependent of the table the dependency record (R5.P8) names, an occurrence at the ON position of an object of the table and a REFERENCES target the foreign-key record decides excepted; the sequences its columns own are its names; DROP ... CASCADE also drops the columns of other tables whose type is its row type (R5.P8)",
+        "source": "migrations",
+        "summary": "tables removed",
+        "tool": null
+      },
+      "M7": {
+        "assumptions": [
+          "E1",
+          "E4",
+          "E5",
+          "E6",
+          "E8"
+        ],
+        "branch": "DROP INDEX [CONCURRENTLY] [IF EXISTS] names [CASCADE]",
+        "source": "migrations",
+        "summary": "index removed",
+        "tool": null
+      },
+      "M7.P1": {
+        "assumptions": [
+          "E1"
+        ],
+        "branch": "DROP INDEX: a set name or a generated-name shape of a set table must be held (without IF EXISTS); E1 does not cover indexes, so any other name is not proven",
+        "source": "migrations",
+        "summary": "index removed",
+        "tool": null
+      },
+      "M7.P12": {
+        "assumptions": [
+          "E1",
+          "E3"
+        ],
+        "branch": "DROP INDEX without CASCADE of an index code names, or of an index of a table code names, may fail",
+        "source": "migrations",
+        "summary": "index removed",
+        "tool": null
+      },
+      "M7.P3": {
+        "assumptions": [],
+        "branch": "DROP INDEX IF EXISTS under an uncertain qualification: the index it may mean is no longer a fact",
+        "source": "migrations",
+        "summary": "index removed",
+        "tool": null
+      },
+      "M7.P6": {
+        "assumptions": [
+          "E1"
+        ],
+        "branch": "DROP INDEX CONCURRENTLY is refused in any block; outside one (C4) it drops one index without CASCADE, is refused on a partitioned table and is not proven for an index the pass does not hold",
+        "source": "migrations",
+        "summary": "index removed",
+        "tool": null
+      },
+      "M8": {
+        "assumptions": [
+          "E1",
+          "E4",
+          "E5",
+          "E6",
+          "E8"
+        ],
+        "branch": "ALTER INDEX [IF EXISTS] n RENAME TO m",
+        "source": "migrations",
+        "summary": "index name",
+        "tool": null
+      },
+      "M8.P1": {
+        "assumptions": [
+          "E1",
+          "E4"
+        ],
+        "branch": "ALTER INDEX: a set name or a generated-name shape of a set table must be held (without IF EXISTS); every ALTER INDEX form of a name the pass does not hold as an index may fail (E1 does not cover indexes); a name held as a relation of another kind is refused also with IF EXISTS (42809; RENAME accepts any relation but a composite type), a name held only as a type or domain may fail without IF EXISTS, and SET LOGGED, UNLOGGED, WITHOUT CLUSTER, WITHOUT OIDS and ACCESS METHOD are refused on an index and, with IF EXISTS, may fail on a name not held",
+        "source": "migrations",
+        "summary": "index name",
+        "tool": null
+      },
+      "M8.P12": {
+        "assumptions": [
+          "E1",
+          "E3"
+        ],
+        "branch": "ALTER INDEX RENAME TO a name code may have created or left behind may fail",
+        "source": "migrations",
+        "summary": "index name",
+        "tool": null
+      },
+      "M8.P2": {
+        "assumptions": [],
+        "branch": "ALTER INDEX RENAME TO: the new name needs a free pg_class name; generated names keep their creation-time form; the index of a constraint takes a name no other constraint of its table holds",
+        "source": "migrations",
+        "summary": "index name",
+        "tool": null
+      },
+      "M8.P7": {
+        "assumptions": [],
+        "branch": "ALTER INDEX: a keyword a name position does not accept; ALTER INDEX forms other than RENAME TO and SET / RESET (...) are row D",
+        "source": "migrations",
+        "summary": "index name",
+        "tool": null
+      },
+      "M9": {
+        "assumptions": [
+          "E1",
+          "E4",
+          "E5",
+          "E6",
+          "E8"
+        ],
+        "branch": "ALTER SCHEMA s RENAME TO t",
+        "source": "migrations",
+        "summary": "schema of tables (partial, name move)",
+        "tool": null
+      },
+      "M9.P1": {
+        "assumptions": [
+          "E1"
+        ],
+        "branch": "ALTER SCHEMA: a schema the set creates must be held",
+        "source": "migrations",
+        "summary": "schema of tables (partial, name move)",
+        "tool": null
+      },
+      "M9.P2": {
+        "assumptions": [
+          "E3",
+          "E5"
+        ],
+        "branch": "ALTER SCHEMA s RENAME TO n: refused (42P06) when n is a schema the set holds, public or information_schema under E5 unless the set dropped it, pg_catalog or pg_toast; refused (42939) when n starts with pg_; may fail when code or CREATE SCHEMA AUTHORIZATION of an unknown role may have created n",
+        "source": "migrations",
+        "summary": "schema of tables (partial, name move)",
+        "tool": null
+      },
+      "M9.P7": {
+        "assumptions": [
+          "E6"
+        ],
+        "branch": "ALTER SCHEMA s RENAME TO t / OWNER TO r read whole, otherwise row D",
+        "source": "migrations",
+        "summary": "schema of tables (partial, name move)",
+        "tool": null
+      },
+      "N1": {
+        "assumptions": [
+          "E1",
+          "E4",
+          "E5",
+          "E6",
+          "E8"
+        ],
+        "branch": "COMMENT, GRANT, REVOKE, ..., CREATE TRIGGER/POLICY/STATISTICS/..., ALTER SEQUENCE/POLICY/ROLE/...",
+        "source": "migrations",
+        "summary": "nothing changes; CREATE TRIGGER and CREATE POLICY record the name on their table, the other named CREATE forms in the set's record of names",
+        "tool": null
+      },
+      "N1.P1": {
+        "assumptions": [
+          "E1",
+          "E3",
+          "E4",
+          "E5"
+        ],
+        "branch": "token rule for N1, N3, R1, R1b, R4, R5, R6 and O1 statements: an identifier equal to a name the set creates must be held; COMMENT ON INDEX, SEQUENCE, VIEW or MATERIALIZED VIEW of a name not held, COMMENT ON CONSTRAINT and GRANT/REVOKE ON SEQUENCE of a name not held may fail; DROP TRIGGER, POLICY or RULE (without IF EXISTS), ALTER POLICY and COMMENT ON TRIGGER, POLICY or RULE may fail on a table outside the set always, and on a table the set holds unless the pass holds the name there (the table resolves certainly with its facts known and its record of names of the kind is exact: a name created by code is only possibly held; the pass holds no rule); ALTER DATABASE, GRANT/REVOKE ON DATABASE and ALTER ROLE ... IN DATABASE may fail (E1 does not list databases, the database name is unknown; COMMENT ON DATABASE never refuses); DROP PUBLICATION of a name the N1.P2 record does not hold, and DROP STATISTICS, OPERATOR and CAST (without IF EXISTS), may fail; a collation name renamed away is no longer held; CREATE SCHEMA AUTHORIZATION r without a schema name creates schema r, and after one with CURRENT_USER, SESSION_USER or CURRENT_ROLE (a schema named after the unknown role) a statement naming a schema the pass does not hold (other than public, information_schema and pg_ names) and CREATE SCHEMA without IF NOT EXISTS may fail",
+        "source": "migrations",
+        "summary": "nothing changes; CREATE TRIGGER and CREATE POLICY record the name on their table, the other named CREATE forms in the set's record of names",
+        "tool": null
+      },
+      "N1.P12": {
+        "assumptions": [
+          "E1",
+          "E3"
+        ],
+        "branch": "CREATE TRIGGER, POLICY, ROLE, PUBLICATION, COLLATION, AGGREGATE, OPERATOR or CAST of a kind code may have created a name of may fail; a kind code drops or renames leaves that kind's names unknown (N1.P2, M2.P1 collations)",
+        "source": "migrations",
+        "summary": "nothing changes; CREATE TRIGGER and CREATE POLICY record the name on their table, the other named CREATE forms in the set's record of names",
+        "tool": null
+      },
+      "N1.P2": {
+        "assumptions": [
+          "E1",
+          "E3",
+          "E6"
+        ],
+        "branch": "CREATE TRIGGER (and O1t) and CREATE POLICY: the name must be free on the table; exact on a table whose facts are known, not proven on another table the set holds, the set's own record of names on a table it does not hold; CREATE ROLE/USER/GROUP, PUBLICATION, COLLATION, AGGREGATE, OPERATOR, CAST: a name the set created earlier and no read DROP or RENAME freed is refused (roles, publications) or not proven (the others, and every kind an unread RENAME may have used); CREATE ROLE, USER or GROUP of a pg_ name, and ALTER ROLE ... RENAME from or to a pg_ name, refused (42939); the membership edges the set creates (GRANT r TO m, CREATE ROLE ... IN ROLE, ROLE, USER, ADMIN, ALTER GROUP ... ADD USER) and removes (REVOKE, ALTER GROUP ... DROP USER, DROP ROLE), with the migrating role (E6) a member of every role the set creates: making m a member of r is refused (0LP01) when r = m or the edges make r a member of m; may fail when r's memberships and m's members both include a role outside the set, after GRANTED BY, or when code may change memberships; while SET ROLE puts a role the set created in force, every statement but SET, RESET, SHOW, DISCARD and transaction control may fail (the role's privileges are not the migrating role's)",
+        "source": "migrations",
+        "summary": "nothing changes; CREATE TRIGGER and CREATE POLICY record the name on their table, the other named CREATE forms in the set's record of names",
+        "tool": null
+      },
+      "N1.P4": {
+        "assumptions": [
+          "E1",
+          "E4",
+          "E5",
+          "E6"
+        ],
+        "branch": "SECURITY LABEL needs a loaded label provider (not granted by E1-E4); ALTER SEQUENCE options as R1.P4 over the sequence's current parameters (a sequence created with options the pass read, or a serial or identity column's sequence; otherwise only the checks that need no current value), bounds that narrow over an unknown last value not proven, OWNED BY of an identity sequence refused; CREATE TRIGGER (and O1t): a set routine the pass read with one definition that is a procedure or takes arguments (42883) or does not return trigger (42P17) refused, several definitions or an unread header may fail (Y09; T024c1b: public.f names the set's unqualified f created under E4's search_path); the relation kind as CreateTriggerFiringOn (table and partitioned table BEFORE or AFTER; view INSTEAD OF FOR EACH ROW or BEFORE/AFTER FOR EACH STATEMENT, no TRUNCATE, no transition table; foreign table BEFORE or AFTER, no constraint trigger, no transition table; any other kind refused; 42809, 0A000), a kind not certain may fail; TRUNCATE FOR EACH ROW, INSTEAD OF without FOR EACH ROW or with WHEN or a column list, ROW variables, and transition tables on a constraint trigger, not AFTER, with TRUNCATE, more than one event, a column list, NEW without INSERT or UPDATE, OLD without DELETE or UPDATE, twice, or under one name, or FOR EACH ROW on a partitioned table, partition or inheritance child, refused; CREATE and ALTER POLICY: INSERT with USING, SELECT or DELETE with WITH CHECK (42601; ALTER by the command the pass recorded), a relation other than a table or partitioned table (42809) refused; CREATE and ALTER PUBLICATION: an unknown or repeated option or publish value (42601), FOR, ADD or SET TABLE of a relation other than a table or partitioned table or of an unlogged table (22023) refused, a possibly temporary table may fail; CREATE COLLATION: an unknown or repeated attribute, LOCALE with LC_COLLATE or LC_CTYPE, FROM with another option (42601), an unknown provider, a deterministic value that is no boolean, a missing locale (builtin, icu) or lc_collate or lc_ctype (libc), a nondeterministic collation or rules with a provider other than icu, refused; GRANT ... TO PUBLIC WITH GRANT OPTION, also in ALTER DEFAULT PRIVILEGES, refused (0LP01, Y37); COMMENT ON TABLE, VIEW, MATERIALIZED VIEW, SEQUENCE, FOREIGN TABLE, INDEX, TYPE or DOMAIN of a name the pass holds as a kind the word does not take (TYPE: a sequence or index) refused (42809, 42704), followed through renames and CREATE TABLE IF NOT EXISTS, a kind not certain may fail; CREATE ROLE, USER or GROUP with SUPERUSER, ALTER ROLE with SUPERUSER or NOSUPERUSER, ALTER ROLE ALL ... SET, CREATE CAST ... WITHOUT FUNCTION, CREATE LANGUAGE, CREATE OPERATOR CLASS or FAMILY, ALTER OPERATOR FAMILY, CREATE TEXT SEARCH PARSER or TEMPLATE, CREATE ACCESS METHOD, CREATE or ALTER FOREIGN DATA WRAPPER, CREATE PUBLICATION FOR ALL TABLES or TABLES IN SCHEMA and ALTER PUBLICATION ADD or SET TABLES IN SCHEMA may fail (only a superuser may run them); E6: CREATE CAST may fail unless the set created its source or target type or it is an E1 type (the migrating role must own one), and ALTER ... OWNER TO a role the set created may fail (the new owner needs CREATE on the schema)",
+        "source": "migrations",
+        "summary": "nothing changes; CREATE TRIGGER and CREATE POLICY record the name on their table, the other named CREATE forms in the set's record of names",
+        "tool": null
+      },
+      "N1.P5": {
+        "assumptions": [],
+        "branch": "COMMENT ON COLUMN, CREATE TRIGGER ... UPDATE OF and GRANT/REVOKE (cols): the columns held on a table whose facts are known; CREATE STATISTICS, a trigger's WHEN and a policy's USING/WITH CHECK (other than TRUE or FALSE) not proven; CREATE and ALTER ROLE VALID UNTIL proven only for 'infinity', '-infinity' and YYYY-MM-DD[ HH:MM[:SS[.frac]]][zone] with each field in range, otherwise may fail; ALTER ROLE [IN DATABASE] ... SET and RESET as N2.P1 and N2.P5",
+        "source": "migrations",
+        "summary": "nothing changes; CREATE TRIGGER and CREATE POLICY record the name on their table, the other named CREATE forms in the set's record of names",
+        "tool": null
+      },
+      "N1.P7": {
+        "assumptions": [
+          "E6"
+        ],
+        "branch": "N1 statements: a keyword a name position does not accept; the whole statement read by one of the N1 productions of (COMMENT, GRANT/REVOKE, ALTER DEFAULT PRIVILEGES, roles, CREATE TRIGGER/POLICY/COLLATION/STATISTICS/PUBLICATION/OPERATOR/CAST/AGGREGATE, NOTIFY/LISTEN/UNLISTEN, CHECKPOINT, SECURITY LABEL, REASSIGN OWNED, DROP TRIGGER/POLICY/RULE, ALTER POLICY/TRIGGER/GROUP/DATABASE/SEQUENCE, other DROP kinds), otherwise row D; CREATE and ALTER ROLE (USER, GROUP) options given twice or conflicting (42601) and CONNECTION LIMIT below -1 (22023) refused; ALTER DEFAULT PRIVILEGES with IN SCHEMA or FOR ROLE given twice refused (42601, Y36)",
+        "source": "migrations",
+        "summary": "nothing changes; CREATE TRIGGER and CREATE POLICY record the name on their table, the other named CREATE forms in the set's record of names",
+        "tool": null
+      },
+      "N1.P8": {
+        "assumptions": [
+          "E1",
+          "E3",
+          "E4",
+          "E6"
+        ],
+        "branch": "DROP ROLE, USER or GROUP of a role the set created (user.c DropRole, checkSharedDependencies): refused (2BP01) while the set gave it a live shared dependent: a table grant until REVOKE of the same privileges (REVOKE ALL included) or the table's drop, ownership by OWNER TO (a set table's until it is dropped or owned by another role), CREATE SCHEMA ... AUTHORIZATION, policies TO it until DROP POLICY or the table's drop, ALTER DEFAULT PRIVILEGES, any other grant, and any statement while SET ROLE it was in force; DROP OWNED BY ends them, REASSIGN OWNED BY the owned ones; refused (55006) while it is the current role; may fail after SET SESSION AUTHORIZATION, code that may create, own or grant, or a statement naming it that the pass does not read; memberships, settings and comments are not dependents",
+        "source": "migrations",
+        "summary": "nothing changes; CREATE TRIGGER and CREATE POLICY record the name on their table, the other named CREATE forms in the set's record of names",
+        "tool": null
+      },
+      "N2": {
+        "assumptions": [
+          "E4",
+          "E6",
+          "E8"
+        ],
+        "branch": "SET/RESET/DISCARD other than O3/O4",
+        "source": "migrations",
+        "summary": "nothing changes",
+        "tool": null
+      },
+      "N2.P1": {
+        "assumptions": [
+          "E1"
+        ],
+        "branch": "SET/RESET: the name is a parameter of guc_tables.c (unknown one-part names refused) or a two-part placeholder whose prefix no module reserves",
+        "source": "migrations",
+        "summary": "nothing changes",
+        "tool": null
+      },
+      "N2.P13": {
+        "assumptions": [
+          "E4"
+        ],
+        "branch": "Session transaction defaults: SET (not SET LOCAL) of default_transaction_read_only, default_transaction_isolation and default_transaction_deferrable, SET SESSION CHARACTERISTICS AS TRANSACTION, their RESET and RESET ALL (E4's values) set the modes every later transaction starts with, from the next transaction on (after a COMMIT in the string, and every later migration); a value not read makes them unknown, and a statement Y03 judges then may fail; in a no-transaction migration these statements may fail",
+        "source": "migrations",
+        "summary": "nothing changes",
+        "tool": null
+      },
+      "N2.P4": {
+        "assumptions": [
+          "E3",
+          "E4",
+          "E6"
+        ],
+        "branch": "SET/RESET: the parameter's context is user; superuser contexts may fail; postmaster, sighup, internal, backend and superuser-backend are refused; SET CONSTRAINTS names {DEFERRED | IMMEDIATE} (trigger.c AfterTriggerSetState): a name that is not a ColId or a statement that is not ALL or a name list followed by the mode refused (42601); an unqualified name held with its deferrability read on set tables whose constraint names are exact (C3), with E4's search_path, no temporary table and no domain, constraint trigger or code that may hold the name: DEFERRED refused (42809) when one held constraint of the name is not deferrable (FOREIGN KEY, UNIQUE, PRIMARY KEY or EXCLUDE without DEFERRABLE, any CHECK), claimed otherwise, IMMEDIATE claimed; any other name may fail; SET CONSTRAINTS ALL claimed; ALTER ROLE ... SET or RESET, a routine's SET clause and ALTER FUNCTION ... SET of a two-part placeholder parameter (a stored setting checks it as superuser-only), and SET SESSION AUTHORIZATION of a role other than the session's, may fail",
+        "source": "migrations",
+        "summary": "nothing changes",
+        "tool": null
+      },
+      "N2.P5": {
+        "assumptions": [
+          "E4"
+        ],
+        "branch": "SET: the value proven for the parameter's type (bool words, integer and real constants within bounds, enum values; a parameter with a check hook only by its closed table; T024c1b: search_path any value, check_search_path checks only the list syntax, which flatten_set_variable_args's quoting makes valid), a certain violation refused; SET NAMES and SET client_encoding: DEFAULT and the UTF8 names of encnames.c (compared as clean_encoding_name) proven, an unknown name refused (22023), any other encoding may fail and makes later migrations O4",
+        "source": "migrations",
+        "summary": "nothing changes",
+        "tool": null
+      },
+      "N2.P6": {
+        "assumptions": [
+          "E3",
+          "E4"
+        ],
+        "branch": "Transaction modes of sqlx's transaction (variable.c check_transaction_read_only, check_transaction_isolation, check_transaction_deferrable; pquery.c PlannedStmtRequiresSnapshot; utility.c PreventCommandIfReadOnly): SET TRANSACTION ISOLATION LEVEL (and transaction_isolation) to a level other than the current one refused (25001) after a statement that took a snapshot (every statement but transaction control, LOCK, SET, RESET, SHOW, SET CONSTRAINTS, FETCH, MOVE, LISTEN, NOTIFY, UNLISTEN, CHECKPOINT) or inside a savepoint; [NOT] DEFERRABLE refused after a snapshot or inside a savepoint; READ WRITE in a read-only transaction refused after a snapshot or inside a savepoint; SET TRANSACTION SNAPSHOT refused after a snapshot (25001) or under READ COMMITTED (0A000), otherwise may fail; in a read-only transaction DDL, DML and every other statement PreventCommandIfReadOnly guards refused (25006), a query, CALL, DO, EXECUTE, EXPLAIN, DECLARE or COPY may fail; in a no-transaction migration these statements may fail",
+        "source": "migrations",
+        "summary": "nothing changes",
+        "tool": null
+      },
+      "N2.P7": {
+        "assumptions": [
+          "E4"
+        ],
+        "branch": "RESET {name | ALL | TIME ZONE | TRANSACTION ISOLATION LEVEL | SESSION AUTHORIZATION} and DISCARD {PLANS | SEQUENCES | TEMP} read whole; SET NAMES takes a string constant or DEFAULT (gram.y opt_encoding), otherwise row D",
+        "source": "migrations",
+        "summary": "nothing changes",
+        "tool": null
+      },
+      "N3": {
+        "assumptions": [
+          "E1",
+          "E2",
+          "E4",
+          "E6",
+          "E8"
+        ],
+        "branch": "DML, SELECT/VALUES/WITH/TABLE, ANALYZE/CLUSTER/REINDEX/REFRESH",
+        "source": "migrations",
+        "summary": "nothing changes",
+        "tool": null
+      },
+      "N3.P1": {
+        "assumptions": [
+          "E1"
+        ],
+        "branch": "DML and queries: every column reference proven on a relation whose columns are known; INSERT targets and VALUES widths, SET targets, COPY and ANALYZE column lists; anything the reader does not prove may fail; REFRESH MATERIALIZED VIEW, REINDEX INDEX and CLUSTER ... USING of a name not held as that kind may fail",
+        "source": "migrations",
+        "summary": "nothing changes",
+        "tool": null
+      },
+      "N3.P4": {
+        "assumptions": [
+          "E1",
+          "E3"
+        ],
+        "branch": "REFRESH MATERIALIZED VIEW CONCURRENTLY (matview.c RefreshMatViewByOid): with WITH NO DATA refused (42601); of a materialized view the set created WITH NO DATA or last refreshed WITH NO DATA refused (0A000); of one whose index record is exact (no index of a generated name dropped, no IF NOT EXISTS skip, no code that may create or drop an index) with no unique btree index without a predicate on plain columns refused (55000); claimed when it is populated and holds such an index; a materialized view the pass does not hold, or an inexact record, may fail",
+        "source": "migrations",
+        "summary": "nothing changes",
+        "tool": null
+      },
+      "N3.P5": {
+        "assumptions": [
+          "E3"
+        ],
+        "branch": "DML values: every written value, default, condition and RETURNING item in the V1-V4 allowlist (literals by the B2 grammars), and no constraint, trigger or per-row expression the write may meet whose outcome depends on rows or values the pass does not prove; B2: V5 a single row into a table proven empty meets its keys, ON CONFLICT DO NOTHING arbiters (no deferrable key), a MATCH SIMPLE foreign key with a NULL column; V6 a fresh sequence's first value; a VALUES list of two or more rows that is a query (a VALUES statement, a parenthesised VALUES, CREATE TABLE or VIEW ... AS VALUES; not INSERT's VALUES, whose rows are coerced to the target columns one by one): each column's common type is resolved as select_common_type does from constants (integers as int4, int8 or numeric by size, decimals as numeric, TRUE and FALSE as boolean, a :: cast to int2, int4, int8, numeric, text or boolean; untyped strings and NULL alone are text): types of different categories refused (42804), an untyped string the common type's input does not prove refused or may fail (22P02), rows of different lengths refused (42601), an entry that is not such a constant may fail",
+        "source": "migrations",
+        "summary": "nothing changes",
+        "tool": null
+      },
+      "N3.P6": {
+        "assumptions": [],
+        "branch": "REINDEX INDEX of a partitioned index and REINDEX TABLE of a partitioned table inside a transaction block refused (25001); a table whose kind is not proven may fail",
+        "source": "migrations",
+        "summary": "nothing changes",
+        "tool": null
+      },
+      "N3.P7": {
+        "assumptions": [],
+        "branch": "SELECT INTO: no DISTINCT or target after the target; INTO is no alias; no INTO in data-changing statements; a keyword a name position of a column list does not accept; CLUSTER, REINDEX, REFRESH MATERIALIZED VIEW, TABLE and COPY (name, columns, direction, file or STDIN/STDOUT/PROGRAM, the option list) read whole, otherwise row D",
+        "source": "migrations",
+        "summary": "nothing changes",
+        "tool": null
+      },
+      "N3.P8": {
+        "assumptions": [
+          "E1",
+          "E3"
+        ],
+        "branch": "TRUNCATE: no known foreign key from a table not truncated (without CASCADE); CLUSTER: a proven clusterable index",
+        "source": "migrations",
+        "summary": "nothing changes",
+        "tool": null
+      },
+      "O1": {
+        "assumptions": [
+          "E1",
+          "E3",
+          "E4",
+          "E6",
+          "E8"
+        ],
+        "branch": "DO, CALL, EXECUTE; a call of a set-defined function; DML in a set that defines functions",
+        "source": "migrations",
+        "summary": "opaque count",
+        "tool": null
+      },
+      "O1.P1": {
+        "assumptions": [
+          "E1",
+          "E3",
+          "E4"
+        ],
+        "branch": "a string argument that spells a relation name (a regclass-family parameter may read it) follows P1; a string literal bound (by position, by name, or as a VARIADIC element) to a regclass-family parameter of a set-defined routine, or to a parameter whose type the pass does not know or that is outside pg_catalog, is proven only as a regclass argument naming a table, view, materialized view or sequence the pass holds under a certain name (search_path known); otherwise the statement may fail; the static SELECT, PERFORM, INSERT, UPDATE, DELETE, VALUES and WITH statements of a DO body and of a set PL/pgSQL routine the statement may call are checked where they run with the top-level rules for names (N1.P1), columns (N3.P1) and regclass-family arguments, and a failure there makes the running statement may fail; a call of a set PL/pgSQL routine (also a data statement that may fire a set trigger) may fail when, since the routine's creation or last CREATE OR REPLACE, a statement the pass applied dropped, renamed or changed the type of an object or column a word of its body names",
+        "source": "migrations",
+        "summary": "opaque count",
+        "tool": null
+      },
+      "O1.P12": {
+        "assumptions": [
+          "E1",
+          "E2",
+          "E3"
+        ],
+        "branch": "every O1 statement has a DDL inventory read from the bodies it may run (the DO body; the set-defined routines it names; for DML, EXECUTE and statements that run index expressions or view queries also every trigger function and every routine the set names elsewhere; closed over the routines the bodies call); unbounded (EXECUTE of anything but one string constant, SET, RESET or set_config, transaction control, a statement not read, DROP ... CASCADE, another language, a routine created by code) the migration may fail; the tables it names are partial; the inventory also lists the data statements of the bodies (INSERT, UPDATE, MERGE, COPY ... FROM, WITH) with their targets resolved as U3 resolves names (a target not resolved, one with triggers, a set rule that writes, or an unbounded inventory: every table), which from the statement on may hold rows the set wrote (P11); for every relation the inventory may create, every name Postgres may generate with it is possibly held (\u003ctable\u003e_\u003csuffix\u003e in pg_class, after the 63-byte truncation; the array type _\u003ctable\u003e in pg_type), and DROP of such a name without CASCADE may fail; a CREATE FUNCTION or PROCEDURE the code runs (from a constant EXECUTE or as a static statement) is checked as at top level (R6.P14's compilation, R1b.P5's SQL body); a refusal or possible failure there makes the running statement may fail",
+        "source": "migrations",
+        "summary": "opaque count",
+        "tool": null
+      },
+      "O1.P14": {
+        "assumptions": [
+          "E1",
+          "E3",
+          "E4"
+        ],
+        "branch": "DO: the LANGUAGE clause as R6.P1; a PL/pgSQL DO body is compiled before it runs and is applied only in the provable subset of R6.P14 (the routine kind of a DO block: RETURN without an expression), otherwise may fail; an O1 statement whose inventory (O1.P12) may call a set routine whose PL/pgSQL body is compiled at that call (check_function_bodies off or unknown at its creation, or a declared type outside pg_catalog) may fail unless that body is in the subset with pg_catalog types; likewise a set LANGUAGE sql routine whose AS body was created with check_function_bodies off or unknown is parsed at that call and may fail unless R1b.P5's constant-body reader proves it",
+        "source": "migrations",
+        "summary": "opaque count",
+        "tool": null
+      },
+      "O1.P7": {
+        "assumptions": [
+          "E3"
+        ],
+        "branch": "DO [LANGUAGE l] body, CALL f(args read by the syntax-only expression reader) and EXECUTE name [(args)] read whole, otherwise row D",
+        "source": "migrations",
+        "summary": "opaque count",
+        "tool": null
+      },
+      "O1t": {
+        "assumptions": [
+          "E1",
+          "E3",
+          "E4",
+          "E6",
+          "E8"
+        ],
+        "branch": "SELECT f('\u003crelation\u003e') of a set-defined trigger installer",
+        "source": "migrations",
+        "summary": "as N1 CREATE TRIGGER",
+        "tool": null
+      },
+      "O2": {
+        "assumptions": [
+          "E1",
+          "E3",
+          "E6",
+          "E8"
+        ],
+        "branch": "CREATE/ALTER/DROP EXTENSION",
+        "source": "migrations",
+        "summary": "opaque count",
+        "tool": null
+      },
+      "O2.P4": {
+        "assumptions": [
+          "E1",
+          "E6"
+        ],
+        "branch": "Extension versions (extension.c CreateExtension, find_install_path, ExecAlterExtensionStmt; the generated table e1ExtensionVersions of the REL_17_6 contrib control files and scripts): CREATE EXTENSION ... VERSION v claimed only for the control file's default version, refused (22023) when no install script reaches v through update scripts, otherwise may fail, and may fail for an extension outside the table; ALTER EXTENSION x UPDATE [TO v] claimed when v is the version the set installed (a notice) or the default version reached from it, refused (22023) when no update path leads from the installed version to v, otherwise may fail; CREATE EXTENSION of an extension the set installed (or plpgsql, which initdb installs) without IF NOT EXISTS refused (42710), with it skipped; CREATE EXTENSION of an extension whose REL_17_6 control file is not trusted = true (with CASCADE, or that requires one), and ALTER EXTENSION ... UPDATE of one, may fail (only a superuser may install it)",
+        "source": "migrations",
+        "summary": "opaque count",
+        "tool": null
+      },
+      "O2.P7": {
+        "assumptions": [
+          "E1"
+        ],
+        "branch": "CREATE EXTENSION [IF NOT EXISTS] name [WITH] [SCHEMA s] [VERSION v] [CASCADE], DROP EXTENSION [IF EXISTS] names [CASCADE | RESTRICT], ALTER EXTENSION name UPDATE [TO v] read whole; other ALTER EXTENSION forms are row D; CREATE EXTENSION with SCHEMA, VERSION or CASCADE given twice refused (42601)",
+        "source": "migrations",
+        "summary": "opaque count",
+        "tool": null
+      },
+      "O2.P8": {
+        "assumptions": [
+          "E1",
+          "E3"
+        ],
+        "branch": "DROP EXTENSION [IF EXISTS] names without CASCADE (dependency.c reportDependentObjects, 2BP01; the generated table e1ExtensionMembers of the names each REL_17_6 contrib extension's scripts create): refused while another extension the set installed requires it (control file requires) or a live entry of the dependency record names a member; may fail for an extension whose scripts create operators, or one outside the table, while any live entry exists, and while code may have created objects",
+        "source": "migrations",
+        "summary": "opaque count",
+        "tool": null
+      },
+      "O3": {
+        "assumptions": [
+          "E4",
+          "E8"
+        ],
+        "branch": "search_path, role and session-authorization statements, DISCARD ALL",
+        "source": "migrations",
+        "summary": "the session's search_path when every change to it is read; otherwise later names uncertain",
+        "tool": null
+      },
+      "O3.P13": {
+        "assumptions": [
+          "E3",
+          "E4"
+        ],
+        "branch": "an unqualified CREATE under a search_path the pass reads lands in its first existing entry (the record carries that schema); no existing entry refused (3F000), pg_catalog first refused (42501); an unknown path or an unknown entry before the deciding one not proven, and the record keeps schema null with a search_path reason; the \"$user\" entry of E4's path is unknown from the first statement that may create a schema (CREATE SCHEMA, AUTHORIZATION, ALTER SCHEMA RENAME, code) while such a schema may exist",
+        "source": "migrations",
+        "summary": "the session's search_path when every change to it is read; otherwise later names uncertain",
+        "tool": null
+      },
+      "O3.P7": {
+        "assumptions": [],
+        "branch": "DISCARD ALL and ALTER ROLE ... SET read whole, otherwise row D",
+        "source": "migrations",
+        "summary": "the session's search_path when every change to it is read; otherwise later names uncertain",
+        "tool": null
+      },
+      "O4": {
+        "assumptions": [
+          "E4",
+          "E8"
+        ],
+        "branch": "lexing settings",
+        "source": "migrations",
+        "summary": "later migrations may fail",
+        "tool": null
+      },
+      "O5": {
+        "assumptions": [
+          "E3",
+          "E6",
+          "E8"
+        ],
+        "branch": "CREATE EVENT TRIGGER, DROP OWNED, DROP ... CASCADE of untracked kinds",
+        "source": "migrations",
+        "summary": "opaque; tables partial",
+        "tool": null
+      },
+      "O5.P4": {
+        "assumptions": [
+          "E6"
+        ],
+        "branch": "CREATE EVENT TRIGGER and ALTER EVENT TRIGGER may fail: only a superuser may run them, and E6 grants no superuser (event_trigger.c 137)",
+        "source": "migrations",
+        "summary": "opaque; tables partial",
+        "tool": null
+      },
+      "O5.P7": {
+        "assumptions": [],
+        "branch": "CREATE EVENT TRIGGER, DROP OWNED BY and DROP ... CASCADE read whole, otherwise row D",
+        "source": "migrations",
+        "summary": "opaque; tables partial",
+        "tool": null
+      },
+      "Q1": {
+        "assumptions": [
+          "E4",
+          "E5",
+          "E8"
+        ],
+        "branch": "the set's members as sqlx reads them",
+        "source": "migrations",
+        "summary": "applied of every migration",
+        "tool": null
+      },
+      "Q1.P10": {
+        "assumptions": [],
+        "branch": "a member the pass could not read: every migration applied null; a member not UTF-8: the set is refused; a manifest the dialect depends on could not be read: no records",
+        "source": "migrations",
+        "summary": "applied of every migration",
+        "tool": null
+      },
+      "Q1.P13": {
+        "assumptions": [
+          "E4",
+          "E5"
+        ],
+        "branch": "sqlx's unqualified INSERT INTO _sqlx_migrations at the end of each migration (and its UPDATE after a commit, for later migrations): applied only when the path in force reaches the default schema with only pg_catalog or set schemas before it; a path no entry of which can hold it refused (42P01); an unknown path or entry, a set relation named _sqlx_migrations, or a statement that may drop or rename public or _sqlx_migrations not proven; the \"$user\" entry counts as any set schema; the INSERT runs in the transaction in force at the end of the string (a new one after the string committed sqlx's) and is refused (25006) when that transaction is read-only; the UPDATE after the commit runs in a new transaction with the session's defaults, and a committed default_transaction_read_only on (SET or SET SESSION CHARACTERISTICS) refuses it, which stops the run: every later migration is not applied",
+        "source": "migrations",
+        "summary": "applied of every migration",
+        "tool": null
+      },
+      "Q1.P7": {
+        "assumptions": [],
+        "branch": "a numeric literal scan.l REL_17_6 refuses anywhere in a migration (an integer, numeric or real followed by an identifier character, an exponent sign without digits, 0x, 0o or 0b without digits) or two numeric constants written together (1.2.3) refuses the whole migration (42601): Postgres parses the whole string before it runs any statement",
+        "source": "migrations",
+        "summary": "applied of every migration",
+        "tool": null
+      },
+      "R1": {
+        "assumptions": [
+          "E1",
+          "E4",
+          "E5",
+          "E6",
+          "E8"
+        ],
+        "branch": "CREATE [OR REPLACE] [TEMP] VIEW / MATERIALIZED VIEW / SEQUENCE / TYPE / DOMAIN, CREATE TABLE AS, SELECT INTO, CREATE SCHEMA",
+        "source": "migrations",
+        "summary": "namespace record",
+        "tool": null
+      },
+      "R1.P12": {
+        "assumptions": [
+          "E1",
+          "E3"
+        ],
+        "branch": "CREATE VIEW/SEQUENCE/TYPE/DOMAIN/SCHEMA (also R2) of a name code may have created or left behind may fail; with IF NOT EXISTS or OR REPLACE its record is uncertain",
+        "source": "migrations",
+        "summary": "namespace record",
+        "tool": null
+      },
+      "R1.P2": {
+        "assumptions": [
+          "E3",
+          "E5",
+          "E6"
+        ],
+        "branch": "CREATE TABLE AS, SELECT INTO and CREATE MATERIALIZED VIEW: an output column name (alias, column list, or the name of a plain column reference, function call or cast) equal to a system column name refused (42701); CREATE SCHEMA of a pg_ name, also the role-named schema of AUTHORIZATION, refused (42939, Y06); a relation (table, view, materialized view, sequence, composite type, foreign table, index) created in pg_catalog or pg_toast refused (42501), any other object created in pg_catalog may fail (E6, Y07); CREATE SCHEMA, by name or by AUTHORIZATION, of a schema the set holds, or of public or information_schema under E5 unless the set dropped it, refused (42P06) and skipped with IF NOT EXISTS, and may fail when code may have created it (Y08, Y43); CREATE TYPE AS RANGE whose multirange type name (multirange_type_name, or makeMultirangeTypeName's) a pg_type entry the pass holds already takes refused (42710, Y21); a CREATE SCHEMA element qualified by another schema refused (42P15, Y32)",
+        "source": "migrations",
+        "summary": "namespace record",
+        "tool": null
+      },
+      "R1.P4": {
+        "assumptions": [
+          "E6"
+        ],
+        "branch": "CREATE SEQUENCE options: each written once (42601), signed integer constants in int8 range, AS smallint, integer or bigint, and the parameters sequence.c init_params computes (INCREMENT not 0, MINVALUE \u003c MAXVALUE within the type's range, START and RESTART within the bounds, CACHE \u003e= 1; 22023); OWNED BY NONE or a column of a table held under a certain name in the sequence's schema (55000, 42703); other values not proven; CREATE TYPE of a base or shell type (CREATE TYPE name, alone or with a parameter list) may fail (only a superuser may create one)",
+        "source": "migrations",
+        "summary": "namespace record",
+        "tool": null
+      },
+      "R1.P5": {
+        "assumptions": [],
+        "branch": "CREATE DOMAIN: the base type's modifiers as M2.P5, one DEFAULT assignable to the base type, not NULL with NOT NULL, COLLATE on a collatable base type, each CHECK proven boolean over VALUE; other clauses not proven; CREATE TYPE AS (...): attribute type modifiers and collations as for columns (R3, R4); CREATE VIEW WITH (...) checked against the view options of reloptions.c, CREATE MATERIALIZED VIEW WITH (...) against the heap ones; a check_option or WITH CHECK OPTION may fail (the pass does not prove a view automatically updatable); a composite type's attribute named twice (42701) and a domain's constraint name written twice (42710) refused",
+        "source": "migrations",
+        "summary": "namespace record",
+        "tool": null
+      },
+      "R1.P7": {
+        "assumptions": [
+          "E6"
+        ],
+        "branch": "no SELECT INTO in a view's or CREATE TABLE AS's query; a keyword a name position does not accept; CREATE SCHEMA read whole (name, AUTHORIZATION, elements by their own rows' readers) and the shell, composite and range forms of CREATE TYPE, otherwise row D",
+        "source": "migrations",
+        "summary": "namespace record",
+        "tool": null
+      },
+      "R1b": {
+        "assumptions": [
+          "E1",
+          "E3",
+          "E4",
+          "E5",
+          "E6",
+          "E8"
+        ],
+        "branch": "the query of a view, CREATE TABLE AS or SELECT INTO, and a LANGUAGE sql body",
+        "source": "migrations",
+        "summary": "as R1",
+        "tool": null
+      },
+      "R1b.P5": {
+        "assumptions": [
+          "E3",
+          "E4"
+        ],
+        "branch": "the query of a view, CREATE TABLE AS or SELECT INTO, and a LANGUAGE sql body, are not proven; a LANGUAGE sql AS body only while check_function_bodies is on or unknown (off, the validator does not parse it); T024c1c: a LANGUAGE sql function's AS body that the validator parse-analyses at creation (fmgr_sql_validator) is proven in one form: named parameters and a result of pg_catalog base types, options LANGUAGE, volatility, STRICT, LEAKPROOF, SECURITY and PARALLEL only, one SELECT of one output expression of the RETURNS type over at most one table held with known columns under a certain name ([AS] alias) with an optional WHERE; a name is a column of its level's table before a parameter (an outer level's column is not proven); EXISTS of the same form, one integer subscript of a parenthesised array, pg_catalog functions the set does not overload and the platform functions of SB-M8; never after an opaque statement, an operator, cast, operator class or family, access method or aggregate of the set, or a statement naming row_security",
+        "source": "migrations",
+        "summary": "as R1",
+        "tool": null
+      },
+      "R2": {
+        "assumptions": [
+          "E1",
+          "E4",
+          "E5",
+          "E6",
+          "E8"
+        ],
+        "branch": "CREATE TYPE n AS ENUM ('a', ...)",
+        "source": "migrations",
+        "summary": "the enum's labels, in order",
+        "tool": null
+      },
+      "R2.P5": {
+        "assumptions": [],
+        "branch": "CREATE TYPE AS ENUM: a label written twice (23505) or longer than 63 bytes (42602) refused; a label the pass does not decode may fail",
+        "source": "migrations",
+        "summary": "the enum's labels, in order",
+        "tool": null
+      },
+      "R2.P7": {
+        "assumptions": [],
+        "branch": "CREATE TYPE: a keyword a name position does not accept; the whole statement read as CREATE TYPE n AS ENUM ([Sconst [, ...]] ), otherwise row D",
+        "source": "migrations",
+        "summary": "the enum's labels, in order",
+        "tool": null
+      },
+      "R3": {
+        "assumptions": [
+          "E1",
+          "E4",
+          "E5",
+          "E6",
+          "E8"
+        ],
+        "branch": "ALTER TYPE n ADD VALUE [IF NOT EXISTS] 'v' [BEFORE|AFTER 'w'] / RENAME VALUE",
+        "source": "migrations",
+        "summary": "label added or renamed",
+        "tool": null
+      },
+      "R3.K2": {
+        "assumptions": [],
+        "branch": "ADD VALUE: an existing label (without IF NOT EXISTS) or a missing BEFORE/AFTER label is refused; RENAME VALUE of a missing label or to an existing one is refused; unknown labels may fail; a label added in this transaction to a type that existed before it is unsafe to use before the commit (55P04); labels are the decoded string values, and a label written in a form the pass does not decode (octal, hexadecimal or Unicode escapes, U\u0026'...') makes the type's labels unknown (and may be any unsafe label); ADD VALUE and RENAME VALUE of a label longer than 63 bytes refused (42602)",
+        "source": "migrations",
+        "summary": "label added or renamed",
+        "tool": null
+      },
+      "R3.P1": {
+        "assumptions": [
+          "E1",
+          "E4"
+        ],
+        "branch": "ALTER TYPE: a type the set creates must be held; ADD VALUE and RENAME VALUE of a table's row type are refused, and of a name the pass does not hold as a type may fail (E1 does not cover enums)",
+        "source": "migrations",
+        "summary": "label added or renamed",
+        "tool": null
+      },
+      "R3.P12": {
+        "assumptions": [
+          "E1",
+          "E3"
+        ],
+        "branch": "ALTER TYPE ADD VALUE or RENAME VALUE of a type code names (labels the pass does not see) may fail",
+        "source": "migrations",
+        "summary": "label added or renamed",
+        "tool": null
+      },
+      "R3.P7": {
+        "assumptions": [],
+        "branch": "ALTER TYPE n ADD VALUE [IF NOT EXISTS] Sconst [{BEFORE | AFTER} Sconst] and RENAME VALUE Sconst TO Sconst read whole, otherwise row D",
+        "source": "migrations",
+        "summary": "label added or renamed",
+        "tool": null
+      },
+      "R4": {
+        "assumptions": [
+          "E1",
+          "E4",
+          "E5",
+          "E6",
+          "E8"
+        ],
+        "branch": "ALTER TYPE/DOMAIN (other), ALTER VIEW/SEQUENCE/MATERIALIZED VIEW ... RENAME, ALTER COLLATION",
+        "source": "migrations",
+        "summary": "tables that use it become partial",
+        "tool": null
+      },
+      "R4.P1": {
+        "assumptions": [
+          "E1",
+          "E4",
+          "E6"
+        ],
+        "branch": "ALTER VIEW/SEQUENCE/MATERIALIZED VIEW/TYPE of a relation the set created: its existence and kind must still be proven (no opaque statement or CASCADE since); ALTER VIEW, ALTER MATERIALIZED VIEW and ALTER SEQUENCE of a name the pass does not hold as that kind (without IF EXISTS) may fail; ALTER DOMAIN of a name held as another kind, ALTER TYPE ... ADD/DROP/ALTER/RENAME ATTRIBUTE of a name held as anything but a composite type, and other ALTER TYPE forms of a relation's row type are refused (a sequence or index: may fail); ALTER VIEW / MATERIALIZED VIEW ... RENAME [COLUMN] and ALTER TYPE ... RENAME ATTRIBUTE of a held name may fail (columns not tracked); ALTER DOMAIN ... DROP CONSTRAINT (without IF EXISTS), VALIDATE CONSTRAINT and RENAME CONSTRAINT may fail (E1 does not cover constraints); ALTER TYPE (other than ADD / RENAME VALUE) and ALTER DOMAIN of a name the pass does not hold as a type may fail (E1 does not cover types other than its own)",
+        "source": "migrations",
+        "summary": "tables that use it become partial",
+        "tool": null
+      },
+      "R4.P2": {
+        "assumptions": [],
+        "branch": "ALTER TYPE ... ADD ATTRIBUTE of a system column name on a type a typed table uses: refused with CASCADE (42701), may fail otherwise; any attribute change without CASCADE on a type a typed table uses refused (2BP01)",
+        "source": "migrations",
+        "summary": "tables that use it become partial",
+        "tool": null
+      },
+      "R4.P4": {
+        "assumptions": [
+          "E3",
+          "E6"
+        ],
+        "branch": "ALTER TYPE ... SET (...) may fail: it changes a base type's properties, which only a superuser may do (typecmds.c 4493); E6: ALTER TYPE or DOMAIN ... OWNER TO a role the set created may fail",
+        "source": "migrations",
+        "summary": "tables that use it become partial",
+        "tool": null
+      },
+      "R4.P5": {
+        "assumptions": [],
+        "branch": "ALTER VIEW / MATERIALIZED VIEW SET / RESET (...): checked against the view options (security_barrier, security_invoker, check_option) or the heap ones; a check_option may fail",
+        "source": "migrations",
+        "summary": "tables that use it become partial",
+        "tool": null
+      },
+      "R4.P7": {
+        "assumptions": [
+          "E1",
+          "E6"
+        ],
+        "branch": "ALTER TYPE (RENAME TO, RENAME ATTRIBUTE, OWNER TO, SET SCHEMA, ADD/DROP/ALTER ATTRIBUTE), ALTER DOMAIN (AlterDomainStmt, RENAME, OWNER, SET SCHEMA), ALTER VIEW / MATERIALIZED VIEW (RENAME, RENAME COLUMN, SET SCHEMA, OWNER TO, [NO] DEPENDS ON EXTENSION, SET/RESET (...), ALTER COLUMN SET/DROP DEFAULT), ALTER SEQUENCE RENAME TO and ALTER COLLATION read whole, otherwise row D",
+        "source": "migrations",
+        "summary": "tables that use it become partial",
+        "tool": null
+      },
+      "R5": {
+        "assumptions": [
+          "E1",
+          "E4",
+          "E5",
+          "E6",
+          "E8"
+        ],
+        "branch": "DROP \u003cother kind\u003e [IF EXISTS] names [CASCADE|RESTRICT], DROP SCHEMA",
+        "source": "migrations",
+        "summary": "dependents partial with CASCADE",
+        "tool": null
+      },
+      "R5.P1": {
+        "assumptions": [
+          "E1"
+        ],
+        "branch": "DROP SCHEMA: a schema the set creates must be held (without IF EXISTS); DROP SEQUENCE, VIEW, MATERIALIZED VIEW, TYPE and DOMAIN of a name the pass does not hold (without IF EXISTS) may fail; DROP COLLATION of a name the N1.P2 record does not hold (or dropped since) and DROP AGGREGATE (without IF EXISTS) may fail; after ALTER COLLATION a RENAME TO b the pass holds b and not a",
+        "source": "migrations",
+        "summary": "dependents partial with CASCADE",
+        "tool": null
+      },
+      "R5.P12": {
+        "assumptions": [
+          "E1",
+          "E3"
+        ],
+        "branch": "DROP \u003cother kind\u003e or DROP SCHEMA without CASCADE of an object code names, or of a schema code may have created objects in, may fail",
+        "source": "migrations",
+        "summary": "dependents partial with CASCADE",
+        "tool": null
+      },
+      "R5.P4": {
+        "assumptions": [
+          "E4"
+        ],
+        "branch": "DROP \u003ckind\u003e of an object held as another kind is refused; DROP INDEX [IF EXISTS] of a name held as another relation kind is refused (42809)",
+        "source": "migrations",
+        "summary": "dependents partial with CASCADE",
+        "tool": null
+      },
+      "R5.P7": {
+        "assumptions": [],
+        "branch": "DROP {TYPE | DOMAIN | VIEW | MATERIALIZED VIEW | SEQUENCE | COLLATION | ...} [IF EXISTS] names [CASCADE | RESTRICT], DROP {FUNCTION | PROCEDURE | ROUTINE | AGGREGATE | OPERATOR} with argument types, DROP CAST read whole, otherwise row D",
+        "source": "migrations",
+        "summary": "dependents partial with CASCADE",
+        "tool": null
+      },
+      "R5.P8": {
+        "assumptions": [
+          "E1",
+          "E3",
+          "E4",
+          "E6"
+        ],
+        "branch": "DROP FUNCTION, PROCEDURE, ROUTINE, AGGREGATE, TYPE, DOMAIN, VIEW, MATERIALIZED VIEW, SEQUENCE, FOREIGN TABLE, COLLATION, SCHEMA or EXTENSION (Y34; and DROP TABLE, M6.P8) without CASCADE, with or without IF EXISTS, may fail while a live entry of the pass's dependency record has an occurrence that names the object under any name it has had (ALTER ... RENAME TO; its array and multirange names): every statement that can create an object with a pg_depend dependency adds an entry with the identity of its object and every word it writes (strings included; a routine's or DO body's DDL, or the whole body when it is not read or dynamic; a regclass-family type with a numeric constant names every object), no word removed; three positions are proven no dependency: the entry's own created name, the ON-table of an object of a table when a relation of that name is dropped, and a REFERENCES target the foreign-key record decides (a held table with known facts); an entry ends only when the object of its identity is removed: DROP of it (a trigger or policy by name and table; a routine without an argument list only when it has one held identity), DROP of its table, CREATE OR REPLACE of the same identity; a DROP that removes nothing ends none, and a rename moves the identity to the new name; the sequences a table's columns own (serial, identity, OWNED BY; the generated name clipped as ChooseRelationName does, with any numeric suffix) are names of the table; a statement that copies columns (CREATE TABLE AS, SELECT INTO, LIKE, INHERITS, PARTITION OF, OF, ALTER TABLE ... INHERIT, and views and materialized views) names the copied columns' types as the pass holds them, or every type when it does not, so DROP TYPE and DROP DOMAIN may fail while it is live; DROP SCHEMA also while the search_path may resolve to it; after DROP ... CASCADE the objects such entries created are no longer held and their CREATE or use may fail, and their entries stay live; DROP ... CASCADE of a table, view, type or domain drops every held table's column whose type is a dropped type, its array, or a domain or range over it (under any name it has had) with M5b's CASCADE effects, the table partial when the column's type or the dropped type is not exact; a partition-key column takes its table (M6 CASCADE), and the statement may fail when that is not exact",
+        "source": "migrations",
+        "summary": "dependents partial with CASCADE",
+        "tool": null
+      },
+      "R6": {
+        "assumptions": [
+          "E1",
+          "E4",
+          "E5",
+          "E6",
+          "E8"
+        ],
+        "branch": "CREATE FUNCTION/PROCEDURE, ALTER FUNCTION/PROCEDURE/ROUTINE ... [RENAME TO g]",
+        "source": "migrations",
+        "summary": "the set's function names",
+        "tool": null
+      },
+      "R6.P1": {
+        "assumptions": [
+          "E1"
+        ],
+        "branch": "CREATE FUNCTION/PROCEDURE: the language must exist; sql and plpgsql (an identifier folded, or a string constant spelled exactly so) are proven, every other language may fail",
+        "source": "migrations",
+        "summary": "the set's function names",
+        "tool": null
+      },
+      "R6.P12": {
+        "assumptions": [
+          "E1",
+          "E3"
+        ],
+        "branch": "CREATE FUNCTION/PROCEDURE without OR REPLACE of a routine code may have created, and DROP of a routine code names, may fail; a routine code creates, replaces, alters or drops has unknown definitions (R6.P3)",
+        "source": "migrations",
+        "summary": "the set's function names",
+        "tool": null
+      },
+      "R6.P14": {
+        "assumptions": [
+          "E1",
+          "E3",
+          "E4"
+        ],
+        "branch": "CREATE FUNCTION/PROCEDURE ... LANGUAGE plpgsql: the validator refuses a pseudo-type result other than trigger, event_trigger, record, void and the polymorphic types and a pseudo-type argument other than record and the polymorphic types (0A000), LANGUAGE sql a pseudo-type result other than record, void and the polymorphic types and a pseudo-type input argument other than the polymorphic types (42P13), a function without RETURNS and OUT parameters is refused (42P13); with check_function_bodies on or unknown the body is compiled and applied only in the provable subset (one block [\u003c\u003cl\u003e\u003e] [DECLARE name type [:= expr];...] BEGIN ... [EXCEPTION WHEN cond [OR cond] THEN ...] END [l] [;]; assignments to declared variables, parameters and NEW/OLD.col of a trigger function, RETURN per make_return_stmt, IF/ELSIF/ELSE, NULL, RAISE [level] 'fmt' [, expr], EXECUTE expr, PERFORM query, INSERT/UPDATE/DELETE of the expression reader's subset, statements the V7 readers read completely, T024c1b: SELECT with at most one INTO [STRICT] at parenthesis depth 0 whose targets are parameters or declared variables (several only of a pg_catalog type that is not composite) and the rest a query of the syntax-only reader; declared names may be unreserved SQL keywords; expressions of the syntax-only reader, whose FROM items are relations or, T024c1b, function calls); a certain compile error inside it (end label, trailing text, duplicate declaration, unknown variable, NEW.x outside a trigger function, RETURN against the result, RAISE parameter count, unknown condition, bad SQLSTATE, serial declared type, a trigger function with parameters) refused, anything else may fail",
+        "source": "migrations",
+        "summary": "the set's function names",
+        "tool": null
+      },
+      "R6.P2": {
+        "assumptions": [],
+        "branch": "ALTER FUNCTION, PROCEDURE or ROUTINE ... RENAME TO g: refused (42723) when the set holds g with the same argument types in the same schema; may fail when the argument types or the held routines are not proven",
+        "source": "migrations",
+        "summary": "the set's function names",
+        "tool": null
+      },
+      "R6.P3": {
+        "assumptions": [
+          "E1"
+        ],
+        "branch": "CREATE OR REPLACE FUNCTION/PROCEDURE over a held routine of the same identity (schema, name, input types of pg_catalog): kind (42809), return type and SETOF, OUT/INOUT/TABLE columns, named input parameters, and at least its defaults kept (42P13), else refused; an identity the pass cannot decide (types outside pg_catalog, a schema not proven, a routine changed by a statement not read) not proven",
+        "source": "migrations",
+        "summary": "the set's function names",
+        "tool": null
+      },
+      "R6.P4": {
+        "assumptions": [
+          "E6"
+        ],
+        "branch": "functions and procedures: the kind a statement names must be the kind the set holds; the options of CREATE FUNCTION/PROCEDURE at most once each except SET (42601), volatility, STRICT, LEAKPROOF, COST, ROWS and PARALLEL refused for a procedure (42P13), COST and ROWS positive constants, ROWS only for a set-returning function (22023), PARALLEL SAFE, RESTRICTED or UNSAFE, a SET clause proven as N2.P5 proves SET; TRANSFORM, WINDOW, SUPPORT and options not read may fail; the actions of ALTER FUNCTION, PROCEDURE and ROUTINE as the CREATE options (an option twice, function attributes on a procedure, COST and ROWS, PARALLEL), against the one held definition when the pass read it; ROWS, and a ROUTINE's function attributes, on a routine not read may fail; a function or procedure with LEAKPROOF or SUPPORT, or in a language other than plpgsql and sql (c, internal, the untrusted procedural languages), may fail (only a superuser may create it); E6: ALTER FUNCTION, PROCEDURE, ROUTINE or AGGREGATE ... OWNER TO a role the set created may fail",
+        "source": "migrations",
+        "summary": "the set's function names",
+        "tool": null
+      },
+      "R6.P5": {
+        "assumptions": [],
+        "branch": "CREATE FUNCTION and PROCEDURE: a polymorphic result or OUT parameter that no input determines refused (42P13; check_valid_polymorphic_signature: anyrange and anymultirange need an anyrange or anymultirange input, the other anyelement-family types any of that family, anycompatiblerange and anycompatiblemultirange an input of those two, the other anycompatible-family types any of that family, internal an internal input; Y17); a type modifier on an argument, OUT, RETURNS or RETURNS TABLE type as M2.P5 (42601 when the type takes none; Y18); the SET values of ALTER FUNCTION, PROCEDURE and ROUTINE as N2.P1 and N2.P5",
+        "source": "migrations",
+        "summary": "the set's function names",
+        "tool": null
+      },
+      "R6.P7": {
+        "assumptions": [
+          "E1",
+          "E6"
+        ],
+        "branch": "CREATE/ALTER FUNCTION/PROCEDURE: an unqualified routine name is a type_function_name (no col_name or reserved keyword); ALTER FUNCTION/PROCEDURE/ROUTINE read whole as RENAME TO, OWNER TO, SET SCHEMA, [NO] DEPENDS ON EXTENSION or alterfunc_opt_list [RESTRICT], otherwise row D",
+        "source": "migrations",
+        "summary": "the set's function names",
+        "tool": null
+      },
+      "T1": {
+        "assumptions": [
+          "E8"
+        ],
+        "branch": "BEGIN/START, COMMIT/END, ROLLBACK/ABORT, SAVEPOINT, RELEASE, ROLLBACK TO, PREPARE TRANSACTION, LOCK",
+        "source": "migrations",
+        "summary": "nothing changes, or the P6 effect",
+        "tool": null
+      },
+      "T1.P4": {
+        "assumptions": [],
+        "branch": "LOCK [TABLE]: a name the pass holds as a materialized view, foreign table, sequence, index or composite type is refused (42809); only a table, a partitioned table and a view (with its base relations, whatever their kinds) are locked; a kind not certain may fail",
+        "source": "migrations",
+        "summary": "nothing changes, or the P6 effect",
+        "tool": null
+      },
+      "T1.P6": {
+        "assumptions": [],
+        "branch": "transaction control: the outcome in each block state (the P6 table in transactions.go)",
+        "source": "migrations",
+        "summary": "nothing changes, or the P6 effect",
+        "tool": null
+      },
+      "T1.P7": {
+        "assumptions": [],
+        "branch": "BEGIN [WORK | TRANSACTION], START TRANSACTION, COMMIT / END / ROLLBACK / ABORT [WORK | TRANSACTION] [AND NO CHAIN], SAVEPOINT, RELEASE [SAVEPOINT], ROLLBACK TO [SAVEPOINT], PREPARE TRANSACTION, COMMIT/ROLLBACK PREPARED and LOCK read whole; transaction modes and AND CHAIN are row D",
+        "source": "migrations",
+        "summary": "nothing changes, or the P6 effect",
+        "tool": null
+      }
+    },
+    "models/diesel": {
+      "D": {
+        "assumptions": [],
+        "branch": null,
+        "source": "models",
+        "summary": "nothing; the table or column is partial with D as reason, or a marker diagnostic schema_model_unread (tool diesel) for a whole unread definition in a configured file",
+        "tool": "diesel"
+      },
+      "DI-C1": {
+        "assumptions": [
+          "DI-V2"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "every line: column name (#[sql_name] else the ident, r# stripped); generated: nullability (outermost Nullable\u003c...\u003e: nullable; otherwise not null; pg.rs:69, infer_schema_internals/data_structures.rs:137-150), and the type per DI-C2; every line also carries the declared Diesel type (Nullable\u003cInt4\u003e) as a Rust-side annotation, not a database fact (no claims entry,; attribute tool_type, ADR 0065)",
+        "tool": "diesel"
+      },
+      "DI-C2": {
+        "assumptions": [
+          "DI-V3",
+          "DI-V4"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "Postgres type in format_type spelling: integer, bigint, smallint, real, double precision, boolean, text, character varying, character, \"char\", bytea, date, time without time zone, timestamp without time zone, timestamp with time zone, interval, bit, bit varying, ...; #[max_length = n] on varchar, bpchar, bit, varbit adds (n); T[] for arrays; a sql_types struct: its postgres_type name (a builtin name through the same spelling map, else as written, schema.name with its schema unless that is pg_catalog, which print-schema writes and format_type never does: addendum 3), as the plain type when the struct is #[diesel(enum_type)] (an enum takes no type modifiers) or its schema is pg_catalog (every pg_catalog type that takes a modifier is in the spelling map), else as its family with the generic modifiers unknown (an extension type such as PostGIS geometry or pgvector vector loses its modifiers in schema.rs); the spelling map also holds timetz (time with time zone, a family with precision unknown), which print-schema writes only as a pg_catalog struct; Numeric, Time, Timestamp, Timestamptz, Interval and any other type whose modifiers print-schema drops (also Bpchar and Bit without #[max_length], and Array\u003cT\u003e of Varchar, Bpchar, Bit, Varbit: information_schema has no length for an array column; in a file that shows no diesel_cli 2.1 or later output (DI-G1), whatever the pin, Varchar and Varbit without #[max_length] too, since diesel_cli 2.0 never writes it: and addendum): the type family with the dropped modifiers unknown (the kit's type_family of ADR 0065; interval's fields have no kit modifier and are not stated); mysql and sqlite per the dialect rule (mapped)",
+        "tool": "diesel"
+      },
+      "DI-G1": {
+        "assumptions": [
+          "DI-V2",
+          "DI-V6",
+          "DI-V8",
+          "DI-V9"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "no fact of its own; selects which rows' generated claims apply; a table, a column or a sql_types struct is hand-written when any line from its first attribute (or doc comment) line to its name line is added by a located hunk (a patch that adds #[max_length] above a column or rewrites a struct's postgres_type(name = ...) makes it hand-written); a generated file is diesel_cli 2.1 or later output only when it shows it: a #[max_length = \u003cint\u003e] on a generated column, or a /// doc comment on a generated table or column that is not diesel_cli 2.0's generated text (2.0.1 writes no max_length and reads no database comment, inference.rs:198-224; 2.1.1 writes database comments, pg.rs:74-149); otherwise DI-C2 and DI-J1 (except on sqlite: addendum 2) take the diesel_cli 2.0 rules and the group lists DI-V9, whatever the pin (addendum)",
+        "tool": "diesel"
+      },
+      "DI-J1": {
+        "assumptions": [
+          "DI-V2"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "generated: a foreign key from the child's column to the parent's single primary-key column (print-schema emits one only for such a constraint, foreign_keys.rs:8-71); on_delete/on_update unknown; constraint name unknown",
+        "tool": "diesel"
+      },
+      "DI-J2": {
+        "assumptions": [],
+        "branch": null,
+        "source": "models",
+        "summary": "nothing (Rust-level: which tables may share a query)",
+        "tool": "diesel"
+      },
+      "DI-K1": {
+        "assumptions": [
+          "DI-V1",
+          "DI-V4",
+          "DI-V5"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "one group per configured file (models/diesel/\u003cfile\u003e), dialect, pins, the section's literal schema",
+        "tool": "diesel"
+      },
+      "DI-P1": {
+        "assumptions": [],
+        "branch": null,
+        "source": "models",
+        "summary": "diagnostic schema_model_import_failure (row named); no claim for the table involved; on duplicate table names, for both",
+        "tool": "diesel"
+      },
+      "DI-S1": {
+        "assumptions": [
+          "DI-V2"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "the type name used by DI-C2 (an enum_type struct: an enum, the plain type); a rust_types module's enum items: no definition and no marker",
+        "tool": "diesel"
+      },
+      "DI-T1": {
+        "assumptions": [
+          "DI-V2",
+          "DI-V5"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "every line: table name (#[sql_name] else the ident, r# stripped), schema (written schema. prefix, else the section's schema, else none: the dialect default); generated: base table (print-schema writes only BASE TABLEs), primary_key = the key list in order (DB names through each column's #[sql_name]), column_set: complete unless a patch hunk adds a column line that replaces no removed column of the same name (a patch removal in the block: DI-G1); group table_list complete when every table is generated, no filter is set, and no patch hunk removes a table! block",
+        "tool": "diesel"
+      },
+      "DI-U1": {
+        "assumptions": [],
+        "branch": null,
+        "source": "models",
+        "summary": "unread_tools entry (found, not read yet), count of migration directories",
+        "tool": "diesel"
+      },
+      "DI-U2": {
+        "assumptions": [
+          "DI-V1",
+          "DI-V4",
+          "DI-V7"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "its own group (models/diesel/\u003cfile\u003e), names only: table and column names as DI-T1 and DI-C1 read them on hand-written lines, pins, dialect",
+        "tool": "diesel"
+      },
+      "DI-V": {
+        "assumptions": [],
+        "branch": null,
+        "source": "models",
+        "summary": "stated, never claimed as facts",
+        "tool": "diesel"
+      }
+    },
+    "models/drizzle": {
+      "D": {
+        "assumptions": [],
+        "branch": null,
+        "source": "models",
+        "summary": "nothing; the table or column is partial with D as reason, or a marker diagnostic schema_model_unread (tool drizzle) for whole declarations (one per module without a payload, naming its exported values)",
+        "tool": "drizzle"
+      },
+      "DR-C1": {
+        "assumptions": [
+          "DR-V1"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "column name (literal first argument, else DR-K2); SQL type as the oracle catalog shows it (varchar(20) -\u003e character varying(20), timestamp -\u003e timestamp without time zone, .array() -\u003e \u003ctype\u003e[]); serial/smallserial/bigserial: integer/smallint/bigint, not null, sequence default; on mysql (mapped) the COLUMN_TYPE MySQL 8.0.19+ reports: serial -\u003e bigint unsigned, boolean -\u003e tinyint(1), char -\u003e char(1), the rest as drizzle-kit writes them; mode, sqlite text({enum}) and bigint({mode}) are TypeScript-only (no fact; no CHECK, oracle)",
+        "tool": "drizzle"
+      },
+      "DR-C2": {
+        "assumptions": [
+          "DR-V2"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "nullability; single-column primary key (name not claimed: inline, the database names it); unique: postgresql a UNIQUE constraint \u003ctable\u003e_\u003ccolumn\u003e_unique (pre-casing column name) or the literal name, nulls: \"not distinct\" as nulls_not_distinct: true; sqlite a unique index of that name; default: string 'x' (quotes doubled), number and boolean as written, json/jsonb object or array '\u003cJSON.stringify\u003e'::json(b), array column '{\"a\",\"b\"}', sql text by the rendering rule, defaultNow() now(), defaultRandom() gen_random_uuid() (bin.cjs:17021-17045); MySQL defaultNow() a default (presence, date.common.js:6-8; MySQL default texts are presence only); foreign key to the referenced table and column, name \u003ctable\u003e_\u003ccol\u003e_\u003creftable\u003e_\u003crefcol\u003e_fk (pg-core/foreign-keys.js:55) truncated to 63 bytes on postgresql, actions as written, else no action for both (oracle); generated: generated: \"stored\" with expression text by the rendering rule; identity: identity: \"always\"/\"by default\" and not null; the $-prefixed client modifiers and $type: no fact, and no database default is proven by them",
+        "tool": "drizzle"
+      },
+      "DR-C3": {
+        "assumptions": [],
+        "branch": null,
+        "source": "models",
+        "summary": "column type t as written (kaneo bytea, dokploy text; oracle)",
+        "tool": "drizzle"
+      },
+      "DR-E1": {
+        "assumptions": [],
+        "branch": null,
+        "source": "models",
+        "summary": "Postgres enum type (schema-qualified) with its values in order; the column's type is the enum (array with .array()); MySQL enum('a','b') column type (mapped); sqlite text({enum}): text, no fact for the values",
+        "tool": "drizzle"
+      },
+      "DR-K1": {
+        "assumptions": [
+          "DR-V1",
+          "DR-V4",
+          "DR-V5"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "the group (models/drizzle/\u003cconfig path\u003e), its file set, dialect, pins; marker diagnostics for files outside the schema that call a table builder",
+        "tool": "drizzle"
+      },
+      "DR-K2": {
+        "assumptions": [
+          "DR-V3"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "the property key; with a literal config casing, the key converted by the pinned rule (drizzle-orm/casing.js:3-13 toSnakeCase/toCamelCase, applied only to omitted names, keyAsName, column-builder.js:8)",
+        "tool": "drizzle"
+      },
+      "DR-K3": {
+        "assumptions": [
+          "DR-V3"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "explicit (literal) column names are never converted (oracle: explicitName kept); index and primary/foreign key generated names use the converted names, unique generated names the pre-casing names",
+        "tool": "drizzle"
+      },
+      "DR-P1": {
+        "assumptions": [
+          "DR-V2"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "diagnostic schema_model_import_failure (row named); no claim for the tables involved",
+        "tool": "drizzle"
+      },
+      "DR-P2": {
+        "assumptions": [
+          "DR-V5"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "none (they are not in the group); covered by DR-K1's marker",
+        "tool": "drizzle"
+      },
+      "DR-R1": {
+        "assumptions": [],
+        "branch": null,
+        "source": "models",
+        "summary": "ORM-level relations only (developer decision 2026-11-09): per entry, kind (one/many), the source and target table identities and, for one with literal fields/references, the column lists, in table attribute orm_relations; never a foreign_key edge, never a database fact (verification not set; the view labels them ORM relations)",
+        "tool": "drizzle"
+      },
+      "DR-T1": {
+        "assumptions": [
+          "DR-V2"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "a table: name (literal first argument), schema (pgSchema literal; else public on postgresql, none on sqlite/mysql), dialect from the builder module; on postgresql only a table (or enum) whose schema is in the push schema filter: the config's literal schemaFilter, else [\"public\"] (developer decision 2026-11-10); a table two configs read: claimed once, in the group of the first config by root, when they agree on dialect, casing and schemaFilter (identities are per file)",
+        "tool": "drizzle"
+      },
+      "DR-V": {
+        "assumptions": [],
+        "branch": null,
+        "source": "models",
+        "summary": "stated, never claimed as facts",
+        "tool": "drizzle"
+      },
+      "DR-X1": {
+        "assumptions": [
+          "DR-V2"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "indexes with name (omitted: \u003ctable\u003e_\u003ccols\u003e_index, bin.cjs:16919, cased names), columns, uniqueness, method (btree when absent), per column desc and nulls (default last also for desc(), pg-core/columns/common.js:74-77: .desc() renders DESC NULLS LAST), opclass, partial predicate text by the rendering rule; composite primary key name (omitted: \u003ctable\u003e_\u003ccols\u003e_pk, pg-core/primary-keys.js:34; postgresql: its columns not null; sqlite: unnamed, nullability unchanged, A10); unique constraint (postgresql; sqlite unique index) name (omitted: \u003ctable\u003e_\u003ccols\u003e_unique); composite foreign keys with actions and name (omitted: \u003ctable\u003e_\u003ccols\u003e_\u003creftable\u003e_\u003crefcols\u003e_fk, truncated to 63 bytes); check name and expression text",
+        "tool": "drizzle"
+      }
+    },
+    "models/gorm": {
+      "D": {
+        "assumptions": [],
+        "branch": null,
+        "source": "models",
+        "summary": "nothing; marker diagnostic schema_model_unread with tool: \"gorm\"",
+        "tool": "gorm"
+      },
+      "GO-C1": {
+        "assumptions": [
+          "GO-V2"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "primary_key columns (in field order), autoincrement",
+        "tool": "gorm"
+      },
+      "GO-C2": {
+        "assumptions": [
+          "GO-V2"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "nullable",
+        "tool": "gorm"
+      },
+      "GO-C3": {
+        "assumptions": [
+          "GO-V2"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "default present or absent; literal text: postgres 7, 1.5, true, 'x'::text; sqlite 7, \"x\", true, null; numeric literal text in every dialect; raw text: presence only",
+        "tool": "gorm"
+      },
+      "GO-C4": {
+        "assumptions": [
+          "GO-V2"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "a unique constraint (name on postgres and mysql; on sqlite the column set only) and unique: true",
+        "tool": "gorm"
+      },
+      "GO-F1": {
+        "assumptions": [
+          "GO-V2"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "the column set and order",
+        "tool": "gorm"
+      },
+      "GO-F2": {
+        "assumptions": [
+          "GO-V1"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "column name",
+        "tool": "gorm"
+      },
+      "GO-I1": {
+        "assumptions": [
+          "GO-V2"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "index name, columns in order, unique, partial, descending flags; created after the table on postgres (IF NOT EXISTS) and sqlite, inline on mysql",
+        "tool": "gorm"
+      },
+      "GO-K1": {
+        "assumptions": [
+          "GO-V1",
+          "GO-V7"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "the group (models/gorm/\u003cmodule dir\u003e), pins",
+        "tool": "gorm"
+      },
+      "GO-K2": {
+        "assumptions": [
+          "GO-V3",
+          "GO-V4"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "the group's dialect (single dialector) or runtime; the naming strategy; foreign keys on/off; join tables and auto-added targets on/off",
+        "tool": "gorm"
+      },
+      "GO-K3": {
+        "assumptions": [
+          "GO-V2",
+          "GO-V6"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "the model set (tables to claim), the migrate order, table_list complete only when every read site is fully read",
+        "tool": "gorm"
+      },
+      "GO-K4": {
+        "assumptions": [
+          "GO-V1",
+          "GO-V4"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "table name, column names, join-table, index and constraint names (Person -\u003e people, Human -\u003e humen, Leaf -\u003e leafs, HTTPLog -\u003e http_logs, OIDCID -\u003e o_id_c_id)",
+        "tool": "gorm"
+      },
+      "GO-M1": {
+        "assumptions": [
+          "GO-V2"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "a table (identity table:\u003cfile\u003e#\u003cStruct\u003e) with its column set",
+        "tool": "gorm"
+      },
+      "GO-M2": {
+        "assumptions": [],
+        "branch": null,
+        "source": "models",
+        "summary": "none: listed as \"model, not proven migrated\" (marker diagnostic naming the struct)",
+        "tool": "gorm"
+      },
+      "GO-P1": {
+        "assumptions": [
+          "GO-V2"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "none for the failing model and every later model of the same call on that dialect (the call returns at the first error, migrator.go:122-206)",
+        "tool": "gorm"
+      },
+      "GO-R1": {
+        "assumptions": [
+          "GO-V6"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "the foreign-key column pairing and its type copy (GO-T1); has-relations register on the child (relationship.go:101-106) only when the parent's schema is parsed before the child's table is created: same AutoMigrate call (all values are parsed before any table is created), an earlier ordered call, or the parse closure of either (every relation field's struct is parsed)",
+        "tool": "gorm"
+      },
+      "GO-R2": {
+        "assumptions": [
+          "GO-V2",
+          "GO-V6"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "the join table (identity table:\u003cfile\u003e#\u003cStruct\u003e.\u003cField\u003e), its columns, types, foreign keys",
+        "tool": "gorm"
+      },
+      "GO-R3": {
+        "assumptions": [
+          "GO-V2",
+          "GO-V6"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "foreign_keys with name, columns, target, referenced columns, actions; foreign_keys: [] proven when the config disables them (DisableForeignKeyConstraintWhenMigrating, gotify) or every relation is read",
+        "tool": "gorm"
+      },
+      "GO-T1": {
+        "assumptions": [
+          "GO-V1"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "column length, precision, scale: the modifiers of the SQL type GO-T2 claims (per dialect in a runtime group); GORM's data type with its size, precision and scale is the unclaimed tool_type",
+        "tool": "gorm"
+      },
+      "GO-T2": {
+        "assumptions": [
+          "GO-V1",
+          "GO-V3",
+          "GO-V5"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "column type: the SQL type (per dialect in a runtime group)",
+        "tool": "gorm"
+      },
+      "GO-U1": {
+        "assumptions": [],
+        "branch": null,
+        "source": "models",
+        "summary": "marker (unread_tools: \"found, not read\")",
+        "tool": "gorm"
+      },
+      "GO-V": {
+        "assumptions": [],
+        "branch": null,
+        "source": "models",
+        "summary": "stated on the records",
+        "tool": "gorm"
+      }
+    },
+    "models/prisma": {
+      "D": {
+        "assumptions": [],
+        "branch": null,
+        "source": "models",
+        "summary": "nothing; the table or column is partial with D as reason, or a marker diagnostic for whole blocks",
+        "tool": "prisma"
+      },
+      "PR-A1": {
+        "assumptions": [],
+        "branch": null,
+        "source": "models",
+        "summary": "single-column primary key; constraint name only from literal map: (generated \u003ctable\u003e_pkey never claimed); with @unique on the same field, also PR-A2",
+        "tool": "prisma"
+      },
+      "PR-A2": {
+        "assumptions": [
+          "PR-V6"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "unique: true on the column; one single-column unique entry whose kind is provider-dependent: a unique index on postgresql and sqlite (oracle: index), on mysql and cockroachdb from the connector source (mapped index), a UNIQUE constraint on sqlserver (unique_constraints, mapped: flavour/mssql/renderer.rs:154-166, :228-242); name only from literal map:",
+        "tool": "prisma"
+      },
+      "PR-A3": {
+        "assumptions": [
+          "PR-V1",
+          "PR-V6"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "(a) server default; its text (server_default_text, the database's text as Prisma renders it) on postgresql and sqlite for a string ('...', ' doubled), integer (postgresql: 0 to 2147483647), boolean or enum value (its mapped name, quoted), else presence only; (b) server default CURRENT_TIMESTAMP (also on @db.Date and together with @updatedAt); (c) serial/bigserial/smallserial: sequence default, presence only (the sequence name is not claimed), type kept; (d) server default, text as written (sqlite: presence only); (e) no server default, default: \"client\"",
+        "tool": "prisma"
+      },
+      "PR-A4": {
+        "assumptions": [],
+        "branch": null,
+        "source": "models",
+        "summary": "client-side; no server default unless PR-A3 also present (then PR-A3)",
+        "tool": "prisma"
+      },
+      "PR-A5": {
+        "assumptions": [],
+        "branch": null,
+        "source": "models",
+        "summary": "column name x (identity keeps the field name)",
+        "tool": "prisma"
+      },
+      "PR-A6": {
+        "assumptions": [
+          "PR-V1"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "native type as written (D6) with the Postgres type it renders (VARCHAR(n) -\u003e character varying(n) ...); only the corpus forms and the fixture's are oracle-checked, the build's fixture covers every listed form",
+        "tool": "prisma"
+      },
+      "PR-A7": {
+        "assumptions": [],
+        "branch": null,
+        "source": "models",
+        "summary": "column claimed like any other (Migrate creates it); attribute ignored: true",
+        "tool": "prisma"
+      },
+      "PR-AA1": {
+        "assumptions": [],
+        "branch": null,
+        "source": "models",
+        "summary": "composite primary key over the mapped column names; constraint name only from literal map:; name: is client-only (no fact)",
+        "tool": "prisma"
+      },
+      "PR-AA2": {
+        "assumptions": [
+          "PR-V6"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "a unique entry over the mapped columns, its kind as in PR-A2 (index, mapped index, constraint); name only from literal map:; name: client-only",
+        "tool": "prisma"
+      },
+      "PR-AA3": {
+        "assumptions": [],
+        "branch": null,
+        "source": "models",
+        "summary": "index with the mapped columns; name only from literal map:; type: (BTree, Hash, Gist, Gin, SpGist, Brin) as the access method, BTree when absent",
+        "tool": "prisma"
+      },
+      "PR-AA4": {
+        "assumptions": [],
+        "branch": null,
+        "source": "models",
+        "summary": "table name t (identity keeps the model name)",
+        "tool": "prisma"
+      },
+      "PR-AA5": {
+        "assumptions": [],
+        "branch": null,
+        "source": "models",
+        "summary": "table (enum) schema s (no preview feature from 6.13.0; before it the multiSchema preview feature)",
+        "tool": "prisma"
+      },
+      "PR-B1": {
+        "assumptions": [
+          "PR-V3"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "group dialect (postgresql, mysql, sqlite, sqlserver, cockroachdb); relation_mode (foreignKeys when absent, else as written); schemas list read (gates PR-AA5)",
+        "tool": "prisma"
+      },
+      "PR-B2": {
+        "assumptions": [],
+        "branch": null,
+        "source": "models",
+        "summary": "previewFeatures read when a literal list (gates views, and multiSchema before 6.13.0); no claim",
+        "tool": "prisma"
+      },
+      "PR-B3": {
+        "assumptions": [
+          "PR-V2",
+          "PR-V5"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "one table, name M or PR-AA4; columns from its scalar and enum fields; schema from PR-AA5, else public; @@ignore tables claimed like any other (Migrate creates them; attribute ignored: true); primary_key: null proven when no @id/@@id (hoppscotch 2 tables)",
+        "tool": "prisma"
+      },
+      "PR-B4": {
+        "assumptions": [],
+        "branch": null,
+        "source": "models",
+        "summary": "none; marker diagnostic schema_model_unread (Migrate creates nothing for a view)",
+        "tool": "prisma"
+      },
+      "PR-E1": {
+        "assumptions": [],
+        "branch": null,
+        "source": "models",
+        "summary": "enum values (mapped) and type name (mapped), attribute of the columns that use it (no node; T018b1 has no enum kind)",
+        "tool": "prisma"
+      },
+      "PR-F1": {
+        "assumptions": [
+          "PR-V1",
+          "PR-V6"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "type as written; Postgres type text, integer, bigint, double precision, numeric(65,30), timestamp(3) without time zone, boolean, jsonb, bytea; SQLite declared type TEXT, INTEGER, BIGINT, REAL, DECIMAL, DATETIME, BOOLEAN, JSONB, BLOB (oracle)",
+        "tool": "prisma"
+      },
+      "PR-F2": {
+        "assumptions": [
+          "PR-V1",
+          "PR-V6"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "none: nullable: false; ?: nullable: true; []: array of the element type (text[], \"E\"[]), nullable: true",
+        "tool": "prisma"
+      },
+      "PR-F3": {
+        "assumptions": [],
+        "branch": null,
+        "source": "models",
+        "summary": "column exists, type the literal text as written, nullability by PR-F2",
+        "tool": "prisma"
+      },
+      "PR-F4": {
+        "assumptions": [
+          "PR-V6"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "column type the enum's database name (PR-E1); on sqlite TEXT (oracle); on mysql the inline ENUM(...) and on cockroachdb the enum's name from the connector source (mapped)",
+        "tool": "prisma"
+      },
+      "PR-P1": {
+        "assumptions": [
+          "PR-V2"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "diagnostic schema_model_import_failure (row named), no claim for the model (or, for whole-schema failures, the schema)",
+        "tool": "prisma"
+      },
+      "PR-R1": {
+        "assumptions": [
+          "PR-V2",
+          "PR-V6"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "under foreignKeys: one foreign_key (composite when several fields) from the mapped columns to the referenced model's mapped table and columns; on_delete as written, else Restrict (NoAction on sqlserver) when any fields: scalar is required and SetNull otherwise; on_update as written, else Cascade; name only from literal map:. Under relationMode = \"prisma\": no foreign key, the table's foreign_keys: [] proven, the relation listed in attribute emulated_relations (not an edge)",
+        "tool": "prisma"
+      },
+      "PR-R2": {
+        "assumptions": [],
+        "branch": null,
+        "source": "models",
+        "summary": "no column",
+        "tool": "prisma"
+      },
+      "PR-R3": {
+        "assumptions": [
+          "PR-V2",
+          "PR-V5",
+          "PR-V6"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "join table _\u003cname\u003e with \u003cname\u003e the explicit relation name or \u003cA\u003eTo\u003cB\u003e (model names, not @@map, byte order); columns A and B (nullable: false, typed as the id of the first and second model); index on B; key (\"A\",\"B\"): on postgresql from Prisma 6.0.0 a primary key, on postgresql with Prisma 5 and on sqlite a unique index (no primary key); with Prisma 7 on mysql and cockroachdb a unique index (mapped index) and on sqlserver a UNIQUE constraint (constraint), no primary key, from the connector source (sql_schema_calculator.rs:349-354); where the key is claimed on postgresql or sqlite, under foreignKeys two foreign keys ON DELETE CASCADE ON UPDATE CASCADE; schema of model A's table (public without PR-AA5). Self-relations included (both columns reference the same table)",
+        "tool": "prisma"
+      }
+    },
+    "models/sequelize": {
+      "D": {
+        "assumptions": [],
+        "branch": null,
+        "source": "models",
+        "summary": "nothing; the table or column is partial with D as reason, or a marker diagnostic schema_model_unread (tool sequelize) for whole definitions",
+        "tool": "sequelize"
+      },
+      "SQ-A1": {
+        "assumptions": [
+          "SQ-V1",
+          "SQ-V3"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "column type as the catalog shows it: postgres character varying(255), timestamp with time zone, double precision (FLOAT and DOUBLE), numeric(p,s), bytea, enum_\u003ctable\u003e_\u003ccolumn\u003e (quoted when not lower case) and [] for arrays, tstzrange; sqlite VARCHAR(255), DATETIME, TINYINT(1), DOUBLE PRECISION, TEXT for ENUM, UUID, JSON; enum labels in order when every value is a string literal; VIRTUAL: no column; a helper member (CustomDataTypes(DataTypes).currency): the facts of the substituted value, with its verification",
+        "tool": "sequelize"
+      },
+      "SQ-A2": {
+        "assumptions": [
+          "SQ-V2"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "nullability: postgres not null when allowNull: false or a primary key; sqlite (dialects/sqlite/query-generator.js:36-75) a single primary key whose type contains INT becomes INTEGER PRIMARY KEY (nullable in the catalog, type INTEGER), composite primary-key members are not null, any other column only with allowNull: false; primary key columns; autoIncrement on postgres: SERIAL/BIGSERIAL (integer, nextval default); unique: single-column unique, or composite unique over the columns sharing a group name (the group name is not the constraint name); default: string, number, boolean literal (sqlite booleans 1/0), null as no default, any literal on JSON/JSONB as JSON.stringify text, sequelize.literal(\"...\") / fn(...): a database default is present (its text is not claimed: Postgres re-renders it, and the oracle compared presence only); NOW, UUIDV4, UUIDV1: no database default; index: true on JSONB: a gin index named underscore(\"\u003ctable\u003e_\u003ccolumn\u003e\") (lib/model.js:883-889)",
+        "tool": "sequelize"
+      },
+      "SQ-A3": {
+        "assumptions": [
+          "SQ-V2"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "foreign key to that table and column (key absent: id), actions as written upper-cased, else NO ACTION (the database default; Sequelize writes no clause); on mssql the actions its attributesToSQL keeps: the first references to a table loses onUpdate, a later one to the same table and a self-reference lose both (NO ACTION; dialects/mssql/query-generator.js:488-494, :542-561)",
+        "tool": "sequelize"
+      },
+      "SQ-K1": {
+        "assumptions": [
+          "SQ-V1",
+          "SQ-V4",
+          "SQ-V5"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "the group (models/sequelize/\u003cinstance file\u003e), its model set, dialect, pins, the global define options",
+        "tool": "sequelize"
+      },
+      "SQ-K2": {
+        "assumptions": [
+          "SQ-V1"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "table name and schema, column names (Person -\u003e People, Mouse -\u003e Mice, Archived -\u003e Archiveds, BlogPost underscored -\u003e blog_posts; freeze ignores underscored)",
+        "tool": "sequelize"
+      },
+      "SQ-M1": {
+        "assumptions": [
+          "SQ-V2",
+          "SQ-V3"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "a model (table)",
+        "tool": "sequelize"
+      },
+      "SQ-M2": {
+        "assumptions": [
+          "SQ-V2",
+          "SQ-V3"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "a model named by modelName or the class name",
+        "tool": "sequelize"
+      },
+      "SQ-O1": {
+        "assumptions": [
+          "SQ-V5"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "the id, createdAt, updatedAt (DATE, not null), deletedAt (DATE, nullable, with paranoid), version (INTEGER not null default 0) columns, names through SQ-K2; a user attribute of the same name wins entirely",
+        "tool": "sequelize"
+      },
+      "SQ-O2": {
+        "assumptions": [
+          "SQ-V2"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "index name (omitted: inflection.underscore(\"\u003ctable\u003e_\u003cfields\u003e\"), lib/utils.js:413-421), columns, unique, method (using), partial (where present)",
+        "tool": "sequelize"
+      },
+      "SQ-P1": {
+        "assumptions": [
+          "SQ-V3"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "diagnostic schema_model_import_failure (row named); no claim for the models involved",
+        "tool": "sequelize"
+      },
+      "SQ-R1": {
+        "assumptions": [
+          "SQ-V2"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "the foreign-key attribute on the holder (belongsTo: source; hasOne/hasMany: target): name foreignKey, else camelize(as or B's singular + \"_\" + B's key) (belongsTo), camelize(A's singular + \"_\" + A's key) (hasMany), camelize(singularize(as or A's name) + \"_\" + A's key) (hasOne uses as); a new attribute has the key's type and is nullable; merged into an existing attribute without overriding any value it already has, first association first; unless constraints: false, a foreign key with onDelete as written, else belongsTo SET NULL only when the attribute's allowNull is truthy and NO ACTION otherwise (an omitted allowNull gives NO ACTION on a nullable column), hasOne/hasMany SET NULL or CASCADE likewise; onUpdate as written, else CASCADE (associations/belongs-to.js:77-80, has-many.js:103-106, has-one.js:78-81); on mssql the actions as SQ-A3 states",
+        "tool": "sequelize"
+      },
+      "SQ-R2": {
+        "assumptions": [
+          "SQ-V2"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "a join table named through: createdAt/updatedAt first (from the source's timestamps), then the two keys (camelize(singular + \"_\" + key) unless given), both not null, together the primary key, each a foreign key CASCADE/CASCADE to its model (associations/belongs-to-many.js:186-247)",
+        "tool": "sequelize"
+      },
+      "SQ-U1": {
+        "assumptions": [],
+        "branch": null,
+        "source": "models",
+        "summary": "unread_tools entry (found, not read yet)",
+        "tool": "sequelize"
+      },
+      "SQ-V": {
+        "assumptions": [],
+        "branch": null,
+        "source": "models",
+        "summary": "stated, never claimed as facts",
+        "tool": "sequelize"
+      }
+    },
+    "models/sqlmodel": {
+      "A1": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "nullable",
+        "tool": "sqlmodel"
+      },
+      "A1m": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "non-plain metadata: column D",
+        "tool": "sqlmodel"
+      },
+      "A2": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "not nullable",
+        "tool": "sqlmodel"
+      },
+      "A3": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "nullability and type unknown",
+        "tool": "sqlmodel"
+      },
+      "A5": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "the alias read in its module",
+        "tool": "sqlmodel"
+      },
+      "C1": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "a table for a table=True class whose direct bases are proven non-table",
+        "tool": "sqlmodel"
+      },
+      "C1b": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "no table",
+        "tool": "sqlmodel"
+      },
+      "C1c": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "none; schema_model_flag_unknown",
+        "tool": "sqlmodel"
+      },
+      "C2": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "chain members contribute columns, nearest definition wins",
+        "tool": "sqlmodel"
+      },
+      "C3": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "none; schema_model_not_claimed",
+        "tool": "sqlmodel"
+      },
+      "C4": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "none (D)",
+        "tool": "sqlmodel"
+      },
+      "C5": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "nothing; outside K-cfg the class is D",
+        "tool": "sqlmodel"
+      },
+      "C6": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "columns and constraints partial; name only from the class's own __tablename__",
+        "tool": "sqlmodel"
+      },
+      "D": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "none; partial with reason D",
+        "tool": "sqlmodel"
+      },
+      "F1": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "flags; absent: false",
+        "tool": "sqlmodel"
+      },
+      "F2": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "nullability",
+        "tool": "sqlmodel"
+      },
+      "F3": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "default absent or scalar",
+        "tool": "sqlmodel"
+      },
+      "F3b": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "default callable",
+        "tool": "sqlmodel"
+      },
+      "F4": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "foreign key (last-dot split)",
+        "tool": "sqlmodel"
+      },
+      "F5": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "type from the annotation",
+        "tool": "sqlmodel"
+      },
+      "F6": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "type from sa_type",
+        "tool": "sqlmodel"
+      },
+      "F7": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "the column is the Column(...)",
+        "tool": "sqlmodel"
+      },
+      "F7r": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "P1 failure",
+        "tool": "sqlmodel"
+      },
+      "F8": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "column D",
+        "tool": "sqlmodel"
+      },
+      "F9": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "no fact; outside the signature P1",
+        "tool": "sqlmodel"
+      },
+      "I1": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "after v1 (V7, P1)",
+        "tool": "sqlmodel"
+      },
+      "I2": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "after v1",
+        "tool": "sqlmodel"
+      },
+      "K1": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "column name and type",
+        "tool": "sqlmodel"
+      },
+      "K1b": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "type unknown; form alias (a module-level name bound once to a T1 call followed only by .with_variant(...) calls): the column read, its type unknown with reason",
+        "tool": "sqlmodel"
+      },
+      "K2": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "flags, nullable = not primary_key",
+        "tool": "sqlmodel"
+      },
+      "K3": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "foreign key",
+        "tool": "sqlmodel"
+      },
+      "K4": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "default, server default",
+        "tool": "sqlmodel"
+      },
+      "K5": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "nothing",
+        "tool": "sqlmodel"
+      },
+      "K6": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "column D",
+        "tool": "sqlmodel"
+      },
+      "L1": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "resolution through the Python resolver; the K-dec builtins classmethod, staticmethod, property only when unbound",
+        "tool": "sqlmodel"
+      },
+      "L2": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "cross-file chain and base proof",
+        "tool": "sqlmodel"
+      },
+      "L3": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "table and column nodes, contains edges",
+        "tool": "sqlmodel"
+      },
+      "L4": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "foreign_key edges",
+        "tool": "sqlmodel"
+      },
+      "L5": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "schema_model_migration_overlap",
+        "tool": "sqlmodel"
+      },
+      "L6": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "schema_model_unread, schema_model_core_tables",
+        "tool": "sqlmodel"
+      },
+      "L7": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "schema_model_import_failure, no table (forms F7r, F4, F9, F5, primary key, M12)",
+        "tool": "sqlmodel"
+      },
+      "L8": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "site receivers, test scope",
+        "tool": "sqlmodel"
+      },
+      "M0": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "nothing (not captured)",
+        "tool": "sqlmodel"
+      },
+      "M1": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "nothing; outside K-dec the class is D",
+        "tool": "sqlmodel"
+      },
+      "M10": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "nothing; other keys make the class D",
+        "tool": "sqlmodel"
+      },
+      "M11": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "table constraints and schema",
+        "tool": "sqlmodel"
+      },
+      "M12": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "class D, the bound column unknown; a literal value is P1 (L7)",
+        "tool": "sqlmodel"
+      },
+      "M2": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "a column from Field(...)",
+        "tool": "sqlmodel"
+      },
+      "M3": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "a required column without default",
+        "tool": "sqlmodel"
+      },
+      "M4": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "a column with a literal default",
+        "tool": "sqlmodel"
+      },
+      "M5": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "no column (removes an inherited field)",
+        "tool": "sqlmodel"
+      },
+      "M6": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "nothing",
+        "tool": "sqlmodel"
+      },
+      "M7": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "nothing",
+        "tool": "sqlmodel"
+      },
+      "M8": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "nothing (C5)",
+        "tool": "sqlmodel"
+      },
+      "M9": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "nothing (C5)",
+        "tool": "sqlmodel"
+      },
+      "N1": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "table name as written",
+        "tool": "sqlmodel"
+      },
+      "N2": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "Class.lower() when absence is proven",
+        "tool": "sqlmodel"
+      },
+      "N3": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "no table node; schema_model_name_unknown",
+        "tool": "sqlmodel"
+      },
+      "T1": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "type class with length/timezone",
+        "tool": "sqlmodel"
+      },
+      "TA-D": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "constraint set, schema and primary key unknown",
+        "tool": "sqlmodel"
+      },
+      "TA1": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "unique constraint",
+        "tool": "sqlmodel"
+      },
+      "TA2": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "index",
+        "tool": "sqlmodel"
+      },
+      "TA3": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "check constraint",
+        "tool": "sqlmodel"
+      },
+      "U1": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "none; schema_model_not_claimed (also for a subclass of a declarative class)",
+        "tool": "sqlmodel"
+      },
+      "U2": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "class or column D",
+        "tool": "sqlmodel"
+      },
+      "U3": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "count in schema_model_core_tables",
+        "tool": "sqlmodel"
+      },
+      "U4": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "count in schema_model_core_tables",
+        "tool": "sqlmodel"
+      },
+      "U5": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "ddl_hooks: true",
+        "tool": "sqlmodel"
+      },
+      "X1": {
+        "assumptions": [
+          "V1",
+          "V4",
+          "V6",
+          "V7"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "set or facts not complete; forms PK (primary key open), FK (foreign keys unknown), replace (columns unknown), table_attr (schema and listed elements unknown); forms table_identity (an attribute assignment that may rename the table: schema_model_not_claimed, no table) and column_identity (one that may rename a column: no column node)",
+        "tool": "sqlmodel"
+      }
+    },
+    "models/supabase_types": {
+      "D": {
+        "assumptions": [],
+        "branch": null,
+        "source": "models",
+        "summary": "nothing",
+        "tool": "supabase_types"
+      },
+      "SB-G1": {
+        "assumptions": [
+          "SB-V6"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "a schema source tool: supabase_types labelled \"generated types\" (mapped): tables from Tables, columns from Insert with the Row type as written and nullability from | null; relationships listed as written, not resolved; views not recorded",
+        "tool": "supabase_types"
+      },
+      "SB-G2": {
+        "assumptions": [],
+        "branch": null,
+        "source": "models",
+        "summary": "the package's Supabase migration set is the schema source; the generated types are compared with it and every difference is a supabase_types_disagreement diagnostic",
+        "tool": "supabase_types"
+      }
+    },
+    "models/typeorm": {
+      "D": {
+        "assumptions": [],
+        "branch": null,
+        "source": "models",
+        "summary": "no claim; marker diagnostic schema_model_unread with tool: \"typeorm\" and the form",
+        "tool": "typeorm"
+      },
+      "TO-C1": {
+        "assumptions": [
+          "TO-V2"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "the column; primary-key columns in member order (composite allowed); generation: postgres increment a nextval sequence default (serial), identity GENERATED BY DEFAULT, uuid default uuid_generate_v4(); sqlite increment on the single integer primary key INTEGER PRIMARY KEY AUTOINCREMENT, uuid no default",
+        "tool": "typeorm"
+      },
+      "TO-C2": {
+        "assumptions": [
+          "TO-V3",
+          "TO-V6"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "type per dialect",
+        "tool": "typeorm"
+      },
+      "TO-C3": {
+        "assumptions": [
+          "TO-V2"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "type without an explicit one: postgres timestamp without time zone (PostgresDriver.js:170-176), sqlite datetime (AbstractSqliteDriver.js:125-131), version integer; create/update default now() (postgres) / datetime('now') (sqlite) unless the column states a default; delete-date columns nullable (metadata/ColumnMetadata.js:269); create/update/version not null",
+        "tool": "typeorm"
+      },
+      "TO-C4": {
+        "assumptions": [
+          "TO-V2"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "nullability (primary keys not null); default per dialect and type family: postgres normalizeDefault (PostgresDriver.js:793-830), sqlite (AbstractSqliteDriver.js:465-483), mysql (MysqlDriver.js:642-670); a string '\u003cvalue\u003e' on a character, text (not MySQL's TEXT) or enum column only; on a boolean column a boolean string (true/false, t/f, yes/no, y/n, on/off, 1/0, any case) and a number 1/0 as postgres stores them (true/false) and on sqlite as written; a number as written on postgres integer, numeric and character columns (quoted on enum columns) and on sqlite, quoted (toFixed) on mysql number, boolean, character and enum columns; a boolean true/false on a postgres boolean column, 1/0 on sqlite and on mysql boolean and number columns; a function default as its text, except on postgres a text containing CURRENT_TIMESTAMP, CURRENT_DATE, CURRENT_TIME, LOCALTIMESTAMP or LOCALTIME, where exactly CURRENT_TIMESTAMP is now() and any other such text is unknown (PostgresDriver.js:1270-1304; 1.x rewrites only a whole keyword with an optional precision, :1455-1486 at 1.1.3, so the same claim holds and other texts stay unknown); unique: true a single-column unique constraint (Column.js:54-58); a default's verification is its dialect's only for a form the oracle fixture compares on that dialect (oracleDefaultForms), else mapped",
+        "tool": "typeorm"
+      },
+      "TO-C5": {
+        "assumptions": [
+          "TO-V2"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "postgres: an enum type (TO-K2 name) with the labels in order (numbers as strings); sqlite: varchar with a CHECK (col IN (...)) (labels claimed, constraint unnamed); mysql/mariadb ENUM(...) (mapped)",
+        "tool": "typeorm"
+      },
+      "TO-C6": {
+        "assumptions": [
+          "TO-V2",
+          "TO-V5"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "the column as the inner decorator with the call's literal options: name, nullability, unique and primary claimed; type and default unknown when the wrapper assigns them",
+        "tool": "typeorm"
+      },
+      "TO-E1": {
+        "assumptions": [
+          "TO-V2",
+          "TO-V5"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "a model (table); synchronize: false: the table and its columns claimed with verification: \"mapped\" under the shown assumption \"TypeORM does not create this table; this is the shape the code expects\"",
+        "tool": "typeorm"
+      },
+      "TO-E2": {
+        "assumptions": [
+          "TO-V5"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "inherited columns, relations, indexes and uniques, base-class members first",
+        "tool": "typeorm"
+      },
+      "TO-E3": {
+        "assumptions": [
+          "TO-V5"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "no table fact: the member is read as if the decorator were absent",
+        "tool": "typeorm"
+      },
+      "TO-K1": {
+        "assumptions": [
+          "TO-V1",
+          "TO-V3",
+          "TO-V4",
+          "TO-V5",
+          "TO-V9"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "the group (set: models/typeorm/\u003cfile\u003e), pins, dialect (one type) or the dialect set, the reached entity classes, table_list complete when every entities element is read",
+        "tool": "typeorm"
+      },
+      "TO-K2": {
+        "assumptions": [
+          "TO-V1",
+          "TO-V9"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "the names",
+        "tool": "typeorm"
+      },
+      "TO-K3": {
+        "assumptions": [
+          "TO-V1",
+          "TO-V3",
+          "TO-V4",
+          "TO-V5"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "the group, pins, dialect from the literal type, the scope options as TO-K1",
+        "tool": "typeorm"
+      },
+      "TO-K4": {
+        "assumptions": [
+          "TO-V5"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "reached entities: the options' entities (TO-K1 element rules) when it is an array, plus every forFeature entity registered for that data source name in a file the root's application loads through static imports (from the root module file and from every entry file of the package, a non-test file no other package file imports, whose imports reach the root file: import declarations and export ... from clauses, resolved by the module resolver, recursively; package imports are not followed) (typeorm.module.js:23-25, entities-metadata.storage.js:5-28, typeorm-core.module.js:166-183); a non-array entities option is replaced by the forFeature list (:176-179; in 12.x an object-map entities keeps its values and the forFeature list is appended, typeorm-core.module.js:182-186 at 12.0.3; a string entities with autoLoadEntities: may_be_incomplete on every version); without autoLoadEntities, forFeature reaches no table (repositories only)",
+        "tool": "typeorm"
+      },
+      "TO-K5": {
+        "assumptions": [
+          "TO-V8"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "the registered options, read as if written in place",
+        "tool": "typeorm"
+      },
+      "TO-K6": {
+        "assumptions": [
+          "TO-V1",
+          "TO-V9",
+          "TO-V10"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "every TO-K2 name through the strategy (snake-naming.strategy.js at 4.1.0): table the literal name, else snakeCase(className) (:7-9); column the literal name verbatim, else snakeCase(property) (:10-13); join column the @JoinColumn name, else snakeCase(relationProperty + \"_\" + referencedColumnProperty) (:17-19); junction table snakeCase(ownerTable + \"_\" + property + \"_\" + targetTable) of the unprefixed names (:20-26); junction columns snakeCase(table + \"_\" + referencedColumnDatabaseName) (:27-29), _1/_2 and entityPrefix inherited; Postgres enum types from the snake column name; generated names as TO-X4 over the snake names; snakeCase is TypeORM's own (util/StringUtils.js:29-36 / :32-39)",
+        "tool": "typeorm"
+      },
+      "TO-K7": {
+        "assumptions": [
+          "TO-V5"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "the options, read as if written in place (Maintainerr src/app/config/typeOrmConfig.ts:4, used at src/app/app.module.ts:49)",
+        "tool": "typeorm"
+      },
+      "TO-K8": {
+        "assumptions": [
+          "TO-V5"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "the spread adds no scope option; the other keys read as TO-K1 (aqualink ormconfig.ts:15-34: {url} or {host, port, database, username, password})",
+        "tool": "typeorm"
+      },
+      "TO-P1": {
+        "assumptions": [
+          "TO-V2",
+          "TO-V3"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "diagnostic schema_model_import_failure (row named); no claim for any table of the group on that dialect: validation runs for every entity before any DDL, and the schema build runs in one transaction that is rolled back (schema-builder/RdbmsSchemaBuilder.js:52-78)",
+        "tool": "typeorm"
+      },
+      "TO-P2": {
+        "assumptions": [],
+        "branch": null,
+        "source": "models",
+        "summary": "refused: the member's column (name, type and every fact) unknown and the table's column set partial, reason naming the wrapper; a helper value: that fact unknown",
+        "tool": "typeorm"
+      },
+      "TO-R1": {
+        "assumptions": [
+          "TO-V2"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "join columns (TO-K2 names) referencing the target's primary columns or the named ones (RelationJoinColumnBuilder.js:103-118), each typed as the referenced column (integer for an increment key, uuid/varchar for a uuid key, length kept); nullable unless nullable: false or primary (metadata/RelationMetadata.js:173-174); a foreign key unless createForeignKeyConstraints: false (:178-179, RelationJoinColumnBuilder.js:62-67) with onDelete/onUpdate as written (upper case), else NO ACTION (metadata/ForeignKeyMetadata.js:32-33); explicit foreignKeyConstraintName claimed; a join column whose name equals the database name of an explicit column of the same entity reuses that column: its own nullability, default and uniqueness stay, its type becomes the referenced column's (RelationJoinColumnBuilder.js:141, :186-190 / :163, :205-209; Maintainerr 9, aqualink 12 sites); explicit composite @JoinColumn([...]) columns in array order (0.3.x) or 1.x in the target's primary-key order (:129-137 at 1.1.3); on a MySQL-only group, an index on the foreign key's columns named as the foreign key (mapped) when no declared index, unique constraint or the primary key leads with them (InnoDB creates it: MySQL reference manual, \"FOREIGN KEY Constraints\"; TypeORM names every constraint and reads an index named like a referential constraint as the foreign key's, driver/mysql/MysqlQueryRunner.js:1507-1520, :1881)",
+        "tool": "typeorm"
+      },
+      "TO-R2": {
+        "assumptions": [
+          "TO-V2"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "as TO-R1, plus a unique constraint on the join columns unless they are all primary or no foreign key is created (RelationJoinColumnBuilder.js:81-95)",
+        "tool": "typeorm"
+      },
+      "TO-R3": {
+        "assumptions": [],
+        "branch": null,
+        "source": "models",
+        "summary": "no table fact (counted; the owner side's row claims)",
+        "tool": "typeorm"
+      },
+      "TO-R4": {
+        "assumptions": [
+          "TO-V2"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "a junction table (TO-K2 names): one column per primary (or named referenced) column of each side, typed as referenced, not null, together the primary key; two foreign keys: the owner side's with the relation's onDelete/onUpdate, else CASCADE; the inverse side's with the inverse relation's onDelete/onUpdate when the owner names an inverse property (NO ACTION when that relation states none), else CASCADE (JunctionEntityMetadataBuilder.js:162-198); 1.x: the inverse relation's onDelete/onUpdate each, CASCADE when it states none (?? \"CASCADE\", :177-190 at 1.1.3), composite sides in primary-key order (:241, :273); one index per side",
+        "tool": "typeorm"
+      },
+      "TO-U1": {
+        "assumptions": [],
+        "branch": null,
+        "source": "models",
+        "summary": "unread_tools entry (found, not read yet)",
+        "tool": "typeorm"
+      },
+      "TO-V": {
+        "assumptions": [],
+        "branch": null,
+        "source": "models",
+        "summary": "stated, never claimed as facts",
+        "tool": "typeorm"
+      },
+      "TO-X1": {
+        "assumptions": [
+          "TO-V2"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "an index: columns in order, unique, partial (where present), explicit name; junction tables: one index per side",
+        "tool": "typeorm"
+      },
+      "TO-X2": {
+        "assumptions": [
+          "TO-V2"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "a unique constraint: columns, explicit name",
+        "tool": "typeorm"
+      },
+      "TO-X3": {
+        "assumptions": [
+          "TO-V2"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "a check constraint; explicit name claimed; the expression text as written (not compared: the database rewrites it)",
+        "tool": "typeorm"
+      },
+      "TO-X4": {
+        "assumptions": [
+          "TO-V2"
+        ],
+        "branch": null,
+        "source": "models",
+        "summary": "the name, under the shown assumption \"schema made by synchronize\"",
+        "tool": "typeorm"
+      }
+    }
+  }
+}

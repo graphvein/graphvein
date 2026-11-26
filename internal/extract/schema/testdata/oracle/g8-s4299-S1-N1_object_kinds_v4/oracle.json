@@ -1,0 +1,38 @@
+{
+  "id": "g8-s4299-S1-N1_object_kinds_v4",
+  "signature": "applied|S1|42809|N1.object_kinds_v4",
+  "class": "S1",
+  "owner": "V4",
+  "row": "N1.object_kinds_v4",
+  "history": {
+    "id": "g8-s4299",
+    "tags": {
+      "2_m2.sql": [
+        "N1.object_kinds_v4",
+        "N1.object_kinds_v4",
+        "N1.object_kinds_v4",
+        "N1.object_kinds_v4",
+        "N1.object_kinds_v4",
+        "N1.object_kinds_v4"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "2_m2.sql",
+        "status": "refused",
+        "sqlstate": "42809",
+        "message": "\"v23\" is not an index",
+        "statement": 6,
+        "statement_text": "ALTER INDEX IF EXISTS v23 SET (fillfactor = 50);"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

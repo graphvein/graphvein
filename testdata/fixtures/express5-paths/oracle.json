@@ -1,0 +1,348 @@
+{
+  "groups": [
+    {
+      "dir": "v4",
+      "majors": [
+        4
+      ],
+      "module": "app.js",
+      "apps": {
+        "app": [
+          "/l4/users/list.json",
+          "/l4/users/listxjson",
+          "/l4/users",
+          "/p4/users/7",
+          "/p4/users",
+          "/p4/users/7/x",
+          "/o4/users",
+          "/o4/users/7",
+          "/o4/users/7/x",
+          "/o4mid/edit",
+          "/o4mid/7/edit",
+          "/o4mid/7/8/edit",
+          "/w4/files/a",
+          "/w4/files/a/b",
+          "/w4/files",
+          "/w4/other",
+          "/m4/acme/a",
+          "/m4/acme/a/b",
+          "/m4/acme",
+          "/m4",
+          "/s4/xsplat",
+          "/s4/a/b",
+          "/q4/acd",
+          "/q4/abcd",
+          "/f4/a.b",
+          "/x4/q/z",
+          "/b2a/1/x/2",
+          "/b2a/x/2",
+          "/b2m/acme/x/1",
+          "/b2m/x/1",
+          "/b4users",
+          "/b4api/x",
+          "/c1//dbl",
+          "/c1/dbl",
+          "/c1/a%20b",
+          "/tp4/x",
+          "/tp4//x"
+        ],
+        "star": [
+          "/",
+          "/a",
+          "/a/b"
+        ]
+      },
+      "gaps": [
+        [
+          "app",
+          "/o4mid/edit",
+          "reply('v4-optional-middle')",
+          "EX5-W3"
+        ],
+        [
+          "app",
+          "/m4/acme",
+          "reply('v4-mounted-star')",
+          "EX5-W4"
+        ],
+        [
+          "star",
+          "/",
+          "reply('v4-root-star')",
+          "EX5-W4"
+        ],
+        [
+          "app",
+          "/b2a/x/2",
+          "reply('v4-optional-inner')",
+          "EX5-W3"
+        ],
+        [
+          "app",
+          "/o4mid/edit/",
+          "reply('v4-optional-middle')",
+          "EX5-W3"
+        ],
+        [
+          "app",
+          "/w4/files/",
+          "reply('v4-star')",
+          "EX5-W4"
+        ],
+        [
+          "app",
+          "/m4/acme/",
+          "reply('v4-mounted-star')",
+          "EX5-W4"
+        ],
+        [
+          "app",
+          "/b2a/x/2/",
+          "reply('v4-optional-inner')",
+          "EX5-W3"
+        ]
+      ],
+      "routes_of_other_apps": {
+        "star": [
+          "reply('v4-root-star')"
+        ]
+      }
+    },
+    {
+      "dir": "v5",
+      "majors": [
+        5
+      ],
+      "module": "app.js",
+      "apps": {
+        "app": [
+          "/l5/users/list.json",
+          "/l5/users/listxjson",
+          "/l5/users",
+          "/p5/users/7",
+          "/p5/users",
+          "/p5/users/7/x",
+          "/s5/files/a",
+          "/s5/files/a/b",
+          "/s5/files",
+          "/s5/other",
+          "/r5/a",
+          "/r5/a/b",
+          "/r5",
+          "/r5/a/",
+          "/g5/users",
+          "/g5/users/7",
+          "/g5/users/7/x",
+          "/g5n/a",
+          "/g5n/a/b",
+          "/g5n/a/b/c",
+          "/g5n/a/c",
+          "/g5n/a/b/c/d",
+          "/g5w/files",
+          "/g5w/files/a",
+          "/g5w/files/a/b",
+          "/i5/a-b",
+          "/e5/a:b",
+          "/x5/q/z",
+          "/y5/z",
+          "/y5/v/z",
+          "/b1g",
+          "/b1g/a",
+          "/b1h",
+          "/b1h/7",
+          "/b1a",
+          "/b1a//b",
+          "/b1a/b",
+          "/b4id",
+          "/c1v/a^b",
+          "/c1v/%C3%A9",
+          "/c1v//dbl",
+          "/c1v/dbl",
+          "/tp5/x",
+          "/tp5//x"
+        ],
+        "star": [
+          "/",
+          "/a",
+          "/a/b"
+        ],
+        "mounted": [
+          "/ms5",
+          "/ms5/a",
+          "/ms5/a/b",
+          "/other"
+        ]
+      },
+      "gaps": [
+        [
+          "star",
+          "/",
+          "reply('v5-root-splat')",
+          "EX5-W8"
+        ],
+        [
+          "mounted",
+          "/ms5",
+          "reply('v5-mounted-root-splat')",
+          "EX5-W8"
+        ],
+        [
+          "mounted",
+          "/ms5/",
+          "reply('v5-mounted-root-splat')",
+          "EX5-W8"
+        ]
+      ],
+      "throws": {
+        "module": "invalid.js",
+        "patterns": [
+          "/v5/users/:id?",
+          "/v5/files/*",
+          "/v5/a(b)",
+          "/v5/:a{:b}"
+        ]
+      },
+      "routes_of_other_apps": {
+        "star": [
+          "reply('v5-root-splat')"
+        ],
+        "mounted": [
+          "reply('v5-mounted-root-splat')"
+        ]
+      }
+    },
+    {
+      "dir": "unknown",
+      "majors": [
+        4,
+        5
+      ],
+      "module": "app.js",
+      "apps": {
+        "app": [
+          "/l/users",
+          "/l/users/x",
+          "/p/users/7",
+          "/p/users",
+          "/p/users/7/x",
+          "/m/x",
+          "/m/y",
+          "/m",
+          "/s/xsplat",
+          "/s/a/b",
+          "/g/users",
+          "/g/users/7"
+        ]
+      },
+      "gaps": [],
+      "routes_of_other_apps": {}
+    },
+    {
+      "dir": "bom",
+      "majors": [
+        5
+      ],
+      "module": "app.js",
+      "apps": {
+        "app": [
+          "/bom/a",
+          "/bom/a/b",
+          "/bom"
+        ]
+      },
+      "gaps": [],
+      "routes_of_other_apps": {}
+    },
+    {
+      "dir": "nested",
+      "majors": [
+        5
+      ],
+      "module": "sub/app.js",
+      "apps": {
+        "app": [
+          "/nested/a",
+          "/nested/a/b",
+          "/nested"
+        ]
+      },
+      "gaps": [],
+      "routes_of_other_apps": {}
+    },
+    {
+      "dir": "ws",
+      "majors": [
+        5
+      ],
+      "module": "packages/api/app.js",
+      "apps": {
+        "app": [
+          "/ws/a",
+          "/ws/a/b",
+          "/ws"
+        ]
+      },
+      "gaps": [],
+      "routes_of_other_apps": {}
+    },
+    {
+      "dir": "peerdev",
+      "majors": [
+        4,
+        5
+      ],
+      "module": "app.js",
+      "apps": {
+        "app": [
+          "/peer/a",
+          "/peer/a/b",
+          "/peer/xsplat",
+          "/peer/users/7",
+          "/peer/users"
+        ]
+      },
+      "gaps": [],
+      "routes_of_other_apps": {}
+    },
+    {
+      "dir": "pnpm",
+      "majors": [
+        5
+      ],
+      "module": "app/app.js",
+      "apps": {
+        "app": [
+          "/pnpm/a",
+          "/pnpm/a/b",
+          "/pnpm"
+        ]
+      },
+      "gaps": [],
+      "routes_of_other_apps": {}
+    },
+    {
+      "dir": "pnpm",
+      "majors": [
+        4
+      ],
+      "module": "legacy/app.js",
+      "apps": {
+        "app": [
+          "/legacy/a",
+          "/legacy/a/b",
+          "/legacy"
+        ]
+      },
+      "gaps": [
+        [
+          "app",
+          "/legacy/",
+          "reply('legacy-star')",
+          "EX5-W4"
+        ]
+      ],
+      "routes_of_other_apps": {}
+    }
+  ],
+  "slash_forms": "every request is also sent with a trailing slash (express_paths.mjs)"
+}

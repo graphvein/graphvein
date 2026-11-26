@@ -1,0 +1,54 @@
+{
+  "id": "review17-h04-axum-trigger-helper-ok-then-drop-wrongname",
+  "signature": "agreed at Revision 1.7",
+  "class": "S1",
+  "owner": "W1",
+  "row": "review17",
+  "history": {
+    "id": "h04-axum-trigger-helper-ok-then-drop-wrongname"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "accepted"
+      },
+      {
+        "file": "2_b.sql",
+        "status": "refused",
+        "sqlstate": "42704",
+        "message": "trigger \"set_updated_at_users\" for table \"users\" does not exist",
+        "statement": 1,
+        "statement_text": "drop trigger set_updated_at_users on users;"
+      }
+    ],
+    "tables": [
+      {
+        "table": "history.users",
+        "columns": [
+          {
+            "name": "id",
+            "type": "integer",
+            "not_null": false,
+            "has_default": false
+          },
+          {
+            "name": "updated_at",
+            "type": "timestamp with time zone",
+            "not_null": false,
+            "has_default": false
+          }
+        ],
+        "primary_key": null,
+        "unique_keys": [],
+        "foreign_keys": [],
+        "indexes": []
+      }
+    ],
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

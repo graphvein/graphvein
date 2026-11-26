@@ -1,0 +1,2 @@
+CREATE TABLE t (a int);
+ALTER TABLE t ADD CONSTRAINT k CHECK (b > 0);

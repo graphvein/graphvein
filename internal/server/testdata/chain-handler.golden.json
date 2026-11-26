@@ -1,0 +1,264 @@
+{
+  "api_version": 0,
+  "caps": {
+    "depth": 10,
+    "fan_out": 200,
+    "members": 2000
+  },
+  "depth": 6,
+  "direction": "down",
+  "down": {
+    "caps": [],
+    "edges": [
+      {
+        "count": 1,
+        "dashed": false,
+        "evidence": [],
+        "from": "function:api/items.py#read_items",
+        "kind": "calls",
+        "row": "CH1",
+        "tier": "fact",
+        "to": "function:api/items.py#read_items._fmt",
+        "wording": "calls"
+      },
+      {
+        "count": 1,
+        "dashed": true,
+        "evidence": [],
+        "from": "function:api/items.py#read_items",
+        "kind": "contains",
+        "row": "CH7",
+        "tier": "fact",
+        "to": "function:api/items.py#read_items._fmt",
+        "wording": "contains, not a call"
+      },
+      {
+        "count": 1,
+        "dashed": true,
+        "evidence": [],
+        "from": "function:api/items.py#read_items",
+        "kind": "contains",
+        "row": "CH7",
+        "tier": "fact",
+        "to": "function:api/items.py#read_items._inner",
+        "wording": "contains, not a call"
+      },
+      {
+        "count": 1,
+        "dashed": false,
+        "evidence": [],
+        "from": "function:api/items.py#read_items",
+        "kind": "calls",
+        "row": "CH1",
+        "tier": "fact",
+        "to": "function:api/items.py#read_items_log",
+        "wording": "calls"
+      },
+      {
+        "access": {
+          "assumes": [],
+          "column_use": null,
+          "operations": [],
+          "role": "builds",
+          "rows": [],
+          "tool": "",
+          "verification": "",
+          "verification_wording": ""
+        },
+        "count": 1,
+        "dashed": false,
+        "evidence": [],
+        "from": "function:api/items.py#read_items",
+        "kind": "reads_table",
+        "row": "CH6",
+        "tier": "inferred 0.9",
+        "to": "table:api/models.py#item",
+        "wording": "builds a query on"
+      },
+      {
+        "access": {
+          "assumes": [],
+          "column_use": null,
+          "operations": [],
+          "role": "",
+          "rows": [],
+          "tool": "",
+          "verification": "unknown",
+          "verification_wording": "no table_access entry on the owner"
+        },
+        "count": 1,
+        "dashed": false,
+        "evidence": [],
+        "from": "function:api/items.py#read_items._fmt",
+        "kind": "reads_table",
+        "row": "CH6",
+        "tier": "fact",
+        "to": "table:api/models.py#item",
+        "wording": "reads"
+      },
+      {
+        "access": {
+          "assumes": [],
+          "column_use": null,
+          "operations": [],
+          "role": "",
+          "rows": [],
+          "tool": "",
+          "verification": "unknown",
+          "verification_wording": "no table_access entry on the owner"
+        },
+        "count": 1,
+        "dashed": false,
+        "evidence": [],
+        "from": "function:api/items.py#read_items._inner",
+        "kind": "writes_table",
+        "row": "CH6",
+        "tier": "fact",
+        "to": "table:api/models.py#item",
+        "wording": "writes"
+      }
+    ],
+    "ends": [
+      {
+        "member": "function:api/items.py#read_items_log",
+        "row": "CH11",
+        "text": "? not modelled: no stored callee; api/items.py has 3 calls the indexer could not resolve, not followed (this function's calls may be among them)"
+      }
+    ],
+    "hidden_test": 1,
+    "members": 4,
+    "not_followed": {
+      "calls": 1,
+      "uses_config": 1
+    },
+    "steps": [
+      {
+        "bounds": [],
+        "hidden_test": 0,
+        "map": {
+          "folded": 0,
+          "shown": [
+            "function:api/items.py#read_items"
+          ]
+        },
+        "members": [
+          {
+            "component": "api",
+            "file": "api/items.py",
+            "id": "function:api/items.py#read_items",
+            "kind": "function",
+            "line": 12,
+            "name": "read_items",
+            "parents": [],
+            "qualified_name": "read_items",
+            "row": "",
+            "tier": "fact",
+            "tier_step": 0
+          }
+        ],
+        "step": 0
+      },
+      {
+        "bounds": [],
+        "hidden_test": 1,
+        "map": {
+          "folded": 0,
+          "shown": [
+            "function:api/items.py#read_items._fmt",
+            "function:api/items.py#read_items._inner",
+            "function:api/items.py#read_items_log",
+            "table:api/models.py#item"
+          ]
+        },
+        "members": [
+          {
+            "component": "api",
+            "file": "api/items.py",
+            "id": "function:api/items.py#read_items._fmt",
+            "kind": "function",
+            "line": 21,
+            "name": "read_items._fmt",
+            "parents": [
+              "function:api/items.py#read_items"
+            ],
+            "qualified_name": "read_items._fmt",
+            "row": "CH1",
+            "tier": "fact",
+            "tier_step": 0
+          },
+          {
+            "component": "api",
+            "file": "api/items.py",
+            "id": "function:api/items.py#read_items._inner",
+            "kind": "function",
+            "line": 13,
+            "name": "read_items._inner",
+            "parents": [
+              "function:api/items.py#read_items"
+            ],
+            "qualified_name": "read_items._inner",
+            "row": "CH7",
+            "tier": "fact",
+            "tier_step": 0
+          },
+          {
+            "component": "api",
+            "file": "api/items.py",
+            "id": "function:api/items.py#read_items_log",
+            "kind": "function",
+            "line": 22,
+            "name": "read_items_log",
+            "parents": [
+              "function:api/items.py#read_items"
+            ],
+            "qualified_name": "read_items_log",
+            "row": "CH1",
+            "tier": "fact",
+            "tier_step": 0
+          },
+          {
+            "component": "api",
+            "database": "database:models",
+            "file": "api/models.py",
+            "id": "table:api/models.py#item",
+            "kind": "table",
+            "line": 14,
+            "name": "item",
+            "parents": [
+              "function:api/items.py#read_items"
+            ],
+            "qualified_name": "item",
+            "row": "CH6",
+            "tier": "inferred 0.9",
+            "tier_step": 1
+          }
+        ],
+        "step": 1
+      }
+    ]
+  },
+  "index": {
+    "contract_version": 1,
+    "finished_at": "2026-11-03T14:32:05.123Z",
+    "indexer": {
+      "name": "crafted",
+      "version": "t026-chain"
+    }
+  },
+  "map": {
+    "folded": 0,
+    "open_in_flow": false,
+    "per_step": 5,
+    "shown": 5,
+    "steps": 3,
+    "total": 40
+  },
+  "repository": "chainsynth",
+  "scope": "production",
+  "start": {
+    "id": "function:api/items.py#read_items",
+    "kind": "function",
+    "level": "node"
+  },
+  "up": null
+}

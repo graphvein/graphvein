@@ -1,0 +1,29 @@
+{
+  "id": "review19-r5-w08-dropfunc-ifexists-renamed-dependent-oldname",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y45",
+  "row": "review19",
+  "history": {
+    "id": "w08-dropfunc-ifexists-renamed-dependent-oldname"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "2BP01",
+        "message": "cannot drop type st because other objects depend on it",
+        "detail": "function g2() depends on type st",
+        "statement": 5,
+        "statement_text": "DROP TYPE st;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

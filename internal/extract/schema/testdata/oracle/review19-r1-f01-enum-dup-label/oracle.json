@@ -1,0 +1,30 @@
+{
+  "id": "review19-r1-f01-enum-dup-label",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y19",
+  "row": "review19",
+  "history": {
+    "id": "f01-enum-dup-label"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "23505",
+        "message": "duplicate key value violates unique constraint \"pg_enum_typid_label_index\"",
+        "detail": "Key (enumtypid, enumlabel)=(487633, a) already exists.",
+        "statement": 1,
+        "statement_text": "CREATE TYPE e AS ENUM ('a', 'a');",
+        "row_free": true
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

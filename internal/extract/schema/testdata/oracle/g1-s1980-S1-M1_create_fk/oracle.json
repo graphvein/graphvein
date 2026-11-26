@@ -1,0 +1,35 @@
+{
+  "id": "g1-s1980-S1-M1_create_fk",
+  "signature": "applied|S1|42P01|M1.create_fk",
+  "class": "S1",
+  "owner": "P1",
+  "row": "M1.create_fk",
+  "history": {
+    "id": "g1-s1980",
+    "tags": {
+      "1_m1.sql": [
+        "M1.create",
+        "M6.drop",
+        "M1.create_fk"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42P01",
+        "message": "relation \"t1\" does not exist",
+        "statement": 3,
+        "statement_text": "CREATE TABLE t2 (c2 character varying(20) REFERENCES t1);"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

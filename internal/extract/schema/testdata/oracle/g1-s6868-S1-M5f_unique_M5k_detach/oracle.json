@@ -1,0 +1,33 @@
+{
+  "id": "g1-s6868-S1-M5f_unique_M5k_detach",
+  "signature": "applied|S1|42601|M5f.unique",
+  "class": "S1",
+  "owner": "P7",
+  "row": "M5f.unique+M5k.detach",
+  "history": {
+    "id": "g1-s6868",
+    "tags": {
+      "1_m1.sql": [
+        "M5f.unique+M5k.detach"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42601",
+        "message": "syntax error at or near \"DETACH\"",
+        "statement": 1,
+        "statement_text": "ALTER TABLE t1 ADD CONSTRAINT t1_c UNIQUE (c1), DETACH PARTITION t1;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

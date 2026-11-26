@@ -1,0 +1,28 @@
+{
+  "id": "review16-r47-do-syntax-error",
+  "signature": "agreed at Revision 1.6",
+  "class": "S1",
+  "owner": "V1",
+  "row": "review16",
+  "history": {
+    "id": "r47-do-syntax-error"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42804",
+        "message": "RETURN cannot have a parameter in function returning void",
+        "statement": 1,
+        "statement_text": "DO $$ BEGIN RETURN 1 END $$;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

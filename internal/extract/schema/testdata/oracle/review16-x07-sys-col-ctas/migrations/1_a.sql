@@ -1,0 +1,1 @@
+CREATE TABLE x AS SELECT 1 AS tableoid;

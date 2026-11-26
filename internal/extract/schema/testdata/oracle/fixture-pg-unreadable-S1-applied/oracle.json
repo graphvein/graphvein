@@ -1,0 +1,41 @@
+{
+  "id": "fixture-pg-unreadable-S1-applied",
+  "signature": "applied|S1||",
+  "class": "S1",
+  "owner": "P10",
+  "row": "",
+  "history": {
+    "id": "fixture-pg-unreadable",
+    "cargo": "[package]\nname = \"pg-unreadable\"\nversion = \"0.1.0\"\nedition = \"2021\"\npublish = false\n\n[dependencies]\nsqlx = { version = \"0.8.6\", features = [\"runtime-tokio\", \"postgres\"] }\n",
+    "fresh_db": true,
+    "unreadable": [
+      {
+        "name": "2_unreadable.sql",
+        "data": "Q1JFQVRFIFRBQkxFIP8gKGlkIGludGVnZXIpOwo="
+      }
+    ],
+    "tags": {
+      "1_first.sql": [
+        "fixture"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "public",
+    "outcomes": [
+      {
+        "file": "1_first.sql",
+        "status": "set_refused"
+      },
+      {
+        "file": "2_unreadable.sql",
+        "status": "set_refused"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "public._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

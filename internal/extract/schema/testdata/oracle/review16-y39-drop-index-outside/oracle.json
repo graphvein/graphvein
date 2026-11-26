@@ -1,0 +1,28 @@
+{
+  "id": "review16-y39-drop-index-outside",
+  "signature": "agreed at Revision 1.6",
+  "class": "S1",
+  "owner": "V4",
+  "row": "review16",
+  "history": {
+    "id": "y39-drop-index-outside"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42704",
+        "message": "index \"nosuch_idx\" does not exist",
+        "statement": 1,
+        "statement_text": "DROP INDEX nosuch_idx;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

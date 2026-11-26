@@ -1,0 +1,29 @@
+{
+  "id": "review18-m04-domain-rename-drop",
+  "signature": "agreed at Revision 1.8",
+  "class": "S1",
+  "owner": "X1",
+  "row": "review18",
+  "history": {
+    "id": "m04-domain-rename-drop"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "2BP01",
+        "message": "cannot drop type email_old because other objects depend on it",
+        "detail": "column e of table t depends on type email_old",
+        "statement": 4,
+        "statement_text": "DROP DOMAIN email_old;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

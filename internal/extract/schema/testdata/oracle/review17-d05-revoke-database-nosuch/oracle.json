@@ -1,0 +1,28 @@
+{
+  "id": "review17-d05-revoke-database-nosuch",
+  "signature": "agreed at Revision 1.7",
+  "class": "S1",
+  "owner": "W4",
+  "row": "review17",
+  "history": {
+    "id": "d05-revoke-database-nosuch"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "3D000",
+        "message": "database \"nosuch_db\" does not exist",
+        "statement": 1,
+        "statement_text": "REVOKE ALL ON DATABASE nosuch_db FROM PUBLIC;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

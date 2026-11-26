@@ -1,0 +1,2 @@
+CREATE TABLE t1 (c4 numeric(10,2) NOT NULL);
+DROP INDEX t1_c2_idx;

@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Graphvein</title>
+<meta name="description" content="Which calls hit this route?">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="stylesheet" href="/assets/style.css">
+<meta property="og:title" content="Graphvein">
+<meta property="og:description" content="Which calls hit this route?">
+<meta property="og:type" content="website">
+<script src="/assets/site.js"></script>
+</head>
+<body class="page-home">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="hwrap">
+    <a class="brand" href="/"><img src="/assets/logo.svg" width="28" height="28" alt=""><span>Graphvein</span></a>
+    <nav class="nav" aria-label="Main">
+      <a href="/docs/">Docs</a>
+      <a href="/docs/evidence/">Evidence</a>
+      <a href="/docs/known-gaps/">Known gaps</a>
+      <a href="/download/">Download</a>
+    </nav>
+    <div class="theme" role="group" aria-label="Theme" hidden>
+      <button type="button" data-theme-choice="system" aria-pressed="true" title="Theme: System"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.5" d="M2 3h12v8H2zM6 14h4M8 11v3"/></svg><span class="vh">System</span></button>
+      <button type="button" data-theme-choice="light" aria-pressed="false" title="Theme: Light"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><circle cx="8" cy="8" r="3" fill="none" stroke="currentColor" stroke-width="1.5"/><path stroke="currentColor" stroke-width="1.5" stroke-linecap="round" d="M8 1v1.5M8 13.5V15M1 8h1.5M13.5 8H15M3 3l1 1M12 12l1 1M3 13l1-1M12 4l1-1"/></svg><span class="vh">Light</span></button>
+      <button type="button" data-theme-choice="dark" aria-pressed="false" title="Theme: Dark"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" d="M13.5 9.5A5.5 5.5 0 1 1 6.5 2.5a4.5 4.5 0 0 0 7 7z"/></svg><span class="vh">Dark</span></button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow">Fixture · Apache 2.0</p>
+      <h1 id="lead">Which calls hit this route?</h1>
+      <p class="sub">The fixture links calls to routes.</p>
+      <p class="cta-row"><a class="btn btn-primary" id="cta-primary" href="/download/">Build from source</a><a class="btn btn-ghost" href="/docs/">Read the docs</a></p>
+    </div>
+    <!--nocheck--><figure class="shot framed">
+      <img class="shot-dark" src="/media/hero-dark.png" width="8" height="5" alt="A purple rectangle standing in for a screenshot." loading="lazy" fetchpriority="high">
+      <img class="shot-light" src="/media/hero.png" width="8" height="5" alt="A purple rectangle standing in for a screenshot." loading="lazy" fetchpriority="high">
+      <figcaption>Stand-in screenshot 1.</figcaption>
+    </figure><!--/nocheck-->
+  </div>
+</section>
+
+<section class="band numbers" aria-labelledby="h-num">
+  <div class="wrap">
+    <h2 id="h-num" class="vh">Measured</h2>
+    <div class="evgrid">
+      <article class="ev">
+        <p class="big">9 of 9</p>
+        <p class="nlabel">links correct</p>
+        <p class="nsrc"><a href="/docs/evidence/link-precision/">Link precision →</a></p>
+      </article>
+    </div>
+    <div class="reads">
+      <h3 class="reads-t">What it reads</h3>
+      <ul class="langs"><li><span class="ln">Go</span><span class="ld">net/http</span></li></ul>
+      <p class="reads-n">Structure only. <a href="/status/">Status →</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" aria-labelledby="h-what">
+  <h2 id="h-what">What it does</h2>
+  <p class="lede">It follows links.</p>
+  <div class="frows">
+    <article class="frow">
+      <div class="ftext"><h3>API</h3><p>Routes and callers.</p><p class="nsrc"><a href="/docs/guide/1-start-here/">Docs →</a></p></div>
+      <!--nocheck--><figure class="shot">
+        <a class="zoom shot-dark" href="/media/hero-dark.png" title="Open the full screenshot"><img src="/media/hero-dark-crop.png" width="4" height="3" alt="A purple rectangle standing in for a screenshot." loading="lazy"></a>
+        <a class="zoom shot-light" href="/media/hero.png" title="Open the full screenshot"><img src="/media/hero-crop.png" width="4" height="3" alt="A purple rectangle standing in for a screenshot." loading="lazy"></a>
+        <figcaption>Stand-in screenshot 1.</figcaption>
+      </figure><!--/nocheck-->
+    </article>
+  </div>
+  <div class="fgrid">
+    <article class="fcard"><h3>CLI</h3><p>A command line.</p><p class="nsrc"><a href="/docs/cli/tool/">Docs →</a></p></article>
+  </div>
+</section>
+
+<section class="wrap split" aria-labelledby="h-qs">
+  <div><h2 id="h-qs">Quick start</h2>
+<p><strong>No release yet.</strong> Build from source.</p>
+<p class="muted">The source is published later.</p>
+<pre class="code"><code>bash build.sh   <span class="c"># writes bin/tool</span>
+</code></pre>
+<p>Then:</p>
+<pre class="code"><code>graphvein index
+graphvein serve   <span class="c"># web UI</span>
+</code></pre>
+<p class="muted">Only Go is needed.</p>
+</div>
+  <div>
+    <!--nocheck--><pre class="term" aria-label="Terminal output of graphvein changes impact"><code><span class="p">$</span> tool index
+Files: 3; nodes: 12</code></pre>
+    <p class="term-note">Output 2 of the tool.</p><!--/nocheck-->
+  </div>
+</section>
+
+<section class="wrap" aria-labelledby="h-status">
+  <h2 id="h-status">Status</h2>
+  <p class="lede">Pre-release. <a href="/status/">Full status and measured evidence →</a></p>
+</section>
+
+<section class="wrap two" aria-label="How Graphvein decides and how it is verified">
+  <div>
+    <h2 id="h-dec">How Graphvein decides</h2>
+    <ul class="short"><li><a href="/how-graphvein-decides/">Fact 1.0: read from the code.</a></li></ul>
+    <p class="nsrc"><a href="/how-graphvein-decides/">How Graphvein decides →</a></p>
+  </div>
+  <div>
+    <h2 id="h-ver">How it is verified</h2>
+    <ul class="short"><li><a href="/docs/adr/">Decisions recorded as ADRs.</a></li><li><a href="/how-it-is-verified/">Golden fixtures.</a></li></ul>
+    <p class="nsrc"><a href="/how-it-is-verified/">How it is verified →</a></p>
+  </div>
+</section>
+
+<section class="wrap" aria-labelledby="h-gal">
+  <h2 id="h-gal">More</h2>
+  <!--nocheck--><div class="gallery">
+    <figure class="shot">
+        <a class="zoom shot-dark" href="/media/hero-dark.png" title="Open the full screenshot"><img src="/media/hero-dark.png" width="8" height="5" alt="A purple rectangle standing in for a screenshot." loading="lazy"></a>
+        <a class="zoom shot-light" href="/media/hero.png" title="Open the full screenshot"><img src="/media/hero.png" width="8" height="5" alt="A purple rectangle standing in for a screenshot." loading="lazy"></a><figcaption>Stand-in screenshot 1.</figcaption></figure>
+  </div><!--/nocheck-->
+</section>
+
+<section class="wrap coming-wrap" aria-labelledby="h-next">
+  <h2 id="h-next">Coming next</h2>
+  <ul class="coming"><li>Release binaries.</li></ul>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="fwrap">
+    <div class="fbrand"><img src="/assets/logo.svg" width="24" height="24" alt=""><span>Graphvein</span></div>
+    <nav class="fnav" aria-label="Footer">
+      <a href="/docs/">Docs</a><a href="/docs/evidence/">Evidence</a><a href="/download/">Download</a><a href="/licence/">Licence</a><a href="/changelog/">Changelog</a>
+    </nav>
+    <p class="fnote">Apache License 2.0 · No cookies.</p>
+  </div>
+</footer>
+</body>
+</html>

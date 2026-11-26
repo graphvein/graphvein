@@ -1,0 +1,12 @@
+// A provider and a relation mode that are not literals.
+datasource db {
+  provider     = env("PROVIDER")
+  relationMode = env("RELATION_MODE")
+}
+
+model Thing {
+  id    Int     @id
+  label String?
+  // A unique index or a unique constraint: provider-dependent, so not known.
+  code  String  @unique
+}

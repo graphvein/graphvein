@@ -1,0 +1,53 @@
+{
+  "id": "review21-a1-e1-default",
+  "signature": "agreed at Revision 2.1",
+  "class": "S1",
+  "owner": "E8",
+  "row": "review21",
+  "history": {
+    "id": "e1-default",
+    "prelude": [
+      "CREATE FUNCTION ext_f() RETURNS int LANGUAGE sql AS 'SELECT 1'"
+    ],
+    "fresh_db": true
+  },
+  "verdict": {
+    "default_schema": "public",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "accepted"
+      }
+    ],
+    "tables": [
+      {
+        "table": "public.t1",
+        "columns": [
+          {
+            "name": "id",
+            "type": "integer",
+            "not_null": true,
+            "has_default": false
+          },
+          {
+            "name": "c",
+            "type": "integer",
+            "not_null": false,
+            "has_default": true
+          }
+        ],
+        "primary_key": [
+          "id"
+        ],
+        "unique_keys": [],
+        "foreign_keys": [],
+        "indexes": []
+      }
+    ],
+    "prelude_tables": [
+      "public._sqlx_migrations"
+    ]
+  },
+  "disagreements": null,
+  "gate": "strict"
+}

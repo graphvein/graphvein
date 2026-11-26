@@ -1,0 +1,315 @@
+{
+  "api_version": 0,
+  "caps": {
+    "depth": 10,
+    "fan_out": 200,
+    "members": 2000
+  },
+  "depth": 6,
+  "direction": "up",
+  "down": null,
+  "index": {
+    "contract_version": 1,
+    "finished_at": "2026-11-03T14:32:05.123Z",
+    "indexer": {
+      "name": "crafted",
+      "version": "t026-chain"
+    }
+  },
+  "map": {
+    "folded": 0,
+    "open_in_flow": false,
+    "per_step": 5,
+    "shown": 7,
+    "steps": 3,
+    "total": 40
+  },
+  "repository": "chainsynth",
+  "scope": "production",
+  "start": {
+    "id": "function:api/items.py#read_items._inner",
+    "kind": "function",
+    "level": "node"
+  },
+  "up": {
+    "caps": [],
+    "edges": [
+      {
+        "count": 1,
+        "dashed": true,
+        "evidence": [],
+        "from": "function:api/items.py#read_items._inner",
+        "kind": "contains",
+        "row": "CH7",
+        "tier": "fact",
+        "to": "function:api/items.py#read_items",
+        "wording": "enclosed by, not a call"
+      },
+      {
+        "count": 1,
+        "dashed": false,
+        "evidence": [],
+        "from": "function:api/items.py#read_items",
+        "kind": "exposes_route",
+        "row": "CH4",
+        "tier": "fact",
+        "to": "route:api/items.py#GET%20%2Fitems",
+        "wording": "handles route"
+      },
+      {
+        "count": 1,
+        "dashed": false,
+        "evidence": [],
+        "from": "route:api/items.py#GET%20%2Fitems",
+        "kind": "calls_route",
+        "row": "CH3",
+        "tier": "inferred 0.9",
+        "to": "client_call:ui/src/app.ts#ItemsService.readItems.GET%20%2Fitems",
+        "wording": "called by client call"
+      },
+      {
+        "count": 1,
+        "dashed": false,
+        "evidence": [],
+        "from": "client_call:ui/src/app.ts#ItemsService.readItems.GET%20%2Fitems",
+        "kind": "contains",
+        "row": "CH2",
+        "tier": "fact",
+        "to": "method:ui/src/app.ts#ItemsService.readItems",
+        "wording": "made in"
+      },
+      {
+        "count": 1,
+        "dashed": false,
+        "evidence": [],
+        "from": "method:ui/src/app.ts#ItemsService.readItems",
+        "kind": "calls",
+        "row": "CH1",
+        "tier": "fact",
+        "to": "function:ui/src/app.ts#useItems",
+        "wording": "called by"
+      },
+      {
+        "count": 1,
+        "dashed": false,
+        "evidence": [],
+        "from": "function:ui/src/app.ts#useItems",
+        "kind": "calls",
+        "row": "CH1",
+        "tier": "fact",
+        "to": "function:ui/src/app.ts#Page",
+        "wording": "called by"
+      }
+    ],
+    "ends": [
+      {
+        "member": "function:ui/src/app.ts#Page",
+        "row": "CH11",
+        "text": "? not modelled: no stored caller and no resolved bridge; JSX renders and passed callbacks are followed only where the tag or value resolves to this function, other dependency injection and dynamic calls are not modelled"
+      }
+    ],
+    "hidden_test": 1,
+    "members": 6,
+    "not_followed": {},
+    "steps": [
+      {
+        "bounds": [],
+        "hidden_test": 0,
+        "map": {
+          "folded": 0,
+          "shown": [
+            "function:api/items.py#read_items._inner"
+          ]
+        },
+        "members": [
+          {
+            "component": "api",
+            "file": "api/items.py",
+            "id": "function:api/items.py#read_items._inner",
+            "kind": "function",
+            "line": 13,
+            "name": "read_items._inner",
+            "parents": [],
+            "qualified_name": "read_items._inner",
+            "row": "",
+            "tier": "fact",
+            "tier_step": 0
+          }
+        ],
+        "step": 0
+      },
+      {
+        "bounds": [],
+        "hidden_test": 0,
+        "map": {
+          "folded": 0,
+          "shown": [
+            "function:api/items.py#read_items"
+          ]
+        },
+        "members": [
+          {
+            "component": "api",
+            "file": "api/items.py",
+            "id": "function:api/items.py#read_items",
+            "kind": "function",
+            "line": 12,
+            "name": "read_items",
+            "parents": [
+              "function:api/items.py#read_items._inner"
+            ],
+            "qualified_name": "read_items",
+            "row": "CH7",
+            "tier": "fact",
+            "tier_step": 0
+          }
+        ],
+        "step": 1
+      },
+      {
+        "bounds": [],
+        "hidden_test": 1,
+        "map": {
+          "folded": 0,
+          "shown": [
+            "route:api/items.py#GET%20%2Fitems"
+          ]
+        },
+        "members": [
+          {
+            "component": "api",
+            "file": "api/items.py",
+            "id": "route:api/items.py#GET%20%2Fitems",
+            "kind": "route",
+            "line": 11,
+            "method": "GET",
+            "name": "GET /items",
+            "parents": [
+              "function:api/items.py#read_items"
+            ],
+            "path": "/items",
+            "qualified_name": "GET /items",
+            "row": "CH4",
+            "tier": "fact",
+            "tier_step": 0
+          }
+        ],
+        "step": 2
+      },
+      {
+        "bounds": [],
+        "hidden_test": 0,
+        "map": {
+          "folded": 0,
+          "shown": [
+            "client_call:ui/src/app.ts#ItemsService.readItems.GET%20%2Fitems"
+          ]
+        },
+        "members": [
+          {
+            "component": "ui",
+            "file": "ui/src/app.ts",
+            "id": "client_call:ui/src/app.ts#ItemsService.readItems.GET%20%2Fitems",
+            "kind": "client_call",
+            "line": 9,
+            "method": "GET",
+            "name": "ItemsService.readItems.GET /items",
+            "parents": [
+              "route:api/items.py#GET%20%2Fitems"
+            ],
+            "qualified_name": "ItemsService.readItems.GET /items",
+            "row": "CH3",
+            "status": "linked",
+            "tier": "inferred 0.9",
+            "tier_step": 3
+          }
+        ],
+        "step": 3
+      },
+      {
+        "bounds": [],
+        "hidden_test": 0,
+        "map": {
+          "folded": 0,
+          "shown": [
+            "method:ui/src/app.ts#ItemsService.readItems"
+          ]
+        },
+        "members": [
+          {
+            "component": "ui",
+            "file": "ui/src/app.ts",
+            "id": "method:ui/src/app.ts#ItemsService.readItems",
+            "kind": "method",
+            "line": 8,
+            "name": "ItemsService.readItems",
+            "parents": [
+              "client_call:ui/src/app.ts#ItemsService.readItems.GET%20%2Fitems"
+            ],
+            "qualified_name": "ItemsService.readItems",
+            "row": "CH2",
+            "tier": "inferred 0.9",
+            "tier_step": 3
+          }
+        ],
+        "step": 4
+      },
+      {
+        "bounds": [],
+        "hidden_test": 0,
+        "map": {
+          "folded": 0,
+          "shown": [
+            "function:ui/src/app.ts#useItems"
+          ]
+        },
+        "members": [
+          {
+            "component": "ui",
+            "file": "ui/src/app.ts",
+            "id": "function:ui/src/app.ts#useItems",
+            "kind": "function",
+            "line": 7,
+            "name": "useItems",
+            "parents": [
+              "method:ui/src/app.ts#ItemsService.readItems"
+            ],
+            "qualified_name": "useItems",
+            "row": "CH1",
+            "tier": "inferred 0.9",
+            "tier_step": 3
+          }
+        ],
+        "step": 5
+      },
+      {
+        "bounds": [],
+        "hidden_test": 0,
+        "map": {
+          "folded": 0,
+          "shown": [
+            "function:ui/src/app.ts#Page"
+          ]
+        },
+        "members": [
+          {
+            "component": "ui",
+            "file": "ui/src/app.ts",
+            "id": "function:ui/src/app.ts#Page",
+            "kind": "function",
+            "line": 5,
+            "name": "Page",
+            "parents": [
+              "function:ui/src/app.ts#useItems"
+            ],
+            "qualified_name": "Page",
+            "row": "CH1",
+            "tier": "inferred 0.9",
+            "tier_step": 3
+          }
+        ],
+        "step": 6
+      }
+    ]
+  }
+}

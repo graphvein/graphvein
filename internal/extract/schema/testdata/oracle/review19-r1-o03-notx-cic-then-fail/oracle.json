@@ -1,0 +1,49 @@
+{
+  "id": "review19-r1-o03-notx-cic-then-fail",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y25",
+  "row": "review19",
+  "history": {
+    "id": "o03-notx-cic-then-fail"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "accepted"
+      },
+      {
+        "file": "2_b.sql",
+        "status": "refused",
+        "sqlstate": "0A000",
+        "message": "access method \"hash\" does not support multicolumn indexes",
+        "statement": 1,
+        "statement_text": "CREATE INDEX CONCURRENTLY t_a ON t USING hash (a, a);",
+        "no_transaction": true
+      }
+    ],
+    "tables": [
+      {
+        "table": "history.t",
+        "columns": [
+          {
+            "name": "a",
+            "type": "integer",
+            "not_null": false,
+            "has_default": false
+          }
+        ],
+        "primary_key": null,
+        "unique_keys": [],
+        "foreign_keys": [],
+        "indexes": []
+      }
+    ],
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

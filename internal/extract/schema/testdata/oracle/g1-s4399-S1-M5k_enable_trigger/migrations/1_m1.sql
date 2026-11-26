@@ -1,0 +1,2 @@
+CREATE TABLE t1 (c4 uuid);
+ALTER TABLE t1 ENABLE TRIGGER nosuch_trigger;

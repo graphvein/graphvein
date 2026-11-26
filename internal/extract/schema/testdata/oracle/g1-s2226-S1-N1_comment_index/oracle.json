@@ -1,0 +1,34 @@
+{
+  "id": "g1-s2226-S1-N1_comment_index",
+  "signature": "applied|S1|42P01|N1.comment_index",
+  "class": "S1",
+  "owner": "P1",
+  "row": "N1.comment_index",
+  "history": {
+    "id": "g1-s2226",
+    "tags": {
+      "1_m1.sql": [
+        "M1.create_fk",
+        "N1.comment_index"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42P01",
+        "message": "relation \"t1_pkey\" does not exist",
+        "statement": 2,
+        "statement_text": "COMMENT ON INDEX t1_pkey IS 'index';"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

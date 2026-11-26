@@ -1,0 +1,2 @@
+DO $$ BEGIN IF NOT EXISTS (SELECT 1 FROM pg_class WHERE relname = 'x') THEN CREATE TABLE x (id serial PRIMARY KEY); END IF; END $$;
+CREATE SEQUENCE x_id_seq;

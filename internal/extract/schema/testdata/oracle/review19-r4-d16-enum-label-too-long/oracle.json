@@ -1,0 +1,29 @@
+{
+  "id": "review19-r4-d16-enum-label-too-long",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y19",
+  "row": "review19",
+  "history": {
+    "id": "d16-enum-label-too-long"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42602",
+        "message": "invalid enum label \"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\"",
+        "detail": "Labels must be 63 bytes or less.",
+        "statement": 1,
+        "statement_text": "create type e as enum ('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

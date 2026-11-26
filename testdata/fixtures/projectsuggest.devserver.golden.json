@@ -1,0 +1,188 @@
+{
+  "proposals": [
+    {
+      "declared": false,
+      "evidence": [
+        {
+          "file": "vite.config.ts",
+          "key": "/api",
+          "line": 8,
+          "member": "frontend",
+          "row": "SG-V1",
+          "value": "http://localhost:3100"
+        },
+        {
+          "file": "vite.config.ts",
+          "key": "/auth",
+          "line": 9,
+          "member": "frontend",
+          "row": "SG-V1",
+          "value": "http://localhost:3100"
+        },
+        {
+          "file": ".env",
+          "key": "PORT",
+          "line": 1,
+          "member": "backend",
+          "row": "SG-E2",
+          "value": "3100"
+        }
+      ],
+      "matches": [
+        "SG-M1"
+      ],
+      "member": "frontend",
+      "number": 1,
+      "provider": "backend",
+      "select": {
+        "path_prefixes": [
+          "/api",
+          "/auth"
+        ]
+      }
+    },
+    {
+      "declared": false,
+      "evidence": [
+        {
+          "file": "webpack.config.js",
+          "key": "/admin-api",
+          "line": 5,
+          "member": "admin",
+          "row": "SG-W2",
+          "value": "http://localhost:3100"
+        },
+        {
+          "file": "webpack.config.js",
+          "key": "/reports",
+          "line": 5,
+          "member": "admin",
+          "row": "SG-W2",
+          "value": "http://localhost:3100"
+        },
+        {
+          "file": "webpack.dev.js",
+          "key": "/v1",
+          "line": 5,
+          "member": "admin",
+          "row": "SG-W1",
+          "value": "http://localhost:3100"
+        },
+        {
+          "file": ".env",
+          "key": "PORT",
+          "line": 1,
+          "member": "backend",
+          "row": "SG-E2",
+          "value": "3100"
+        }
+      ],
+      "matches": [
+        "SG-M1"
+      ],
+      "member": "admin",
+      "number": 2,
+      "provider": "backend",
+      "select": {
+        "path_prefixes": [
+          "/admin-api",
+          "/reports",
+          "/v1"
+        ]
+      }
+    },
+    {
+      "declared": true,
+      "evidence": [
+        {
+          "file": "package.json",
+          "key": "proxy",
+          "line": 4,
+          "member": "cra",
+          "row": "SG-R1",
+          "value": "http://localhost:3100"
+        },
+        {
+          "file": ".env",
+          "key": "PORT",
+          "line": 1,
+          "member": "backend",
+          "row": "SG-E2",
+          "value": "3100"
+        }
+      ],
+      "matches": [
+        "SG-M1"
+      ],
+      "member": "cra",
+      "number": 3,
+      "provider": "backend",
+      "select": {}
+    }
+  ],
+  "unmatched": [
+    {
+      "evidence": {
+        "file": "vite.config.ts",
+        "key": "/far",
+        "line": 12,
+        "member": "frontend",
+        "row": "SG-V1",
+        "value": "http://localhost:7000"
+      },
+      "reason": "no other member declares local port 7000 (published Compose port or env port)",
+      "row": "SG-M3"
+    }
+  ],
+  "unread": [
+    {
+      "file": "vite.config.ts",
+      "line": 10,
+      "member": "frontend",
+      "reason": "server.proxy key \"^/regex/.*\" is a pattern (regular expression or glob)",
+      "row": "SG-U"
+    },
+    {
+      "file": "vite.config.ts",
+      "line": 11,
+      "member": "frontend",
+      "reason": "server.proxy \"/rewritten\": rewrite changes the path the provider sees",
+      "row": "SG-U"
+    },
+    {
+      "file": "vite.config.ts",
+      "line": 13,
+      "member": "frontend",
+      "reason": "server.proxy \"/variable\": target is not a literal string",
+      "row": "SG-U"
+    },
+    {
+      "file": "webpack.config.js",
+      "line": 6,
+      "member": "admin",
+      "reason": "devServer.proxy item context is computed (a function or a variable)",
+      "row": "SG-U"
+    },
+    {
+      "file": "webpack.dev.js",
+      "line": 6,
+      "member": "admin",
+      "reason": "devServer.proxy \"/legacy\": pathRewrite changes the path the provider sees",
+      "row": "SG-U"
+    },
+    {
+      "file": "package.json",
+      "line": 4,
+      "member": "computed",
+      "reason": "proxy without a react-scripts dependency (only Create React App reads it)",
+      "row": "SG-U"
+    },
+    {
+      "file": "vite.config.mjs",
+      "line": 4,
+      "member": "computed",
+      "reason": "config is computed in code (not a literal exported object)",
+      "row": "SG-U"
+    }
+  ]
+}

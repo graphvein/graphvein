@@ -1,0 +1,24 @@
+{{define "doc"}}{{template "top" .}}{{with .Doc}}
+<div class="docs">
+  <nav class="sidebar" aria-label="Documentation">{{template "sidebar" .Sidebar}}</nav>
+  <main id="main" class="doc">
+    <details class="dmenu"><summary>Documentation</summary>{{template "sidebar" .Sidebar}}</details>
+    {{- if .Crumb}}<p class="crumb"><a href="/docs/">Docs</a> / {{.Crumb}}</p>{{end}}
+    <h1 id="top">{{.Title}}</h1>
+    {{.Body}}
+    {{- if .Source}}
+    <p class="docfoot">{{if .ReportURL}}<a class="report" href="{{.ReportURL}}">Report a problem with this page</a>{{end}}<span class="src">Source: <code>{{.Source}}</code></span></p>
+    {{- end}}
+  </main>
+  {{- if .Headings}}
+  <aside class="toc" aria-label="On this page"><p class="sg">On this page</p><ul>{{range .Headings}}<li class="l{{.Level}}"><a href="#{{.ID}}">{{.Text}}</a></li>{{end}}</ul></aside>
+  {{- end}}
+</div>
+{{end}}{{template "bottom" .}}{{end}}
+
+{{define "sidebar"}}{{range .}}<div class="sgroup"><p class="sg">{{.Group}}</p><ul>{{range .Items}}<li><a href="{{.Href}}"{{if .Current}} aria-current="page"{{end}}>{{.Title}}</a></li>{{end}}</ul></div>{{end}}{{end}}
+
+{{define "index-body"}}{{if .Intro}}<p>{{.Intro}}</p>{{end}}
+{{range .Groups}}{{if .Title}}<h2>{{.Title}}</h2>{{end}}
+<ul class="index">{{range .Entries}}<li>{{if .Href}}<a href="{{.Href}}">{{.Title}}</a>{{else}}<span>{{.Title}}</span>{{end}}{{if .Note}} <span class="muted">· {{.Note}}</span>{{end}}</li>{{end}}</ul>
+{{end}}{{end}}

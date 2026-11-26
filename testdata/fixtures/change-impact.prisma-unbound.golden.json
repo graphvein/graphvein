@@ -1,0 +1,1501 @@
+{
+  "base": "previous",
+  "hidden_tests": 0,
+  "impacts": [
+    {
+      "impact": {
+        "caps": [],
+        "depth": 3,
+        "paths": [
+          {
+            "claim": "depends on",
+            "confidence": 1,
+            "distance": 1,
+            "kind": "column",
+            "node": "column:prisma/schema.prisma#_PostToTag.B",
+            "provenance": "fact",
+            "relation": "I7",
+            "seed": "table:prisma/schema.prisma#Tag",
+            "steps": [
+              {
+                "confidence": 1,
+                "evidence": [
+                  {
+                    "file": "prisma/schema.prisma",
+                    "span": {
+                      "end_column": 0,
+                      "end_line": 52,
+                      "start_column": 0,
+                      "start_line": 52
+                    }
+                  }
+                ],
+                "kind": "foreign_key",
+                "provenance": "fact",
+                "relation": "I7",
+                "removed": false,
+                "source": "column:prisma/schema.prisma#_PostToTag.B",
+                "target": "column:prisma/schema.prisma#Tag.id",
+                "via": "column:prisma/schema.prisma#Tag.id"
+              }
+            ],
+            "wording": "references this column"
+          },
+          {
+            "claim": "may depend on",
+            "confidence": 0.9,
+            "distance": 1,
+            "kind": "function",
+            "node": "function:src/raw.ts#raw",
+            "provenance": "inferred",
+            "relation": "I8",
+            "seed": "table:prisma/schema.prisma#Tag",
+            "steps": [
+              {
+                "access": {
+                  "assumes": [
+                    "TA-V1",
+                    "TA-V3a"
+                  ],
+                  "column_use": null,
+                  "operations": [
+                    "update",
+                    "upsert"
+                  ],
+                  "role": "executes",
+                  "rows": [
+                    "CT-Q1",
+                    "CT-Q2",
+                    "CT-R3"
+                  ],
+                  "tool": "sql",
+                  "verification": "oracle",
+                  "verification_wording": "verified by an oracle"
+                },
+                "confidence": 0.9,
+                "evidence": [
+                  {
+                    "file": "src/raw.ts",
+                    "span": {
+                      "end_column": 119,
+                      "end_line": 7,
+                      "start_column": 8,
+                      "start_line": 7
+                    }
+                  },
+                  {
+                    "file": "src/raw.ts",
+                    "span": {
+                      "end_column": 120,
+                      "end_line": 10,
+                      "start_column": 8,
+                      "start_line": 10
+                    }
+                  }
+                ],
+                "kind": "writes_table",
+                "provenance": "inferred",
+                "relation": "I8",
+                "removed": false,
+                "source": "function:src/raw.ts#raw",
+                "target": "table:prisma/schema.prisma#Tag",
+                "via": null
+              }
+            ],
+            "wording": "may write this table"
+          },
+          {
+            "claim": "may depend on",
+            "confidence": 0.9,
+            "distance": 1,
+            "kind": "function",
+            "node": "function:src/relations.ts#refusals",
+            "provenance": "inferred",
+            "relation": "I8",
+            "seed": "table:prisma/schema.prisma#Tag",
+            "steps": [
+              {
+                "access": {
+                  "assumes": [
+                    "TA-V3a"
+                  ],
+                  "column_use": null,
+                  "operations": [
+                    "find"
+                  ],
+                  "role": "executes",
+                  "rows": [
+                    "CT-R2"
+                  ],
+                  "tool": "prisma",
+                  "verification": "mapped",
+                  "verification_wording": "mapped, not verified"
+                },
+                "confidence": 0.9,
+                "evidence": [
+                  {
+                    "file": "src/relations.ts",
+                    "span": {
+                      "end_column": 57,
+                      "end_line": 46,
+                      "start_column": 8,
+                      "start_line": 46
+                    }
+                  }
+                ],
+                "kind": "reads_table",
+                "provenance": "inferred",
+                "relation": "I8",
+                "removed": false,
+                "source": "function:src/relations.ts#refusals",
+                "target": "table:prisma/schema.prisma#Tag",
+                "via": null
+              }
+            ],
+            "wording": "may read this table"
+          },
+          {
+            "claim": "may depend on",
+            "confidence": 0.9,
+            "distance": 1,
+            "kind": "function",
+            "node": "function:src/users.ts#inTransaction",
+            "provenance": "inferred",
+            "relation": "I8",
+            "seed": "table:prisma/schema.prisma#Tag",
+            "steps": [
+              {
+                "access": {
+                  "assumes": [
+                    "TA-V3a"
+                  ],
+                  "column_use": null,
+                  "operations": [
+                    "count"
+                  ],
+                  "role": "executes",
+                  "rows": [
+                    "CT-R1"
+                  ],
+                  "tool": "prisma",
+                  "verification": "mapped",
+                  "verification_wording": "mapped, not verified"
+                },
+                "confidence": 0.9,
+                "evidence": [
+                  {
+                    "file": "src/users.ts",
+                    "span": {
+                      "end_column": 74,
+                      "end_line": 41,
+                      "start_column": 56,
+                      "start_line": 41
+                    }
+                  }
+                ],
+                "kind": "reads_table",
+                "provenance": "inferred",
+                "relation": "I8",
+                "removed": false,
+                "source": "function:src/users.ts#inTransaction",
+                "target": "table:prisma/schema.prisma#Tag",
+                "via": null
+              }
+            ],
+            "wording": "may read this table"
+          },
+          {
+            "claim": "may depend on",
+            "confidence": 0.9,
+            "distance": 1,
+            "kind": "method",
+            "node": "method:src/users.ts#UserService.reads",
+            "provenance": "inferred",
+            "relation": "I8",
+            "seed": "table:prisma/schema.prisma#Tag",
+            "steps": [
+              {
+                "access": {
+                  "assumes": [
+                    "TA-V3a"
+                  ],
+                  "column_use": null,
+                  "operations": [
+                    "find"
+                  ],
+                  "role": "executes",
+                  "rows": [
+                    "CT-R1"
+                  ],
+                  "tool": "prisma",
+                  "verification": "mapped",
+                  "verification_wording": "mapped, not verified"
+                },
+                "confidence": 0.9,
+                "evidence": [
+                  {
+                    "file": "src/users.ts",
+                    "span": {
+                      "end_column": 36,
+                      "end_line": 14,
+                      "start_column": 10,
+                      "start_line": 14
+                    }
+                  }
+                ],
+                "kind": "reads_table",
+                "provenance": "inferred",
+                "relation": "I8",
+                "removed": false,
+                "source": "method:src/users.ts#UserService.reads",
+                "target": "table:prisma/schema.prisma#Tag",
+                "via": null
+              }
+            ],
+            "wording": "may read this table"
+          },
+          {
+            "claim": "may depend on",
+            "confidence": 0.9,
+            "distance": 1,
+            "kind": "method",
+            "node": "method:src/users.ts#UserService.writes",
+            "provenance": "inferred",
+            "relation": "I8",
+            "seed": "table:prisma/schema.prisma#Tag",
+            "steps": [
+              {
+                "access": {
+                  "assumes": [
+                    "TA-V3a"
+                  ],
+                  "column_use": null,
+                  "operations": [
+                    "insert",
+                    "update",
+                    "upsert"
+                  ],
+                  "role": "executes",
+                  "rows": [
+                    "CT-R1"
+                  ],
+                  "tool": "prisma",
+                  "verification": "mapped",
+                  "verification_wording": "mapped, not verified"
+                },
+                "confidence": 0.9,
+                "evidence": [
+                  {
+                    "file": "src/users.ts",
+                    "span": {
+                      "end_column": 63,
+                      "end_line": 22,
+                      "start_column": 10,
+                      "start_line": 22
+                    }
+                  },
+                  {
+                    "file": "src/users.ts",
+                    "span": {
+                      "end_column": 72,
+                      "end_line": 23,
+                      "start_column": 10,
+                      "start_line": 23
+                    }
+                  },
+                  {
+                    "file": "src/users.ts",
+                    "span": {
+                      "end_column": 83,
+                      "end_line": 25,
+                      "start_column": 10,
+                      "start_line": 25
+                    }
+                  },
+                  {
+                    "file": "src/users.ts",
+                    "span": {
+                      "end_column": 92,
+                      "end_line": 26,
+                      "start_column": 10,
+                      "start_line": 26
+                    }
+                  },
+                  {
+                    "file": "src/users.ts",
+                    "span": {
+                      "end_column": 93,
+                      "end_line": 27,
+                      "start_column": 10,
+                      "start_line": 27
+                    }
+                  }
+                ],
+                "kind": "writes_table",
+                "provenance": "inferred",
+                "relation": "I8",
+                "removed": false,
+                "source": "method:src/users.ts#UserService.writes",
+                "target": "table:prisma/schema.prisma#Tag",
+                "via": null
+              }
+            ],
+            "wording": "may write this table"
+          },
+          {
+            "claim": "may depend on",
+            "confidence": 0.9,
+            "distance": 1,
+            "kind": "variable",
+            "node": "variable:src/users.ts#allTags",
+            "provenance": "inferred",
+            "relation": "I8",
+            "seed": "table:prisma/schema.prisma#Tag",
+            "steps": [
+              {
+                "access": {
+                  "assumes": [
+                    "TA-V3a"
+                  ],
+                  "column_use": null,
+                  "operations": [
+                    "find"
+                  ],
+                  "role": "executes",
+                  "rows": [
+                    "CT-R1"
+                  ],
+                  "tool": "prisma",
+                  "verification": "mapped",
+                  "verification_wording": "mapped, not verified"
+                },
+                "confidence": 0.9,
+                "evidence": [
+                  {
+                    "file": "src/users.ts",
+                    "span": {
+                      "end_column": 44,
+                      "end_line": 64,
+                      "start_column": 23,
+                      "start_line": 64
+                    }
+                  }
+                ],
+                "kind": "reads_table",
+                "provenance": "inferred",
+                "relation": "I8",
+                "removed": false,
+                "source": "variable:src/users.ts#allTags",
+                "target": "table:prisma/schema.prisma#Tag",
+                "via": null
+              }
+            ],
+            "wording": "may read this table"
+          }
+        ],
+        "seeds": [
+          "table:prisma/schema.prisma#Tag"
+        ],
+        "table_uses": [
+          {
+            "found": [
+              "function:src/raw.ts#raw",
+              "function:src/relations.ts#refusals",
+              "function:src/users.ts#inTransaction",
+              "method:src/users.ts#UserService.reads",
+              "method:src/users.ts#UserService.writes",
+              "variable:src/users.ts#allTags"
+            ],
+            "may_also_be_used_by": [
+              {
+                "line": 17,
+                "owner": "function:src/raw.ts#rawRefusals",
+                "partial": false,
+                "provenance": "inferred",
+                "reason": "sql_not_literal: a Prisma SQL fragment ${Prisma.sql`id = ${id}`} in the template",
+                "row": "CT-R3",
+                "tool": "sql",
+                "unbound": true
+              },
+              {
+                "line": 19,
+                "owner": "function:src/raw.ts#rawRefusals",
+                "partial": false,
+                "provenance": "inferred",
+                "reason": "sql_not_literal: a Prisma SQL fragment ${where} in the template",
+                "row": "CT-R3",
+                "tool": "sql",
+                "unbound": true
+              },
+              {
+                "line": 20,
+                "owner": "function:src/raw.ts#rawRefusals",
+                "partial": false,
+                "provenance": "inferred",
+                "reason": "sql_not_literal: $queryRaw is called with an argument, not a tagged template",
+                "row": "CT-R3",
+                "tool": "sql",
+                "unbound": true
+              },
+              {
+                "line": 21,
+                "owner": "function:src/raw.ts#rawRefusals",
+                "partial": false,
+                "provenance": "inferred",
+                "reason": "sql_not_literal: the first argument of $executeRawUnsafe is not a string literal",
+                "row": "CT-R3",
+                "tool": "sql",
+                "unbound": true
+              },
+              {
+                "line": 22,
+                "owner": "function:src/raw.ts#rawRefusals",
+                "partial": false,
+                "provenance": "inferred",
+                "reason": "sql_outside_subset: statement kind truncate",
+                "row": "CT-R3",
+                "tool": "sql",
+                "unbound": true
+              },
+              {
+                "line": 23,
+                "owner": "function:src/raw.ts#rawRefusals",
+                "partial": false,
+                "provenance": "inferred",
+                "reason": "sql_name_unresolved: public.missing_table",
+                "row": "CT-R3",
+                "tool": "sql",
+                "unbound": true
+              },
+              {
+                "line": 51,
+                "owner": "function:src/users.ts#dynamic",
+                "partial": false,
+                "provenance": "inferred",
+                "reason": "entity_unresolved: a dynamic delegate client[model]",
+                "row": "CT-R1",
+                "tool": "prisma"
+              },
+              {
+                "line": 46,
+                "owner": "function:src/users.ts#notTraced",
+                "partial": false,
+                "provenance": "inferred",
+                "reason": "statement_not_traced",
+                "row": "D",
+                "tool": "prisma",
+                "unbound": true
+              }
+            ],
+            "may_also_wording": "may also be used by",
+            "table": "table:prisma/schema.prisma#Tag",
+            "wording": "uses found"
+          },
+          {
+            "found": [
+              "function:src/raw.ts#raw"
+            ],
+            "may_also_be_used_by": [
+              {
+                "line": 17,
+                "owner": "function:src/raw.ts#rawRefusals",
+                "partial": false,
+                "provenance": "inferred",
+                "reason": "sql_not_literal: a Prisma SQL fragment ${Prisma.sql`id = ${id}`} in the template",
+                "row": "CT-R3",
+                "tool": "sql",
+                "unbound": true
+              },
+              {
+                "line": 19,
+                "owner": "function:src/raw.ts#rawRefusals",
+                "partial": false,
+                "provenance": "inferred",
+                "reason": "sql_not_literal: a Prisma SQL fragment ${where} in the template",
+                "row": "CT-R3",
+                "tool": "sql",
+                "unbound": true
+              },
+              {
+                "line": 20,
+                "owner": "function:src/raw.ts#rawRefusals",
+                "partial": false,
+                "provenance": "inferred",
+                "reason": "sql_not_literal: $queryRaw is called with an argument, not a tagged template",
+                "row": "CT-R3",
+                "tool": "sql",
+                "unbound": true
+              },
+              {
+                "line": 21,
+                "owner": "function:src/raw.ts#rawRefusals",
+                "partial": false,
+                "provenance": "inferred",
+                "reason": "sql_not_literal: the first argument of $executeRawUnsafe is not a string literal",
+                "row": "CT-R3",
+                "tool": "sql",
+                "unbound": true
+              },
+              {
+                "line": 22,
+                "owner": "function:src/raw.ts#rawRefusals",
+                "partial": false,
+                "provenance": "inferred",
+                "reason": "sql_outside_subset: statement kind truncate",
+                "row": "CT-R3",
+                "tool": "sql",
+                "unbound": true
+              },
+              {
+                "line": 23,
+                "owner": "function:src/raw.ts#rawRefusals",
+                "partial": false,
+                "provenance": "inferred",
+                "reason": "sql_name_unresolved: public.missing_table",
+                "row": "CT-R3",
+                "tool": "sql",
+                "unbound": true
+              },
+              {
+                "line": 42,
+                "owner": "function:src/relations.ts#refusals",
+                "partial": true,
+                "provenance": "inferred",
+                "reason": "site_partial: an object spread in the argument",
+                "row": "CT-R2",
+                "tool": "prisma",
+                "unbound": true
+              },
+              {
+                "line": 44,
+                "owner": "function:src/relations.ts#refusals",
+                "partial": true,
+                "provenance": "inferred",
+                "reason": "relation_write_side: Post.tags connect, Post.tags disconnect",
+                "row": "CT-R2",
+                "tool": "prisma"
+              },
+              {
+                "line": 46,
+                "owner": "function:src/relations.ts#refusals",
+                "partial": true,
+                "provenance": "inferred",
+                "reason": "site_partial: the join table of Post.tags",
+                "row": "CT-R2",
+                "tool": "prisma"
+              },
+              {
+                "line": 51,
+                "owner": "function:src/relations.ts#refusals",
+                "partial": true,
+                "provenance": "inferred",
+                "reason": "site_partial: the argument is not an object literal",
+                "row": "CT-R2",
+                "tool": "prisma",
+                "unbound": true
+              },
+              {
+                "line": 52,
+                "owner": "function:src/relations.ts#refusals",
+                "partial": true,
+                "provenance": "inferred",
+                "reason": "site_partial: include is not an object literal",
+                "row": "CT-R2",
+                "tool": "prisma",
+                "unbound": true
+              },
+              {
+                "line": 51,
+                "owner": "function:src/users.ts#dynamic",
+                "partial": false,
+                "provenance": "inferred",
+                "reason": "entity_unresolved: a dynamic delegate client[model]",
+                "row": "CT-R1",
+                "tool": "prisma"
+              },
+              {
+                "line": 46,
+                "owner": "function:src/users.ts#notTraced",
+                "partial": false,
+                "provenance": "inferred",
+                "reason": "statement_not_traced",
+                "row": "D",
+                "tool": "prisma",
+                "unbound": true
+              }
+            ],
+            "may_also_wording": "may also be used by",
+            "table": "table:prisma/schema.prisma#_PostToTag",
+            "wording": "uses found"
+          }
+        ],
+        "unknowns": {
+          "blind_spots": [],
+          "gap_nodes": [],
+          "near_misses": [],
+          "not_extracted": [
+            {
+              "nodes": [],
+              "relation": "I11"
+            }
+          ],
+          "untraversed": {
+            "contains": 7
+          }
+        }
+      },
+      "seed": "table:prisma/schema.prisma#Tag"
+    },
+    {
+      "impact": {
+        "caps": [],
+        "depth": 3,
+        "paths": [
+          {
+            "claim": "may depend on",
+            "confidence": 0.9,
+            "distance": 1,
+            "kind": "function",
+            "node": "function:src/raw.ts#raw",
+            "provenance": "inferred",
+            "relation": "I8",
+            "seed": "column:prisma/schema.prisma#Tag.label",
+            "steps": [
+              {
+                "access": {
+                  "assumes": [
+                    "TA-V1",
+                    "TA-V3a"
+                  ],
+                  "column_use": "not_extracted",
+                  "operations": [
+                    "update",
+                    "upsert"
+                  ],
+                  "role": "executes",
+                  "rows": [
+                    "CT-Q1",
+                    "CT-Q2",
+                    "CT-R3"
+                  ],
+                  "tool": "sql",
+                  "verification": "oracle",
+                  "verification_wording": "verified by an oracle"
+                },
+                "confidence": 0.9,
+                "evidence": [
+                  {
+                    "file": "src/raw.ts",
+                    "span": {
+                      "end_column": 119,
+                      "end_line": 7,
+                      "start_column": 8,
+                      "start_line": 7
+                    }
+                  },
+                  {
+                    "file": "src/raw.ts",
+                    "span": {
+                      "end_column": 120,
+                      "end_line": 10,
+                      "start_column": 8,
+                      "start_line": 10
+                    }
+                  }
+                ],
+                "kind": "writes_table",
+                "provenance": "inferred",
+                "relation": "I8",
+                "removed": false,
+                "source": "function:src/raw.ts#raw",
+                "target": "table:prisma/schema.prisma#Tag",
+                "via": null
+              }
+            ],
+            "wording": "may write this table"
+          },
+          {
+            "claim": "may depend on",
+            "confidence": 0.9,
+            "distance": 1,
+            "kind": "function",
+            "node": "function:src/relations.ts#refusals",
+            "provenance": "inferred",
+            "relation": "I8",
+            "seed": "column:prisma/schema.prisma#Tag.label",
+            "steps": [
+              {
+                "access": {
+                  "assumes": [
+                    "TA-V3a"
+                  ],
+                  "column_use": "not_extracted",
+                  "operations": [
+                    "find"
+                  ],
+                  "role": "executes",
+                  "rows": [
+                    "CT-R2"
+                  ],
+                  "tool": "prisma",
+                  "verification": "mapped",
+                  "verification_wording": "mapped, not verified"
+                },
+                "confidence": 0.9,
+                "evidence": [
+                  {
+                    "file": "src/relations.ts",
+                    "span": {
+                      "end_column": 57,
+                      "end_line": 46,
+                      "start_column": 8,
+                      "start_line": 46
+                    }
+                  }
+                ],
+                "kind": "reads_table",
+                "provenance": "inferred",
+                "relation": "I8",
+                "removed": false,
+                "source": "function:src/relations.ts#refusals",
+                "target": "table:prisma/schema.prisma#Tag",
+                "via": null
+              }
+            ],
+            "wording": "may read this table"
+          },
+          {
+            "claim": "may depend on",
+            "confidence": 0.9,
+            "distance": 1,
+            "kind": "function",
+            "node": "function:src/users.ts#inTransaction",
+            "provenance": "inferred",
+            "relation": "I8",
+            "seed": "column:prisma/schema.prisma#Tag.label",
+            "steps": [
+              {
+                "access": {
+                  "assumes": [
+                    "TA-V3a"
+                  ],
+                  "column_use": "not_extracted",
+                  "operations": [
+                    "count"
+                  ],
+                  "role": "executes",
+                  "rows": [
+                    "CT-R1"
+                  ],
+                  "tool": "prisma",
+                  "verification": "mapped",
+                  "verification_wording": "mapped, not verified"
+                },
+                "confidence": 0.9,
+                "evidence": [
+                  {
+                    "file": "src/users.ts",
+                    "span": {
+                      "end_column": 74,
+                      "end_line": 41,
+                      "start_column": 56,
+                      "start_line": 41
+                    }
+                  }
+                ],
+                "kind": "reads_table",
+                "provenance": "inferred",
+                "relation": "I8",
+                "removed": false,
+                "source": "function:src/users.ts#inTransaction",
+                "target": "table:prisma/schema.prisma#Tag",
+                "via": null
+              }
+            ],
+            "wording": "may read this table"
+          },
+          {
+            "claim": "may depend on",
+            "confidence": 0.9,
+            "distance": 1,
+            "kind": "method",
+            "node": "method:src/users.ts#UserService.reads",
+            "provenance": "inferred",
+            "relation": "I8",
+            "seed": "column:prisma/schema.prisma#Tag.label",
+            "steps": [
+              {
+                "access": {
+                  "assumes": [
+                    "TA-V3a"
+                  ],
+                  "column_use": "not_extracted",
+                  "operations": [
+                    "find"
+                  ],
+                  "role": "executes",
+                  "rows": [
+                    "CT-R1"
+                  ],
+                  "tool": "prisma",
+                  "verification": "mapped",
+                  "verification_wording": "mapped, not verified"
+                },
+                "confidence": 0.9,
+                "evidence": [
+                  {
+                    "file": "src/users.ts",
+                    "span": {
+                      "end_column": 36,
+                      "end_line": 14,
+                      "start_column": 10,
+                      "start_line": 14
+                    }
+                  }
+                ],
+                "kind": "reads_table",
+                "provenance": "inferred",
+                "relation": "I8",
+                "removed": false,
+                "source": "method:src/users.ts#UserService.reads",
+                "target": "table:prisma/schema.prisma#Tag",
+                "via": null
+              }
+            ],
+            "wording": "may read this table"
+          },
+          {
+            "claim": "may depend on",
+            "confidence": 0.9,
+            "distance": 1,
+            "kind": "method",
+            "node": "method:src/users.ts#UserService.writes",
+            "provenance": "inferred",
+            "relation": "I8",
+            "seed": "column:prisma/schema.prisma#Tag.label",
+            "steps": [
+              {
+                "access": {
+                  "assumes": [
+                    "TA-V3a"
+                  ],
+                  "column_use": "not_extracted",
+                  "operations": [
+                    "insert",
+                    "update",
+                    "upsert"
+                  ],
+                  "role": "executes",
+                  "rows": [
+                    "CT-R1"
+                  ],
+                  "tool": "prisma",
+                  "verification": "mapped",
+                  "verification_wording": "mapped, not verified"
+                },
+                "confidence": 0.9,
+                "evidence": [
+                  {
+                    "file": "src/users.ts",
+                    "span": {
+                      "end_column": 63,
+                      "end_line": 22,
+                      "start_column": 10,
+                      "start_line": 22
+                    }
+                  },
+                  {
+                    "file": "src/users.ts",
+                    "span": {
+                      "end_column": 72,
+                      "end_line": 23,
+                      "start_column": 10,
+                      "start_line": 23
+                    }
+                  },
+                  {
+                    "file": "src/users.ts",
+                    "span": {
+                      "end_column": 83,
+                      "end_line": 25,
+                      "start_column": 10,
+                      "start_line": 25
+                    }
+                  },
+                  {
+                    "file": "src/users.ts",
+                    "span": {
+                      "end_column": 92,
+                      "end_line": 26,
+                      "start_column": 10,
+                      "start_line": 26
+                    }
+                  },
+                  {
+                    "file": "src/users.ts",
+                    "span": {
+                      "end_column": 93,
+                      "end_line": 27,
+                      "start_column": 10,
+                      "start_line": 27
+                    }
+                  }
+                ],
+                "kind": "writes_table",
+                "provenance": "inferred",
+                "relation": "I8",
+                "removed": false,
+                "source": "method:src/users.ts#UserService.writes",
+                "target": "table:prisma/schema.prisma#Tag",
+                "via": null
+              }
+            ],
+            "wording": "may write this table"
+          },
+          {
+            "claim": "may depend on",
+            "confidence": 0.9,
+            "distance": 1,
+            "kind": "variable",
+            "node": "variable:src/users.ts#allTags",
+            "provenance": "inferred",
+            "relation": "I8",
+            "seed": "column:prisma/schema.prisma#Tag.label",
+            "steps": [
+              {
+                "access": {
+                  "assumes": [
+                    "TA-V3a"
+                  ],
+                  "column_use": "not_extracted",
+                  "operations": [
+                    "find"
+                  ],
+                  "role": "executes",
+                  "rows": [
+                    "CT-R1"
+                  ],
+                  "tool": "prisma",
+                  "verification": "mapped",
+                  "verification_wording": "mapped, not verified"
+                },
+                "confidence": 0.9,
+                "evidence": [
+                  {
+                    "file": "src/users.ts",
+                    "span": {
+                      "end_column": 44,
+                      "end_line": 64,
+                      "start_column": 23,
+                      "start_line": 64
+                    }
+                  }
+                ],
+                "kind": "reads_table",
+                "provenance": "inferred",
+                "relation": "I8",
+                "removed": false,
+                "source": "variable:src/users.ts#allTags",
+                "target": "table:prisma/schema.prisma#Tag",
+                "via": null
+              }
+            ],
+            "wording": "may read this table"
+          }
+        ],
+        "seeds": [
+          "column:prisma/schema.prisma#Tag.label"
+        ],
+        "table_uses": [
+          {
+            "found": [
+              "function:src/raw.ts#raw",
+              "function:src/relations.ts#refusals",
+              "function:src/users.ts#inTransaction",
+              "method:src/users.ts#UserService.reads",
+              "method:src/users.ts#UserService.writes",
+              "variable:src/users.ts#allTags"
+            ],
+            "may_also_be_used_by": [
+              {
+                "line": 17,
+                "owner": "function:src/raw.ts#rawRefusals",
+                "partial": false,
+                "provenance": "inferred",
+                "reason": "sql_not_literal: a Prisma SQL fragment ${Prisma.sql`id = ${id}`} in the template",
+                "row": "CT-R3",
+                "tool": "sql",
+                "unbound": true
+              },
+              {
+                "line": 19,
+                "owner": "function:src/raw.ts#rawRefusals",
+                "partial": false,
+                "provenance": "inferred",
+                "reason": "sql_not_literal: a Prisma SQL fragment ${where} in the template",
+                "row": "CT-R3",
+                "tool": "sql",
+                "unbound": true
+              },
+              {
+                "line": 20,
+                "owner": "function:src/raw.ts#rawRefusals",
+                "partial": false,
+                "provenance": "inferred",
+                "reason": "sql_not_literal: $queryRaw is called with an argument, not a tagged template",
+                "row": "CT-R3",
+                "tool": "sql",
+                "unbound": true
+              },
+              {
+                "line": 21,
+                "owner": "function:src/raw.ts#rawRefusals",
+                "partial": false,
+                "provenance": "inferred",
+                "reason": "sql_not_literal: the first argument of $executeRawUnsafe is not a string literal",
+                "row": "CT-R3",
+                "tool": "sql",
+                "unbound": true
+              },
+              {
+                "line": 22,
+                "owner": "function:src/raw.ts#rawRefusals",
+                "partial": false,
+                "provenance": "inferred",
+                "reason": "sql_outside_subset: statement kind truncate",
+                "row": "CT-R3",
+                "tool": "sql",
+                "unbound": true
+              },
+              {
+                "line": 23,
+                "owner": "function:src/raw.ts#rawRefusals",
+                "partial": false,
+                "provenance": "inferred",
+                "reason": "sql_name_unresolved: public.missing_table",
+                "row": "CT-R3",
+                "tool": "sql",
+                "unbound": true
+              },
+              {
+                "line": 51,
+                "owner": "function:src/users.ts#dynamic",
+                "partial": false,
+                "provenance": "inferred",
+                "reason": "entity_unresolved: a dynamic delegate client[model]",
+                "row": "CT-R1",
+                "tool": "prisma"
+              },
+              {
+                "line": 46,
+                "owner": "function:src/users.ts#notTraced",
+                "partial": false,
+                "provenance": "inferred",
+                "reason": "statement_not_traced",
+                "row": "D",
+                "tool": "prisma",
+                "unbound": true
+              }
+            ],
+            "may_also_wording": "may also be used by",
+            "table": "table:prisma/schema.prisma#Tag",
+            "wording": "uses found"
+          }
+        ],
+        "unknowns": {
+          "blind_spots": [],
+          "gap_nodes": [],
+          "near_misses": [],
+          "not_extracted": [
+            {
+              "nodes": [],
+              "relation": "I11"
+            }
+          ],
+          "untraversed": {
+            "contains": 7
+          }
+        }
+      },
+      "seed": "column:prisma/schema.prisma#Tag.label"
+    }
+  ],
+  "items": [
+    {
+      "after": {
+        "fields": {
+          "default": "absent",
+          "foreign_keys": [],
+          "index": false,
+          "name": "label",
+          "nullable": true,
+          "primary_key": false,
+          "server_default": false,
+          "type": "String",
+          "unique": false
+        },
+        "file": "prisma/schema.prisma",
+        "span": {
+          "end_column": 0,
+          "end_line": 51,
+          "start_column": 0,
+          "start_line": 51
+        }
+      },
+      "before": null,
+      "cause": "code",
+      "change": "added",
+      "confidence": null,
+      "fields": [],
+      "group": "model_tables",
+      "hints": [],
+      "id": "column:prisma/schema.prisma#Tag.label",
+      "identity": "column:prisma/schema.prisma#Tag.label",
+      "impact_count": 6,
+      "kind": "column",
+      "labels": [],
+      "name": "Tag.label",
+      "provenance": null,
+      "reason": null,
+      "record": "node",
+      "row": "C11",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": {
+        "fields": {
+          "completeness": "complete",
+          "name": "Tag",
+          "pins": {
+            "prisma": "7.10.0"
+          },
+          "set": "models/prisma/prisma/schema.prisma",
+          "tool": "prisma"
+        },
+        "file": "prisma/schema.prisma",
+        "span": {
+          "end_column": 0,
+          "end_line": 53,
+          "start_column": 0,
+          "start_line": 48
+        }
+      },
+      "before": {
+        "fields": {
+          "completeness": "complete",
+          "name": "Tag",
+          "pins": {
+            "prisma": "7.10.0"
+          },
+          "set": "models/prisma/prisma/schema.prisma",
+          "tool": "prisma"
+        },
+        "file": "prisma/schema.prisma",
+        "span": {
+          "end_column": 0,
+          "end_line": 52,
+          "start_column": 0,
+          "start_line": 48
+        }
+      },
+      "cause": "code",
+      "change": "body_changed",
+      "confidence": null,
+      "fields": [],
+      "group": "model_tables",
+      "hints": [],
+      "id": "table:prisma/schema.prisma#Tag",
+      "identity": "table:prisma/schema.prisma#Tag",
+      "impact_count": 7,
+      "kind": "table",
+      "labels": [],
+      "name": "Tag",
+      "provenance": null,
+      "reason": null,
+      "record": "node",
+      "row": "C11",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": {
+        "fields": {
+          "content_hash": "sha256:04d87ef1f519803531cfeced15928009f8d472439f6087ef1764dd1f153fb11f",
+          "language": "unknown",
+          "precision": "best_effort"
+        },
+        "file": "prisma/schema.prisma"
+      },
+      "before": {
+        "fields": {
+          "content_hash": "sha256:17362e955c3c91a82278b92fbd6a2630f9f62c53f04f21352794a5f227a469ba",
+          "language": "unknown",
+          "precision": "best_effort"
+        },
+        "file": "prisma/schema.prisma"
+      },
+      "cause": "code",
+      "change": "changed",
+      "confidence": null,
+      "fields": [
+        {
+          "after": "sha256:04d87ef1f519803531cfeced15928009f8d472439f6087ef1764dd1f153fb11f",
+          "before": "sha256:17362e955c3c91a82278b92fbd6a2630f9f62c53f04f21352794a5f227a469ba",
+          "change": "changed",
+          "name": "content_hash"
+        }
+      ],
+      "group": "files",
+      "hints": [],
+      "id": "file:prisma/schema.prisma",
+      "identity": "prisma/schema.prisma",
+      "impact_count": null,
+      "kind": "file",
+      "labels": [],
+      "name": "prisma/schema.prisma",
+      "provenance": null,
+      "reason": null,
+      "record": "file",
+      "row": "C1",
+      "test": false,
+      "wording": null
+    }
+  ],
+  "repository": "fixture",
+  "summary": {
+    "base": {
+      "dirty": null,
+      "extractor": {
+        "name": "graphvein",
+        "version": "extractors-62"
+      },
+      "finished_at": "\u003ctime-1\u003e",
+      "gaps": [],
+      "gaps_truncated": false,
+      "kind": "run",
+      "partial": false,
+      "partial_reasons": [],
+      "repository": "fixture",
+      "run": "\u003crun-1\u003e"
+    },
+    "contract_version": "T019-r8",
+    "extractor_changed": false,
+    "extractor_recheck": null,
+    "file_metadata_only": 0,
+    "groups": [
+      {
+        "causes": {},
+        "changes": {},
+        "context": 0,
+        "group": "routes",
+        "hidden_tests": 0,
+        "items": 0,
+        "kinds": {},
+        "moves": 0,
+        "other_changes": 0
+      },
+      {
+        "causes": {},
+        "changes": {},
+        "context": 0,
+        "group": "client_calls",
+        "hidden_tests": 0,
+        "items": 0,
+        "kinds": {},
+        "moves": 0,
+        "other_changes": 0
+      },
+      {
+        "causes": {},
+        "changes": {},
+        "context": 0,
+        "group": "api_operations",
+        "hidden_tests": 0,
+        "items": 0,
+        "kinds": {},
+        "moves": 0,
+        "other_changes": 0
+      },
+      {
+        "causes": {},
+        "changes": {},
+        "context": 0,
+        "group": "ipc",
+        "hidden_tests": 0,
+        "items": 0,
+        "kinds": {},
+        "moves": 0,
+        "other_changes": 0
+      },
+      {
+        "causes": {},
+        "changes": {},
+        "context": 0,
+        "group": "server_actions",
+        "hidden_tests": 0,
+        "items": 0,
+        "kinds": {},
+        "moves": 0,
+        "other_changes": 0
+      },
+      {
+        "causes": {},
+        "changes": {},
+        "context": 0,
+        "group": "migration_tables",
+        "hidden_tests": 0,
+        "items": 0,
+        "kinds": {},
+        "moves": 0,
+        "other_changes": 0
+      },
+      {
+        "causes": {
+          "code": 2
+        },
+        "changes": {
+          "added": 1,
+          "body_changed": 1
+        },
+        "context": 1,
+        "group": "model_tables",
+        "hidden_tests": 0,
+        "items": 2,
+        "kinds": {
+          "column": 1,
+          "table": 1
+        },
+        "moves": 5,
+        "other_changes": 5
+      },
+      {
+        "causes": {},
+        "changes": {},
+        "context": 0,
+        "group": "migrations",
+        "hidden_tests": 0,
+        "items": 0,
+        "kinds": {},
+        "moves": 0,
+        "other_changes": 0
+      },
+      {
+        "causes": {},
+        "changes": {},
+        "context": 0,
+        "group": "code",
+        "hidden_tests": 0,
+        "items": 0,
+        "kinds": {},
+        "moves": 0,
+        "other_changes": 0
+      },
+      {
+        "causes": {},
+        "changes": {},
+        "context": 0,
+        "group": "angular",
+        "hidden_tests": 0,
+        "items": 0,
+        "kinds": {},
+        "moves": 0,
+        "other_changes": 0
+      },
+      {
+        "causes": {},
+        "changes": {},
+        "context": 0,
+        "group": "react",
+        "hidden_tests": 0,
+        "items": 0,
+        "kinds": {},
+        "moves": 0,
+        "other_changes": 0
+      },
+      {
+        "causes": {},
+        "changes": {},
+        "context": 0,
+        "group": "architecture",
+        "hidden_tests": 0,
+        "items": 0,
+        "kinds": {},
+        "moves": 0,
+        "other_changes": 0
+      },
+      {
+        "causes": {
+          "code": 1
+        },
+        "changes": {
+          "changed": 1
+        },
+        "context": 1,
+        "group": "files",
+        "hidden_tests": 0,
+        "items": 1,
+        "kinds": {
+          "file": 1
+        },
+        "moves": 0,
+        "other_changes": 0
+      },
+      {
+        "causes": {},
+        "changes": {},
+        "context": 0,
+        "group": "gaps",
+        "hidden_tests": 0,
+        "items": 0,
+        "kinds": {},
+        "moves": 0,
+        "other_changes": 0
+      },
+      {
+        "causes": {},
+        "changes": {},
+        "context": 0,
+        "group": "other",
+        "hidden_tests": 0,
+        "items": 0,
+        "kinds": {},
+        "moves": 5,
+        "other_changes": 0
+      },
+      {
+        "causes": {},
+        "changes": {},
+        "context": 0,
+        "group": "unclassified",
+        "hidden_tests": 0,
+        "items": 0,
+        "kinds": {},
+        "moves": 0,
+        "other_changes": 0
+      }
+    ],
+    "head": {
+      "dirty": null,
+      "extractor": {
+        "name": "graphvein",
+        "version": "extractors-62"
+      },
+      "finished_at": "\u003ctime-2\u003e",
+      "gaps": [],
+      "gaps_truncated": false,
+      "kind": "current",
+      "partial": false,
+      "partial_reasons": [],
+      "repository": "fixture",
+      "run": "\u003crun-2\u003e"
+    },
+    "head_commit_differs": false,
+    "locations": 0,
+    "not_extracted": [
+      "architecture"
+    ],
+    "partial": false,
+    "total": 3
+  }
+}

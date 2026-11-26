@@ -1,0 +1,1 @@
+CREATE INDEX CONCURRENTLY ix_5 ON ext_a (code);

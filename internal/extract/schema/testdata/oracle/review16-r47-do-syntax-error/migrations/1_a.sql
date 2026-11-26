@@ -1,0 +1,1 @@
+DO $$ BEGIN RETURN 1 END $$;

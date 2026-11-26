@@ -1,0 +1,9 @@
+version: 1
+name: shop
+members:
+  - repository: api
+    consumes:
+      - {repository: api, default_scope: true}
+    scopes:
+      - name: admin
+        path: apps/admin

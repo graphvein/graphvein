@@ -1,0 +1,3 @@
+package cgotest
+
+func A() {}

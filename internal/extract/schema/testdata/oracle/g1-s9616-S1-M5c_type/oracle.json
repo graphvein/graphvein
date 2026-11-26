@@ -1,0 +1,73 @@
+{
+  "id": "g1-s9616-S1-M5c_type",
+  "signature": "applied|S1|42804|M5c.type",
+  "class": "S1",
+  "owner": "P8",
+  "row": "M5c.type",
+  "history": {
+    "id": "g1-s9616",
+    "prelude": [
+      "CREATE TABLE ext_a (id int PRIMARY KEY, code text UNIQUE)"
+    ],
+    "tags": {
+      "1_m1.sql": [
+        "M1.create"
+      ],
+      "2_m2.sql": [
+        "M5c.type"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "accepted",
+        "no_transaction": true
+      },
+      {
+        "file": "2_m2.sql",
+        "status": "refused",
+        "sqlstate": "42804",
+        "message": "foreign key constraint \"t1_c2_fkey\" cannot be implemented",
+        "detail": "Key columns \"c2\" and \"code\" are of incompatible types: integer and text.",
+        "statement": 1,
+        "statement_text": "ALTER TABLE t1 ALTER COLUMN c2 TYPE integer USING c2::integer;"
+      }
+    ],
+    "tables": [
+      {
+        "table": "history.t1",
+        "columns": [
+          {
+            "name": "c2",
+            "type": "character varying(40)",
+            "not_null": false,
+            "has_default": false
+          }
+        ],
+        "primary_key": null,
+        "unique_keys": [],
+        "foreign_keys": [
+          {
+            "name": "t1_c2_fkey",
+            "columns": [
+              "c2"
+            ],
+            "ref_table": "history.ext_a",
+            "ref_columns": [
+              "code"
+            ]
+          }
+        ],
+        "indexes": []
+      }
+    ],
+    "prelude_tables": [
+      "history.ext_a",
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

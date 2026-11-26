@@ -1,0 +1,795 @@
+{
+  "diagnostics": [
+    {
+      "code": "ts_structure_unread",
+      "file": "lib/sequelize.ts",
+      "message": "1 TypeScript or JavaScript declarations or imports are outside the structural claim contract and claim nothing (undeclared_package=1)",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "unresolved_import",
+      "file": "lib/sequelize.ts",
+      "message": "relative import ./settings is unavailable",
+      "severity": "warning",
+      "type": "diagnostic"
+    },
+    {
+      "code": "ts_structure_unread",
+      "file": "models/Order.ts",
+      "message": "1 TypeScript or JavaScript declarations or imports are outside the structural claim contract and claim nothing (undeclared_package=1)",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "unresolved_calls",
+      "file": "models/Order.ts",
+      "message": "1 calls could not be resolved without a type checker (external=0, unknown=1)",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "ts_structure_unread",
+      "file": "models/area.js",
+      "message": "1 TypeScript or JavaScript declarations or imports are outside the structural claim contract and claim nothing (require_call=1)",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "unresolved_calls",
+      "file": "models/helpers.ts",
+      "message": "2 calls could not be resolved without a type checker (external=0, unknown=2)",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "ts_structure_unread",
+      "file": "models/index.js",
+      "message": "4 TypeScript or JavaScript declarations or imports are outside the structural claim contract and claim nothing (require_call=4)",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "ts_structure_unread",
+      "file": "models/legacy.js",
+      "message": "1 TypeScript or JavaScript declarations or imports are outside the structural claim contract and claim nothing (require_call=1)",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "ts_structure_unread",
+      "file": "plain/other.js",
+      "message": "2 TypeScript or JavaScript declarations or imports are outside the structural claim contract and claim nothing (require_call=2)",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "ts_structure_unread",
+      "file": "utils/getConfig.js",
+      "message": "1 TypeScript or JavaScript declarations or imports are outside the structural claim contract and claim nothing (require_call=1)",
+      "severity": "info",
+      "type": "diagnostic"
+    }
+  ],
+  "edges": [
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "models/Order.ts",
+          "span": {
+            "end_column": 1,
+            "end_line": 11,
+            "start_column": 0,
+            "start_line": 7
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:models/Order.ts#models%2FOrder.ts",
+      "target": "class:models/Order.ts#Order",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "models/Order.ts",
+          "span": {
+            "end_column": 21,
+            "end_line": 47,
+            "start_column": 0,
+            "start_line": 47
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:models/Order.ts#models%2FOrder.ts",
+      "target": "class:models/Order.ts#Plain",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "models/Order.ts",
+          "span": {
+            "end_column": 57,
+            "end_line": 5,
+            "start_column": 0,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:models/Order.ts#models%2FOrder.ts",
+      "target": "class:models/Order.ts#WithId",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "models/Order.ts",
+          "span": {
+            "end_column": 7,
+            "end_line": 36,
+            "start_column": 20,
+            "start_line": 33
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:models/Order.ts#models%2FOrder.ts",
+      "target": "function:models/Order.ts#stamp",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "models/Order.ts",
+          "span": {
+            "end_column": 7,
+            "end_line": 24,
+            "start_column": 6,
+            "start_line": 22
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:models/Order.ts#models%2FOrder.ts",
+      "target": "method:models/Order.ts#get",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "models/area.js",
+          "span": {
+            "end_column": 32,
+            "end_line": 22,
+            "start_column": 2,
+            "start_line": 22
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:models/area.js#models%2Farea.js",
+      "target": "class:models/area.js#Helper",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "models/area.js",
+          "span": {
+            "end_column": 21,
+            "end_line": 27,
+            "start_column": 2,
+            "start_line": 27
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:models/area.js#models%2Farea.js",
+      "target": "function:models/area.js#local",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "models/helpers.ts",
+          "span": {
+            "end_column": 1,
+            "end_line": 11,
+            "start_column": 0,
+            "start_line": 9
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:models/helpers.ts#models%2Fhelpers.ts",
+      "target": "function:models/helpers.ts#amount",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "models/helpers.ts",
+          "span": {
+            "end_column": 1,
+            "end_line": 7,
+            "start_column": 0,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:models/helpers.ts#models%2Fhelpers.ts",
+      "target": "function:models/helpers.ts#default.function",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "models/helpers.ts",
+          "span": {
+            "end_column": 1,
+            "end_line": 19,
+            "start_column": 0,
+            "start_line": 17
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:models/helpers.ts#models%2Fhelpers.ts",
+      "target": "function:models/helpers.ts#later",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "models/helpers.ts",
+          "span": {
+            "end_column": 1,
+            "end_line": 15,
+            "start_column": 0,
+            "start_line": 13
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:models/helpers.ts#models%2Fhelpers.ts",
+      "target": "function:models/helpers.ts#local",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "models/legacy.js",
+          "span": {
+            "end_column": 33,
+            "end_line": 4,
+            "start_column": 0,
+            "start_line": 4
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:models/legacy.js#models%2Flegacy.js",
+      "target": "class:models/legacy.js#Legacy",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "models/Order.ts",
+          "span": {
+            "end_column": 41,
+            "end_line": 3,
+            "start_column": 0,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:models/Order.ts#models%2FOrder.ts",
+      "target": "file:lib/sequelize.ts#lib%2Fsequelize.ts",
+      "type": "edge"
+    }
+  ],
+  "files": null,
+  "nodes": [
+    {
+      "attributes": {
+        "decorators": [
+          "@Table"
+        ]
+      },
+      "content_hash": "sha256:87ad5c5ac1018cd1fa641eaaa457dcb041ffcf9bed1e4237812d87d0e0bbdfb2",
+      "file": "models/Order.ts",
+      "identity": "class:models/Order.ts#Order",
+      "kind": "class",
+      "level": 4,
+      "name": "Order",
+      "qualified_name": "Order",
+      "span": {
+        "end_column": 1,
+        "end_line": 11,
+        "start_column": 0,
+        "start_line": 7
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "exported": true
+      },
+      "content_hash": "sha256:685fc165ef21ed07d25c2d43c27c69ecea4e8b72cf5d1112e0d68b5fc76cb3ca",
+      "file": "models/Order.ts",
+      "identity": "class:models/Order.ts#Plain",
+      "kind": "class",
+      "level": 4,
+      "name": "Plain",
+      "qualified_name": "Plain",
+      "span": {
+        "end_column": 21,
+        "end_line": 47,
+        "start_column": 0,
+        "start_line": 47
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "exported": true
+      },
+      "content_hash": "sha256:e04bd2e35a3ff389db9b9954a26d932c2afaaecf0fb27b08e0f1475ab4b9a18c",
+      "file": "models/Order.ts",
+      "identity": "class:models/Order.ts#WithId",
+      "kind": "class",
+      "level": 4,
+      "name": "WithId",
+      "qualified_name": "WithId",
+      "span": {
+        "end_column": 57,
+        "end_line": 5,
+        "start_column": 0,
+        "start_line": 5
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:0fddb090efb21e31b4ff976a77cb0e798fa2377ae8e1ad18a25a114549a02d32",
+      "file": "models/area.js",
+      "identity": "class:models/area.js#Helper",
+      "kind": "class",
+      "level": 4,
+      "name": "Helper",
+      "qualified_name": "Helper",
+      "span": {
+        "end_column": 32,
+        "end_line": 22,
+        "start_column": 2,
+        "start_line": 22
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:67b13b0c463e0c4790237d03dd8c0bee72bf89c501415cdcb11a8303ad95afb1",
+      "file": "models/legacy.js",
+      "identity": "class:models/legacy.js#Legacy",
+      "kind": "class",
+      "level": 4,
+      "name": "Legacy",
+      "qualified_name": "Legacy",
+      "span": {
+        "end_column": 33,
+        "end_line": 4,
+        "start_column": 0,
+        "start_line": 4
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:8a4659346691183c14a6514d08f96591a6057745d6dd4b3a1d8ee1501a74dce6",
+      "file": "README.md",
+      "identity": "file:README.md#README.md",
+      "kind": "file",
+      "level": 3,
+      "name": "README.md",
+      "qualified_name": "README.md",
+      "span": {
+        "end_column": 0,
+        "end_line": 28,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:a6368c22c587e2a7d2e9d121456979c4dca6049aea125e0e31ea43c69362fa59",
+      "file": "config/config.js",
+      "identity": "file:config/config.js#config%2Fconfig.js",
+      "kind": "file",
+      "level": 3,
+      "name": "config.js",
+      "qualified_name": "config/config.js",
+      "span": {
+        "end_column": 0,
+        "end_line": 14,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:5f4babb2baabb7fe14c7053f9bee103ed02a1c71f9df08a150f641c5e1a9bddc",
+      "file": "lib/sequelize.ts",
+      "identity": "file:lib/sequelize.ts#lib%2Fsequelize.ts",
+      "kind": "file",
+      "level": 3,
+      "name": "sequelize.ts",
+      "qualified_name": "lib/sequelize.ts",
+      "span": {
+        "end_column": 0,
+        "end_line": 11,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 1,
+        "unresolved_unknown_call_sites": [
+          {
+            "caller": "method:models/Order.ts#get",
+            "name": "getDataValue",
+            "span": {
+              "end_column": 41,
+              "end_line": 23,
+              "start_column": 15,
+              "start_line": 23
+            }
+          }
+        ]
+      },
+      "content_hash": "sha256:10f5616d06eef379765935ec1f7d96eb0905af47c9abb5fdc022351409288cf6",
+      "file": "models/Order.ts",
+      "identity": "file:models/Order.ts#models%2FOrder.ts",
+      "kind": "file",
+      "level": 3,
+      "name": "Order.ts",
+      "qualified_name": "models/Order.ts",
+      "span": {
+        "end_column": 0,
+        "end_line": 48,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:86e33d4595d589ebf50f4b5460057aacd6c721960096f0f202b62d01fee22278",
+      "file": "models/area.js",
+      "identity": "file:models/area.js#models%2Farea.js",
+      "kind": "file",
+      "level": 3,
+      "name": "area.js",
+      "qualified_name": "models/area.js",
+      "span": {
+        "end_column": 0,
+        "end_line": 30,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 2,
+        "unresolved_unknown_call_sites": [
+          {
+            "caller": "function:models/helpers.ts#default.function",
+            "name": "STRING",
+            "span": {
+              "end_column": 41,
+              "end_line": 5,
+              "start_column": 22,
+              "start_line": 5
+            }
+          },
+          {
+            "caller": "function:models/helpers.ts#amount",
+            "name": "DECIMAL",
+            "span": {
+              "end_column": 41,
+              "end_line": 10,
+              "start_column": 17,
+              "start_line": 10
+            }
+          }
+        ]
+      },
+      "content_hash": "sha256:3db7f822c4c2717038b2cb3aef1759ca4d8339481371b26ae8f53fe4f4f9edcf",
+      "file": "models/helpers.ts",
+      "identity": "file:models/helpers.ts#models%2Fhelpers.ts",
+      "kind": "file",
+      "level": 3,
+      "name": "helpers.ts",
+      "qualified_name": "models/helpers.ts",
+      "span": {
+        "end_column": 0,
+        "end_line": 20,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:dc4bc835a0e64bd84e39a65df42a1543e1fb91316a24629496ae672e56453f2a",
+      "file": "models/index.js",
+      "identity": "file:models/index.js#models%2Findex.js",
+      "kind": "file",
+      "level": 3,
+      "name": "index.js",
+      "qualified_name": "models/index.js",
+      "span": {
+        "end_column": 0,
+        "end_line": 25,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:641174c35775705152937a56f9d8b2b88f32cfa903ab4102d2bb777130e7b7b2",
+      "file": "models/legacy.js",
+      "identity": "file:models/legacy.js#models%2Flegacy.js",
+      "kind": "file",
+      "level": 3,
+      "name": "legacy.js",
+      "qualified_name": "models/legacy.js",
+      "span": {
+        "end_column": 0,
+        "end_line": 9,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:0cc1c6804c98e543d040753b17621e3e86a9bda08c97ef391b1d052efbdc4812",
+      "file": "plain/other.js",
+      "identity": "file:plain/other.js#plain%2Fother.js",
+      "kind": "file",
+      "level": 3,
+      "name": "other.js",
+      "qualified_name": "plain/other.js",
+      "span": {
+        "end_column": 0,
+        "end_line": 17,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:b88c4976abe0420b48073be113e3ff5dcc7a79a279f958acd9168f7e7bc967d3",
+      "file": "utils/getConfig.js",
+      "identity": "file:utils/getConfig.js#utils%2FgetConfig.js",
+      "kind": "file",
+      "level": 3,
+      "name": "getConfig.js",
+      "qualified_name": "utils/getConfig.js",
+      "span": {
+        "end_column": 0,
+        "end_line": 8,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:9559bbb109e7bc70c29148300e631c0b00e5c414ba83e36accc3fa2e4359631f",
+      "file": "models/Order.ts",
+      "identity": "function:models/Order.ts#stamp",
+      "kind": "function",
+      "level": 4,
+      "name": "stamp",
+      "qualified_name": "stamp",
+      "span": {
+        "end_column": 7,
+        "end_line": 36,
+        "start_column": 20,
+        "start_line": 33
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:7919f6b305118f01160cb153e3d305b7c8283b5802965cf21452963e138f3c4a",
+      "file": "models/area.js",
+      "identity": "function:models/area.js#local",
+      "kind": "function",
+      "level": 4,
+      "name": "local",
+      "qualified_name": "local",
+      "span": {
+        "end_column": 21,
+        "end_line": 27,
+        "start_column": 2,
+        "start_line": 27
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "exported": true
+      },
+      "content_hash": "sha256:47094337f8aec8d8aa820d02649b250161cb20ae7adc23d6d7cb5746ee6d9e63",
+      "file": "models/helpers.ts",
+      "identity": "function:models/helpers.ts#amount",
+      "kind": "function",
+      "level": 4,
+      "name": "amount",
+      "qualified_name": "amount",
+      "span": {
+        "end_column": 1,
+        "end_line": 11,
+        "start_column": 0,
+        "start_line": 9
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "default_export": true,
+        "exported": true
+      },
+      "content_hash": "sha256:88ea6be712053b9fdc53d4700fab21c18ebfc77e06fba668e89f7f0cfe420557",
+      "file": "models/helpers.ts",
+      "identity": "function:models/helpers.ts#default.function",
+      "kind": "function",
+      "level": 4,
+      "name": "default.function",
+      "qualified_name": "default.function",
+      "span": {
+        "end_column": 1,
+        "end_line": 7,
+        "start_column": 0,
+        "start_line": 3
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:b4907a6060d9aaf88d221c6179f5c2e88c06d4be06b6b6294381c3566edc141e",
+      "file": "models/helpers.ts",
+      "identity": "function:models/helpers.ts#later",
+      "kind": "function",
+      "level": 4,
+      "name": "later",
+      "qualified_name": "later",
+      "span": {
+        "end_column": 1,
+        "end_line": 19,
+        "start_column": 0,
+        "start_line": 17
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:8100ed7c9c10a30cd94004a1646caabf95be14bf457967b766f3c5624a710c3b",
+      "file": "models/helpers.ts",
+      "identity": "function:models/helpers.ts#local",
+      "kind": "function",
+      "level": 4,
+      "name": "local",
+      "qualified_name": "local",
+      "span": {
+        "end_column": 1,
+        "end_line": 15,
+        "start_column": 0,
+        "start_line": 13
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:cb68186f89a6f6e624dd22c95e3428554def939c00062b065f0c7b30011c7990",
+      "file": "models/Order.ts",
+      "identity": "method:models/Order.ts#get",
+      "kind": "method",
+      "level": 4,
+      "name": "get",
+      "qualified_name": "get",
+      "span": {
+        "end_column": 7,
+        "end_line": 24,
+        "start_column": 6,
+        "start_line": 22
+      },
+      "type": "node"
+    }
+  ]
+}

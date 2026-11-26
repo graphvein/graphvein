@@ -1,0 +1,2667 @@
+{
+  "info": {
+    "description": "Routes registered in this repository's source, as Graphvein extracted them from its index. Graphvein ran no code and read no running server. A parameter, request body, response or security requirement that is absent was not read, which is not the same as none: each operation lists what was not read in x-graphvein.not_read. Routes Graphvein could not place on a path, forms OpenAPI cannot express and conflicting registrations are listed in the root x-graphvein, never guessed.",
+    "title": "fixture routes extracted by Graphvein",
+    "version": "unversioned"
+  },
+  "openapi": "3.1.1",
+  "paths": {
+    "/api": {
+      "x-graphvein": {
+        "any_method": [
+          {
+            "file": "web/pages/api/index.ts",
+            "framework": "nextjs_pages",
+            "line": 3,
+            "route": "route:web/pages/api/index.ts#ANY%20%2Fapi"
+          }
+        ],
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "ANY",
+            "resolution": "literal",
+            "route": "route:web/pages/api/index.ts#ANY%20%2Fapi"
+          }
+        ]
+      }
+    },
+    "/api/_helper": {
+      "x-graphvein": {
+        "any_method": [
+          {
+            "file": "web/pages/api/_helper.ts",
+            "framework": "nextjs_pages",
+            "line": 3,
+            "route": "route:web/pages/api/_helper.ts#ANY%20%2Fapi%2F_helper"
+          }
+        ],
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "ANY",
+            "resolution": "literal",
+            "route": "route:web/pages/api/_helper.ts#ANY%20%2Fapi%2F_helper"
+          }
+        ]
+      }
+    },
+    "/api/head": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "legacy/app/api/head/route.ts",
+          "framework": "nextjs",
+          "handler": "function:legacy/app/api/head/route.ts#GET",
+          "handler_expression": null,
+          "line": 1,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:legacy/app/api/head/route.ts#GET%20%2Fapi%2Fhead",
+          "rule": "Next.js routes, NX rows (ADR 0077)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [
+              {
+                "item": {
+                  "content_type": "application/json",
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "legacy/app/api/head/route.ts",
+                    "kind": "read_in_handler",
+                    "line": 2,
+                    "rule": "SH-N17"
+                  },
+                  "schema": {
+                    "additional": "unknown",
+                    "type": "object"
+                  },
+                  "status": "200"
+                },
+                "row": "OG-76",
+                "section": "responses",
+                "why": "a name read in code: its type and whether it must be sent are not read"
+              }
+            ],
+            "sections": {
+              "body": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "legacy/app/api/head/route.ts",
+                  "kind": "fact",
+                  "line": 1,
+                  "rule": "SH-N2"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "reason": "statuses read from returned responses; thrown errors, middleware and unread calls may add others",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "reason": "security is not read for Next.js route handlers and server actions",
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 5
+            },
+            "version": 1
+          },
+          "template": "/api/head"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:legacy/app/api/head/route.ts#GET%20%2Fapi%2Fhead"
+          }
+        ]
+      }
+    },
+    "/api/health": {
+      "x-graphvein": {
+        "any_method": [
+          {
+            "file": "web/pages/api/health.ts",
+            "framework": "nextjs_pages",
+            "line": 1,
+            "route": "route:web/pages/api/health.ts#ANY%20%2Fapi%2Fhealth"
+          }
+        ],
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "ANY",
+            "resolution": "literal",
+            "route": "route:web/pages/api/health.ts#ANY%20%2Fapi%2Fhealth"
+          }
+        ]
+      }
+    },
+    "/api/items": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "web/app/api/items/route.ts",
+          "framework": "nextjs",
+          "handler": "function:web/app/api/items/route.ts#GET",
+          "handler_expression": null,
+          "line": 3,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:web/app/api/items/route.ts#GET%20%2Fapi%2Fitems",
+          "rule": "Next.js routes, NX rows (ADR 0077)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [
+              {
+                "item": {
+                  "content_type": "application/json",
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "web/app/api/items/route.ts",
+                    "kind": "read_in_handler",
+                    "line": 4,
+                    "rule": "SH-N17"
+                  },
+                  "schema": null,
+                  "status": "200"
+                },
+                "row": "OG-76",
+                "section": "responses",
+                "why": "a name read in code: its type and whether it must be sent are not read"
+              }
+            ],
+            "sections": {
+              "body": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "web/app/api/items/route.ts",
+                  "kind": "fact",
+                  "line": 3,
+                  "rule": "SH-N2"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "reason": "statuses read from returned responses; thrown errors, middleware and unread calls may add others",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "reason": "security is not read for Next.js route handlers and server actions",
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 5
+            },
+            "version": 1
+          },
+          "template": "/api/items"
+        }
+      },
+      "post": {
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "web/app/api/items/route.ts",
+          "framework": "nextjs",
+          "handler": "function:web/app/api/items/route.ts#POST",
+          "handler_expression": null,
+          "line": 7,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:web/app/api/items/route.ts#POST%20%2Fapi%2Fitems",
+          "rule": "Next.js routes, NX rows (ADR 0077)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [
+              {
+                "item": {
+                  "content_type": null,
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "web/app/api/items/route.ts",
+                    "kind": "read_in_handler",
+                    "line": 8,
+                    "rule": "SH-N18"
+                  },
+                  "schema": {
+                    "type": "null"
+                  },
+                  "status": "201"
+                },
+                "row": "OG-76",
+                "section": "responses",
+                "why": "a name read in code: its type and whether it must be sent are not read"
+              }
+            ],
+            "sections": {
+              "body": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "web/app/api/items/route.ts",
+                  "kind": "fact",
+                  "line": 7,
+                  "rule": "SH-N2"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "reason": "statuses read from returned responses; thrown errors, middleware and unread calls may add others",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "reason": "security is not read for Next.js route handlers and server actions",
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 5
+            },
+            "version": 1
+          },
+          "template": "/api/items"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:web/app/api/items/route.ts#GET%20%2Fapi%2Fitems"
+          },
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "POST",
+            "resolution": "literal",
+            "route": "route:web/app/api/items/route.ts#POST%20%2Fapi%2Fitems"
+          }
+        ]
+      }
+    },
+    "/api/items/{id}": {
+      "delete": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-graphvein": {
+              "provenance": {
+                "chain": [],
+                "confidence": 1,
+                "file": "web/app/api/items/[id]/route.ts",
+                "kind": "fact",
+                "line": 11,
+                "rule": "SH-N1"
+              }
+            }
+          }
+        ],
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "web/app/api/items/[id]/route.ts",
+          "framework": "nextjs",
+          "handler": "function:web/app/api/items/%5Bid%5D/route.ts#remove",
+          "handler_expression": null,
+          "line": 11,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:web/app/api/items/%5Bid%5D/route.ts#DELETE%20%2Fapi%2Fitems%2F%7Bid%7D",
+          "rule": "Next.js routes, NX rows (ADR 0077)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [
+              {
+                "item": {
+                  "content_type": null,
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "web/app/api/items/[id]/route.ts",
+                    "kind": "read_in_handler",
+                    "line": 6,
+                    "rule": "SH-N18"
+                  },
+                  "schema": {
+                    "type": "null"
+                  },
+                  "status": "204"
+                },
+                "row": "OG-76",
+                "section": "responses",
+                "why": "a name read in code: its type and whether it must be sent are not read"
+              }
+            ],
+            "sections": {
+              "body": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "web/app/api/items/[id]/route.ts",
+                  "kind": "fact",
+                  "line": 11,
+                  "rule": "SH-N1"
+                },
+                "standard": 1,
+                "state": "complete"
+              },
+              "query": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "reason": "statuses read from returned responses; thrown errors, middleware and unread calls may add others",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "reason": "security is not read for Next.js route handlers and server actions",
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 5
+            },
+            "version": 1
+          },
+          "template": "/api/items/{id}"
+        }
+      },
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-graphvein": {
+              "provenance": {
+                "chain": [],
+                "confidence": 1,
+                "file": "legacy/app/(shop)/api/items/[id]/route.ts",
+                "kind": "fact",
+                "line": 1,
+                "rule": "SH-N1"
+              }
+            }
+          }
+        ],
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "legacy/app/(shop)/api/items/[id]/route.ts",
+          "framework": "nextjs",
+          "handler": "function:legacy/app/%28shop%29/api/items/%5Bid%5D/route.ts#GET",
+          "handler_expression": null,
+          "line": 1,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:legacy/app/%28shop%29/api/items/%5Bid%5D/route.ts#GET%20%2Fapi%2Fitems%2F%7Bid%7D",
+          "rule": "Next.js routes, NX rows (ADR 0077)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [
+              {
+                "item": {
+                  "content_type": "application/json",
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "legacy/app/(shop)/api/items/[id]/route.ts",
+                    "kind": "read_in_handler",
+                    "line": 2,
+                    "rule": "SH-N17"
+                  },
+                  "schema": {
+                    "additional": "unknown",
+                    "type": "object"
+                  },
+                  "status": "200"
+                },
+                "row": "OG-76",
+                "section": "responses",
+                "why": "a name read in code: its type and whether it must be sent are not read"
+              }
+            ],
+            "sections": {
+              "body": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "legacy/app/(shop)/api/items/[id]/route.ts",
+                  "kind": "fact",
+                  "line": 1,
+                  "rule": "SH-N1"
+                },
+                "standard": 1,
+                "state": "complete"
+              },
+              "query": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "reason": "statuses read from returned responses; thrown errors, middleware and unread calls may add others",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "reason": "security is not read for Next.js route handlers and server actions",
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 5
+            },
+            "version": 1
+          },
+          "template": "/api/items/{id}"
+        }
+      },
+      "patch": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-graphvein": {
+              "provenance": {
+                "chain": [],
+                "confidence": 1,
+                "file": "web/app/api/items/[id]/route.ts",
+                "kind": "fact",
+                "line": 10,
+                "rule": "SH-N1"
+              }
+            }
+          }
+        ],
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "web/app/api/items/[id]/route.ts",
+          "framework": "nextjs",
+          "handler": "function:web/app/api/items/%5Bid%5D/route.ts#PATCH",
+          "handler_expression": null,
+          "line": 10,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:web/app/api/items/%5Bid%5D/route.ts#PATCH%20%2Fapi%2Fitems%2F%7Bid%7D",
+          "rule": "Next.js routes, NX rows (ADR 0077)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [
+              {
+                "item": {
+                  "content_type": "application/json",
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "web/app/api/items/[id]/route.ts",
+                    "kind": "read_in_handler",
+                    "line": 10,
+                    "rule": "SH-N17"
+                  },
+                  "schema": {
+                    "additional": "unknown",
+                    "fields": [
+                      {
+                        "name": "patched",
+                        "presence": "unknown",
+                        "schema": {
+                          "reason": "value not read",
+                          "type": "unknown"
+                        }
+                      }
+                    ],
+                    "type": "object"
+                  },
+                  "status": "200"
+                },
+                "row": "OG-76",
+                "section": "responses",
+                "why": "a name read in code: its type and whether it must be sent are not read"
+              }
+            ],
+            "sections": {
+              "body": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "web/app/api/items/[id]/route.ts",
+                  "kind": "fact",
+                  "line": 10,
+                  "rule": "SH-N1"
+                },
+                "standard": 1,
+                "state": "complete"
+              },
+              "query": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "reason": "statuses read from returned responses; thrown errors, middleware and unread calls may add others",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "reason": "security is not read for Next.js route handlers and server actions",
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 5
+            },
+            "version": 1
+          },
+          "template": "/api/items/{id}"
+        }
+      },
+      "put": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-graphvein": {
+              "provenance": {
+                "chain": [],
+                "confidence": 1,
+                "file": "web/app/api/items/[id]/route.ts",
+                "kind": "fact",
+                "line": 9,
+                "rule": "SH-N1"
+              }
+            }
+          }
+        ],
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "web/app/api/items/[id]/route.ts",
+          "framework": "nextjs",
+          "handler": "function:web/app/api/items/%5Bid%5D/route.ts#update",
+          "handler_expression": null,
+          "line": 9,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:web/app/api/items/%5Bid%5D/route.ts#PUT%20%2Fapi%2Fitems%2F%7Bid%7D",
+          "rule": "Next.js routes, NX rows (ADR 0077)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [
+              {
+                "item": {
+                  "content_type": "application/json",
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "web/app/api/items/[id]/route.ts",
+                    "kind": "read_in_handler",
+                    "line": 2,
+                    "rule": "SH-N17"
+                  },
+                  "schema": {
+                    "additional": "unknown",
+                    "fields": [
+                      {
+                        "name": "updated",
+                        "presence": "unknown",
+                        "schema": {
+                          "reason": "value not read",
+                          "type": "unknown"
+                        }
+                      }
+                    ],
+                    "type": "object"
+                  },
+                  "status": "200"
+                },
+                "row": "OG-76",
+                "section": "responses",
+                "why": "a name read in code: its type and whether it must be sent are not read"
+              }
+            ],
+            "sections": {
+              "body": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "web/app/api/items/[id]/route.ts",
+                  "kind": "fact",
+                  "line": 9,
+                  "rule": "SH-N1"
+                },
+                "standard": 1,
+                "state": "complete"
+              },
+              "query": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "reason": "statuses read from returned responses; thrown errors, middleware and unread calls may add others",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "reason": "security is not read for Next.js route handlers and server actions",
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 5
+            },
+            "version": 1
+          },
+          "template": "/api/items/{id}"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:legacy/app/%28shop%29/api/items/%5Bid%5D/route.ts#GET%20%2Fapi%2Fitems%2F%7Bid%7D"
+          },
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "DELETE",
+            "resolution": "literal",
+            "route": "route:web/app/api/items/%5Bid%5D/route.ts#DELETE%20%2Fapi%2Fitems%2F%7Bid%7D"
+          },
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "PATCH",
+            "resolution": "literal",
+            "route": "route:web/app/api/items/%5Bid%5D/route.ts#PATCH%20%2Fapi%2Fitems%2F%7Bid%7D"
+          },
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "PUT",
+            "resolution": "literal",
+            "route": "route:web/app/api/items/%5Bid%5D/route.ts#PUT%20%2Fapi%2Fitems%2F%7Bid%7D"
+          }
+        ]
+      }
+    },
+    "/api/mixed": {
+      "post": {
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "legacy/app/api/mixed/route.ts",
+          "framework": "nextjs",
+          "handler": "function:legacy/app/api/mixed/route.ts#POST",
+          "handler_expression": null,
+          "line": 1,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:legacy/app/api/mixed/route.ts#POST%20%2Fapi%2Fmixed",
+          "rule": "Next.js routes, NX rows (ADR 0077)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [
+              {
+                "item": {
+                  "content_type": "application/json",
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "legacy/app/api/mixed/route.ts",
+                    "kind": "read_in_handler",
+                    "line": 2,
+                    "rule": "SH-N17"
+                  },
+                  "schema": {
+                    "additional": "unknown",
+                    "type": "object"
+                  },
+                  "status": "200"
+                },
+                "row": "OG-76",
+                "section": "responses",
+                "why": "a name read in code: its type and whether it must be sent are not read"
+              }
+            ],
+            "sections": {
+              "body": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "legacy/app/api/mixed/route.ts",
+                  "kind": "fact",
+                  "line": 1,
+                  "rule": "SH-N2"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "reason": "statuses read from returned responses; thrown errors, middleware and unread calls may add others",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "reason": "security is not read for Next.js route handlers and server actions",
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 5
+            },
+            "version": 1
+          },
+          "template": "/api/mixed"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "POST",
+            "resolution": "literal",
+            "route": "route:legacy/app/api/mixed/route.ts#POST%20%2Fapi%2Fmixed"
+          }
+        ]
+      }
+    },
+    "/api/slot": {
+      "head": {
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "web/app/@modal/api/slot/route.ts",
+          "framework": "nextjs",
+          "handler": "function:web/app/%40modal/api/slot/route.ts#HEAD",
+          "handler_expression": null,
+          "line": 1,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:web/app/%40modal/api/slot/route.ts#HEAD%20%2Fapi%2Fslot",
+          "rule": "Next.js routes, NX rows (ADR 0077)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [
+              {
+                "item": {
+                  "content_type": null,
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "web/app/@modal/api/slot/route.ts",
+                    "kind": "read_in_handler",
+                    "line": 2,
+                    "rule": "SH-N18"
+                  },
+                  "schema": {
+                    "type": "null"
+                  },
+                  "status": "200"
+                },
+                "row": "OG-76",
+                "section": "responses",
+                "why": "a name read in code: its type and whether it must be sent are not read"
+              }
+            ],
+            "sections": {
+              "body": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "web/app/@modal/api/slot/route.ts",
+                  "kind": "fact",
+                  "line": 1,
+                  "rule": "SH-N2"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "reason": "statuses read from returned responses; thrown errors, middleware and unread calls may add others",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "reason": "security is not read for Next.js route handlers and server actions",
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 5
+            },
+            "version": 1
+          },
+          "template": "/api/slot"
+        }
+      },
+      "options": {
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "web/app/@modal/api/slot/route.ts",
+          "framework": "nextjs",
+          "handler": "function:web/app/%40modal/api/slot/route.ts#OPTIONS",
+          "handler_expression": null,
+          "line": 5,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:web/app/%40modal/api/slot/route.ts#OPTIONS%20%2Fapi%2Fslot",
+          "rule": "Next.js routes, NX rows (ADR 0077)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [
+              {
+                "item": {
+                  "content_type": null,
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "web/app/@modal/api/slot/route.ts",
+                    "kind": "read_in_handler",
+                    "line": 6,
+                    "rule": "SH-N18"
+                  },
+                  "schema": {
+                    "type": "null"
+                  },
+                  "status": "200"
+                },
+                "row": "OG-76",
+                "section": "responses",
+                "why": "a name read in code: its type and whether it must be sent are not read"
+              }
+            ],
+            "sections": {
+              "body": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "web/app/@modal/api/slot/route.ts",
+                  "kind": "fact",
+                  "line": 5,
+                  "rule": "SH-N2"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "reason": "statuses read from returned responses; thrown errors, middleware and unread calls may add others",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "reason": "security is not read for Next.js route handlers and server actions",
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 5
+            },
+            "version": 1
+          },
+          "template": "/api/slot"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "HEAD",
+            "resolution": "literal",
+            "route": "route:web/app/%40modal/api/slot/route.ts#HEAD%20%2Fapi%2Fslot"
+          },
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "OPTIONS",
+            "resolution": "literal",
+            "route": "route:web/app/%40modal/api/slot/route.ts#OPTIONS%20%2Fapi%2Fslot"
+          }
+        ]
+      }
+    },
+    "/api/star": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "web/app/api/star/route.ts",
+          "framework": "nextjs",
+          "handler": "function:web/app/api/star/impl.ts#GET",
+          "handler_expression": null,
+          "line": 1,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:web/app/api/star/route.ts#GET%20%2Fapi%2Fstar",
+          "rule": "Next.js routes, NX rows (ADR 0077)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [
+              {
+                "item": {
+                  "content_type": "application/json",
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "web/app/api/star/impl.ts",
+                    "kind": "read_in_handler",
+                    "line": 2,
+                    "rule": "SH-N17"
+                  },
+                  "schema": {
+                    "additional": "unknown",
+                    "fields": [
+                      {
+                        "name": "star",
+                        "presence": "unknown",
+                        "schema": {
+                          "reason": "value not read",
+                          "type": "unknown"
+                        }
+                      }
+                    ],
+                    "type": "object"
+                  },
+                  "status": "200"
+                },
+                "row": "OG-76",
+                "section": "responses",
+                "why": "a name read in code: its type and whether it must be sent are not read"
+              }
+            ],
+            "sections": {
+              "body": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "web/app/api/star/route.ts",
+                  "kind": "fact",
+                  "line": 1,
+                  "rule": "SH-N2"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "reason": "statuses read from returned responses; thrown errors, middleware and unread calls may add others",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "reason": "security is not read for Next.js route handlers and server actions",
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 5
+            },
+            "version": 1
+          },
+          "template": "/api/star"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:web/app/api/star/route.ts#GET%20%2Fapi%2Fstar"
+          }
+        ]
+      }
+    },
+    "/api/stats": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "mono/apps/admin/app/api/stats/route.ts",
+          "framework": "nextjs",
+          "handler": "function:mono/apps/admin/app/api/stats/route.ts#GET",
+          "handler_expression": null,
+          "line": 1,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:mono/apps/admin/app/api/stats/route.ts#GET%20%2Fapi%2Fstats",
+          "rule": "Next.js routes, NX rows (ADR 0077)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [
+              {
+                "item": {
+                  "content_type": "application/json",
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "mono/apps/admin/app/api/stats/route.ts",
+                    "kind": "read_in_handler",
+                    "line": 2,
+                    "rule": "SH-N17"
+                  },
+                  "schema": {
+                    "additional": "unknown",
+                    "type": "object"
+                  },
+                  "status": "200"
+                },
+                "row": "OG-76",
+                "section": "responses",
+                "why": "a name read in code: its type and whether it must be sent are not read"
+              }
+            ],
+            "sections": {
+              "body": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "mono/apps/admin/app/api/stats/route.ts",
+                  "kind": "fact",
+                  "line": 1,
+                  "rule": "SH-N2"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "reason": "statuses read from returned responses; thrown errors, middleware and unread calls may add others",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "reason": "security is not read for Next.js route handlers and server actions",
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 5
+            },
+            "version": 1
+          },
+          "template": "/api/stats"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:mono/apps/admin/app/api/stats/route.ts#GET%20%2Fapi%2Fstats"
+          }
+        ]
+      }
+    },
+    "/api/users/{id}": {
+      "x-graphvein": {
+        "any_method": [
+          {
+            "file": "web/pages/api/users/[id].ts",
+            "framework": "nextjs_pages",
+            "line": 5,
+            "route": "route:web/pages/api/users/%5Bid%5D.ts#ANY%20%2Fapi%2Fusers%2F%7Bid%7D"
+          }
+        ],
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "ANY",
+            "resolution": "literal",
+            "route": "route:web/pages/api/users/%5Bid%5D.ts#ANY%20%2Fapi%2Fusers%2F%7Bid%7D"
+          }
+        ]
+      }
+    },
+    "/blog/api/posts/": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "blog/src/app/api/posts/route.ts",
+          "framework": "nextjs",
+          "handler": "function:blog/src/app/api/posts/route.ts#GET",
+          "handler_expression": null,
+          "line": 1,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:blog/src/app/api/posts/route.ts#GET%20%2Fapi%2Fposts",
+          "rule": "Next.js routes, NX rows (ADR 0077)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [
+              {
+                "item": {
+                  "content_type": "application/json",
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "blog/src/app/api/posts/route.ts",
+                    "kind": "read_in_handler",
+                    "line": 2,
+                    "rule": "SH-N17"
+                  },
+                  "schema": null,
+                  "status": "200"
+                },
+                "row": "OG-76",
+                "section": "responses",
+                "why": "a name read in code: its type and whether it must be sent are not read"
+              }
+            ],
+            "sections": {
+              "body": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "blog/src/app/api/posts/route.ts",
+                  "kind": "fact",
+                  "line": 1,
+                  "rule": "SH-N2"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "reason": "statuses read from returned responses; thrown errors, middleware and unread calls may add others",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "reason": "security is not read for Next.js route handlers and server actions",
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 5
+            },
+            "version": 1
+          },
+          "template": "/blog/api/posts"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:blog/src/app/api/posts/route.ts#GET%20%2Fapi%2Fposts"
+          }
+        ]
+      }
+    },
+    "/blog/api/tags/": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "blog/src/app/api/tags/route.page.tsx",
+          "framework": "nextjs",
+          "handler": "function:blog/src/app/api/tags/route.page.tsx#GET",
+          "handler_expression": null,
+          "line": 1,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:blog/src/app/api/tags/route.page.tsx#GET%20%2Fapi%2Ftags",
+          "rule": "Next.js routes, NX rows (ADR 0077)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [
+              {
+                "item": {
+                  "content_type": "application/json",
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "blog/src/app/api/tags/route.page.tsx",
+                    "kind": "read_in_handler",
+                    "line": 2,
+                    "rule": "SH-N17"
+                  },
+                  "schema": null,
+                  "status": "200"
+                },
+                "row": "OG-76",
+                "section": "responses",
+                "why": "a name read in code: its type and whether it must be sent are not read"
+              }
+            ],
+            "sections": {
+              "body": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "blog/src/app/api/tags/route.page.tsx",
+                  "kind": "fact",
+                  "line": 1,
+                  "rule": "SH-N2"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "reason": "statuses read from returned responses; thrown errors, middleware and unread calls may add others",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "reason": "security is not read for Next.js route handlers and server actions",
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 5
+            },
+            "version": 1
+          },
+          "template": "/blog/api/tags"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:blog/src/app/api/tags/route.page.tsx#GET%20%2Fapi%2Ftags"
+          }
+        ]
+      }
+    },
+    "/docs/api/search": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [
+            {
+              "from": "graphvein.yaml explorer.path_values",
+              "id": "set_by_you",
+              "key": "nextjs_base_path:docs",
+              "text": "the Next.js basePath is set by you; Graphvein read it as not literal",
+              "value": "/docs"
+            }
+          ],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "docs/app/api/search/route.js",
+          "framework": "nextjs",
+          "handler": "function:docs/app/api/search/route.js#GET",
+          "handler_expression": null,
+          "line": 1,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "set_by_you",
+          "route": "route:docs/app/api/search/route.js#GET%20%2Fapi%2Fsearch",
+          "rule": "Next.js routes, NX rows (ADR 0077)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [
+              {
+                "item": {
+                  "content_type": "application/json",
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "docs/app/api/search/route.js",
+                    "kind": "read_in_handler",
+                    "line": 2,
+                    "rule": "SH-N17"
+                  },
+                  "schema": {
+                    "additional": "unknown",
+                    "fields": [
+                      {
+                        "name": "results",
+                        "presence": "unknown",
+                        "schema": {
+                          "reason": "value not read",
+                          "type": "unknown"
+                        }
+                      }
+                    ],
+                    "type": "object"
+                  },
+                  "status": "200"
+                },
+                "row": "OG-76",
+                "section": "responses",
+                "why": "a name read in code: its type and whether it must be sent are not read"
+              }
+            ],
+            "sections": {
+              "body": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "docs/app/api/search/route.js",
+                  "kind": "fact",
+                  "line": 1,
+                  "rule": "SH-N2"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "reason": "statuses read from returned responses; thrown errors, middleware and unread calls may add others",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "reason": "security is not read for Next.js route handlers and server actions",
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 5
+            },
+            "version": 1
+          },
+          "template": "/docs/api/search"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [
+              {
+                "from": "graphvein.yaml explorer.path_values",
+                "id": "set_by_you",
+                "key": "nextjs_base_path:docs",
+                "text": "the Next.js basePath is set by you; Graphvein read it as not literal",
+                "value": "/docs"
+              }
+            ],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "set_by_you",
+            "route": "route:docs/app/api/search/route.js#GET%20%2Fapi%2Fsearch"
+          }
+        ]
+      }
+    },
+    "/proxy/api/dest": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "proxy/app/api/dest/route.ts",
+          "framework": "nextjs",
+          "handler": "function:proxy/app/api/dest/route.ts#GET",
+          "handler_expression": null,
+          "line": 1,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:proxy/app/api/dest/route.ts#GET%20%2Fapi%2Fdest",
+          "rule": "Next.js routes, NX rows (ADR 0077)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [
+              {
+                "item": {
+                  "content_type": "application/json",
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "proxy/app/api/dest/route.ts",
+                    "kind": "read_in_handler",
+                    "line": 2,
+                    "rule": "SH-N17"
+                  },
+                  "schema": {
+                    "additional": "unknown",
+                    "type": "object"
+                  },
+                  "status": "200"
+                },
+                "row": "OG-76",
+                "section": "responses",
+                "why": "a name read in code: its type and whether it must be sent are not read"
+              }
+            ],
+            "sections": {
+              "body": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "proxy/app/api/dest/route.ts",
+                  "kind": "fact",
+                  "line": 1,
+                  "rule": "SH-N2"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "reason": "statuses read from returned responses; thrown errors, middleware and unread calls may add others",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "reason": "security is not read for Next.js route handlers and server actions",
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 5
+            },
+            "version": 1
+          },
+          "template": "/proxy/api/dest"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:proxy/app/api/dest/route.ts#GET%20%2Fapi%2Fdest"
+          }
+        ]
+      }
+    },
+    "/proxy/api/items/{id}": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-graphvein": {
+              "provenance": {
+                "chain": [],
+                "confidence": 1,
+                "file": "proxy/app/api/items/[id]/route.ts",
+                "kind": "fact",
+                "line": 1,
+                "rule": "SH-N1"
+              }
+            }
+          }
+        ],
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "proxy/app/api/items/[id]/route.ts",
+          "framework": "nextjs",
+          "handler": "function:proxy/app/api/items/%5Bid%5D/route.ts#GET",
+          "handler_expression": null,
+          "line": 1,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "responses",
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:proxy/app/api/items/%5Bid%5D/route.ts#GET%20%2Fapi%2Fitems%2F%7Bid%7D",
+          "rule": "Next.js routes, NX rows (ADR 0077)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [],
+            "sections": {
+              "body": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "reason": "the rewrite rule /api/items/:id of proxy/next.config.js may apply to the route: it may answer or rewrite the request before the handler",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "reason": "the rewrite rule /api/items/:id of proxy/next.config.js may apply to the route: it may answer or rewrite the request before the handler",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "proxy/app/api/items/[id]/route.ts",
+                  "kind": "fact",
+                  "line": 1,
+                  "rule": "SH-N1"
+                },
+                "standard": 1,
+                "state": "complete"
+              },
+              "query": {
+                "reason": "the rewrite rule /api/items/:id of proxy/next.config.js may apply to the route: it may answer or rewrite the request before the handler",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "reason": "no response is claimed: the rewrite rule /api/items/:id of proxy/next.config.js has no has or missing condition and matches every request to the route: Next.js answers before the handler",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "security": {
+                "reason": "security is not read for Next.js route handlers and server actions",
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 5
+            },
+            "version": 1
+          },
+          "template": "/proxy/api/items/{id}"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:proxy/app/api/items/%5Bid%5D/route.ts#GET%20%2Fapi%2Fitems%2F%7Bid%7D"
+          }
+        ]
+      }
+    },
+    "/proxy/api/real": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "proxy/app/api/real/route.ts",
+          "framework": "nextjs",
+          "handler": "function:proxy/app/api/real/route.ts#GET",
+          "handler_expression": null,
+          "line": 1,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:proxy/app/api/real/route.ts#GET%20%2Fapi%2Freal",
+          "rule": "Next.js routes, NX rows (ADR 0077)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [
+              {
+                "item": {
+                  "content_type": "application/json",
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "proxy/app/api/real/route.ts",
+                    "kind": "read_in_handler",
+                    "line": 2,
+                    "rule": "SH-N17"
+                  },
+                  "schema": {
+                    "additional": "unknown",
+                    "type": "object"
+                  },
+                  "status": "200"
+                },
+                "row": "OG-76",
+                "section": "responses",
+                "why": "a name read in code: its type and whether it must be sent are not read"
+              }
+            ],
+            "sections": {
+              "body": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "proxy/app/api/real/route.ts",
+                  "kind": "fact",
+                  "line": 1,
+                  "rule": "SH-N2"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "reason": "statuses read from returned responses; thrown errors, middleware and unread calls may add others",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "reason": "security is not read for Next.js route handlers and server actions",
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 5
+            },
+            "version": 1
+          },
+          "template": "/proxy/api/real"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:proxy/app/api/real/route.ts#GET%20%2Fapi%2Freal"
+          }
+        ]
+      }
+    },
+    "/proxy/api/static": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "proxy/app/api/static/route.ts",
+          "framework": "nextjs",
+          "handler": "function:proxy/app/api/static/route.ts#GET",
+          "handler_expression": null,
+          "line": 1,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:proxy/app/api/static/route.ts#GET%20%2Fapi%2Fstatic",
+          "rule": "Next.js routes, NX rows (ADR 0077)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [
+              {
+                "item": {
+                  "content_type": "application/json",
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "proxy/app/api/static/route.ts",
+                    "kind": "read_in_handler",
+                    "line": 2,
+                    "rule": "SH-N17"
+                  },
+                  "schema": {
+                    "additional": "unknown",
+                    "type": "object"
+                  },
+                  "status": "200"
+                },
+                "row": "OG-76",
+                "section": "responses",
+                "why": "a name read in code: its type and whether it must be sent are not read"
+              }
+            ],
+            "sections": {
+              "body": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "proxy/app/api/static/route.ts",
+                  "kind": "fact",
+                  "line": 1,
+                  "rule": "SH-N2"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "reason": "statuses read from returned responses; thrown errors, middleware and unread calls may add others",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "reason": "security is not read for Next.js route handlers and server actions",
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 5
+            },
+            "version": 1
+          },
+          "template": "/proxy/api/static"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:proxy/app/api/static/route.ts#GET%20%2Fapi%2Fstatic"
+          }
+        ]
+      }
+    },
+    "/proxy/api/things/{id}": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-graphvein": {
+              "provenance": {
+                "chain": [],
+                "confidence": 1,
+                "file": "proxy/app/api/things/[id]/route.ts",
+                "kind": "fact",
+                "line": 1,
+                "rule": "SH-N1"
+              }
+            }
+          }
+        ],
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "proxy/app/api/things/[id]/route.ts",
+          "framework": "nextjs",
+          "handler": "function:proxy/app/api/things/%5Bid%5D/route.ts#GET",
+          "handler_expression": null,
+          "line": 1,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:proxy/app/api/things/%5Bid%5D/route.ts#GET%20%2Fapi%2Fthings%2F%7Bid%7D",
+          "rule": "Next.js routes, NX rows (ADR 0077)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [
+              {
+                "item": {
+                  "content_type": "application/json",
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "proxy/app/api/things/[id]/route.ts",
+                    "kind": "read_in_handler",
+                    "line": 2,
+                    "rule": "SH-N17"
+                  },
+                  "schema": {
+                    "additional": "unknown",
+                    "type": "object"
+                  },
+                  "status": "200"
+                },
+                "row": "OG-76",
+                "section": "responses",
+                "why": "a name read in code: its type and whether it must be sent are not read"
+              }
+            ],
+            "sections": {
+              "body": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "proxy/app/api/things/[id]/route.ts",
+                  "kind": "fact",
+                  "line": 1,
+                  "rule": "SH-N1"
+                },
+                "standard": 1,
+                "state": "complete"
+              },
+              "query": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "reason": "statuses read from returned responses; thrown errors, middleware and unread calls may add others",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "reason": "security is not read for Next.js route handlers and server actions",
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 5
+            },
+            "version": 1
+          },
+          "template": "/proxy/api/things/{id}"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:proxy/app/api/things/%5Bid%5D/route.ts#GET%20%2Fapi%2Fthings%2F%7Bid%7D"
+          }
+        ]
+      }
+    }
+  },
+  "x-graphvein": {
+    "conflicts": [],
+    "contract_version": 1,
+    "counts": {
+      "any_method": 4,
+      "conditional": 0,
+      "conflicts": 0,
+      "may_be_shadowed": 0,
+      "operations": 20,
+      "path_keys": 19,
+      "production_routes": 30,
+      "routes": 30,
+      "set_by_you": 1,
+      "settings_default": 0,
+      "unrepresentable": 6,
+      "unresolved": 0,
+      "with_shape": 20
+    },
+    "excluded_test": {
+      "path_entries": 0,
+      "routes": 0
+    },
+    "generator": "graphvein",
+    "group": "repository",
+    "imported_specs": [],
+    "index": {
+      "extractor": "graphvein EXTRACTOR",
+      "finished_at": "FINISHED",
+      "run": "RUN"
+    },
+    "repository": "fixture",
+    "scope": "production",
+    "shape_errors": 0,
+    "unrepresentable": [
+      {
+        "key": "/proxy/api/fallback/{*rest}",
+        "method": "GET",
+        "reason": "wildcard",
+        "route": "route:proxy/app/api/fallback/%5B...rest%5D/route.ts#GET%20%2Fapi%2Ffallback%2F%7B%2Arest%7D"
+      },
+      {
+        "key": "/proxy/api/new/{*path}",
+        "method": "GET",
+        "reason": "wildcard",
+        "route": "route:proxy/app/api/new/%5B...path%5D/route.ts#GET%20%2Fapi%2Fnew%2F%7B%2Apath%7D"
+      },
+      {
+        "key": "/api/cart/{*slug}",
+        "method": "GET",
+        "reason": "wildcard",
+        "route": "route:web/app/%28shop%29/api/cart/%5B...slug%5D/route.ts#GET%20%2Fapi%2Fcart%2F%7B%2Aslug%7D"
+      },
+      {
+        "key": "/api/cart/{*slug}",
+        "method": "POST",
+        "reason": "wildcard",
+        "route": "route:web/app/%28shop%29/api/cart/%5B...slug%5D/route.ts#POST%20%2Fapi%2Fcart%2F%7B%2Aslug%7D"
+      },
+      {
+        "key": "/api/docs/{*path}",
+        "method": "GET",
+        "reason": "optional_parameter",
+        "route": "route:web/app/api/docs/%5B%5B...path%5D%5D/route.ts#GET%20%2Fapi%2Fdocs%2F%7B%2Apath%7D"
+      },
+      {
+        "key": "/api/legacy/{*rest}",
+        "method": "GET",
+        "reason": "wildcard",
+        "route": "route:web/app/api/legacy/%5B...rest%5D/route.ts#GET%20%2Fapi%2Flegacy%2F%7B%2Arest%7D"
+      }
+    ],
+    "unresolved": [],
+    "user_values": [
+      {
+        "key": "nextjs_base_path:docs",
+        "operations": 1,
+        "status": "used",
+        "value": "/docs"
+      }
+    ]
+  }
+}

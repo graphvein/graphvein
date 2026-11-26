@@ -1,0 +1,29 @@
+{
+  "id": "review18-m12-rename-table-rowtype-col-drop",
+  "signature": "agreed at Revision 1.8",
+  "class": "S1",
+  "owner": "X1",
+  "row": "review18",
+  "history": {
+    "id": "m12-rename-table-rowtype-col-drop"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "2BP01",
+        "message": "cannot drop table t2 because other objects depend on it",
+        "detail": "column r of table u depends on type t2",
+        "statement": 4,
+        "statement_text": "DROP TABLE t2;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

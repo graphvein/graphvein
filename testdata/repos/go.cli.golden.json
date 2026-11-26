@@ -1,0 +1,1425 @@
+[
+  {
+    "blind_spot_data": false,
+    "bounds": [],
+    "candidates": [],
+    "caps": [],
+    "command": "query",
+    "ends": [],
+    "freshness": {
+      "changed_files": [],
+      "indexed": true
+    },
+    "nodes": [
+      {
+        "attributes": {},
+        "content_hash": "sha256:745e65bcebb6e05220cf436e07686da285860d8bf31dd99276fd477e8defed41",
+        "file": "helper/help.go",
+        "ide": {
+          "column": 1,
+          "exact": true,
+          "line": 3,
+          "link": "vscode://file/{ROOT}/helper/help.go:3:1"
+        },
+        "identity": "function:helper/help.go#Help",
+        "kind": "function",
+        "level": 4,
+        "name": "Help",
+        "qualified_name": "Help",
+        "span": {
+          "end_column": 14,
+          "end_line": 3,
+          "start_column": 0,
+          "start_line": 3
+        },
+        "type": "node"
+      }
+    ],
+    "possibly_missing_call_sites": [],
+    "possibly_missing_callers": 0,
+    "results": [],
+    "total": 1,
+    "unknown_calls_in_result_files": 0
+  },
+  {
+    "blind_spot_data": false,
+    "bounds": [
+      {
+        "beyond": 1,
+        "cap": "depth",
+        "step": 3
+      }
+    ],
+    "candidates": [],
+    "caps": [
+      "depth"
+    ],
+    "command": "callers",
+    "ends": [
+      {
+        "node": "function:extra.go#Extra",
+        "text": "? not modelled: no stored caller; dependency injection, framework callbacks, JSX renders, passed callbacks and dynamic calls are not followed by callers"
+      },
+      {
+        "node": "function:main.go#init",
+        "text": "? not modelled: no stored caller; dependency injection, framework callbacks, JSX renders, passed callbacks and dynamic calls are not followed by callers"
+      },
+      {
+        "node": "function:main.go#init%402",
+        "text": "? not modelled: no stored caller; dependency injection, framework callbacks, JSX renders, passed callbacks and dynamic calls are not followed by callers"
+      }
+    ],
+    "freshness": {
+      "changed_files": [],
+      "indexed": true
+    },
+    "nodes": [],
+    "possibly_missing_call_sites": [],
+    "possibly_missing_callers": 0,
+    "results": [
+      {
+        "distance": 1,
+        "node": {
+          "attributes": {},
+          "content_hash": "sha256:b38ef23906bfbd202bf32f162366a439121e47ddd016790f65bbdfc94fee2f64",
+          "file": "main.go",
+          "ide": {
+            "column": 1,
+            "exact": true,
+            "line": 21,
+            "link": "vscode://file/{ROOT}/main.go:21:1"
+          },
+          "identity": "function:main.go#local",
+          "kind": "function",
+          "level": 4,
+          "name": "local",
+          "qualified_name": "local",
+          "span": {
+            "end_column": 28,
+            "end_line": 21,
+            "start_column": 0,
+            "start_line": 21
+          },
+          "type": "node"
+        },
+        "path": [
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "main.go",
+                "span": {
+                  "end_column": 26,
+                  "end_line": 21,
+                  "start_column": 15,
+                  "start_line": 21
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "function:main.go#local",
+            "target": "function:helper/help.go#Help",
+            "type": "edge"
+          }
+        ]
+      },
+      {
+        "distance": 2,
+        "node": {
+          "attributes": {},
+          "content_hash": "sha256:5494a47264192528795a3ecbe5212d15471dac792b3a1e7e219a649a60a4f122",
+          "file": "extra.go",
+          "ide": {
+            "column": 1,
+            "exact": true,
+            "line": 5,
+            "link": "vscode://file/{ROOT}/extra.go:5:1"
+          },
+          "identity": "function:extra.go#Extra",
+          "kind": "function",
+          "level": 4,
+          "name": "Extra",
+          "qualified_name": "Extra",
+          "span": {
+            "end_column": 24,
+            "end_line": 5,
+            "start_column": 0,
+            "start_line": 5
+          },
+          "type": "node"
+        },
+        "path": [
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "main.go",
+                "span": {
+                  "end_column": 26,
+                  "end_line": 21,
+                  "start_column": 15,
+                  "start_line": 21
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "function:main.go#local",
+            "target": "function:helper/help.go#Help",
+            "type": "edge"
+          },
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "extra.go",
+                "span": {
+                  "end_column": 22,
+                  "end_line": 5,
+                  "start_column": 15,
+                  "start_line": 5
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "function:extra.go#Extra",
+            "target": "function:main.go#local",
+            "type": "edge"
+          }
+        ]
+      },
+      {
+        "distance": 2,
+        "node": {
+          "attributes": {},
+          "content_hash": "sha256:0da59ca7762accef61226c8c23efbd72009839191978d3ffbdf594e8e72e5225",
+          "file": "main.go",
+          "ide": {
+            "column": 1,
+            "exact": true,
+            "line": 24,
+            "link": "vscode://file/{ROOT}/main.go:24:1"
+          },
+          "identity": "function:main.go#Run",
+          "kind": "function",
+          "level": 4,
+          "name": "Run",
+          "qualified_name": "Run",
+          "span": {
+            "end_column": 1,
+            "end_line": 30,
+            "start_column": 0,
+            "start_line": 24
+          },
+          "type": "node"
+        },
+        "path": [
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "main.go",
+                "span": {
+                  "end_column": 26,
+                  "end_line": 21,
+                  "start_column": 15,
+                  "start_line": 21
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "function:main.go#local",
+            "target": "function:helper/help.go#Help",
+            "type": "edge"
+          },
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "main.go",
+                "span": {
+                  "end_column": 8,
+                  "end_line": 27,
+                  "start_column": 1,
+                  "start_line": 27
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "function:main.go#Run",
+            "target": "function:main.go#local",
+            "type": "edge"
+          }
+        ]
+      },
+      {
+        "distance": 2,
+        "node": {
+          "attributes": {},
+          "content_hash": "sha256:b0b0cc36c5d6415d8533893d8330bb69fb6e07ff8495b2af827b2883a26f05bf",
+          "file": "main.go",
+          "ide": {
+            "column": 1,
+            "exact": true,
+            "line": 18,
+            "link": "vscode://file/{ROOT}/main.go:18:1"
+          },
+          "identity": "function:main.go#init",
+          "kind": "function",
+          "level": 4,
+          "name": "init",
+          "qualified_name": "init",
+          "span": {
+            "end_column": 23,
+            "end_line": 18,
+            "start_column": 0,
+            "start_line": 18
+          },
+          "type": "node"
+        },
+        "path": [
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "main.go",
+                "span": {
+                  "end_column": 26,
+                  "end_line": 21,
+                  "start_column": 15,
+                  "start_line": 21
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "function:main.go#local",
+            "target": "function:helper/help.go#Help",
+            "type": "edge"
+          },
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "main.go",
+                "span": {
+                  "end_column": 21,
+                  "end_line": 18,
+                  "start_column": 14,
+                  "start_line": 18
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "function:main.go#init",
+            "target": "function:main.go#local",
+            "type": "edge"
+          }
+        ]
+      },
+      {
+        "distance": 2,
+        "node": {
+          "attributes": {},
+          "content_hash": "sha256:b0b0cc36c5d6415d8533893d8330bb69fb6e07ff8495b2af827b2883a26f05bf",
+          "file": "main.go",
+          "ide": {
+            "column": 1,
+            "exact": true,
+            "line": 19,
+            "link": "vscode://file/{ROOT}/main.go:19:1"
+          },
+          "identity": "function:main.go#init%402",
+          "kind": "function",
+          "level": 4,
+          "name": "init",
+          "qualified_name": "init@2",
+          "span": {
+            "end_column": 23,
+            "end_line": 19,
+            "start_column": 0,
+            "start_line": 19
+          },
+          "type": "node"
+        },
+        "path": [
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "main.go",
+                "span": {
+                  "end_column": 26,
+                  "end_line": 21,
+                  "start_column": 15,
+                  "start_line": 21
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "function:main.go#local",
+            "target": "function:helper/help.go#Help",
+            "type": "edge"
+          },
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "main.go",
+                "span": {
+                  "end_column": 21,
+                  "end_line": 19,
+                  "start_column": 14,
+                  "start_line": 19
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "function:main.go#init%402",
+            "target": "function:main.go#local",
+            "type": "edge"
+          }
+        ]
+      },
+      {
+        "distance": 2,
+        "node": {
+          "attributes": {},
+          "content_hash": "sha256:5e94e38744257a2522ac1aa1a1518dc089c5b52c9d981d1aa6cfabaa4b05ee97",
+          "file": "main_test.go",
+          "ide": {
+            "column": 1,
+            "exact": true,
+            "line": 3,
+            "link": "vscode://file/{ROOT}/main_test.go:3:1"
+          },
+          "identity": "function:main_test.go#TestOnly",
+          "kind": "function",
+          "level": 4,
+          "name": "TestOnly",
+          "qualified_name": "TestOnly",
+          "span": {
+            "end_column": 27,
+            "end_line": 3,
+            "start_column": 0,
+            "start_line": 3
+          },
+          "type": "node"
+        },
+        "path": [
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "main.go",
+                "span": {
+                  "end_column": 26,
+                  "end_line": 21,
+                  "start_column": 15,
+                  "start_line": 21
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "function:main.go#local",
+            "target": "function:helper/help.go#Help",
+            "type": "edge"
+          },
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "main_test.go",
+                "span": {
+                  "end_column": 25,
+                  "end_line": 3,
+                  "start_column": 18,
+                  "start_line": 3
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "function:main_test.go#TestOnly",
+            "target": "function:main.go#local",
+            "type": "edge"
+          }
+        ]
+      },
+      {
+        "distance": 2,
+        "node": {
+          "attributes": {},
+          "content_hash": "sha256:f184b4b607de8f0303de7d2a641c2b3abd8cf8967addaafc52ab282df0477a79",
+          "file": "main.go",
+          "ide": {
+            "column": 1,
+            "exact": true,
+            "line": 22,
+            "link": "vscode://file/{ROOT}/main.go:22:1"
+          },
+          "identity": "method:main.go#User.Save",
+          "kind": "method",
+          "level": 4,
+          "name": "Save",
+          "qualified_name": "User.Save",
+          "span": {
+            "end_column": 33,
+            "end_line": 22,
+            "start_column": 0,
+            "start_line": 22
+          },
+          "type": "node"
+        },
+        "path": [
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "main.go",
+                "span": {
+                  "end_column": 26,
+                  "end_line": 21,
+                  "start_column": 15,
+                  "start_line": 21
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "function:main.go#local",
+            "target": "function:helper/help.go#Help",
+            "type": "edge"
+          },
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "main.go",
+                "span": {
+                  "end_column": 31,
+                  "end_line": 22,
+                  "start_column": 24,
+                  "start_line": 22
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "method:main.go#User.Save",
+            "target": "function:main.go#local",
+            "type": "edge"
+          }
+        ]
+      }
+    ],
+    "target": {
+      "attributes": {},
+      "content_hash": "sha256:745e65bcebb6e05220cf436e07686da285860d8bf31dd99276fd477e8defed41",
+      "file": "helper/help.go",
+      "ide": {
+        "column": 1,
+        "exact": true,
+        "line": 3,
+        "link": "vscode://file/{ROOT}/helper/help.go:3:1"
+      },
+      "identity": "function:helper/help.go#Help",
+      "kind": "function",
+      "level": 4,
+      "name": "Help",
+      "qualified_name": "Help",
+      "span": {
+        "end_column": 14,
+        "end_line": 3,
+        "start_column": 0,
+        "start_line": 3
+      },
+      "type": "node"
+    },
+    "unknown_calls_in_result_files": 0
+  },
+  {
+    "blind_spot_data": true,
+    "bounds": [],
+    "candidates": [],
+    "caps": [],
+    "command": "impact",
+    "ends": [
+      {
+        "node": "function:extra.go#Extra",
+        "text": "? not modelled: no stored caller, import, reference or route; dependency injection, framework callbacks, JSX renders, passed callbacks and dynamic calls are not followed by impact"
+      },
+      {
+        "node": "function:main.go#init",
+        "text": "? not modelled: no stored caller, import, reference or route; dependency injection, framework callbacks, JSX renders, passed callbacks and dynamic calls are not followed by impact"
+      },
+      {
+        "node": "function:main.go#init%402",
+        "text": "? not modelled: no stored caller, import, reference or route; dependency injection, framework callbacks, JSX renders, passed callbacks and dynamic calls are not followed by impact"
+      },
+      {
+        "node": "function:main_test.go#TestRun",
+        "text": "? not modelled: no stored caller, import, reference or route; dependency injection, framework callbacks, JSX renders, passed callbacks and dynamic calls are not followed by impact"
+      }
+    ],
+    "freshness": {
+      "changed_files": [],
+      "indexed": true
+    },
+    "nodes": [],
+    "possibly_missing_call_sites": [
+      {
+        "caller": "function:blind.go#blind",
+        "file": "blind.go",
+        "matches": [
+          "function:helper/help.go#Help"
+        ],
+        "name": "Help",
+        "span": {
+          "end_column": 11,
+          "end_line": 4,
+          "start_column": 1,
+          "start_line": 4
+        }
+      },
+      {
+        "caller": "function:main.go#Run",
+        "file": "main.go",
+        "matches": [
+          "function:main_test.go#TestOnly"
+        ],
+        "name": "TestOnly",
+        "span": {
+          "end_column": 11,
+          "end_line": 29,
+          "start_column": 1,
+          "start_line": 29
+        }
+      }
+    ],
+    "possibly_missing_callers": 2,
+    "results": [
+      {
+        "distance": 1,
+        "node": {
+          "attributes": {},
+          "content_hash": "sha256:b38ef23906bfbd202bf32f162366a439121e47ddd016790f65bbdfc94fee2f64",
+          "file": "main.go",
+          "ide": {
+            "column": 1,
+            "exact": true,
+            "line": 21,
+            "link": "vscode://file/{ROOT}/main.go:21:1"
+          },
+          "identity": "function:main.go#local",
+          "kind": "function",
+          "level": 4,
+          "name": "local",
+          "qualified_name": "local",
+          "span": {
+            "end_column": 28,
+            "end_line": 21,
+            "start_column": 0,
+            "start_line": 21
+          },
+          "type": "node"
+        },
+        "path": [
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "main.go",
+                "span": {
+                  "end_column": 26,
+                  "end_line": 21,
+                  "start_column": 15,
+                  "start_line": 21
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "function:main.go#local",
+            "target": "function:helper/help.go#Help",
+            "type": "edge"
+          }
+        ]
+      },
+      {
+        "distance": 2,
+        "node": {
+          "attributes": {},
+          "content_hash": "sha256:5494a47264192528795a3ecbe5212d15471dac792b3a1e7e219a649a60a4f122",
+          "file": "extra.go",
+          "ide": {
+            "column": 1,
+            "exact": true,
+            "line": 5,
+            "link": "vscode://file/{ROOT}/extra.go:5:1"
+          },
+          "identity": "function:extra.go#Extra",
+          "kind": "function",
+          "level": 4,
+          "name": "Extra",
+          "qualified_name": "Extra",
+          "span": {
+            "end_column": 24,
+            "end_line": 5,
+            "start_column": 0,
+            "start_line": 5
+          },
+          "type": "node"
+        },
+        "path": [
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "main.go",
+                "span": {
+                  "end_column": 26,
+                  "end_line": 21,
+                  "start_column": 15,
+                  "start_line": 21
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "function:main.go#local",
+            "target": "function:helper/help.go#Help",
+            "type": "edge"
+          },
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "extra.go",
+                "span": {
+                  "end_column": 22,
+                  "end_line": 5,
+                  "start_column": 15,
+                  "start_line": 5
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "function:extra.go#Extra",
+            "target": "function:main.go#local",
+            "type": "edge"
+          }
+        ]
+      },
+      {
+        "distance": 2,
+        "node": {
+          "attributes": {},
+          "content_hash": "sha256:0da59ca7762accef61226c8c23efbd72009839191978d3ffbdf594e8e72e5225",
+          "file": "main.go",
+          "ide": {
+            "column": 1,
+            "exact": true,
+            "line": 24,
+            "link": "vscode://file/{ROOT}/main.go:24:1"
+          },
+          "identity": "function:main.go#Run",
+          "kind": "function",
+          "level": 4,
+          "name": "Run",
+          "qualified_name": "Run",
+          "span": {
+            "end_column": 1,
+            "end_line": 30,
+            "start_column": 0,
+            "start_line": 24
+          },
+          "type": "node"
+        },
+        "path": [
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "main.go",
+                "span": {
+                  "end_column": 26,
+                  "end_line": 21,
+                  "start_column": 15,
+                  "start_line": 21
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "function:main.go#local",
+            "target": "function:helper/help.go#Help",
+            "type": "edge"
+          },
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "main.go",
+                "span": {
+                  "end_column": 8,
+                  "end_line": 27,
+                  "start_column": 1,
+                  "start_line": 27
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "function:main.go#Run",
+            "target": "function:main.go#local",
+            "type": "edge"
+          }
+        ]
+      },
+      {
+        "distance": 2,
+        "node": {
+          "attributes": {},
+          "content_hash": "sha256:b0b0cc36c5d6415d8533893d8330bb69fb6e07ff8495b2af827b2883a26f05bf",
+          "file": "main.go",
+          "ide": {
+            "column": 1,
+            "exact": true,
+            "line": 18,
+            "link": "vscode://file/{ROOT}/main.go:18:1"
+          },
+          "identity": "function:main.go#init",
+          "kind": "function",
+          "level": 4,
+          "name": "init",
+          "qualified_name": "init",
+          "span": {
+            "end_column": 23,
+            "end_line": 18,
+            "start_column": 0,
+            "start_line": 18
+          },
+          "type": "node"
+        },
+        "path": [
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "main.go",
+                "span": {
+                  "end_column": 26,
+                  "end_line": 21,
+                  "start_column": 15,
+                  "start_line": 21
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "function:main.go#local",
+            "target": "function:helper/help.go#Help",
+            "type": "edge"
+          },
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "main.go",
+                "span": {
+                  "end_column": 21,
+                  "end_line": 18,
+                  "start_column": 14,
+                  "start_line": 18
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "function:main.go#init",
+            "target": "function:main.go#local",
+            "type": "edge"
+          }
+        ]
+      },
+      {
+        "distance": 2,
+        "node": {
+          "attributes": {},
+          "content_hash": "sha256:b0b0cc36c5d6415d8533893d8330bb69fb6e07ff8495b2af827b2883a26f05bf",
+          "file": "main.go",
+          "ide": {
+            "column": 1,
+            "exact": true,
+            "line": 19,
+            "link": "vscode://file/{ROOT}/main.go:19:1"
+          },
+          "identity": "function:main.go#init%402",
+          "kind": "function",
+          "level": 4,
+          "name": "init",
+          "qualified_name": "init@2",
+          "span": {
+            "end_column": 23,
+            "end_line": 19,
+            "start_column": 0,
+            "start_line": 19
+          },
+          "type": "node"
+        },
+        "path": [
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "main.go",
+                "span": {
+                  "end_column": 26,
+                  "end_line": 21,
+                  "start_column": 15,
+                  "start_line": 21
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "function:main.go#local",
+            "target": "function:helper/help.go#Help",
+            "type": "edge"
+          },
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "main.go",
+                "span": {
+                  "end_column": 21,
+                  "end_line": 19,
+                  "start_column": 14,
+                  "start_line": 19
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "function:main.go#init%402",
+            "target": "function:main.go#local",
+            "type": "edge"
+          }
+        ]
+      },
+      {
+        "distance": 2,
+        "node": {
+          "attributes": {},
+          "content_hash": "sha256:5e94e38744257a2522ac1aa1a1518dc089c5b52c9d981d1aa6cfabaa4b05ee97",
+          "file": "main_test.go",
+          "ide": {
+            "column": 1,
+            "exact": true,
+            "line": 3,
+            "link": "vscode://file/{ROOT}/main_test.go:3:1"
+          },
+          "identity": "function:main_test.go#TestOnly",
+          "kind": "function",
+          "level": 4,
+          "name": "TestOnly",
+          "qualified_name": "TestOnly",
+          "span": {
+            "end_column": 27,
+            "end_line": 3,
+            "start_column": 0,
+            "start_line": 3
+          },
+          "type": "node"
+        },
+        "path": [
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "main.go",
+                "span": {
+                  "end_column": 26,
+                  "end_line": 21,
+                  "start_column": 15,
+                  "start_line": 21
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "function:main.go#local",
+            "target": "function:helper/help.go#Help",
+            "type": "edge"
+          },
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "main_test.go",
+                "span": {
+                  "end_column": 25,
+                  "end_line": 3,
+                  "start_column": 18,
+                  "start_line": 3
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "function:main_test.go#TestOnly",
+            "target": "function:main.go#local",
+            "type": "edge"
+          }
+        ]
+      },
+      {
+        "distance": 2,
+        "node": {
+          "attributes": {},
+          "content_hash": "sha256:f184b4b607de8f0303de7d2a641c2b3abd8cf8967addaafc52ab282df0477a79",
+          "file": "main.go",
+          "ide": {
+            "column": 1,
+            "exact": true,
+            "line": 22,
+            "link": "vscode://file/{ROOT}/main.go:22:1"
+          },
+          "identity": "method:main.go#User.Save",
+          "kind": "method",
+          "level": 4,
+          "name": "Save",
+          "qualified_name": "User.Save",
+          "span": {
+            "end_column": 33,
+            "end_line": 22,
+            "start_column": 0,
+            "start_line": 22
+          },
+          "type": "node"
+        },
+        "path": [
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "main.go",
+                "span": {
+                  "end_column": 26,
+                  "end_line": 21,
+                  "start_column": 15,
+                  "start_line": 21
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "function:main.go#local",
+            "target": "function:helper/help.go#Help",
+            "type": "edge"
+          },
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "main.go",
+                "span": {
+                  "end_column": 31,
+                  "end_line": 22,
+                  "start_column": 24,
+                  "start_line": 22
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "method:main.go#User.Save",
+            "target": "function:main.go#local",
+            "type": "edge"
+          }
+        ]
+      },
+      {
+        "distance": 3,
+        "node": {
+          "attributes": {},
+          "content_hash": "sha256:a991cbae7e38f84d8cf99d34627d7dad775d97e6c47193f8d48c80b4ef3c374f",
+          "file": "main_test.go",
+          "ide": {
+            "column": 1,
+            "exact": true,
+            "line": 4,
+            "link": "vscode://file/{ROOT}/main_test.go:4:1"
+          },
+          "identity": "function:main_test.go#TestRun",
+          "kind": "function",
+          "level": 4,
+          "name": "TestRun",
+          "qualified_name": "TestRun",
+          "span": {
+            "end_column": 36,
+            "end_line": 4,
+            "start_column": 0,
+            "start_line": 4
+          },
+          "type": "node"
+        },
+        "path": [
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "main.go",
+                "span": {
+                  "end_column": 26,
+                  "end_line": 21,
+                  "start_column": 15,
+                  "start_line": 21
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "function:main.go#local",
+            "target": "function:helper/help.go#Help",
+            "type": "edge"
+          },
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "main.go",
+                "span": {
+                  "end_column": 8,
+                  "end_line": 27,
+                  "start_column": 1,
+                  "start_line": 27
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "function:main.go#Run",
+            "target": "function:main.go#local",
+            "type": "edge"
+          },
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "main_test.go",
+                "span": {
+                  "end_column": 22,
+                  "end_line": 4,
+                  "start_column": 17,
+                  "start_line": 4
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "function:main_test.go#TestRun",
+            "target": "function:main.go#Run",
+            "type": "edge"
+          }
+        ]
+      }
+    ],
+    "target": {
+      "attributes": {},
+      "content_hash": "sha256:745e65bcebb6e05220cf436e07686da285860d8bf31dd99276fd477e8defed41",
+      "file": "helper/help.go",
+      "ide": {
+        "column": 1,
+        "exact": true,
+        "line": 3,
+        "link": "vscode://file/{ROOT}/helper/help.go:3:1"
+      },
+      "identity": "function:helper/help.go#Help",
+      "kind": "function",
+      "level": 4,
+      "name": "Help",
+      "qualified_name": "Help",
+      "span": {
+        "end_column": 14,
+        "end_line": 3,
+        "start_column": 0,
+        "start_line": 3
+      },
+      "type": "node"
+    },
+    "unknown_calls_in_result_files": 1
+  },
+  {
+    "blind_spot_data": false,
+    "bounds": [],
+    "candidates": [
+      "function:main.go#init",
+      "function:main.go#init%402"
+    ],
+    "caps": [],
+    "command": "impact",
+    "ends": [],
+    "error": "ambiguous target",
+    "freshness": {
+      "changed_files": [],
+      "indexed": true
+    },
+    "nodes": [],
+    "possibly_missing_call_sites": [],
+    "possibly_missing_callers": 0,
+    "results": [],
+    "unknown_calls_in_result_files": 0
+  },
+  {
+    "blind_spot_data": true,
+    "bounds": [],
+    "candidates": [],
+    "caps": [],
+    "command": "impact",
+    "ends": [
+      {
+        "node": "function:extra.go#Extra",
+        "text": "? not modelled: no stored caller, import, reference or route; dependency injection, framework callbacks, JSX renders, passed callbacks and dynamic calls are not followed by impact"
+      },
+      {
+        "node": "function:main_test.go#TestRun",
+        "text": "? not modelled: no stored caller, import, reference or route; dependency injection, framework callbacks, JSX renders, passed callbacks and dynamic calls are not followed by impact"
+      }
+    ],
+    "freshness": {
+      "changed_files": [],
+      "indexed": true
+    },
+    "nodes": [],
+    "possibly_missing_call_sites": [
+      {
+        "caller": "function:main.go#Run",
+        "file": "main.go",
+        "matches": [
+          "function:main_test.go#TestOnly"
+        ],
+        "name": "TestOnly",
+        "span": {
+          "end_column": 11,
+          "end_line": 29,
+          "start_column": 1,
+          "start_line": 29
+        }
+      }
+    ],
+    "possibly_missing_callers": 1,
+    "results": [
+      {
+        "distance": 1,
+        "node": {
+          "attributes": {},
+          "content_hash": "sha256:5494a47264192528795a3ecbe5212d15471dac792b3a1e7e219a649a60a4f122",
+          "file": "extra.go",
+          "ide": {
+            "column": 1,
+            "exact": true,
+            "line": 5,
+            "link": "vscode://file/{ROOT}/extra.go:5:1"
+          },
+          "identity": "function:extra.go#Extra",
+          "kind": "function",
+          "level": 4,
+          "name": "Extra",
+          "qualified_name": "Extra",
+          "span": {
+            "end_column": 24,
+            "end_line": 5,
+            "start_column": 0,
+            "start_line": 5
+          },
+          "type": "node"
+        },
+        "path": [
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "extra.go",
+                "span": {
+                  "end_column": 22,
+                  "end_line": 5,
+                  "start_column": 15,
+                  "start_line": 5
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "function:extra.go#Extra",
+            "target": "function:main.go#local",
+            "type": "edge"
+          }
+        ]
+      },
+      {
+        "distance": 1,
+        "node": {
+          "attributes": {},
+          "content_hash": "sha256:5e94e38744257a2522ac1aa1a1518dc089c5b52c9d981d1aa6cfabaa4b05ee97",
+          "file": "main_test.go",
+          "ide": {
+            "column": 1,
+            "exact": true,
+            "line": 3,
+            "link": "vscode://file/{ROOT}/main_test.go:3:1"
+          },
+          "identity": "function:main_test.go#TestOnly",
+          "kind": "function",
+          "level": 4,
+          "name": "TestOnly",
+          "qualified_name": "TestOnly",
+          "span": {
+            "end_column": 27,
+            "end_line": 3,
+            "start_column": 0,
+            "start_line": 3
+          },
+          "type": "node"
+        },
+        "path": [
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "main_test.go",
+                "span": {
+                  "end_column": 25,
+                  "end_line": 3,
+                  "start_column": 18,
+                  "start_line": 3
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "function:main_test.go#TestOnly",
+            "target": "function:main.go#local",
+            "type": "edge"
+          }
+        ]
+      },
+      {
+        "distance": 1,
+        "node": {
+          "attributes": {},
+          "content_hash": "sha256:a991cbae7e38f84d8cf99d34627d7dad775d97e6c47193f8d48c80b4ef3c374f",
+          "file": "main_test.go",
+          "ide": {
+            "column": 1,
+            "exact": true,
+            "line": 4,
+            "link": "vscode://file/{ROOT}/main_test.go:4:1"
+          },
+          "identity": "function:main_test.go#TestRun",
+          "kind": "function",
+          "level": 4,
+          "name": "TestRun",
+          "qualified_name": "TestRun",
+          "span": {
+            "end_column": 36,
+            "end_line": 4,
+            "start_column": 0,
+            "start_line": 4
+          },
+          "type": "node"
+        },
+        "path": [
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "main_test.go",
+                "span": {
+                  "end_column": 22,
+                  "end_line": 4,
+                  "start_column": 17,
+                  "start_line": 4
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "function:main_test.go#TestRun",
+            "target": "function:main.go#Run",
+            "type": "edge"
+          }
+        ]
+      }
+    ],
+    "target": {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 2,
+        "unresolved_calls_unknown": 1,
+        "unresolved_unknown_call_sites": [
+          {
+            "caller": "function:main.go#Run",
+            "name": "TestOnly",
+            "span": {
+              "end_column": 11,
+              "end_line": 29,
+              "start_column": 1,
+              "start_line": 29
+            }
+          }
+        ]
+      },
+      "content_hash": "sha256:ff609597102ee10733196e5a9c13b41944a36b9941109971d794f5151a2955e6",
+      "file": "main.go",
+      "ide": {
+        "column": 1,
+        "exact": true,
+        "line": 1,
+        "link": "vscode://file/{ROOT}/main.go:1:1"
+      },
+      "identity": "file:main.go#main.go",
+      "kind": "file",
+      "level": 3,
+      "name": "main.go",
+      "qualified_name": "main.go",
+      "span": {
+        "end_column": 0,
+        "end_line": 31,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    "unknown_calls_in_result_files": 1
+  },
+  {
+    "blind_spot_data": false,
+    "bounds": [],
+    "candidates": [],
+    "caps": [],
+    "command": "callers",
+    "ends": [],
+    "error": "no matching target",
+    "freshness": {
+      "changed_files": [],
+      "indexed": true
+    },
+    "nodes": [],
+    "possibly_missing_call_sites": [],
+    "possibly_missing_callers": 0,
+    "results": [],
+    "unknown_calls_in_result_files": 0
+  }
+]

@@ -1,0 +1,35 @@
+{
+  "id": "g1-s5408-S1-M4_create",
+  "signature": "applied|S1|42P01|M4.create",
+  "class": "S1",
+  "owner": "P1",
+  "row": "M4.create",
+  "history": {
+    "id": "g1-s5408",
+    "tags": {
+      "1_m1.sql": [
+        "M1.create",
+        "M8.rename",
+        "M4.create"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42P01",
+        "message": "relation \"t1\" does not exist",
+        "statement": 3,
+        "statement_text": "CREATE INDEX ix_5 ON t1 (c1);"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

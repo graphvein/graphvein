@@ -1,0 +1,35 @@
+{
+  "id": "g7-s267-S1-R1_sequence_options_u5",
+  "signature": "applied|S1|0A000|R1.sequence_options_u5",
+  "class": "S1",
+  "owner": "P4",
+  "row": "R1.sequence_options_u5",
+  "history": {
+    "id": "g7-s267",
+    "tags": {
+      "1_m1.sql": [
+        "R1.sequence_options_u5",
+        "R1.sequence_options_u5"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "0A000",
+        "message": "cannot change ownership of identity sequence",
+        "detail": "Sequence \"st2_id_seq\" is linked to table \"st2\".",
+        "statement": 2,
+        "statement_text": "ALTER SEQUENCE st2_id_seq OWNED BY NONE;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

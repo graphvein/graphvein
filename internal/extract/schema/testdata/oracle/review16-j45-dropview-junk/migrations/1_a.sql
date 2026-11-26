@@ -1,0 +1,6 @@
+CREATE TABLE t (a int);
+CREATE INDEX i ON t (a);
+CREATE TYPE e AS ENUM ('a');
+CREATE SCHEMA s;
+CREATE VIEW v AS SELECT 1 AS x;
+DROP VIEW v garbage;

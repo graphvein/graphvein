@@ -1,0 +1,28 @@
+{
+  "id": "review19-r1-l15-index-nulls-hash",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y25",
+  "row": "review19",
+  "history": {
+    "id": "l15-index-nulls-hash"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "0A000",
+        "message": "access method \"hash\" does not support NULLS FIRST/LAST options",
+        "statement": 2,
+        "statement_text": "CREATE INDEX t_a ON t USING hash (a NULLS FIRST);"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

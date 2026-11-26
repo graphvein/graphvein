@@ -1,0 +1,1 @@
+CREATE TABLE p (a varchar(5) PRIMARY KEY); CREATE TABLE c (a char(3) REFERENCES p);

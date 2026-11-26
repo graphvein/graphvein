@@ -1,0 +1,1 @@
+CREATE TABLE t1 (id int PRIMARY KEY, c2 bytea REFERENCES ext_a);

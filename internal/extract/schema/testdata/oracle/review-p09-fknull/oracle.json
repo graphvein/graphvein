@@ -1,0 +1,30 @@
+{
+  "id": "review-p09-fknull",
+  "signature": "agreed at af6a883",
+  "class": "S1",
+  "owner": "P5",
+  "row": "review",
+  "history": {
+    "id": "p09-fknull"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "23503",
+        "message": "insert or update on table \"c2\" violates foreign key constraint \"c2_x_y_fkey\"",
+        "detail": "MATCH FULL does not allow mixing of null and nonnull key values.",
+        "statement": 5,
+        "statement_text": "INSERT INTO c2 (x, y) VALUES (1, NULL);",
+        "row_free": true
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

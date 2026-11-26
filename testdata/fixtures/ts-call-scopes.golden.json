@@ -1,0 +1,1131 @@
+[
+  {
+    "confidence": 1,
+    "evidence": [
+      {
+        "file": "src/receivers.js",
+        "span": {
+          "end_column": 12,
+          "end_line": 135,
+          "start_column": 0,
+          "start_line": 135
+        }
+      }
+    ],
+    "kind": "calls",
+    "provenance": "fact",
+    "source": "file:src/receivers.js#src%2Freceivers.js",
+    "target": "method:src/receivers.js#Clock.keep",
+    "type": "edge"
+  },
+  {
+    "confidence": 1,
+    "evidence": [
+      {
+        "file": "src/kinds.ts",
+        "span": {
+          "end_column": 8,
+          "end_line": 13,
+          "start_column": 2,
+          "start_line": 13
+        }
+      }
+    ],
+    "kind": "calls",
+    "provenance": "fact",
+    "source": "function:src/kinds.ts#others",
+    "target": "function:src/kinds.ts#read",
+    "type": "edge"
+  },
+  {
+    "confidence": 1,
+    "evidence": [
+      {
+        "file": "src/legacy.cjs",
+        "span": {
+          "end_column": 10,
+          "end_line": 8,
+          "start_column": 2,
+          "start_line": 8
+        }
+      }
+    ],
+    "kind": "calls",
+    "provenance": "fact",
+    "source": "function:src/legacy.cjs#legacy",
+    "target": "function:src/legacy.cjs#helper",
+    "type": "edge"
+  },
+  {
+    "confidence": 1,
+    "evidence": [
+      {
+        "file": "src/members.js",
+        "span": {
+          "end_column": 17,
+          "end_line": 150,
+          "start_column": 2,
+          "start_line": 150
+        }
+      }
+    ],
+    "kind": "calls",
+    "provenance": "fact",
+    "source": "function:src/members.js#useSettings",
+    "target": "method:src/members.js#settings.read",
+    "type": "edge"
+  },
+  {
+    "confidence": 1,
+    "evidence": [
+      {
+        "file": "src/members.js",
+        "span": {
+          "end_column": 14,
+          "end_line": 226,
+          "start_column": 2,
+          "start_line": 226
+        }
+      }
+    ],
+    "kind": "calls",
+    "provenance": "fact",
+    "source": "function:src/members.js#useStore",
+    "target": "method:src/members.js#store.save",
+    "type": "edge"
+  },
+  {
+    "confidence": 1,
+    "evidence": [
+      {
+        "file": "src/patch/default.js",
+        "span": {
+          "end_column": 12,
+          "end_line": 13,
+          "start_column": 2,
+          "start_line": 13
+        }
+      },
+      {
+        "file": "src/patch/default.js",
+        "span": {
+          "end_column": 8,
+          "end_line": 14,
+          "start_column": 2,
+          "start_line": 14
+        }
+      }
+    ],
+    "kind": "calls",
+    "provenance": "fact",
+    "source": "function:src/patch/default.js#useStore",
+    "target": "function:src/patch/api.js#keep",
+    "type": "edge"
+  },
+  {
+    "confidence": 1,
+    "evidence": [
+      {
+        "file": "src/patch/default.js",
+        "span": {
+          "end_column": 10,
+          "end_line": 15,
+          "start_column": 2,
+          "start_line": 15
+        }
+      }
+    ],
+    "kind": "calls",
+    "provenance": "fact",
+    "source": "function:src/patch/default.js#useStore",
+    "target": "function:src/patch/api.js#nested",
+    "type": "edge"
+  },
+  {
+    "confidence": 1,
+    "evidence": [
+      {
+        "file": "src/patch/namespace.js",
+        "span": {
+          "end_column": 12,
+          "end_line": 18,
+          "start_column": 2,
+          "start_line": 18
+        }
+      }
+    ],
+    "kind": "calls",
+    "provenance": "fact",
+    "source": "function:src/patch/namespace.js#useApi",
+    "target": "function:src/patch/api.js#keep",
+    "type": "edge"
+  },
+  {
+    "confidence": 1,
+    "evidence": [
+      {
+        "file": "src/patch/namespace.js",
+        "span": {
+          "end_column": 14,
+          "end_line": 19,
+          "start_column": 2,
+          "start_line": 19
+        }
+      }
+    ],
+    "kind": "calls",
+    "provenance": "fact",
+    "source": "function:src/patch/namespace.js#useApi",
+    "target": "function:src/patch/api.js#nested",
+    "type": "edge"
+  },
+  {
+    "confidence": 1,
+    "evidence": [
+      {
+        "file": "src/patch/required.js",
+        "span": {
+          "end_column": 11,
+          "end_line": 15,
+          "start_column": 2,
+          "start_line": 15
+        }
+      }
+    ],
+    "kind": "calls",
+    "provenance": "fact",
+    "source": "function:src/patch/required.js#useRequired",
+    "target": "function:src/patch/api.js#inc",
+    "type": "edge"
+  },
+  {
+    "confidence": 1,
+    "evidence": [
+      {
+        "file": "src/receivers.js",
+        "span": {
+          "end_column": 14,
+          "end_line": 21,
+          "start_column": 2,
+          "start_line": 21
+        }
+      }
+    ],
+    "kind": "calls",
+    "provenance": "fact",
+    "source": "function:src/receivers.js#usePanel",
+    "target": "method:src/receivers.js#panel.init",
+    "type": "edge"
+  },
+  {
+    "confidence": 1,
+    "evidence": [
+      {
+        "file": "src/receivers.js",
+        "span": {
+          "end_column": 14,
+          "end_line": 23,
+          "start_column": 2,
+          "start_line": 23
+        }
+      }
+    ],
+    "kind": "calls",
+    "provenance": "fact",
+    "source": "function:src/receivers.js#usePanel",
+    "target": "method:src/receivers.js#panel.show",
+    "type": "edge"
+  },
+  {
+    "confidence": 1,
+    "evidence": [
+      {
+        "file": "src/scopes.js",
+        "span": {
+          "end_column": 9,
+          "end_line": 31,
+          "start_column": 2,
+          "start_line": 31
+        }
+      }
+    ],
+    "kind": "calls",
+    "provenance": "fact",
+    "source": "function:src/scopes.js#blocks",
+    "target": "function:src/scopes.js#parse",
+    "type": "edge"
+  },
+  {
+    "confidence": 1,
+    "evidence": [
+      {
+        "file": "src/scopes.js",
+        "span": {
+          "end_column": 10,
+          "end_line": 65,
+          "start_column": 2,
+          "start_line": 65
+        }
+      }
+    ],
+    "kind": "calls",
+    "provenance": "fact",
+    "source": "function:src/scopes.js#caught",
+    "target": "function:src/scopes.js#helper",
+    "type": "edge"
+  },
+  {
+    "confidence": 1,
+    "evidence": [
+      {
+        "file": "src/scopes.js",
+        "span": {
+          "end_column": 11,
+          "end_line": 61,
+          "start_column": 4,
+          "start_line": 61
+        }
+      }
+    ],
+    "kind": "calls",
+    "provenance": "fact",
+    "source": "function:src/scopes.js#caught",
+    "target": "function:src/scopes.js#parse",
+    "type": "edge"
+  },
+  {
+    "confidence": 1,
+    "evidence": [
+      {
+        "file": "src/scopes.js",
+        "span": {
+          "end_column": 12,
+          "end_line": 70,
+          "start_column": 2,
+          "start_line": 70
+        }
+      }
+    ],
+    "kind": "calls",
+    "provenance": "fact",
+    "source": "function:src/scopes.js#classes",
+    "target": "method:src/scopes.js#Box.make",
+    "type": "edge"
+  },
+  {
+    "confidence": 1,
+    "evidence": [
+      {
+        "file": "src/scopes.js",
+        "span": {
+          "end_column": 14,
+          "end_line": 75,
+          "start_column": 4,
+          "start_line": 75
+        }
+      }
+    ],
+    "kind": "calls",
+    "provenance": "fact",
+    "source": "function:src/scopes.js#classes",
+    "target": "method:src/scopes.js#classes.Box.make",
+    "type": "edge"
+  },
+  {
+    "confidence": 1,
+    "evidence": [
+      {
+        "file": "src/scopes.js",
+        "span": {
+          "end_column": 7,
+          "end_line": 81,
+          "start_column": 2,
+          "start_line": 81
+        }
+      }
+    ],
+    "kind": "calls",
+    "provenance": "fact",
+    "source": "function:src/scopes.js#declarators",
+    "target": "function:src/scopes.js#fmt",
+    "type": "edge"
+  },
+  {
+    "confidence": 1,
+    "evidence": [
+      {
+        "file": "src/scopes.js",
+        "span": {
+          "end_column": 11,
+          "end_line": 82,
+          "start_column": 2,
+          "start_line": 82
+        }
+      }
+    ],
+    "kind": "calls",
+    "provenance": "fact",
+    "source": "function:src/scopes.js#declarators",
+    "target": "method:src/scopes.js#api.get",
+    "type": "edge"
+  },
+  {
+    "confidence": 1,
+    "evidence": [
+      {
+        "file": "src/scopes.js",
+        "span": {
+          "end_column": 12,
+          "end_line": 133,
+          "start_column": 4,
+          "start_line": 133
+        }
+      }
+    ],
+    "kind": "calls",
+    "provenance": "fact",
+    "source": "function:src/scopes.js#globals",
+    "target": "function:src/scopes.js#globals.hidden",
+    "type": "edge"
+  },
+  {
+    "confidence": 1,
+    "evidence": [
+      {
+        "file": "src/scopes.js",
+        "span": {
+          "end_column": 10,
+          "end_line": 19,
+          "start_column": 2,
+          "start_line": 19
+        }
+      }
+    ],
+    "kind": "calls",
+    "provenance": "fact",
+    "source": "function:src/scopes.js#hoisted",
+    "target": "function:src/scopes.js#helper",
+    "type": "edge"
+  },
+  {
+    "confidence": 1,
+    "evidence": [
+      {
+        "file": "src/scopes.js",
+        "span": {
+          "end_column": 7,
+          "end_line": 99,
+          "start_column": 2,
+          "start_line": 99
+        }
+      }
+    ],
+    "kind": "calls",
+    "provenance": "fact",
+    "source": "function:src/scopes.js#imported",
+    "target": "function:src/other.js#ext",
+    "type": "edge"
+  },
+  {
+    "confidence": 1,
+    "evidence": [
+      {
+        "file": "src/scopes.js",
+        "span": {
+          "end_column": 9,
+          "end_line": 40,
+          "start_column": 2,
+          "start_line": 40
+        }
+      }
+    ],
+    "kind": "calls",
+    "provenance": "fact",
+    "source": "function:src/scopes.js#nested",
+    "target": "function:src/scopes.js#nested.parse",
+    "type": "edge"
+  },
+  {
+    "confidence": 1,
+    "evidence": [
+      {
+        "file": "src/scopes.js",
+        "span": {
+          "end_column": 27,
+          "end_line": 93,
+          "start_column": 16,
+          "start_line": 93
+        }
+      }
+    ],
+    "kind": "calls",
+    "provenance": "fact",
+    "source": "function:src/scopes.js#outer2.step",
+    "target": "function:src/scopes.js#outer2.step",
+    "type": "edge"
+  },
+  {
+    "confidence": 1,
+    "evidence": [
+      {
+        "file": "src/scopes.js",
+        "span": {
+          "end_column": 27,
+          "end_line": 55,
+          "start_column": 18,
+          "start_line": 55
+        }
+      }
+    ],
+    "kind": "calls",
+    "provenance": "fact",
+    "source": "function:src/scopes.js#params",
+    "target": "function:src/scopes.js#helper",
+    "type": "edge"
+  },
+  {
+    "confidence": 1,
+    "evidence": [
+      {
+        "file": "src/scopes.js",
+        "span": {
+          "end_column": 23,
+          "end_line": 167,
+          "start_column": 11,
+          "start_line": 167
+        }
+      }
+    ],
+    "kind": "calls",
+    "provenance": "fact",
+    "source": "function:src/scopes.js#setup",
+    "target": "method:src/scopes.js#setup.store.load",
+    "type": "edge"
+  },
+  {
+    "confidence": 1,
+    "evidence": [
+      {
+        "file": "src/scopes.js",
+        "span": {
+          "end_column": 9,
+          "end_line": 176,
+          "start_column": 2,
+          "start_line": 176
+        }
+      }
+    ],
+    "kind": "calls",
+    "provenance": "fact",
+    "source": "function:src/scopes.js#toolbox",
+    "target": "function:src/scopes.js#toolbox.inner",
+    "type": "edge"
+  },
+  {
+    "confidence": 1,
+    "evidence": [
+      {
+        "file": "src/written.ts",
+        "span": {
+          "end_column": 9,
+          "end_line": 41,
+          "start_column": 2,
+          "start_line": 41
+        }
+      }
+    ],
+    "kind": "calls",
+    "provenance": "fact",
+    "source": "function:src/written.ts#writes",
+    "target": "function:src/written.ts#fixed",
+    "type": "edge"
+  },
+  {
+    "confidence": 1,
+    "evidence": [
+      {
+        "file": "src/written.ts",
+        "span": {
+          "end_column": 10,
+          "end_line": 40,
+          "start_column": 2,
+          "start_line": 40
+        }
+      }
+    ],
+    "kind": "calls",
+    "provenance": "fact",
+    "source": "function:src/written.ts#writes",
+    "target": "function:src/written.ts#stable",
+    "type": "edge"
+  },
+  {
+    "confidence": 1,
+    "evidence": [
+      {
+        "file": "src/members.js",
+        "span": {
+          "end_column": 15,
+          "end_line": 139,
+          "start_column": 4,
+          "start_line": 139
+        }
+      }
+    ],
+    "kind": "calls",
+    "provenance": "fact",
+    "source": "method:src/members.js#Client.run",
+    "target": "method:src/members.js#Client.keep",
+    "type": "edge"
+  },
+  {
+    "confidence": 1,
+    "evidence": [
+      {
+        "file": "src/members.js",
+        "span": {
+          "end_column": 17,
+          "end_line": 140,
+          "start_column": 4,
+          "start_line": 140
+        }
+      }
+    ],
+    "kind": "calls",
+    "provenance": "fact",
+    "source": "method:src/members.js#Client.run",
+    "target": "method:src/members.js#Client.make",
+    "type": "edge"
+  },
+  {
+    "confidence": 1,
+    "evidence": [
+      {
+        "file": "src/members.js",
+        "span": {
+          "end_column": 15,
+          "end_line": 198,
+          "start_column": 4,
+          "start_line": 198
+        }
+      }
+    ],
+    "kind": "calls",
+    "provenance": "fact",
+    "source": "method:src/members.js#Cursor.walk",
+    "target": "method:src/members.js#Cursor.of",
+    "type": "edge"
+  },
+  {
+    "confidence": 1,
+    "evidence": [
+      {
+        "file": "src/members.js",
+        "span": {
+          "end_column": 13,
+          "end_line": 241,
+          "start_column": 4,
+          "start_line": 241
+        }
+      }
+    ],
+    "kind": "calls",
+    "provenance": "fact",
+    "source": "method:src/members.js#Inner.run",
+    "target": "method:src/members.js#Inner.k",
+    "type": "edge"
+  },
+  {
+    "confidence": 1,
+    "evidence": [
+      {
+        "file": "src/members.js",
+        "span": {
+          "end_column": 12,
+          "end_line": 250,
+          "start_column": 4,
+          "start_line": 250
+        }
+      }
+    ],
+    "kind": "calls",
+    "provenance": "fact",
+    "source": "method:src/members.js#Named.run",
+    "target": "method:src/members.js#Named.k",
+    "type": "edge"
+  },
+  {
+    "confidence": 1,
+    "evidence": [
+      {
+        "file": "src/members.js",
+        "span": {
+          "end_column": 16,
+          "end_line": 189,
+          "start_column": 4,
+          "start_line": 189
+        }
+      }
+    ],
+    "kind": "calls",
+    "provenance": "fact",
+    "source": "method:src/members.js#Range.build",
+    "target": "method:src/members.js#Range.from",
+    "type": "edge"
+  },
+  {
+    "confidence": 1,
+    "evidence": [
+      {
+        "file": "src/members.js",
+        "span": {
+          "end_column": 13,
+          "end_line": 190,
+          "start_column": 4,
+          "start_line": 190
+        }
+      }
+    ],
+    "kind": "calls",
+    "provenance": "fact",
+    "source": "method:src/members.js#Range.build",
+    "target": "method:src/members.js#Range.to",
+    "type": "edge"
+  },
+  {
+    "confidence": 1,
+    "evidence": [
+      {
+        "file": "src/members.js",
+        "span": {
+          "end_column": 19,
+          "end_line": 49,
+          "start_column": 4,
+          "start_line": 49
+        }
+      }
+    ],
+    "kind": "calls",
+    "provenance": "fact",
+    "source": "method:src/members.js#Registry.use",
+    "target": "method:src/members.js#Registry.keep",
+    "type": "edge"
+  },
+  {
+    "confidence": 1,
+    "evidence": [
+      {
+        "file": "src/members.js",
+        "span": {
+          "end_column": 14,
+          "end_line": 121,
+          "start_column": 4,
+          "start_line": 121
+        }
+      }
+    ],
+    "kind": "calls",
+    "provenance": "fact",
+    "source": "method:src/members.js#Snapshot.files",
+    "target": "method:src/members.js#Snapshot.git",
+    "type": "edge"
+  },
+  {
+    "confidence": 1,
+    "evidence": [
+      {
+        "file": "src/members.js",
+        "span": {
+          "end_column": 15,
+          "end_line": 18,
+          "start_column": 4,
+          "start_line": 18
+        }
+      }
+    ],
+    "kind": "calls",
+    "provenance": "fact",
+    "source": "method:src/members.js#Widget.constructor",
+    "target": "function:src/members.js#mixin",
+    "type": "edge"
+  },
+  {
+    "confidence": 1,
+    "evidence": [
+      {
+        "file": "src/members.js",
+        "span": {
+          "end_column": 35,
+          "end_line": 21,
+          "start_column": 16,
+          "start_line": 21
+        }
+      }
+    ],
+    "kind": "calls",
+    "provenance": "fact",
+    "source": "method:src/members.js#Widget.constructor",
+    "target": "function:src/members.js#throttle",
+    "type": "edge"
+  },
+  {
+    "confidence": 1,
+    "evidence": [
+      {
+        "file": "src/members.js",
+        "span": {
+          "end_column": 16,
+          "end_line": 31,
+          "start_column": 4,
+          "start_line": 31
+        }
+      }
+    ],
+    "kind": "calls",
+    "provenance": "fact",
+    "source": "method:src/members.js#Widget.run",
+    "target": "method:src/members.js#Widget.close",
+    "type": "edge"
+  },
+  {
+    "confidence": 1,
+    "evidence": [
+      {
+        "file": "src/members.js",
+        "span": {
+          "end_column": 15,
+          "end_line": 34,
+          "start_column": 4,
+          "start_line": 34
+        }
+      }
+    ],
+    "kind": "calls",
+    "provenance": "fact",
+    "source": "method:src/members.js#Widget.run",
+    "target": "method:src/members.js#Widget.stay",
+    "type": "edge"
+  },
+  {
+    "confidence": 1,
+    "evidence": [
+      {
+        "file": "src/patch/required.cjs",
+        "span": {
+          "end_column": 15,
+          "end_line": 17,
+          "start_column": 4,
+          "start_line": 17
+        }
+      }
+    ],
+    "kind": "calls",
+    "provenance": "fact",
+    "source": "method:src/patch/required.cjs#Runner.run",
+    "target": "method:src/patch/required.cjs#Runner.stop",
+    "type": "edge"
+  },
+  {
+    "confidence": 1,
+    "evidence": [
+      {
+        "file": "src/receivers.js",
+        "span": {
+          "end_column": 10,
+          "end_line": 88,
+          "start_column": 4,
+          "start_line": 88
+        }
+      }
+    ],
+    "kind": "calls",
+    "provenance": "fact",
+    "source": "method:src/receivers.js#Board.constructor",
+    "target": "function:src/receivers.js#make",
+    "type": "edge"
+  },
+  {
+    "confidence": 1,
+    "evidence": [
+      {
+        "file": "src/receivers.js",
+        "span": {
+          "end_column": 15,
+          "end_line": 104,
+          "start_column": 4,
+          "start_line": 104
+        }
+      }
+    ],
+    "kind": "calls",
+    "provenance": "fact",
+    "source": "method:src/receivers.js#Board.run",
+    "target": "method:src/receivers.js#Board.stay",
+    "type": "edge"
+  },
+  {
+    "confidence": 1,
+    "evidence": [
+      {
+        "file": "src/receivers.js",
+        "span": {
+          "end_column": 17,
+          "end_line": 153,
+          "start_column": 6,
+          "start_line": 153
+        }
+      }
+    ],
+    "kind": "calls",
+    "provenance": "fact",
+    "source": "method:src/receivers.js#Twin%402.run",
+    "target": "method:src/receivers.js#Twin%402.keep",
+    "type": "edge"
+  },
+  {
+    "confidence": 1,
+    "evidence": [
+      {
+        "file": "src/receivers.js",
+        "span": {
+          "end_column": 15,
+          "end_line": 115,
+          "start_column": 4,
+          "start_line": 115
+        }
+      }
+    ],
+    "kind": "calls",
+    "provenance": "fact",
+    "source": "method:src/receivers.js#kit.use",
+    "target": "method:src/receivers.js#kit.extra",
+    "type": "edge"
+  },
+  {
+    "confidence": 1,
+    "evidence": [
+      {
+        "file": "src/receivers.js",
+        "span": {
+          "end_column": 15,
+          "end_line": 116,
+          "start_column": 4,
+          "start_line": 116
+        }
+      }
+    ],
+    "kind": "calls",
+    "provenance": "fact",
+    "source": "method:src/receivers.js#kit.use",
+    "target": "method:src/receivers.js#kit.label",
+    "type": "edge"
+  },
+  {
+    "confidence": 1,
+    "evidence": [
+      {
+        "file": "src/receivers.js",
+        "span": {
+          "end_column": 16,
+          "end_line": 117,
+          "start_column": 4,
+          "start_line": 117
+        }
+      }
+    ],
+    "kind": "calls",
+    "provenance": "fact",
+    "source": "method:src/receivers.js#kit.use",
+    "target": "method:src/receivers.js#kit.merged",
+    "type": "edge"
+  },
+  {
+    "confidence": 1,
+    "evidence": [
+      {
+        "file": "src/scopes.js",
+        "span": {
+          "end_column": 16,
+          "end_line": 106,
+          "start_column": 4,
+          "start_line": 106
+        }
+      },
+      {
+        "file": "src/scopes.js",
+        "span": {
+          "end_column": 30,
+          "end_line": 107,
+          "start_column": 18,
+          "start_line": 107
+        }
+      }
+    ],
+    "kind": "calls",
+    "provenance": "fact",
+    "source": "method:src/scopes.js#Panel.open",
+    "target": "method:src/scopes.js#Panel.close",
+    "type": "edge"
+  },
+  {
+    "confidence": 1,
+    "evidence": [
+      {
+        "file": "src/scopes.js",
+        "span": {
+          "end_column": 12,
+          "end_line": 196,
+          "start_column": 4,
+          "start_line": 196
+        }
+      }
+    ],
+    "kind": "calls",
+    "provenance": "fact",
+    "source": "method:src/scopes.js#Report.render",
+    "target": "function:src/scopes.js#format",
+    "type": "edge"
+  },
+  {
+    "confidence": 1,
+    "evidence": [
+      {
+        "file": "src/scopes.js",
+        "span": {
+          "end_column": 17,
+          "end_line": 197,
+          "start_column": 4,
+          "start_line": 197
+        }
+      }
+    ],
+    "kind": "calls",
+    "provenance": "fact",
+    "source": "method:src/scopes.js#Report.render",
+    "target": "method:src/scopes.js#Report.format",
+    "type": "edge"
+  },
+  {
+    "confidence": 1,
+    "evidence": [
+      {
+        "file": "src/scopes.js",
+        "span": {
+          "end_column": 17,
+          "end_line": 148,
+          "start_column": 4,
+          "start_line": 148
+        }
+      },
+      {
+        "file": "src/scopes.js",
+        "span": {
+          "end_column": 19,
+          "end_line": 149,
+          "start_column": 4,
+          "start_line": 149
+        }
+      }
+    ],
+    "kind": "calls",
+    "provenance": "fact",
+    "source": "method:src/scopes.js#Runner.boot",
+    "target": "method:src/scopes.js#Runner.helper",
+    "type": "edge"
+  },
+  {
+    "confidence": 1,
+    "evidence": [
+      {
+        "file": "src/scopes.js",
+        "span": {
+          "end_column": 23,
+          "end_line": 153,
+          "start_column": 11,
+          "start_line": 153
+        }
+      }
+    ],
+    "kind": "calls",
+    "provenance": "fact",
+    "source": "method:src/scopes.js#Runner.ready",
+    "target": "method:src/scopes.js#Runner.start",
+    "type": "edge"
+  },
+  {
+    "confidence": 1,
+    "evidence": [
+      {
+        "file": "src/scopes.js",
+        "span": {
+          "end_column": 16,
+          "end_line": 144,
+          "start_column": 4,
+          "start_line": 144
+        }
+      }
+    ],
+    "kind": "calls",
+    "provenance": "fact",
+    "source": "method:src/scopes.js#Runner.run",
+    "target": "method:src/scopes.js#Runner.start",
+    "type": "edge"
+  },
+  {
+    "confidence": 1,
+    "evidence": [
+      {
+        "file": "src/scopes.js",
+        "span": {
+          "end_column": 9,
+          "end_line": 237,
+          "start_column": 4,
+          "start_line": 237
+        }
+      }
+    ],
+    "kind": "calls",
+    "provenance": "fact",
+    "source": "method:src/scopes.js#Viewer.show",
+    "target": "function:src/other.js#ext",
+    "type": "edge"
+  },
+  {
+    "confidence": 1,
+    "evidence": [
+      {
+        "file": "src/scopes.js",
+        "span": {
+          "end_column": 18,
+          "end_line": 207,
+          "start_column": 13,
+          "start_line": 207
+        }
+      }
+    ],
+    "kind": "calls",
+    "provenance": "fact",
+    "source": "method:src/scopes.js#table.pad",
+    "target": "function:src/scopes.js#pad",
+    "type": "edge"
+  },
+  {
+    "confidence": 1,
+    "evidence": [
+      {
+        "file": "src/scopes.js",
+        "span": {
+          "end_column": 18,
+          "end_line": 215,
+          "start_column": 13,
+          "start_line": 215
+        }
+      }
+    ],
+    "kind": "calls",
+    "provenance": "fact",
+    "source": "method:src/scopes.js#table.pad%402",
+    "target": "function:src/scopes.js#pad%402",
+    "type": "edge"
+  }
+]

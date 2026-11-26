@@ -1,0 +1,6 @@
+{"type":"thread.started","thread_id":"0199a000-0000-7000-8000-000000000002"}
+{"type":"turn.started"}
+{"type":"item.started","item":{"id":"item_0","type":"mcp_tool_call","server":"graphvein","tool":"route_callers","arguments":{"route":"GET /api/v1/users/me"},"result":null,"error":null,"status":"in_progress"}}
+{"type":"item.completed","item":{"id":"item_0","type":"mcp_tool_call","server":"graphvein","tool":"route_callers","arguments":{"route":"GET /api/v1/users/me"},"result":{"content":[{"type":"text","text":"GET /api/v1/users/me is called from frontend/src/hooks/useAuth.ts:25"}],"structured_content":{"route":"GET /api/v1/users/me","callers":[{"file":"frontend/src/hooks/useAuth.ts","line":25}]}},"error":null,"status":"completed"}}
+{"type":"item.completed","item":{"id":"item_1","type":"agent_message","text":{{FINAL}}}}
+{"type":"turn.completed","usage":{"input_tokens":21030,"cached_input_tokens":16384,"output_tokens":402,"reasoning_output_tokens":128}}

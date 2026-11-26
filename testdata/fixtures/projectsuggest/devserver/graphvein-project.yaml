@@ -1,0 +1,14 @@
+version: 1
+name: suggest-devserver
+members:
+  - repository: frontend
+    path: frontend
+  - repository: admin
+    path: admin
+  - repository: cra
+    path: cra
+    consumes: [backend]   # already declared: its proposal cannot be accepted
+  - repository: computed
+    path: computed
+  - repository: backend
+    path: backend

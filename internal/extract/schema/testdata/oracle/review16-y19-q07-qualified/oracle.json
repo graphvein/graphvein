@@ -1,0 +1,40 @@
+{
+  "id": "review16-y19-q07-qualified",
+  "signature": "agreed at Revision 1.6",
+  "class": "S1",
+  "owner": "V6",
+  "row": "review16",
+  "history": {
+    "id": "y19-q07-qualified"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "accepted"
+      }
+    ],
+    "tables": [
+      {
+        "table": "history.u",
+        "columns": [
+          {
+            "name": "b",
+            "type": "integer",
+            "not_null": false,
+            "has_default": false
+          }
+        ],
+        "primary_key": null,
+        "unique_keys": [],
+        "foreign_keys": [],
+        "indexes": []
+      }
+    ],
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

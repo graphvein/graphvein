@@ -1,0 +1,29 @@
+{
+  "id": "review19-r3-v023-alterfunc-cost-neg",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y16",
+  "row": "review19",
+  "history": {
+    "id": "v023-alterfunc-cost-neg"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "22023",
+        "message": "COST must be positive",
+        "statement": 2,
+        "statement_text": "ALTER FUNCTION f() COST -1;",
+        "row_free": true
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

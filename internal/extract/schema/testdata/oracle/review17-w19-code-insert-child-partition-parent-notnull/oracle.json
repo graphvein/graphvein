@@ -1,0 +1,28 @@
+{
+  "id": "review17-w19-code-insert-child-partition-parent-notnull",
+  "signature": "agreed at Revision 1.7",
+  "class": "S1",
+  "owner": "W6",
+  "row": "review17",
+  "history": {
+    "id": "w19-code-insert-child-partition-parent-notnull"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "23502",
+        "message": "column \"b\" of relation \"p1\" contains null values",
+        "statement": 4,
+        "statement_text": "ALTER TABLE p ALTER COLUMN b SET NOT NULL;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

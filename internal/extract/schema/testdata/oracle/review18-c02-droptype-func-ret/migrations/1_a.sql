@@ -1,0 +1,3 @@
+CREATE TYPE st AS ENUM ('a');
+CREATE FUNCTION f() RETURNS st LANGUAGE sql AS $$ SELECT 'a'::st $$;
+DROP TYPE st;

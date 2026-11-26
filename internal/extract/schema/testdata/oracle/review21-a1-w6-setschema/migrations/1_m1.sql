@@ -1,0 +1,1 @@
+CREATE SCHEMA s; CREATE DOMAIN d AS int; CREATE TABLE t (a d, b int);

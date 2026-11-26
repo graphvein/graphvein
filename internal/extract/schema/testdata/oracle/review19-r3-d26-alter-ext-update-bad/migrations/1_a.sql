@@ -1,0 +1,2 @@
+CREATE EXTENSION pgcrypto;
+ALTER EXTENSION pgcrypto UPDATE TO '9.9';

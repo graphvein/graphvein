@@ -1,0 +1,3 @@
+CREATE TABLE t1 (id uuid PRIMARY KEY);
+ALTER INDEX t1 RENAME TO ix_2;
+SELECT count(*) FROM t1;

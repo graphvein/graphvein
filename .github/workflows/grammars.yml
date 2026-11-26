@@ -1,0 +1,58 @@
+name: Grammar assets
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'grammars/manifest.*'
+      - 'grammars/builder.go.txt'
+      - 'scripts/build-grammars.py'
+      - '.github/workflows/grammars.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-go@d8cbb8045d7f43706b9177cceb36c1f91a6644d5 # v7.1.0
+        with:
+          go-version: '1.27.1'
+      - name: Validate source pins before spending build minutes
+        run: |
+          python3 scripts/test-build-grammars.py
+          python3 scripts/build-grammars.py --validate
+      - name: Install pinned CI toolchain
+        run: |
+          sdk=$(python3 -c 'import json; print(json.load(open("grammars/manifest.yaml"))["tools"]["wasi_sdk"])')
+          cli=$(python3 -c 'import json; print(json.load(open("grammars/manifest.yaml"))["tools"]["tree_sitter_cli"])')
+          curl --fail --location --retry 3 "https://github.com/WebAssembly/wasi-sdk/releases/download/wasi-sdk-${sdk%%.*}/wasi-sdk-$sdk-x86_64-linux.tar.gz" -o "$RUNNER_TEMP/sdk.tar.gz"
+          sdk_sha=$(python3 -c 'import json; print(json.load(open("grammars/manifest.yaml"))["tools"]["wasi_sdk_sha256"])')
+          printf '%s  %s\n' "$sdk_sha" "$RUNNER_TEMP/sdk.tar.gz" | sha256sum -c -
+          echo "WASI_SDK_SHA256=$sdk_sha" >> "$GITHUB_ENV"
+          tar -xzf "$RUNNER_TEMP/sdk.tar.gz" -C "$RUNNER_TEMP"
+          echo "WASI_SDK_PATH=$RUNNER_TEMP/wasi-sdk-$sdk-x86_64-linux" >> "$GITHUB_ENV"
+          curl --fail --location --retry 3 "https://github.com/tree-sitter/tree-sitter/releases/download/v$cli/tree-sitter-linux-x64.gz" -o "$RUNNER_TEMP/tree-sitter.gz"
+          cli_sha=$(python3 -c 'import json; print(json.load(open("grammars/manifest.yaml"))["tools"]["tree_sitter_cli_sha256"])')
+          printf '%s  %s\n' "$cli_sha" "$RUNNER_TEMP/tree-sitter.gz" | sha256sum -c -
+          gzip -dc "$RUNNER_TEMP/tree-sitter.gz" > "$RUNNER_TEMP/tree-sitter"
+          chmod +x "$RUNNER_TEMP/tree-sitter"
+          echo "$RUNNER_TEMP" >> "$GITHUB_PATH"
+      - name: Build runtime and bridge with each pinned grammar
+        env:
+          CGO_ENABLED: '0'
+        run: |
+          sudo install -d -o "$(id -u)" -g "$(id -g)" /opt/graphvein-build
+          python3 scripts/build-grammars.py
+      - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
+        with:
+          name: grammar-assets
+          path: grammars/artifacts/
+          if-no-files-found: error
+          retention-days: 30

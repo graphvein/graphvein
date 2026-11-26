@@ -1,0 +1,28 @@
+{
+  "id": "review15-h11-reserved-colname",
+  "signature": "agreed at Revision 1.5",
+  "class": "S1",
+  "owner": "U8",
+  "row": "review15",
+  "history": {
+    "id": "h11-reserved-colname"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42601",
+        "message": "syntax error at or near \"authorization\"",
+        "statement": 1,
+        "statement_text": "CREATE TABLE t (id int, authorization text);"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

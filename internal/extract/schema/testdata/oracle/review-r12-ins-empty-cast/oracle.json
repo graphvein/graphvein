@@ -1,0 +1,78 @@
+{
+  "id": "review-r12-ins-empty-cast",
+  "signature": "agreed at af6a883",
+  "class": "S1",
+  "owner": "P5",
+  "row": "review",
+  "history": {
+    "id": "r12-ins-empty-cast"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "accepted"
+      }
+    ],
+    "tables": [
+      {
+        "table": "history.t",
+        "columns": [
+          {
+            "name": "a",
+            "type": "integer",
+            "not_null": true,
+            "has_default": false
+          },
+          {
+            "name": "b",
+            "type": "character varying(3)",
+            "not_null": false,
+            "has_default": false
+          },
+          {
+            "name": "c",
+            "type": "numeric(4,2)",
+            "not_null": false,
+            "has_default": false
+          },
+          {
+            "name": "d",
+            "type": "date",
+            "not_null": false,
+            "has_default": false
+          },
+          {
+            "name": "e",
+            "type": "boolean",
+            "not_null": false,
+            "has_default": false
+          },
+          {
+            "name": "f",
+            "type": "timestamp with time zone",
+            "not_null": false,
+            "has_default": false
+          },
+          {
+            "name": "g",
+            "type": "uuid",
+            "not_null": false,
+            "has_default": false
+          }
+        ],
+        "primary_key": [
+          "a"
+        ],
+        "unique_keys": [],
+        "foreign_keys": [],
+        "indexes": []
+      }
+    ],
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

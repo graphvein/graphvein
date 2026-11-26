@@ -1,0 +1,1793 @@
+{
+  "info": {
+    "description": "Routes registered in this repository's source, as Graphvein extracted them from its index. Graphvein ran no code and read no running server. A parameter, request body, response or security requirement that is absent was not read, which is not the same as none: each operation lists what was not read in x-graphvein.not_read. Routes Graphvein could not place on a path, forms OpenAPI cannot express and conflicting registrations are listed in the root x-graphvein, never guessed.",
+    "title": "fixture routes extracted by Graphvein",
+    "version": "unversioned"
+  },
+  "openapi": "3.1.1",
+  "paths": {
+    "/ambiguous": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": [],
+            "mounted_middleware_unknown": [
+              {
+                "expression": "handle",
+                "file": "bindings.ts",
+                "reason": "earlier route handler handle (GET /regex/) may run first",
+                "span": {
+                  "end_column": 24,
+                  "end_line": 21,
+                  "start_column": 0,
+                  "start_line": 21
+                }
+              },
+              {
+                "expression": "handle",
+                "file": "bindings.ts",
+                "reason": "earlier route handler handle (GET ['/array']) may run first",
+                "span": {
+                  "end_column": 27,
+                  "end_line": 22,
+                  "start_column": 0,
+                  "start_line": 22
+                }
+              },
+              {
+                "expression": "handle",
+                "file": "bindings.ts",
+                "reason": "earlier route handler handle (GET '/concat'+suffix) may run first",
+                "span": {
+                  "end_column": 35,
+                  "end_line": 23,
+                  "start_column": 0,
+                  "start_line": 23
+                }
+              },
+              {
+                "expression": "handle",
+                "file": "bindings.ts",
+                "reason": "earlier route handler handle (GET `/template/${suffix}`) may run first",
+                "span": {
+                  "end_column": 38,
+                  "end_line": 24,
+                  "start_column": 0,
+                  "start_line": 24
+                }
+              }
+            ]
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "bindings.ts",
+          "framework": "express",
+          "handler": null,
+          "handler_expression": "duplicate",
+          "line": 27,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "responses",
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:bindings.ts#GET%20%2Fambiguous",
+          "rule": "Express routes (ADR 0013, docs/extract/routes.md)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [],
+            "sections": {
+              "body": {
+                "reason": "handler not read: handler duplicate is not a proven function",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "reason": "handler not read: handler duplicate is not a proven function",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "reason": "handler not read: handler duplicate is not a proven function",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "bindings.ts",
+                  "kind": "fact",
+                  "line": 27,
+                  "rule": "SH-E2"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "reason": "handler not read: handler duplicate is not a proven function",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "reason": "handler not read: handler duplicate is not a proven function",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {},
+            "version": 1
+          },
+          "template": "/ambiguous"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:bindings.ts#GET%20%2Fambiguous"
+          }
+        ]
+      }
+    },
+    "/child/sub": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": [],
+            "mounted_middleware_unknown": [
+              {
+                "expression": "router",
+                "file": "app.ts",
+                "reason": "router router mounted earlier has route handler handle (GET variable) that may run first",
+                "span": {
+                  "end_column": 36,
+                  "end_line": 12,
+                  "start_column": 0,
+                  "start_line": 12
+                }
+              },
+              {
+                "expression": "subapp",
+                "file": "app.ts",
+                "reason": "declared on some mount chains only",
+                "span": {
+                  "end_column": 15,
+                  "end_line": 11,
+                  "start_column": 0,
+                  "start_line": 11
+                }
+              }
+            ]
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "app.ts",
+          "framework": "express",
+          "handler": null,
+          "handler_expression": null,
+          "line": 17,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "responses",
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:app.ts#GET%20%2Fsub",
+          "rule": "Express routes (ADR 0013, docs/extract/routes.md)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [],
+            "sections": {
+              "body": {
+                "reason": "no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "app.ts",
+                  "kind": "fact",
+                  "line": 17,
+                  "rule": "SH-E2"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "reason": "response bodies not claimed: middleware mounted before the route is not proven (router router mounted earlier has route handler handle (GET variable) that may run first) and may change the response; status of res.end at app.ts:17 not proven: middleware mounted before the route is not proven (router router mounted earlier has route handler handle (GET variable) that may run first) and may set a status",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 5
+            },
+            "version": 1
+          },
+          "template": "/child/sub"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:app.ts#GET%20%2Fsub"
+          }
+        ]
+      }
+    },
+    "/cjs": {
+      "delete": {
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "common.cjs",
+          "framework": "express",
+          "handler": "function:common.cjs#handler",
+          "handler_expression": null,
+          "line": 7,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:common.cjs#DELETE%20%2Fcjs",
+          "rule": "Express routes (ADR 0013, docs/extract/routes.md)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [
+              {
+                "item": {
+                  "content_type": null,
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "common.cjs",
+                    "kind": "read_in_handler",
+                    "line": 4,
+                    "rule": "SH-E25"
+                  },
+                  "schema": {
+                    "type": "null"
+                  },
+                  "status": "200"
+                },
+                "row": "OG-76",
+                "section": "responses",
+                "why": "a name read in code: its type and whether it must be sent are not read"
+              }
+            ],
+            "sections": {
+              "body": {
+                "reason": "no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "common.cjs",
+                  "kind": "fact",
+                  "line": 7,
+                  "rule": "SH-E2"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "reason": "statuses read from code; errors thrown by called functions, error middleware and unread calls may add others",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 5
+            },
+            "version": 1
+          },
+          "template": "/cjs"
+        }
+      },
+      "options": {
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "common.cjs",
+          "framework": "express",
+          "handler": "function:common.cjs#handler",
+          "handler_expression": null,
+          "line": 6,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:common.cjs#OPTIONS%20%2Fcjs",
+          "rule": "Express routes (ADR 0013, docs/extract/routes.md)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [
+              {
+                "item": {
+                  "content_type": null,
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "common.cjs",
+                    "kind": "read_in_handler",
+                    "line": 4,
+                    "rule": "SH-E25"
+                  },
+                  "schema": {
+                    "type": "null"
+                  },
+                  "status": "200"
+                },
+                "row": "OG-76",
+                "section": "responses",
+                "why": "a name read in code: its type and whether it must be sent are not read"
+              }
+            ],
+            "sections": {
+              "body": {
+                "reason": "no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "common.cjs",
+                  "kind": "fact",
+                  "line": 6,
+                  "rule": "SH-E2"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "reason": "statuses read from code; errors thrown by called functions, error middleware and unread calls may add others",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 5
+            },
+            "version": 1
+          },
+          "template": "/cjs"
+        }
+      },
+      "patch": {
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "common.cjs",
+          "framework": "express",
+          "handler": "function:common.cjs#handler",
+          "handler_expression": null,
+          "line": 8,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:common.cjs#PATCH%20%2Fcjs",
+          "rule": "Express routes (ADR 0013, docs/extract/routes.md)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [
+              {
+                "item": {
+                  "content_type": null,
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "common.cjs",
+                    "kind": "read_in_handler",
+                    "line": 4,
+                    "rule": "SH-E25"
+                  },
+                  "schema": {
+                    "type": "null"
+                  },
+                  "status": "200"
+                },
+                "row": "OG-76",
+                "section": "responses",
+                "why": "a name read in code: its type and whether it must be sent are not read"
+              }
+            ],
+            "sections": {
+              "body": {
+                "reason": "no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "common.cjs",
+                  "kind": "fact",
+                  "line": 8,
+                  "rule": "SH-E2"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "reason": "statuses read from code; errors thrown by called functions, error middleware and unread calls may add others",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 5
+            },
+            "version": 1
+          },
+          "template": "/cjs"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "DELETE",
+            "resolution": "literal",
+            "route": "route:common.cjs#DELETE%20%2Fcjs"
+          },
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "OPTIONS",
+            "resolution": "literal",
+            "route": "route:common.cjs#OPTIONS%20%2Fcjs"
+          },
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "PATCH",
+            "resolution": "literal",
+            "route": "route:common.cjs#PATCH%20%2Fcjs"
+          }
+        ]
+      }
+    },
+    "/conditional/barrel": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": [],
+            "mounted_middleware_unknown": [
+              {
+                "expression": "handle",
+                "file": "router.ts",
+                "reason": "earlier route handler handle (GET variable) may run first",
+                "span": {
+                  "end_column": 28,
+                  "end_line": 13,
+                  "start_column": 0,
+                  "start_line": 13
+                }
+              }
+            ]
+          },
+          "conditional": true,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "router.ts",
+          "framework": "express",
+          "handler": "function:handlers.ts#hidden",
+          "handler_expression": null,
+          "line": 14,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "responses",
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:router.ts#GET%20%2Fbarrel",
+          "rule": "Express routes (ADR 0013, docs/extract/routes.md)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [],
+            "sections": {
+              "body": {
+                "reason": "no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "router.ts",
+                  "kind": "fact",
+                  "line": 14,
+                  "rule": "SH-E2"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "reason": "response bodies not claimed: middleware mounted before the route is not proven (earlier route handler handle (GET variable) may run first) and may change the response; status of res.end at handlers.ts:2 not proven: middleware mounted before the route is not proven (earlier route handler handle (GET variable) may run first) and may set a status",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 5
+            },
+            "version": 1
+          },
+          "template": "/conditional/barrel"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": true,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:router.ts#GET%20%2Fbarrel"
+          }
+        ]
+      }
+    },
+    "/conditional/same": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": true,
+          "confidence": 1,
+          "documented_by": [],
+          "equivalent_registrations": [
+            "route:router.ts#GET%20%2Fsame",
+            "route:router.ts#GET%20%2Fsame%402"
+          ],
+          "file": "router.ts",
+          "framework": "express",
+          "handler": "function:handlers.ts#handle",
+          "handler_expression": null,
+          "line": 11,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:router.ts#GET%20%2Fsame",
+          "rule": "Express routes (ADR 0013, docs/extract/routes.md)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [
+              {
+                "item": {
+                  "content_type": null,
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "handlers.ts",
+                    "kind": "read_in_handler",
+                    "line": 1,
+                    "rule": "SH-E25"
+                  },
+                  "schema": {
+                    "type": "null"
+                  },
+                  "status": "200"
+                },
+                "row": "OG-76",
+                "section": "responses",
+                "why": "a name read in code: its type and whether it must be sent are not read"
+              }
+            ],
+            "sections": {
+              "body": {
+                "reason": "no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "router.ts",
+                  "kind": "fact",
+                  "line": 11,
+                  "rule": "SH-E2"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "reason": "statuses read from code; errors thrown by called functions, error middleware and unread calls may add others",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 5
+            },
+            "version": 1
+          },
+          "template": "/conditional/same"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": true,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:router.ts#GET%20%2Fsame"
+          },
+          {
+            "assumptions": [],
+            "conditional": true,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:router.ts#GET%20%2Fsame%402"
+          }
+        ]
+      }
+    },
+    "/factory/factory": {
+      "put": {
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "router.ts",
+          "framework": "express",
+          "handler": "function:handlers.ts#handle",
+          "handler_expression": null,
+          "line": 19,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:router.ts#PUT%20%2Ffactory",
+          "rule": "Express routes (ADR 0013, docs/extract/routes.md)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [
+              {
+                "item": {
+                  "content_type": null,
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "handlers.ts",
+                    "kind": "read_in_handler",
+                    "line": 1,
+                    "rule": "SH-E25"
+                  },
+                  "schema": {
+                    "type": "null"
+                  },
+                  "status": "200"
+                },
+                "row": "OG-76",
+                "section": "responses",
+                "why": "a name read in code: its type and whether it must be sent are not read"
+              }
+            ],
+            "sections": {
+              "body": {
+                "reason": "no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "router.ts",
+                  "kind": "fact",
+                  "line": 19,
+                  "rule": "SH-E2"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "reason": "statuses read from code; errors thrown by called functions, error middleware and unread calls may add others",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 5
+            },
+            "version": 1
+          },
+          "template": "/factory/factory"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "PUT",
+            "resolution": "literal",
+            "route": "route:router.ts#PUT%20%2Ffactory"
+          }
+        ]
+      }
+    },
+    "/inline": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "common.cjs",
+          "framework": "express",
+          "handler": null,
+          "handler_expression": null,
+          "line": 9,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:common.cjs#GET%20%2Finline",
+          "rule": "Express routes (ADR 0013, docs/extract/routes.md)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [
+              {
+                "item": {
+                  "content_type": null,
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "common.cjs",
+                    "kind": "read_in_handler",
+                    "line": 9,
+                    "rule": "SH-E25"
+                  },
+                  "schema": {
+                    "type": "null"
+                  },
+                  "status": "200"
+                },
+                "row": "OG-76",
+                "section": "responses",
+                "why": "a name read in code: its type and whether it must be sent are not read"
+              }
+            ],
+            "sections": {
+              "body": {
+                "reason": "no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "common.cjs",
+                  "kind": "fact",
+                  "line": 9,
+                  "rule": "SH-E2"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "reason": "statuses read from code; errors thrown by called functions, error middleware and unread calls may add others",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 5
+            },
+            "version": 1
+          },
+          "template": "/inline"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:common.cjs#GET%20%2Finline"
+          }
+        ]
+      }
+    },
+    "/local/factory": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "bindings.ts",
+          "framework": "express",
+          "handler": "function:handlers.ts#handle",
+          "handler_expression": null,
+          "line": 17,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:bindings.ts#GET%20%2Ffactory",
+          "rule": "Express routes (ADR 0013, docs/extract/routes.md)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [
+              {
+                "item": {
+                  "content_type": null,
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "handlers.ts",
+                    "kind": "read_in_handler",
+                    "line": 1,
+                    "rule": "SH-E25"
+                  },
+                  "schema": {
+                    "type": "null"
+                  },
+                  "status": "200"
+                },
+                "row": "OG-76",
+                "section": "responses",
+                "why": "a name read in code: its type and whether it must be sent are not read"
+              }
+            ],
+            "sections": {
+              "body": {
+                "reason": "no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "bindings.ts",
+                  "kind": "fact",
+                  "line": 17,
+                  "rule": "SH-E2"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "reason": "statuses read from code; errors thrown by called functions, error middleware and unread calls may add others",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 5
+            },
+            "version": 1
+          },
+          "template": "/local/factory"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:bindings.ts#GET%20%2Ffactory"
+          }
+        ]
+      }
+    },
+    "/named/alias": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "bindings.ts",
+          "framework": "express",
+          "handler": "function:handlers.ts#handle",
+          "handler_expression": null,
+          "line": 12,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "constant",
+          "route": "route:bindings.ts#GET%20%2Falias",
+          "rule": "Express routes (ADR 0013, docs/extract/routes.md)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [
+              {
+                "item": {
+                  "content_type": null,
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "handlers.ts",
+                    "kind": "read_in_handler",
+                    "line": 1,
+                    "rule": "SH-E25"
+                  },
+                  "schema": {
+                    "type": "null"
+                  },
+                  "status": "200"
+                },
+                "row": "OG-76",
+                "section": "responses",
+                "why": "a name read in code: its type and whether it must be sent are not read"
+              }
+            ],
+            "sections": {
+              "body": {
+                "reason": "no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "bindings.ts",
+                  "kind": "fact",
+                  "line": 12,
+                  "rule": "SH-E2"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "reason": "statuses read from code; errors thrown by called functions, error middleware and unread calls may add others",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 5
+            },
+            "version": 1
+          },
+          "template": "/named/alias"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "constant",
+            "route": "route:bindings.ts#GET%20%2Falias"
+          }
+        ]
+      }
+    },
+    "/returned/default": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "bindings.ts",
+          "framework": "express",
+          "handler": "function:handlers.ts#handle",
+          "handler_expression": null,
+          "line": 8,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:bindings.ts#GET%20%2Fdefault",
+          "rule": "Express routes (ADR 0013, docs/extract/routes.md)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [
+              {
+                "item": {
+                  "content_type": null,
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "handlers.ts",
+                    "kind": "read_in_handler",
+                    "line": 1,
+                    "rule": "SH-E25"
+                  },
+                  "schema": {
+                    "type": "null"
+                  },
+                  "status": "200"
+                },
+                "row": "OG-76",
+                "section": "responses",
+                "why": "a name read in code: its type and whether it must be sent are not read"
+              }
+            ],
+            "sections": {
+              "body": {
+                "reason": "no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "bindings.ts",
+                  "kind": "fact",
+                  "line": 8,
+                  "rule": "SH-E2"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "reason": "statuses read from code; errors thrown by called functions, error middleware and unread calls may add others",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 5
+            },
+            "version": 1
+          },
+          "template": "/returned/default"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:bindings.ts#GET%20%2Fdefault"
+          }
+        ]
+      }
+    },
+    "/second/barrel": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": [],
+            "mounted_middleware_unknown": [
+              {
+                "expression": "handle",
+                "file": "router.ts",
+                "reason": "earlier route handler handle (GET variable) may run first",
+                "span": {
+                  "end_column": 28,
+                  "end_line": 13,
+                  "start_column": 0,
+                  "start_line": 13
+                }
+              }
+            ]
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "router.ts",
+          "framework": "express",
+          "handler": "function:handlers.ts#hidden",
+          "handler_expression": null,
+          "line": 14,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "responses",
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:router.ts#GET%20%2Fbarrel",
+          "rule": "Express routes (ADR 0013, docs/extract/routes.md)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [],
+            "sections": {
+              "body": {
+                "reason": "no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "router.ts",
+                  "kind": "fact",
+                  "line": 14,
+                  "rule": "SH-E2"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "reason": "response bodies not claimed: middleware mounted before the route is not proven (earlier route handler handle (GET variable) may run first) and may change the response; status of res.end at handlers.ts:2 not proven: middleware mounted before the route is not proven (earlier route handler handle (GET variable) may run first) and may set a status",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 5
+            },
+            "version": 1
+          },
+          "template": "/second/barrel"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:router.ts#GET%20%2Fbarrel"
+          }
+        ]
+      }
+    },
+    "/second/same": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "equivalent_registrations": [
+            "route:router.ts#GET%20%2Fsame",
+            "route:router.ts#GET%20%2Fsame%402"
+          ],
+          "file": "router.ts",
+          "framework": "express",
+          "handler": "function:handlers.ts#handle",
+          "handler_expression": null,
+          "line": 11,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:router.ts#GET%20%2Fsame",
+          "rule": "Express routes (ADR 0013, docs/extract/routes.md)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [
+              {
+                "item": {
+                  "content_type": null,
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "handlers.ts",
+                    "kind": "read_in_handler",
+                    "line": 1,
+                    "rule": "SH-E25"
+                  },
+                  "schema": {
+                    "type": "null"
+                  },
+                  "status": "200"
+                },
+                "row": "OG-76",
+                "section": "responses",
+                "why": "a name read in code: its type and whether it must be sent are not read"
+              }
+            ],
+            "sections": {
+              "body": {
+                "reason": "no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "router.ts",
+                  "kind": "fact",
+                  "line": 11,
+                  "rule": "SH-E2"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "reason": "statuses read from code; errors thrown by called functions, error middleware and unread calls may add others",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 5
+            },
+            "version": 1
+          },
+          "template": "/second/same"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:router.ts#GET%20%2Fsame"
+          },
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:router.ts#GET%20%2Fsame%402"
+          }
+        ]
+      }
+    }
+  },
+  "x-graphvein": {
+    "conflicts": [
+      {
+        "keys": [
+          "/repeat"
+        ],
+        "method": "GET",
+        "reason": "duplicate_operation",
+        "routes": [
+          "route:bindings.ts#GET%20%2Frepeat",
+          "route:bindings.ts#GET%20%2Frepeat%402"
+        ]
+      }
+    ],
+    "contract_version": 1,
+    "counts": {
+      "any_method": 0,
+      "conditional": 2,
+      "conflicts": 1,
+      "may_be_shadowed": 0,
+      "operations": 14,
+      "path_keys": 12,
+      "production_routes": 20,
+      "routes": 20,
+      "set_by_you": 0,
+      "settings_default": 0,
+      "unrepresentable": 6,
+      "unresolved": 2,
+      "with_shape": 14
+    },
+    "excluded_test": {
+      "path_entries": 0,
+      "routes": 0
+    },
+    "generator": "graphvein",
+    "group": "repository",
+    "imported_specs": [],
+    "index": {
+      "extractor": "graphvein EXTRACTOR",
+      "finished_at": "FINISHED",
+      "run": "RUN"
+    },
+    "repository": "fixture",
+    "scope": "production",
+    "shape_errors": 0,
+    "unrepresentable": [
+      {
+        "key": "/conditional/files/{*}",
+        "method": "ANY",
+        "reason": "wildcard",
+        "route": "route:router.ts#ANY%20%2Ffiles%2F%2A"
+      },
+      {
+        "key": "/second/files/{*}",
+        "method": "ANY",
+        "reason": "wildcard",
+        "route": "route:router.ts#ANY%20%2Ffiles%2F%2A"
+      },
+      {
+        "key": "/conditional/users/{id}",
+        "method": "GET",
+        "reason": "optional_parameter",
+        "route": "route:router.ts#GET%20%2Fusers%2F%3Aid%3F"
+      },
+      {
+        "key": "/second/users/{id}",
+        "method": "GET",
+        "reason": "optional_parameter",
+        "route": "route:router.ts#GET%20%2Fusers%2F%3Aid%3F"
+      },
+      {
+        "key": "/conditional/users/{id}",
+        "method": "POST",
+        "reason": "optional_parameter",
+        "route": "route:router.ts#POST%20%2Fusers%2F%3Aid%3F"
+      },
+      {
+        "key": "/second/users/{id}",
+        "method": "POST",
+        "reason": "optional_parameter",
+        "route": "route:router.ts#POST%20%2Fusers%2F%3Aid%3F"
+      }
+    ],
+    "unresolved": [
+      {
+        "file": "bindings.ts",
+        "keys": [
+          "route:bindings.ts#GET%20%2Fnot-resolved-through-reexport"
+        ],
+        "line": 29,
+        "method": "GET",
+        "pattern": "/not-resolved-through-reexport",
+        "reason": "no_path",
+        "route": "route:bindings.ts#GET%20%2Fnot-resolved-through-reexport",
+        "unknown": {
+          "diagnostic": "route_unmounted",
+          "expression": "relayed",
+          "part": "mount_or_prefix",
+          "text": "the router or app this route is registered on is not mounted on any app Graphvein can prove"
+        }
+      },
+      {
+        "file": "router.ts",
+        "keys": [
+          "route:router.ts#HEAD%20%2Falone"
+        ],
+        "line": 16,
+        "method": "HEAD",
+        "pattern": "/alone",
+        "reason": "no_path",
+        "route": "route:router.ts#HEAD%20%2Falone",
+        "unknown": {
+          "diagnostic": "route_unmounted",
+          "expression": "lonely",
+          "part": "mount_or_prefix",
+          "text": "the router or app this route is registered on is not mounted on any app Graphvein can prove"
+        }
+      }
+    ],
+    "user_values": []
+  }
+}

@@ -1,0 +1,24 @@
+# RealWorld API operations: expected route ground truth for M2.
+# Source: gothinkster/realworld @ ebbcdeb8d55b42a3a613c787560498b8ef10003f
+#         specs/api/openapi.yml (MIT), servers[0] base path /api.
+# Format: METHOD full-path-template. Parameter names are compared as
+# wildcards: {slug} and :slug match any parameter in that position.
+POST /api/users/login
+POST /api/users
+GET /api/user
+PUT /api/user
+GET /api/profiles/{username}
+POST /api/profiles/{username}/follow
+DELETE /api/profiles/{username}/follow
+GET /api/articles/feed
+GET /api/articles
+POST /api/articles
+GET /api/articles/{slug}
+PUT /api/articles/{slug}
+DELETE /api/articles/{slug}
+GET /api/articles/{slug}/comments
+POST /api/articles/{slug}/comments
+DELETE /api/articles/{slug}/comments/{id}
+POST /api/articles/{slug}/favorite
+DELETE /api/articles/{slug}/favorite
+GET /api/tags

@@ -1,0 +1,28 @@
+{
+  "id": "review15-a16-reloption-partitioned",
+  "signature": "agreed at Revision 1.5",
+  "class": "S1",
+  "owner": "U9",
+  "row": "review15",
+  "history": {
+    "id": "a16-reloption-partitioned"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42809",
+        "message": "cannot specify storage parameters for a partitioned table",
+        "statement": 2,
+        "statement_text": "ALTER TABLE t SET (fillfactor = 50);"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

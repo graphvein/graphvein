@@ -1,0 +1,28 @@
+{
+  "id": "review16-o01-int4ops-bigint",
+  "signature": "agreed at Revision 1.6",
+  "class": "S1",
+  "owner": "V9",
+  "row": "review16",
+  "history": {
+    "id": "o01-int4ops-bigint"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42804",
+        "message": "operator class \"int4_ops\" does not accept data type bigint",
+        "statement": 2,
+        "statement_text": "CREATE INDEX t_a ON t (a int4_ops);"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

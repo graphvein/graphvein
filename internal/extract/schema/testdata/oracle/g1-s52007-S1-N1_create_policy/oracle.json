@@ -1,0 +1,38 @@
+{
+  "id": "g1-s52007-S1-N1_create_policy",
+  "signature": "applied|S1|42710|N1.create_policy",
+  "class": "S1",
+  "owner": "P2",
+  "row": "N1.create_policy",
+  "history": {
+    "id": "g1-s52007",
+    "prelude": [
+      "CREATE TABLE ext_a (id int PRIMARY KEY, code text UNIQUE)"
+    ],
+    "tags": {
+      "1_m1.sql": [
+        "N1.create_policy",
+        "N1.create_policy"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42710",
+        "message": "policy \"pol\" for table \"ext_a\" already exists",
+        "statement": 2,
+        "statement_text": "CREATE POLICY pol ON ext_a USING (true);"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history.ext_a",
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

@@ -1,0 +1,3 @@
+CREATE TABLE a (id serial PRIMARY KEY, n int);
+CREATE FUNCTION nx() RETURNS bigint BEGIN ATOMIC SELECT nextval('a_id_seq'); END;
+ALTER TABLE a DROP COLUMN id;

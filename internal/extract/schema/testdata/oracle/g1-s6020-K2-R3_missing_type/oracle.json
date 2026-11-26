@@ -1,0 +1,34 @@
+{
+  "id": "g1-s6020-K2-R3_missing_type",
+  "signature": "applied|K2|42704|R3.missing_type",
+  "class": "K2",
+  "owner": "K2",
+  "row": "R3.missing_type",
+  "history": {
+    "id": "g1-s6020",
+    "tags": {
+      "1_m1.sql": [
+        "R3.missing_type",
+        "R2.create_enum"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42704",
+        "message": "type \"e2\" does not exist",
+        "statement": 1,
+        "statement_text": "ALTER TYPE e2 ADD VALUE 'z';"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

@@ -1,0 +1,17 @@
+{
+  "diagnostics": [
+    "web/app.js: info: route_mount_unresolved: require(\"./routes/u1\") (loads web/routes/u1.js, not scanned) at 7:0-7:38",
+    "web/app.js: info: route_mount_unresolved: require(\"./routes/u2\") (loads web/routes/u2.js, not scanned) at 9:0-9:38",
+    "web/app.js: info: route_mount_unresolved: require(\"./vendor\") (loads web/vendor, not scanned) at 12:0-12:35",
+    "web/routes/u1/index.js: info: route_unmounted: router at 4:0-4:72",
+    "web/routes/u2/index.js: info: route_unmounted: router at 4:0-4:72",
+    "web/vendor.js: info: route_unmounted: router at 4:0-4:80"
+  ],
+  "exposes_route": [],
+  "routes": [
+    "route:web/routes/k1.js#GET /from-file | 4:0 | file:web/routes/k1.js#web/routes/k1.js | framework=\"express\" handler=null handler_inline=true method=\"GET\" middleware=[] paths=[{\"conditional\":false,\"resolution\":\"literal\",\"template\":\"/k1/from-file\"}] pattern=\"/from-file\"",
+    "route:web/routes/u1/index.js#GET /from-index | 4:0 | file:web/routes/u1/index.js#web/routes/u1/index.js | framework=\"express\" handler=null handler_inline=true method=\"GET\" middleware=[] mounted_middleware_unknown=[{\"reason\":\"not mounted from a proven app: middleware of the routers above is not read\"}] paths=[] pattern=\"/from-index\"",
+    "route:web/routes/u2/index.js#GET /from-index | 4:0 | file:web/routes/u2/index.js#web/routes/u2/index.js | framework=\"express\" handler=null handler_inline=true method=\"GET\" middleware=[] mounted_middleware_unknown=[{\"reason\":\"not mounted from a proven app: middleware of the routers above is not read\"}] paths=[] pattern=\"/from-index\"",
+    "route:web/vendor.js#GET /from-vendor-js | 4:0 | file:web/vendor.js#web/vendor.js | framework=\"express\" handler=null handler_inline=true method=\"GET\" middleware=[] mounted_middleware_unknown=[{\"reason\":\"not mounted from a proven app: middleware of the routers above is not read\"}] paths=[] pattern=\"/from-vendor-js\""
+  ]
+}

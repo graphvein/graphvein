@@ -1,0 +1,1198 @@
+{
+  "components": {
+    "schemas": {
+      "Person": {
+        "properties": {
+          "count": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "name": {
+            "type": "string"
+          },
+          "nick": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "x-graphvein": {
+              "presence": "unknown"
+            }
+          },
+          "t": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "x-graphvein": {
+              "presence": "unknown"
+            }
+          }
+        },
+        "required": [
+          "name",
+          "count"
+        ],
+        "type": "object",
+        "x-graphvein": {
+          "additional": "unknown",
+          "model": "Person",
+          "provenance": {
+            "chain": [],
+            "confidence": 1,
+            "file": "app/main.py",
+            "kind": "fact",
+            "line": 58,
+            "rule": "SH-F22"
+          }
+        }
+      }
+    }
+  },
+  "info": {
+    "description": "Routes registered in this repository's source, as Graphvein extracted them from its index. Graphvein ran no code and read no running server. A parameter, request body, response or security requirement that is absent was not read, which is not the same as none: each operation lists what was not read in x-graphvein.not_read. Routes Graphvein could not place on a path, forms OpenAPI cannot express and conflicting registrations are listed in the root x-graphvein, never guessed.",
+    "title": "fixture routes extracted by Graphvein",
+    "version": "unversioned"
+  },
+  "openapi": "3.1.1",
+  "paths": {
+    "/annotated": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "app/main.py",
+          "framework": "fastapi",
+          "handler": "function:app/main.py#annotated",
+          "handler_expression": null,
+          "line": 49,
+          "not_read": [
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:app/main.py#GET%20%2Fannotated",
+          "rule": "FastAPI routes (ADR 0015, ADR 0019)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [
+              {
+                "name": "Item",
+                "provenance": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "app/main.py",
+                  "kind": "fact",
+                  "line": 13,
+                  "rule": "SH-F22"
+                },
+                "schema": {
+                  "additional": "unknown",
+                  "fields": [
+                    {
+                      "name": "name",
+                      "presence": "required",
+                      "schema": {
+                        "type": "string"
+                      }
+                    }
+                  ],
+                  "type": "object"
+                }
+              }
+            ],
+            "not_standard": [
+              {
+                "item": {
+                  "content_type": "application/json",
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "app/main.py",
+                    "kind": "returned",
+                    "line": 50,
+                    "rule": "SH-F26"
+                  },
+                  "schema": {
+                    "ref": "Item",
+                    "type": "ref"
+                  },
+                  "status": "200"
+                },
+                "row": "OG-77",
+                "section": "responses",
+                "why": "the declared type of a returned value, not validated by the framework"
+              }
+            ],
+            "sections": {
+              "body": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "app/main.py",
+                  "kind": "fact",
+                  "line": 50,
+                  "rule": "SH-F23"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "cookie": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "app/main.py",
+                  "kind": "fact",
+                  "line": 50,
+                  "rule": "SH-F23"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "header": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "app/main.py",
+                  "kind": "fact",
+                  "line": 50,
+                  "rule": "SH-F23"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "app/main.py",
+                  "kind": "fact",
+                  "line": 49,
+                  "rule": "SH-F3"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "app/main.py",
+                  "kind": "fact",
+                  "line": 50,
+                  "rule": "SH-F23"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "responses": {
+                "reason": "statuses from exception handlers, middleware and calls not followed are not read; the return annotation is validated from FastAPI 0.89.0; no pyproject.toml proves that version",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 2
+            },
+            "version": 1
+          },
+          "template": "/annotated"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:app/main.py#GET%20%2Fannotated"
+          }
+        ]
+      }
+    },
+    "/missing": {
+      "get": {
+        "parameters": [
+          {
+            "in": "query",
+            "name": "q",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "x-graphvein": {
+              "provenance": {
+                "chain": [],
+                "confidence": 1,
+                "file": "app/main.py",
+                "kind": "fact",
+                "line": 40,
+                "rule": "SH-F4"
+              }
+            }
+          }
+        ],
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "app/main.py",
+          "framework": "fastapi",
+          "handler": "function:app/main.py#missing",
+          "handler_expression": null,
+          "line": 39,
+          "not_read": [
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:app/main.py#GET%20%2Fmissing",
+          "rule": "FastAPI routes (ADR 0015, ADR 0019)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [
+              {
+                "name": "HTTPValidationError",
+                "provenance": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "app/main.py",
+                  "kind": "fact",
+                  "line": 39,
+                  "rule": "SH-F30"
+                },
+                "schema": {
+                  "additional": "unknown",
+                  "fields": [
+                    {
+                      "name": "detail",
+                      "presence": "optional",
+                      "schema": {
+                        "items": {
+                          "ref": "ValidationError",
+                          "type": "ref"
+                        },
+                        "type": "array"
+                      }
+                    }
+                  ],
+                  "type": "object"
+                }
+              },
+              {
+                "name": "ValidationError",
+                "provenance": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "app/main.py",
+                  "kind": "fact",
+                  "line": 39,
+                  "rule": "SH-F30"
+                },
+                "schema": {
+                  "additional": "unknown",
+                  "fields": [
+                    {
+                      "name": "loc",
+                      "presence": "required",
+                      "schema": {
+                        "items": {
+                          "reason": "a string or an integer",
+                          "type": "unknown"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    {
+                      "name": "msg",
+                      "presence": "required",
+                      "schema": {
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "name": "type",
+                      "presence": "required",
+                      "schema": {
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "name": "input",
+                      "presence": "optional",
+                      "schema": {
+                        "reason": "any value",
+                        "type": "unknown"
+                      }
+                    },
+                    {
+                      "name": "ctx",
+                      "presence": "optional",
+                      "schema": {
+                        "additional": "allowed",
+                        "type": "object"
+                      }
+                    }
+                  ],
+                  "type": "object"
+                }
+              },
+              {
+                "name": "Item",
+                "provenance": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "app/main.py",
+                  "kind": "fact",
+                  "line": 13,
+                  "rule": "SH-F22"
+                },
+                "schema": {
+                  "additional": "unknown",
+                  "fields": [
+                    {
+                      "name": "name",
+                      "presence": "required",
+                      "schema": {
+                        "type": "string"
+                      }
+                    }
+                  ],
+                  "type": "object"
+                }
+              }
+            ],
+            "not_standard": [
+              {
+                "item": {
+                  "content_type": "application/json",
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "app/main.py",
+                    "kind": "returned",
+                    "line": 40,
+                    "rule": "SH-F26"
+                  },
+                  "schema": {
+                    "ref": "Item",
+                    "type": "ref"
+                  },
+                  "status": "200"
+                },
+                "row": "OG-77",
+                "section": "responses",
+                "why": "the declared type of a returned value, not validated by the framework"
+              },
+              {
+                "item": {
+                  "content_type": "application/json",
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "app/main.py",
+                    "kind": "intended",
+                    "line": 39,
+                    "rule": "SH-F30"
+                  },
+                  "schema": {
+                    "ref": "HTTPValidationError",
+                    "type": "ref"
+                  },
+                  "status": "422"
+                },
+                "row": "OG-77",
+                "section": "responses",
+                "why": "an intended type: a static type nothing checks at runtime"
+              },
+              {
+                "item": {
+                  "content_type": null,
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "app/main.py",
+                    "kind": "intended",
+                    "line": 41,
+                    "rule": "SH-F29"
+                  },
+                  "schema": null,
+                  "status": "404"
+                },
+                "row": "OG-77",
+                "section": "responses",
+                "why": "an intended type: a static type nothing checks at runtime"
+              }
+            ],
+            "sections": {
+              "body": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "app/main.py",
+                  "kind": "fact",
+                  "line": 40,
+                  "rule": "SH-F23"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "cookie": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "app/main.py",
+                  "kind": "fact",
+                  "line": 40,
+                  "rule": "SH-F23"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "header": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "app/main.py",
+                  "kind": "fact",
+                  "line": 40,
+                  "rule": "SH-F23"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "app/main.py",
+                  "kind": "fact",
+                  "line": 39,
+                  "rule": "SH-F3"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "app/main.py",
+                  "kind": "fact",
+                  "line": 40,
+                  "rule": "SH-F23"
+                },
+                "standard": 1,
+                "state": "complete"
+              },
+              "responses": {
+                "reason": "statuses from exception handlers, middleware and calls not followed are not read; an exception handler for starlette.exceptions.HTTPException (app/main.py:17) can rewrite a raised HTTPException; the return annotation is validated from FastAPI 0.89.0; no pyproject.toml proves that version; an exception handler for fastapi.exceptions.RequestValidationError (app/main.py:34) can replace the 422 response",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 2
+            },
+            "version": 1
+          },
+          "template": "/missing"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:app/main.py#GET%20%2Fmissing"
+          }
+        ]
+      }
+    },
+    "/people": {
+      "post": {
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Person"
+              },
+              "x-graphvein": {
+                "provenance": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "app/main.py",
+                  "kind": "fact",
+                  "line": 71,
+                  "rule": "SH-F18"
+                }
+              }
+            }
+          },
+          "x-graphvein": {
+            "required": "not_read"
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "x-graphvein": {
+                    "unknown": "no response model is declared"
+                  }
+                },
+                "x-graphvein": {
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "app/main.py",
+                    "kind": "fact",
+                    "line": 70,
+                    "rule": "SH-F27"
+                  }
+                }
+              }
+            },
+            "description": "Not read by Graphvein",
+            "x-graphvein": {
+              "description": "not_read"
+            }
+          }
+        },
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "app/main.py",
+          "framework": "fastapi",
+          "handler": "function:app/main.py#add_person",
+          "handler_expression": null,
+          "line": 70,
+          "not_read": [
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:app/main.py#POST%20%2Fpeople",
+          "rule": "FastAPI routes (ADR 0015, ADR 0019)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [
+              {
+                "name": "HTTPValidationError",
+                "provenance": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "app/main.py",
+                  "kind": "fact",
+                  "line": 70,
+                  "rule": "SH-F30"
+                },
+                "schema": {
+                  "additional": "unknown",
+                  "fields": [
+                    {
+                      "name": "detail",
+                      "presence": "optional",
+                      "schema": {
+                        "items": {
+                          "ref": "ValidationError",
+                          "type": "ref"
+                        },
+                        "type": "array"
+                      }
+                    }
+                  ],
+                  "type": "object"
+                }
+              },
+              {
+                "name": "ValidationError",
+                "provenance": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "app/main.py",
+                  "kind": "fact",
+                  "line": 70,
+                  "rule": "SH-F30"
+                },
+                "schema": {
+                  "additional": "unknown",
+                  "fields": [
+                    {
+                      "name": "loc",
+                      "presence": "required",
+                      "schema": {
+                        "items": {
+                          "reason": "a string or an integer",
+                          "type": "unknown"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    {
+                      "name": "msg",
+                      "presence": "required",
+                      "schema": {
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "name": "type",
+                      "presence": "required",
+                      "schema": {
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "name": "input",
+                      "presence": "optional",
+                      "schema": {
+                        "reason": "any value",
+                        "type": "unknown"
+                      }
+                    },
+                    {
+                      "name": "ctx",
+                      "presence": "optional",
+                      "schema": {
+                        "additional": "allowed",
+                        "type": "object"
+                      }
+                    }
+                  ],
+                  "type": "object"
+                }
+              },
+              {
+                "name": "Person",
+                "provenance": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "app/main.py",
+                  "kind": "fact",
+                  "line": 58,
+                  "rule": "SH-F22"
+                },
+                "schema": {
+                  "additional": "unknown",
+                  "fields": [
+                    {
+                      "name": "name",
+                      "presence": "required",
+                      "schema": {
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "name": "nick",
+                      "presence": "unknown",
+                      "schema": {
+                        "nullable": true,
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "name": "t",
+                      "presence": "unknown",
+                      "schema": {
+                        "nullable": true,
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "name": "count",
+                      "presence": "required",
+                      "schema": {
+                        "nullable": true,
+                        "type": "integer"
+                      }
+                    }
+                  ],
+                  "type": "object"
+                }
+              }
+            ],
+            "not_standard": [
+              {
+                "item": {
+                  "content_type": "application/json",
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "app/main.py",
+                    "kind": "intended",
+                    "line": 70,
+                    "rule": "SH-F30"
+                  },
+                  "schema": {
+                    "ref": "HTTPValidationError",
+                    "type": "ref"
+                  },
+                  "status": "422"
+                },
+                "row": "OG-77",
+                "section": "responses",
+                "why": "an intended type: a static type nothing checks at runtime"
+              }
+            ],
+            "sections": {
+              "body": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "app/main.py",
+                  "kind": "fact",
+                  "line": 71,
+                  "rule": "SH-F23"
+                },
+                "standard": 1,
+                "state": "complete"
+              },
+              "cookie": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "app/main.py",
+                  "kind": "fact",
+                  "line": 71,
+                  "rule": "SH-F23"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "header": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "app/main.py",
+                  "kind": "fact",
+                  "line": 71,
+                  "rule": "SH-F23"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "app/main.py",
+                  "kind": "fact",
+                  "line": 70,
+                  "rule": "SH-F3"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "app/main.py",
+                  "kind": "fact",
+                  "line": 71,
+                  "rule": "SH-F23"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "responses": {
+                "reason": "statuses from exception handlers, middleware and calls not followed are not read; a returned value is not read (app/main.py:72); an exception handler for fastapi.exceptions.RequestValidationError (app/main.py:34) can replace the 422 response",
+                "standard": 1,
+                "state": "partial"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 2
+            },
+            "version": 1
+          },
+          "template": "/people"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "POST",
+            "resolution": "literal",
+            "route": "route:app/main.py#POST%20%2Fpeople"
+          }
+        ]
+      }
+    },
+    "/teapot": {
+      "get": {
+        "parameters": [
+          {
+            "in": "query",
+            "name": "q",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "x-graphvein": {
+              "provenance": {
+                "chain": [],
+                "confidence": 1,
+                "file": "app/main.py",
+                "kind": "fact",
+                "line": 45,
+                "rule": "SH-F4"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "x-graphvein": {
+                    "unknown": "no response model is declared"
+                  }
+                },
+                "x-graphvein": {
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "app/main.py",
+                    "kind": "fact",
+                    "line": 44,
+                    "rule": "SH-F27"
+                  }
+                }
+              }
+            },
+            "description": "Not read by Graphvein",
+            "x-graphvein": {
+              "description": "not_read"
+            }
+          }
+        },
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "app/main.py",
+          "framework": "fastapi",
+          "handler": "function:app/main.py#teapot",
+          "handler_expression": null,
+          "line": 44,
+          "not_read": [
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:app/main.py#GET%20%2Fteapot",
+          "rule": "FastAPI routes (ADR 0015, ADR 0019)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [
+              {
+                "name": "HTTPValidationError",
+                "provenance": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "app/main.py",
+                  "kind": "fact",
+                  "line": 44,
+                  "rule": "SH-F30"
+                },
+                "schema": {
+                  "additional": "unknown",
+                  "fields": [
+                    {
+                      "name": "detail",
+                      "presence": "optional",
+                      "schema": {
+                        "items": {
+                          "ref": "ValidationError",
+                          "type": "ref"
+                        },
+                        "type": "array"
+                      }
+                    }
+                  ],
+                  "type": "object"
+                }
+              },
+              {
+                "name": "ValidationError",
+                "provenance": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "app/main.py",
+                  "kind": "fact",
+                  "line": 44,
+                  "rule": "SH-F30"
+                },
+                "schema": {
+                  "additional": "unknown",
+                  "fields": [
+                    {
+                      "name": "loc",
+                      "presence": "required",
+                      "schema": {
+                        "items": {
+                          "reason": "a string or an integer",
+                          "type": "unknown"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    {
+                      "name": "msg",
+                      "presence": "required",
+                      "schema": {
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "name": "type",
+                      "presence": "required",
+                      "schema": {
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "name": "input",
+                      "presence": "optional",
+                      "schema": {
+                        "reason": "any value",
+                        "type": "unknown"
+                      }
+                    },
+                    {
+                      "name": "ctx",
+                      "presence": "optional",
+                      "schema": {
+                        "additional": "allowed",
+                        "type": "object"
+                      }
+                    }
+                  ],
+                  "type": "object"
+                }
+              }
+            ],
+            "not_standard": [
+              {
+                "item": {
+                  "content_type": "application/json",
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "app/main.py",
+                    "kind": "intended",
+                    "line": 44,
+                    "rule": "SH-F30"
+                  },
+                  "schema": {
+                    "ref": "HTTPValidationError",
+                    "type": "ref"
+                  },
+                  "status": "422"
+                },
+                "row": "OG-77",
+                "section": "responses",
+                "why": "an intended type: a static type nothing checks at runtime"
+              },
+              {
+                "item": {
+                  "content_type": null,
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "app/main.py",
+                    "kind": "intended",
+                    "line": 46,
+                    "rule": "SH-F29"
+                  },
+                  "schema": null,
+                  "status": "418"
+                },
+                "row": "OG-77",
+                "section": "responses",
+                "why": "an intended type: a static type nothing checks at runtime"
+              }
+            ],
+            "sections": {
+              "body": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "app/main.py",
+                  "kind": "fact",
+                  "line": 45,
+                  "rule": "SH-F23"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "cookie": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "app/main.py",
+                  "kind": "fact",
+                  "line": 45,
+                  "rule": "SH-F23"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "header": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "app/main.py",
+                  "kind": "fact",
+                  "line": 45,
+                  "rule": "SH-F23"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "app/main.py",
+                  "kind": "fact",
+                  "line": 44,
+                  "rule": "SH-F3"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "app/main.py",
+                  "kind": "fact",
+                  "line": 45,
+                  "rule": "SH-F23"
+                },
+                "standard": 1,
+                "state": "complete"
+              },
+              "responses": {
+                "reason": "statuses from exception handlers, middleware and calls not followed are not read; an exception handler for starlette.exceptions.HTTPException (app/main.py:17) can rewrite a raised HTTPException; an exception handler for status 418 (app/main.py:35) can rewrite a raised HTTPException; an exception handler for fastapi.exceptions.RequestValidationError (app/main.py:34) can replace the 422 response",
+                "standard": 1,
+                "state": "partial"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 2
+            },
+            "version": 1
+          },
+          "template": "/teapot"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:app/main.py#GET%20%2Fteapot"
+          }
+        ]
+      }
+    }
+  },
+  "x-graphvein": {
+    "conflicts": [],
+    "contract_version": 1,
+    "counts": {
+      "any_method": 0,
+      "conditional": 0,
+      "conflicts": 0,
+      "may_be_shadowed": 0,
+      "operations": 4,
+      "path_keys": 4,
+      "production_routes": 4,
+      "routes": 4,
+      "set_by_you": 0,
+      "settings_default": 0,
+      "unrepresentable": 0,
+      "unresolved": 0,
+      "with_shape": 4
+    },
+    "excluded_test": {
+      "path_entries": 0,
+      "routes": 0
+    },
+    "generator": "graphvein",
+    "group": "repository",
+    "imported_specs": [],
+    "index": {
+      "extractor": "graphvein EXTRACTOR",
+      "finished_at": "FINISHED",
+      "run": "RUN"
+    },
+    "repository": "fixture",
+    "scope": "production",
+    "shape_errors": 0,
+    "unrepresentable": [],
+    "unresolved": [],
+    "user_values": []
+  }
+}

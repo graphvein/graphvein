@@ -1,0 +1,35 @@
+{
+  "id": "g1-s536-K2-R3_add_value_existing",
+  "signature": "applied|K2|42710|R3.add_value_existing",
+  "class": "K2",
+  "owner": "K2",
+  "row": "R3.add_value_existing",
+  "history": {
+    "id": "g1-s536",
+    "fresh_db": true,
+    "tags": {
+      "1_m1.sql": [
+        "R2.create_enum",
+        "R3.add_value_existing"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "public",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42710",
+        "message": "enum label \"a\" already exists",
+        "statement": 2,
+        "statement_text": "ALTER TYPE e1 ADD VALUE 'a';"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "public._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

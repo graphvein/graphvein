@@ -1,0 +1,34 @@
+{
+  "id": "g1-s1070-S1-R6_function_sql_body",
+  "signature": "applied|S1|42703|R6.function_sql_body",
+  "class": "S1",
+  "owner": "P5",
+  "row": "R6.function_sql_body",
+  "history": {
+    "id": "g1-s1070",
+    "tags": {
+      "1_m1.sql": [
+        "M1.create",
+        "R6.function_sql_body"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42703",
+        "message": "column \"nosuch\" does not exist",
+        "statement": 2,
+        "statement_text": "CREATE FUNCTION f5() RETURNS bigint LANGUAGE sql AS $$ SELECT count(nosuch) FROM t2 $$;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

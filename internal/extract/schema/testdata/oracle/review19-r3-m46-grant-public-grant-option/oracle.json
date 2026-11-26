@@ -1,0 +1,28 @@
+{
+  "id": "review19-r3-m46-grant-public-grant-option",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y37",
+  "row": "review19",
+  "history": {
+    "id": "m46-grant-public-grant-option"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "0LP01",
+        "message": "grant options can only be granted to roles",
+        "statement": 2,
+        "statement_text": "GRANT SELECT ON t TO PUBLIC WITH GRANT OPTION;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

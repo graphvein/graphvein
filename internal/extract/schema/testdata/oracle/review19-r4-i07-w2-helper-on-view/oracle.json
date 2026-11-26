@@ -1,0 +1,30 @@
+{
+  "id": "review19-r4-i07-w2-helper-on-view",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y47",
+  "row": "review19",
+  "history": {
+    "id": "i07-w2-helper-on-view"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42809",
+        "message": "\"uv\" is a view",
+        "where": "SQL statement \"CREATE TRIGGER set_updated_at BEFORE UPDATE ON uv FOR EACH ROW EXECUTE FUNCTION set_updated_at();\"\nPL/pgSQL function trigger_updated_at(regclass) line 1 at EXECUTE",
+        "detail": "Views cannot have row-level BEFORE or AFTER triggers.",
+        "statement": 5,
+        "statement_text": "select trigger_updated_at('uv');"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

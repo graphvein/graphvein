@@ -1,0 +1,45 @@
+Graphvein
+Copyright 2026 Saptashwa Bandyopadhyay
+
+This product is licensed under the Apache License, Version 2.0 (see
+LICENSE), except for the material listed under "Excluded from the Apache
+License" below.
+
+This product includes third-party software. Its notices and licence texts
+are in THIRD_PARTY_NOTICES (Go modules, tree-sitter grammars and the
+WebAssembly runtime they are built into, and the web UI's packages). The
+graphvein binary serves this file at /NOTICE.txt, THIRD_PARTY_NOTICES at
+/THIRD_PARTY_NOTICES.txt and the web UI's licence texts at
+/third-party-licenses.txt; release archives ship NOTICE, LICENSE and
+THIRD_PARTY_NOTICES next to the binary.
+
+Excluded from the Apache License
+--------------------------------
+
+The editor logos below are trademarks of their owners. They are not
+licensed under the Apache License, Version 2.0, and they stay under their
+owners' terms. Graphvein shows them only on "Open in" links and in the
+editor picker, unaltered, under the conditions recorded in
+web/src/assets/editor-logos/README.md. No affiliation with or endorsement
+by their owners is implied. A fork or redistribution must check those
+conditions itself or remove the files.
+
+  web/src/assets/editor-logos/vscode.svg
+    Visual Studio Code icon; a trademark of Microsoft Corporation.
+  web/src/assets/editor-logos/intellij-idea.svg
+    IntelliJ IDEA product icon; a trademark of JetBrains s.r.o.
+  web/src/assets/editor-logos/zed-logomark-black.png
+  web/src/assets/editor-logos/zed-logomark-white.png
+    Zed logomark; a trademark of Zed Industries, Inc.
+  web/src/assets/editor-logos/cursor-cube-2d-light.svg
+  web/src/assets/editor-logos/cursor-cube-2d-dark.svg
+    Cursor logo; Cursor is a product of Anysphere, Inc.
+
+The built web UI under internal/server/ui/static/ carries copies of the
+same logos: as files (assets/vscode-*.svg, assets/zed-logomark-*.png) and
+inlined as data URIs in the JavaScript bundles. Those copies are excluded
+in the same way.
+
+The names "Graphvein" and the Graphvein logo identify this project. The
+Apache License does not grant permission to use them (section 6); forks
+must use a different name.

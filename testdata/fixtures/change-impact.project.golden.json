@@ -1,0 +1,2377 @@
+{
+  "impacts": [
+    {
+      "impact": {
+        "caps": [],
+        "depth": 10,
+        "members": [
+          {
+            "link_sources_missing": [],
+            "repository": "frontend",
+            "table_uses": [],
+            "unknowns": {
+              "blind_spots": [],
+              "gap_nodes": [],
+              "near_misses": [],
+              "not_extracted": [
+                {
+                  "nodes": [],
+                  "relation": "I11"
+                }
+              ],
+              "untraversed": {
+                "contains": 3
+              }
+            }
+          }
+        ],
+        "paths": [
+          {
+            "claim": "may depend on",
+            "confidence": 0.9,
+            "distance": 1,
+            "kind": "function",
+            "node": "function:src/server.ts#createUser",
+            "provenance": "inferred",
+            "relation": "I8",
+            "repository": "backend",
+            "seed": "table:src/db/schema.ts#users",
+            "steps": [
+              {
+                "access": {
+                  "assumes": [
+                    "TA-V3b"
+                  ],
+                  "column_use": null,
+                  "operations": [
+                    "insert"
+                  ],
+                  "role": "executes",
+                  "rows": [
+                    "CT-Z2"
+                  ],
+                  "tool": "drizzle",
+                  "verification": "oracle",
+                  "verification_wording": "verified by an oracle"
+                },
+                "confidence": 0.9,
+                "evidence": [
+                  {
+                    "file": "src/server.ts",
+                    "span": {
+                      "end_column": 67,
+                      "end_line": 9,
+                      "start_column": 17,
+                      "start_line": 9
+                    }
+                  }
+                ],
+                "kind": "writes_table",
+                "provenance": "inferred",
+                "relation": "I8",
+                "removed": false,
+                "source": "function:src/server.ts#createUser",
+                "source_repository": "backend",
+                "target": "table:src/db/schema.ts#users",
+                "target_repository": "backend",
+                "via": null
+              }
+            ],
+            "wording": "may write this table"
+          },
+          {
+            "claim": "may depend on",
+            "confidence": 0.9,
+            "distance": 1,
+            "kind": "function",
+            "node": "function:src/server.ts#listUsers",
+            "provenance": "inferred",
+            "relation": "I8",
+            "repository": "backend",
+            "seed": "table:src/db/schema.ts#users",
+            "steps": [
+              {
+                "access": {
+                  "assumes": [
+                    "TA-V3b"
+                  ],
+                  "column_use": null,
+                  "operations": [
+                    "select"
+                  ],
+                  "role": "executes",
+                  "rows": [
+                    "CT-Z1"
+                  ],
+                  "tool": "drizzle",
+                  "verification": "oracle",
+                  "verification_wording": "verified by an oracle"
+                },
+                "confidence": 0.9,
+                "evidence": [
+                  {
+                    "file": "src/server.ts",
+                    "span": {
+                      "end_column": 50,
+                      "end_line": 6,
+                      "start_column": 17,
+                      "start_line": 6
+                    }
+                  }
+                ],
+                "kind": "reads_table",
+                "provenance": "inferred",
+                "relation": "I8",
+                "removed": false,
+                "source": "function:src/server.ts#listUsers",
+                "source_repository": "backend",
+                "target": "table:src/db/schema.ts#users",
+                "target_repository": "backend",
+                "via": null
+              }
+            ],
+            "wording": "may read this table"
+          },
+          {
+            "claim": "may depend on",
+            "confidence": 0.9,
+            "distance": 2,
+            "kind": "file",
+            "node": "file:src/server.ts#src%2Fserver.ts",
+            "provenance": "inferred",
+            "relation": "I15",
+            "repository": "backend",
+            "seed": "table:src/db/schema.ts#users",
+            "steps": [
+              {
+                "access": {
+                  "assumes": [
+                    "TA-V3b"
+                  ],
+                  "column_use": null,
+                  "operations": [
+                    "select"
+                  ],
+                  "role": "executes",
+                  "rows": [
+                    "CT-Z1"
+                  ],
+                  "tool": "drizzle",
+                  "verification": "oracle",
+                  "verification_wording": "verified by an oracle"
+                },
+                "confidence": 0.9,
+                "evidence": [
+                  {
+                    "file": "src/server.ts",
+                    "span": {
+                      "end_column": 50,
+                      "end_line": 6,
+                      "start_column": 17,
+                      "start_line": 6
+                    }
+                  }
+                ],
+                "kind": "reads_table",
+                "provenance": "inferred",
+                "relation": "I8",
+                "removed": false,
+                "source": "function:src/server.ts#listUsers",
+                "source_repository": "backend",
+                "target": "table:src/db/schema.ts#users",
+                "target_repository": "backend",
+                "via": null
+              },
+              {
+                "confidence": 1,
+                "evidence": [
+                  {
+                    "file": "src/server.ts",
+                    "span": {
+                      "end_column": 34,
+                      "end_line": 13,
+                      "start_column": 25,
+                      "start_line": 13
+                    }
+                  }
+                ],
+                "kind": "passes_function",
+                "provenance": "fact",
+                "relation": "I15",
+                "removed": false,
+                "source": "file:src/server.ts#src%2Fserver.ts",
+                "source_repository": "backend",
+                "target": "function:src/server.ts#listUsers",
+                "target_repository": "backend",
+                "via": null
+              }
+            ],
+            "wording": "passes this as callback, call not modelled"
+          },
+          {
+            "claim": "may depend on",
+            "confidence": 0.9,
+            "distance": 2,
+            "kind": "route",
+            "node": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+            "provenance": "inferred",
+            "relation": "I4",
+            "repository": "backend",
+            "route_paths": [
+              {
+                "scope": null,
+                "template": "/t022b7/users",
+                "trailing_slash": false
+              }
+            ],
+            "seed": "table:src/db/schema.ts#users",
+            "steps": [
+              {
+                "access": {
+                  "assumes": [
+                    "TA-V3b"
+                  ],
+                  "column_use": null,
+                  "operations": [
+                    "select"
+                  ],
+                  "role": "executes",
+                  "rows": [
+                    "CT-Z1"
+                  ],
+                  "tool": "drizzle",
+                  "verification": "oracle",
+                  "verification_wording": "verified by an oracle"
+                },
+                "confidence": 0.9,
+                "evidence": [
+                  {
+                    "file": "src/server.ts",
+                    "span": {
+                      "end_column": 50,
+                      "end_line": 6,
+                      "start_column": 17,
+                      "start_line": 6
+                    }
+                  }
+                ],
+                "kind": "reads_table",
+                "provenance": "inferred",
+                "relation": "I8",
+                "removed": false,
+                "source": "function:src/server.ts#listUsers",
+                "source_repository": "backend",
+                "target": "table:src/db/schema.ts#users",
+                "target_repository": "backend",
+                "via": null
+              },
+              {
+                "confidence": 1,
+                "evidence": [
+                  {
+                    "file": "src/server.ts",
+                    "span": {
+                      "end_column": 35,
+                      "end_line": 13,
+                      "start_column": 0,
+                      "start_line": 13
+                    }
+                  }
+                ],
+                "kind": "exposes_route",
+                "provenance": "fact",
+                "relation": "I4",
+                "removed": false,
+                "source": "function:src/server.ts#listUsers",
+                "source_repository": "backend",
+                "target": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+                "target_repository": "backend",
+                "via": null
+              }
+            ],
+            "wording": "handled by the changed code"
+          },
+          {
+            "assumptions": [
+              "matched across project repositories; base URL not proven"
+            ],
+            "claim": "may depend on",
+            "confidence": 0.9,
+            "distance": 3,
+            "kind": "api_operation",
+            "node": "api_operation:openapi.yaml#GET%20%2Ft022b7%2Fusers",
+            "provenance": "inferred",
+            "relation": "I13",
+            "repository": "frontend",
+            "seed": "table:src/db/schema.ts#users",
+            "steps": [
+              {
+                "access": {
+                  "assumes": [
+                    "TA-V3b"
+                  ],
+                  "column_use": null,
+                  "operations": [
+                    "select"
+                  ],
+                  "role": "executes",
+                  "rows": [
+                    "CT-Z1"
+                  ],
+                  "tool": "drizzle",
+                  "verification": "oracle",
+                  "verification_wording": "verified by an oracle"
+                },
+                "confidence": 0.9,
+                "evidence": [
+                  {
+                    "file": "src/server.ts",
+                    "span": {
+                      "end_column": 50,
+                      "end_line": 6,
+                      "start_column": 17,
+                      "start_line": 6
+                    }
+                  }
+                ],
+                "kind": "reads_table",
+                "provenance": "inferred",
+                "relation": "I8",
+                "removed": false,
+                "source": "function:src/server.ts#listUsers",
+                "source_repository": "backend",
+                "target": "table:src/db/schema.ts#users",
+                "target_repository": "backend",
+                "via": null
+              },
+              {
+                "confidence": 1,
+                "evidence": [
+                  {
+                    "file": "src/server.ts",
+                    "span": {
+                      "end_column": 35,
+                      "end_line": 13,
+                      "start_column": 0,
+                      "start_line": 13
+                    }
+                  }
+                ],
+                "kind": "exposes_route",
+                "provenance": "fact",
+                "relation": "I4",
+                "removed": false,
+                "source": "function:src/server.ts#listUsers",
+                "source_repository": "backend",
+                "target": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+                "target_repository": "backend",
+                "via": null
+              },
+              {
+                "assumption": "matched across project repositories; base URL not proven",
+                "confidence": 0.9,
+                "evidence": [
+                  {
+                    "file": "openapi.yaml",
+                    "span": {
+                      "end_column": 25,
+                      "end_line": 11,
+                      "start_column": 4,
+                      "start_line": 7
+                    }
+                  }
+                ],
+                "kind": "documents_route",
+                "provenance": "inferred",
+                "relation": "I13",
+                "removed": false,
+                "source": "api_operation:openapi.yaml#GET%20%2Ft022b7%2Fusers",
+                "source_repository": "frontend",
+                "target": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+                "target_repository": "backend",
+                "via": null
+              }
+            ],
+            "wording": "documents this route from another project repository"
+          },
+          {
+            "assumptions": [
+              "matched across project repositories; base URL not proven"
+            ],
+            "claim": "may depend on",
+            "confidence": 0.9,
+            "distance": 3,
+            "kind": "client_call",
+            "node": "client_call:src/api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+            "provenance": "inferred",
+            "relation": "I12",
+            "repository": "frontend",
+            "seed": "table:src/db/schema.ts#users",
+            "steps": [
+              {
+                "access": {
+                  "assumes": [
+                    "TA-V3b"
+                  ],
+                  "column_use": null,
+                  "operations": [
+                    "select"
+                  ],
+                  "role": "executes",
+                  "rows": [
+                    "CT-Z1"
+                  ],
+                  "tool": "drizzle",
+                  "verification": "oracle",
+                  "verification_wording": "verified by an oracle"
+                },
+                "confidence": 0.9,
+                "evidence": [
+                  {
+                    "file": "src/server.ts",
+                    "span": {
+                      "end_column": 50,
+                      "end_line": 6,
+                      "start_column": 17,
+                      "start_line": 6
+                    }
+                  }
+                ],
+                "kind": "reads_table",
+                "provenance": "inferred",
+                "relation": "I8",
+                "removed": false,
+                "source": "function:src/server.ts#listUsers",
+                "source_repository": "backend",
+                "target": "table:src/db/schema.ts#users",
+                "target_repository": "backend",
+                "via": null
+              },
+              {
+                "confidence": 1,
+                "evidence": [
+                  {
+                    "file": "src/server.ts",
+                    "span": {
+                      "end_column": 35,
+                      "end_line": 13,
+                      "start_column": 0,
+                      "start_line": 13
+                    }
+                  }
+                ],
+                "kind": "exposes_route",
+                "provenance": "fact",
+                "relation": "I4",
+                "removed": false,
+                "source": "function:src/server.ts#listUsers",
+                "source_repository": "backend",
+                "target": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+                "target_repository": "backend",
+                "via": null
+              },
+              {
+                "assumption": "matched across project repositories; base URL not proven",
+                "confidence": 0.9,
+                "evidence": [
+                  {
+                    "file": "src/api.ts",
+                    "span": {
+                      "end_column": 58,
+                      "end_line": 4,
+                      "start_column": 9,
+                      "start_line": 4
+                    }
+                  }
+                ],
+                "kind": "calls_route",
+                "provenance": "inferred",
+                "relation": "I12",
+                "removed": false,
+                "source": "client_call:src/api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+                "source_repository": "frontend",
+                "target": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+                "target_repository": "backend",
+                "via": null
+              }
+            ],
+            "wording": "calls this route from another project repository"
+          },
+          {
+            "assumptions": [
+              "matched across project repositories; base URL not proven"
+            ],
+            "claim": "may depend on",
+            "confidence": 0.9,
+            "distance": 4,
+            "kind": "function",
+            "node": "function:src/api.ts#listUsers",
+            "provenance": "inferred",
+            "relation": "I2",
+            "repository": "frontend",
+            "seed": "table:src/db/schema.ts#users",
+            "steps": [
+              {
+                "access": {
+                  "assumes": [
+                    "TA-V3b"
+                  ],
+                  "column_use": null,
+                  "operations": [
+                    "select"
+                  ],
+                  "role": "executes",
+                  "rows": [
+                    "CT-Z1"
+                  ],
+                  "tool": "drizzle",
+                  "verification": "oracle",
+                  "verification_wording": "verified by an oracle"
+                },
+                "confidence": 0.9,
+                "evidence": [
+                  {
+                    "file": "src/server.ts",
+                    "span": {
+                      "end_column": 50,
+                      "end_line": 6,
+                      "start_column": 17,
+                      "start_line": 6
+                    }
+                  }
+                ],
+                "kind": "reads_table",
+                "provenance": "inferred",
+                "relation": "I8",
+                "removed": false,
+                "source": "function:src/server.ts#listUsers",
+                "source_repository": "backend",
+                "target": "table:src/db/schema.ts#users",
+                "target_repository": "backend",
+                "via": null
+              },
+              {
+                "confidence": 1,
+                "evidence": [
+                  {
+                    "file": "src/server.ts",
+                    "span": {
+                      "end_column": 35,
+                      "end_line": 13,
+                      "start_column": 0,
+                      "start_line": 13
+                    }
+                  }
+                ],
+                "kind": "exposes_route",
+                "provenance": "fact",
+                "relation": "I4",
+                "removed": false,
+                "source": "function:src/server.ts#listUsers",
+                "source_repository": "backend",
+                "target": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+                "target_repository": "backend",
+                "via": null
+              },
+              {
+                "assumption": "matched across project repositories; base URL not proven",
+                "confidence": 0.9,
+                "evidence": [
+                  {
+                    "file": "src/api.ts",
+                    "span": {
+                      "end_column": 58,
+                      "end_line": 4,
+                      "start_column": 9,
+                      "start_line": 4
+                    }
+                  }
+                ],
+                "kind": "calls_route",
+                "provenance": "inferred",
+                "relation": "I12",
+                "removed": false,
+                "source": "client_call:src/api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+                "source_repository": "frontend",
+                "target": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+                "target_repository": "backend",
+                "via": null
+              },
+              {
+                "confidence": 1,
+                "evidence": [
+                  {
+                    "file": "src/api.ts",
+                    "span": {
+                      "end_column": 58,
+                      "end_line": 4,
+                      "start_column": 9,
+                      "start_line": 4
+                    }
+                  }
+                ],
+                "kind": "contains",
+                "provenance": "fact",
+                "relation": "I2",
+                "removed": false,
+                "source": "function:src/api.ts#listUsers",
+                "source_repository": "frontend",
+                "target": "client_call:src/api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+                "target_repository": "frontend",
+                "via": null
+              }
+            ],
+            "wording": "makes the changed call"
+          },
+          {
+            "assumptions": [
+              "matched across project repositories; base URL not proven"
+            ],
+            "claim": "may depend on",
+            "confidence": 0.9,
+            "distance": 5,
+            "kind": "function",
+            "node": "function:src/page.ts#UsersPage",
+            "provenance": "inferred",
+            "relation": "I1",
+            "repository": "frontend",
+            "seed": "table:src/db/schema.ts#users",
+            "steps": [
+              {
+                "access": {
+                  "assumes": [
+                    "TA-V3b"
+                  ],
+                  "column_use": null,
+                  "operations": [
+                    "select"
+                  ],
+                  "role": "executes",
+                  "rows": [
+                    "CT-Z1"
+                  ],
+                  "tool": "drizzle",
+                  "verification": "oracle",
+                  "verification_wording": "verified by an oracle"
+                },
+                "confidence": 0.9,
+                "evidence": [
+                  {
+                    "file": "src/server.ts",
+                    "span": {
+                      "end_column": 50,
+                      "end_line": 6,
+                      "start_column": 17,
+                      "start_line": 6
+                    }
+                  }
+                ],
+                "kind": "reads_table",
+                "provenance": "inferred",
+                "relation": "I8",
+                "removed": false,
+                "source": "function:src/server.ts#listUsers",
+                "source_repository": "backend",
+                "target": "table:src/db/schema.ts#users",
+                "target_repository": "backend",
+                "via": null
+              },
+              {
+                "confidence": 1,
+                "evidence": [
+                  {
+                    "file": "src/server.ts",
+                    "span": {
+                      "end_column": 35,
+                      "end_line": 13,
+                      "start_column": 0,
+                      "start_line": 13
+                    }
+                  }
+                ],
+                "kind": "exposes_route",
+                "provenance": "fact",
+                "relation": "I4",
+                "removed": false,
+                "source": "function:src/server.ts#listUsers",
+                "source_repository": "backend",
+                "target": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+                "target_repository": "backend",
+                "via": null
+              },
+              {
+                "assumption": "matched across project repositories; base URL not proven",
+                "confidence": 0.9,
+                "evidence": [
+                  {
+                    "file": "src/api.ts",
+                    "span": {
+                      "end_column": 58,
+                      "end_line": 4,
+                      "start_column": 9,
+                      "start_line": 4
+                    }
+                  }
+                ],
+                "kind": "calls_route",
+                "provenance": "inferred",
+                "relation": "I12",
+                "removed": false,
+                "source": "client_call:src/api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+                "source_repository": "frontend",
+                "target": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+                "target_repository": "backend",
+                "via": null
+              },
+              {
+                "confidence": 1,
+                "evidence": [
+                  {
+                    "file": "src/api.ts",
+                    "span": {
+                      "end_column": 58,
+                      "end_line": 4,
+                      "start_column": 9,
+                      "start_line": 4
+                    }
+                  }
+                ],
+                "kind": "contains",
+                "provenance": "fact",
+                "relation": "I2",
+                "removed": false,
+                "source": "function:src/api.ts#listUsers",
+                "source_repository": "frontend",
+                "target": "client_call:src/api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+                "target_repository": "frontend",
+                "via": null
+              },
+              {
+                "confidence": 1,
+                "evidence": [
+                  {
+                    "file": "src/page.ts",
+                    "span": {
+                      "end_column": 20,
+                      "end_line": 5,
+                      "start_column": 9,
+                      "start_line": 5
+                    }
+                  }
+                ],
+                "kind": "calls",
+                "provenance": "fact",
+                "relation": "I1",
+                "removed": false,
+                "source": "function:src/page.ts#UsersPage",
+                "source_repository": "frontend",
+                "target": "function:src/api.ts#listUsers",
+                "target_repository": "frontend",
+                "via": null
+              }
+            ],
+            "wording": "calls the changed code"
+          }
+        ],
+        "project": "users",
+        "seeds": [
+          "table:src/db/schema.ts#users"
+        ],
+        "table_uses": [
+          {
+            "found": [
+              "function:src/server.ts#createUser",
+              "function:src/server.ts#listUsers"
+            ],
+            "may_also_be_used_by": [],
+            "may_also_wording": "may also be used by",
+            "table": "table:src/db/schema.ts#users",
+            "wording": "uses found"
+          }
+        ],
+        "unknowns": {
+          "blind_spots": [],
+          "gap_nodes": [],
+          "near_misses": [],
+          "not_extracted": [
+            {
+              "nodes": [],
+              "relation": "I11"
+            }
+          ],
+          "untraversed": {
+            "contains": 3,
+            "exposes_route": 1
+          }
+        }
+      },
+      "seed": "table:src/db/schema.ts#users"
+    },
+    {
+      "impact": {
+        "caps": [],
+        "depth": 4,
+        "members": [
+          {
+            "link_sources_missing": [],
+            "repository": "frontend",
+            "table_uses": [],
+            "unknowns": {
+              "blind_spots": [],
+              "gap_nodes": [],
+              "near_misses": [],
+              "not_extracted": [
+                {
+                  "nodes": [],
+                  "relation": "I11"
+                }
+              ],
+              "untraversed": {
+                "contains": 2
+              }
+            }
+          }
+        ],
+        "paths": [
+          {
+            "claim": "may depend on",
+            "confidence": null,
+            "distance": 1,
+            "kind": "file",
+            "node": "file:src/server.ts#src%2Fserver.ts",
+            "provenance": "inferred",
+            "relation": "I15",
+            "repository": "backend",
+            "seed": "function:src/server.ts#listUsers",
+            "steps": [
+              {
+                "confidence": 1,
+                "evidence": [
+                  {
+                    "file": "src/server.ts",
+                    "span": {
+                      "end_column": 34,
+                      "end_line": 13,
+                      "start_column": 25,
+                      "start_line": 13
+                    }
+                  }
+                ],
+                "kind": "passes_function",
+                "provenance": "fact",
+                "relation": "I15",
+                "removed": false,
+                "source": "file:src/server.ts#src%2Fserver.ts",
+                "source_repository": "backend",
+                "target": "function:src/server.ts#listUsers",
+                "target_repository": "backend",
+                "via": null
+              }
+            ],
+            "wording": "passes this as callback, call not modelled"
+          },
+          {
+            "claim": "depends on",
+            "confidence": 1,
+            "distance": 1,
+            "kind": "route",
+            "node": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+            "provenance": "fact",
+            "relation": "I4",
+            "repository": "backend",
+            "route_paths": [
+              {
+                "scope": null,
+                "template": "/t022b7/users",
+                "trailing_slash": false
+              }
+            ],
+            "seed": "function:src/server.ts#listUsers",
+            "steps": [
+              {
+                "confidence": 1,
+                "evidence": [
+                  {
+                    "file": "src/server.ts",
+                    "span": {
+                      "end_column": 35,
+                      "end_line": 13,
+                      "start_column": 0,
+                      "start_line": 13
+                    }
+                  }
+                ],
+                "kind": "exposes_route",
+                "provenance": "fact",
+                "relation": "I4",
+                "removed": false,
+                "source": "function:src/server.ts#listUsers",
+                "source_repository": "backend",
+                "target": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+                "target_repository": "backend",
+                "via": null
+              }
+            ],
+            "wording": "handled by the changed code"
+          },
+          {
+            "assumptions": [
+              "matched across project repositories; base URL not proven"
+            ],
+            "claim": "may depend on",
+            "confidence": 0.9,
+            "distance": 2,
+            "kind": "api_operation",
+            "node": "api_operation:openapi.yaml#GET%20%2Ft022b7%2Fusers",
+            "provenance": "inferred",
+            "relation": "I13",
+            "repository": "frontend",
+            "seed": "function:src/server.ts#listUsers",
+            "steps": [
+              {
+                "confidence": 1,
+                "evidence": [
+                  {
+                    "file": "src/server.ts",
+                    "span": {
+                      "end_column": 35,
+                      "end_line": 13,
+                      "start_column": 0,
+                      "start_line": 13
+                    }
+                  }
+                ],
+                "kind": "exposes_route",
+                "provenance": "fact",
+                "relation": "I4",
+                "removed": false,
+                "source": "function:src/server.ts#listUsers",
+                "source_repository": "backend",
+                "target": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+                "target_repository": "backend",
+                "via": null
+              },
+              {
+                "assumption": "matched across project repositories; base URL not proven",
+                "confidence": 0.9,
+                "evidence": [
+                  {
+                    "file": "openapi.yaml",
+                    "span": {
+                      "end_column": 25,
+                      "end_line": 11,
+                      "start_column": 4,
+                      "start_line": 7
+                    }
+                  }
+                ],
+                "kind": "documents_route",
+                "provenance": "inferred",
+                "relation": "I13",
+                "removed": false,
+                "source": "api_operation:openapi.yaml#GET%20%2Ft022b7%2Fusers",
+                "source_repository": "frontend",
+                "target": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+                "target_repository": "backend",
+                "via": null
+              }
+            ],
+            "wording": "documents this route from another project repository"
+          },
+          {
+            "assumptions": [
+              "matched across project repositories; base URL not proven"
+            ],
+            "claim": "may depend on",
+            "confidence": 0.9,
+            "distance": 2,
+            "kind": "client_call",
+            "node": "client_call:src/api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+            "provenance": "inferred",
+            "relation": "I12",
+            "repository": "frontend",
+            "seed": "function:src/server.ts#listUsers",
+            "steps": [
+              {
+                "confidence": 1,
+                "evidence": [
+                  {
+                    "file": "src/server.ts",
+                    "span": {
+                      "end_column": 35,
+                      "end_line": 13,
+                      "start_column": 0,
+                      "start_line": 13
+                    }
+                  }
+                ],
+                "kind": "exposes_route",
+                "provenance": "fact",
+                "relation": "I4",
+                "removed": false,
+                "source": "function:src/server.ts#listUsers",
+                "source_repository": "backend",
+                "target": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+                "target_repository": "backend",
+                "via": null
+              },
+              {
+                "assumption": "matched across project repositories; base URL not proven",
+                "confidence": 0.9,
+                "evidence": [
+                  {
+                    "file": "src/api.ts",
+                    "span": {
+                      "end_column": 58,
+                      "end_line": 4,
+                      "start_column": 9,
+                      "start_line": 4
+                    }
+                  }
+                ],
+                "kind": "calls_route",
+                "provenance": "inferred",
+                "relation": "I12",
+                "removed": false,
+                "source": "client_call:src/api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+                "source_repository": "frontend",
+                "target": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+                "target_repository": "backend",
+                "via": null
+              }
+            ],
+            "wording": "calls this route from another project repository"
+          },
+          {
+            "assumptions": [
+              "matched across project repositories; base URL not proven"
+            ],
+            "claim": "may depend on",
+            "confidence": 0.9,
+            "distance": 3,
+            "kind": "function",
+            "node": "function:src/api.ts#listUsers",
+            "provenance": "inferred",
+            "relation": "I2",
+            "repository": "frontend",
+            "seed": "function:src/server.ts#listUsers",
+            "steps": [
+              {
+                "confidence": 1,
+                "evidence": [
+                  {
+                    "file": "src/server.ts",
+                    "span": {
+                      "end_column": 35,
+                      "end_line": 13,
+                      "start_column": 0,
+                      "start_line": 13
+                    }
+                  }
+                ],
+                "kind": "exposes_route",
+                "provenance": "fact",
+                "relation": "I4",
+                "removed": false,
+                "source": "function:src/server.ts#listUsers",
+                "source_repository": "backend",
+                "target": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+                "target_repository": "backend",
+                "via": null
+              },
+              {
+                "assumption": "matched across project repositories; base URL not proven",
+                "confidence": 0.9,
+                "evidence": [
+                  {
+                    "file": "src/api.ts",
+                    "span": {
+                      "end_column": 58,
+                      "end_line": 4,
+                      "start_column": 9,
+                      "start_line": 4
+                    }
+                  }
+                ],
+                "kind": "calls_route",
+                "provenance": "inferred",
+                "relation": "I12",
+                "removed": false,
+                "source": "client_call:src/api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+                "source_repository": "frontend",
+                "target": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+                "target_repository": "backend",
+                "via": null
+              },
+              {
+                "confidence": 1,
+                "evidence": [
+                  {
+                    "file": "src/api.ts",
+                    "span": {
+                      "end_column": 58,
+                      "end_line": 4,
+                      "start_column": 9,
+                      "start_line": 4
+                    }
+                  }
+                ],
+                "kind": "contains",
+                "provenance": "fact",
+                "relation": "I2",
+                "removed": false,
+                "source": "function:src/api.ts#listUsers",
+                "source_repository": "frontend",
+                "target": "client_call:src/api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+                "target_repository": "frontend",
+                "via": null
+              }
+            ],
+            "wording": "makes the changed call"
+          },
+          {
+            "assumptions": [
+              "matched across project repositories; base URL not proven"
+            ],
+            "claim": "may depend on",
+            "confidence": 0.9,
+            "distance": 4,
+            "kind": "function",
+            "node": "function:src/page.ts#UsersPage",
+            "provenance": "inferred",
+            "relation": "I1",
+            "repository": "frontend",
+            "seed": "function:src/server.ts#listUsers",
+            "steps": [
+              {
+                "confidence": 1,
+                "evidence": [
+                  {
+                    "file": "src/server.ts",
+                    "span": {
+                      "end_column": 35,
+                      "end_line": 13,
+                      "start_column": 0,
+                      "start_line": 13
+                    }
+                  }
+                ],
+                "kind": "exposes_route",
+                "provenance": "fact",
+                "relation": "I4",
+                "removed": false,
+                "source": "function:src/server.ts#listUsers",
+                "source_repository": "backend",
+                "target": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+                "target_repository": "backend",
+                "via": null
+              },
+              {
+                "assumption": "matched across project repositories; base URL not proven",
+                "confidence": 0.9,
+                "evidence": [
+                  {
+                    "file": "src/api.ts",
+                    "span": {
+                      "end_column": 58,
+                      "end_line": 4,
+                      "start_column": 9,
+                      "start_line": 4
+                    }
+                  }
+                ],
+                "kind": "calls_route",
+                "provenance": "inferred",
+                "relation": "I12",
+                "removed": false,
+                "source": "client_call:src/api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+                "source_repository": "frontend",
+                "target": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+                "target_repository": "backend",
+                "via": null
+              },
+              {
+                "confidence": 1,
+                "evidence": [
+                  {
+                    "file": "src/api.ts",
+                    "span": {
+                      "end_column": 58,
+                      "end_line": 4,
+                      "start_column": 9,
+                      "start_line": 4
+                    }
+                  }
+                ],
+                "kind": "contains",
+                "provenance": "fact",
+                "relation": "I2",
+                "removed": false,
+                "source": "function:src/api.ts#listUsers",
+                "source_repository": "frontend",
+                "target": "client_call:src/api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+                "target_repository": "frontend",
+                "via": null
+              },
+              {
+                "confidence": 1,
+                "evidence": [
+                  {
+                    "file": "src/page.ts",
+                    "span": {
+                      "end_column": 20,
+                      "end_line": 5,
+                      "start_column": 9,
+                      "start_line": 5
+                    }
+                  }
+                ],
+                "kind": "calls",
+                "provenance": "fact",
+                "relation": "I1",
+                "removed": false,
+                "source": "function:src/page.ts#UsersPage",
+                "source_repository": "frontend",
+                "target": "function:src/api.ts#listUsers",
+                "target_repository": "frontend",
+                "via": null
+              }
+            ],
+            "wording": "calls the changed code"
+          }
+        ],
+        "project": "users",
+        "seeds": [
+          "function:src/server.ts#listUsers"
+        ],
+        "table_uses": [],
+        "unknowns": {
+          "blind_spots": [],
+          "gap_nodes": [],
+          "near_misses": [],
+          "not_extracted": [
+            {
+              "nodes": [],
+              "relation": "I11"
+            }
+          ],
+          "untraversed": {
+            "contains": 2,
+            "exposes_route": 1
+          }
+        }
+      },
+      "seed": "function:src/server.ts#listUsers"
+    },
+    {
+      "impact": {
+        "caps": [],
+        "depth": 4,
+        "members": [
+          {
+            "link_sources_missing": [],
+            "repository": "frontend",
+            "table_uses": [],
+            "unknowns": {
+              "blind_spots": [],
+              "gap_nodes": [],
+              "near_misses": [],
+              "not_extracted": [
+                {
+                  "nodes": [],
+                  "relation": "I11"
+                }
+              ],
+              "untraversed": {
+                "contains": 2
+              }
+            }
+          }
+        ],
+        "paths": [
+          {
+            "claim": "may depend on",
+            "confidence": null,
+            "distance": 1,
+            "kind": "file",
+            "node": "file:src/server.ts#src%2Fserver.ts",
+            "provenance": "inferred",
+            "relation": "I15",
+            "repository": "backend",
+            "seed": "function:src/server.ts#listUsers",
+            "steps": [
+              {
+                "confidence": 1,
+                "evidence": [
+                  {
+                    "file": "src/server.ts",
+                    "span": {
+                      "end_column": 34,
+                      "end_line": 13,
+                      "start_column": 25,
+                      "start_line": 13
+                    }
+                  }
+                ],
+                "kind": "passes_function",
+                "provenance": "fact",
+                "relation": "I15",
+                "removed": false,
+                "source": "file:src/server.ts#src%2Fserver.ts",
+                "source_repository": "backend",
+                "target": "function:src/server.ts#listUsers",
+                "target_repository": "backend",
+                "via": null
+              }
+            ],
+            "wording": "passes this as callback, call not modelled"
+          },
+          {
+            "claim": "depends on",
+            "confidence": 1,
+            "distance": 1,
+            "kind": "route",
+            "node": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+            "provenance": "fact",
+            "relation": "I4",
+            "repository": "backend",
+            "route_paths": [
+              {
+                "scope": null,
+                "template": "/t022b7/users",
+                "trailing_slash": false
+              }
+            ],
+            "seed": "function:src/server.ts#listUsers",
+            "steps": [
+              {
+                "confidence": 1,
+                "evidence": [
+                  {
+                    "file": "src/server.ts",
+                    "span": {
+                      "end_column": 35,
+                      "end_line": 13,
+                      "start_column": 0,
+                      "start_line": 13
+                    }
+                  }
+                ],
+                "kind": "exposes_route",
+                "provenance": "fact",
+                "relation": "I4",
+                "removed": false,
+                "source": "function:src/server.ts#listUsers",
+                "source_repository": "backend",
+                "target": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+                "target_repository": "backend",
+                "via": null
+              }
+            ],
+            "wording": "handled by the changed code"
+          },
+          {
+            "assumptions": [
+              "matched across project repositories; base URL not proven"
+            ],
+            "claim": "may depend on",
+            "confidence": 0.9,
+            "distance": 2,
+            "kind": "api_operation",
+            "node": "api_operation:openapi.yaml#GET%20%2Ft022b7%2Fusers",
+            "provenance": "inferred",
+            "relation": "I13",
+            "repository": "frontend",
+            "seed": "function:src/server.ts#listUsers",
+            "stale": true,
+            "steps": [
+              {
+                "confidence": 1,
+                "evidence": [
+                  {
+                    "file": "src/server.ts",
+                    "span": {
+                      "end_column": 35,
+                      "end_line": 13,
+                      "start_column": 0,
+                      "start_line": 13
+                    }
+                  }
+                ],
+                "kind": "exposes_route",
+                "provenance": "fact",
+                "relation": "I4",
+                "removed": false,
+                "source": "function:src/server.ts#listUsers",
+                "source_repository": "backend",
+                "target": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+                "target_repository": "backend",
+                "via": null
+              },
+              {
+                "assumption": "matched across project repositories; base URL not proven",
+                "confidence": 0.9,
+                "evidence": [
+                  {
+                    "file": "openapi.yaml",
+                    "span": {
+                      "end_column": 25,
+                      "end_line": 11,
+                      "start_column": 4,
+                      "start_line": 7
+                    }
+                  }
+                ],
+                "kind": "documents_route",
+                "provenance": "inferred",
+                "relation": "I13",
+                "removed": false,
+                "source": "api_operation:openapi.yaml#GET%20%2Ft022b7%2Fusers",
+                "source_repository": "frontend",
+                "stale_reasons": [
+                  "frontend indexed again since the pass"
+                ],
+                "target": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+                "target_repository": "backend",
+                "via": null
+              }
+            ],
+            "wording": "documents this route from another project repository"
+          },
+          {
+            "assumptions": [
+              "matched across project repositories; base URL not proven"
+            ],
+            "claim": "may depend on",
+            "confidence": 0.9,
+            "distance": 2,
+            "kind": "client_call",
+            "node": "client_call:src/api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+            "provenance": "inferred",
+            "relation": "I12",
+            "repository": "frontend",
+            "seed": "function:src/server.ts#listUsers",
+            "stale": true,
+            "steps": [
+              {
+                "confidence": 1,
+                "evidence": [
+                  {
+                    "file": "src/server.ts",
+                    "span": {
+                      "end_column": 35,
+                      "end_line": 13,
+                      "start_column": 0,
+                      "start_line": 13
+                    }
+                  }
+                ],
+                "kind": "exposes_route",
+                "provenance": "fact",
+                "relation": "I4",
+                "removed": false,
+                "source": "function:src/server.ts#listUsers",
+                "source_repository": "backend",
+                "target": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+                "target_repository": "backend",
+                "via": null
+              },
+              {
+                "assumption": "matched across project repositories; base URL not proven",
+                "confidence": 0.9,
+                "evidence": [
+                  {
+                    "file": "src/api.ts",
+                    "span": {
+                      "end_column": 58,
+                      "end_line": 4,
+                      "start_column": 9,
+                      "start_line": 4
+                    }
+                  }
+                ],
+                "kind": "calls_route",
+                "provenance": "inferred",
+                "relation": "I12",
+                "removed": false,
+                "source": "client_call:src/api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+                "source_repository": "frontend",
+                "stale_reasons": [
+                  "frontend indexed again since the pass"
+                ],
+                "target": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+                "target_repository": "backend",
+                "via": null
+              }
+            ],
+            "wording": "calls this route from another project repository"
+          },
+          {
+            "assumptions": [
+              "matched across project repositories; base URL not proven"
+            ],
+            "claim": "may depend on",
+            "confidence": 0.9,
+            "distance": 3,
+            "kind": "function",
+            "node": "function:src/api.ts#listUsers",
+            "provenance": "inferred",
+            "relation": "I2",
+            "repository": "frontend",
+            "seed": "function:src/server.ts#listUsers",
+            "stale": true,
+            "steps": [
+              {
+                "confidence": 1,
+                "evidence": [
+                  {
+                    "file": "src/server.ts",
+                    "span": {
+                      "end_column": 35,
+                      "end_line": 13,
+                      "start_column": 0,
+                      "start_line": 13
+                    }
+                  }
+                ],
+                "kind": "exposes_route",
+                "provenance": "fact",
+                "relation": "I4",
+                "removed": false,
+                "source": "function:src/server.ts#listUsers",
+                "source_repository": "backend",
+                "target": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+                "target_repository": "backend",
+                "via": null
+              },
+              {
+                "assumption": "matched across project repositories; base URL not proven",
+                "confidence": 0.9,
+                "evidence": [
+                  {
+                    "file": "src/api.ts",
+                    "span": {
+                      "end_column": 58,
+                      "end_line": 4,
+                      "start_column": 9,
+                      "start_line": 4
+                    }
+                  }
+                ],
+                "kind": "calls_route",
+                "provenance": "inferred",
+                "relation": "I12",
+                "removed": false,
+                "source": "client_call:src/api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+                "source_repository": "frontend",
+                "stale_reasons": [
+                  "frontend indexed again since the pass"
+                ],
+                "target": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+                "target_repository": "backend",
+                "via": null
+              },
+              {
+                "confidence": 1,
+                "evidence": [
+                  {
+                    "file": "src/api.ts",
+                    "span": {
+                      "end_column": 58,
+                      "end_line": 4,
+                      "start_column": 9,
+                      "start_line": 4
+                    }
+                  }
+                ],
+                "kind": "contains",
+                "provenance": "fact",
+                "relation": "I2",
+                "removed": false,
+                "source": "function:src/api.ts#listUsers",
+                "source_repository": "frontend",
+                "target": "client_call:src/api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+                "target_repository": "frontend",
+                "via": null
+              }
+            ],
+            "wording": "makes the changed call"
+          },
+          {
+            "assumptions": [
+              "matched across project repositories; base URL not proven"
+            ],
+            "claim": "may depend on",
+            "confidence": 0.9,
+            "distance": 4,
+            "kind": "function",
+            "node": "function:src/page.ts#UsersPage",
+            "provenance": "inferred",
+            "relation": "I1",
+            "repository": "frontend",
+            "seed": "function:src/server.ts#listUsers",
+            "stale": true,
+            "steps": [
+              {
+                "confidence": 1,
+                "evidence": [
+                  {
+                    "file": "src/server.ts",
+                    "span": {
+                      "end_column": 35,
+                      "end_line": 13,
+                      "start_column": 0,
+                      "start_line": 13
+                    }
+                  }
+                ],
+                "kind": "exposes_route",
+                "provenance": "fact",
+                "relation": "I4",
+                "removed": false,
+                "source": "function:src/server.ts#listUsers",
+                "source_repository": "backend",
+                "target": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+                "target_repository": "backend",
+                "via": null
+              },
+              {
+                "assumption": "matched across project repositories; base URL not proven",
+                "confidence": 0.9,
+                "evidence": [
+                  {
+                    "file": "src/api.ts",
+                    "span": {
+                      "end_column": 58,
+                      "end_line": 4,
+                      "start_column": 9,
+                      "start_line": 4
+                    }
+                  }
+                ],
+                "kind": "calls_route",
+                "provenance": "inferred",
+                "relation": "I12",
+                "removed": false,
+                "source": "client_call:src/api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+                "source_repository": "frontend",
+                "stale_reasons": [
+                  "frontend indexed again since the pass"
+                ],
+                "target": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+                "target_repository": "backend",
+                "via": null
+              },
+              {
+                "confidence": 1,
+                "evidence": [
+                  {
+                    "file": "src/api.ts",
+                    "span": {
+                      "end_column": 58,
+                      "end_line": 4,
+                      "start_column": 9,
+                      "start_line": 4
+                    }
+                  }
+                ],
+                "kind": "contains",
+                "provenance": "fact",
+                "relation": "I2",
+                "removed": false,
+                "source": "function:src/api.ts#listUsers",
+                "source_repository": "frontend",
+                "target": "client_call:src/api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+                "target_repository": "frontend",
+                "via": null
+              },
+              {
+                "confidence": 1,
+                "evidence": [
+                  {
+                    "file": "src/page.ts",
+                    "span": {
+                      "end_column": 20,
+                      "end_line": 5,
+                      "start_column": 9,
+                      "start_line": 5
+                    }
+                  }
+                ],
+                "kind": "calls",
+                "provenance": "fact",
+                "relation": "I1",
+                "removed": false,
+                "source": "function:src/page.ts#UsersPage",
+                "source_repository": "frontend",
+                "target": "function:src/api.ts#listUsers",
+                "target_repository": "frontend",
+                "via": null
+              }
+            ],
+            "wording": "calls the changed code"
+          }
+        ],
+        "project": "users",
+        "seeds": [
+          "function:src/server.ts#listUsers"
+        ],
+        "table_uses": [],
+        "unknowns": {
+          "blind_spots": [],
+          "gap_nodes": [],
+          "near_misses": [],
+          "not_extracted": [
+            {
+              "nodes": [],
+              "relation": "I11"
+            }
+          ],
+          "untraversed": {
+            "contains": 2,
+            "exposes_route": 1
+          }
+        }
+      },
+      "seed": "function:src/server.ts#listUsers (stale links)"
+    }
+  ],
+  "items": [
+    {
+      "after": null,
+      "before": {
+        "fields": {
+          "framework": "express",
+          "handler": "function:src/server.ts#createUser",
+          "method": "POST",
+          "paths": [
+            {
+              "conditional": false,
+              "resolution": "literal",
+              "template": "/t022b7/users"
+            }
+          ],
+          "pattern": "/t022b7/users",
+          "scope": null
+        },
+        "file": "src/server.ts",
+        "span": {
+          "end_column": 37,
+          "end_line": 14,
+          "start_column": 0,
+          "start_line": 14
+        }
+      },
+      "cause": "code",
+      "change": "removed",
+      "confidence": null,
+      "fields": [],
+      "group": "routes",
+      "hints": [],
+      "id": "route:src/server.ts#POST%20%2Ft022b7%2Fusers",
+      "identity": "route:src/server.ts#POST%20%2Ft022b7%2Fusers",
+      "impact_count": null,
+      "kind": "route",
+      "labels": [],
+      "name": "POST /t022b7/users",
+      "provenance": null,
+      "reason": null,
+      "record": "node",
+      "row": "C3",
+      "test": false,
+      "wording": "no_longer_in_index"
+    },
+    {
+      "after": {
+        "fields": {
+          "default": "absent",
+          "foreign_keys": [],
+          "index": false,
+          "name": "name",
+          "nullable": true,
+          "primary_key": false,
+          "server_default": false,
+          "type": "text",
+          "unique": false
+        },
+        "file": "src/db/schema.ts",
+        "span": {
+          "end_column": 0,
+          "end_line": 6,
+          "start_column": 0,
+          "start_line": 6
+        }
+      },
+      "before": null,
+      "cause": "code",
+      "change": "added",
+      "confidence": null,
+      "fields": [],
+      "group": "model_tables",
+      "hints": [],
+      "id": "column:src/db/schema.ts#users.name",
+      "identity": "column:src/db/schema.ts#users.name",
+      "impact_count": null,
+      "kind": "column",
+      "labels": [],
+      "name": "users.name",
+      "provenance": null,
+      "reason": null,
+      "record": "node",
+      "row": "C11",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": {
+        "fields": {
+          "completeness": "complete",
+          "name": "users",
+          "pins": {
+            "drizzle-kit": "0.31.11",
+            "drizzle-orm": "0.45.4"
+          },
+          "set": "models/drizzle/drizzle.config.ts",
+          "tool": "drizzle"
+        },
+        "file": "src/db/schema.ts",
+        "span": {
+          "end_column": 0,
+          "end_line": 7,
+          "start_column": 0,
+          "start_line": 3
+        }
+      },
+      "before": {
+        "fields": {
+          "completeness": "complete",
+          "name": "users",
+          "pins": {
+            "drizzle-kit": "0.31.11",
+            "drizzle-orm": "0.45.4"
+          },
+          "set": "models/drizzle/drizzle.config.ts",
+          "tool": "drizzle"
+        },
+        "file": "src/db/schema.ts",
+        "span": {
+          "end_column": 0,
+          "end_line": 6,
+          "start_column": 0,
+          "start_line": 3
+        }
+      },
+      "cause": "code",
+      "change": "body_changed",
+      "confidence": null,
+      "fields": [],
+      "group": "model_tables",
+      "hints": [],
+      "id": "table:src/db/schema.ts#users",
+      "identity": "table:src/db/schema.ts#users",
+      "impact_count": null,
+      "kind": "table",
+      "labels": [],
+      "name": "users",
+      "provenance": null,
+      "reason": null,
+      "record": "node",
+      "row": "C11",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": {
+        "fields": {},
+        "file": "src/server.ts",
+        "span": {
+          "end_column": 1,
+          "end_line": 7,
+          "start_column": 0,
+          "start_line": 5
+        }
+      },
+      "before": {
+        "fields": {},
+        "file": "src/server.ts",
+        "span": {
+          "end_column": 1,
+          "end_line": 7,
+          "start_column": 0,
+          "start_line": 5
+        }
+      },
+      "cause": "code",
+      "change": "body_changed",
+      "confidence": null,
+      "fields": [],
+      "group": "code",
+      "hints": [],
+      "id": "function:src/server.ts#listUsers",
+      "identity": "function:src/server.ts#listUsers",
+      "impact_count": null,
+      "kind": "function",
+      "labels": [],
+      "name": "listUsers",
+      "provenance": null,
+      "reason": null,
+      "record": "node",
+      "row": "C2",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": {
+        "fields": {},
+        "file": "src/db/schema.ts",
+        "span": {
+          "end_column": 2,
+          "end_line": 7,
+          "start_column": 0,
+          "start_line": 3
+        }
+      },
+      "before": {
+        "fields": {},
+        "file": "src/db/schema.ts",
+        "span": {
+          "end_column": 2,
+          "end_line": 6,
+          "start_column": 0,
+          "start_line": 3
+        }
+      },
+      "cause": "code",
+      "change": "body_changed",
+      "confidence": null,
+      "fields": [],
+      "group": "code",
+      "hints": [],
+      "id": "variable:src/db/schema.ts#users",
+      "identity": "variable:src/db/schema.ts#users",
+      "impact_count": null,
+      "kind": "variable",
+      "labels": [],
+      "name": "users",
+      "provenance": null,
+      "reason": null,
+      "record": "node",
+      "row": "C2",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": {
+        "fields": {
+          "content_hash": "sha256:8f451aba98cfe14ae3b8daf52dfb3b691b808b647ff58022342c915623a8d203",
+          "language": "typescript",
+          "precision": "precise"
+        },
+        "file": "src/db/schema.ts"
+      },
+      "before": {
+        "fields": {
+          "content_hash": "sha256:2595c4a03d3289184e6800fd86b08ab08d1b67e2f750678143d963ed84f5ce8d",
+          "language": "typescript",
+          "precision": "precise"
+        },
+        "file": "src/db/schema.ts"
+      },
+      "cause": "code",
+      "change": "changed",
+      "confidence": null,
+      "fields": [
+        {
+          "after": "sha256:8f451aba98cfe14ae3b8daf52dfb3b691b808b647ff58022342c915623a8d203",
+          "before": "sha256:2595c4a03d3289184e6800fd86b08ab08d1b67e2f750678143d963ed84f5ce8d",
+          "change": "changed",
+          "name": "content_hash"
+        }
+      ],
+      "group": "files",
+      "hints": [],
+      "id": "file:src/db/schema.ts",
+      "identity": "src/db/schema.ts",
+      "impact_count": null,
+      "kind": "file",
+      "labels": [],
+      "name": "src/db/schema.ts",
+      "provenance": null,
+      "reason": null,
+      "record": "file",
+      "row": "C1",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": {
+        "fields": {
+          "content_hash": "sha256:158c4a50ba7b45eb38d39160ce6ad6d01fa9721f2d27fc01233201057566b218",
+          "language": "typescript",
+          "precision": "precise"
+        },
+        "file": "src/server.ts"
+      },
+      "before": {
+        "fields": {
+          "content_hash": "sha256:e2ab1338dc1fdd277a60d8f4aa65e30a1d73727b03384e514271afa44d492178",
+          "language": "typescript",
+          "precision": "precise"
+        },
+        "file": "src/server.ts"
+      },
+      "cause": "code",
+      "change": "changed",
+      "confidence": null,
+      "fields": [
+        {
+          "after": "sha256:158c4a50ba7b45eb38d39160ce6ad6d01fa9721f2d27fc01233201057566b218",
+          "before": "sha256:e2ab1338dc1fdd277a60d8f4aa65e30a1d73727b03384e514271afa44d492178",
+          "change": "changed",
+          "name": "content_hash"
+        }
+      ],
+      "group": "files",
+      "hints": [],
+      "id": "file:src/server.ts",
+      "identity": "src/server.ts",
+      "impact_count": null,
+      "kind": "file",
+      "labels": [],
+      "name": "src/server.ts",
+      "provenance": null,
+      "reason": null,
+      "record": "file",
+      "row": "C1",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": null,
+      "before": {
+        "fields": {
+          "confidence": 1,
+          "provenance": "fact"
+        },
+        "file": "src/server.ts",
+        "span": {
+          "end_column": 36,
+          "end_line": 14,
+          "start_column": 26,
+          "start_line": 14
+        }
+      },
+      "cause": "code",
+      "change": "removed",
+      "confidence": 1,
+      "fields": [],
+      "group": "other",
+      "hints": [],
+      "id": "edge:[\"passes_function\",\"file:src/server.ts#src%2Fserver.ts\",\"function:src/server.ts#createUser\"]",
+      "identity": "[\"passes_function\",\"file:src/server.ts#src%2Fserver.ts\",\"function:src/server.ts#createUser\"]",
+      "impact_count": null,
+      "kind": "passes_function",
+      "labels": [],
+      "name": "file:src/server.ts#src%2Fserver.ts -\u003e function:src/server.ts#createUser",
+      "provenance": "fact",
+      "reason": null,
+      "record": "edge",
+      "row": "C16",
+      "test": false,
+      "wording": "no_longer_in_index"
+    }
+  ],
+  "project_links": {
+    "added": [],
+    "changed": [],
+    "from_pass": 1,
+    "manifest_changed": false,
+    "members": [
+      [
+        {
+          "repository": "frontend",
+          "run": "\u003crun-1\u003e"
+        },
+        {
+          "repository": "backend",
+          "run": "\u003crun-2\u003e"
+        }
+      ],
+      [
+        {
+          "repository": "frontend",
+          "run": "\u003crun-1\u003e"
+        },
+        {
+          "repository": "backend",
+          "run": "\u003crun-3\u003e"
+        }
+      ]
+    ],
+    "project": "users",
+    "removed": [
+      {
+        "kind": "calls_route",
+        "source_identity": "client_call:src/api.ts#createUser.POST%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+        "source_repository": "frontend",
+        "target_identity": "route:src/server.ts#POST%20%2Ft022b7%2Fusers",
+        "target_repository": "backend"
+      }
+    ],
+    "to_pass": 2
+  },
+  "summary": {
+    "base": {
+      "dirty": null,
+      "extractor": {
+        "name": "graphvein",
+        "version": "extractors-62"
+      },
+      "finished_at": "\u003ctime-1\u003e",
+      "gaps": [],
+      "gaps_truncated": false,
+      "kind": "run",
+      "partial": false,
+      "partial_reasons": [],
+      "repository": "backend",
+      "run": "\u003crun-2\u003e"
+    },
+    "contract_version": "T019-r8",
+    "extractor_changed": false,
+    "extractor_recheck": null,
+    "file_metadata_only": 0,
+    "groups": [
+      {
+        "causes": {
+          "code": 1
+        },
+        "changes": {
+          "removed": 1
+        },
+        "context": 2,
+        "group": "routes",
+        "hidden_tests": 0,
+        "items": 1,
+        "kinds": {
+          "route": 1
+        },
+        "moves": 0,
+        "other_changes": 0
+      },
+      {
+        "causes": {},
+        "changes": {},
+        "context": 0,
+        "group": "client_calls",
+        "hidden_tests": 0,
+        "items": 0,
+        "kinds": {},
+        "moves": 0,
+        "other_changes": 0
+      },
+      {
+        "causes": {},
+        "changes": {},
+        "context": 0,
+        "group": "api_operations",
+        "hidden_tests": 0,
+        "items": 0,
+        "kinds": {},
+        "moves": 0,
+        "other_changes": 0
+      },
+      {
+        "causes": {},
+        "changes": {},
+        "context": 0,
+        "group": "ipc",
+        "hidden_tests": 0,
+        "items": 0,
+        "kinds": {},
+        "moves": 0,
+        "other_changes": 0
+      },
+      {
+        "causes": {},
+        "changes": {},
+        "context": 0,
+        "group": "server_actions",
+        "hidden_tests": 0,
+        "items": 0,
+        "kinds": {},
+        "moves": 0,
+        "other_changes": 0
+      },
+      {
+        "causes": {},
+        "changes": {},
+        "context": 0,
+        "group": "migration_tables",
+        "hidden_tests": 0,
+        "items": 0,
+        "kinds": {},
+        "moves": 0,
+        "other_changes": 0
+      },
+      {
+        "causes": {
+          "code": 2
+        },
+        "changes": {
+          "added": 1,
+          "body_changed": 1
+        },
+        "context": 1,
+        "group": "model_tables",
+        "hidden_tests": 0,
+        "items": 2,
+        "kinds": {
+          "column": 1,
+          "table": 1
+        },
+        "moves": 0,
+        "other_changes": 0
+      },
+      {
+        "causes": {},
+        "changes": {},
+        "context": 0,
+        "group": "migrations",
+        "hidden_tests": 0,
+        "items": 0,
+        "kinds": {},
+        "moves": 0,
+        "other_changes": 0
+      },
+      {
+        "causes": {
+          "code": 2
+        },
+        "changes": {
+          "body_changed": 2
+        },
+        "context": 0,
+        "group": "code",
+        "hidden_tests": 0,
+        "items": 2,
+        "kinds": {
+          "function": 1,
+          "variable": 1
+        },
+        "moves": 1,
+        "other_changes": 0
+      },
+      {
+        "causes": {},
+        "changes": {},
+        "context": 0,
+        "group": "angular",
+        "hidden_tests": 0,
+        "items": 0,
+        "kinds": {},
+        "moves": 0,
+        "other_changes": 0
+      },
+      {
+        "causes": {},
+        "changes": {},
+        "context": 0,
+        "group": "react",
+        "hidden_tests": 0,
+        "items": 0,
+        "kinds": {},
+        "moves": 0,
+        "other_changes": 0
+      },
+      {
+        "causes": {},
+        "changes": {},
+        "context": 0,
+        "group": "architecture",
+        "hidden_tests": 0,
+        "items": 0,
+        "kinds": {},
+        "moves": 0,
+        "other_changes": 0
+      },
+      {
+        "causes": {
+          "code": 2
+        },
+        "changes": {
+          "changed": 2
+        },
+        "context": 2,
+        "group": "files",
+        "hidden_tests": 0,
+        "items": 2,
+        "kinds": {
+          "file": 2
+        },
+        "moves": 0,
+        "other_changes": 0
+      },
+      {
+        "causes": {},
+        "changes": {},
+        "context": 0,
+        "group": "gaps",
+        "hidden_tests": 0,
+        "items": 0,
+        "kinds": {},
+        "moves": 0,
+        "other_changes": 0
+      },
+      {
+        "causes": {
+          "code": 1
+        },
+        "changes": {
+          "removed": 1
+        },
+        "context": 0,
+        "group": "other",
+        "hidden_tests": 0,
+        "items": 1,
+        "kinds": {
+          "passes_function": 1
+        },
+        "moves": 1,
+        "other_changes": 0
+      },
+      {
+        "causes": {},
+        "changes": {},
+        "context": 0,
+        "group": "unclassified",
+        "hidden_tests": 0,
+        "items": 0,
+        "kinds": {},
+        "moves": 0,
+        "other_changes": 0
+      }
+    ],
+    "head": {
+      "dirty": null,
+      "extractor": {
+        "name": "graphvein",
+        "version": "extractors-62"
+      },
+      "finished_at": "\u003ctime-2\u003e",
+      "gaps": [],
+      "gaps_truncated": false,
+      "kind": "current",
+      "partial": false,
+      "partial_reasons": [],
+      "repository": "backend",
+      "run": "\u003crun-3\u003e"
+    },
+    "head_commit_differs": false,
+    "locations": 0,
+    "not_extracted": [
+      "architecture"
+    ],
+    "partial": false,
+    "total": 8
+  }
+}

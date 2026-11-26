@@ -1,0 +1,92 @@
+{
+  "hero": "hero.png",
+  "social": "social.png",
+  "terminal": "term.txt",
+  "gallery": [
+    "hero.png"
+  ],
+  "files": [
+    {
+      "file": "hero.png",
+      "kind": "screenshot",
+      "main_commit": "0123456",
+      "extractor_version": "extractors-7",
+      "corpus": "demo",
+      "corpus_repository": "https://example.com/demo",
+      "corpus_pin": "abc",
+      "viewport": {
+        "width": 8,
+        "height": 5
+      },
+      "device_scale_factor": 1,
+      "theme": "light",
+      "shown": "A tiny image.",
+      "alt": "A purple rectangle standing in for a screenshot.",
+      "caption": "Stand-in screenshot 1.",
+      "crop": {
+        "x": 1,
+        "y": 1,
+        "w": 4,
+        "h": 3
+      },
+      "dark": "hero-dark.png"
+    },
+    {
+      "file": "hero-dark.png",
+      "kind": "screenshot",
+      "main_commit": "0123456",
+      "extractor_version": "extractors-7",
+      "corpus": "demo",
+      "corpus_repository": "https://example.com/demo",
+      "corpus_pin": "abc",
+      "viewport": {
+        "width": 8,
+        "height": 5
+      },
+      "device_scale_factor": 1,
+      "theme": "dark",
+      "shown": "A tiny image.",
+      "alt": "A purple rectangle standing in for a screenshot.",
+      "caption": "Stand-in screenshot 1.",
+      "crop": {
+        "x": 1,
+        "y": 1,
+        "w": 4,
+        "h": 3
+      }
+    },
+    {
+      "file": "term.txt",
+      "kind": "terminal",
+      "main_commit": "0123456",
+      "extractor_version": "extractors-7",
+      "corpus": "demo",
+      "command": "tool index",
+      "shown": "index output",
+      "caption": "Output 2 of the tool."
+    },
+    {
+      "file": "social.png",
+      "kind": "derived",
+      "main_commit": "0123456",
+      "extractor_version": "extractors-7",
+      "derived_from": "hero.png",
+      "text": "Which calls hit this route?",
+      "shown": "social"
+    }
+  ],
+  "assets": [
+    {
+      "file": "logo.svg",
+      "source": "logo"
+    },
+    {
+      "file": "favicon.svg",
+      "source": "icon"
+    },
+    {
+      "file": "apple-touch-icon.png",
+      "source": "icon"
+    }
+  ]
+}

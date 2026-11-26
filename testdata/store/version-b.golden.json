@@ -1,0 +1,64 @@
+{
+  "diagnostics": [],
+  "edges": [
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/a.ts",
+          "span": {
+            "end_column": 3,
+            "end_line": 1,
+            "start_column": 0,
+            "start_line": 1
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "function:src/a.ts#a",
+      "target": "external:.#npm%3Areact",
+      "type": "edge"
+    }
+  ],
+  "files": [
+    {
+      "content_hash": "sha256:ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad",
+      "language": "typescript",
+      "path": "src/a.ts",
+      "precision": "precise",
+      "size": 3,
+      "type": "file"
+    }
+  ],
+  "nodes": [
+    {
+      "attributes": {},
+      "content_hash": "sha256:44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "file": ".",
+      "identity": "external:.#npm%3Areact",
+      "kind": "external",
+      "level": 1,
+      "name": "react",
+      "qualified_name": "npm:react",
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad",
+      "file": "src/a.ts",
+      "identity": "function:src/a.ts#a",
+      "kind": "function",
+      "level": 4,
+      "name": "a",
+      "qualified_name": "a",
+      "span": {
+        "end_column": 3,
+        "end_line": 1,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    }
+  ]
+}

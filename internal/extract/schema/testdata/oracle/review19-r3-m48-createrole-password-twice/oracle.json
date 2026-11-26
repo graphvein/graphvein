@@ -1,0 +1,28 @@
+{
+  "id": "review19-r3-m48-createrole-password-twice",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y14",
+  "row": "review19",
+  "history": {
+    "id": "m48-createrole-password-twice"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42601",
+        "message": "conflicting or redundant options",
+        "statement": 1,
+        "statement_text": "CREATE ROLE rr_m48 PASSWORD 'a' PASSWORD 'b';"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

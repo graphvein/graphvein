@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "type",
+    "counts"
+  ],
+  "properties": {
+    "type": {
+      "const": "footer"
+    },
+    "counts": {
+      "type": "object",
+      "required": [
+        "records",
+        "file",
+        "node",
+        "edge",
+        "diagnostic"
+      ],
+      "properties": {
+        "records": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "file": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "node": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "edge": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "diagnostic": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    }
+  }
+}

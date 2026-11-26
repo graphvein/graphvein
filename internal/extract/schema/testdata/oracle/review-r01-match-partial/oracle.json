@@ -1,0 +1,28 @@
+{
+  "id": "review-r01-match-partial",
+  "signature": "applied|S1|0A000|",
+  "class": "S1",
+  "owner": "P4",
+  "row": "review",
+  "history": {
+    "id": "r01-match-partial"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "0A000",
+        "message": "MATCH PARTIAL not yet implemented",
+        "statement": 2,
+        "statement_text": "CREATE TABLE c (a int REFERENCES p MATCH PARTIAL);"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

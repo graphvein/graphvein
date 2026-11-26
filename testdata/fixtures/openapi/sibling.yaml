@@ -1,0 +1,7 @@
+openapi: 3.2.0
+$self: https://spec.example/sibling
+paths:
+  /target: {get: {summary: Sibling}}
+components:
+  pathItems:
+    a/b~c d: {head: {summary: Pointer escapes}}

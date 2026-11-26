@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "type",
+    "path",
+    "language",
+    "precision",
+    "size",
+    "content_hash"
+  ],
+  "properties": {
+    "type": {
+      "const": "file"
+    },
+    "path": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[^/\\\\:\\x00\\r\\n][^\\\\:\\x00\\r\\n]*$"
+    },
+    "language": {
+      "type": "string",
+      "minLength": 1
+    },
+    "precision": {
+      "enum": [
+        "precise",
+        "best_effort"
+      ]
+    },
+    "size": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "content_hash": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "git_blob_oid": {
+      "type": "string",
+      "pattern": "^([0-9a-f]{40}|[0-9a-f]{64})$"
+    }
+  }
+}

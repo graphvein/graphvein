@@ -1,0 +1,29 @@
+{
+  "id": "review19-r3-v051-ext-version-twice",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y33",
+  "row": "review19",
+  "history": {
+    "id": "v051-ext-version-twice",
+    "fresh_db": true
+  },
+  "verdict": {
+    "default_schema": "public",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42601",
+        "message": "conflicting or redundant options",
+        "statement": 1,
+        "statement_text": "CREATE EXTENSION pgcrypto VERSION '1.3' VERSION '1.3';"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "public._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

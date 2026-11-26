@@ -1,0 +1,28 @@
+{
+  "id": "review19-r1-d18-policy-view",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y12",
+  "row": "review19",
+  "history": {
+    "id": "d18-policy-view"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42809",
+        "message": "\"v\" is not a table",
+        "statement": 3,
+        "statement_text": "CREATE POLICY p ON v USING (true);"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

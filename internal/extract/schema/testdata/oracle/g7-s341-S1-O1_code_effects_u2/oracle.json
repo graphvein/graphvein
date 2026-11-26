@@ -1,0 +1,36 @@
+{
+  "id": "g7-s341-S1-O1_code_effects_u2",
+  "signature": "applied|S1|42710|O1.code_effects_u2",
+  "class": "S1",
+  "owner": "P12",
+  "row": "O1.code_effects_u2",
+  "history": {
+    "id": "g7-s341",
+    "tags": {
+      "2_m2.sql": [
+        "O1.code_effects_u2",
+        "O1.code_effects_u2",
+        "O1.code_effects_u2",
+        "O1.code_effects_u2"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "2_m2.sql",
+        "status": "refused",
+        "sqlstate": "42710",
+        "message": "type \"cx4\" already exists",
+        "statement": 4,
+        "statement_text": "CREATE SEQUENCE cx4;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

@@ -1,0 +1,28 @@
+{
+  "id": "review19-r1-f20-domain-constraint-dup",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y20",
+  "row": "review19",
+  "history": {
+    "id": "f20-domain-constraint-dup"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42710",
+        "message": "constraint \"k\" for domain \"d\" already exists",
+        "statement": 1,
+        "statement_text": "CREATE DOMAIN d AS int CONSTRAINT k CHECK (VALUE \u003e 0) CONSTRAINT k CHECK (VALUE \u003c 10);"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

@@ -1,0 +1,5171 @@
+{
+  "diagnostics": [],
+  "shapes": {
+    "route:src/lib.rs#ANY /r/any-form": {
+      "body": {
+        "items": [],
+        "reason": "Form on ANY reads the query on GET and the body on other methods",
+        "state": "partial"
+      },
+      "cookie": {
+        "items": [],
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [],
+        "state": "not_read"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/lib.rs",
+          "kind": "fact",
+          "line": 56,
+          "rule": "SH-X1"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "query": {
+        "items": [],
+        "reason": "Form on ANY reads the query on GET and the body on other methods",
+        "state": "partial"
+      },
+      "responses": {
+        "items": [
+          {
+            "content_type": "text/plain; charset=utf-8",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/review.rs",
+              "kind": "returned",
+              "line": 264,
+              "rule": "SH-X25"
+            },
+            "schema": {
+              "type": "string"
+            },
+            "status": "200"
+          }
+        ],
+        "reason": "panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:src/lib.rs#DELETE /items/{id}": {
+      "body": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/handlers.rs",
+          "kind": "fact",
+          "line": 20,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "cookie": {
+        "items": [],
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [
+          {
+            "at": null,
+            "depth": 1,
+            "section": "header",
+            "start": {
+              "file": "src/handlers.rs",
+              "function": "delete_item",
+              "line": 20
+            },
+            "steps": [
+              {
+                "file": "src/handlers.rs",
+                "function": "ApiKey.from_request_parts",
+                "line": 20
+              }
+            ],
+            "stop": "ended"
+          }
+        ],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [
+          {
+            "access": "read_by_dependency",
+            "name": "x-api-key",
+            "presence": "unknown",
+            "provenance": {
+              "chain": [
+                {
+                  "file": "src/handlers.rs",
+                  "function": "ApiKey.from_request_parts",
+                  "line": 20
+                }
+              ],
+              "confidence": 1,
+              "file": "src/extract.rs",
+              "kind": "read_in_handler",
+              "line": 18,
+              "rule": "SH-X13"
+            },
+            "schema": null
+          }
+        ],
+        "reason": "middleware (layers) is not read",
+        "state": "partial"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/lib.rs",
+          "kind": "fact",
+          "line": 21,
+          "rule": "SH-X1"
+        },
+        "items": [
+          {
+            "access": "declared",
+            "name": "id",
+            "presence": "required",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/handlers.rs",
+              "kind": "fact",
+              "line": 20,
+              "rule": "SH-X2"
+            },
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "state": "complete"
+      },
+      "query": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/handlers.rs",
+          "kind": "fact",
+          "line": 20,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "responses": {
+        "items": [
+          {
+            "content_type": null,
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/handlers.rs",
+              "kind": "returned",
+              "line": 22,
+              "rule": "SH-X23"
+            },
+            "schema": {
+              "type": "null"
+            },
+            "status": "204"
+          }
+        ],
+        "reason": "panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:src/lib.rs#GET /closure": {
+      "body": {
+        "items": [],
+        "reason": "inline closure handler not read",
+        "state": "not_read"
+      },
+      "cookie": {
+        "items": [],
+        "reason": "inline closure handler not read",
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [],
+        "reason": "inline closure handler not read",
+        "state": "not_read"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/lib.rs",
+          "kind": "fact",
+          "line": 39,
+          "rule": "SH-X1"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "query": {
+        "items": [],
+        "reason": "inline closure handler not read",
+        "state": "not_read"
+      },
+      "responses": {
+        "items": [],
+        "reason": "inline closure handler not read",
+        "state": "not_read"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:src/lib.rs#GET /deep": {
+      "body": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/handlers.rs",
+          "kind": "fact",
+          "line": 87,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "cookie": {
+        "items": [],
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [
+          {
+            "at": null,
+            "depth": 4,
+            "section": "header",
+            "start": {
+              "file": "src/handlers.rs",
+              "function": "deep",
+              "line": 87
+            },
+            "steps": [
+              {
+                "file": "src/handlers.rs",
+                "function": "level1",
+                "line": 88
+              },
+              {
+                "file": "src/helpers.rs",
+                "function": "level2",
+                "line": 24
+              },
+              {
+                "file": "src/helpers.rs",
+                "function": "level3",
+                "line": 28
+              },
+              {
+                "file": "src/helpers.rs",
+                "function": "level4",
+                "line": 32
+              }
+            ],
+            "stop": "ended"
+          }
+        ],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [
+          {
+            "access": "read_by_handler",
+            "name": "x-l1",
+            "presence": "unknown",
+            "provenance": {
+              "chain": [
+                {
+                  "file": "src/handlers.rs",
+                  "function": "level1",
+                  "line": 88
+                }
+              ],
+              "confidence": 1,
+              "file": "src/helpers.rs",
+              "kind": "read_in_handler",
+              "line": 24,
+              "rule": "SH-X11"
+            },
+            "schema": null
+          },
+          {
+            "access": "read_by_handler",
+            "name": "x-l2",
+            "presence": "unknown",
+            "provenance": {
+              "chain": [
+                {
+                  "file": "src/handlers.rs",
+                  "function": "level1",
+                  "line": 88
+                },
+                {
+                  "file": "src/helpers.rs",
+                  "function": "level2",
+                  "line": 24
+                }
+              ],
+              "confidence": 1,
+              "file": "src/helpers.rs",
+              "kind": "read_in_handler",
+              "line": 28,
+              "rule": "SH-X11"
+            },
+            "schema": null
+          },
+          {
+            "access": "read_by_handler",
+            "name": "x-l3",
+            "presence": "unknown",
+            "provenance": {
+              "chain": [
+                {
+                  "file": "src/handlers.rs",
+                  "function": "level1",
+                  "line": 88
+                },
+                {
+                  "file": "src/helpers.rs",
+                  "function": "level2",
+                  "line": 24
+                },
+                {
+                  "file": "src/helpers.rs",
+                  "function": "level3",
+                  "line": 28
+                }
+              ],
+              "confidence": 1,
+              "file": "src/helpers.rs",
+              "kind": "read_in_handler",
+              "line": 32,
+              "rule": "SH-X11"
+            },
+            "schema": null
+          },
+          {
+            "access": "read_by_handler",
+            "name": "x-l4",
+            "presence": "unknown",
+            "provenance": {
+              "chain": [
+                {
+                  "file": "src/handlers.rs",
+                  "function": "level1",
+                  "line": 88
+                },
+                {
+                  "file": "src/helpers.rs",
+                  "function": "level2",
+                  "line": 24
+                },
+                {
+                  "file": "src/helpers.rs",
+                  "function": "level3",
+                  "line": 28
+                },
+                {
+                  "file": "src/helpers.rs",
+                  "function": "level4",
+                  "line": 32
+                }
+              ],
+              "confidence": 1,
+              "file": "src/helpers.rs",
+              "kind": "read_in_handler",
+              "line": 36,
+              "rule": "SH-X11"
+            },
+            "schema": null
+          }
+        ],
+        "reason": "middleware (layers) is not read",
+        "state": "partial"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/lib.rs",
+          "kind": "fact",
+          "line": 30,
+          "rule": "SH-X1"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "query": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/handlers.rs",
+          "kind": "fact",
+          "line": 87,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "responses": {
+        "items": [
+          {
+            "content_type": null,
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/handlers.rs",
+              "kind": "returned",
+              "line": 89,
+              "rule": "SH-X23"
+            },
+            "schema": {
+              "type": "null"
+            },
+            "status": "200"
+          },
+          {
+            "content_type": null,
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/handlers.rs",
+              "kind": "returned",
+              "line": 91,
+              "rule": "SH-X23"
+            },
+            "schema": {
+              "type": "null"
+            },
+            "status": "403"
+          }
+        ],
+        "reason": "panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:src/lib.rs#GET /files/{*rest}": {
+      "body": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/handlers.rs",
+          "kind": "fact",
+          "line": 140,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "cookie": {
+        "items": [],
+        "reason": "the request value parts is used by .uri at src/extract.rs:46",
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [
+          {
+            "at": null,
+            "depth": 1,
+            "section": "header",
+            "start": {
+              "file": "src/handlers.rs",
+              "function": "files",
+              "line": 140
+            },
+            "steps": [
+              {
+                "file": "src/handlers.rs",
+                "function": "Tenant.from_request_parts",
+                "line": 140
+              }
+            ],
+            "stop": "ended"
+          }
+        ],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [],
+        "reason": "the request value parts is used by .uri at src/extract.rs:46",
+        "state": "partial"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/lib.rs",
+          "kind": "fact",
+          "line": 38,
+          "rule": "SH-X1"
+        },
+        "items": [
+          {
+            "access": "declared",
+            "name": "rest",
+            "presence": "required",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/handlers.rs",
+              "kind": "fact",
+              "line": 140,
+              "rule": "SH-X2"
+            },
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "state": "complete"
+      },
+      "query": {
+        "items": [],
+        "reason": "the request value parts is used by .uri at src/extract.rs:46",
+        "state": "partial"
+      },
+      "responses": {
+        "items": [
+          {
+            "content_type": "text/plain; charset=utf-8",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/handlers.rs",
+              "kind": "returned",
+              "line": 140,
+              "rule": "SH-X25"
+            },
+            "schema": {
+              "type": "string"
+            },
+            "status": "200"
+          }
+        ],
+        "reason": "panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:src/lib.rs#GET /form": {
+      "body": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/handlers.rs",
+          "kind": "fact",
+          "line": 67,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "cookie": {
+        "items": [],
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [],
+        "state": "not_read"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/lib.rs",
+          "kind": "fact",
+          "line": 26,
+          "rule": "SH-X1"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "query": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/handlers.rs",
+          "kind": "fact",
+          "line": 67,
+          "rule": "SH-X29"
+        },
+        "items": [
+          {
+            "access": "declared",
+            "name": "user",
+            "presence": "optional",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/handlers.rs",
+              "kind": "fact",
+              "line": 67,
+              "rule": "SH-X7"
+            },
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "access": "declared",
+            "name": "remember",
+            "presence": "optional",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/handlers.rs",
+              "kind": "fact",
+              "line": 67,
+              "rule": "SH-X7"
+            },
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "state": "complete"
+      },
+      "responses": {
+        "items": [
+          {
+            "content_type": "text/plain; charset=utf-8",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/handlers.rs",
+              "kind": "returned",
+              "line": 67,
+              "rule": "SH-X25"
+            },
+            "schema": {
+              "type": "string"
+            },
+            "status": "200"
+          }
+        ],
+        "reason": "panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:src/lib.rs#GET /health": {
+      "body": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/handlers.rs",
+          "kind": "fact",
+          "line": 113,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "cookie": {
+        "items": [],
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [],
+        "state": "not_read"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/lib.rs",
+          "kind": "fact",
+          "line": 33,
+          "rule": "SH-X1"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "query": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/handlers.rs",
+          "kind": "fact",
+          "line": 113,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "responses": {
+        "items": [
+          {
+            "content_type": "application/json",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/handlers.rs",
+              "kind": "returned",
+              "line": 114,
+              "rule": "SH-X21"
+            },
+            "schema": {
+              "additional": "forbidden",
+              "fields": [
+                {
+                  "name": "up-since",
+                  "presence": "unknown",
+                  "schema": {
+                    "type": "integer"
+                  }
+                },
+                {
+                  "name": "ok",
+                  "presence": "unknown",
+                  "schema": {
+                    "type": "boolean"
+                  }
+                }
+              ],
+              "type": "object"
+            },
+            "status": "200"
+          }
+        ],
+        "reason": "panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:src/lib.rs#GET /items": {
+      "body": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/handlers.rs",
+          "kind": "fact",
+          "line": 25,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "cookie": {
+        "items": [],
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [],
+        "state": "not_read"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/lib.rs",
+          "kind": "fact",
+          "line": 22,
+          "rule": "SH-X1"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "query": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/handlers.rs",
+          "kind": "fact",
+          "line": 25,
+          "rule": "SH-X29"
+        },
+        "items": [
+          {
+            "access": "declared",
+            "name": "q",
+            "presence": "required",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/handlers.rs",
+              "kind": "fact",
+              "line": 27,
+              "rule": "SH-X4"
+            },
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "access": "declared",
+            "name": "limit",
+            "presence": "optional",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/handlers.rs",
+              "kind": "fact",
+              "line": 27,
+              "rule": "SH-X4"
+            },
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "access": "declared",
+            "name": "cursor",
+            "presence": "optional",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/handlers.rs",
+              "kind": "fact",
+              "line": 27,
+              "rule": "SH-X4"
+            },
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "access": "declared",
+            "name": "sort-by",
+            "presence": "optional",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/handlers.rs",
+              "kind": "fact",
+              "line": 27,
+              "rule": "SH-X4"
+            },
+            "schema": {
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "type": "enum"
+            }
+          }
+        ],
+        "state": "complete"
+      },
+      "responses": {
+        "items": [
+          {
+            "content_type": "application/json",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/handlers.rs",
+              "kind": "returned",
+              "line": 25,
+              "rule": "SH-X21"
+            },
+            "schema": {
+              "additional": "forbidden",
+              "fields": [
+                {
+                  "name": "data",
+                  "presence": "unknown",
+                  "schema": {
+                    "items": {
+                      "additional": "forbidden",
+                      "fields": [
+                        {
+                          "name": "id",
+                          "presence": "unknown",
+                          "schema": {
+                            "type": "integer"
+                          }
+                        },
+                        {
+                          "name": "name",
+                          "presence": "unknown",
+                          "schema": {
+                            "type": "string"
+                          }
+                        },
+                        {
+                          "name": "note",
+                          "presence": "optional",
+                          "schema": {
+                            "nullable": true,
+                            "type": "string"
+                          }
+                        },
+                        {
+                          "name": "tags",
+                          "presence": "unknown",
+                          "schema": {
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array"
+                          }
+                        },
+                        {
+                          "name": "kind",
+                          "presence": "unknown",
+                          "schema": {
+                            "enum": [
+                              "BOOK",
+                              "LONG_PLAY",
+                              "tape"
+                            ],
+                            "type": "enum"
+                          }
+                        }
+                      ],
+                      "type": "object"
+                    },
+                    "type": "array"
+                  }
+                },
+                {
+                  "name": "count",
+                  "presence": "unknown",
+                  "schema": {
+                    "type": "integer"
+                  }
+                }
+              ],
+              "type": "object"
+            },
+            "status": "200"
+          },
+          {
+            "content_type": null,
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/handlers.rs",
+              "kind": "returned",
+              "line": 30,
+              "rule": "SH-X26"
+            },
+            "schema": null,
+            "status": "422"
+          }
+        ],
+        "reason": "panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:src/lib.rs#GET /items/{id}": {
+      "body": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/handlers.rs",
+          "kind": "fact",
+          "line": 16,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "cookie": {
+        "items": [],
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [],
+        "state": "not_read"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/lib.rs",
+          "kind": "fact",
+          "line": 21,
+          "rule": "SH-X1"
+        },
+        "items": [
+          {
+            "access": "declared",
+            "name": "id",
+            "presence": "required",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/handlers.rs",
+              "kind": "fact",
+              "line": 16,
+              "rule": "SH-X2"
+            },
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "state": "complete"
+      },
+      "query": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/handlers.rs",
+          "kind": "fact",
+          "line": 16,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "responses": {
+        "items": [
+          {
+            "content_type": "application/json",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/handlers.rs",
+              "kind": "returned",
+              "line": 16,
+              "rule": "SH-X21"
+            },
+            "schema": {
+              "additional": "forbidden",
+              "fields": [
+                {
+                  "name": "id",
+                  "presence": "unknown",
+                  "schema": {
+                    "type": "integer"
+                  }
+                },
+                {
+                  "name": "name",
+                  "presence": "unknown",
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "note",
+                  "presence": "optional",
+                  "schema": {
+                    "nullable": true,
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "tags",
+                  "presence": "unknown",
+                  "schema": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  }
+                },
+                {
+                  "name": "kind",
+                  "presence": "unknown",
+                  "schema": {
+                    "enum": [
+                      "BOOK",
+                      "LONG_PLAY",
+                      "tape"
+                    ],
+                    "type": "enum"
+                  }
+                }
+              ],
+              "type": "object"
+            },
+            "status": "200"
+          }
+        ],
+        "reason": "panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:src/lib.rs#GET /loop": {
+      "body": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/handlers.rs",
+          "kind": "fact",
+          "line": 95,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "cookie": {
+        "items": [],
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [
+          {
+            "at": {
+              "file": "src/helpers.rs",
+              "function": "ping",
+              "line": 44
+            },
+            "depth": 2,
+            "section": "header",
+            "start": {
+              "file": "src/handlers.rs",
+              "function": "looping",
+              "line": 95
+            },
+            "steps": [
+              {
+                "file": "src/handlers.rs",
+                "function": "ping",
+                "line": 100
+              },
+              {
+                "file": "src/helpers.rs",
+                "function": "pong",
+                "line": 40
+              }
+            ],
+            "stop": "cycle"
+          },
+          {
+            "at": {
+              "file": "src/handlers.rs",
+              "function": "std::mem::drop",
+              "line": 101
+            },
+            "depth": 0,
+            "detail": "std::mem::drop is in crate std",
+            "section": "header",
+            "start": {
+              "file": "src/handlers.rs",
+              "function": "looping",
+              "line": 95
+            },
+            "steps": [],
+            "stop": "external"
+          }
+        ],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [
+          {
+            "access": "read_by_handler",
+            "name": "x-ping",
+            "presence": "unknown",
+            "provenance": {
+              "chain": [
+                {
+                  "file": "src/handlers.rs",
+                  "function": "ping",
+                  "line": 100
+                }
+              ],
+              "confidence": 1,
+              "file": "src/helpers.rs",
+              "kind": "read_in_handler",
+              "line": 40,
+              "rule": "SH-X11"
+            },
+            "schema": null
+          }
+        ],
+        "reason": "headers read by iter at src/handlers.rs:97; call not followed (cycle) at src/helpers.rs:44 (ping); call not followed (external) at src/handlers.rs:101 (std::mem::drop)",
+        "state": "partial"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/lib.rs",
+          "kind": "fact",
+          "line": 31,
+          "rule": "SH-X1"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "query": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/handlers.rs",
+          "kind": "fact",
+          "line": 95,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "responses": {
+        "items": [
+          {
+            "content_type": null,
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/handlers.rs",
+              "kind": "returned",
+              "line": 103,
+              "rule": "SH-X23"
+            },
+            "schema": {
+              "type": "null"
+            },
+            "status": "200"
+          },
+          {
+            "content_type": null,
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/handlers.rs",
+              "kind": "returned",
+              "line": 105,
+              "rule": "SH-X23"
+            },
+            "schema": {
+              "type": "null"
+            },
+            "status": "410"
+          }
+        ],
+        "reason": "panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:src/lib.rs#GET /pair/{a}/{b}": {
+      "body": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/handlers.rs",
+          "kind": "fact",
+          "line": 48,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "cookie": {
+        "items": [],
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [],
+        "state": "not_read"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/lib.rs",
+          "kind": "fact",
+          "line": 24,
+          "rule": "SH-X1"
+        },
+        "items": [
+          {
+            "access": "declared",
+            "name": "a",
+            "presence": "required",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/handlers.rs",
+              "kind": "fact",
+              "line": 48,
+              "rule": "SH-X2"
+            },
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "access": "declared",
+            "name": "b",
+            "presence": "required",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/handlers.rs",
+              "kind": "fact",
+              "line": 48,
+              "rule": "SH-X2"
+            },
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "state": "complete"
+      },
+      "query": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/handlers.rs",
+          "kind": "fact",
+          "line": 48,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "responses": {
+        "items": [
+          {
+            "content_type": "text/plain; charset=utf-8",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/handlers.rs",
+              "kind": "returned",
+              "line": 48,
+              "rule": "SH-X25"
+            },
+            "schema": {
+              "type": "string"
+            },
+            "status": "200"
+          }
+        ],
+        "reason": "panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:src/lib.rs#GET /r/arms": {
+      "body": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/review.rs",
+          "kind": "fact",
+          "line": 92,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "cookie": {
+        "items": [],
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [],
+        "state": "not_read"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/lib.rs",
+          "kind": "fact",
+          "line": 42,
+          "rule": "SH-X1"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "query": {
+        "items": [
+          {
+            "access": "read_by_handler",
+            "name": "name",
+            "presence": "unknown",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/review.rs",
+              "kind": "read_in_handler",
+              "line": 93,
+              "rule": "SH-X5"
+            },
+            "schema": null
+          }
+        ],
+        "reason": "the handler accepts any query parameter (Query\u003cHashMap\u003cString,String\u003e\u003e)",
+        "state": "partial"
+      },
+      "responses": {
+        "items": [
+          {
+            "content_type": null,
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/review.rs",
+              "kind": "returned",
+              "line": 96,
+              "rule": "SH-X23"
+            },
+            "schema": {
+              "type": "null"
+            },
+            "status": "204"
+          },
+          {
+            "content_type": null,
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/review.rs",
+              "kind": "returned",
+              "line": 94,
+              "rule": "SH-X26"
+            },
+            "schema": null,
+            "status": "404"
+          },
+          {
+            "content_type": null,
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/review.rs",
+              "kind": "returned",
+              "line": 95,
+              "rule": "SH-X26"
+            },
+            "schema": null,
+            "status": "409"
+          }
+        ],
+        "reason": "panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:src/lib.rs#GET /r/cfg-named": {
+      "body": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/review.rs",
+          "kind": "fact",
+          "line": 124,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "cookie": {
+        "items": [],
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [],
+        "state": "not_read"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/lib.rs",
+          "kind": "fact",
+          "line": 45,
+          "rule": "SH-X1"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "query": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/review.rs",
+          "kind": "fact",
+          "line": 124,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "responses": {
+        "items": [
+          {
+            "content_type": "application/json",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/review.rs",
+              "kind": "returned",
+              "line": 124,
+              "rule": "SH-X21"
+            },
+            "schema": {
+              "reason": "attribute cfg_attr(serde) on CfgNamed may change serde's view and is not modelled",
+              "type": "unknown"
+            },
+            "status": "200"
+          }
+        ],
+        "reason": "panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:src/lib.rs#GET /r/closure-shadow": {
+      "body": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/review.rs",
+          "kind": "fact",
+          "line": 279,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "cookie": {
+        "items": [],
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [],
+        "state": "not_read"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/lib.rs",
+          "kind": "fact",
+          "line": 58,
+          "rule": "SH-X1"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "query": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/review.rs",
+          "kind": "fact",
+          "line": 279,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "responses": {
+        "items": [],
+        "reason": "call not followed (unresolved) at src/review.rs:281 (respond); panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:src/lib.rs#GET /r/deep-query": {
+      "body": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/review.rs",
+          "kind": "fact",
+          "line": 347,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "cookie": {
+        "items": [],
+        "reason": "the request value parts is used by .uri at src/review.rs:329",
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [
+          {
+            "at": null,
+            "depth": 3,
+            "section": "header",
+            "start": {
+              "file": "src/review.rs",
+              "function": "deep_query",
+              "line": 347
+            },
+            "steps": [
+              {
+                "file": "src/review.rs",
+                "function": "DeepTenant.from_request_parts",
+                "line": 347
+              },
+              {
+                "file": "src/review.rs",
+                "function": "level1",
+                "line": 343
+              },
+              {
+                "file": "src/review.rs",
+                "function": "level2",
+                "line": 333
+              }
+            ],
+            "stop": "ended"
+          }
+        ],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [],
+        "reason": "the request value parts is used by .uri at src/review.rs:329",
+        "state": "partial"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/lib.rs",
+          "kind": "fact",
+          "line": 60,
+          "rule": "SH-X1"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "query": {
+        "items": [],
+        "reason": "the request value parts is used by .uri at src/review.rs:329",
+        "state": "partial"
+      },
+      "responses": {
+        "items": [
+          {
+            "content_type": "text/plain; charset=utf-8",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/review.rs",
+              "kind": "returned",
+              "line": 347,
+              "rule": "SH-X25"
+            },
+            "schema": {
+              "type": "string"
+            },
+            "status": "200"
+          }
+        ],
+        "reason": "panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:src/lib.rs#GET /r/guard": {
+      "body": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/review.rs",
+          "kind": "fact",
+          "line": 35,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "cookie": {
+        "items": [],
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [],
+        "state": "not_read"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/lib.rs",
+          "kind": "fact",
+          "line": 40,
+          "rule": "SH-X1"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "query": {
+        "items": [
+          {
+            "access": "read_by_handler",
+            "name": "auth",
+            "presence": "unknown",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/review.rs",
+              "kind": "read_in_handler",
+              "line": 36,
+              "rule": "SH-X5"
+            },
+            "schema": null
+          },
+          {
+            "access": "read_by_handler",
+            "name": "m",
+            "presence": "unknown",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/review.rs",
+              "kind": "read_in_handler",
+              "line": 39,
+              "rule": "SH-X5"
+            },
+            "schema": null
+          }
+        ],
+        "reason": "the handler accepts any query parameter (Query\u003cHashMap\u003cString,String\u003e\u003e)",
+        "state": "partial"
+      },
+      "responses": {
+        "items": [
+          {
+            "content_type": null,
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/review.rs",
+              "kind": "returned",
+              "line": 37,
+              "rule": "SH-X26"
+            },
+            "schema": null,
+            "status": "401"
+          }
+        ],
+        "reason": "status of error GuardErr::Db at src/review.rs:39 not read; panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:src/lib.rs#GET /r/if": {
+      "body": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/review.rs",
+          "kind": "fact",
+          "line": 70,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "cookie": {
+        "items": [],
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [],
+        "state": "not_read"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/lib.rs",
+          "kind": "fact",
+          "line": 41,
+          "rule": "SH-X1"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "query": {
+        "items": [
+          {
+            "access": "read_by_handler",
+            "name": "gone",
+            "presence": "unknown",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/review.rs",
+              "kind": "read_in_handler",
+              "line": 71,
+              "rule": "SH-X5"
+            },
+            "schema": null
+          },
+          {
+            "access": "read_by_handler",
+            "name": "x",
+            "presence": "unknown",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/review.rs",
+              "kind": "read_in_handler",
+              "line": 74,
+              "rule": "SH-X5"
+            },
+            "schema": null
+          }
+        ],
+        "reason": "the handler accepts any query parameter (Query\u003cHashMap\u003cString,String\u003e\u003e)",
+        "state": "partial"
+      },
+      "responses": {
+        "items": [
+          {
+            "content_type": null,
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/review.rs",
+              "kind": "returned",
+              "line": 72,
+              "rule": "SH-X26"
+            },
+            "schema": null,
+            "status": "410"
+          }
+        ],
+        "reason": "status of error IfErr::Bad at src/review.rs:74 not read; panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:src/lib.rs#GET /r/lower": {
+      "body": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/review.rs",
+          "kind": "fact",
+          "line": 149,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "cookie": {
+        "items": [],
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [],
+        "state": "not_read"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/lib.rs",
+          "kind": "fact",
+          "line": 47,
+          "rule": "SH-X1"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "query": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/review.rs",
+          "kind": "fact",
+          "line": 149,
+          "rule": "SH-X29"
+        },
+        "items": [
+          {
+            "access": "declared",
+            "name": "userId",
+            "presence": "required",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/review.rs",
+              "kind": "fact",
+              "line": 149,
+              "rule": "SH-X4"
+            },
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "state": "complete"
+      },
+      "responses": {
+        "items": [
+          {
+            "content_type": "text/plain; charset=utf-8",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/review.rs",
+              "kind": "returned",
+              "line": 149,
+              "rule": "SH-X25"
+            },
+            "schema": {
+              "type": "string"
+            },
+            "status": "200"
+          }
+        ],
+        "reason": "panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:src/lib.rs#GET /r/metric": {
+      "body": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/review.rs",
+          "kind": "fact",
+          "line": 259,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "cookie": {
+        "items": [],
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [],
+        "state": "not_read"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/lib.rs",
+          "kind": "fact",
+          "line": 55,
+          "rule": "SH-X1"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "query": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/review.rs",
+          "kind": "fact",
+          "line": 259,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "responses": {
+        "items": [
+          {
+            "content_type": "application/json",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/review.rs",
+              "kind": "returned",
+              "line": 259,
+              "rule": "SH-X21"
+            },
+            "schema": {
+              "additional": "forbidden",
+              "fields": [
+                {
+                  "name": "v",
+                  "presence": "unknown",
+                  "schema": {
+                    "nullable": true,
+                    "type": "number"
+                  }
+                }
+              ],
+              "type": "object"
+            },
+            "status": "200"
+          }
+        ],
+        "reason": "panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:src/lib.rs#GET /r/only-err": {
+      "body": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/review.rs",
+          "kind": "fact",
+          "line": 101,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "cookie": {
+        "items": [],
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [],
+        "state": "not_read"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/lib.rs",
+          "kind": "fact",
+          "line": 43,
+          "rule": "SH-X1"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "query": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/review.rs",
+          "kind": "fact",
+          "line": 101,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "responses": {
+        "items": [
+          {
+            "content_type": null,
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/review.rs",
+              "kind": "returned",
+              "line": 102,
+              "rule": "SH-X26"
+            },
+            "schema": null,
+            "status": "404"
+          }
+        ],
+        "reason": "panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:src/lib.rs#GET /r/problem": {
+      "body": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/review.rs",
+          "kind": "fact",
+          "line": 181,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "cookie": {
+        "items": [],
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [],
+        "state": "not_read"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/lib.rs",
+          "kind": "fact",
+          "line": 49,
+          "rule": "SH-X1"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "query": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/review.rs",
+          "kind": "fact",
+          "line": 181,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "responses": {
+        "items": [
+          {
+            "content_type": "application/problem+json",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/review.rs",
+              "kind": "returned",
+              "line": 182,
+              "rule": "SH-X22"
+            },
+            "schema": {
+              "additional": "forbidden",
+              "fields": [
+                {
+                  "name": "title",
+                  "presence": "unknown",
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              ],
+              "type": "object"
+            },
+            "status": "400"
+          }
+        ],
+        "reason": "panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:src/lib.rs#GET /r/problem-dyn": {
+      "body": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/review.rs",
+          "kind": "fact",
+          "line": 191,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "cookie": {
+        "items": [],
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [],
+        "state": "not_read"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/lib.rs",
+          "kind": "fact",
+          "line": 51,
+          "rule": "SH-X1"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "query": {
+        "items": [
+          {
+            "access": "read_by_handler",
+            "name": "ct",
+            "presence": "unknown",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/review.rs",
+              "kind": "read_in_handler",
+              "line": 192,
+              "rule": "SH-X5"
+            },
+            "schema": null
+          }
+        ],
+        "reason": "the handler accepts any query parameter (Query\u003cHashMap\u003cString,String\u003e\u003e)",
+        "state": "partial"
+      },
+      "responses": {
+        "items": [
+          {
+            "content_type": null,
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/review.rs",
+              "kind": "returned",
+              "line": 193,
+              "rule": "SH-X22"
+            },
+            "schema": {
+              "additional": "forbidden",
+              "fields": [
+                {
+                  "name": "title",
+                  "presence": "unknown",
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              ],
+              "type": "object"
+            },
+            "status": "409"
+          }
+        ],
+        "reason": "panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:src/lib.rs#GET /r/q-forms": {
+      "body": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/review.rs",
+          "kind": "fact",
+          "line": 171,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "cookie": {
+        "items": [],
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [],
+        "state": "not_read"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/lib.rs",
+          "kind": "fact",
+          "line": 48,
+          "rule": "SH-X1"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "query": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/review.rs",
+          "kind": "fact",
+          "line": 171,
+          "rule": "SH-X29"
+        },
+        "items": [
+          {
+            "access": "declared",
+            "name": "limit",
+            "presence": "required",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/review.rs",
+              "kind": "fact",
+              "line": 171,
+              "rule": "SH-X4"
+            },
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "access": "declared",
+            "name": "sort",
+            "presence": "optional",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/review.rs",
+              "kind": "fact",
+              "line": 171,
+              "rule": "SH-X4"
+            },
+            "schema": {
+              "enum": [
+                "asc",
+                "desc"
+              ],
+              "type": "enum"
+            }
+          },
+          {
+            "access": "declared",
+            "name": "inner",
+            "presence": "optional",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/review.rs",
+              "kind": "fact",
+              "line": 171,
+              "rule": "SH-X4"
+            },
+            "schema": {
+              "reason": "type Option\u003cInner\u003e of field inner is not read from URL-encoded data",
+              "type": "unknown"
+            }
+          },
+          {
+            "access": "declared",
+            "name": "big",
+            "presence": "optional",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/review.rs",
+              "kind": "fact",
+              "line": 171,
+              "rule": "SH-X4"
+            },
+            "schema": {
+              "reason": "type Option\u003cu128\u003e of field big is not read from URL-encoded data",
+              "type": "unknown"
+            }
+          }
+        ],
+        "state": "complete"
+      },
+      "responses": {
+        "items": [
+          {
+            "content_type": "text/plain; charset=utf-8",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/review.rs",
+              "kind": "returned",
+              "line": 171,
+              "rule": "SH-X25"
+            },
+            "schema": {
+              "type": "string"
+            },
+            "status": "200"
+          }
+        ],
+        "reason": "panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:src/lib.rs#GET /r/traced": {
+      "body": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/review.rs",
+          "kind": "fact",
+          "line": 186,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "cookie": {
+        "items": [],
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [],
+        "state": "not_read"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/lib.rs",
+          "kind": "fact",
+          "line": 50,
+          "rule": "SH-X1"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "query": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/review.rs",
+          "kind": "fact",
+          "line": 186,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "responses": {
+        "items": [
+          {
+            "content_type": "application/json",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/review.rs",
+              "kind": "returned",
+              "line": 187,
+              "rule": "SH-X22"
+            },
+            "schema": {
+              "additional": "forbidden",
+              "fields": [
+                {
+                  "name": "title",
+                  "presence": "unknown",
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              ],
+              "type": "object"
+            },
+            "status": "202"
+          }
+        ],
+        "reason": "panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:src/lib.rs#GET /r/two-json": {
+      "body": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/review.rs",
+          "kind": "fact",
+          "line": 207,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "cookie": {
+        "items": [],
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [],
+        "state": "not_read"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/lib.rs",
+          "kind": "fact",
+          "line": 52,
+          "rule": "SH-X1"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "query": {
+        "items": [
+          {
+            "access": "read_by_handler",
+            "name": "a",
+            "presence": "unknown",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/review.rs",
+              "kind": "read_in_handler",
+              "line": 208,
+              "rule": "SH-X5"
+            },
+            "schema": null
+          }
+        ],
+        "reason": "the handler accepts any query parameter (Query\u003cHashMap\u003cString,String\u003e\u003e)",
+        "state": "partial"
+      },
+      "responses": {
+        "items": [
+          {
+            "content_type": "application/json",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/review.rs",
+              "kind": "returned",
+              "line": 211,
+              "rule": "SH-X21"
+            },
+            "schema": {
+              "reason": "values with different schemas answer 200",
+              "type": "unknown"
+            },
+            "status": "200"
+          }
+        ],
+        "reason": "panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:src/lib.rs#GET /r/via-extract": {
+      "body": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/review.rs",
+          "kind": "fact",
+          "line": 301,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "cookie": {
+        "items": [],
+        "reason": "the request value parts is used by extract at src/review.rs:296",
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [
+          {
+            "at": null,
+            "depth": 1,
+            "section": "header",
+            "start": {
+              "file": "src/review.rs",
+              "function": "via_extract",
+              "line": 301
+            },
+            "steps": [
+              {
+                "file": "src/review.rs",
+                "function": "ViaExtract.from_request_parts",
+                "line": 301
+              }
+            ],
+            "stop": "ended"
+          }
+        ],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [],
+        "reason": "the request value parts is used by extract at src/review.rs:296",
+        "state": "partial"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/lib.rs",
+          "kind": "fact",
+          "line": 59,
+          "rule": "SH-X1"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "query": {
+        "items": [],
+        "reason": "the request value parts is used by extract at src/review.rs:296",
+        "state": "partial"
+      },
+      "responses": {
+        "items": [
+          {
+            "content_type": "text/plain; charset=utf-8",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/review.rs",
+              "kind": "returned",
+              "line": 301,
+              "rule": "SH-X25"
+            },
+            "schema": {
+              "type": "string"
+            },
+            "status": "200"
+          }
+        ],
+        "reason": "panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:src/lib.rs#GET /r/via-macro": {
+      "body": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/review.rs",
+          "kind": "fact",
+          "line": 324,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "cookie": {
+        "items": [],
+        "reason": "the request value parts is used by macro:info at src/review.rs:319",
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [
+          {
+            "at": null,
+            "depth": 1,
+            "section": "header",
+            "start": {
+              "file": "src/review.rs",
+              "function": "via_macro",
+              "line": 324
+            },
+            "steps": [
+              {
+                "file": "src/review.rs",
+                "function": "ViaMacro.from_request_parts",
+                "line": 324
+              }
+            ],
+            "stop": "ended"
+          }
+        ],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [],
+        "reason": "the request value parts is used by macro:info at src/review.rs:319",
+        "state": "partial"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/lib.rs",
+          "kind": "fact",
+          "line": 61,
+          "rule": "SH-X1"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "query": {
+        "items": [],
+        "reason": "the request value parts is used by macro:info at src/review.rs:319",
+        "state": "partial"
+      },
+      "responses": {
+        "items": [
+          {
+            "content_type": "text/plain; charset=utf-8",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/review.rs",
+              "kind": "returned",
+              "line": 324,
+              "rule": "SH-X25"
+            },
+            "schema": {
+              "type": "string"
+            },
+            "status": "200"
+          }
+        ],
+        "reason": "panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:src/lib.rs#GET /redirect": {
+      "body": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/handlers.rs",
+          "kind": "fact",
+          "line": 109,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "cookie": {
+        "items": [],
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [],
+        "state": "not_read"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/lib.rs",
+          "kind": "fact",
+          "line": 32,
+          "rule": "SH-X1"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "query": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/handlers.rs",
+          "kind": "fact",
+          "line": 109,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "responses": {
+        "items": [
+          {
+            "content_type": null,
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/handlers.rs",
+              "kind": "returned",
+              "line": 110,
+              "rule": "SH-X24"
+            },
+            "schema": {
+              "type": "null"
+            },
+            "status": "308"
+          }
+        ],
+        "reason": "panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:src/lib.rs#GET /render": {
+      "body": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/handlers.rs",
+          "kind": "fact",
+          "line": 117,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "cookie": {
+        "items": [],
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [
+          {
+            "at": null,
+            "depth": 1,
+            "section": "responses",
+            "start": {
+              "file": "src/handlers.rs",
+              "function": "rendered",
+              "line": 117
+            },
+            "steps": [
+              {
+                "file": "src/handlers.rs",
+                "function": "render",
+                "line": 118
+              }
+            ],
+            "stop": "ended"
+          }
+        ],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [],
+        "state": "not_read"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/lib.rs",
+          "kind": "fact",
+          "line": 34,
+          "rule": "SH-X1"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "query": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/handlers.rs",
+          "kind": "fact",
+          "line": 117,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "responses": {
+        "items": [
+          {
+            "content_type": "application/json",
+            "provenance": {
+              "chain": [
+                {
+                  "file": "src/handlers.rs",
+                  "function": "render",
+                  "line": 118
+                }
+              ],
+              "confidence": 1,
+              "file": "src/helpers.rs",
+              "kind": "returned",
+              "line": 48,
+              "rule": "SH-X22"
+            },
+            "schema": null,
+            "status": "202"
+          }
+        ],
+        "reason": "panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:src/lib.rs#GET /search": {
+      "body": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/handlers.rs",
+          "kind": "fact",
+          "line": 52,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "cookie": {
+        "items": [],
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [
+          {
+            "at": null,
+            "depth": 1,
+            "section": "header",
+            "start": {
+              "file": "src/handlers.rs",
+              "function": "search",
+              "line": 52
+            },
+            "steps": [
+              {
+                "file": "src/handlers.rs",
+                "function": "trace",
+                "line": 54
+              }
+            ],
+            "stop": "ended"
+          },
+          {
+            "at": null,
+            "depth": 1,
+            "section": "header",
+            "start": {
+              "file": "src/handlers.rs",
+              "function": "search",
+              "line": 52
+            },
+            "steps": [
+              {
+                "file": "src/handlers.rs",
+                "function": "reset",
+                "line": 55
+              }
+            ],
+            "stop": "ended"
+          }
+        ],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [
+          {
+            "access": "read_by_handler",
+            "name": "x-dry-run",
+            "presence": "unknown",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/handlers.rs",
+              "kind": "read_in_handler",
+              "line": 56,
+              "rule": "SH-X11"
+            },
+            "schema": null
+          },
+          {
+            "access": "read_by_handler",
+            "name": "x-trace-id",
+            "presence": "unknown",
+            "provenance": {
+              "chain": [
+                {
+                  "file": "src/handlers.rs",
+                  "function": "trace",
+                  "line": 54
+                }
+              ],
+              "confidence": 1,
+              "file": "src/helpers.rs",
+              "kind": "read_in_handler",
+              "line": 15,
+              "rule": "SH-X11"
+            },
+            "schema": null
+          }
+        ],
+        "reason": "request value h rebound at src/helpers.rs:56",
+        "state": "partial"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/lib.rs",
+          "kind": "fact",
+          "line": 25,
+          "rule": "SH-X1"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "query": {
+        "items": [
+          {
+            "access": "read_by_handler",
+            "name": "term",
+            "presence": "unknown",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/handlers.rs",
+              "kind": "read_in_handler",
+              "line": 53,
+              "rule": "SH-X5"
+            },
+            "schema": null
+          }
+        ],
+        "reason": "the handler accepts any query parameter (Query\u003cHashMap\u003cString,String\u003e\u003e)",
+        "state": "partial"
+      },
+      "responses": {
+        "items": [
+          {
+            "content_type": "application/json",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/handlers.rs",
+              "kind": "returned",
+              "line": 59,
+              "rule": "SH-X21"
+            },
+            "schema": null,
+            "status": "200"
+          },
+          {
+            "content_type": null,
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/handlers.rs",
+              "kind": "returned",
+              "line": 57,
+              "rule": "SH-X23"
+            },
+            "schema": {
+              "type": "null"
+            },
+            "status": "204"
+          }
+        ],
+        "reason": "panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:src/lib.rs#GET /whoami": {
+      "body": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/handlers.rs",
+          "kind": "fact",
+          "line": 71,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "cookie": {
+        "items": [],
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [
+          {
+            "at": null,
+            "depth": 0,
+            "section": "header",
+            "start": {
+              "file": "src/handlers.rs",
+              "function": "whoami",
+              "line": 71
+            },
+            "steps": [],
+            "stop": "ended"
+          }
+        ],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [
+          {
+            "access": "declared",
+            "name": "user-agent",
+            "presence": "required",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/handlers.rs",
+              "kind": "fact",
+              "line": 71,
+              "rule": "SH-X10"
+            },
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "access": "read_by_handler",
+            "name": "x-request-id",
+            "presence": "unknown",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/handlers.rs",
+              "kind": "read_in_handler",
+              "line": 72,
+              "rule": "SH-X11"
+            },
+            "schema": null
+          }
+        ],
+        "reason": "middleware (layers) is not read",
+        "state": "partial"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/lib.rs",
+          "kind": "fact",
+          "line": 27,
+          "rule": "SH-X1"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "query": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/handlers.rs",
+          "kind": "fact",
+          "line": 71,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "responses": {
+        "items": [
+          {
+            "content_type": "text/plain; charset=utf-8",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/handlers.rs",
+              "kind": "returned",
+              "line": 71,
+              "rule": "SH-X25"
+            },
+            "schema": {
+              "type": "string"
+            },
+            "status": "200"
+          }
+        ],
+        "reason": "panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:src/lib.rs#HEAD /r/form-head": {
+      "body": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/review.rs",
+          "kind": "fact",
+          "line": 269,
+          "rule": "SH-X29"
+        },
+        "items": [
+          {
+            "content_type": "application/x-www-form-urlencoded",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/review.rs",
+              "kind": "fact",
+              "line": 269,
+              "rule": "SH-X7"
+            },
+            "schema": {
+              "additional": "allowed",
+              "fields": [
+                {
+                  "name": "user",
+                  "presence": "optional",
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "remember",
+                  "presence": "optional",
+                  "schema": {
+                    "type": "boolean"
+                  }
+                }
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "state": "complete"
+      },
+      "cookie": {
+        "items": [],
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [],
+        "state": "not_read"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/lib.rs",
+          "kind": "fact",
+          "line": 57,
+          "rule": "SH-X1"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "query": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/review.rs",
+          "kind": "fact",
+          "line": 269,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "responses": {
+        "items": [
+          {
+            "content_type": null,
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/review.rs",
+              "kind": "returned",
+              "line": 271,
+              "rule": "SH-X23"
+            },
+            "schema": {
+              "type": "null"
+            },
+            "status": "200"
+          }
+        ],
+        "reason": "panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:src/lib.rs#POST /echo": {
+      "body": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/handlers.rs",
+          "kind": "fact",
+          "line": 76,
+          "rule": "SH-X29"
+        },
+        "items": [
+          {
+            "content_type": null,
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/handlers.rs",
+              "kind": "fact",
+              "line": 76,
+              "rule": "SH-X8"
+            },
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "state": "complete"
+      },
+      "cookie": {
+        "items": [],
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [],
+        "state": "not_read"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/lib.rs",
+          "kind": "fact",
+          "line": 28,
+          "rule": "SH-X1"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "query": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/handlers.rs",
+          "kind": "fact",
+          "line": 76,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "responses": {
+        "items": [
+          {
+            "content_type": "text/plain; charset=utf-8",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/handlers.rs",
+              "kind": "returned",
+              "line": 76,
+              "rule": "SH-X25"
+            },
+            "schema": {
+              "type": "string"
+            },
+            "status": "200"
+          }
+        ],
+        "reason": "panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:src/lib.rs#POST /events": {
+      "body": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/handlers.rs",
+          "kind": "fact",
+          "line": 121,
+          "rule": "SH-X29"
+        },
+        "items": [
+          {
+            "content_type": "application/json",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/handlers.rs",
+              "kind": "fact",
+              "line": 121,
+              "rule": "SH-X6"
+            },
+            "schema": {
+              "items": {
+                "reason": "serde attribute untagged on Event is not modelled",
+                "type": "unknown"
+              },
+              "type": "array"
+            }
+          }
+        ],
+        "state": "complete"
+      },
+      "cookie": {
+        "items": [],
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [],
+        "state": "not_read"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/lib.rs",
+          "kind": "fact",
+          "line": 35,
+          "rule": "SH-X1"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "query": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/handlers.rs",
+          "kind": "fact",
+          "line": 121,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "responses": {
+        "items": [
+          {
+            "content_type": null,
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/handlers.rs",
+              "kind": "returned",
+              "line": 125,
+              "rule": "SH-X23"
+            },
+            "schema": {
+              "type": "null"
+            },
+            "status": "202"
+          },
+          {
+            "content_type": null,
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/handlers.rs",
+              "kind": "returned",
+              "line": 123,
+              "rule": "SH-X23"
+            },
+            "schema": {
+              "type": "null"
+            },
+            "status": "400"
+          }
+        ],
+        "reason": "panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:src/lib.rs#POST /form": {
+      "body": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/handlers.rs",
+          "kind": "fact",
+          "line": 62,
+          "rule": "SH-X29"
+        },
+        "items": [
+          {
+            "content_type": "application/x-www-form-urlencoded",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/handlers.rs",
+              "kind": "fact",
+              "line": 62,
+              "rule": "SH-X7"
+            },
+            "schema": {
+              "additional": "allowed",
+              "fields": [
+                {
+                  "name": "user",
+                  "presence": "optional",
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "remember",
+                  "presence": "optional",
+                  "schema": {
+                    "type": "boolean"
+                  }
+                }
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "state": "complete"
+      },
+      "cookie": {
+        "items": [],
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [],
+        "state": "not_read"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/lib.rs",
+          "kind": "fact",
+          "line": 26,
+          "rule": "SH-X1"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "query": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/handlers.rs",
+          "kind": "fact",
+          "line": 62,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "responses": {
+        "items": [],
+        "reason": "redirect status of Redirect::to at src/handlers.rs:64 not read; panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:src/lib.rs#POST /items": {
+      "body": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/handlers.rs",
+          "kind": "fact",
+          "line": 35,
+          "rule": "SH-X29"
+        },
+        "items": [
+          {
+            "content_type": "application/json",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/handlers.rs",
+              "kind": "fact",
+              "line": 35,
+              "rule": "SH-X6"
+            },
+            "schema": {
+              "additional": "forbidden",
+              "fields": [
+                {
+                  "name": "itemName",
+                  "presence": "required",
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "type",
+                  "presence": "required",
+                  "schema": {
+                    "enum": [
+                      "BOOK",
+                      "LONG_PLAY",
+                      "tape"
+                    ],
+                    "type": "enum"
+                  }
+                },
+                {
+                  "name": "tags",
+                  "presence": "optional",
+                  "schema": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  }
+                },
+                {
+                  "name": "note",
+                  "presence": "optional",
+                  "schema": {
+                    "nullable": true,
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "priceCents",
+                  "presence": "required",
+                  "schema": {
+                    "type": "integer"
+                  }
+                },
+                {
+                  "name": "ratio",
+                  "presence": "required",
+                  "schema": {
+                    "type": "number"
+                  }
+                },
+                {
+                  "name": "meta",
+                  "presence": "optional",
+                  "schema": {
+                    "additional": "allowed",
+                    "fields": [
+                      {
+                        "name": "source",
+                        "presence": "required",
+                        "schema": {
+                          "type": "string"
+                        }
+                      },
+                      {
+                        "name": "weight",
+                        "presence": "optional",
+                        "schema": {
+                          "nullable": true,
+                          "type": "number"
+                        }
+                      }
+                    ],
+                    "nullable": true,
+                    "type": "object"
+                  }
+                },
+                {
+                  "name": "labels",
+                  "presence": "required",
+                  "schema": {
+                    "additional": "allowed",
+                    "type": "object"
+                  }
+                },
+                {
+                  "name": "isFlagged",
+                  "presence": "unknown",
+                  "schema": {
+                    "type": "boolean"
+                  }
+                }
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "state": "complete"
+      },
+      "cookie": {
+        "items": [],
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [
+          {
+            "at": null,
+            "depth": 2,
+            "section": "header",
+            "start": {
+              "file": "src/handlers.rs",
+              "function": "create_item",
+              "line": 35
+            },
+            "steps": [
+              {
+                "file": "src/handlers.rs",
+                "function": "Caller.from_request_parts",
+                "line": 35
+              },
+              {
+                "file": "src/extract.rs",
+                "function": "bearer",
+                "line": 34
+              }
+            ],
+            "stop": "ended"
+          }
+        ],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [
+          {
+            "access": "read_by_dependency",
+            "name": "authorization",
+            "presence": "unknown",
+            "provenance": {
+              "chain": [
+                {
+                  "file": "src/handlers.rs",
+                  "function": "Caller.from_request_parts",
+                  "line": 35
+                },
+                {
+                  "file": "src/extract.rs",
+                  "function": "bearer",
+                  "line": 34
+                }
+              ],
+              "confidence": 1,
+              "file": "src/helpers.rs",
+              "kind": "read_in_handler",
+              "line": 9,
+              "rule": "SH-X13"
+            },
+            "schema": null
+          }
+        ],
+        "reason": "middleware (layers) is not read",
+        "state": "partial"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/lib.rs",
+          "kind": "fact",
+          "line": 22,
+          "rule": "SH-X1"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "query": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/handlers.rs",
+          "kind": "fact",
+          "line": 35,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "responses": {
+        "items": [
+          {
+            "content_type": "application/json",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/handlers.rs",
+              "kind": "returned",
+              "line": 40,
+              "rule": "SH-X22"
+            },
+            "schema": {
+              "additional": "forbidden",
+              "fields": [
+                {
+                  "name": "id",
+                  "presence": "unknown",
+                  "schema": {
+                    "type": "integer"
+                  }
+                },
+                {
+                  "name": "name",
+                  "presence": "unknown",
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "note",
+                  "presence": "optional",
+                  "schema": {
+                    "nullable": true,
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "tags",
+                  "presence": "unknown",
+                  "schema": {
+                    "items": {
+                      "type": "string"
+                    },
+                    "type": "array"
+                  }
+                },
+                {
+                  "name": "kind",
+                  "presence": "unknown",
+                  "schema": {
+                    "enum": [
+                      "BOOK",
+                      "LONG_PLAY",
+                      "tape"
+                    ],
+                    "type": "enum"
+                  }
+                }
+              ],
+              "type": "object"
+            },
+            "status": "201"
+          },
+          {
+            "content_type": null,
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/handlers.rs",
+              "kind": "returned",
+              "line": 37,
+              "rule": "SH-X26"
+            },
+            "schema": null,
+            "status": "401"
+          }
+        ],
+        "reason": "panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:src/lib.rs#POST /maybe": {
+      "body": {
+        "items": [],
+        "reason": "extractor Option\u003cJson\u003cNewItem\u003e\u003e (a wrapped extractor) is not read",
+        "state": "partial"
+      },
+      "cookie": {
+        "items": [],
+        "reason": "extractor Option\u003cJson\u003cNewItem\u003e\u003e (a wrapped extractor) is not read",
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [],
+        "reason": "extractor Option\u003cJson\u003cNewItem\u003e\u003e (a wrapped extractor) is not read",
+        "state": "partial"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/lib.rs",
+          "kind": "fact",
+          "line": 37,
+          "rule": "SH-X1"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "query": {
+        "items": [],
+        "reason": "extractor Option\u003cJson\u003cNewItem\u003e\u003e (a wrapped extractor) is not read",
+        "state": "partial"
+      },
+      "responses": {
+        "items": [
+          {
+            "content_type": null,
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/handlers.rs",
+              "kind": "returned",
+              "line": 135,
+              "rule": "SH-X23"
+            },
+            "schema": {
+              "type": "null"
+            },
+            "status": "200"
+          },
+          {
+            "content_type": null,
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/handlers.rs",
+              "kind": "returned",
+              "line": 136,
+              "rule": "SH-X23"
+            },
+            "schema": {
+              "type": "null"
+            },
+            "status": "204"
+          }
+        ],
+        "reason": "panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:src/lib.rs#POST /r/boxed": {
+      "body": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/review.rs",
+          "kind": "fact",
+          "line": 358,
+          "rule": "SH-X29"
+        },
+        "items": [
+          {
+            "content_type": "application/json",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/review.rs",
+              "kind": "fact",
+              "line": 358,
+              "rule": "SH-X6"
+            },
+            "schema": {
+              "additional": "allowed",
+              "fields": [
+                {
+                  "name": "note",
+                  "presence": "optional",
+                  "schema": {
+                    "nullable": true,
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "n",
+                  "presence": "required",
+                  "schema": {
+                    "type": "integer"
+                  }
+                }
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "state": "complete"
+      },
+      "cookie": {
+        "items": [],
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [],
+        "state": "not_read"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/lib.rs",
+          "kind": "fact",
+          "line": 62,
+          "rule": "SH-X1"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "query": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/review.rs",
+          "kind": "fact",
+          "line": 358,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "responses": {
+        "items": [
+          {
+            "content_type": null,
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/review.rs",
+              "kind": "returned",
+              "line": 360,
+              "rule": "SH-X23"
+            },
+            "schema": {
+              "type": "null"
+            },
+            "status": "202"
+          }
+        ],
+        "reason": "panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:src/lib.rs#POST /r/camel": {
+      "body": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/review.rs",
+          "kind": "fact",
+          "line": 137,
+          "rule": "SH-X29"
+        },
+        "items": [
+          {
+            "content_type": "application/json",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/review.rs",
+              "kind": "fact",
+              "line": 137,
+              "rule": "SH-X6"
+            },
+            "schema": {
+              "additional": "allowed",
+              "fields": [
+                {
+                  "name": "foo",
+                  "presence": "required",
+                  "schema": {
+                    "type": "integer"
+                  }
+                },
+                {
+                  "name": "barBaz",
+                  "presence": "required",
+                  "schema": {
+                    "type": "integer"
+                  }
+                }
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "state": "complete"
+      },
+      "cookie": {
+        "items": [],
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [],
+        "state": "not_read"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/lib.rs",
+          "kind": "fact",
+          "line": 46,
+          "rule": "SH-X1"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "query": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/review.rs",
+          "kind": "fact",
+          "line": 137,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "responses": {
+        "items": [
+          {
+            "content_type": "application/json",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/review.rs",
+              "kind": "returned",
+              "line": 137,
+              "rule": "SH-X21"
+            },
+            "schema": {
+              "additional": "forbidden",
+              "fields": [
+                {
+                  "name": "foo",
+                  "presence": "unknown",
+                  "schema": {
+                    "type": "integer"
+                  }
+                },
+                {
+                  "name": "barBaz",
+                  "presence": "unknown",
+                  "schema": {
+                    "type": "integer"
+                  }
+                }
+              ],
+              "type": "object"
+            },
+            "status": "200"
+          }
+        ],
+        "reason": "panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:src/lib.rs#POST /r/serde-as": {
+      "body": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/review.rs",
+          "kind": "fact",
+          "line": 113,
+          "rule": "SH-X29"
+        },
+        "items": [
+          {
+            "content_type": "application/json",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/review.rs",
+              "kind": "fact",
+              "line": 113,
+              "rule": "SH-X6"
+            },
+            "schema": {
+              "reason": "attribute serde_as on AsStr may change serde's view and is not modelled",
+              "type": "unknown"
+            }
+          }
+        ],
+        "state": "complete"
+      },
+      "cookie": {
+        "items": [],
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [],
+        "state": "not_read"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/lib.rs",
+          "kind": "fact",
+          "line": 44,
+          "rule": "SH-X1"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "query": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/review.rs",
+          "kind": "fact",
+          "line": 113,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "responses": {
+        "items": [
+          {
+            "content_type": "application/json",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/review.rs",
+              "kind": "returned",
+              "line": 113,
+              "rule": "SH-X21"
+            },
+            "schema": {
+              "reason": "attribute serde_as on AsStr may change serde's view and is not modelled",
+              "type": "unknown"
+            },
+            "status": "200"
+          }
+        ],
+        "reason": "panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:src/lib.rs#POST /r/shadow": {
+      "body": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/review.rs",
+          "kind": "fact",
+          "line": 229,
+          "rule": "SH-X29"
+        },
+        "items": [
+          {
+            "content_type": null,
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/review.rs",
+              "kind": "fact",
+              "line": 229,
+              "rule": "SH-X8"
+            },
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "state": "complete"
+      },
+      "cookie": {
+        "items": [],
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [],
+        "state": "not_read"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/lib.rs",
+          "kind": "fact",
+          "line": 53,
+          "rule": "SH-X1"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "query": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/review.rs",
+          "kind": "fact",
+          "line": 229,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "responses": {
+        "items": [
+          {
+            "content_type": "application/json",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/review.rs",
+              "kind": "returned",
+              "line": 231,
+              "rule": "SH-X21"
+            },
+            "schema": null,
+            "status": "200"
+          },
+          {
+            "content_type": null,
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/review.rs",
+              "kind": "returned",
+              "line": 232,
+              "rule": "SH-X23"
+            },
+            "schema": {
+              "type": "null"
+            },
+            "status": "404"
+          }
+        ],
+        "reason": "panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:src/lib.rs#POST /r/shadow-helper": {
+      "body": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/review.rs",
+          "kind": "fact",
+          "line": 249,
+          "rule": "SH-X29"
+        },
+        "items": [
+          {
+            "content_type": "application/json",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/review.rs",
+              "kind": "fact",
+              "line": 249,
+              "rule": "SH-X6"
+            },
+            "schema": {
+              "additional": "allowed",
+              "fields": [
+                {
+                  "name": "name",
+                  "presence": "required",
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "state": "complete"
+      },
+      "cookie": {
+        "items": [],
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [
+          {
+            "at": null,
+            "depth": 1,
+            "section": "responses",
+            "start": {
+              "file": "src/review.rs",
+              "function": "shadow_helper",
+              "line": 249
+            },
+            "steps": [
+              {
+                "file": "src/review.rs",
+                "function": "render",
+                "line": 250
+              }
+            ],
+            "stop": "ended"
+          }
+        ],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [],
+        "state": "not_read"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/lib.rs",
+          "kind": "fact",
+          "line": 54,
+          "rule": "SH-X1"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "query": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/review.rs",
+          "kind": "fact",
+          "line": 249,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "responses": {
+        "items": [
+          {
+            "content_type": "application/json",
+            "provenance": {
+              "chain": [
+                {
+                  "file": "src/review.rs",
+                  "function": "render",
+                  "line": 250
+                }
+              ],
+              "confidence": 1,
+              "file": "src/review.rs",
+              "kind": "returned",
+              "line": 246,
+              "rule": "SH-X21"
+            },
+            "schema": {
+              "reason": "values with different schemas answer 200",
+              "type": "unknown"
+            },
+            "status": "200"
+          }
+        ],
+        "reason": "panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:src/lib.rs#POST /raw": {
+      "body": {
+        "items": [],
+        "reason": "the handler takes the raw request (Request)",
+        "state": "partial"
+      },
+      "cookie": {
+        "items": [],
+        "reason": "the handler takes the raw request (Request)",
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [
+          {
+            "at": null,
+            "depth": 1,
+            "section": "header",
+            "start": {
+              "file": "src/handlers.rs",
+              "function": "raw",
+              "line": 80
+            },
+            "steps": [
+              {
+                "file": "src/handlers.rs",
+                "function": "inspect",
+                "line": 81
+              }
+            ],
+            "stop": "ended"
+          }
+        ],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [
+          {
+            "access": "read_by_handler",
+            "name": "x-debug",
+            "presence": "unknown",
+            "provenance": {
+              "chain": [
+                {
+                  "file": "src/handlers.rs",
+                  "function": "inspect",
+                  "line": 81
+                }
+              ],
+              "confidence": 1,
+              "file": "src/helpers.rs",
+              "kind": "read_in_handler",
+              "line": 20,
+              "rule": "SH-X11"
+            },
+            "schema": null
+          }
+        ],
+        "reason": "middleware (layers) is not read",
+        "state": "partial"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/lib.rs",
+          "kind": "fact",
+          "line": 29,
+          "rule": "SH-X1"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "query": {
+        "items": [],
+        "reason": "the handler takes the raw request (Request)",
+        "state": "partial"
+      },
+      "responses": {
+        "items": [
+          {
+            "content_type": null,
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/handlers.rs",
+              "kind": "returned",
+              "line": 84,
+              "rule": "SH-X23"
+            },
+            "schema": {
+              "type": "null"
+            },
+            "status": "200"
+          },
+          {
+            "content_type": null,
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/handlers.rs",
+              "kind": "returned",
+              "line": 82,
+              "rule": "SH-X23"
+            },
+            "schema": {
+              "type": "null"
+            },
+            "status": "202"
+          }
+        ],
+        "reason": "panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:src/lib.rs#POST /wrapped": {
+      "body": {
+        "items": [
+          {
+            "content_type": "application/json",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/handlers.rs",
+              "kind": "fact",
+              "line": 129,
+              "rule": "SH-X6"
+            },
+            "schema": {
+              "additional": "allowed",
+              "fields": [
+                {
+                  "name": "data",
+                  "presence": "required",
+                  "schema": {
+                    "additional": "unknown",
+                    "fields": [
+                      {
+                        "name": "events",
+                        "presence": "required",
+                        "schema": {
+                          "items": {
+                            "reason": "serde attribute untagged on Event is not modelled",
+                            "type": "unknown"
+                          },
+                          "type": "array"
+                        }
+                      }
+                    ],
+                    "type": "object"
+                  }
+                },
+                {
+                  "name": "count",
+                  "presence": "required",
+                  "schema": {
+                    "type": "integer"
+                  }
+                }
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "reason": "the body type has flattened fields",
+        "state": "partial"
+      },
+      "cookie": {
+        "items": [],
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [],
+        "state": "not_read"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/lib.rs",
+          "kind": "fact",
+          "line": 36,
+          "rule": "SH-X1"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "query": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/handlers.rs",
+          "kind": "fact",
+          "line": 129,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "responses": {
+        "items": [
+          {
+            "content_type": "application/json",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/handlers.rs",
+              "kind": "returned",
+              "line": 129,
+              "rule": "SH-X21"
+            },
+            "schema": {
+              "additional": "forbidden",
+              "fields": [
+                {
+                  "name": "data",
+                  "presence": "unknown",
+                  "schema": {
+                    "enum": [
+                      "BOOK",
+                      "LONG_PLAY",
+                      "tape"
+                    ],
+                    "type": "enum"
+                  }
+                },
+                {
+                  "name": "count",
+                  "presence": "unknown",
+                  "schema": {
+                    "type": "integer"
+                  }
+                }
+              ],
+              "type": "object"
+            },
+            "status": "200"
+          }
+        ],
+        "reason": "panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:src/lib.rs#PUT /items/{id}/tags/{tag}": {
+      "body": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/handlers.rs",
+          "kind": "fact",
+          "line": 43,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "cookie": {
+        "items": [],
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [],
+        "state": "not_read"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/lib.rs",
+          "kind": "fact",
+          "line": 23,
+          "rule": "SH-X1"
+        },
+        "items": [
+          {
+            "access": "declared",
+            "name": "id",
+            "presence": "required",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/handlers.rs",
+              "kind": "fact",
+              "line": 43,
+              "rule": "SH-X3"
+            },
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "access": "declared",
+            "name": "tag",
+            "presence": "required",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/handlers.rs",
+              "kind": "fact",
+              "line": 43,
+              "rule": "SH-X3"
+            },
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "state": "complete"
+      },
+      "query": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/handlers.rs",
+          "kind": "fact",
+          "line": 43,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "responses": {
+        "items": [
+          {
+            "content_type": "application/json",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/handlers.rs",
+              "kind": "returned",
+              "line": 45,
+              "rule": "SH-X22"
+            },
+            "schema": {
+              "additional": "forbidden",
+              "fields": [
+                {
+                  "name": "id",
+                  "presence": "unknown",
+                  "schema": {
+                    "type": "integer"
+                  }
+                },
+                {
+                  "name": "label",
+                  "presence": "unknown",
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              ],
+              "type": "object"
+            },
+            "status": "200"
+          }
+        ],
+        "reason": "panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    }
+  }
+}

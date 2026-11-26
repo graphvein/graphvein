@@ -1,0 +1,355 @@
+{
+  "Diagnostics": [
+    {
+      "code": "component_manifest_unread",
+      "file": "badgo/go.mod",
+      "message": "badgo/go.mod: no module directive; its directory is an unread component of unknown kind (row CM-U1)",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "component_manifest_unread",
+      "file": "broken/package.json",
+      "message": "broken/package.json: invalid JSON; its directory is an unread component of unknown kind (row CM-U1)",
+      "severity": "info",
+      "type": "diagnostic"
+    }
+  ],
+  "Nodes": [
+    {
+      "attributes": {
+        "dependencies": [
+          "express",
+          "pg"
+        ],
+        "directory": "api",
+        "ecosystem": "npm",
+        "name": "api"
+      },
+      "content_hash": "sha256:d863102397eec40b8987d6c78a1d0a327bf18ffa69b7e088de50c4fcf838d276",
+      "file": "api/package.json",
+      "identity": "package:api/package.json#api",
+      "kind": "package",
+      "level": 2,
+      "name": "api",
+      "qualified_name": "api",
+      "span": {
+        "end_column": 0,
+        "end_line": 5,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "autobins": true,
+        "bins": [],
+        "dependencies": [
+          "sqlx"
+        ],
+        "directory": "crates/app",
+        "ecosystem": "cargo",
+        "lib": false,
+        "name": "t026-app"
+      },
+      "content_hash": "sha256:823135da1c8f9cabe1b229e0f08f268ecc846cc2c2f998f448bbd323b9dac5f1",
+      "file": "crates/app/Cargo.toml",
+      "identity": "package:crates/app/Cargo.toml#t026-app",
+      "kind": "package",
+      "level": 2,
+      "name": "t026-app",
+      "qualified_name": "t026-app",
+      "span": {
+        "end_column": 0,
+        "end_line": 8,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "dependencies": [],
+        "directory": "crates/app",
+        "ecosystem": "npm",
+        "name": "t026-app-ui"
+      },
+      "content_hash": "sha256:65b2919fdbd4c623885652751760eeb488e2587504dd604c8f3ce9cee8e610a7",
+      "file": "crates/app/package.json",
+      "identity": "package:crates/app/package.json#t026-app-ui",
+      "kind": "package",
+      "level": 2,
+      "name": "t026-app-ui",
+      "qualified_name": "t026-app-ui",
+      "span": {
+        "end_column": 0,
+        "end_line": 2,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "autobins": true,
+        "bins": [],
+        "dependencies": [
+          "serde"
+        ],
+        "directory": "crates/core",
+        "ecosystem": "cargo",
+        "lib": true,
+        "name": "t026-core"
+      },
+      "content_hash": "sha256:fddbd804091125f2e5c76f62443c047647051dbb8cd12511d9c16f590c4fe650",
+      "file": "crates/core/Cargo.toml",
+      "identity": "package:crates/core/Cargo.toml#t026-core",
+      "kind": "package",
+      "level": 2,
+      "name": "t026-core",
+      "qualified_name": "t026-core",
+      "span": {
+        "end_column": 0,
+        "end_line": 12,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "dependencies": [
+          "@docusaurus/core"
+        ],
+        "directory": "docs-site",
+        "ecosystem": "npm",
+        "name": "docs-site"
+      },
+      "content_hash": "sha256:ad6e5d64be36d6013a225ea2d5c1a60d546576cfc1fa84973bc648a0d46aeece",
+      "file": "docs-site/package.json",
+      "identity": "package:docs-site/package.json#docs-site",
+      "kind": "package",
+      "level": 2,
+      "name": "docs-site",
+      "qualified_name": "docs-site",
+      "span": {
+        "end_column": 0,
+        "end_line": 5,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "dependencies": [],
+        "directory": "e2e",
+        "ecosystem": "npm",
+        "name": "e2e"
+      },
+      "content_hash": "sha256:658376c6ef6c87d09e356bf0079d463cb8d60935cc20f44cdf57d9db5af41d61",
+      "file": "e2e/package.json",
+      "identity": "package:e2e/package.json#e2e",
+      "kind": "package",
+      "level": 2,
+      "name": "e2e",
+      "qualified_name": "e2e",
+      "span": {
+        "end_column": 0,
+        "end_line": 2,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "directory": "gomod",
+        "ecosystem": "go",
+        "main_files": [
+          "gomod/cmd/main.go"
+        ],
+        "name": "example.test/t026"
+      },
+      "content_hash": "sha256:1e42435d44cd16958a7066286e06335b12952d009fdd66e4768fa4d0246f381d",
+      "file": "gomod/go.mod",
+      "identity": "package:gomod/go.mod#example.test%2Ft026",
+      "kind": "package",
+      "level": 2,
+      "name": "example.test/t026",
+      "qualified_name": "example.test/t026",
+      "span": {
+        "end_column": 0,
+        "end_line": 4,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "dependencies": [],
+        "directory": "internal-tools",
+        "ecosystem": "npm",
+        "name": "internal-tools"
+      },
+      "content_hash": "sha256:ee841dd05a561f4a1955dd7af2d14a5476de45d447aa2bd964091c1304319520",
+      "file": "internal-tools/package.json",
+      "identity": "package:internal-tools/package.json#internal-tools",
+      "kind": "package",
+      "level": 2,
+      "name": "internal-tools",
+      "qualified_name": "internal-tools",
+      "span": {
+        "end_column": 0,
+        "end_line": 2,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "directory": "legacy",
+        "ecosystem": "python",
+        "name": "t026-legacy"
+      },
+      "content_hash": "sha256:d68255588ef9634ff56173d6595e85c3a9119fcdeed2709782d6f0b506c3bf56",
+      "file": "legacy/setup.py",
+      "identity": "package:legacy/setup.py#t026-legacy",
+      "kind": "package",
+      "level": 2,
+      "name": "t026-legacy",
+      "qualified_name": "t026-legacy",
+      "span": {
+        "end_column": 0,
+        "end_line": 7,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "directory": "legacy2",
+        "ecosystem": "python",
+        "name": "t026-legacy2"
+      },
+      "content_hash": "sha256:19744ec841f643f81d4c0caa4e8ebea5411214616d7c50eb0b443964cd817a48",
+      "file": "legacy2/setup.cfg",
+      "identity": "package:legacy2/setup.cfg#t026-legacy2",
+      "kind": "package",
+      "level": 2,
+      "name": "t026-legacy2",
+      "qualified_name": "t026-legacy2",
+      "span": {
+        "end_column": 0,
+        "end_line": 4,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "dependencies": [
+          "asyncpg",
+          "httpx"
+        ],
+        "directory": "py",
+        "ecosystem": "python",
+        "name": "t026-py",
+        "scripts": [
+          "t026-py"
+        ]
+      },
+      "content_hash": "sha256:17fa1c978afa81a7260e53182baa15a0b04fe9b6ebbbd5463d6c959c03609cd8",
+      "file": "py/pyproject.toml",
+      "identity": "package:py/pyproject.toml#t026-py",
+      "kind": "package",
+      "level": 2,
+      "name": "t026-py",
+      "qualified_name": "t026-py",
+      "span": {
+        "end_column": 0,
+        "end_line": 8,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "dependencies": [],
+        "directory": "shared",
+        "ecosystem": "npm",
+        "name": "shared"
+      },
+      "content_hash": "sha256:eae3d881422c3d56331be3242853439bc74984c51dcdf541a1203ab9ea9aad19",
+      "file": "shared/package.json",
+      "identity": "package:shared/package.json#shared",
+      "kind": "package",
+      "level": 2,
+      "name": "shared",
+      "qualified_name": "shared",
+      "span": {
+        "end_column": 0,
+        "end_line": 2,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "bins": [
+          "t026"
+        ],
+        "dependencies": [],
+        "directory": "tools/cli",
+        "ecosystem": "npm",
+        "name": "@t026/cli"
+      },
+      "content_hash": "sha256:a4d1b56f13626f34e0c9a1b02d5c3c08e1da84633891c8a5af4c956fa10465b0",
+      "file": "tools/cli/package.json",
+      "identity": "package:tools/cli/package.json#%40t026%2Fcli",
+      "kind": "package",
+      "level": 2,
+      "name": "@t026/cli",
+      "qualified_name": "@t026/cli",
+      "span": {
+        "end_column": 0,
+        "end_line": 2,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "dependencies": [
+          "axios",
+          "shared"
+        ],
+        "directory": "web",
+        "ecosystem": "npm",
+        "name": "web"
+      },
+      "content_hash": "sha256:b8f2a167793fcd603f512f5bd9e20a9f99316dade1e5d0637bfa0f77b5c3b072",
+      "file": "web/package.json",
+      "identity": "package:web/package.json#web",
+      "kind": "package",
+      "level": 2,
+      "name": "web",
+      "qualified_name": "web",
+      "span": {
+        "end_column": 0,
+        "end_line": 5,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    }
+  ]
+}

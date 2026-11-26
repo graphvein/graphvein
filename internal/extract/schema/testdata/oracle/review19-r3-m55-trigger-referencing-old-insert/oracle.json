@@ -1,0 +1,28 @@
+{
+  "id": "review19-r3-m55-trigger-referencing-old-insert",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y11",
+  "row": "review19",
+  "history": {
+    "id": "m55-trigger-referencing-old-insert"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42P17",
+        "message": "OLD TABLE can only be specified for a DELETE or UPDATE trigger",
+        "statement": 3,
+        "statement_text": "CREATE TRIGGER tr AFTER INSERT ON t REFERENCING OLD TABLE AS o FOR EACH STATEMENT EXECUTE FUNCTION tf();"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

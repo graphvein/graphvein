@@ -1,0 +1,90 @@
+// sqlite (oracle): the SQLite mapping checked by the SQLite
+// oracle with Prisma 7.10.0, 6.19.3 and 5.22.0 (Json and enums from 6.2.0).
+datasource db {
+  provider = "sqlite"
+}
+
+enum Mood {
+  HAPPY
+  SAD   @map("sad")
+}
+
+// Every scalar type (PR-F1), an enum (PR-F4) and Unsupported (PR-F3); an
+// Int @id is INTEGER PRIMARY KEY AUTOINCREMENT whether or not it has
+// @default(autoincrement()), so its default is unknown.
+model Note {
+  id    Int      @id @default(autoincrement())
+  text  String?
+  pin   Boolean  @default(false)
+  big   BigInt
+  ratio Float
+  price Decimal
+  at    DateTime
+  data  Json
+  blob  Bytes
+  mood  Mood
+  shape Unsupported("CIRCLE")?
+}
+
+// Every default form (PR-A3): literals with the database's text, now(), a
+// parenthesised dbgenerated, client functions, @updatedAt (PR-A4), a Json
+// literal (Prisma renders invalid SQL: unknown) and a BigInt id with
+// autoincrement() (BIGINT PRIMARY KEY, no value generated: unknown).
+model Defaults {
+  id      BigInt   @id @default(autoincrement())
+  label   String   @default("it's")
+  n       Int      @default(-1)
+  big     BigInt   @default(42)
+  ratio   Float    @default(1.5)
+  price   Decimal  @default(1.50)
+  flag    Boolean  @default(true)
+  mood    Mood     @default(SAD)
+  created DateTime @default(now())
+  fixed   DateTime @default("2020-01-01T00:00:00Z")
+  touched DateTime @updatedAt
+  gen     String   @default(dbgenerated("(lower(hex(randomblob(16))))"))
+  doc     Json     @default("{}")
+  u       String   @default(uuid())
+  c       String   @default(cuid())
+  plain   String
+}
+
+// Keys and indexes (PR-A1, PR-A2, PR-AA1 to PR-AA4, PR-A5).
+model Keys {
+  a Int
+  b String @map("b_col")
+  c Int    @unique(map: "keys_c_uq")
+  d Int
+  e String @unique
+
+  @@id([a, b])
+  @@unique([c, d], map: "uq_cd")
+  @@index([d])
+  @@index([c, d], map: "ix_cd")
+  @@map("keys")
+}
+
+// Relations (PR-R1) with default and explicit actions, and an implicit
+// many-to-many join table (PR-R3: a unique index on (A, B) on sqlite).
+model Parent {
+  id   String @id @default(cuid())
+  kids Kid[]
+  opt  Kid[]  @relation("opt")
+  casc Kid[]  @relation("casc")
+}
+
+model Kid {
+  id   Int     @id
+  pid  String
+  p    Parent  @relation(fields: [pid], references: [id])
+  oid  String?
+  o    Parent? @relation("opt", fields: [oid], references: [id])
+  cid  String?
+  c    Parent? @relation("casc", fields: [cid], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  tags Tag[]
+}
+
+model Tag {
+  id   Int   @id
+  kids Kid[]
+}

@@ -1,0 +1,123 @@
+{{define "home"}}{{template "top" .}}{{with .Home}}
+<main id="main">
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow">{{.Eyebrow}}</p>
+      <h1 id="lead">{{.Lead}}</h1>
+      <p class="sub">{{.Sublead}}</p>
+      <p class="cta-row"><a class="btn btn-primary" id="cta-primary" href="/download/">Build from source</a><a class="btn btn-ghost" href="/docs/">Read the docs</a></p>
+    </div>
+    {{nocheck}}<figure class="shot framed">
+      {{- if .Hero.DarkSrc}}
+      <img class="shot-dark" src="{{.Hero.DarkSrc}}" width="{{.Hero.Width}}" height="{{.Hero.Height}}" alt="{{.Hero.Alt}}" loading="lazy" fetchpriority="high">
+      <img class="shot-light" src="{{.Hero.Src}}" width="{{.Hero.Width}}" height="{{.Hero.Height}}" alt="{{.Hero.Alt}}" loading="lazy" fetchpriority="high">
+      {{- else}}
+      <img src="{{.Hero.Src}}" width="{{.Hero.Width}}" height="{{.Hero.Height}}" alt="{{.Hero.Alt}}" fetchpriority="high">
+      {{- end}}
+      <figcaption>{{.Hero.Caption}}</figcaption>
+    </figure>{{endcheck}}
+  </div>
+</section>
+
+<section class="band numbers" aria-labelledby="h-num">
+  <div class="wrap">
+    <h2 id="h-num" class="vh">{{.CardsTitle}}</h2>
+    <div class="evgrid">
+    {{- range .Cards}}
+      <article class="ev">
+        <p class="big">{{.Big}}{{if .Baseline}} <span class="base">{{.Baseline}}</span>{{end}}</p>
+        <p class="nlabel">{{.Label}}</p>
+        {{- if .Text}}<p class="ntext">{{.Text}}</p>{{end}}
+        <p class="nsrc"><a href="{{.Href}}">{{.Link}} →</a></p>
+      </article>
+    {{- end}}
+    </div>
+    {{- with .Reads}}{{if .Languages}}
+    <div class="reads">
+      <h3 class="reads-t">{{.Title}}</h3>
+      <ul class="langs">{{range .Languages}}<li><span class="ln">{{.Name}}</span><span class="ld">{{.Detail}}</span></li>{{end}}</ul>
+      <p class="reads-n">{{.Note}} <a href="{{.Page}}">{{.Link}}</a></p>
+    </div>
+    {{- end}}{{end}}
+  </div>
+</section>
+
+<section class="wrap" aria-labelledby="h-what">
+  <h2 id="h-what">{{.FeaturesTitle}}</h2>
+  <p class="lede">{{.FeaturesIntro}}</p>
+  <div class="frows">
+  {{- range .Features}}{{if .Shot}}
+    <article class="frow">
+      <div class="ftext"><h3>{{.Title}}</h3><p>{{.Text}}</p><p class="nsrc"><a href="{{.Href}}">Docs →</a></p></div>
+      {{nocheck}}<figure class="shot">
+        {{- template "zoom" .Shot}}
+        <figcaption>{{.Shot.Caption}}</figcaption>
+      </figure>{{endcheck}}
+    </article>
+  {{- end}}{{end}}
+  </div>
+  <div class="fgrid">
+  {{- range .Features}}{{if not .Shot}}
+    <article class="fcard"><h3>{{.Title}}</h3><p>{{.Text}}</p><p class="nsrc"><a href="{{.Href}}">Docs →</a></p></article>
+  {{- end}}{{end}}
+  </div>
+</section>
+
+<section class="wrap split" aria-labelledby="h-qs">
+  <div><h2 id="h-qs">Quick start</h2>{{template "install" .Install}}</div>
+  <div>
+    {{nocheck}}<pre class="term" aria-label="Terminal output of graphvein changes impact"><code><span class="p">$</span> {{.Terminal.Command}}
+{{.Terminal.Output}}</code></pre>
+    <p class="term-note">{{.Terminal.Caption}}</p>{{endcheck}}
+  </div>
+</section>
+
+<section class="wrap" aria-labelledby="h-status">
+  <h2 id="h-status">Status</h2>
+  <p class="lede">{{.StatusShort}} <a href="/status/">Full status and measured evidence →</a></p>
+</section>
+
+<section class="wrap two" aria-label="How Graphvein decides and how it is verified">
+  <div>
+    <h2 id="h-dec">How Graphvein decides</h2>
+    <ul class="short">{{range .DecidesShort}}<li><a href="{{.Href}}">{{.Text}}</a></li>{{end}}</ul>
+    <p class="nsrc"><a href="/how-graphvein-decides/">How Graphvein decides →</a></p>
+  </div>
+  <div>
+    <h2 id="h-ver">How it is verified</h2>
+    <ul class="short">{{range .VerifiedShort}}<li><a href="{{.Href}}">{{.Text}}</a></li>{{end}}</ul>
+    <p class="nsrc"><a href="/how-it-is-verified/">How it is verified →</a></p>
+  </div>
+</section>
+{{- if .Gallery}}
+
+<section class="wrap" aria-labelledby="h-gal">
+  <h2 id="h-gal">{{.GalleryTitle}}</h2>
+  {{nocheck}}<div class="gallery">
+  {{- range .Gallery}}
+    <figure class="shot">{{template "zoom" .}}<figcaption>{{.Caption}}</figcaption></figure>
+  {{- end}}
+  </div>{{endcheck}}
+</section>
+{{- end}}
+
+<section class="wrap coming-wrap" aria-labelledby="h-next">
+  <h2 id="h-next">Coming next</h2>
+  <ul class="coming">{{range .Coming}}<li>{{.}}</li>{{end}}</ul>
+</section>
+</main>
+{{end}}{{template "bottom" .}}{{end}}
+
+{{/* zoom is a screenshot linked to its whole image, which site.js opens
+     in the lightbox. With a dark twin both variants are written; the
+     style sheet shows the one opposite to the page's theme, and the
+     lightbox opens the variant that was clicked. */}}
+{{define "zoom"}}
+        {{- if .DarkSrc}}
+        <a class="zoom shot-dark" href="{{.DarkFull}}" title="Open the full screenshot"><img src="{{.DarkSrc}}" width="{{.Width}}" height="{{.Height}}" alt="{{.Alt}}" loading="lazy"></a>
+        <a class="zoom shot-light" href="{{.Full}}" title="Open the full screenshot"><img src="{{.Src}}" width="{{.Width}}" height="{{.Height}}" alt="{{.Alt}}" loading="lazy"></a>
+        {{- else}}
+        <a class="zoom" href="{{.Full}}" title="Open the full screenshot"><img src="{{.Src}}" width="{{.Width}}" height="{{.Height}}" alt="{{.Alt}}" loading="lazy"></a>
+        {{- end}}
+{{- end}}

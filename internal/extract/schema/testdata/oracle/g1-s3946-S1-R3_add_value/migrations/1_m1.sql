@@ -1,0 +1,2 @@
+CREATE TYPE e1 AS ENUM ('c');
+ALTER TYPE e1 ADD VALUE 'v0' BEFORE 'nosuch';

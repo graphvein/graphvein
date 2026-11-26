@@ -1,0 +1,29 @@
+{
+  "id": "review19-r1-q05-drop-role-owner",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y38",
+  "row": "review19",
+  "history": {
+    "id": "q05-drop-role-owner"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42501",
+        "message": "permission denied for schema history",
+        "statement": 3,
+        "statement_text": "ALTER TABLE t OWNER TO rv_q5;",
+        "assumption": "E6"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

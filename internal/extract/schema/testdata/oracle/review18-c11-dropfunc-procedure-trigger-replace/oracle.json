@@ -1,0 +1,49 @@
+{
+  "id": "review18-c11-dropfunc-procedure-trigger-replace",
+  "signature": "agreed at Revision 1.8",
+  "class": "S1",
+  "owner": "X1",
+  "row": "review18",
+  "history": {
+    "id": "c11-dropfunc-procedure-trigger-replace"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "accepted"
+      },
+      {
+        "file": "2_redo.sql",
+        "status": "refused",
+        "sqlstate": "2BP01",
+        "message": "cannot drop function f() because other objects depend on it",
+        "detail": "trigger tg on table history depends on function f()",
+        "statement": 1,
+        "statement_text": "drop function f();"
+      }
+    ],
+    "tables": [
+      {
+        "table": "history.history",
+        "columns": [
+          {
+            "name": "id",
+            "type": "integer",
+            "not_null": false,
+            "has_default": false
+          }
+        ],
+        "primary_key": null,
+        "unique_keys": [],
+        "foreign_keys": [],
+        "indexes": []
+      }
+    ],
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

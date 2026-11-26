@@ -1,0 +1,13 @@
+alter table accounts add column nickname text, add column visits integer default 0;
+alter table accounts rename column nickname to handle;
+alter table accounts alter column visits type bigint, alter column visits set not null;
+alter table accounts alter column visits drop default;
+alter table accounts alter column "DisplayName" set default 'anon';
+alter table tasks alter column title drop not null, alter column title set not null;
+alter table tasks add column ticket serial;
+alter table accounts add constraint accounts_handle_key unique (handle);
+drop index tasks_note_idx;
+alter table tasks drop column note;
+alter table if exists only scratch add column if not exists old text;
+alter table accounts rename to members;
+drop table if exists not_there;

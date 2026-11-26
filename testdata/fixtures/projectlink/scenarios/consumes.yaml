@@ -1,0 +1,10 @@
+version: 1
+name: shop-consumes
+members:
+  - repository: frontend
+    path: frontend
+    consumes: [backend]
+  - repository: backend
+    path: backend
+  - repository: backend2
+    path: backend2

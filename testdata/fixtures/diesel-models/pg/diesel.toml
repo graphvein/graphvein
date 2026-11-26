@@ -1,0 +1,50 @@
+# The default section: a generated file with a patch (DI-G1).
+[print_schema]
+file = "src/schema.rs"
+patch_file = "src/schema.patch"
+
+# A named section with a schema: print-schema wraps the file in pub mod audit.
+[print_schema.audit]
+file = "src/audit.rs"
+schema = "audit"
+
+# A patch with a hunk that cannot be located: the file is hand-written.
+[print_schema.broken]
+file = "src/broken.rs"
+patch_file = "src/broken.patch"
+
+# A configured file without print-schema's header.
+[print_schema.nohead]
+file = "src/nohead.rs"
+
+# A filter: the table list is not proven complete.
+[print_schema.filtered]
+file = "src/filtered.rs"
+filter = { only_tables = ["kept"] }
+
+# No file: print-schema writes to standard output.
+[print_schema.stdout]
+schema = "public"
+
+# A file that does not exist.
+[print_schema.missing]
+file = "src/missing.rs"
+
+# A file the lexer refuses.
+[print_schema.lexbad]
+file = "src/lexbad.rs"
+
+# Tables the Diesel macros reject at compile time (DI-P1).
+[print_schema.failures]
+file = "src/failures.rs"
+
+# diesel_cli 2.4 output: #[diesel(enum_type)] structs and a rust_types
+# module (Revision 2, A4), a pg_catalog timetz and a custom type.
+[print_schema.v24]
+file = "src/v24.rs"
+
+# A patch that adds #[max_length] above a generated column and rewrites a
+# struct's postgres_type name (Revision 2, A3).
+[print_schema.patched]
+file = "src/patched.rs"
+patch_file = "src/patched.patch"

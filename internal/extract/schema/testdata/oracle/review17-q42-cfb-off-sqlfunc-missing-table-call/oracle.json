@@ -1,0 +1,29 @@
+{
+  "id": "review17-q42-cfb-off-sqlfunc-missing-table-call",
+  "signature": "agreed at Revision 1.7",
+  "class": "S1",
+  "owner": "W3",
+  "row": "review17",
+  "history": {
+    "id": "q42-cfb-off-sqlfunc-missing-table-call"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42P01",
+        "message": "relation \"nosuch_tbl\" does not exist",
+        "where": "SQL function \"f\" during inlining",
+        "statement": 3,
+        "statement_text": "SELECT f();"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

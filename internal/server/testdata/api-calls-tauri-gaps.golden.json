@@ -1,0 +1,243 @@
+{
+  "api_version": 0,
+  "calls": [
+    {
+      "node": {
+        "attributes": {
+          "alternatives": [
+            {
+              "cfg_gated": false,
+              "command": "t016d_greet",
+              "conditional": true,
+              "status": "linked",
+              "target": "ipc_command:app/src/main.rs#main.COMMAND%20t016d_greet"
+            },
+            {
+              "command": "t016d_nope",
+              "conditional": true,
+              "status": "unmatched"
+            }
+          ],
+          "command": null,
+          "conditional": true,
+          "form": "direct",
+          "framework": "tauri",
+          "status": "unmatched",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:9082caa14924ed5aa4d1f4b08f04e593cf37736955f6dd020cc11727b451ff95",
+        "file": "web/src/ipc.ts",
+        "file_state": "unchanged",
+        "ide": {
+          "column": 10,
+          "exact": true,
+          "line": 22,
+          "link": "vscode://file/{ROOT}/web/src/ipc.ts:22:10"
+        },
+        "identity": "ipc_call:web/src/ipc.ts#partlyUnmatched.INVOKE%20flag%3F%27t016d_greet%27%3A%27t016d_nope%27",
+        "kind": "ipc_call",
+        "level": 4,
+        "name": "INVOKE flag?'t016d_greet':'t016d_nope'",
+        "qualified_name": "partlyUnmatched.INVOKE flag?'t016d_greet':'t016d_nope'",
+        "source_root": "web",
+        "span": {
+          "end_column": 52,
+          "end_line": 22,
+          "start_column": 9,
+          "start_line": 22
+        },
+        "type": "node"
+      },
+      "owner": {
+        "id": "function:web/src/ipc.ts#partlyUnmatched",
+        "kind": "function",
+        "qualified_name": "partlyUnmatched"
+      },
+      "reasons": [
+        {
+          "code": "unmatched",
+          "detail": "t016d_nope",
+          "text": "No registered command has this name"
+        },
+        {
+          "code": "alternative_linked",
+          "detail": null,
+          "text": "A stored link exists although the status is \"unmatched\""
+        }
+      ],
+      "targets": [
+        "ipc_command:app/src/main.rs#main.COMMAND%20t016d_greet"
+      ]
+    },
+    {
+      "node": {
+        "attributes": {
+          "command": null,
+          "conditional": false,
+          "form": "direct",
+          "framework": "tauri",
+          "status": "dynamic",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:2cf125b56cf93485e670e7df88eb3d89a2dd5656d55f7bc8fdd096e7b7f5233b",
+        "file": "web/src/ipc.ts",
+        "file_state": "unchanged",
+        "ide": {
+          "column": 10,
+          "exact": true,
+          "line": 26,
+          "link": "vscode://file/{ROOT}/web/src/ipc.ts:26:10"
+        },
+        "identity": "ipc_call:web/src/ipc.ts#dynamicName.INVOKE%20names%5B0%5D",
+        "kind": "ipc_call",
+        "level": 4,
+        "name": "INVOKE names[0]",
+        "qualified_name": "dynamicName.INVOKE names[0]",
+        "source_root": "web",
+        "span": {
+          "end_column": 25,
+          "end_line": 26,
+          "start_column": 9,
+          "start_line": 26
+        },
+        "type": "node"
+      },
+      "owner": {
+        "id": "function:web/src/ipc.ts#dynamicName",
+        "kind": "function",
+        "qualified_name": "dynamicName"
+      },
+      "reasons": [
+        {
+          "code": "command_unevaluated",
+          "detail": "names[0]",
+          "text": "Command name is not evaluated statically"
+        }
+      ],
+      "targets": []
+    },
+    {
+      "node": {
+        "attributes": {
+          "command": "plugin:fs|read_file",
+          "conditional": false,
+          "form": "direct",
+          "framework": "tauri",
+          "plugin": "fs",
+          "plugin_command": "read_file",
+          "status": "plugin",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:6d9e9ada2b92a6198ee29d221930c7f69074a0a646237269d84be77bb3ac0ce7",
+        "file": "web/src/ipc.ts",
+        "file_state": "unchanged",
+        "ide": {
+          "column": 10,
+          "exact": true,
+          "line": 30,
+          "link": "vscode://file/{ROOT}/web/src/ipc.ts:30:10"
+        },
+        "identity": "ipc_call:web/src/ipc.ts#plugin.INVOKE%20%27plugin%3Afs%7Cread_file%27",
+        "kind": "ipc_call",
+        "level": 4,
+        "name": "INVOKE 'plugin:fs|read_file'",
+        "qualified_name": "plugin.INVOKE 'plugin:fs|read_file'",
+        "source_root": "web",
+        "span": {
+          "end_column": 38,
+          "end_line": 30,
+          "start_column": 9,
+          "start_line": 30
+        },
+        "type": "node"
+      },
+      "owner": {
+        "id": "function:web/src/ipc.ts#plugin",
+        "kind": "function",
+        "qualified_name": "plugin"
+      },
+      "reasons": [
+        {
+          "code": "plugin",
+          "detail": "fs|read_file",
+          "text": "Plugin command; plugin commands are not linked"
+        }
+      ],
+      "targets": []
+    },
+    {
+      "node": {
+        "attributes": {
+          "command": null,
+          "conditional": false,
+          "form": "direct",
+          "framework": "tauri",
+          "status": "wrapper",
+          "transport": "tauri_ipc",
+          "wrapper": true
+        },
+        "content_hash": "sha256:0fa561f8e1ac3ba7dc6ead0b8d5614b58640e0d94e9a9b794e68d62e3fe826dd",
+        "file": "web/src/ipcwrap.ts",
+        "file_state": "unchanged",
+        "ide": {
+          "column": 10,
+          "exact": true,
+          "line": 5,
+          "link": "vscode://file/{ROOT}/web/src/ipcwrap.ts:5:10"
+        },
+        "identity": "ipc_call:web/src/ipcwrap.ts#call.INVOKE%20command",
+        "kind": "ipc_call",
+        "level": 4,
+        "name": "INVOKE command",
+        "qualified_name": "call.INVOKE command",
+        "source_root": "web",
+        "span": {
+          "end_column": 38,
+          "end_line": 5,
+          "start_column": 9,
+          "start_line": 5
+        },
+        "type": "node"
+      },
+      "owner": {
+        "id": "function:web/src/ipcwrap.ts#call",
+        "kind": "function",
+        "qualified_name": "call"
+      },
+      "reasons": [
+        {
+          "code": "wrapper_inner",
+          "detail": null,
+          "text": "Inner invoke of a wrapper; the wrapper's call sites are listed as calls"
+        }
+      ],
+      "targets": []
+    }
+  ],
+  "ide": {
+    "available": true,
+    "editor": "vscode",
+    "error": null,
+    "label": "Open in VS Code",
+    "source": "builtin"
+  },
+  "index": {
+    "contract_version": 1,
+    "finished_at": "2026-11-03T14:32:05.123Z",
+    "indexer": {
+      "name": "graphvein",
+      "version": "extractors-62"
+    }
+  },
+  "repository": "fixture",
+  "root": null,
+  "scope": "production",
+  "statuses": [
+    "dynamic",
+    "plugin",
+    "unmatched",
+    "wrapper"
+  ],
+  "total": 4,
+  "transport": "tauri_ipc"
+}

@@ -1,0 +1,38 @@
+{
+  "id": "g5-s80-S1-O1t_trigger_call",
+  "signature": "applied|S1|42P01|O1t.trigger_call",
+  "class": "S1",
+  "owner": "P1",
+  "row": "O1t.trigger_call",
+  "history": {
+    "id": "g5-s80",
+    "tags": {
+      "1_m1.sql": [
+        "O1t.trigger_call",
+        "O1t.trigger_call",
+        "O1t.trigger_call",
+        "O1t.trigger_call",
+        "O1t.trigger_call",
+        "O1t.trigger_call"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42P01",
+        "message": "relation \"gone4\" does not exist",
+        "statement": 6,
+        "statement_text": "SELECT tu1('gone4');"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

@@ -1,0 +1,29 @@
+{
+  "id": "review15-a43-alterseq-bad",
+  "signature": "agreed at Revision 1.5",
+  "class": "S1",
+  "owner": "U5",
+  "row": "review15",
+  "history": {
+    "id": "a43-alterseq-bad"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "22023",
+        "message": "MINVALUE (1) must be less than MAXVALUE (0)",
+        "statement": 2,
+        "statement_text": "ALTER SEQUENCE s MAXVALUE 0;",
+        "row_free": true
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

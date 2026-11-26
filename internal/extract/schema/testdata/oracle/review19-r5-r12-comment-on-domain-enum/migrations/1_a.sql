@@ -1,0 +1,2 @@
+CREATE TYPE e AS ENUM ('a');
+COMMENT ON DOMAIN e IS 'x';

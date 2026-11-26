@@ -1,0 +1,41 @@
+{
+  "id": "review18-h09-droptype-cascade-func-ret-then-call",
+  "signature": "agreed at Revision 1.8",
+  "class": "S1",
+  "owner": "X1",
+  "row": "review18",
+  "history": {
+    "id": "h09-droptype-cascade-func-ret-then-call"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "accepted"
+      },
+      {
+        "file": "2_drop.sql",
+        "status": "refused",
+        "sqlstate": "42883",
+        "message": "function default_status() does not exist",
+        "statement": 2,
+        "statement_text": "select default_status();"
+      }
+    ],
+    "tables": null,
+    "enums": [
+      {
+        "type": "history.status",
+        "labels": [
+          "active",
+          "inactive"
+        ]
+      }
+    ],
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

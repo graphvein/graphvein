@@ -1,0 +1,34 @@
+{
+  "id": "g1-s7433-S1-M5e_set_default_M5b_drop",
+  "signature": "applied|S1|42703|M5e.set_default",
+  "class": "S1",
+  "owner": "P9",
+  "row": "M5e.set_default+M5b.drop",
+  "history": {
+    "id": "g1-s7433",
+    "tags": {
+      "1_m1.sql": [
+        "M1.create",
+        "M5e.set_default+M5b.drop"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42703",
+        "message": "column \"c1\" of relation \"t9\" does not exist",
+        "statement": 2,
+        "statement_text": "ALTER TABLE t9 ALTER COLUMN c1 SET DEFAULT now(), DROP COLUMN c1;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

@@ -1,0 +1,1 @@
+DROP TABLE ext_a CASCADE;

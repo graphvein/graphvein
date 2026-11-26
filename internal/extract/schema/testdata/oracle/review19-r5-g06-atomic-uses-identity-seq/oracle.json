@@ -1,0 +1,29 @@
+{
+  "id": "review19-r5-g06-atomic-uses-identity-seq",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y40",
+  "row": "review19",
+  "history": {
+    "id": "g06-atomic-uses-identity-seq"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "2BP01",
+        "message": "cannot drop table a because other objects depend on it",
+        "detail": "function bump() depends on sequence a_id_seq",
+        "statement": 3,
+        "statement_text": "DROP TABLE a;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

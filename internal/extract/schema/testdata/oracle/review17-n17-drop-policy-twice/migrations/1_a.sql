@@ -1,0 +1,4 @@
+CREATE TABLE t (a int);
+CREATE POLICY p ON t USING (true);
+DROP POLICY p ON t;
+DROP POLICY p ON t;

@@ -1,0 +1,273 @@
+{
+  "api_version": 0,
+  "caps": {
+    "depth": 10,
+    "fan_out": 200,
+    "members": 2000
+  },
+  "depth": 6,
+  "direction": "both",
+  "down": {
+    "caps": [],
+    "edges": [
+      {
+        "count": 1,
+        "dashed": false,
+        "evidence": [],
+        "from": "ipc_command:app/src/main.rs#main.COMMAND%20greet",
+        "kind": "exposes_command",
+        "row": "CH5",
+        "tier": "fact",
+        "to": "function:app/src/main.rs#greet",
+        "wording": "handled by"
+      }
+    ],
+    "ends": [],
+    "hidden_test": 0,
+    "members": 1,
+    "not_followed": {},
+    "steps": [
+      {
+        "bounds": [],
+        "hidden_test": 0,
+        "map": {
+          "folded": 0,
+          "shown": [
+            "ipc_command:app/src/main.rs#main.COMMAND%20greet"
+          ]
+        },
+        "members": [
+          {
+            "command": "greet",
+            "component": "app",
+            "file": "app/src/main.rs",
+            "id": "ipc_command:app/src/main.rs#main.COMMAND%20greet",
+            "kind": "ipc_command",
+            "line": 18,
+            "name": "main.COMMAND greet",
+            "parents": [],
+            "qualified_name": "main.COMMAND greet",
+            "row": "",
+            "tier": "fact",
+            "tier_step": 0
+          }
+        ],
+        "step": 0
+      },
+      {
+        "bounds": [],
+        "hidden_test": 0,
+        "map": {
+          "folded": 0,
+          "shown": [
+            "function:app/src/main.rs#greet"
+          ]
+        },
+        "members": [
+          {
+            "component": "app",
+            "file": "app/src/main.rs",
+            "id": "function:app/src/main.rs#greet",
+            "kind": "function",
+            "line": 19,
+            "name": "greet",
+            "parents": [
+              "ipc_command:app/src/main.rs#main.COMMAND%20greet"
+            ],
+            "qualified_name": "greet",
+            "row": "CH5",
+            "tier": "fact",
+            "tier_step": 0
+          }
+        ],
+        "step": 1
+      }
+    ]
+  },
+  "index": {
+    "contract_version": 1,
+    "finished_at": "2026-11-03T14:32:05.123Z",
+    "indexer": {
+      "name": "crafted",
+      "version": "t026-chain"
+    }
+  },
+  "map": {
+    "folded": 0,
+    "open_in_flow": false,
+    "per_step": 5,
+    "shown": 5,
+    "steps": 3,
+    "total": 40
+  },
+  "repository": "chainsynth",
+  "scope": "production",
+  "start": {
+    "id": "ipc_command:app/src/main.rs#main.COMMAND%20greet",
+    "kind": "ipc_command",
+    "level": "node"
+  },
+  "up": {
+    "caps": [],
+    "edges": [
+      {
+        "count": 1,
+        "dashed": false,
+        "evidence": [],
+        "from": "ipc_command:app/src/main.rs#main.COMMAND%20greet",
+        "kind": "invokes_command",
+        "row": "CH5",
+        "tier": "fact",
+        "to": "ipc_call:ui/src/app.ts#useItems.INVOKE%20%27greet%27",
+        "wording": "invoked by IPC call"
+      },
+      {
+        "count": 1,
+        "dashed": false,
+        "evidence": [],
+        "from": "ipc_call:ui/src/app.ts#useItems.INVOKE%20%27greet%27",
+        "kind": "contains",
+        "row": "CH2",
+        "tier": "fact",
+        "to": "function:ui/src/app.ts#useItems",
+        "wording": "made in"
+      },
+      {
+        "count": 1,
+        "dashed": false,
+        "evidence": [],
+        "from": "function:ui/src/app.ts#useItems",
+        "kind": "calls",
+        "row": "CH1",
+        "tier": "fact",
+        "to": "function:ui/src/app.ts#Page",
+        "wording": "called by"
+      }
+    ],
+    "ends": [
+      {
+        "member": "function:ui/src/app.ts#Page",
+        "row": "CH11",
+        "text": "? not modelled: no stored caller and no resolved bridge; JSX renders and passed callbacks are followed only where the tag or value resolves to this function, other dependency injection and dynamic calls are not modelled"
+      }
+    ],
+    "hidden_test": 0,
+    "members": 3,
+    "not_followed": {},
+    "steps": [
+      {
+        "bounds": [],
+        "hidden_test": 0,
+        "map": {
+          "folded": 0,
+          "shown": [
+            "ipc_command:app/src/main.rs#main.COMMAND%20greet"
+          ]
+        },
+        "members": [
+          {
+            "command": "greet",
+            "component": "app",
+            "file": "app/src/main.rs",
+            "id": "ipc_command:app/src/main.rs#main.COMMAND%20greet",
+            "kind": "ipc_command",
+            "line": 18,
+            "name": "main.COMMAND greet",
+            "parents": [],
+            "qualified_name": "main.COMMAND greet",
+            "row": "",
+            "tier": "fact",
+            "tier_step": 0
+          }
+        ],
+        "step": 0
+      },
+      {
+        "bounds": [],
+        "hidden_test": 0,
+        "map": {
+          "folded": 0,
+          "shown": [
+            "ipc_call:ui/src/app.ts#useItems.INVOKE%20%27greet%27"
+          ]
+        },
+        "members": [
+          {
+            "command": "greet",
+            "component": "ui",
+            "file": "ui/src/app.ts",
+            "id": "ipc_call:ui/src/app.ts#useItems.INVOKE%20%27greet%27",
+            "kind": "ipc_call",
+            "line": 10,
+            "name": "useItems.INVOKE 'greet'",
+            "parents": [
+              "ipc_command:app/src/main.rs#main.COMMAND%20greet"
+            ],
+            "qualified_name": "useItems.INVOKE 'greet'",
+            "row": "CH5",
+            "status": "linked",
+            "tier": "fact",
+            "tier_step": 0
+          }
+        ],
+        "step": 1
+      },
+      {
+        "bounds": [],
+        "hidden_test": 0,
+        "map": {
+          "folded": 0,
+          "shown": [
+            "function:ui/src/app.ts#useItems"
+          ]
+        },
+        "members": [
+          {
+            "component": "ui",
+            "file": "ui/src/app.ts",
+            "id": "function:ui/src/app.ts#useItems",
+            "kind": "function",
+            "line": 7,
+            "name": "useItems",
+            "parents": [
+              "ipc_call:ui/src/app.ts#useItems.INVOKE%20%27greet%27"
+            ],
+            "qualified_name": "useItems",
+            "row": "CH2",
+            "tier": "fact",
+            "tier_step": 0
+          }
+        ],
+        "step": 2
+      },
+      {
+        "bounds": [],
+        "hidden_test": 0,
+        "map": {
+          "folded": 0,
+          "shown": [
+            "function:ui/src/app.ts#Page"
+          ]
+        },
+        "members": [
+          {
+            "component": "ui",
+            "file": "ui/src/app.ts",
+            "id": "function:ui/src/app.ts#Page",
+            "kind": "function",
+            "line": 5,
+            "name": "Page",
+            "parents": [
+              "function:ui/src/app.ts#useItems"
+            ],
+            "qualified_name": "Page",
+            "row": "CH1",
+            "tier": "fact",
+            "tier_step": 0
+          }
+        ],
+        "step": 3
+      }
+    ]
+  }
+}

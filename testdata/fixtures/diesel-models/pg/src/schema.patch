@@ -1,0 +1,51 @@
+--- src/schema.rs.orig
++++ src/schema.rs
+@@ -102,7 +102,7 @@
+     users (id) {
+         id -> Int4,
+         name -> Text,
+-        email -> Nullable<Text>,
++        email -> Nullable<Varchar>,
+     }
+ }
+ 
+@@ -143,7 +143,6 @@
+ diesel::table! {
+     legacy (id) {
+         id -> Int4,
+-        gone -> Text,
+         kept -> Text,
+     }
+ }
+@@ -152,6 +151,7 @@
+     tags (id) {
+         id -> Int4,
+         label -> Text,
++        draft -> Bool,
+     }
+ }
+ 
+@@ -189,13 +189,23 @@
+     }
+ }
+ 
++diesel::table! {
++    /// A view declared as a table.
++    view_counts (post_id) {
++        post_id -> Int4,
++        n -> Int8,
++    }
++}
++
+ diesel::joinable!(posts -> users (author_id));
++diesel::joinable!(posts -> users (editor_id));
+ joinable!(notes -> posts (post_id));
+ diesel::joinable!(lines -> posts (post_id));
+ diesel::joinable!(pairs -> users (user_id));
+ diesel::joinable!(posts -> pairs (id));
+ diesel::joinable!(crate::schema::legacy -> users (id));
+ diesel::joinable!(legacy -> users (id));
++diesel::joinable!(view_counts -> posts (post_id));
+ 
+ diesel::allow_tables_to_appear_in_same_query!(scalars, users, posts, pairs, nokey, lines, legacy, tags, notes);
+ 

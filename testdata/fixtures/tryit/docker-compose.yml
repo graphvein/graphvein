@@ -1,0 +1,16 @@
+services:
+  api:
+    build: .
+    ports:
+      - "8002:8000"
+      - "127.0.0.1:8003:8000"
+      - "${API_PORT}:8000"
+      - target: 8000
+        published: 8004
+    labels:
+      - "traefik.http.routers.api.rule=Host(`api.example.test`)"
+      - "traefik.http.routers.api.tls=true"
+  db:
+    image: postgres:17
+    ports:
+      - "5432:5432"

@@ -1,0 +1,28 @@
+{
+  "id": "review19-r1-d26-role-circular",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y13",
+  "row": "review19",
+  "history": {
+    "id": "d26-role-circular"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "0LP01",
+        "message": "role \"rv_c2\" is a member of role \"rv_c1\"",
+        "statement": 4,
+        "statement_text": "GRANT rv_c2 TO rv_c1;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

@@ -1,0 +1,33 @@
+{
+  "id": "g1-s9673-S1-M5k_detach_M5k_not_of",
+  "signature": "applied|S1|42601|M5k.detach",
+  "class": "S1",
+  "owner": "P7",
+  "row": "M5k.detach+M5k.not_of",
+  "history": {
+    "id": "g1-s9673",
+    "tags": {
+      "2_m2.sql": [
+        "M5k.detach+M5k.not_of"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "2_m2.sql",
+        "status": "refused",
+        "sqlstate": "42601",
+        "message": "syntax error at or near \",\"",
+        "statement": 1,
+        "statement_text": "ALTER TABLE t3 DETACH PARTITION t3, NOT OF;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

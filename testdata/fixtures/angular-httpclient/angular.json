@@ -1,0 +1,39 @@
+{
+  "projects": {
+    "functional": {
+      "sourceRoot": "functional",
+      "architect": {
+        "build": {
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "functional/environment.ts",
+                  "with": "functional/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "classic": {
+      "sourceRoot": "classic"
+    },
+    "ignored": {
+      "sourceRoot": "ignored"
+    },
+    "double": {
+      "sourceRoot": "double"
+    },
+    "shadow": {
+      "sourceRoot": "shadow"
+    },
+    "conditional": {
+      "sourceRoot": "conditional"
+    },
+    "classicDi": {
+      "sourceRoot": "classic-di"
+    }
+  }
+}

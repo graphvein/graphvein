@@ -1,0 +1,57 @@
+{
+  "id": "review15-s22-pk-using-index-multi-mig",
+  "signature": "agreed at Revision 1.5",
+  "class": "S1",
+  "owner": "U1",
+  "row": "review15",
+  "history": {
+    "id": "s22-pk-using-index-multi-mig"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "accepted"
+      },
+      {
+        "file": "2_b.sql",
+        "status": "accepted",
+        "no_transaction": true
+      },
+      {
+        "file": "3_c.sql",
+        "status": "accepted"
+      }
+    ],
+    "tables": [
+      {
+        "table": "history.t",
+        "columns": [
+          {
+            "name": "a",
+            "type": "integer",
+            "not_null": true,
+            "has_default": false
+          },
+          {
+            "name": "b",
+            "type": "integer",
+            "not_null": false,
+            "has_default": false
+          }
+        ],
+        "primary_key": [
+          "a"
+        ],
+        "unique_keys": [],
+        "foreign_keys": [],
+        "indexes": []
+      }
+    ],
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

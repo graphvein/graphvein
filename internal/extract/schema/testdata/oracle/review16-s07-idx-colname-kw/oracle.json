@@ -1,0 +1,48 @@
+{
+  "id": "review16-s07-idx-colname-kw",
+  "signature": "agreed at Revision 1.6",
+  "class": "S1",
+  "owner": "V3",
+  "row": "review16",
+  "history": {
+    "id": "s07-idx-colname-kw"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "accepted"
+      }
+    ],
+    "tables": [
+      {
+        "table": "history.t",
+        "columns": [
+          {
+            "name": "int",
+            "type": "integer",
+            "not_null": false,
+            "has_default": false
+          }
+        ],
+        "primary_key": null,
+        "unique_keys": [],
+        "foreign_keys": [],
+        "indexes": [
+          {
+            "name": "i",
+            "unique": false,
+            "columns": [
+              "int"
+            ]
+          }
+        ]
+      }
+    ],
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

@@ -1,0 +1,2 @@
+CREATE TABLE t1 (c1 bigint);
+ALTER TABLE t1 ADD COLUMN c2 char(3) NOT NULL, ALTER COLUMN c2 TYPE varchar(80);

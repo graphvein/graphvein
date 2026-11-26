@@ -1,0 +1,29 @@
+{
+  "id": "g5-s2274-S1-O1t_installer",
+  "signature": "applied|S1|42P01|O1t",
+  "class": "S1",
+  "owner": "O1t",
+  "row": "O1t",
+  "history": {
+    "id": "g5-s2274"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42P01",
+        "message": "relation \"\"t3\"\" does not exist",
+        "where": "SQL statement \"CREATE TRIGGER set_upd AFTER INSERT OR UPDATE ON \"\"\"t3\"\"\" FOR EACH ROW EXECUTE FUNCTION su2();\"\nPL/pgSQL function tu1(text) line 3 at EXECUTE",
+        "statement": 6,
+        "statement_text": "SELECT tu1('\"t3\"');"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

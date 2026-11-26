@@ -1,0 +1,4 @@
+CREATE TABLE t1 (a text, d date);
+CREATE INDEX ON t1 ((d + 1)) WHERE a <> '';
+CREATE TABLE t2 (extra int) INHERITS (t1);
+ALTER TABLE ONLY t1 ADD CONSTRAINT t1_pkey CHECK (d IS NOT NULL);

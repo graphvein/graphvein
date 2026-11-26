@@ -1,0 +1,29 @@
+{
+  "id": "review16-g30-names",
+  "signature": "agreed at Revision 1.6",
+  "class": "S1",
+  "owner": "V10",
+  "row": "review16",
+  "history": {
+    "id": "g30-names"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "22023",
+        "message": "invalid value for parameter \"client_encoding\": \"nosuch_enc\"",
+        "statement": 1,
+        "statement_text": "SET NAMES 'nosuch_enc';",
+        "row_free": true
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

@@ -1,0 +1,2 @@
+CREATE INDEX ix_3 ON t4 (id);
+CREATE TABLE t4 (CHECK (id IS NOT NULL));

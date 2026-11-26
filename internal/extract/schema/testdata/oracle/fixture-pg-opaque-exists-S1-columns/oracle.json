@@ -1,0 +1,48 @@
+{
+  "id": "fixture-pg-opaque-exists-S1-columns",
+  "signature": "columns",
+  "class": "S1",
+  "owner": "P3",
+  "row": "",
+  "history": {
+    "id": "fixture-pg-opaque-exists",
+    "cargo": "[package]\nname = \"pg-opaque-exists\"\nversion = \"0.1.0\"\nedition = \"2021\"\npublish = false\n\n[dependencies]\nsqlx = { version = \"0.8.6\", features = [\"runtime-tokio\", \"postgres\"] }\n",
+    "fresh_db": true,
+    "tags": {
+      "1_opaque.sql": [
+        "fixture",
+        "fixture"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "public",
+    "outcomes": [
+      {
+        "file": "1_opaque.sql",
+        "status": "accepted"
+      }
+    ],
+    "tables": [
+      {
+        "table": "public.made",
+        "columns": [
+          {
+            "name": "x",
+            "type": "integer",
+            "not_null": false,
+            "has_default": false
+          }
+        ],
+        "primary_key": null,
+        "unique_keys": [],
+        "foreign_keys": [],
+        "indexes": []
+      }
+    ],
+    "prelude_tables": [
+      "public._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

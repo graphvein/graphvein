@@ -1,0 +1,1689 @@
+{
+  "diagnostics": [
+    {
+      "code": "unresolved_calls",
+      "file": "src/app.tsx",
+      "message": "1 calls could not be resolved without a type checker (external=0, unknown=1)",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "unresolved_import",
+      "file": "src/asset.tsx",
+      "message": "web-root import /assets/icon.svg cannot be resolved without bundler configuration",
+      "severity": "warning",
+      "type": "diagnostic"
+    },
+    {
+      "code": "unresolved_calls",
+      "file": "src/blind.ts",
+      "message": "2 calls could not be resolved without a type checker (external=0, unknown=2)",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "syntax_error",
+      "file": "src/broken.ts",
+      "message": "tree-sitter recovered from invalid syntax",
+      "severity": "warning",
+      "type": "diagnostic"
+    },
+    {
+      "code": "ts_structure_unread",
+      "file": "src/broken.ts",
+      "message": "1 TypeScript or JavaScript declarations or imports are outside the structural claim contract and claim nothing (syntax_error=1)",
+      "severity": "info",
+      "type": "diagnostic"
+    }
+  ],
+  "edges": [
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/app.tsx",
+          "span": {
+            "end_column": 48,
+            "end_line": 8,
+            "start_column": 39,
+            "start_line": 8
+          }
+        }
+      ],
+      "kind": "calls",
+      "provenance": "fact",
+      "source": "function:src/app.tsx#App",
+      "target": "function:src/lib.ts#double",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/app.tsx",
+          "span": {
+            "end_column": 37,
+            "end_line": 8,
+            "start_column": 27,
+            "start_line": 8
+          }
+        },
+        {
+          "file": "src/app.tsx",
+          "span": {
+            "end_column": 64,
+            "end_line": 8,
+            "start_column": 50,
+            "start_line": 8
+          }
+        }
+      ],
+      "kind": "calls",
+      "provenance": "fact",
+      "source": "function:src/app.tsx#App",
+      "target": "function:src/lib.ts#greet",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/app.tsx",
+          "span": {
+            "end_column": 85,
+            "end_line": 8,
+            "start_column": 79,
+            "start_line": 8
+          }
+        }
+      ],
+      "kind": "calls",
+      "provenance": "fact",
+      "source": "function:src/app.tsx#App",
+      "target": "function:src/lib.ts#main",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/app.tsx",
+          "span": {
+            "end_column": 56,
+            "end_line": 15,
+            "start_column": 47,
+            "start_line": 15
+          }
+        }
+      ],
+      "kind": "calls",
+      "provenance": "fact",
+      "source": "function:src/app.tsx#expression",
+      "target": "function:src/lib.ts#double",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/app.tsx",
+          "span": {
+            "end_column": 16,
+            "end_line": 18,
+            "start_column": 9,
+            "start_line": 18
+          }
+        }
+      ],
+      "kind": "calls",
+      "provenance": "fact",
+      "source": "function:src/app.tsx#outer",
+      "target": "function:src/app.tsx#outer.inner",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/app.tsx",
+          "span": {
+            "end_column": 37,
+            "end_line": 17,
+            "start_column": 28,
+            "start_line": 17
+          }
+        }
+      ],
+      "kind": "calls",
+      "provenance": "fact",
+      "source": "function:src/app.tsx#outer.inner",
+      "target": "function:src/lib.ts#double",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/lib.ts",
+          "span": {
+            "end_column": 54,
+            "end_line": 6,
+            "start_column": 40,
+            "start_line": 6
+          }
+        }
+      ],
+      "kind": "calls",
+      "provenance": "fact",
+      "source": "function:src/lib.ts#main",
+      "target": "function:src/lib.ts#greet",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/script.jsx",
+          "span": {
+            "end_column": 43,
+            "end_line": 2,
+            "start_column": 38,
+            "start_line": 2
+          }
+        }
+      ],
+      "kind": "calls",
+      "provenance": "fact",
+      "source": "function:src/script.jsx#Widget",
+      "target": "function:src/default.ts#default.arrow",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/app.tsx",
+          "span": {
+            "end_column": 32,
+            "end_line": 13,
+            "start_column": 19,
+            "start_line": 13
+          }
+        }
+      ],
+      "kind": "calls",
+      "provenance": "fact",
+      "source": "method:src/app.tsx#View.label",
+      "target": "function:src/lib.ts#greet",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/app.tsx",
+          "span": {
+            "end_column": 32,
+            "end_line": 12,
+            "start_column": 20,
+            "start_line": 12
+          }
+        }
+      ],
+      "kind": "calls",
+      "provenance": "fact",
+      "source": "method:src/app.tsx#View.render",
+      "target": "method:src/app.tsx#View.label",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/script.jsx",
+          "span": {
+            "end_column": 46,
+            "end_line": 3,
+            "start_column": 41,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "calls",
+      "provenance": "fact",
+      "source": "method:src/script.jsx#default.class.method",
+      "target": "function:src/default.ts#default.arrow",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/app.tsx",
+          "span": {
+            "end_column": 35,
+            "end_line": 13,
+            "start_column": 2,
+            "start_line": 13
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:src/app.tsx#View",
+      "target": "method:src/app.tsx#View.label",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/app.tsx",
+          "span": {
+            "end_column": 35,
+            "end_line": 12,
+            "start_column": 2,
+            "start_line": 11
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:src/app.tsx#View",
+      "target": "method:src/app.tsx#View.render",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/script.jsx",
+          "span": {
+            "end_column": 49,
+            "end_line": 3,
+            "start_column": 23,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:src/script.jsx#default.class",
+      "target": "method:src/script.jsx#default.class.method",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "nested/keep.ts",
+          "span": {
+            "end_column": 27,
+            "end_line": 1,
+            "start_column": 0,
+            "start_line": 1
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:nested/keep.ts#nested%2Fkeep.ts",
+      "target": "function:nested/keep.ts#kept",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/app.tsx",
+          "span": {
+            "end_column": 1,
+            "end_line": 14,
+            "start_column": 0,
+            "start_line": 9
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/app.tsx#src%2Fapp.tsx",
+      "target": "class:src/app.tsx#View",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/app.tsx",
+          "span": {
+            "end_column": 33,
+            "end_line": 6,
+            "start_column": 0,
+            "start_line": 6
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/app.tsx#src%2Fapp.tsx",
+      "target": "enum:src/app.tsx#Mode",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/app.tsx",
+          "span": {
+            "end_column": 95,
+            "end_line": 8,
+            "start_column": 0,
+            "start_line": 8
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/app.tsx#src%2Fapp.tsx",
+      "target": "function:src/app.tsx#App",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/app.tsx",
+          "span": {
+            "end_column": 59,
+            "end_line": 15,
+            "start_column": 0,
+            "start_line": 15
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/app.tsx#src%2Fapp.tsx",
+      "target": "function:src/app.tsx#expression",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/app.tsx",
+          "span": {
+            "end_column": 1,
+            "end_line": 19,
+            "start_column": 0,
+            "start_line": 16
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/app.tsx#src%2Fapp.tsx",
+      "target": "function:src/app.tsx#outer",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/app.tsx",
+          "span": {
+            "end_column": 65,
+            "end_line": 20,
+            "start_column": 0,
+            "start_line": 20
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/app.tsx#src%2Fapp.tsx",
+      "target": "function:src/app.tsx#shadow",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/app.tsx",
+          "span": {
+            "end_column": 41,
+            "end_line": 4,
+            "start_column": 0,
+            "start_line": 4
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/app.tsx#src%2Fapp.tsx",
+      "target": "interface:src/app.tsx#Props",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/app.tsx",
+          "span": {
+            "end_column": 27,
+            "end_line": 5,
+            "start_column": 0,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/app.tsx#src%2Fapp.tsx",
+      "target": "type_alias:src/app.tsx#Title",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/app.tsx",
+          "span": {
+            "end_column": 24,
+            "end_line": 7,
+            "start_column": 0,
+            "start_line": 7
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/app.tsx#src%2Fapp.tsx",
+      "target": "variable:src/app.tsx#version",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/asset.tsx",
+          "span": {
+            "end_column": 44,
+            "end_line": 2,
+            "start_column": 0,
+            "start_line": 2
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/asset.tsx#src%2Fasset.tsx",
+      "target": "function:src/asset.tsx#Icon",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/blind.ts",
+          "span": {
+            "end_column": 1,
+            "end_line": 4,
+            "start_column": 0,
+            "start_line": 1
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/blind.ts#src%2Fblind.ts",
+      "target": "function:src/blind.ts#blind",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/default.ts",
+          "span": {
+            "end_column": 22,
+            "end_line": 1,
+            "start_column": 0,
+            "start_line": 1
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/default.ts#src%2Fdefault.ts",
+      "target": "function:src/default.ts#default.arrow",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/lib.ts",
+          "span": {
+            "end_column": 49,
+            "end_line": 5,
+            "start_column": 0,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/lib.ts#src%2Flib.ts",
+      "target": "function:src/lib.ts#convert",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/lib.ts",
+          "span": {
+            "end_column": 43,
+            "end_line": 3,
+            "start_column": 0,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/lib.ts#src%2Flib.ts",
+      "target": "function:src/lib.ts#convert%40overload%28n%3Anumber%29%3Anumber",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/lib.ts",
+          "span": {
+            "end_column": 43,
+            "end_line": 4,
+            "start_column": 0,
+            "start_line": 4
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/lib.ts#src%2Flib.ts",
+      "target": "function:src/lib.ts#convert%40overload%28n%3Astring%29%3Astring",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/lib.ts",
+          "span": {
+            "end_column": 42,
+            "end_line": 2,
+            "start_column": 0,
+            "start_line": 2
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/lib.ts#src%2Flib.ts",
+      "target": "function:src/lib.ts#double",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/lib.ts",
+          "span": {
+            "end_column": 52,
+            "end_line": 1,
+            "start_column": 0,
+            "start_line": 1
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/lib.ts#src%2Flib.ts",
+      "target": "function:src/lib.ts#greet",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/lib.ts",
+          "span": {
+            "end_column": 57,
+            "end_line": 6,
+            "start_column": 0,
+            "start_line": 6
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/lib.ts#src%2Flib.ts",
+      "target": "function:src/lib.ts#main",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/script.jsx",
+          "span": {
+            "end_column": 51,
+            "end_line": 3,
+            "start_column": 0,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/script.jsx#src%2Fscript.jsx",
+      "target": "class:src/script.jsx#default.class",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/script.jsx",
+          "span": {
+            "end_column": 51,
+            "end_line": 2,
+            "start_column": 0,
+            "start_line": 2
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/script.jsx#src%2Fscript.jsx",
+      "target": "function:src/script.jsx#Widget",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/app.tsx",
+          "span": {
+            "end_column": 40,
+            "end_line": 17,
+            "start_column": 2,
+            "start_line": 17
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "function:src/app.tsx#outer",
+      "target": "function:src/app.tsx#outer.inner",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/app.tsx",
+          "span": {
+            "end_column": 26,
+            "end_line": 1,
+            "start_column": 0,
+            "start_line": 1
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:src/app.tsx#src%2Fapp.tsx",
+      "target": "external:.#npm%3Areact",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/app.tsx",
+          "span": {
+            "end_column": 53,
+            "end_line": 2,
+            "start_column": 0,
+            "start_line": 2
+          }
+        },
+        {
+          "file": "src/app.tsx",
+          "span": {
+            "end_column": 29,
+            "end_line": 3,
+            "start_column": 0,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:src/app.tsx#src%2Fapp.tsx",
+      "target": "file:src/lib.ts#src%2Flib.ts",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/asset.tsx",
+          "span": {
+            "end_column": 36,
+            "end_line": 1,
+            "start_column": 0,
+            "start_line": 1
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:src/asset.tsx#src%2Fasset.tsx",
+      "target": "external:.#web%3A%2Fassets%2Ficon.svg",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/script.jsx",
+          "span": {
+            "end_column": 28,
+            "end_line": 1,
+            "start_column": 0,
+            "start_line": 1
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:src/script.jsx#src%2Fscript.jsx",
+      "target": "file:src/default.ts#src%2Fdefault.ts",
+      "type": "edge"
+    }
+  ],
+  "files": [
+    {
+      "content_hash": "sha256:748576f2cdece5671a29082957db82b321329dd4222a6092cf5310af2102e6fb",
+      "language": "unknown",
+      "path": ".graphveinignore",
+      "precision": "best_effort",
+      "size": 19,
+      "type": "file"
+    },
+    {
+      "content_hash": "sha256:c8afe5be542e8119ba71f40152eedc5366ec76f04d3e1b19c4cc405faf4e9fe7",
+      "language": "unknown",
+      "path": "nested/.gitignore",
+      "precision": "best_effort",
+      "size": 14,
+      "type": "file"
+    },
+    {
+      "content_hash": "sha256:7bfdb0383a0d860ca69fd41126067a21fe1e45e1ec6278cd99f9ea903667de48",
+      "language": "typescript",
+      "path": "nested/keep.ts",
+      "precision": "precise",
+      "size": 29,
+      "type": "file"
+    },
+    {
+      "content_hash": "sha256:112fb02e9318a166be5ca40df92fd24bb20e3409655045c1cb35ee244e982eea",
+      "language": "json",
+      "path": "package.json",
+      "precision": "best_effort",
+      "size": 55,
+      "type": "file"
+    },
+    {
+      "content_hash": "sha256:ee4c714888f49e3c0b03bc74112820d60b40d01c88e3e178811de274abba48e0",
+      "language": "tsx",
+      "path": "src/app.tsx",
+      "precision": "precise",
+      "size": 695,
+      "type": "file"
+    },
+    {
+      "content_hash": "sha256:a4df3653b2576d1747c8ccef2c4ca1ace3a2351d1b5bc9a3ff411e6f53330d6c",
+      "language": "tsx",
+      "path": "src/asset.tsx",
+      "precision": "precise",
+      "size": 83,
+      "type": "file"
+    },
+    {
+      "content_hash": "sha256:defc958ae4f8f4c013a27d94f901579394eef1267c76a0a7d082e5197cfe2bbe",
+      "language": "typescript",
+      "path": "src/blind.ts",
+      "precision": "precise",
+      "size": 71,
+      "type": "file"
+    },
+    {
+      "content_hash": "sha256:c9d23bab86c0457d88f28bd4a52eec1affb0231dad8f025afffd20ab3e4630b6",
+      "language": "typescript",
+      "path": "src/broken.ts",
+      "precision": "best_effort",
+      "size": 35,
+      "type": "file"
+    },
+    {
+      "content_hash": "sha256:ed6af546f1884e95fd5744d4bbce7b414182c1b6bb491d0ed477fa951c90a979",
+      "language": "typescript",
+      "path": "src/default.ts",
+      "precision": "precise",
+      "size": 24,
+      "type": "file"
+    },
+    {
+      "content_hash": "sha256:185c074ca8ad58d6266e5bd57c4074fde1d38a48c1f02f23df25174cb9ead351",
+      "language": "typescript",
+      "path": "src/lib.ts",
+      "precision": "precise",
+      "size": 293,
+      "type": "file"
+    },
+    {
+      "content_hash": "sha256:3dbb9bcf95d9febe9f1dc81ccb7945356b2f0884120f425ea648194d5eb19e56",
+      "language": "javascript",
+      "path": "src/script.jsx",
+      "precision": "precise",
+      "size": 133,
+      "type": "file"
+    }
+  ],
+  "nodes": [
+    {
+      "attributes": {
+        "decorators": [
+          "@Component({ selector: 'demo' })"
+        ],
+        "exported": true
+      },
+      "content_hash": "sha256:673a88c650f11f4452f3bcab87b74509957629d9bba7d344a1ce53f6b546f9db",
+      "file": "src/app.tsx",
+      "identity": "class:src/app.tsx#View",
+      "kind": "class",
+      "level": 4,
+      "name": "View",
+      "qualified_name": "View",
+      "span": {
+        "end_column": 1,
+        "end_line": 14,
+        "start_column": 0,
+        "start_line": 9
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "default_export": true,
+        "exported": true
+      },
+      "content_hash": "sha256:af6a362ccbf488cace918f5a28db7e0a54318801b6f9f3926d91e834c44a9c7e",
+      "file": "src/script.jsx",
+      "identity": "class:src/script.jsx#default.class",
+      "kind": "class",
+      "level": 4,
+      "name": "default.class",
+      "qualified_name": "default.class",
+      "span": {
+        "end_column": 51,
+        "end_line": 3,
+        "start_column": 0,
+        "start_line": 3
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "exported": true
+      },
+      "content_hash": "sha256:ed161120db4e194f3da4f744ef8caf979f10b3f900dd6de073816d18e23b8be7",
+      "file": "src/app.tsx",
+      "identity": "enum:src/app.tsx#Mode",
+      "kind": "enum",
+      "level": 4,
+      "name": "Mode",
+      "qualified_name": "Mode",
+      "span": {
+        "end_column": 33,
+        "end_line": 6,
+        "start_column": 0,
+        "start_line": 6
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "ecosystem": "npm",
+        "name": "react"
+      },
+      "content_hash": "sha256:f1705c96285e0f1d31510ce870801a798e6350fbb588bf3b825cafa3d7b22d1f",
+      "file": ".",
+      "identity": "external:.#npm%3Areact",
+      "kind": "external",
+      "level": 1,
+      "name": "react",
+      "qualified_name": "npm:react",
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "ecosystem": "web",
+        "name": "/assets/icon.svg",
+        "unresolved": true
+      },
+      "content_hash": "sha256:9f5c2f760b0718f4d240c34bf62b0de8fa7858ff47a89c60bbb653a9e50ebf8a",
+      "file": ".",
+      "identity": "external:.#web%3A%2Fassets%2Ficon.svg",
+      "kind": "external",
+      "level": 1,
+      "name": "/assets/icon.svg",
+      "qualified_name": "web:/assets/icon.svg",
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:748576f2cdece5671a29082957db82b321329dd4222a6092cf5310af2102e6fb",
+      "file": ".graphveinignore",
+      "identity": "file:.graphveinignore#.graphveinignore",
+      "kind": "file",
+      "level": 3,
+      "name": ".graphveinignore",
+      "qualified_name": ".graphveinignore",
+      "span": {
+        "end_column": 0,
+        "end_line": 2,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:c8afe5be542e8119ba71f40152eedc5366ec76f04d3e1b19c4cc405faf4e9fe7",
+      "file": "nested/.gitignore",
+      "identity": "file:nested/.gitignore#nested%2F.gitignore",
+      "kind": "file",
+      "level": 3,
+      "name": ".gitignore",
+      "qualified_name": "nested/.gitignore",
+      "span": {
+        "end_column": 0,
+        "end_line": 3,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:7bfdb0383a0d860ca69fd41126067a21fe1e45e1ec6278cd99f9ea903667de48",
+      "file": "nested/keep.ts",
+      "identity": "file:nested/keep.ts#nested%2Fkeep.ts",
+      "kind": "file",
+      "level": 3,
+      "name": "keep.ts",
+      "qualified_name": "nested/keep.ts",
+      "span": {
+        "end_column": 0,
+        "end_line": 2,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:112fb02e9318a166be5ca40df92fd24bb20e3409655045c1cb35ee244e982eea",
+      "file": "package.json",
+      "identity": "file:package.json#package.json",
+      "kind": "file",
+      "level": 3,
+      "name": "package.json",
+      "qualified_name": "package.json",
+      "span": {
+        "end_column": 0,
+        "end_line": 2,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 1,
+        "unresolved_unknown_call_sites": [
+          {
+            "caller": "function:src/app.tsx#shadow",
+            "name": "double",
+            "span": {
+              "end_column": 62,
+              "end_line": 20,
+              "start_column": 54,
+              "start_line": 20
+            }
+          }
+        ]
+      },
+      "content_hash": "sha256:ee4c714888f49e3c0b03bc74112820d60b40d01c88e3e178811de274abba48e0",
+      "file": "src/app.tsx",
+      "identity": "file:src/app.tsx#src%2Fapp.tsx",
+      "kind": "file",
+      "level": 3,
+      "name": "app.tsx",
+      "qualified_name": "src/app.tsx",
+      "span": {
+        "end_column": 0,
+        "end_line": 21,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:a4df3653b2576d1747c8ccef2c4ca1ace3a2351d1b5bc9a3ff411e6f53330d6c",
+      "file": "src/asset.tsx",
+      "identity": "file:src/asset.tsx#src%2Fasset.tsx",
+      "kind": "file",
+      "level": 3,
+      "name": "asset.tsx",
+      "qualified_name": "src/asset.tsx",
+      "span": {
+        "end_column": 0,
+        "end_line": 3,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 2,
+        "unresolved_unknown_call_sites": [
+          {
+            "caller": "function:src/blind.ts#blind",
+            "name": "greet",
+            "span": {
+              "end_column": 15,
+              "end_line": 2,
+              "start_column": 4,
+              "start_line": 2
+            }
+          },
+          {
+            "caller": "function:src/blind.ts#blind",
+            "name": "unrelated",
+            "span": {
+              "end_column": 19,
+              "end_line": 3,
+              "start_column": 4,
+              "start_line": 3
+            }
+          }
+        ]
+      },
+      "content_hash": "sha256:defc958ae4f8f4c013a27d94f901579394eef1267c76a0a7d082e5197cfe2bbe",
+      "file": "src/blind.ts",
+      "identity": "file:src/blind.ts#src%2Fblind.ts",
+      "kind": "file",
+      "level": 3,
+      "name": "blind.ts",
+      "qualified_name": "src/blind.ts",
+      "span": {
+        "end_column": 0,
+        "end_line": 5,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:c9d23bab86c0457d88f28bd4a52eec1affb0231dad8f025afffd20ab3e4630b6",
+      "file": "src/broken.ts",
+      "identity": "file:src/broken.ts#src%2Fbroken.ts",
+      "kind": "file",
+      "level": 3,
+      "name": "broken.ts",
+      "qualified_name": "src/broken.ts",
+      "span": {
+        "end_column": 0,
+        "end_line": 2,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:ed6af546f1884e95fd5744d4bbce7b414182c1b6bb491d0ed477fa951c90a979",
+      "file": "src/default.ts",
+      "identity": "file:src/default.ts#src%2Fdefault.ts",
+      "kind": "file",
+      "level": 3,
+      "name": "default.ts",
+      "qualified_name": "src/default.ts",
+      "span": {
+        "end_column": 0,
+        "end_line": 2,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:185c074ca8ad58d6266e5bd57c4074fde1d38a48c1f02f23df25174cb9ead351",
+      "file": "src/lib.ts",
+      "identity": "file:src/lib.ts#src%2Flib.ts",
+      "kind": "file",
+      "level": 3,
+      "name": "lib.ts",
+      "qualified_name": "src/lib.ts",
+      "span": {
+        "end_column": 0,
+        "end_line": 7,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:3dbb9bcf95d9febe9f1dc81ccb7945356b2f0884120f425ea648194d5eb19e56",
+      "file": "src/script.jsx",
+      "identity": "file:src/script.jsx#src%2Fscript.jsx",
+      "kind": "file",
+      "level": 3,
+      "name": "script.jsx",
+      "qualified_name": "src/script.jsx",
+      "span": {
+        "end_column": 0,
+        "end_line": 4,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "exported": true
+      },
+      "content_hash": "sha256:141a3790d74a54a7ca3779c9857d205ee2eb96429843f64ef42477762333ad2b",
+      "file": "nested/keep.ts",
+      "identity": "function:nested/keep.ts#kept",
+      "kind": "function",
+      "level": 4,
+      "name": "kept",
+      "qualified_name": "kept",
+      "span": {
+        "end_column": 27,
+        "end_line": 1,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "exported": true
+      },
+      "content_hash": "sha256:c3c7feb9a64580448506a129d70ce60b220f108be59b7a36c5c8d32dac205ade",
+      "file": "src/app.tsx",
+      "identity": "function:src/app.tsx#App",
+      "kind": "function",
+      "level": 4,
+      "name": "App",
+      "qualified_name": "App",
+      "span": {
+        "end_column": 95,
+        "end_line": 8,
+        "start_column": 0,
+        "start_line": 8
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "exported": true
+      },
+      "content_hash": "sha256:b3fe4ebe3029d17a6790ef50963f64d25e8b23bf013b717373f221eb4a8545ee",
+      "file": "src/app.tsx",
+      "identity": "function:src/app.tsx#expression",
+      "kind": "function",
+      "level": 4,
+      "name": "expression",
+      "qualified_name": "expression",
+      "span": {
+        "end_column": 59,
+        "end_line": 15,
+        "start_column": 0,
+        "start_line": 15
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "exported": true
+      },
+      "content_hash": "sha256:be8a9c81b92572ad12d494f4d65339745e7a6ebec1d88eaeb0692fc58da18db4",
+      "file": "src/app.tsx",
+      "identity": "function:src/app.tsx#outer",
+      "kind": "function",
+      "level": 4,
+      "name": "outer",
+      "qualified_name": "outer",
+      "span": {
+        "end_column": 1,
+        "end_line": 19,
+        "start_column": 0,
+        "start_line": 16
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:ae7e669b92b650d8925c055dfdbdd171d9c19c0d2cc0beed96a0f6a5d29c0e03",
+      "file": "src/app.tsx",
+      "identity": "function:src/app.tsx#outer.inner",
+      "kind": "function",
+      "level": 4,
+      "name": "inner",
+      "qualified_name": "outer.inner",
+      "span": {
+        "end_column": 40,
+        "end_line": 17,
+        "start_column": 2,
+        "start_line": 17
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "exported": true
+      },
+      "content_hash": "sha256:cab70d735c03d1fa48054b8412f515b07c6bb32c747323125f0bee9e4c2506f8",
+      "file": "src/app.tsx",
+      "identity": "function:src/app.tsx#shadow",
+      "kind": "function",
+      "level": 4,
+      "name": "shadow",
+      "qualified_name": "shadow",
+      "span": {
+        "end_column": 65,
+        "end_line": 20,
+        "start_column": 0,
+        "start_line": 20
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "exported": true
+      },
+      "content_hash": "sha256:65cbabebefdc1f20d7acb30d337b396272a20cef396f0711f48b9932612d9ca9",
+      "file": "src/asset.tsx",
+      "identity": "function:src/asset.tsx#Icon",
+      "kind": "function",
+      "level": 4,
+      "name": "Icon",
+      "qualified_name": "Icon",
+      "span": {
+        "end_column": 44,
+        "end_line": 2,
+        "start_column": 0,
+        "start_line": 2
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:cabf78fcdf6da1c9f1e3c2c311651dea66b83181bb7dfcb32325bf2e98c8060f",
+      "file": "src/blind.ts",
+      "identity": "function:src/blind.ts#blind",
+      "kind": "function",
+      "level": 4,
+      "name": "blind",
+      "qualified_name": "blind",
+      "span": {
+        "end_column": 1,
+        "end_line": 4,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "default_export": true,
+        "exported": true
+      },
+      "content_hash": "sha256:7dfa24eebceb19f02dbb5fcfcf28c81c80f7457eb016b42b7843e185090d1b25",
+      "file": "src/default.ts",
+      "identity": "function:src/default.ts#default.arrow",
+      "kind": "function",
+      "level": 4,
+      "name": "default.arrow",
+      "qualified_name": "default.arrow",
+      "span": {
+        "end_column": 22,
+        "end_line": 1,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "exported": true
+      },
+      "content_hash": "sha256:eb7ab69079a203fbbb9c06f0ff679ae6319ca76eb2bb4565d99f09329cab36eb",
+      "file": "src/lib.ts",
+      "identity": "function:src/lib.ts#convert",
+      "kind": "function",
+      "level": 4,
+      "name": "convert",
+      "qualified_name": "convert",
+      "span": {
+        "end_column": 49,
+        "end_line": 5,
+        "start_column": 0,
+        "start_line": 5
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "exported": true
+      },
+      "content_hash": "sha256:3e9bc7b8383ce04c0ac84cecc14b8f927b3a8bb8c8943d87d49961dfa37093f6",
+      "file": "src/lib.ts",
+      "identity": "function:src/lib.ts#convert%40overload%28n%3Anumber%29%3Anumber",
+      "kind": "function",
+      "level": 4,
+      "name": "convert",
+      "qualified_name": "convert@overload(n:number):number",
+      "span": {
+        "end_column": 43,
+        "end_line": 3,
+        "start_column": 0,
+        "start_line": 3
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "exported": true
+      },
+      "content_hash": "sha256:dc188229cf692818ba6a210b58ef3fe16149e0fbbf359631353adda5b59d3d44",
+      "file": "src/lib.ts",
+      "identity": "function:src/lib.ts#convert%40overload%28n%3Astring%29%3Astring",
+      "kind": "function",
+      "level": 4,
+      "name": "convert",
+      "qualified_name": "convert@overload(n:string):string",
+      "span": {
+        "end_column": 43,
+        "end_line": 4,
+        "start_column": 0,
+        "start_line": 4
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "exported": true
+      },
+      "content_hash": "sha256:93aed72623084d71f620b5d34318de592d351fd78639296e8d19ae3ce61a2e5a",
+      "file": "src/lib.ts",
+      "identity": "function:src/lib.ts#double",
+      "kind": "function",
+      "level": 4,
+      "name": "double",
+      "qualified_name": "double",
+      "span": {
+        "end_column": 42,
+        "end_line": 2,
+        "start_column": 0,
+        "start_line": 2
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "exported": true
+      },
+      "content_hash": "sha256:3cfce521c808de927d68877d34bdd9386330ea76380136b1fce912ce740e4717",
+      "file": "src/lib.ts",
+      "identity": "function:src/lib.ts#greet",
+      "kind": "function",
+      "level": 4,
+      "name": "greet",
+      "qualified_name": "greet",
+      "span": {
+        "end_column": 52,
+        "end_line": 1,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "default_export": true,
+        "exported": true
+      },
+      "content_hash": "sha256:af16cf12676dee0f1d8360992ebca3160c407cc78ff8ae503f4b75c8a2b91402",
+      "file": "src/lib.ts",
+      "identity": "function:src/lib.ts#main",
+      "kind": "function",
+      "level": 4,
+      "name": "main",
+      "qualified_name": "main",
+      "span": {
+        "end_column": 57,
+        "end_line": 6,
+        "start_column": 0,
+        "start_line": 6
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "exported": true
+      },
+      "content_hash": "sha256:f610488e32177f89fb35a04710578c741acbd6fc4a879c6667a12966e3d19ccc",
+      "file": "src/script.jsx",
+      "identity": "function:src/script.jsx#Widget",
+      "kind": "function",
+      "level": 4,
+      "name": "Widget",
+      "qualified_name": "Widget",
+      "span": {
+        "end_column": 51,
+        "end_line": 2,
+        "start_column": 0,
+        "start_line": 2
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "exported": true
+      },
+      "content_hash": "sha256:cfc5b87545130deed9c5ef369074fd8dadfda4fe9b0a43d6014a6c78c62e68fd",
+      "file": "src/app.tsx",
+      "identity": "interface:src/app.tsx#Props",
+      "kind": "interface",
+      "level": 4,
+      "name": "Props",
+      "qualified_name": "Props",
+      "span": {
+        "end_column": 41,
+        "end_line": 4,
+        "start_column": 0,
+        "start_line": 4
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:a1c5ec0c2b748a13d4ac41371914327e1573954f460944824059030af6f3e73e",
+      "file": "src/app.tsx",
+      "identity": "method:src/app.tsx#View.label",
+      "kind": "method",
+      "level": 4,
+      "name": "label",
+      "qualified_name": "View.label",
+      "span": {
+        "end_column": 35,
+        "end_line": 13,
+        "start_column": 2,
+        "start_line": 13
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "decorators": [
+          "@Injectable()"
+        ]
+      },
+      "content_hash": "sha256:3a345a03ea6464bbcac1e6a686eea363bed6d6faefbe54a9ee6742b3512ac194",
+      "file": "src/app.tsx",
+      "identity": "method:src/app.tsx#View.render",
+      "kind": "method",
+      "level": 4,
+      "name": "render",
+      "qualified_name": "View.render",
+      "span": {
+        "end_column": 35,
+        "end_line": 12,
+        "start_column": 2,
+        "start_line": 11
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:08cb03902c6c20aa2dfee9576aaf3770e599ec24f0c586d6f722e791bd2e62e6",
+      "file": "src/script.jsx",
+      "identity": "method:src/script.jsx#default.class.method",
+      "kind": "method",
+      "level": 4,
+      "name": "method",
+      "qualified_name": "default.class.method",
+      "span": {
+        "end_column": 49,
+        "end_line": 3,
+        "start_column": 23,
+        "start_line": 3
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "exported": true
+      },
+      "content_hash": "sha256:89981b30d3e2e774bf35fb41368356eb05e34598bedcbc7acdb87e1ab01bffe7",
+      "file": "src/app.tsx",
+      "identity": "type_alias:src/app.tsx#Title",
+      "kind": "type_alias",
+      "level": 4,
+      "name": "Title",
+      "qualified_name": "Title",
+      "span": {
+        "end_column": 27,
+        "end_line": 5,
+        "start_column": 0,
+        "start_line": 5
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "exported": true
+      },
+      "content_hash": "sha256:355da11f797f20527a4b0d48738cf91db1c28d40cd3e65e38e9049a759dd8d4b",
+      "file": "src/app.tsx",
+      "identity": "variable:src/app.tsx#version",
+      "kind": "variable",
+      "level": 4,
+      "name": "version",
+      "qualified_name": "version",
+      "span": {
+        "end_column": 24,
+        "end_line": 7,
+        "start_column": 0,
+        "start_line": 7
+      },
+      "type": "node"
+    }
+  ]
+}

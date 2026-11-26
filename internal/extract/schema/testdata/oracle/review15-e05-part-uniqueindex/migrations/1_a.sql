@@ -1,0 +1,2 @@
+CREATE TABLE p (id int, k int) PARTITION BY RANGE (k);
+CREATE UNIQUE INDEX p_id ON p (id);

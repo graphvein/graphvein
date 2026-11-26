@@ -1,0 +1,28 @@
+{
+  "id": "review18-g06-index-on-matview-missingcol",
+  "signature": "agreed at Revision 1.8",
+  "class": "S1",
+  "owner": "X3",
+  "row": "review18",
+  "history": {
+    "id": "g06-index-on-matview-missingcol"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42703",
+        "message": "column \"b\" does not exist",
+        "statement": 3,
+        "statement_text": "create index mv_b on mv (b);"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

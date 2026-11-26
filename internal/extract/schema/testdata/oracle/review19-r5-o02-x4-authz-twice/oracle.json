@@ -1,0 +1,33 @@
+{
+  "id": "review19-r5-o02-x4-authz-twice",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y43",
+  "row": "review19",
+  "history": {
+    "id": "o02-x4-authz-twice",
+    "fresh_db": true
+  },
+  "verdict": {
+    "default_schema": "public",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "accepted"
+      },
+      {
+        "file": "2_again.sql",
+        "status": "refused",
+        "sqlstate": "42P06",
+        "message": "schema \"r5app2\" already exists",
+        "statement": 1,
+        "statement_text": "CREATE SCHEMA AUTHORIZATION r5app2;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "public._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

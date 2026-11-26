@@ -1,0 +1,35 @@
+{
+  "id": "g6-s1525-S1-M5f_generated_name_r2",
+  "signature": "applied|S1|42710|M5f.generated_name_r2",
+  "class": "S1",
+  "owner": "P2",
+  "row": "M5f.generated_name_r2",
+  "history": {
+    "id": "g6-s1525",
+    "tags": {
+      "1_m1.sql": [
+        "M5f.generated_name_r2",
+        "M5f.generated_name_r2",
+        "M5f.generated_name_r2"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42710",
+        "message": "constraint \"t2_check\" for relation \"t2\" already exists",
+        "statement": 3,
+        "statement_text": "ALTER TABLE t2 ADD CONSTRAINT t2_check PRIMARY KEY (a);"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

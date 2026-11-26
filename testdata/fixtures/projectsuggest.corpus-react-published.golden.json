@@ -1,0 +1,151 @@
+{
+  "proposals": [
+    {
+      "declared": false,
+      "evidence": [
+        {
+          "file": ".env.compose",
+          "key": "API_URL",
+          "line": 3,
+          "member": "react",
+          "row": "SG-E1",
+          "value": "http://localhost:30400/api"
+        },
+        {
+          "file": "webpack.config.js",
+          "key": "__API_URL__",
+          "line": 30,
+          "member": "react",
+          "row": "SG-D1",
+          "value": "process.env.API_URL"
+        },
+        {
+          "file": ".env.development",
+          "key": "API_URL",
+          "line": 1,
+          "member": "react",
+          "row": "SG-E1",
+          "value": "http://localhost:30400/api"
+        },
+        {
+          "file": ".env.production",
+          "key": "API_URL",
+          "line": 1,
+          "member": "react",
+          "row": "SG-E1",
+          "value": "http://localhost:30400/api"
+        },
+        {
+          "file": "docker-compose.yml",
+          "key": "api.ports",
+          "line": 5,
+          "member": "",
+          "row": "SG-C2",
+          "value": "30400:3100"
+        }
+      ],
+      "matches": [
+        "SG-M1"
+      ],
+      "member": "react",
+      "number": 1,
+      "provider": "express",
+      "select": {
+        "bases": [
+          "__API_URL__"
+        ]
+      }
+    }
+  ],
+  "unmatched": [
+    {
+      "evidence": {
+        "file": ".env.development",
+        "key": "BASE_URL",
+        "line": 3,
+        "member": "react",
+        "row": "SG-E1",
+        "value": "http://localhost:30401"
+      },
+      "reason": "only the member itself declares local port 30401 (published Compose port or env port)",
+      "row": "SG-M3"
+    },
+    {
+      "evidence": {
+        "file": ".env.production",
+        "key": "BASE_URL",
+        "line": 3,
+        "member": "react",
+        "row": "SG-E1",
+        "value": "http://localhost:80"
+      },
+      "reason": "only the member itself declares local port 80 (published Compose port or env port)",
+      "row": "SG-M3"
+    }
+  ],
+  "unread": [
+    {
+      "file": "docker-compose.yml",
+      "line": 9,
+      "member": "react",
+      "reason": "service frontend: ports entry has a container port that is not one number (range or interpolation)",
+      "row": "SG-U"
+    },
+    {
+      "file": "webpack.config.js",
+      "line": 17,
+      "member": "react",
+      "reason": "config is computed in code (not a literal exported object)",
+      "row": "SG-U"
+    },
+    {
+      "file": "docker-compose.yml",
+      "line": 28,
+      "member": "express",
+      "reason": "service mysql: runs an image, not built from a member (no build context)",
+      "row": "SG-U"
+    },
+    {
+      "file": "docker-compose.yaml",
+      "line": 3,
+      "member": "axum-ddd",
+      "reason": "service db: runs an image, not built from a member (no build context)",
+      "row": "SG-U"
+    },
+    {
+      "file": "docker-compose.yaml",
+      "line": 17,
+      "member": "axum-ddd",
+      "reason": "service db-backup: runs an image, not built from a member (no build context)",
+      "row": "SG-U"
+    },
+    {
+      "file": "docker-compose.yaml",
+      "line": 37,
+      "member": "axum-ddd",
+      "reason": "service app: ports entry has a published port that is not one number (interpolation, range or empty); only its container port is read",
+      "row": "SG-U"
+    },
+    {
+      "file": "docker-compose.yaml",
+      "line": 56,
+      "member": "axum-ddd",
+      "reason": "service prometheus: runs an image, not built from a member (no build context)",
+      "row": "SG-U"
+    },
+    {
+      "file": "docker-compose.yaml",
+      "line": 63,
+      "member": "axum-ddd",
+      "reason": "service loki: runs an image, not built from a member (no build context)",
+      "row": "SG-U"
+    },
+    {
+      "file": "docker-compose.yaml",
+      "line": 77,
+      "member": "axum-ddd",
+      "reason": "service grafana: runs an image, not built from a member (no build context)",
+      "row": "SG-U"
+    }
+  ]
+}

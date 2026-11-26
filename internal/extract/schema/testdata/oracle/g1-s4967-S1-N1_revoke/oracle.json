@@ -1,0 +1,35 @@
+{
+  "id": "g1-s4967-S1-N1_revoke",
+  "signature": "applied|S1|42P01|N1.revoke",
+  "class": "S1",
+  "owner": "P1",
+  "row": "N1.revoke",
+  "history": {
+    "id": "g1-s4967",
+    "tags": {
+      "2_m2.sql": [
+        "M1.create",
+        "M6.drop",
+        "N1.revoke"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "2_m2.sql",
+        "status": "refused",
+        "sqlstate": "42P01",
+        "message": "relation \"t2\" does not exist",
+        "statement": 3,
+        "statement_text": "REVOKE ALL ON t2 FROM gv_oracle_role;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

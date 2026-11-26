@@ -1,0 +1,36 @@
+{
+  "id": "g1-s31160-S1-R4_rename_view",
+  "signature": "applied|S1|42P01|R4.rename_view",
+  "class": "S1",
+  "owner": "P1",
+  "row": "R4.rename_view",
+  "history": {
+    "id": "g1-s31160",
+    "tags": {
+      "1_m1.sql": [
+        "M1.create",
+        "R1.view",
+        "M6.drop",
+        "R4.rename_view"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42P01",
+        "message": "relation \"v2\" does not exist",
+        "statement": 4,
+        "statement_text": "ALTER VIEW v2 RENAME TO v4;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

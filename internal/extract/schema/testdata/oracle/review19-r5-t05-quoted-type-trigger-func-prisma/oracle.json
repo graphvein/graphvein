@@ -1,0 +1,29 @@
+{
+  "id": "review19-r5-t05-quoted-type-trigger-func-prisma",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y39",
+  "row": "review19",
+  "history": {
+    "id": "t05-quoted-type-trigger-func-prisma"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "2BP01",
+        "message": "cannot drop function \"touchUser\"() because other objects depend on it",
+        "detail": "trigger touchUser on table \"User\" depends on function \"touchUser\"()",
+        "statement": 4,
+        "statement_text": "DROP FUNCTION \"touchUser\"();"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

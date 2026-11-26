@@ -1,0 +1,29 @@
+{
+  "id": "review19-r1-d13-trigger-before-view",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y10",
+  "row": "review19",
+  "history": {
+    "id": "d13-trigger-before-view"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42809",
+        "message": "\"v\" is a view",
+        "detail": "Views cannot have row-level BEFORE or AFTER triggers.",
+        "statement": 4,
+        "statement_text": "CREATE TRIGGER tr BEFORE INSERT ON v FOR EACH ROW EXECUTE FUNCTION f();"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

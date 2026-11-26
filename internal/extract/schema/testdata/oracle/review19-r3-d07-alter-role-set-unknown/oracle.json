@@ -1,0 +1,28 @@
+{
+  "id": "review19-r3-d07-alter-role-set-unknown",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y15",
+  "row": "review19",
+  "history": {
+    "id": "d07-alter-role-set-unknown"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42704",
+        "message": "unrecognized configuration parameter \"nosuch_param\"",
+        "statement": 1,
+        "statement_text": "ALTER ROLE CURRENT_USER SET nosuch_param = 1;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

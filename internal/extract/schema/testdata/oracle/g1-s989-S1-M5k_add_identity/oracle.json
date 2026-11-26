@@ -1,0 +1,34 @@
+{
+  "id": "g1-s989-S1-M5k_add_identity",
+  "signature": "applied|S1|22023|M5k.add_identity",
+  "class": "S1",
+  "owner": "P4",
+  "row": "M5k.add_identity",
+  "history": {
+    "id": "g1-s989",
+    "tags": {
+      "1_m1.sql": [
+        "M1.create",
+        "M5k.add_identity"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "22023",
+        "message": "identity column type must be smallint, integer, or bigint",
+        "statement": 2,
+        "statement_text": "ALTER TABLE t2 ALTER COLUMN c2 ADD GENERATED ALWAYS AS IDENTITY;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

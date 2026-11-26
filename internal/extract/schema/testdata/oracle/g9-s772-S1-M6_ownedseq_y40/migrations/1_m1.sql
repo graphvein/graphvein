@@ -1,0 +1,3 @@
+CREATE TABLE t3 (id int, n int);
+CREATE SEQUENCE sq5 OWNED BY t3.id;
+CREATE FUNCTION nx4() RETURNS bigint BEGIN ATOMIC SELECT nextval('other_seq'); END;

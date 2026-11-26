@@ -1,0 +1,19 @@
+# A uv workspace (row PS-M2): its members are installed in the
+# workspace's environment, so their packages are found after the
+# importer's ancestor roots.
+[tool.uv.workspace]
+members = [
+    "src/wscore",
+    "src/odd",
+    "src/dupa",
+    "src/dupb",
+    "libs/*",
+]
+exclude = ["libs/skipme"]
+
+# Root sources apply to every member's requirements: wsext is installed
+# because the member wscore requires it; wsundeclared is a source no
+# requirement names, so uv does not install it.
+[tool.uv.sources]
+wsext = { path = "../wsext", editable = true }
+wsundeclared = { path = "../wsundeclared", editable = true }

@@ -1,0 +1,12 @@
+[package]
+name = "fixture-app"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+tauri = "2"
+clap = { version = "4", features = ["derive"] }
+poise = "0.6"
+
+[build-dependencies]
+tauri-build = "2"

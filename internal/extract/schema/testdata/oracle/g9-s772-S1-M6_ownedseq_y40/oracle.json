@@ -1,0 +1,28 @@
+{
+  "id": "g9-s772-S1-M6_ownedseq_y40",
+  "signature": "applied|S1|42P01|M6.ownedseq_y40",
+  "class": "S1",
+  "owner": "R1b",
+  "row": "M6.ownedseq_y40",
+  "history": {
+    "id": "g9-s772"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42P01",
+        "message": "relation \"other_seq\" does not exist",
+        "statement": 3,
+        "statement_text": "CREATE FUNCTION nx4() RETURNS bigint BEGIN ATOMIC SELECT nextval('other_seq'); END;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

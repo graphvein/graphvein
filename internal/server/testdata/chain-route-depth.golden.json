@@ -1,0 +1,215 @@
+{
+  "api_version": 0,
+  "caps": {
+    "depth": 10,
+    "fan_out": 200,
+    "members": 2000
+  },
+  "depth": 1,
+  "direction": "both",
+  "down": {
+    "caps": [
+      "depth"
+    ],
+    "edges": [
+      {
+        "count": 1,
+        "dashed": false,
+        "evidence": [],
+        "from": "route:api/items.py#GET%20%2Fitems",
+        "kind": "exposes_route",
+        "row": "CH4",
+        "tier": "fact",
+        "to": "function:api/items.py#read_items",
+        "wording": "handled by"
+      }
+    ],
+    "ends": [
+      {
+        "member": "route:api/items.py#GET%20%2Fitems",
+        "row": "CH11",
+        "text": "? not modelled: dependencies declared, not followed as calls: get_current_user -\u003e oauth2 (OAuth2PasswordBearer)"
+      }
+    ],
+    "hidden_test": 0,
+    "members": 1,
+    "not_followed": {},
+    "steps": [
+      {
+        "bounds": [],
+        "hidden_test": 0,
+        "map": {
+          "folded": 0,
+          "shown": [
+            "route:api/items.py#GET%20%2Fitems"
+          ]
+        },
+        "members": [
+          {
+            "component": "api",
+            "file": "api/items.py",
+            "id": "route:api/items.py#GET%20%2Fitems",
+            "kind": "route",
+            "line": 11,
+            "method": "GET",
+            "name": "GET /items",
+            "parents": [],
+            "path": "/items",
+            "qualified_name": "GET /items",
+            "row": "",
+            "tier": "fact",
+            "tier_step": 0
+          }
+        ],
+        "step": 0
+      },
+      {
+        "bounds": [
+          {
+            "beyond": 4,
+            "cap": "depth",
+            "step": 2,
+            "text": "+ 4 beyond step 1"
+          }
+        ],
+        "hidden_test": 0,
+        "map": {
+          "folded": 0,
+          "shown": [
+            "function:api/items.py#read_items"
+          ]
+        },
+        "members": [
+          {
+            "component": "api",
+            "file": "api/items.py",
+            "id": "function:api/items.py#read_items",
+            "kind": "function",
+            "line": 12,
+            "name": "read_items",
+            "parents": [
+              "route:api/items.py#GET%20%2Fitems"
+            ],
+            "qualified_name": "read_items",
+            "row": "CH4",
+            "tier": "fact",
+            "tier_step": 0
+          }
+        ],
+        "step": 1
+      }
+    ]
+  },
+  "index": {
+    "contract_version": 1,
+    "finished_at": "2026-11-03T14:32:05.123Z",
+    "indexer": {
+      "name": "crafted",
+      "version": "t026-chain"
+    }
+  },
+  "map": {
+    "folded": 0,
+    "open_in_flow": false,
+    "per_step": 5,
+    "shown": 3,
+    "steps": 3,
+    "total": 40
+  },
+  "repository": "chainsynth",
+  "scope": "production",
+  "start": {
+    "id": "route:api/items.py#GET%20%2Fitems",
+    "kind": "route",
+    "level": "node"
+  },
+  "up": {
+    "caps": [
+      "depth"
+    ],
+    "edges": [
+      {
+        "count": 1,
+        "dashed": false,
+        "evidence": [],
+        "from": "route:api/items.py#GET%20%2Fitems",
+        "kind": "calls_route",
+        "row": "CH3",
+        "tier": "inferred 0.9",
+        "to": "client_call:ui/src/app.ts#ItemsService.readItems.GET%20%2Fitems",
+        "wording": "called by client call"
+      }
+    ],
+    "ends": [],
+    "hidden_test": 0,
+    "members": 1,
+    "not_followed": {},
+    "steps": [
+      {
+        "bounds": [],
+        "hidden_test": 0,
+        "map": {
+          "folded": 0,
+          "shown": [
+            "route:api/items.py#GET%20%2Fitems"
+          ]
+        },
+        "members": [
+          {
+            "component": "api",
+            "file": "api/items.py",
+            "id": "route:api/items.py#GET%20%2Fitems",
+            "kind": "route",
+            "line": 11,
+            "method": "GET",
+            "name": "GET /items",
+            "parents": [],
+            "path": "/items",
+            "qualified_name": "GET /items",
+            "row": "",
+            "tier": "fact",
+            "tier_step": 0
+          }
+        ],
+        "step": 0
+      },
+      {
+        "bounds": [
+          {
+            "beyond": 1,
+            "cap": "depth",
+            "step": 2,
+            "text": "+ 1 beyond step 1"
+          }
+        ],
+        "hidden_test": 0,
+        "map": {
+          "folded": 0,
+          "shown": [
+            "client_call:ui/src/app.ts#ItemsService.readItems.GET%20%2Fitems"
+          ]
+        },
+        "members": [
+          {
+            "component": "ui",
+            "file": "ui/src/app.ts",
+            "id": "client_call:ui/src/app.ts#ItemsService.readItems.GET%20%2Fitems",
+            "kind": "client_call",
+            "line": 9,
+            "method": "GET",
+            "name": "ItemsService.readItems.GET /items",
+            "parents": [
+              "route:api/items.py#GET%20%2Fitems"
+            ],
+            "qualified_name": "ItemsService.readItems.GET /items",
+            "row": "CH3",
+            "status": "linked",
+            "tier": "inferred 0.9",
+            "tier_step": 1
+          }
+        ],
+        "step": 1
+      }
+    ]
+  }
+}

@@ -1,0 +1,1 @@
+DROP AGGREGATE myagg (int);

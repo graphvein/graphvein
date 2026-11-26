@@ -1,0 +1,1165 @@
+{
+  "diagnostics": [],
+  "shapes": {
+    "route:src/lib.rs#GET /api/feed": {
+      "body": {
+        "items": [],
+        "reason": "extractor AuthUser implements FromRequest and may read the body",
+        "state": "partial"
+      },
+      "cookie": {
+        "items": [],
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [
+          {
+            "at": null,
+            "depth": 1,
+            "section": "header",
+            "start": {
+              "file": "src/users.rs",
+              "function": "feed",
+              "line": 60
+            },
+            "steps": [
+              {
+                "file": "src/users.rs",
+                "function": "AuthUser.from_request",
+                "line": 60
+              }
+            ],
+            "stop": "ended"
+          }
+        ],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [
+          {
+            "access": "read_by_dependency",
+            "name": "authorization",
+            "presence": "unknown",
+            "provenance": {
+              "chain": [
+                {
+                  "file": "src/users.rs",
+                  "function": "AuthUser.from_request",
+                  "line": 60
+                }
+              ],
+              "confidence": 1,
+              "file": "src/extractor.rs",
+              "kind": "read_in_handler",
+              "line": 22,
+              "rule": "SH-X13"
+            },
+            "schema": null
+          }
+        ],
+        "reason": "middleware (layers) is not read",
+        "state": "partial"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/lib.rs",
+          "kind": "fact",
+          "line": 24,
+          "rule": "SH-X1"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "query": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/users.rs",
+          "kind": "fact",
+          "line": 60,
+          "rule": "SH-X29"
+        },
+        "items": [
+          {
+            "access": "declared",
+            "name": "limit",
+            "presence": "optional",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/users.rs",
+              "kind": "fact",
+              "line": 60,
+              "rule": "SH-X4"
+            },
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "access": "declared",
+            "name": "offset",
+            "presence": "optional",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/users.rs",
+              "kind": "fact",
+              "line": 60,
+              "rule": "SH-X4"
+            },
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "state": "complete"
+      },
+      "responses": {
+        "items": [
+          {
+            "content_type": "application/json",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/users.rs",
+              "kind": "returned",
+              "line": 60,
+              "rule": "SH-X21"
+            },
+            "schema": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "status": "200"
+          }
+        ],
+        "reason": "panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:src/lib.rs#GET /api/hello": {
+      "body": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/review.rs",
+          "kind": "fact",
+          "line": 24,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "cookie": {
+        "items": [],
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [],
+        "state": "not_read"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/lib.rs",
+          "kind": "fact",
+          "line": 27,
+          "rule": "SH-X1"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "query": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/review.rs",
+          "kind": "fact",
+          "line": 24,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "responses": {
+        "items": [
+          {
+            "content_type": "text/plain",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/review.rs",
+              "kind": "returned",
+              "line": 25,
+              "rule": "SH-X25"
+            },
+            "schema": {
+              "type": "string"
+            },
+            "status": "200"
+          }
+        ],
+        "reason": "panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:src/lib.rs#GET /api/page": {
+      "body": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/review.rs",
+          "kind": "fact",
+          "line": 20,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "cookie": {
+        "items": [],
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [],
+        "state": "not_read"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/lib.rs",
+          "kind": "fact",
+          "line": 26,
+          "rule": "SH-X1"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "query": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/review.rs",
+          "kind": "fact",
+          "line": 20,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "responses": {
+        "items": [
+          {
+            "content_type": "text/html",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/review.rs",
+              "kind": "returned",
+              "line": 20,
+              "rule": "SH-X25"
+            },
+            "schema": {
+              "type": "string"
+            },
+            "status": "200"
+          }
+        ],
+        "reason": "panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:src/lib.rs#GET /api/ping": {
+      "body": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/review.rs",
+          "kind": "fact",
+          "line": 16,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "cookie": {
+        "items": [],
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [],
+        "state": "not_read"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/lib.rs",
+          "kind": "fact",
+          "line": 25,
+          "rule": "SH-X1"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "query": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/review.rs",
+          "kind": "fact",
+          "line": 16,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "responses": {
+        "items": [
+          {
+            "content_type": "text/plain",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/review.rs",
+              "kind": "returned",
+              "line": 16,
+              "rule": "SH-X25"
+            },
+            "schema": {
+              "type": "string"
+            },
+            "status": "200"
+          }
+        ],
+        "reason": "panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:src/lib.rs#GET /api/users/:id": {
+      "body": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/users.rs",
+          "kind": "fact",
+          "line": 37,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "cookie": {
+        "items": [],
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [],
+        "state": "not_read"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/lib.rs",
+          "kind": "fact",
+          "line": 22,
+          "rule": "SH-X1"
+        },
+        "items": [
+          {
+            "access": "declared",
+            "name": "id",
+            "presence": "required",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/users.rs",
+              "kind": "fact",
+              "line": 37,
+              "rule": "SH-X2"
+            },
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "state": "complete"
+      },
+      "query": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/users.rs",
+          "kind": "fact",
+          "line": 37,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "responses": {
+        "items": [
+          {
+            "content_type": "application/json",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/users.rs",
+              "kind": "returned",
+              "line": 37,
+              "rule": "SH-X21"
+            },
+            "schema": {
+              "additional": "forbidden",
+              "fields": [
+                {
+                  "name": "user",
+                  "presence": "unknown",
+                  "schema": {
+                    "additional": "forbidden",
+                    "fields": [
+                      {
+                        "name": "username",
+                        "presence": "unknown",
+                        "schema": {
+                          "type": "string"
+                        }
+                      },
+                      {
+                        "name": "bio",
+                        "presence": "unknown",
+                        "schema": {
+                          "nullable": true,
+                          "type": "string"
+                        }
+                      }
+                    ],
+                    "type": "object"
+                  }
+                }
+              ],
+              "type": "object"
+            },
+            "status": "200"
+          },
+          {
+            "content_type": null,
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/users.rs",
+              "kind": "returned",
+              "line": 39,
+              "rule": "SH-X26"
+            },
+            "schema": null,
+            "status": "404"
+          }
+        ],
+        "reason": "panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:src/lib.rs#HEAD /api/form-head": {
+      "body": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/review.rs",
+          "kind": "fact",
+          "line": 42,
+          "rule": "SH-X29"
+        },
+        "items": [
+          {
+            "content_type": "application/x-www-form-urlencoded",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/review.rs",
+              "kind": "fact",
+              "line": 42,
+              "rule": "SH-X7"
+            },
+            "schema": {
+              "additional": "allowed",
+              "fields": [
+                {
+                  "name": "user",
+                  "presence": "required",
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "state": "complete"
+      },
+      "cookie": {
+        "items": [],
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [],
+        "state": "not_read"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/lib.rs",
+          "kind": "fact",
+          "line": 30,
+          "rule": "SH-X1"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "query": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/review.rs",
+          "kind": "fact",
+          "line": 42,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "responses": {
+        "items": [
+          {
+            "content_type": null,
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/review.rs",
+              "kind": "returned",
+              "line": 46,
+              "rule": "SH-X23"
+            },
+            "schema": {
+              "type": "null"
+            },
+            "status": "200"
+          },
+          {
+            "content_type": null,
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/review.rs",
+              "kind": "returned",
+              "line": 44,
+              "rule": "SH-X23"
+            },
+            "schema": {
+              "type": "null"
+            },
+            "status": "202"
+          }
+        ],
+        "reason": "panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:src/lib.rs#POST /api/created": {
+      "body": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/review.rs",
+          "kind": "fact",
+          "line": 28,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "cookie": {
+        "items": [],
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [],
+        "state": "not_read"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/lib.rs",
+          "kind": "fact",
+          "line": 28,
+          "rule": "SH-X1"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "query": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/review.rs",
+          "kind": "fact",
+          "line": 28,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "responses": {
+        "items": [
+          {
+            "content_type": "text/plain",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/review.rs",
+              "kind": "returned",
+              "line": 29,
+              "rule": "SH-X22"
+            },
+            "schema": {
+              "type": "string"
+            },
+            "status": "201"
+          }
+        ],
+        "reason": "panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:src/lib.rs#POST /api/headers-first": {
+      "body": {
+        "items": [],
+        "reason": "HeaderMap at src/review.rs:33 takes the headers before a later extractor in axum before 0.5, and the axum version is not proven to be later (axum 0.3.4 (Cargo.toml))",
+        "state": "partial"
+      },
+      "cookie": {
+        "items": [],
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [
+          {
+            "at": null,
+            "depth": 0,
+            "section": "header",
+            "start": {
+              "file": "src/review.rs",
+              "function": "headers_first",
+              "line": 33
+            },
+            "steps": [],
+            "stop": "ended"
+          }
+        ],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [
+          {
+            "access": "read_by_handler",
+            "name": "x-a",
+            "presence": "unknown",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/review.rs",
+              "kind": "read_in_handler",
+              "line": 34,
+              "rule": "SH-X11"
+            },
+            "schema": null
+          }
+        ],
+        "reason": "middleware (layers) is not read",
+        "state": "partial"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/lib.rs",
+          "kind": "fact",
+          "line": 29,
+          "rule": "SH-X1"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "query": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/review.rs",
+          "kind": "fact",
+          "line": 33,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "responses": {
+        "items": [],
+        "reason": "HeaderMap at src/review.rs:33 takes the headers before a later extractor in axum before 0.5, and the axum version is not proven to be later (axum 0.3.4 (Cargo.toml)); panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:src/lib.rs#POST /api/users": {
+      "body": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/users.rs",
+          "kind": "fact",
+          "line": 53,
+          "rule": "SH-X29"
+        },
+        "items": [
+          {
+            "content_type": "application/json",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/users.rs",
+              "kind": "fact",
+              "line": 53,
+              "rule": "SH-X6"
+            },
+            "schema": {
+              "additional": "allowed",
+              "fields": [
+                {
+                  "name": "user",
+                  "presence": "required",
+                  "schema": {
+                    "additional": "allowed",
+                    "fields": [
+                      {
+                        "name": "username",
+                        "presence": "required",
+                        "schema": {
+                          "type": "string"
+                        }
+                      },
+                      {
+                        "name": "email",
+                        "presence": "required",
+                        "schema": {
+                          "type": "string"
+                        }
+                      }
+                    ],
+                    "type": "object"
+                  }
+                }
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "state": "complete"
+      },
+      "cookie": {
+        "items": [],
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [],
+        "state": "not_read"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/lib.rs",
+          "kind": "fact",
+          "line": 23,
+          "rule": "SH-X1"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "query": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/users.rs",
+          "kind": "fact",
+          "line": 53,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "responses": {
+        "items": [
+          {
+            "content_type": "application/json",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/users.rs",
+              "kind": "returned",
+              "line": 53,
+              "rule": "SH-X21"
+            },
+            "schema": {
+              "additional": "forbidden",
+              "fields": [
+                {
+                  "name": "user",
+                  "presence": "unknown",
+                  "schema": {
+                    "additional": "forbidden",
+                    "fields": [
+                      {
+                        "name": "username",
+                        "presence": "unknown",
+                        "schema": {
+                          "type": "string"
+                        }
+                      },
+                      {
+                        "name": "bio",
+                        "presence": "unknown",
+                        "schema": {
+                          "nullable": true,
+                          "type": "string"
+                        }
+                      }
+                    ],
+                    "type": "object"
+                  }
+                }
+              ],
+              "type": "object"
+            },
+            "status": "200"
+          },
+          {
+            "content_type": null,
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/users.rs",
+              "kind": "returned",
+              "line": 55,
+              "rule": "SH-X26"
+            },
+            "schema": null,
+            "status": "409"
+          }
+        ],
+        "reason": "panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:src/lib.rs#PUT /api/users/:id": {
+      "body": {
+        "items": [
+          {
+            "content_type": "application/json",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/users.rs",
+              "kind": "fact",
+              "line": 47,
+              "rule": "SH-X6"
+            },
+            "schema": {
+              "additional": "allowed",
+              "fields": [
+                {
+                  "name": "user",
+                  "presence": "required",
+                  "schema": {
+                    "additional": "allowed",
+                    "fields": [
+                      {
+                        "name": "email",
+                        "presence": "optional",
+                        "schema": {
+                          "nullable": true,
+                          "type": "string"
+                        }
+                      },
+                      {
+                        "name": "bio",
+                        "presence": "optional",
+                        "schema": {
+                          "nullable": true,
+                          "type": "string"
+                        }
+                      }
+                    ],
+                    "type": "object"
+                  }
+                }
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "reason": "extractor AuthUser implements FromRequest and may read the body",
+        "state": "partial"
+      },
+      "cookie": {
+        "items": [],
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [
+          {
+            "at": null,
+            "depth": 1,
+            "section": "header",
+            "start": {
+              "file": "src/users.rs",
+              "function": "update_user",
+              "line": 44
+            },
+            "steps": [
+              {
+                "file": "src/users.rs",
+                "function": "AuthUser.from_request",
+                "line": 45
+              }
+            ],
+            "stop": "ended"
+          }
+        ],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [
+          {
+            "access": "read_by_dependency",
+            "name": "authorization",
+            "presence": "unknown",
+            "provenance": {
+              "chain": [
+                {
+                  "file": "src/users.rs",
+                  "function": "AuthUser.from_request",
+                  "line": 45
+                }
+              ],
+              "confidence": 1,
+              "file": "src/extractor.rs",
+              "kind": "read_in_handler",
+              "line": 22,
+              "rule": "SH-X13"
+            },
+            "schema": null
+          }
+        ],
+        "reason": "middleware (layers) is not read",
+        "state": "partial"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/lib.rs",
+          "kind": "fact",
+          "line": 22,
+          "rule": "SH-X1"
+        },
+        "items": [
+          {
+            "access": "declared",
+            "name": "id",
+            "presence": "required",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/users.rs",
+              "kind": "fact",
+              "line": 46,
+              "rule": "SH-X2"
+            },
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "state": "complete"
+      },
+      "query": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "src/users.rs",
+          "kind": "fact",
+          "line": 44,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "responses": {
+        "items": [
+          {
+            "content_type": "application/json",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/users.rs",
+              "kind": "returned",
+              "line": 44,
+              "rule": "SH-X21"
+            },
+            "schema": {
+              "additional": "forbidden",
+              "fields": [
+                {
+                  "name": "user",
+                  "presence": "unknown",
+                  "schema": {
+                    "additional": "forbidden",
+                    "fields": [
+                      {
+                        "name": "username",
+                        "presence": "unknown",
+                        "schema": {
+                          "type": "string"
+                        }
+                      },
+                      {
+                        "name": "bio",
+                        "presence": "unknown",
+                        "schema": {
+                          "nullable": true,
+                          "type": "string"
+                        }
+                      }
+                    ],
+                    "type": "object"
+                  }
+                }
+              ],
+              "type": "object"
+            },
+            "status": "200"
+          }
+        ],
+        "reason": "panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    }
+  }
+}

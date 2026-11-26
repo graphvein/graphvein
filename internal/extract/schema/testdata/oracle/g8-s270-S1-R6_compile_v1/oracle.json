@@ -1,0 +1,31 @@
+{
+  "id": "g8-s270-S1-R6_compile_v1",
+  "signature": "agreed at Revision 1.6",
+  "class": "S1",
+  "owner": "H14",
+  "row": "review16",
+  "history": {
+    "id": "g8-s270"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "2_m2.sql",
+        "status": "refused",
+        "sqlstate": "22P02",
+        "message": "invalid input syntax for type integer: \"f\"",
+        "where": "PL/pgSQL assignment \"x := EXISTS (SELECT 1 FROM t16 WHERE a = 1)\"\nPL/pgSQL function f17(integer) line 1 at assignment",
+        "statement": 3,
+        "statement_text": "SELECT f17(1);",
+        "assumption": "E3",
+        "row_free": true
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

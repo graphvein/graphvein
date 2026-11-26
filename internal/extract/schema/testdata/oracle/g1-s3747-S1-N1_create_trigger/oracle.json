@@ -1,0 +1,58 @@
+{
+  "id": "g1-s3747-S1-N1_create_trigger",
+  "signature": "applied|S1|42P01|N1.create_trigger",
+  "class": "S1",
+  "owner": "P1",
+  "row": "N1.create_trigger",
+  "history": {
+    "id": "g1-s3747",
+    "tags": {
+      "1_m1.sql": [
+        "M1.create"
+      ],
+      "2_m2.sql": [
+        "M6.drop",
+        "N1.create_trigger"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "accepted",
+        "no_transaction": true
+      },
+      {
+        "file": "2_m2.sql",
+        "status": "refused",
+        "sqlstate": "42P01",
+        "message": "relation \"t1\" does not exist",
+        "statement": 2,
+        "statement_text": "CREATE TRIGGER trg2 BEFORE INSERT ON t1 FOR EACH ROW EXECUTE FUNCTION nosuch_fn();"
+      }
+    ],
+    "tables": [
+      {
+        "table": "history.t1",
+        "columns": [
+          {
+            "name": "c1",
+            "type": "integer",
+            "not_null": true,
+            "has_default": true
+          }
+        ],
+        "primary_key": null,
+        "unique_keys": [],
+        "foreign_keys": [],
+        "indexes": []
+      }
+    ],
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

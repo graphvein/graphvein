@@ -1,0 +1,1 @@
+ALTER TABLE t2 OWNER TO gv_oracle_role, DETACH PARTITION t1;

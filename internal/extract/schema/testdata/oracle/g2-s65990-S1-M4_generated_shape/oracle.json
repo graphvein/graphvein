@@ -1,0 +1,38 @@
+{
+  "id": "g2-s65990-S1-M4_generated_shape",
+  "signature": "applied|S1",
+  "class": "S1",
+  "owner": "P2",
+  "row": "M4.generated_shape",
+  "history": {
+    "id": "g2-s65990",
+    "prelude": [
+      "CREATE TABLE ext_a (id int PRIMARY KEY, code text UNIQUE)"
+    ],
+    "tags": {
+      "1_m1.sql": [
+        "M4.outside_table_unnamed",
+        "M4.generated_shape"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42P07",
+        "message": "relation \"ext_a_code_idx\" already exists",
+        "statement": 2,
+        "statement_text": "CREATE INDEX ext_a_code_idx ON ext_a (code);"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history.ext_a",
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

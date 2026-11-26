@@ -1,0 +1,55 @@
+{
+  "id": "review19-r5-f01-trigger-same-name-as-func-drop-func",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y39",
+  "row": "review19",
+  "history": {
+    "id": "f01-trigger-same-name-as-func-drop-func"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "accepted"
+      },
+      {
+        "file": "2_drop.sql",
+        "status": "refused",
+        "sqlstate": "2BP01",
+        "message": "cannot drop function set_updated_at() because other objects depend on it",
+        "detail": "trigger set_updated_at on table t depends on function set_updated_at()",
+        "statement": 1,
+        "statement_text": "DROP FUNCTION set_updated_at();"
+      }
+    ],
+    "tables": [
+      {
+        "table": "history.t",
+        "columns": [
+          {
+            "name": "id",
+            "type": "integer",
+            "not_null": false,
+            "has_default": false
+          },
+          {
+            "name": "updated_at",
+            "type": "timestamp with time zone",
+            "not_null": false,
+            "has_default": false
+          }
+        ],
+        "primary_key": null,
+        "unique_keys": [],
+        "foreign_keys": [],
+        "indexes": []
+      }
+    ],
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

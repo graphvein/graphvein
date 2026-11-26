@@ -1,0 +1,14 @@
+# Reviewed govulncheck findings (ADR 0086). One entry per line:
+#
+#   ID  EXPIRY  REASON
+#
+# ID is a Go vulnerability database ID (GO-YYYY-NNNN). EXPIRY (YYYY-MM-DD,
+# UTC) is the last day the entry covers its finding; from the next day the
+# entry fails the gate until it is reviewed again or removed. Keep expiries
+# short and say in REASON why the finding is accepted and what fixes it.
+#
+# The first scan (2026-11-24) found 13 findings. The 11 Go standard library
+# findings were fixed by moving the toolchain to go1.27.4 (go.mod `toolchain`
+# line); the 2 golang.org/x/text v0.29.0 findings (GO-2026-5970,
+# GO-2026-6629) by moving x/text to v0.41.0 with the ADR 0069 revision of
+# 2026-11-24 (Unicode 17 tables). No entry is open.

@@ -1,0 +1,507 @@
+{
+  "links": [
+    {
+      "assumption": "matched across project repositories; base URL not proven",
+      "attributes": {
+        "match": "exact",
+        "row": "PL-L1",
+        "target_scope": "orders",
+        "template": "/t022/orders"
+      },
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "file": "api.ts",
+          "span": {
+            "end_column": 77,
+            "end_line": 10,
+            "start_column": 9,
+            "start_line": 10
+          }
+        }
+      ],
+      "kind": "calls_route",
+      "provenance": "inferred",
+      "source": {
+        "content_hash": "sha256:29860ca0787e9cd55ba71482a957a7122d898a6e4310bcdf354c86f8adc5d485",
+        "identity": "client_call:api.ts#createOrder.POST%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022%2Forders%60",
+        "repository": "frontend",
+        "run": "\u003crun of frontend\u003e"
+      },
+      "target": {
+        "content_hash": "sha256:52d9d531022e7a0c147081bb9431663189d957e6937e46e86b0ae2ebb495ea0f",
+        "identity": "route:apps/orders/server.ts#POST%20%2Ft022%2Forders",
+        "repository": "monorepo",
+        "run": "\u003crun of monorepo\u003e"
+      }
+    },
+    {
+      "assumption": "matched across project repositories; base URL not proven",
+      "attributes": {
+        "match": "exact",
+        "row": "PL-L1",
+        "target_scope": "users",
+        "template": "/t022/users/{id}"
+      },
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "file": "api.ts",
+          "span": {
+            "end_column": 67,
+            "end_line": 7,
+            "start_column": 9,
+            "start_line": 7
+          }
+        }
+      ],
+      "kind": "calls_route",
+      "provenance": "inferred",
+      "source": {
+        "content_hash": "sha256:7d60966bbb64395e5ed13859a16a127ef4e609cfa3fe14e2a84a5891473bfe7e",
+        "identity": "client_call:api.ts#getUser.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022%2Fusers%2F%24%7Buser.id%7D%60",
+        "repository": "frontend",
+        "run": "\u003crun of frontend\u003e"
+      },
+      "target": {
+        "content_hash": "sha256:45835f5a55a26bde915c2238366bc3292af872c712323a8ba8e10917b2215c03",
+        "identity": "route:apps/users/server.ts#GET%20%2Ft022%2Fusers%2F%3Aid",
+        "repository": "monorepo",
+        "run": "\u003crun of monorepo\u003e"
+      }
+    },
+    {
+      "assumption": "matched across project repositories; base URL not proven",
+      "attributes": {
+        "match": "exact",
+        "row": "PL-L1",
+        "target_scope": "users",
+        "template": "/t022/users/{id}"
+      },
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "file": "api.ts",
+          "span": {
+            "end_column": 116,
+            "end_line": 30,
+            "start_column": 9,
+            "start_line": 30
+          }
+        }
+      ],
+      "kind": "calls_route",
+      "provenance": "inferred",
+      "source": {
+        "content_hash": "sha256:0f88c0973eaf5e746e0d96d5ddf4597bc0a4cee06d85919d21bc7a6f60c70539",
+        "identity": "client_call:api.ts#mixed.GET%20flag%3F%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022%2Fusers%2F%24%7Bid%7D%60%3A%60%24%7Bimport.meta.env.VITE_PARTNER%7D%2Ft022%2Fusers%60",
+        "repository": "frontend",
+        "run": "\u003crun of frontend\u003e"
+      },
+      "target": {
+        "content_hash": "sha256:45835f5a55a26bde915c2238366bc3292af872c712323a8ba8e10917b2215c03",
+        "identity": "route:apps/users/server.ts#GET%20%2Ft022%2Fusers%2F%3Aid",
+        "repository": "monorepo",
+        "run": "\u003crun of monorepo\u003e"
+      }
+    },
+    {
+      "assumption": "matched across project repositories; base URL not proven; origin https://partner.example.com assumed to be monorepo's server",
+      "attributes": {
+        "match": "exact",
+        "row": "PL-L5",
+        "target_scope": "orders",
+        "template": "/t022/orders"
+      },
+      "confidence": 0.7,
+      "evidence": [
+        {
+          "file": "openapi.yaml",
+          "span": {
+            "end_column": 12,
+            "end_line": 11,
+            "start_column": 4,
+            "start_line": 11
+          }
+        }
+      ],
+      "kind": "documents_route",
+      "provenance": "inferred",
+      "source": {
+        "content_hash": "sha256:009a7e565011caad92a99f5f8afa5bcfd9714cb5eb4bb77d2dbf9db43f38e0f8",
+        "identity": "api_operation:openapi.yaml#POST%20%2Ft022%2Forders",
+        "repository": "frontend",
+        "run": "\u003crun of frontend\u003e"
+      },
+      "target": {
+        "content_hash": "sha256:52d9d531022e7a0c147081bb9431663189d957e6937e46e86b0ae2ebb495ea0f",
+        "identity": "route:apps/orders/server.ts#POST%20%2Ft022%2Forders",
+        "repository": "monorepo",
+        "run": "\u003crun of monorepo\u003e"
+      }
+    }
+  ],
+  "members": [
+    {
+      "repository": "frontend",
+      "run": "\u003crun of frontend\u003e"
+    },
+    {
+      "repository": "monorepo",
+      "run": "\u003crun of monorepo\u003e"
+    }
+  ],
+  "outcomes": [
+    {
+      "candidate_count": 0,
+      "candidates": [],
+      "kind": "calls_route",
+      "row": "PL-R2",
+      "source": {
+        "identity": "client_call:api.ts#anywhere.GET%20nextUrl%28%29",
+        "repository": "frontend"
+      },
+      "status": "dynamic"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [
+        {
+          "identity": "route:apps/orders/server.ts#POST%20%2Ft022%2Forders",
+          "repository": "monorepo"
+        }
+      ],
+      "kind": "calls_route",
+      "row": "PL-L1",
+      "source": {
+        "identity": "client_call:api.ts#createOrder.POST%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022%2Forders%60",
+        "repository": "frontend"
+      },
+      "status": "linked",
+      "target": {
+        "identity": "route:apps/orders/server.ts#POST%20%2Ft022%2Forders",
+        "repository": "monorepo"
+      },
+      "template": "/t022/orders"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [],
+      "kind": "calls_route",
+      "row": "PL-R8",
+      "source": {
+        "identity": "client_call:api.ts#duplicate.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022%2Fduplicate%60",
+        "repository": "frontend"
+      },
+      "status": "unmatched",
+      "template": "/t022/duplicate"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [],
+      "kind": "calls_route",
+      "row": "PL-R8",
+      "source": {
+        "identity": "client_call:api.ts#either.GET%20flag%3F%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022%2Fusers%60%3A%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022%2Forders%60",
+        "repository": "frontend"
+      },
+      "status": "unmatched",
+      "template": "/t022/orders"
+    },
+    {
+      "candidate_count": 2,
+      "candidates": [
+        {
+          "identity": "route:apps/orders/server.ts#GET%20%2Ft022%2Fusers",
+          "repository": "monorepo"
+        },
+        {
+          "identity": "route:apps/users/server.ts#GET%20%2Ft022%2Fusers",
+          "repository": "monorepo"
+        }
+      ],
+      "kind": "calls_route",
+      "row": "PL-R11",
+      "source": {
+        "identity": "client_call:api.ts#either.GET%20flag%3F%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022%2Fusers%60%3A%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022%2Forders%60",
+        "repository": "frontend"
+      },
+      "status": "ambiguous",
+      "template": "/t022/users"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [
+        {
+          "identity": "route:apps/users/server.ts#GET%20%2Ft022%2Fusers%2F%3Aid",
+          "repository": "monorepo"
+        }
+      ],
+      "kind": "calls_route",
+      "row": "PL-L1",
+      "source": {
+        "identity": "client_call:api.ts#getUser.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022%2Fusers%2F%24%7Buser.id%7D%60",
+        "repository": "frontend"
+      },
+      "status": "linked",
+      "target": {
+        "identity": "route:apps/users/server.ts#GET%20%2Ft022%2Fusers%2F%3Aid",
+        "repository": "monorepo"
+      },
+      "template": "/t022/users/{id}"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [],
+      "kind": "calls_route",
+      "row": "PL-R8",
+      "source": {
+        "identity": "client_call:api.ts#health.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022%2Fhealth%60",
+        "repository": "frontend"
+      },
+      "status": "unmatched",
+      "template": "/t022/health"
+    },
+    {
+      "candidate_count": 2,
+      "candidates": [
+        {
+          "identity": "route:apps/orders/server.ts#GET%20%2Ft022%2Fusers",
+          "repository": "monorepo"
+        },
+        {
+          "identity": "route:apps/users/server.ts#GET%20%2Ft022%2Fusers",
+          "repository": "monorepo"
+        }
+      ],
+      "kind": "calls_route",
+      "row": "PL-R11",
+      "source": {
+        "identity": "client_call:api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022%2Fusers%60",
+        "repository": "frontend"
+      },
+      "status": "ambiguous",
+      "template": "/t022/users"
+    },
+    {
+      "candidate_count": 2,
+      "candidates": [
+        {
+          "identity": "route:apps/orders/server.ts#GET%20%2Ft022%2Fusers",
+          "repository": "monorepo"
+        },
+        {
+          "identity": "route:apps/users/server.ts#GET%20%2Ft022%2Fusers",
+          "repository": "monorepo"
+        }
+      ],
+      "kind": "calls_route",
+      "row": "PL-R11",
+      "source": {
+        "identity": "client_call:api.ts#mixed.GET%20flag%3F%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022%2Fusers%2F%24%7Bid%7D%60%3A%60%24%7Bimport.meta.env.VITE_PARTNER%7D%2Ft022%2Fusers%60",
+        "repository": "frontend"
+      },
+      "status": "ambiguous",
+      "template": "/t022/users"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [
+        {
+          "identity": "route:apps/users/server.ts#GET%20%2Ft022%2Fusers%2F%3Aid",
+          "repository": "monorepo"
+        }
+      ],
+      "kind": "calls_route",
+      "row": "PL-L1",
+      "source": {
+        "identity": "client_call:api.ts#mixed.GET%20flag%3F%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022%2Fusers%2F%24%7Bid%7D%60%3A%60%24%7Bimport.meta.env.VITE_PARTNER%7D%2Ft022%2Fusers%60",
+        "repository": "frontend"
+      },
+      "status": "linked",
+      "target": {
+        "identity": "route:apps/users/server.ts#GET%20%2Ft022%2Fusers%2F%3Aid",
+        "repository": "monorepo"
+      },
+      "template": "/t022/users/{id}"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [],
+      "kind": "calls_route",
+      "row": "PL-R5",
+      "source": {
+        "identity": "client_call:api.ts#partner.GET%20%27https%3A%2F%2Fpartner.example.com%2Ft022%2Fusers%27",
+        "repository": "frontend"
+      },
+      "status": "unmatched",
+      "template": "/t022/users"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [],
+      "kind": "calls_route",
+      "row": "PL-R8",
+      "source": {
+        "identity": "client_call:api.ts#sameRoute.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022%2Fsame%60",
+        "repository": "frontend"
+      },
+      "status": "unmatched",
+      "template": "/t022/same"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [],
+      "kind": "calls_route",
+      "row": "PL-R1",
+      "source": {
+        "identity": "client_call:admin/client.ts#adminHealth.GET%20%60%24%7Bimport.meta.env.VITE_ADMIN%7D%2Ft022%2Fmono%2Fhealth%60",
+        "repository": "monorepo"
+      },
+      "status": "in_repository"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [],
+      "kind": "calls_route",
+      "row": "PL-R1",
+      "source": {
+        "identity": "client_call:ops/client.ts#opsHealth.GET%20%60%24%7Bimport.meta.env.VITE_OPS%7D%2Ft022%2Fmono%2Fhealth%60",
+        "repository": "monorepo"
+      },
+      "status": "in_repository"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [],
+      "kind": "calls_route",
+      "row": "PL-R1",
+      "source": {
+        "identity": "client_call:tools/check.ts#checkUsers.GET%20%60%24%7Bimport.meta.env.VITE_USERS%7D%2Ft022%2Fusers%60",
+        "repository": "monorepo"
+      },
+      "status": "in_repository"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [],
+      "kind": "calls_route",
+      "row": "PL-R1",
+      "source": {
+        "identity": "client_call:web/client.ts#sharedHealth.GET%20%60%24%7Bimport.meta.env.VITE_SHARED%7D%2Ft022%2Fmono%2Fhealth%60",
+        "repository": "monorepo"
+      },
+      "status": "in_repository"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [],
+      "kind": "calls_route",
+      "row": "PL-R1",
+      "source": {
+        "identity": "client_call:web/client.ts#userFortyTwoFromOrders.GET%20%60%24%7Bimport.meta.env.VITE_ORDERS%7D%2Ft022%2Fusers%2F42%60",
+        "repository": "monorepo"
+      },
+      "status": "in_repository"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [],
+      "kind": "calls_route",
+      "row": "PL-R1",
+      "source": {
+        "identity": "client_call:web/client.ts#userFromOrders.GET%20%60%24%7Bimport.meta.env.VITE_ORDERS%7D%2Ft022%2Fusers%2F%24%7Bid%7D%60",
+        "repository": "monorepo"
+      },
+      "status": "in_repository"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [],
+      "kind": "calls_route",
+      "row": "PL-R1",
+      "source": {
+        "identity": "client_call:web/client.ts#usersFromOrders.GET%20%60%24%7Bimport.meta.env.VITE_ORDERS%7D%2Ft022%2Fusers%60",
+        "repository": "monorepo"
+      },
+      "status": "in_repository"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [],
+      "kind": "calls_route",
+      "row": "PL-R1",
+      "source": {
+        "identity": "client_call:web/client.ts#usersFromUsers.GET%20%60%24%7Bimport.meta.env.VITE_USERS%7D%2Ft022%2Fusers%60",
+        "repository": "monorepo"
+      },
+      "status": "in_repository"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [],
+      "kind": "documents_route",
+      "row": "PL-R8",
+      "source": {
+        "identity": "api_operation:openapi.yaml#GET%20%2Ft022%2Fmissing",
+        "repository": "frontend"
+      },
+      "status": "unmatched",
+      "template": "/t022/missing"
+    },
+    {
+      "candidate_count": 2,
+      "candidates": [
+        {
+          "identity": "route:apps/orders/server.ts#GET%20%2Ft022%2Fusers",
+          "repository": "monorepo"
+        },
+        {
+          "identity": "route:apps/users/server.ts#GET%20%2Ft022%2Fusers",
+          "repository": "monorepo"
+        }
+      ],
+      "kind": "documents_route",
+      "row": "PL-R11",
+      "source": {
+        "identity": "api_operation:openapi.yaml#GET%20%2Ft022%2Fusers",
+        "repository": "frontend"
+      },
+      "status": "ambiguous",
+      "template": "/t022/users"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [
+        {
+          "identity": "route:apps/orders/server.ts#POST%20%2Ft022%2Forders",
+          "repository": "monorepo"
+        }
+      ],
+      "kind": "documents_route",
+      "row": "PL-L5",
+      "source": {
+        "identity": "api_operation:openapi.yaml#POST%20%2Ft022%2Forders",
+        "repository": "frontend"
+      },
+      "status": "linked",
+      "target": {
+        "identity": "route:apps/orders/server.ts#POST%20%2Ft022%2Forders",
+        "repository": "monorepo"
+      },
+      "template": "/t022/orders"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [],
+      "kind": "documents_route",
+      "row": "PL-R1",
+      "source": {
+        "identity": "api_operation:admin/openapi.yaml#GET%20%2Ft022%2Fusers",
+        "repository": "monorepo"
+      },
+      "status": "in_repository",
+      "template": "/t022/users"
+    }
+  ]
+}

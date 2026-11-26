@@ -1,0 +1,1483 @@
+[
+  {
+    "blind_spot_data": false,
+    "bounds": [],
+    "candidates": [],
+    "caps": [],
+    "command": "query",
+    "ends": [],
+    "freshness": {
+      "changed_files": [],
+      "indexed": true
+    },
+    "nodes": [
+      {
+        "attributes": {},
+        "content_hash": "sha256:c4b4b27383b650a8420458926d5e729c39ff4f09b95edb9ddee630091a392b87",
+        "file": "pkg/util.py",
+        "ide": {
+          "column": 1,
+          "exact": true,
+          "line": 1,
+          "link": "vscode://file/{ROOT}/pkg/util.py:1:1"
+        },
+        "identity": "function:pkg/util.py#help",
+        "kind": "function",
+        "level": 4,
+        "name": "help",
+        "qualified_name": "help",
+        "span": {
+          "end_column": 12,
+          "end_line": 2,
+          "start_column": 0,
+          "start_line": 1
+        },
+        "type": "node"
+      }
+    ],
+    "possibly_missing_call_sites": [],
+    "possibly_missing_callers": 0,
+    "results": [],
+    "total": 1,
+    "unknown_calls_in_result_files": 0
+  },
+  {
+    "blind_spot_data": false,
+    "bounds": [],
+    "candidates": [],
+    "caps": [],
+    "command": "callers",
+    "ends": [
+      {
+        "node": "function:pkg/main.py#conditional",
+        "text": "? not modelled: no stored caller; dependency injection, framework callbacks, JSX renders, passed callbacks and dynamic calls are not followed by callers"
+      },
+      {
+        "node": "function:pkg/main.py#conditional%402",
+        "text": "? not modelled: no stored caller; dependency injection, framework callbacks, JSX renders, passed callbacks and dynamic calls are not followed by callers"
+      },
+      {
+        "node": "function:pkg/main.py#run",
+        "text": "? not modelled: no stored caller; dependency injection, framework callbacks, JSX renders, passed callbacks and dynamic calls are not followed by callers"
+      },
+      {
+        "node": "method:pkg/main.py#User.save",
+        "text": "? not modelled: no stored caller; dependency injection, framework callbacks, JSX renders, passed callbacks and dynamic calls are not followed by callers"
+      }
+    ],
+    "freshness": {
+      "changed_files": [],
+      "indexed": true
+    },
+    "nodes": [],
+    "possibly_missing_call_sites": [],
+    "possibly_missing_callers": 0,
+    "results": [
+      {
+        "distance": 1,
+        "node": {
+          "attributes": {},
+          "content_hash": "sha256:b7b6ceccd0004c043e3cce6c5f7cdba051b801f3f68453dd945231b87a7975e9",
+          "file": "pkg/main.py",
+          "ide": {
+            "column": 5,
+            "exact": true,
+            "line": 51,
+            "link": "vscode://file/{ROOT}/pkg/main.py:51:5"
+          },
+          "identity": "function:pkg/main.py#conditional",
+          "kind": "function",
+          "level": 4,
+          "name": "conditional",
+          "qualified_name": "conditional",
+          "span": {
+            "end_column": 21,
+            "end_line": 52,
+            "start_column": 4,
+            "start_line": 51
+          },
+          "type": "node"
+        },
+        "path": [
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "pkg/main.py",
+                "span": {
+                  "end_column": 21,
+                  "end_line": 52,
+                  "start_column": 15,
+                  "start_line": 52
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "function:pkg/main.py#conditional",
+            "target": "function:pkg/util.py#help",
+            "type": "edge"
+          }
+        ]
+      },
+      {
+        "distance": 1,
+        "node": {
+          "attributes": {},
+          "content_hash": "sha256:b7b6ceccd0004c043e3cce6c5f7cdba051b801f3f68453dd945231b87a7975e9",
+          "file": "pkg/main.py",
+          "ide": {
+            "column": 5,
+            "exact": true,
+            "line": 54,
+            "link": "vscode://file/{ROOT}/pkg/main.py:54:5"
+          },
+          "identity": "function:pkg/main.py#conditional%402",
+          "kind": "function",
+          "level": 4,
+          "name": "conditional",
+          "qualified_name": "conditional@2",
+          "span": {
+            "end_column": 21,
+            "end_line": 55,
+            "start_column": 4,
+            "start_line": 54
+          },
+          "type": "node"
+        },
+        "path": [
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "pkg/main.py",
+                "span": {
+                  "end_column": 21,
+                  "end_line": 55,
+                  "start_column": 15,
+                  "start_line": 55
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "function:pkg/main.py#conditional%402",
+            "target": "function:pkg/util.py#help",
+            "type": "edge"
+          }
+        ]
+      },
+      {
+        "distance": 1,
+        "node": {
+          "attributes": {},
+          "content_hash": "sha256:3ce205185b35364fbc8d9412fe2f713f47da0a3b10a0daee390b6e3dac1aeb86",
+          "file": "pkg/main.py",
+          "ide": {
+            "column": 1,
+            "exact": true,
+            "line": 32,
+            "link": "vscode://file/{ROOT}/pkg/main.py:32:1"
+          },
+          "identity": "function:pkg/main.py#run",
+          "kind": "function",
+          "level": 4,
+          "name": "run",
+          "qualified_name": "run",
+          "span": {
+            "end_column": 13,
+            "end_line": 48,
+            "start_column": 0,
+            "start_line": 32
+          },
+          "type": "node"
+        },
+        "path": [
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "pkg/main.py",
+                "span": {
+                  "end_column": 19,
+                  "end_line": 40,
+                  "start_column": 4,
+                  "start_line": 40
+                }
+              },
+              {
+                "file": "pkg/main.py",
+                "span": {
+                  "end_column": 18,
+                  "end_line": 41,
+                  "start_column": 4,
+                  "start_line": 41
+                }
+              },
+              {
+                "file": "pkg/main.py",
+                "span": {
+                  "end_column": 15,
+                  "end_line": 42,
+                  "start_column": 4,
+                  "start_line": 42
+                }
+              },
+              {
+                "file": "pkg/main.py",
+                "span": {
+                  "end_column": 16,
+                  "end_line": 43,
+                  "start_column": 4,
+                  "start_line": 43
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "function:pkg/main.py#run",
+            "target": "function:pkg/util.py#help",
+            "type": "edge"
+          }
+        ]
+      },
+      {
+        "distance": 1,
+        "node": {
+          "attributes": {},
+          "content_hash": "sha256:fef784dec3491045774af785e22ba4ea8a33320d156c11e79297d80539682400",
+          "file": "pkg/main.py",
+          "ide": {
+            "column": 5,
+            "exact": true,
+            "line": 33,
+            "link": "vscode://file/{ROOT}/pkg/main.py:33:5"
+          },
+          "identity": "function:pkg/main.py#run.validate",
+          "kind": "function",
+          "level": 4,
+          "name": "validate",
+          "qualified_name": "run.validate",
+          "span": {
+            "end_column": 21,
+            "end_line": 34,
+            "start_column": 4,
+            "start_line": 33
+          },
+          "type": "node"
+        },
+        "path": [
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "pkg/main.py",
+                "span": {
+                  "end_column": 21,
+                  "end_line": 34,
+                  "start_column": 15,
+                  "start_line": 34
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "function:pkg/main.py#run.validate",
+            "target": "function:pkg/util.py#help",
+            "type": "edge"
+          }
+        ]
+      },
+      {
+        "distance": 1,
+        "node": {
+          "attributes": {
+            "decorators": [
+              "staticmethod"
+            ]
+          },
+          "content_hash": "sha256:45bbe709bcf532813d0151a6d71c4b71a4a8b5c5857d342c4f0e143bfcd15cfb",
+          "file": "pkg/main.py",
+          "ide": {
+            "column": 5,
+            "exact": true,
+            "line": 16,
+            "link": "vscode://file/{ROOT}/pkg/main.py:16:5"
+          },
+          "identity": "method:pkg/main.py#User.validate",
+          "kind": "method",
+          "level": 4,
+          "name": "validate",
+          "qualified_name": "User.validate",
+          "span": {
+            "end_column": 21,
+            "end_line": 18,
+            "start_column": 4,
+            "start_line": 16
+          },
+          "type": "node"
+        },
+        "path": [
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "pkg/main.py",
+                "span": {
+                  "end_column": 21,
+                  "end_line": 18,
+                  "start_column": 15,
+                  "start_line": 18
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "method:pkg/main.py#User.validate",
+            "target": "function:pkg/util.py#help",
+            "type": "edge"
+          }
+        ]
+      },
+      {
+        "distance": 1,
+        "node": {
+          "attributes": {
+            "decorators": [
+              "staticmethod"
+            ]
+          },
+          "content_hash": "sha256:815c9431224f516ce045e28b04fdd37063aed8df51982fea242e71f728ed0cd5",
+          "file": "pkg/util.py",
+          "ide": {
+            "column": 5,
+            "exact": true,
+            "line": 5,
+            "link": "vscode://file/{ROOT}/pkg/util.py:5:5"
+          },
+          "identity": "method:pkg/util.py#Helper.method",
+          "kind": "method",
+          "level": 4,
+          "name": "method",
+          "qualified_name": "Helper.method",
+          "span": {
+            "end_column": 21,
+            "end_line": 7,
+            "start_column": 4,
+            "start_line": 5
+          },
+          "type": "node"
+        },
+        "path": [
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "pkg/util.py",
+                "span": {
+                  "end_column": 21,
+                  "end_line": 7,
+                  "start_column": 15,
+                  "start_line": 7
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "method:pkg/util.py#Helper.method",
+            "target": "function:pkg/util.py#help",
+            "type": "edge"
+          }
+        ]
+      },
+      {
+        "distance": 2,
+        "node": {
+          "attributes": {},
+          "content_hash": "sha256:2eb5695f3b6a0a75dff7e972568ff2193fb939a1b19ab148f9e96af13fcfff57",
+          "file": "pkg/main.py",
+          "ide": {
+            "column": 5,
+            "exact": true,
+            "line": 20,
+            "link": "vscode://file/{ROOT}/pkg/main.py:20:5"
+          },
+          "identity": "method:pkg/main.py#User.save",
+          "kind": "method",
+          "level": 4,
+          "name": "save",
+          "qualified_name": "User.save",
+          "span": {
+            "end_column": 30,
+            "end_line": 21,
+            "start_column": 4,
+            "start_line": 20
+          },
+          "type": "node"
+        },
+        "path": [
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "pkg/main.py",
+                "span": {
+                  "end_column": 21,
+                  "end_line": 18,
+                  "start_column": 15,
+                  "start_line": 18
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "method:pkg/main.py#User.validate",
+            "target": "function:pkg/util.py#help",
+            "type": "edge"
+          },
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "pkg/main.py",
+                "span": {
+                  "end_column": 30,
+                  "end_line": 21,
+                  "start_column": 15,
+                  "start_line": 21
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "method:pkg/main.py#User.save",
+            "target": "method:pkg/main.py#User.validate",
+            "type": "edge"
+          }
+        ]
+      }
+    ],
+    "target": {
+      "attributes": {},
+      "content_hash": "sha256:c4b4b27383b650a8420458926d5e729c39ff4f09b95edb9ddee630091a392b87",
+      "file": "pkg/util.py",
+      "ide": {
+        "column": 1,
+        "exact": true,
+        "line": 1,
+        "link": "vscode://file/{ROOT}/pkg/util.py:1:1"
+      },
+      "identity": "function:pkg/util.py#help",
+      "kind": "function",
+      "level": 4,
+      "name": "help",
+      "qualified_name": "help",
+      "span": {
+        "end_column": 12,
+        "end_line": 2,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    "unknown_calls_in_result_files": 0
+  },
+  {
+    "blind_spot_data": true,
+    "bounds": [],
+    "candidates": [],
+    "caps": [],
+    "command": "impact",
+    "ends": [
+      {
+        "node": "function:pkg/main.py#conditional",
+        "text": "? not modelled: no stored caller, import, reference or route; dependency injection, framework callbacks, JSX renders, passed callbacks and dynamic calls are not followed by impact"
+      },
+      {
+        "node": "function:pkg/main.py#conditional%402",
+        "text": "? not modelled: no stored caller, import, reference or route; dependency injection, framework callbacks, JSX renders, passed callbacks and dynamic calls are not followed by impact"
+      },
+      {
+        "node": "function:pkg/main.py#run",
+        "text": "? not modelled: no stored caller, import, reference or route; dependency injection, framework callbacks, JSX renders, passed callbacks and dynamic calls are not followed by impact"
+      },
+      {
+        "node": "method:pkg/main.py#User.save",
+        "text": "? not modelled: no stored caller, import, reference or route; dependency injection, framework callbacks, JSX renders, passed callbacks and dynamic calls are not followed by impact"
+      }
+    ],
+    "freshness": {
+      "changed_files": [],
+      "indexed": true
+    },
+    "nodes": [],
+    "possibly_missing_call_sites": [
+      {
+        "caller": "function:blind.py#blind",
+        "file": "blind.py",
+        "matches": [
+          "function:pkg/util.py#help"
+        ],
+        "name": "help",
+        "span": {
+          "end_column": 14,
+          "end_line": 2,
+          "start_column": 4,
+          "start_line": 2
+        }
+      }
+    ],
+    "possibly_missing_callers": 1,
+    "results": [
+      {
+        "distance": 1,
+        "node": {
+          "attributes": {},
+          "content_hash": "sha256:b7b6ceccd0004c043e3cce6c5f7cdba051b801f3f68453dd945231b87a7975e9",
+          "file": "pkg/main.py",
+          "ide": {
+            "column": 5,
+            "exact": true,
+            "line": 51,
+            "link": "vscode://file/{ROOT}/pkg/main.py:51:5"
+          },
+          "identity": "function:pkg/main.py#conditional",
+          "kind": "function",
+          "level": 4,
+          "name": "conditional",
+          "qualified_name": "conditional",
+          "span": {
+            "end_column": 21,
+            "end_line": 52,
+            "start_column": 4,
+            "start_line": 51
+          },
+          "type": "node"
+        },
+        "path": [
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "pkg/main.py",
+                "span": {
+                  "end_column": 21,
+                  "end_line": 52,
+                  "start_column": 15,
+                  "start_line": 52
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "function:pkg/main.py#conditional",
+            "target": "function:pkg/util.py#help",
+            "type": "edge"
+          }
+        ]
+      },
+      {
+        "distance": 1,
+        "node": {
+          "attributes": {},
+          "content_hash": "sha256:b7b6ceccd0004c043e3cce6c5f7cdba051b801f3f68453dd945231b87a7975e9",
+          "file": "pkg/main.py",
+          "ide": {
+            "column": 5,
+            "exact": true,
+            "line": 54,
+            "link": "vscode://file/{ROOT}/pkg/main.py:54:5"
+          },
+          "identity": "function:pkg/main.py#conditional%402",
+          "kind": "function",
+          "level": 4,
+          "name": "conditional",
+          "qualified_name": "conditional@2",
+          "span": {
+            "end_column": 21,
+            "end_line": 55,
+            "start_column": 4,
+            "start_line": 54
+          },
+          "type": "node"
+        },
+        "path": [
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "pkg/main.py",
+                "span": {
+                  "end_column": 21,
+                  "end_line": 55,
+                  "start_column": 15,
+                  "start_line": 55
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "function:pkg/main.py#conditional%402",
+            "target": "function:pkg/util.py#help",
+            "type": "edge"
+          }
+        ]
+      },
+      {
+        "distance": 1,
+        "node": {
+          "attributes": {},
+          "content_hash": "sha256:3ce205185b35364fbc8d9412fe2f713f47da0a3b10a0daee390b6e3dac1aeb86",
+          "file": "pkg/main.py",
+          "ide": {
+            "column": 1,
+            "exact": true,
+            "line": 32,
+            "link": "vscode://file/{ROOT}/pkg/main.py:32:1"
+          },
+          "identity": "function:pkg/main.py#run",
+          "kind": "function",
+          "level": 4,
+          "name": "run",
+          "qualified_name": "run",
+          "span": {
+            "end_column": 13,
+            "end_line": 48,
+            "start_column": 0,
+            "start_line": 32
+          },
+          "type": "node"
+        },
+        "path": [
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "pkg/main.py",
+                "span": {
+                  "end_column": 19,
+                  "end_line": 40,
+                  "start_column": 4,
+                  "start_line": 40
+                }
+              },
+              {
+                "file": "pkg/main.py",
+                "span": {
+                  "end_column": 18,
+                  "end_line": 41,
+                  "start_column": 4,
+                  "start_line": 41
+                }
+              },
+              {
+                "file": "pkg/main.py",
+                "span": {
+                  "end_column": 15,
+                  "end_line": 42,
+                  "start_column": 4,
+                  "start_line": 42
+                }
+              },
+              {
+                "file": "pkg/main.py",
+                "span": {
+                  "end_column": 16,
+                  "end_line": 43,
+                  "start_column": 4,
+                  "start_line": 43
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "function:pkg/main.py#run",
+            "target": "function:pkg/util.py#help",
+            "type": "edge"
+          }
+        ]
+      },
+      {
+        "distance": 1,
+        "node": {
+          "attributes": {},
+          "content_hash": "sha256:fef784dec3491045774af785e22ba4ea8a33320d156c11e79297d80539682400",
+          "file": "pkg/main.py",
+          "ide": {
+            "column": 5,
+            "exact": true,
+            "line": 33,
+            "link": "vscode://file/{ROOT}/pkg/main.py:33:5"
+          },
+          "identity": "function:pkg/main.py#run.validate",
+          "kind": "function",
+          "level": 4,
+          "name": "validate",
+          "qualified_name": "run.validate",
+          "span": {
+            "end_column": 21,
+            "end_line": 34,
+            "start_column": 4,
+            "start_line": 33
+          },
+          "type": "node"
+        },
+        "path": [
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "pkg/main.py",
+                "span": {
+                  "end_column": 21,
+                  "end_line": 34,
+                  "start_column": 15,
+                  "start_line": 34
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "function:pkg/main.py#run.validate",
+            "target": "function:pkg/util.py#help",
+            "type": "edge"
+          }
+        ]
+      },
+      {
+        "distance": 1,
+        "node": {
+          "attributes": {
+            "decorators": [
+              "staticmethod"
+            ]
+          },
+          "content_hash": "sha256:45bbe709bcf532813d0151a6d71c4b71a4a8b5c5857d342c4f0e143bfcd15cfb",
+          "file": "pkg/main.py",
+          "ide": {
+            "column": 5,
+            "exact": true,
+            "line": 16,
+            "link": "vscode://file/{ROOT}/pkg/main.py:16:5"
+          },
+          "identity": "method:pkg/main.py#User.validate",
+          "kind": "method",
+          "level": 4,
+          "name": "validate",
+          "qualified_name": "User.validate",
+          "span": {
+            "end_column": 21,
+            "end_line": 18,
+            "start_column": 4,
+            "start_line": 16
+          },
+          "type": "node"
+        },
+        "path": [
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "pkg/main.py",
+                "span": {
+                  "end_column": 21,
+                  "end_line": 18,
+                  "start_column": 15,
+                  "start_line": 18
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "method:pkg/main.py#User.validate",
+            "target": "function:pkg/util.py#help",
+            "type": "edge"
+          }
+        ]
+      },
+      {
+        "distance": 1,
+        "node": {
+          "attributes": {
+            "decorators": [
+              "staticmethod"
+            ]
+          },
+          "content_hash": "sha256:815c9431224f516ce045e28b04fdd37063aed8df51982fea242e71f728ed0cd5",
+          "file": "pkg/util.py",
+          "ide": {
+            "column": 5,
+            "exact": true,
+            "line": 5,
+            "link": "vscode://file/{ROOT}/pkg/util.py:5:5"
+          },
+          "identity": "method:pkg/util.py#Helper.method",
+          "kind": "method",
+          "level": 4,
+          "name": "method",
+          "qualified_name": "Helper.method",
+          "span": {
+            "end_column": 21,
+            "end_line": 7,
+            "start_column": 4,
+            "start_line": 5
+          },
+          "type": "node"
+        },
+        "path": [
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "pkg/util.py",
+                "span": {
+                  "end_column": 21,
+                  "end_line": 7,
+                  "start_column": 15,
+                  "start_line": 7
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "method:pkg/util.py#Helper.method",
+            "target": "function:pkg/util.py#help",
+            "type": "edge"
+          }
+        ]
+      },
+      {
+        "distance": 2,
+        "node": {
+          "attributes": {},
+          "content_hash": "sha256:2eb5695f3b6a0a75dff7e972568ff2193fb939a1b19ab148f9e96af13fcfff57",
+          "file": "pkg/main.py",
+          "ide": {
+            "column": 5,
+            "exact": true,
+            "line": 20,
+            "link": "vscode://file/{ROOT}/pkg/main.py:20:5"
+          },
+          "identity": "method:pkg/main.py#User.save",
+          "kind": "method",
+          "level": 4,
+          "name": "save",
+          "qualified_name": "User.save",
+          "span": {
+            "end_column": 30,
+            "end_line": 21,
+            "start_column": 4,
+            "start_line": 20
+          },
+          "type": "node"
+        },
+        "path": [
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "pkg/main.py",
+                "span": {
+                  "end_column": 21,
+                  "end_line": 18,
+                  "start_column": 15,
+                  "start_line": 18
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "method:pkg/main.py#User.validate",
+            "target": "function:pkg/util.py#help",
+            "type": "edge"
+          },
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "pkg/main.py",
+                "span": {
+                  "end_column": 30,
+                  "end_line": 21,
+                  "start_column": 15,
+                  "start_line": 21
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "method:pkg/main.py#User.save",
+            "target": "method:pkg/main.py#User.validate",
+            "type": "edge"
+          }
+        ]
+      }
+    ],
+    "target": {
+      "attributes": {},
+      "content_hash": "sha256:c4b4b27383b650a8420458926d5e729c39ff4f09b95edb9ddee630091a392b87",
+      "file": "pkg/util.py",
+      "ide": {
+        "column": 1,
+        "exact": true,
+        "line": 1,
+        "link": "vscode://file/{ROOT}/pkg/util.py:1:1"
+      },
+      "identity": "function:pkg/util.py#help",
+      "kind": "function",
+      "level": 4,
+      "name": "help",
+      "qualified_name": "help",
+      "span": {
+        "end_column": 12,
+        "end_line": 2,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    "unknown_calls_in_result_files": 1
+  },
+  {
+    "blind_spot_data": false,
+    "bounds": [],
+    "candidates": [
+      "function:pkg/main.py#conditional",
+      "function:pkg/main.py#conditional%402"
+    ],
+    "caps": [],
+    "command": "impact",
+    "ends": [],
+    "error": "ambiguous target",
+    "freshness": {
+      "changed_files": [],
+      "indexed": true
+    },
+    "nodes": [],
+    "possibly_missing_call_sites": [],
+    "possibly_missing_callers": 0,
+    "results": [],
+    "unknown_calls_in_result_files": 0
+  },
+  {
+    "blind_spot_data": true,
+    "bounds": [],
+    "candidates": [],
+    "caps": [],
+    "command": "impact",
+    "ends": [
+      {
+        "node": "function:pkg/main.py#conditional",
+        "text": "? not modelled: no stored caller, import, reference or route; dependency injection, framework callbacks, JSX renders, passed callbacks and dynamic calls are not followed by impact"
+      },
+      {
+        "node": "function:pkg/main.py#conditional%402",
+        "text": "? not modelled: no stored caller, import, reference or route; dependency injection, framework callbacks, JSX renders, passed callbacks and dynamic calls are not followed by impact"
+      },
+      {
+        "node": "function:pkg/main.py#run",
+        "text": "? not modelled: no stored caller, import, reference or route; dependency injection, framework callbacks, JSX renders, passed callbacks and dynamic calls are not followed by impact"
+      },
+      {
+        "node": "method:pkg/main.py#User.save",
+        "text": "? not modelled: no stored caller, import, reference or route; dependency injection, framework callbacks, JSX renders, passed callbacks and dynamic calls are not followed by impact"
+      }
+    ],
+    "freshness": {
+      "changed_files": [],
+      "indexed": true
+    },
+    "nodes": [],
+    "possibly_missing_call_sites": [],
+    "possibly_missing_callers": 0,
+    "results": [
+      {
+        "distance": 1,
+        "node": {
+          "attributes": {
+            "precision": "precise",
+            "unresolved_calls_external": 1,
+            "unresolved_calls_unknown": 1,
+            "unresolved_unknown_call_sites": [
+              {
+                "caller": "function:pkg/main.py#run",
+                "name": "missing",
+                "span": {
+                  "end_column": 13,
+                  "end_line": 48,
+                  "start_column": 4,
+                  "start_line": 48
+                }
+              }
+            ]
+          },
+          "content_hash": "sha256:5b0efe796e465086b1bc7118cf0fbca525fd7512f664cafe8bf8e84ca4588ed8",
+          "file": "pkg/main.py",
+          "ide": {
+            "column": 1,
+            "exact": true,
+            "line": 1,
+            "link": "vscode://file/{ROOT}/pkg/main.py:1:1"
+          },
+          "identity": "file:pkg/main.py#pkg%2Fmain.py",
+          "kind": "file",
+          "level": 3,
+          "name": "main.py",
+          "qualified_name": "pkg/main.py",
+          "span": {
+            "end_column": 0,
+            "end_line": 56,
+            "start_column": 0,
+            "start_line": 1
+          },
+          "type": "node"
+        },
+        "path": [
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "pkg/main.py",
+                "span": {
+                  "end_column": 15,
+                  "end_line": 2,
+                  "start_column": 0,
+                  "start_line": 2
+                }
+              },
+              {
+                "file": "pkg/main.py",
+                "span": {
+                  "end_column": 26,
+                  "end_line": 3,
+                  "start_column": 0,
+                  "start_line": 3
+                }
+              },
+              {
+                "file": "pkg/main.py",
+                "span": {
+                  "end_column": 22,
+                  "end_line": 5,
+                  "start_column": 0,
+                  "start_line": 5
+                }
+              },
+              {
+                "file": "pkg/main.py",
+                "span": {
+                  "end_column": 18,
+                  "end_line": 6,
+                  "start_column": 0,
+                  "start_line": 6
+                }
+              },
+              {
+                "file": "pkg/main.py",
+                "span": {
+                  "end_column": 29,
+                  "end_line": 7,
+                  "start_column": 0,
+                  "start_line": 7
+                }
+              },
+              {
+                "file": "pkg/main.py",
+                "span": {
+                  "end_column": 39,
+                  "end_line": 8,
+                  "start_column": 0,
+                  "start_line": 8
+                }
+              }
+            ],
+            "kind": "imports",
+            "provenance": "fact",
+            "source": "file:pkg/main.py#pkg%2Fmain.py",
+            "target": "file:pkg/util.py#pkg%2Futil.py",
+            "type": "edge"
+          }
+        ]
+      },
+      {
+        "distance": 1,
+        "node": {
+          "attributes": {},
+          "content_hash": "sha256:b7b6ceccd0004c043e3cce6c5f7cdba051b801f3f68453dd945231b87a7975e9",
+          "file": "pkg/main.py",
+          "ide": {
+            "column": 5,
+            "exact": true,
+            "line": 51,
+            "link": "vscode://file/{ROOT}/pkg/main.py:51:5"
+          },
+          "identity": "function:pkg/main.py#conditional",
+          "kind": "function",
+          "level": 4,
+          "name": "conditional",
+          "qualified_name": "conditional",
+          "span": {
+            "end_column": 21,
+            "end_line": 52,
+            "start_column": 4,
+            "start_line": 51
+          },
+          "type": "node"
+        },
+        "path": [
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "pkg/main.py",
+                "span": {
+                  "end_column": 21,
+                  "end_line": 52,
+                  "start_column": 15,
+                  "start_line": 52
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "function:pkg/main.py#conditional",
+            "target": "function:pkg/util.py#help",
+            "type": "edge"
+          }
+        ]
+      },
+      {
+        "distance": 1,
+        "node": {
+          "attributes": {},
+          "content_hash": "sha256:b7b6ceccd0004c043e3cce6c5f7cdba051b801f3f68453dd945231b87a7975e9",
+          "file": "pkg/main.py",
+          "ide": {
+            "column": 5,
+            "exact": true,
+            "line": 54,
+            "link": "vscode://file/{ROOT}/pkg/main.py:54:5"
+          },
+          "identity": "function:pkg/main.py#conditional%402",
+          "kind": "function",
+          "level": 4,
+          "name": "conditional",
+          "qualified_name": "conditional@2",
+          "span": {
+            "end_column": 21,
+            "end_line": 55,
+            "start_column": 4,
+            "start_line": 54
+          },
+          "type": "node"
+        },
+        "path": [
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "pkg/main.py",
+                "span": {
+                  "end_column": 21,
+                  "end_line": 55,
+                  "start_column": 15,
+                  "start_line": 55
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "function:pkg/main.py#conditional%402",
+            "target": "function:pkg/util.py#help",
+            "type": "edge"
+          }
+        ]
+      },
+      {
+        "distance": 1,
+        "node": {
+          "attributes": {},
+          "content_hash": "sha256:3ce205185b35364fbc8d9412fe2f713f47da0a3b10a0daee390b6e3dac1aeb86",
+          "file": "pkg/main.py",
+          "ide": {
+            "column": 1,
+            "exact": true,
+            "line": 32,
+            "link": "vscode://file/{ROOT}/pkg/main.py:32:1"
+          },
+          "identity": "function:pkg/main.py#run",
+          "kind": "function",
+          "level": 4,
+          "name": "run",
+          "qualified_name": "run",
+          "span": {
+            "end_column": 13,
+            "end_line": 48,
+            "start_column": 0,
+            "start_line": 32
+          },
+          "type": "node"
+        },
+        "path": [
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "pkg/main.py",
+                "span": {
+                  "end_column": 19,
+                  "end_line": 40,
+                  "start_column": 4,
+                  "start_line": 40
+                }
+              },
+              {
+                "file": "pkg/main.py",
+                "span": {
+                  "end_column": 18,
+                  "end_line": 41,
+                  "start_column": 4,
+                  "start_line": 41
+                }
+              },
+              {
+                "file": "pkg/main.py",
+                "span": {
+                  "end_column": 15,
+                  "end_line": 42,
+                  "start_column": 4,
+                  "start_line": 42
+                }
+              },
+              {
+                "file": "pkg/main.py",
+                "span": {
+                  "end_column": 16,
+                  "end_line": 43,
+                  "start_column": 4,
+                  "start_line": 43
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "function:pkg/main.py#run",
+            "target": "function:pkg/util.py#help",
+            "type": "edge"
+          }
+        ]
+      },
+      {
+        "distance": 1,
+        "node": {
+          "attributes": {},
+          "content_hash": "sha256:fef784dec3491045774af785e22ba4ea8a33320d156c11e79297d80539682400",
+          "file": "pkg/main.py",
+          "ide": {
+            "column": 5,
+            "exact": true,
+            "line": 33,
+            "link": "vscode://file/{ROOT}/pkg/main.py:33:5"
+          },
+          "identity": "function:pkg/main.py#run.validate",
+          "kind": "function",
+          "level": 4,
+          "name": "validate",
+          "qualified_name": "run.validate",
+          "span": {
+            "end_column": 21,
+            "end_line": 34,
+            "start_column": 4,
+            "start_line": 33
+          },
+          "type": "node"
+        },
+        "path": [
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "pkg/main.py",
+                "span": {
+                  "end_column": 21,
+                  "end_line": 34,
+                  "start_column": 15,
+                  "start_line": 34
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "function:pkg/main.py#run.validate",
+            "target": "function:pkg/util.py#help",
+            "type": "edge"
+          }
+        ]
+      },
+      {
+        "distance": 1,
+        "node": {
+          "attributes": {
+            "decorators": [
+              "staticmethod"
+            ]
+          },
+          "content_hash": "sha256:45bbe709bcf532813d0151a6d71c4b71a4a8b5c5857d342c4f0e143bfcd15cfb",
+          "file": "pkg/main.py",
+          "ide": {
+            "column": 5,
+            "exact": true,
+            "line": 16,
+            "link": "vscode://file/{ROOT}/pkg/main.py:16:5"
+          },
+          "identity": "method:pkg/main.py#User.validate",
+          "kind": "method",
+          "level": 4,
+          "name": "validate",
+          "qualified_name": "User.validate",
+          "span": {
+            "end_column": 21,
+            "end_line": 18,
+            "start_column": 4,
+            "start_line": 16
+          },
+          "type": "node"
+        },
+        "path": [
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "pkg/main.py",
+                "span": {
+                  "end_column": 21,
+                  "end_line": 18,
+                  "start_column": 15,
+                  "start_line": 18
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "method:pkg/main.py#User.validate",
+            "target": "function:pkg/util.py#help",
+            "type": "edge"
+          }
+        ]
+      },
+      {
+        "distance": 2,
+        "node": {
+          "attributes": {},
+          "content_hash": "sha256:2eb5695f3b6a0a75dff7e972568ff2193fb939a1b19ab148f9e96af13fcfff57",
+          "file": "pkg/main.py",
+          "ide": {
+            "column": 5,
+            "exact": true,
+            "line": 20,
+            "link": "vscode://file/{ROOT}/pkg/main.py:20:5"
+          },
+          "identity": "method:pkg/main.py#User.save",
+          "kind": "method",
+          "level": 4,
+          "name": "save",
+          "qualified_name": "User.save",
+          "span": {
+            "end_column": 30,
+            "end_line": 21,
+            "start_column": 4,
+            "start_line": 20
+          },
+          "type": "node"
+        },
+        "path": [
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "pkg/main.py",
+                "span": {
+                  "end_column": 21,
+                  "end_line": 18,
+                  "start_column": 15,
+                  "start_line": 18
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "method:pkg/main.py#User.validate",
+            "target": "function:pkg/util.py#help",
+            "type": "edge"
+          },
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "pkg/main.py",
+                "span": {
+                  "end_column": 30,
+                  "end_line": 21,
+                  "start_column": 15,
+                  "start_line": 21
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "method:pkg/main.py#User.save",
+            "target": "method:pkg/main.py#User.validate",
+            "type": "edge"
+          }
+        ]
+      }
+    ],
+    "target": {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:a05429c435f4b4fd266d1f773733a8aab9c6dbb4ba145e441621de6643842f72",
+      "file": "pkg/util.py",
+      "ide": {
+        "column": 1,
+        "exact": true,
+        "line": 1,
+        "link": "vscode://file/{ROOT}/pkg/util.py:1:1"
+      },
+      "identity": "file:pkg/util.py#pkg%2Futil.py",
+      "kind": "file",
+      "level": 3,
+      "name": "util.py",
+      "qualified_name": "pkg/util.py",
+      "span": {
+        "end_column": 0,
+        "end_line": 8,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    "unknown_calls_in_result_files": 1
+  },
+  {
+    "blind_spot_data": false,
+    "bounds": [],
+    "candidates": [],
+    "caps": [],
+    "command": "callers",
+    "ends": [],
+    "error": "no matching target",
+    "freshness": {
+      "changed_files": [],
+      "indexed": true
+    },
+    "nodes": [],
+    "possibly_missing_call_sites": [],
+    "possibly_missing_callers": 0,
+    "results": [],
+    "unknown_calls_in_result_files": 0
+  }
+]

@@ -1,0 +1,35 @@
+{
+  "id": "g1-s1458-S1-N3_select",
+  "signature": "applied|S1|42P01|N3.select",
+  "class": "S1",
+  "owner": "P1",
+  "row": "N3.select",
+  "history": {
+    "id": "g1-s1458",
+    "tags": {
+      "1_m1.sql": [
+        "M1.create",
+        "M8.rename",
+        "N3.select"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42P01",
+        "message": "relation \"t1\" does not exist",
+        "statement": 3,
+        "statement_text": "SELECT count(*) FROM t1;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

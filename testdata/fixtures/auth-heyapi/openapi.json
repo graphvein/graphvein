@@ -1,0 +1,27 @@
+{
+  "openapi": "3.1.0",
+  "info": {"title": "auth-heyapi fixture", "version": "0.0.0"},
+  "security": [{"BearerAuth": []}],
+  "components": {
+    "securitySchemes": {
+      "BearerAuth": {"type": "http", "scheme": "bearer"},
+      "HeaderKey": {"type": "apiKey", "in": "header", "name": "x-key"},
+      "QueryKey": {"type": "apiKey", "in": "query", "name": "key"},
+      "Basic": {"type": "http", "scheme": "basic"},
+      "Password": {"type": "oauth2", "flows": {"password": {"tokenUrl": "/token", "scopes": {}}}}
+    }
+  },
+  "paths": {
+    "/t026/items": {
+      "get": {"operationId": "listItems", "responses": {"200": {"description": "ok"}}},
+      "post": {"operationId": "createItem", "security": [{"HeaderKey": []}, {"QueryKey": []}], "responses": {"200": {"description": "ok"}}}
+    },
+    "/t026/items/{id}": {
+      "get": {"operationId": "readItem", "parameters": [{"name": "id", "in": "path", "required": true, "schema": {"type": "string"}}], "security": [{"Password": []}], "responses": {"200": {"description": "ok"}}},
+      "delete": {"operationId": "deleteItem", "parameters": [{"name": "id", "in": "path", "required": true, "schema": {"type": "string"}}], "security": [{"Basic": []}], "responses": {"200": {"description": "ok"}}}
+    },
+    "/t026/health": {
+      "get": {"operationId": "health", "security": [], "responses": {"200": {"description": "ok"}}}
+    }
+  }
+}

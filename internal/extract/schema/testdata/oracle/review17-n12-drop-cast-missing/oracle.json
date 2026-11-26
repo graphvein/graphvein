@@ -1,0 +1,29 @@
+{
+  "id": "review17-n12-drop-cast-missing",
+  "signature": "agreed at Revision 1.7",
+  "class": "S1",
+  "owner": "W5",
+  "row": "review17",
+  "history": {
+    "id": "n12-drop-cast-missing"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42501",
+        "message": "must be owner of type integer or type money",
+        "statement": 1,
+        "statement_text": "DROP CAST (int AS money);",
+        "assumption": "E6"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

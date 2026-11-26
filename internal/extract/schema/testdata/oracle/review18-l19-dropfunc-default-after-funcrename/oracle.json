@@ -1,0 +1,29 @@
+{
+  "id": "review18-l19-dropfunc-default-after-funcrename",
+  "signature": "agreed at Revision 1.8",
+  "class": "S1",
+  "owner": "X1",
+  "row": "review18",
+  "history": {
+    "id": "l19-dropfunc-default-after-funcrename"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "2BP01",
+        "message": "cannot drop function g() because other objects depend on it",
+        "detail": "default value for column id of table t depends on function g()",
+        "statement": 4,
+        "statement_text": "drop function g();"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

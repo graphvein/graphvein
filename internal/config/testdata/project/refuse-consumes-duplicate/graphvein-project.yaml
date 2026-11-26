@@ -1,0 +1,9 @@
+version: 1
+name: shop
+members:
+  - repository: web
+    consumes:
+      - api
+      - repository: api
+        select: {path_prefixes: [/api]}
+  - repository: api

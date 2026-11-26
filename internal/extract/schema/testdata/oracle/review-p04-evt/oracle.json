@@ -1,0 +1,28 @@
+{
+  "id": "review-p04-evt",
+  "signature": "agreed at af6a883",
+  "class": "S1",
+  "owner": "P5",
+  "row": "review",
+  "history": {
+    "id": "p04-evt"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42601",
+        "message": "syntax error at or near \"b$\"",
+        "statement": 1,
+        "statement_text": "DO $$ BEGIN EXECUTE $b$CREATE FUNCTION f() RETURNS event_trigger LANGUAGE plpgsql AS $c$ BEGIN IF to_regclass($d$t2$d$) IS NOT NULL THEN INSERT INTO t2 VALUES (1) ON CONFLICT DO NOTHING; END IF; END $c$$b$;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

@@ -1,0 +1,45 @@
+{
+  "id": "review19-r1-b05-default-readonly",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y03",
+  "row": "review19",
+  "history": {
+    "id": "b05-default-readonly"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "accepted",
+        "post_commit": "25006 cannot execute UPDATE in a read-only transaction"
+      },
+      {
+        "file": "2_b.sql",
+        "status": "not_run"
+      }
+    ],
+    "tables": [
+      {
+        "table": "history.t",
+        "columns": [
+          {
+            "name": "a",
+            "type": "integer",
+            "not_null": false,
+            "has_default": false
+          }
+        ],
+        "primary_key": null,
+        "unique_keys": [],
+        "foreign_keys": [],
+        "indexes": []
+      }
+    ],
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

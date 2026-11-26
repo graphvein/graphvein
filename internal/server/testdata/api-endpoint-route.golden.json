@@ -1,0 +1,669 @@
+{
+  "api_version": 0,
+  "callers": [
+    {
+      "edges": [
+        {
+          "confidence": 0.9,
+          "kind": "calls_route",
+          "match": "exact",
+          "provenance": "inferred"
+        }
+      ],
+      "node": {
+        "attributes": {
+          "base": "none",
+          "library": "fetch",
+          "method": "GET",
+          "paths": [
+            {
+              "candidate_count": 0,
+              "candidates": [
+                "route:server/app.ts#GET%20%2Ft016d-items"
+              ],
+              "conditional": false,
+              "match": "exact",
+              "origin": null,
+              "resolution": "literal",
+              "status": "linked",
+              "template": "/t016d-items"
+            }
+          ],
+          "status": "linked",
+          "url_expression": "'/t016d-items'",
+          "wrapper": null
+        },
+        "content_hash": "sha256:425fce530ba663cbb558c10eee265f57baccff3f8e511617a47f0111a0d599db",
+        "file": "root-call.ts",
+        "file_state": "unchanged",
+        "ide": {
+          "column": 10,
+          "exact": true,
+          "line": 2,
+          "link": "vscode://file/{ROOT}/root-call.ts:2:10"
+        },
+        "identity": "client_call:root-call.ts#atRoot.GET%20%27%2Ft016d-items%27",
+        "kind": "client_call",
+        "level": 4,
+        "name": "GET '/t016d-items'",
+        "qualified_name": "atRoot.GET '/t016d-items'",
+        "source_root": ".",
+        "span": {
+          "end_column": 30,
+          "end_line": 2,
+          "start_column": 9,
+          "start_line": 2
+        },
+        "type": "node"
+      },
+      "owner": {
+        "id": "function:root-call.ts#atRoot",
+        "kind": "function",
+        "qualified_name": "atRoot"
+      },
+      "reasons": []
+    },
+    {
+      "edges": [
+        {
+          "confidence": 0.9,
+          "kind": "calls_route",
+          "match": "exact",
+          "provenance": "inferred"
+        }
+      ],
+      "node": {
+        "attributes": {
+          "base": "none",
+          "library": "fetch",
+          "method": "GET",
+          "paths": [
+            {
+              "candidate_count": 0,
+              "candidates": [
+                "route:server/app.ts#GET%20%2Ft016d-items"
+              ],
+              "conditional": false,
+              "match": "exact",
+              "origin": null,
+              "resolution": "literal",
+              "status": "linked",
+              "template": "/t016d-items"
+            }
+          ],
+          "scope": "test",
+          "status": "linked",
+          "url_expression": "'/t016d-items'",
+          "wrapper": null
+        },
+        "content_hash": "sha256:425fce530ba663cbb558c10eee265f57baccff3f8e511617a47f0111a0d599db",
+        "file": "web/src/http.test.ts",
+        "file_state": "unchanged",
+        "ide": {
+          "column": 10,
+          "exact": true,
+          "line": 2,
+          "link": "vscode://file/{ROOT}/web/src/http.test.ts:2:10"
+        },
+        "identity": "client_call:web/src/http.test.ts#fromTest.GET%20%27%2Ft016d-items%27",
+        "kind": "client_call",
+        "level": 4,
+        "name": "GET '/t016d-items'",
+        "qualified_name": "fromTest.GET '/t016d-items'",
+        "source_root": "web",
+        "span": {
+          "end_column": 30,
+          "end_line": 2,
+          "start_column": 9,
+          "start_line": 2
+        },
+        "type": "node"
+      },
+      "owner": {
+        "id": "function:web/src/http.test.ts#fromTest",
+        "kind": "function",
+        "qualified_name": "fromTest"
+      },
+      "reasons": []
+    },
+    {
+      "edges": [
+        {
+          "confidence": 0.9,
+          "kind": "calls_route",
+          "match": "exact",
+          "provenance": "inferred"
+        }
+      ],
+      "node": {
+        "attributes": {
+          "base": "none",
+          "library": "fetch",
+          "method": "GET",
+          "paths": [
+            {
+              "candidate_count": 0,
+              "candidates": [
+                "route:server/app.ts#GET%20%2Ft016d-items"
+              ],
+              "conditional": false,
+              "match": "exact",
+              "origin": null,
+              "resolution": "literal",
+              "status": "linked",
+              "template": "/t016d-items"
+            }
+          ],
+          "status": "linked",
+          "url_expression": "'/t016d-items'",
+          "wrapper": null
+        },
+        "content_hash": "sha256:425fce530ba663cbb558c10eee265f57baccff3f8e511617a47f0111a0d599db",
+        "file": "web/src/http.ts",
+        "file_state": "unchanged",
+        "ide": {
+          "column": 10,
+          "exact": true,
+          "line": 7,
+          "link": "vscode://file/{ROOT}/web/src/http.ts:7:10"
+        },
+        "identity": "client_call:web/src/http.ts#linkedExact.GET%20%27%2Ft016d-items%27",
+        "kind": "client_call",
+        "level": 4,
+        "name": "GET '/t016d-items'",
+        "qualified_name": "linkedExact.GET '/t016d-items'",
+        "source_root": "web",
+        "span": {
+          "end_column": 30,
+          "end_line": 7,
+          "start_column": 9,
+          "start_line": 7
+        },
+        "type": "node"
+      },
+      "owner": {
+        "id": "function:web/src/http.ts#linkedExact",
+        "kind": "function",
+        "qualified_name": "linkedExact"
+      },
+      "reasons": []
+    },
+    {
+      "edges": [
+        {
+          "confidence": 0.9,
+          "kind": "calls_route",
+          "match": "exact",
+          "provenance": "inferred"
+        }
+      ],
+      "node": {
+        "attributes": {
+          "base": "none",
+          "library": "fetch",
+          "method": "GET",
+          "paths": [
+            {
+              "base": "none",
+              "candidate_count": 0,
+              "candidates": [
+                "route:server/app.ts#GET%20%2Ft016d-api%2Ft016d-users"
+              ],
+              "conditional": true,
+              "match": "exact",
+              "origin": null,
+              "resolution": "evaluated",
+              "status": "linked",
+              "template": "/t016d-api/t016d-users"
+            },
+            {
+              "base": "none",
+              "candidate_count": 0,
+              "candidates": [
+                "route:server/app.ts#GET%20%2Ft016d-items"
+              ],
+              "conditional": true,
+              "match": "exact",
+              "origin": null,
+              "resolution": "evaluated",
+              "status": "linked",
+              "template": "/t016d-items"
+            }
+          ],
+          "status": "linked",
+          "url_expression": "flag?'/t016d-items':'/t016d-api/t016d-users'",
+          "wrapper": null
+        },
+        "content_hash": "sha256:09928e53642b0eb47b4d00a6642b940e813269c3f66f13fdd90e36c01669924c",
+        "file": "web/src/http.ts",
+        "file_state": "unchanged",
+        "ide": {
+          "column": 10,
+          "exact": true,
+          "line": 51,
+          "link": "vscode://file/{ROOT}/web/src/http.ts:51:10"
+        },
+        "identity": "client_call:web/src/http.ts#conditional.GET%20flag%3F%27%2Ft016d-items%27%3A%27%2Ft016d-api%2Ft016d-users%27",
+        "kind": "client_call",
+        "level": 4,
+        "name": "GET flag?'/t016d-items':'/t016d-api/t016d-users'",
+        "qualified_name": "conditional.GET flag?'/t016d-items':'/t016d-api/t016d-users'",
+        "source_root": "web",
+        "span": {
+          "end_column": 64,
+          "end_line": 51,
+          "start_column": 9,
+          "start_line": 51
+        },
+        "type": "node"
+      },
+      "owner": {
+        "id": "function:web/src/http.ts#conditional",
+        "kind": "function",
+        "qualified_name": "conditional"
+      },
+      "reasons": []
+    },
+    {
+      "edges": [
+        {
+          "confidence": 0.9,
+          "kind": "calls_route",
+          "match": "exact",
+          "provenance": "inferred"
+        }
+      ],
+      "node": {
+        "attributes": {
+          "base": "unresolved",
+          "library": "fetch",
+          "method": "GET",
+          "paths": [
+            {
+              "base": "none",
+              "candidate_count": 0,
+              "candidates": [
+                "route:server/app.ts#GET%20%2Ft016d-items"
+              ],
+              "conditional": true,
+              "match": "exact",
+              "origin": null,
+              "resolution": "evaluated",
+              "status": "linked",
+              "template": "/t016d-items"
+            },
+            {
+              "candidate_count": 0,
+              "candidates": [],
+              "conditional": true,
+              "match": null,
+              "origin": null,
+              "resolution": "evaluated",
+              "status": "dynamic",
+              "template": null
+            }
+          ],
+          "status": "dynamic",
+          "url_expression": "flag?'/t016d-items':url",
+          "wrapper": null
+        },
+        "content_hash": "sha256:487f132a44616c44d8c01b5831932996b398742a21d779980798dc915ce25ea3",
+        "file": "web/src/http.ts",
+        "file_state": "unchanged",
+        "ide": {
+          "column": 10,
+          "exact": true,
+          "line": 55,
+          "link": "vscode://file/{ROOT}/web/src/http.ts:55:10"
+        },
+        "identity": "client_call:web/src/http.ts#partlyDynamic.GET%20flag%3F%27%2Ft016d-items%27%3Aurl",
+        "kind": "client_call",
+        "level": 4,
+        "name": "GET flag?'/t016d-items':url",
+        "qualified_name": "partlyDynamic.GET flag?'/t016d-items':url",
+        "source_root": "web",
+        "span": {
+          "end_column": 43,
+          "end_line": 55,
+          "start_column": 9,
+          "start_line": 55
+        },
+        "type": "node"
+      },
+      "owner": {
+        "id": "function:web/src/http.ts#partlyDynamic",
+        "kind": "function",
+        "qualified_name": "partlyDynamic"
+      },
+      "reasons": [
+        {
+          "code": "some_alternatives_unevaluated",
+          "detail": "flag?'/t016d-items':url",
+          "text": "Some URL alternatives are not evaluated"
+        },
+        {
+          "code": "alternative_linked",
+          "detail": null,
+          "text": "A stored link exists although the status is \"dynamic\""
+        }
+      ]
+    }
+  ],
+  "callers_precision": {
+    "label": "best_effort",
+    "reason": "default_branch",
+    "row": "D"
+  },
+  "endpoint": {
+    "attributes": {
+      "framework": "express",
+      "handler": "function:server/app.ts#listItems",
+      "handler_inline": false,
+      "method": "GET",
+      "middleware": [],
+      "paths": [
+        {
+          "conditional": false,
+          "resolution": "literal",
+          "template": "/t016d-items"
+        }
+      ],
+      "pattern": "/t016d-items",
+      "shape": {
+        "body": {
+          "items": [],
+          "reason": "the handler reads no request property; no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+          "state": "not_read"
+        },
+        "cookie": {
+          "items": [],
+          "reason": "the handler reads no request property",
+          "state": "not_read"
+        },
+        "follow": {
+          "chains": [],
+          "depth_limit": 6
+        },
+        "header": {
+          "items": [],
+          "reason": "the handler reads no request property",
+          "state": "not_read"
+        },
+        "models": [],
+        "path": {
+          "evidence": {
+            "chain": [],
+            "confidence": 1,
+            "file": "server/app.ts",
+            "kind": "fact",
+            "line": 13,
+            "rule": "SH-E2"
+          },
+          "items": [],
+          "state": "provably_none"
+        },
+        "query": {
+          "items": [],
+          "reason": "the handler reads no request property",
+          "state": "not_read"
+        },
+        "responses": {
+          "items": [
+            {
+              "content_type": null,
+              "provenance": {
+                "chain": [],
+                "confidence": 0.9,
+                "file": "api/openapi.json",
+                "kind": "mapped",
+                "line": 10,
+                "rule": "SH-O8"
+              },
+              "schema": {
+                "type": "null"
+              },
+              "status": "200"
+            }
+          ],
+          "reason": "not read in the code: every item is mapped from the committed spec",
+          "state": "partial"
+        },
+        "security": {
+          "items": [],
+          "state": "not_read"
+        },
+        "security_schemes": [],
+        "version": 1
+      }
+    },
+    "content_hash": "sha256:8f3de89debaf1104326d1b689c527fbf4d6bc3efd3814c755d9d4a994cac749d",
+    "file": "server/app.ts",
+    "file_state": "unchanged",
+    "ide": {
+      "column": 1,
+      "exact": true,
+      "line": 13,
+      "link": "vscode://file/{ROOT}/server/app.ts:13:1"
+    },
+    "identity": "route:server/app.ts#GET%20%2Ft016d-items",
+    "kind": "route",
+    "level": 4,
+    "name": "GET /t016d-items",
+    "qualified_name": "GET /t016d-items",
+    "span": {
+      "end_column": 34,
+      "end_line": 13,
+      "start_column": 0,
+      "start_line": 13
+    },
+    "type": "node"
+  },
+  "handler": {
+    "edge": {
+      "confidence": 1,
+      "kind": "exposes_route",
+      "provenance": "fact"
+    },
+    "expression": null,
+    "node": {
+      "attributes": {
+        "exported": true
+      },
+      "content_hash": "sha256:0f689b5d0e8ea32b5405631e67fea99ff6f9420fa3870ff279840db978d35e1e",
+      "file": "server/app.ts",
+      "file_state": "unchanged",
+      "ide": {
+        "column": 1,
+        "exact": true,
+        "line": 5,
+        "link": "vscode://file/{ROOT}/server/app.ts:5:1"
+      },
+      "identity": "function:server/app.ts#listItems",
+      "kind": "function",
+      "level": 4,
+      "name": "listItems",
+      "qualified_name": "listItems",
+      "span": {
+        "end_column": 30,
+        "end_line": 5,
+        "start_column": 0,
+        "start_line": 5
+      },
+      "type": "node"
+    },
+    "state": "resolved"
+  },
+  "ide": {
+    "available": true,
+    "editor": "vscode",
+    "error": null,
+    "label": "Open in VS Code",
+    "source": "builtin"
+  },
+  "index": {
+    "contract_version": 1,
+    "finished_at": "2026-11-03T14:32:05.123Z",
+    "indexer": {
+      "name": "graphvein",
+      "version": "extractors-62"
+    }
+  },
+  "model_tables": [],
+  "near_misses": [],
+  "near_misses_incomplete": 0,
+  "openapi": {
+    "operations": [
+      {
+        "edge": {
+          "confidence": 0.9,
+          "kind": "documents_route",
+          "provenance": "inferred"
+        },
+        "node": {
+          "attributes": {
+            "deprecated": false,
+            "method": "GET",
+            "operation_id": "listItems",
+            "parameters": [],
+            "path": "/t016d-items",
+            "path_count": 1,
+            "paths": [
+              {
+                "candidate_count": 0,
+                "candidates": [
+                  "route:server/app.ts#GET%20%2Ft016d-items"
+                ],
+                "match": "exact",
+                "origins": [],
+                "resolution": "literal",
+                "status": "linked",
+                "template": "/t016d-items"
+              }
+            ],
+            "request_content_types": [],
+            "response_codes": [
+              "200"
+            ],
+            "security": [],
+            "status": "linked",
+            "summary": "List items",
+            "tags": [
+              "items"
+            ]
+          },
+          "content_hash": "sha256:50efed83eb39b371d5224af1eb05eea201ada3ae9d11c9d60de29efb4ebd2efa",
+          "file": "api/openapi.json",
+          "file_state": "unchanged",
+          "ide": {
+            "column": 7,
+            "exact": true,
+            "line": 6,
+            "link": "vscode://file/{ROOT}/api/openapi.json:6:7"
+          },
+          "identity": "api_operation:api/openapi.json#GET%20%2Ft016d-items",
+          "kind": "api_operation",
+          "level": 4,
+          "name": "GET /t016d-items",
+          "qualified_name": "GET /t016d-items",
+          "span": {
+            "end_column": 7,
+            "end_line": 11,
+            "start_column": 6,
+            "start_line": 6
+          },
+          "type": "node"
+        }
+      }
+    ],
+    "specs": 1
+  },
+  "precision": {
+    "label": "best_effort",
+    "reason": "default_branch",
+    "row": "D"
+  },
+  "repository": "fixture",
+  "root": null,
+  "scope": "all",
+  "shape": {
+    "body": {
+      "items": [],
+      "reason": "the handler reads no request property; no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+      "state": "not_read"
+    },
+    "cookie": {
+      "items": [],
+      "reason": "the handler reads no request property",
+      "state": "not_read"
+    },
+    "follow": {
+      "chains": [],
+      "depth_limit": 6
+    },
+    "header": {
+      "items": [],
+      "reason": "the handler reads no request property",
+      "state": "not_read"
+    },
+    "models": [],
+    "path": {
+      "evidence": {
+        "chain": [],
+        "confidence": 1,
+        "file": "server/app.ts",
+        "kind": "fact",
+        "line": 13,
+        "rule": "SH-E2"
+      },
+      "items": [],
+      "state": "provably_none"
+    },
+    "query": {
+      "items": [],
+      "reason": "the handler reads no request property",
+      "state": "not_read"
+    },
+    "responses": {
+      "items": [
+        {
+          "content_type": null,
+          "provenance": {
+            "chain": [],
+            "confidence": 0.9,
+            "file": "api/openapi.json",
+            "kind": "mapped",
+            "line": 10,
+            "rule": "SH-O8"
+          },
+          "schema": {
+            "type": "null"
+          },
+          "status": "200"
+        }
+      ],
+      "reason": "not read in the code: every item is mapped from the committed spec",
+      "state": "partial"
+    },
+    "security": {
+      "items": [],
+      "state": "not_read"
+    },
+    "security_schemes": [],
+    "version": 1
+  },
+  "shape_links": {
+    "api/openapi.json:10": {
+      "column": 1,
+      "exact": true,
+      "line": 10,
+      "link": "vscode://file/{ROOT}/api/openapi.json:10:1"
+    },
+    "server/app.ts:13": {
+      "column": 1,
+      "exact": true,
+      "line": 13,
+      "link": "vscode://file/{ROOT}/server/app.ts:13:1"
+    }
+  },
+  "transport": "http"
+}

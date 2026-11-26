@@ -1,0 +1,29 @@
+{
+  "id": "review19-r3-m50-createrole-pg-prefix",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y06",
+  "row": "review19",
+  "history": {
+    "id": "m50-createrole-pg-prefix"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42939",
+        "message": "role name \"pg_mine\" is reserved",
+        "detail": "Role names starting with \"pg_\" are reserved.",
+        "statement": 1,
+        "statement_text": "CREATE ROLE pg_mine;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

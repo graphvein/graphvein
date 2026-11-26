@@ -1,0 +1,28 @@
+{
+  "id": "review-q06-uniqdup",
+  "signature": "applied|S1|42701|",
+  "class": "S1",
+  "owner": "P4",
+  "row": "review",
+  "history": {
+    "id": "q06-uniqdup"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42701",
+        "message": "column \"a\" appears twice in unique constraint",
+        "statement": 1,
+        "statement_text": "CREATE TABLE t (a int, UNIQUE (a, a));"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

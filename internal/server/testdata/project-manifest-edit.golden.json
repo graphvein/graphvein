@@ -1,0 +1,139 @@
+{
+  "add consumes with selector": {
+    "api_version": 0,
+    "applied": false,
+    "base_hash": "sha256:9202dac1ae9d788a50d54319d086cdcacb2b78bc28d2e1da70d7252239757f25",
+    "changes": [
+      "adds: frontend consumes backend (path_prefixes: /t022b7)"
+    ],
+    "diff": "--- a/graphvein-project.yaml\n+++ b/graphvein-project.yaml\n@@ -5,5 +5,9 @@\n   # the web client\n   - repository: frontend # frontend line\n     path: frontend\n+    consumes:\n+      - repository: backend\n+        select:\n+          path_prefixes: [/t022b7]\n   - repository: backend\n     path: backend\n",
+    "problems": [],
+    "reindex": {
+      "kind": "link_pass",
+      "reason": "only declarations change: the link pass re-links the stored indexes"
+    },
+    "result_hash": "sha256:618bcf3a08ed1b2a11854d24dc12794c61e10d151f1c77911b87dbe55ab56cd2",
+    "valid": true
+  },
+  "default scope": {
+    "api_version": 0,
+    "applied": false,
+    "base_hash": "sha256:19f791b6759ffc412ce9da54ac337a294f73a444a2db5b1ccb9862db0dac20d3",
+    "changes": [
+      "narrows frontend's entry for backend to its default scope"
+    ],
+    "diff": "--- a/graphvein-project.yaml\n+++ b/graphvein-project.yaml\n@@ -7,6 +7,7 @@\n     path: frontend\n     consumes:\n       - repository: backend\n+        default_scope: true\n   - repository: backend\n     path: backend\n     scopes:\n",
+    "problems": [],
+    "reindex": {
+      "kind": "link_pass",
+      "reason": "only declarations change: the link pass re-links the stored indexes"
+    },
+    "result_hash": "sha256:578900a5377891c891e2275c87b516581801981dd72e259a26f407bed6686a00",
+    "valid": true
+  },
+  "remove a named scope": {
+    "api_version": 0,
+    "applied": false,
+    "base_hash": "sha256:578900a5377891c891e2275c87b516581801981dd72e259a26f407bed6686a00",
+    "changes": [
+      "widens frontend's entry for backend from its default scope to the whole repository",
+      "adds: frontend consumes backend/db",
+      "removes link scope backend/db"
+    ],
+    "diff": "--- a/graphvein-project.yaml\n+++ b/graphvein-project.yaml\n@@ -7,9 +7,7 @@\n     path: frontend\n     consumes:\n       - repository: backend\n-        default_scope: true\n+      - repository: backend\n+        scope: db\n   - repository: backend\n     path: backend\n-    scopes:\n-      - name: db\n-        path: src/db\n",
+    "problems": [
+      "graphvein-project.yaml: line 10: consumes names scope db, which backend does not declare"
+    ],
+    "reindex": {
+      "kind": "link_pass",
+      "reason": "only declarations change: the link pass re-links the stored indexes"
+    },
+    "result_hash": "sha256:13a922952a25405920cc0cccbee151312a2c4c6491c1f8ae7f4b214851a48c03",
+    "valid": false
+  },
+  "remove all": {
+    "api_version": 0,
+    "applied": false,
+    "base_hash": "sha256:c3fafeb2bcddf80af3b28995cf0b29d7bf5ba03eba3c907a7e144c32c0278853",
+    "changes": [
+      "removes frontend's consumes entry for api default scope",
+      "removes link scope api/db",
+      "renames repository api to backend, in every consumes entry too"
+    ],
+    "diff": "--- a/graphvein-project.yaml\n+++ b/graphvein-project.yaml\n@@ -5,11 +5,5 @@\n   # the web client\n   - repository: frontend # frontend line\n     path: frontend\n-    consumes:\n-      - repository: api\n-        default_scope: true\n-  - repository: api\n+  - repository: backend\n     path: backend\n-    scopes:\n-      - name: db\n-        path: src/db\n",
+    "problems": [],
+    "reindex": {
+      "kind": "project",
+      "reason": "a member is renamed: the write removes its stored index and links under the old name, so the project is indexed again"
+    },
+    "result_hash": "sha256:9202dac1ae9d788a50d54319d086cdcacb2b78bc28d2e1da70d7252239757f25",
+    "valid": true
+  },
+  "rename": {
+    "api_version": 0,
+    "applied": false,
+    "base_hash": "sha256:578900a5377891c891e2275c87b516581801981dd72e259a26f407bed6686a00",
+    "changes": [
+      "renames repository backend to api, in every consumes entry too"
+    ],
+    "diff": "--- a/graphvein-project.yaml\n+++ b/graphvein-project.yaml\n@@ -6,9 +6,9 @@\n   - repository: frontend # frontend line\n     path: frontend\n     consumes:\n-      - repository: backend\n+      - repository: api\n         default_scope: true\n-  - repository: backend\n+  - repository: api\n     path: backend\n     scopes:\n       - name: db\n",
+    "problems": [],
+    "reindex": {
+      "kind": "project",
+      "reason": "a member is renamed: the write removes its stored index and links under the old name, so the project is indexed again"
+    },
+    "result_hash": "sha256:c3fafeb2bcddf80af3b28995cf0b29d7bf5ba03eba3c907a7e144c32c0278853",
+    "valid": true
+  },
+  "rename refused by member config": {
+    "api_version": 0,
+    "applied": false,
+    "base_hash": "sha256:9202dac1ae9d788a50d54319d086cdcacb2b78bc28d2e1da70d7252239757f25",
+    "changes": [
+      "renames repository backend to api, in every consumes entry too"
+    ],
+    "diff": "--- a/graphvein-project.yaml\n+++ b/graphvein-project.yaml\n@@ -5,5 +5,5 @@\n   # the web client\n   - repository: frontend # frontend line\n     path: frontend\n-  - repository: backend\n+  - repository: api\n     path: backend\n",
+    "problems": [
+      "graphvein-project.yaml: member api: its graphvein.yaml names repository \"backend\"; the member's own name wins, so change the manifest to \"backend\""
+    ],
+    "reindex": {
+      "kind": "project",
+      "reason": "a member is renamed: the write removes its stored index and links under the old name, so the project is indexed again"
+    },
+    "result_hash": "sha256:daf9da8f56336596f6392153d232bc8c85f3bf554c1afbd74358ea40a5719a96",
+    "valid": false
+  },
+  "scope and its consumer": {
+    "api_version": 0,
+    "applied": false,
+    "base_hash": "sha256:c03e66f834f8c2ae2e2310801896c0ca10de4dd166560dbf2f3192a6e4c9ec18",
+    "changes": [
+      "declares link scope backend/db (folder src/db)",
+      "clears the selector of frontend's entry for backend"
+    ],
+    "diff": "--- a/graphvein-project.yaml\n+++ b/graphvein-project.yaml\n@@ -7,8 +7,8 @@\n     path: frontend\n     consumes:\n       - repository: backend\n-        select:\n-          bases: [VITE_API]\n-          origins: ['http://localhost:3100']\n   - repository: backend\n     path: backend\n+    scopes:\n+      - name: db\n+        path: src/db\n",
+    "problems": [],
+    "reindex": {
+      "kind": "link_pass",
+      "reason": "only declarations change: the link pass re-links the stored indexes"
+    },
+    "result_hash": "sha256:19f791b6759ffc412ce9da54ac337a294f73a444a2db5b1ccb9862db0dac20d3",
+    "valid": true
+  },
+  "set selector": {
+    "api_version": 0,
+    "applied": false,
+    "base_hash": "sha256:618bcf3a08ed1b2a11854d24dc12794c61e10d151f1c77911b87dbe55ab56cd2",
+    "changes": [
+      "sets the selector (bases VITE_API; origins http://localhost:3100) of frontend's entry for backend"
+    ],
+    "diff": "--- a/graphvein-project.yaml\n+++ b/graphvein-project.yaml\n@@ -8,6 +8,7 @@\n     consumes:\n       - repository: backend\n         select:\n-          path_prefixes: [/t022b7]\n+          bases: [VITE_API]\n+          origins: ['http://localhost:3100']\n   - repository: backend\n     path: backend\n",
+    "problems": [],
+    "reindex": {
+      "kind": "link_pass",
+      "reason": "only declarations change: the link pass re-links the stored indexes"
+    },
+    "result_hash": "sha256:c03e66f834f8c2ae2e2310801896c0ca10de4dd166560dbf2f3192a6e4c9ec18",
+    "valid": true
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "id": "review15-a30-sysname-add",
+  "signature": "agreed at Revision 1.5",
+  "class": "S1",
+  "owner": "U10",
+  "row": "review15",
+  "history": {
+    "id": "a30-sysname-add"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42701",
+        "message": "column name \"cmax\" conflicts with a system column name",
+        "statement": 2,
+        "statement_text": "ALTER TABLE t ADD COLUMN cmax int;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

@@ -1,0 +1,279 @@
+{
+  "api_version": 0,
+  "caps": {
+    "depth": 10,
+    "fan_out": 200,
+    "members": 2000
+  },
+  "depth": 6,
+  "direction": "up",
+  "down": null,
+  "index": {
+    "contract_version": 1,
+    "finished_at": "2026-11-03T14:32:05.123Z",
+    "indexer": {
+      "name": "graphvein",
+      "version": "extractors-62"
+    }
+  },
+  "map": {
+    "folded": 0,
+    "open_in_flow": false,
+    "per_step": 5,
+    "shown": 5,
+    "steps": 3,
+    "total": 40
+  },
+  "repository": "up",
+  "scope": "production",
+  "start": {
+    "id": "route:server/api.go#GET%20%2Fupb%2Forders%2F%7Bid%7D",
+    "kind": "route",
+    "level": "node"
+  },
+  "up": {
+    "caps": [],
+    "edges": [
+      {
+        "assumptions": [
+          {
+            "id": "UP-V1",
+            "text": "The route is served below a prefix the code does not fix (configuration or an unproven hop); the call is taken to reach it because its path ends with the route's proven path below that prefix."
+          },
+          {
+            "id": "UP-V2",
+            "text": "The call's unknown base and the route's unknown prefix are the same value (for example both read from the same configuration)."
+          }
+        ],
+        "count": 1,
+        "dashed": false,
+        "evidence": [
+          {
+            "file": "web/calls.ts",
+            "span": {
+              "end_column": 55,
+              "end_line": 21,
+              "start_column": 2,
+              "start_line": 21
+            }
+          }
+        ],
+        "from": "route:server/api.go#GET%20%2Fupb%2Forders%2F%7Bid%7D",
+        "kind": "calls_route",
+        "row": "CH3",
+        "tier": "inferred 0.6",
+        "to": "client_call:web/calls.ts#bases.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Fupb%2Forders%2F%24%7Bid%7D%60",
+        "wording": "called by client call"
+      },
+      {
+        "assumptions": [
+          {
+            "id": "UP-V1",
+            "text": "The route is served below a prefix the code does not fix (configuration or an unproven hop); the call is taken to reach it because its path ends with the route's proven path below that prefix."
+          }
+        ],
+        "count": 1,
+        "dashed": false,
+        "evidence": [
+          {
+            "file": "web/calls.ts",
+            "span": {
+              "end_column": 31,
+              "end_line": 2,
+              "start_column": 2,
+              "start_line": 2
+            }
+          }
+        ],
+        "from": "route:server/api.go#GET%20%2Fupb%2Forders%2F%7Bid%7D",
+        "kind": "calls_route",
+        "row": "CH3",
+        "tier": "inferred 0.6",
+        "to": "client_call:web/calls.ts#full.GET%20%60%2Fv1%2Fupb%2Forders%2F%24%7Bid%7D%60",
+        "wording": "called by client call"
+      },
+      {
+        "count": 1,
+        "dashed": false,
+        "evidence": [
+          {
+            "file": "web/calls.ts",
+            "span": {
+              "end_column": 55,
+              "end_line": 21,
+              "start_column": 2,
+              "start_line": 21
+            }
+          }
+        ],
+        "from": "client_call:web/calls.ts#bases.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Fupb%2Forders%2F%24%7Bid%7D%60",
+        "kind": "contains",
+        "row": "CH2",
+        "tier": "fact",
+        "to": "function:web/calls.ts#bases",
+        "wording": "made in"
+      },
+      {
+        "count": 1,
+        "dashed": false,
+        "evidence": [
+          {
+            "file": "web/calls.ts",
+            "span": {
+              "end_column": 31,
+              "end_line": 2,
+              "start_column": 2,
+              "start_line": 2
+            }
+          }
+        ],
+        "from": "client_call:web/calls.ts#full.GET%20%60%2Fv1%2Fupb%2Forders%2F%24%7Bid%7D%60",
+        "kind": "contains",
+        "row": "CH2",
+        "tier": "fact",
+        "to": "function:web/calls.ts#full",
+        "wording": "made in"
+      }
+    ],
+    "ends": [
+      {
+        "member": "function:web/calls.ts#bases",
+        "row": "CH11",
+        "text": "? not modelled: no stored caller and no resolved bridge; JSX renders and passed callbacks are followed only where the tag or value resolves to this function, other dependency injection and dynamic calls are not modelled"
+      },
+      {
+        "member": "function:web/calls.ts#full",
+        "row": "CH11",
+        "text": "? not modelled: no stored caller and no resolved bridge; JSX renders and passed callbacks are followed only where the tag or value resolves to this function, other dependency injection and dynamic calls are not modelled"
+      }
+    ],
+    "hidden_test": 0,
+    "members": 4,
+    "not_followed": {
+      "contains": 3
+    },
+    "steps": [
+      {
+        "bounds": [],
+        "hidden_test": 0,
+        "map": {
+          "folded": 0,
+          "shown": [
+            "route:server/api.go#GET%20%2Fupb%2Forders%2F%7Bid%7D"
+          ]
+        },
+        "members": [
+          {
+            "component": ".",
+            "file": "server/api.go",
+            "id": "route:server/api.go#GET%20%2Fupb%2Forders%2F%7Bid%7D",
+            "kind": "route",
+            "line": 16,
+            "method": "GET",
+            "name": "GET /upb/orders/{id}",
+            "parents": [],
+            "path": "/upb/orders/{id}",
+            "prefix_path": "…/upb/orders/{id}",
+            "qualified_name": "GET /upb/orders/{id}",
+            "row": "",
+            "tier": "fact",
+            "tier_step": 0
+          }
+        ],
+        "step": 0
+      },
+      {
+        "bounds": [],
+        "hidden_test": 0,
+        "map": {
+          "folded": 0,
+          "shown": [
+            "client_call:web/calls.ts#bases.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Fupb%2Forders%2F%24%7Bid%7D%60",
+            "client_call:web/calls.ts#full.GET%20%60%2Fv1%2Fupb%2Forders%2F%24%7Bid%7D%60"
+          ]
+        },
+        "members": [
+          {
+            "component": ".",
+            "file": "web/calls.ts",
+            "id": "client_call:web/calls.ts#bases.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Fupb%2Forders%2F%24%7Bid%7D%60",
+            "kind": "client_call",
+            "line": 21,
+            "method": "GET",
+            "name": "GET `${import.meta.env.VITE_API}/upb/orders/${id}`",
+            "parents": [
+              "route:server/api.go#GET%20%2Fupb%2Forders%2F%7Bid%7D"
+            ],
+            "qualified_name": "bases.GET `${import.meta.env.VITE_API}/upb/orders/${id}`",
+            "row": "CH3",
+            "status": "linked",
+            "tier": "inferred 0.6",
+            "tier_step": 1
+          },
+          {
+            "component": ".",
+            "file": "web/calls.ts",
+            "id": "client_call:web/calls.ts#full.GET%20%60%2Fv1%2Fupb%2Forders%2F%24%7Bid%7D%60",
+            "kind": "client_call",
+            "line": 2,
+            "method": "GET",
+            "name": "GET `/v1/upb/orders/${id}`",
+            "parents": [
+              "route:server/api.go#GET%20%2Fupb%2Forders%2F%7Bid%7D"
+            ],
+            "qualified_name": "full.GET `/v1/upb/orders/${id}`",
+            "row": "CH3",
+            "status": "linked",
+            "tier": "inferred 0.6",
+            "tier_step": 1
+          }
+        ],
+        "step": 1
+      },
+      {
+        "bounds": [],
+        "hidden_test": 0,
+        "map": {
+          "folded": 0,
+          "shown": [
+            "function:web/calls.ts#bases",
+            "function:web/calls.ts#full"
+          ]
+        },
+        "members": [
+          {
+            "component": ".",
+            "file": "web/calls.ts",
+            "id": "function:web/calls.ts#bases",
+            "kind": "function",
+            "line": 20,
+            "name": "bases",
+            "parents": [
+              "client_call:web/calls.ts#bases.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Fupb%2Forders%2F%24%7Bid%7D%60"
+            ],
+            "qualified_name": "bases",
+            "row": "CH2",
+            "tier": "inferred 0.6",
+            "tier_step": 1
+          },
+          {
+            "component": ".",
+            "file": "web/calls.ts",
+            "id": "function:web/calls.ts#full",
+            "kind": "function",
+            "line": 1,
+            "name": "full",
+            "parents": [
+              "client_call:web/calls.ts#full.GET%20%60%2Fv1%2Fupb%2Forders%2F%24%7Bid%7D%60"
+            ],
+            "qualified_name": "full",
+            "row": "CH2",
+            "tier": "inferred 0.6",
+            "tier_step": 1
+          }
+        ],
+        "step": 2
+      }
+    ]
+  }
+}

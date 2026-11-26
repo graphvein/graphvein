@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "type",
+    "identity",
+    "kind",
+    "level",
+    "name",
+    "qualified_name",
+    "file",
+    "content_hash",
+    "attributes"
+  ],
+  "properties": {
+    "type": {
+      "const": "node"
+    },
+    "identity": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*:[A-Za-z0-9._~/%-]+#[A-Za-z0-9._~%-]+$"
+    },
+    "kind": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]*$"
+    },
+    "level": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 5
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "qualified_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "file": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[^/\\\\:\\x00\\r\\n][^\\\\:\\x00\\r\\n]*$"
+        },
+        {
+          "const": "."
+        }
+      ]
+    },
+    "span": {
+      "type": "object",
+      "required": [
+        "start_line",
+        "start_column",
+        "end_line",
+        "end_column"
+      ],
+      "properties": {
+        "start_line": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "start_column": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "end_line": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "end_column": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "content_hash": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "attributes": {
+      "type": "object"
+    }
+  }
+}

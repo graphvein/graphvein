@@ -1,0 +1,56 @@
+openapi: 3.0.3
+info: {title: Basic, version: v1}
+servers:
+  - url: https://example.com/{base}?ignored=yes#fragment
+    variables:
+      base: {default: api}
+  - url: https://example.net/api
+  - url: https://example.org/{missing}
+    variables:
+      missing: {description: no default}
+paths:
+  /pets/{id}/:
+    parameters:
+      - {name: id, in: path, required: true}
+      - {name: offset, in: query, required: true}
+    get: &operation
+      operationId: getPet
+      summary: A pet
+      description: |
+        # content, not a comment
+        second line
+      tags: [pets, reading]
+      deprecated: true
+      parameters:
+        - {name: offset, in: query, required: false}
+      responses: {'200': {description: OK}}
+    # comment introducing POST belongs to GET's span
+    post: {summary: Flow} # same-line trailing comment
+  /alias:
+    get: *operation
+  /item-alias: &item
+    get: {summary: Path item anchor}
+  /item-use: *item
+  /merged:
+    <<: {get: *operation}
+  /override:
+    servers: [{url: /path}]
+    get: {}
+    post:
+      servers: [{url: /operation}]
+  /relative:
+    get:
+      servers: [{url: relative/api}]
+  /unicode:
+    get: {summary: é, parameters: []}
+  /ref:
+    $ref: fragment.yaml#/item
+  /remote:
+    $ref: https://no-network.invalid/item.yaml#/item
+  /missing:
+    $ref: missing.yaml#/item
+  /cycle:
+    $ref: fragment.yaml#/cycle
+  invalid: {get: {}}
+  x-extension: {get: {}}
+security: [{Bearer: []}, {ApiKey: []}]

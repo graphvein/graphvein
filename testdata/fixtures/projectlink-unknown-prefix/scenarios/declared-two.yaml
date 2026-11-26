@@ -1,0 +1,12 @@
+version: 1
+name: unknown-prefix-declared-two
+members:
+  - repository: web
+    path: web
+    consumes:
+      - repository: api
+      - repository: api2
+  - repository: api
+    path: api
+  - repository: api2
+    path: api2

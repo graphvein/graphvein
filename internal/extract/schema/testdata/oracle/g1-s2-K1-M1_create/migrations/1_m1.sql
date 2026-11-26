@@ -1,0 +1,2 @@
+CREATE TABLE t2 (c1 integer REFERENCES t3);
+CREATE TABLE t3 (c2 serial);

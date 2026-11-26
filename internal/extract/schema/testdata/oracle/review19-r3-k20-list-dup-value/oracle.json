@@ -1,0 +1,28 @@
+{
+  "id": "review19-r3-k20-list-dup-value",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y29",
+  "row": "review19",
+  "history": {
+    "id": "k20-list-dup-value"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42P17",
+        "message": "partition \"p2\" would overlap partition \"p1\"",
+        "statement": 3,
+        "statement_text": "CREATE TABLE p2 PARTITION OF p FOR VALUES IN (2, 3);"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

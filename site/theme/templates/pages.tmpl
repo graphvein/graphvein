@@ -1,0 +1,93 @@
+{{define "download"}}{{template "top" .}}
+<main id="main" class="plainpage">
+<h1>Download</h1>
+{{- if .Public}}
+<h2 id="latest-release">Latest release</h2>
+<p>Download the archive for your system and the checksum file from <a href="{{.Repo}}/releases/latest">the latest release on GitHub</a>: a <code>.zip</code> file for Windows, a <code>.tar.gz</code> file for macOS and Linux, each for Intel or AMD and for Arm processors. Each archive holds the binary with the licence, the notices and the README. The release workflow builds them from the release tag; they are not code-signed.</p>
+<h2 id="check-the-download">Check the download</h2>
+<p>In the download folder, check the checksum, then the build provenance with the <a href="https://cli.github.com/">GitHub CLI</a> (Git Bash on Windows has the checksum tool too):</p>
+{{nocheck}}<pre class="code"><code>grep linux-amd64.tar.gz SHA256SUMS | sha256sum -c   <span class="c"># macOS: shasum -a 256 -c</span>
+gh attestation verify graphvein-*-linux-amd64.tar.gz --repo {{.RepoSlug}}</code></pre>{{endcheck}}
+<p class="muted">Replace the system in the archive name with yours.</p>
+<h2 id="first-run">First run</h2>
+<p><strong>Windows.</strong> SmartScreen can show “Windows protected your PC” for a downloaded program that is not code-signed: choose <strong>More info</strong>, then <strong>Run anyway</strong>. Or, before unpacking, open the <code>.zip</code> file’s <strong>Properties</strong> and tick <strong>Unblock</strong>.</p>
+<p><strong>macOS.</strong> Gatekeeper refuses a downloaded binary that is not notarised. Remove the download mark from the unpacked binary with <code>xattr -d com.apple.quarantine ./graphvein</code>, or try to run it once, then choose <strong>Open Anyway</strong> in <strong>System Settings → Privacy &amp; Security</strong>.</p>
+<h2 id="install-with-go">Install with Go, without warnings</h2>
+<p>A binary you build yourself carries no download mark, so neither warning appears. With Go installed (an older Go downloads the toolchain the module requires):</p>
+{{nocheck}}<pre class="code"><code>go install github.com/{{.RepoSlug}}/cmd/graphvein@latest</code></pre>{{endcheck}}
+<h2 id="build-from-source">Build from source</h2>
+{{template "install" .Home.Install}}
+{{- else}}
+<div class="callout"><p><strong>No release yet.</strong> Graphvein is pre-release. Release binaries for Windows, macOS and Linux, with their checksums and build provenance, come with the first release. Until then, build from source.</p></div>
+<h2 id="build-from-source">Build from source</h2>
+{{template "install" .Home.Install}}
+<h2 id="after-the-first-release">After the first release</h2>
+<p>This page will list the latest release, with one download per system and its checksum.</p>
+<table class="rel"><thead><tr><th scope="col">System</th><th scope="col">Download</th><th scope="col">Checksum</th></tr></thead>
+<tbody><tr><td data-label="System">Windows</td><td data-label="Download" class="muted">not released yet</td><td data-label="Checksum" class="muted">not released yet</td></tr><tr><td data-label="System">macOS</td><td data-label="Download" class="muted">not released yet</td><td data-label="Checksum" class="muted">not released yet</td></tr><tr><td data-label="System">Linux</td><td data-label="Download" class="muted">not released yet</td><td data-label="Checksum" class="muted">not released yet</td></tr></tbody></table>
+{{- end}}
+<p><a href="/changelog/">Changelog</a> · <a href="/licence/">Licence</a>{{if .Public}} · <a href="{{.Repo}}/releases">All releases on GitHub</a>{{end}}</p>
+</main>
+{{template "bottom" .}}{{end}}
+
+{{define "licence"}}{{template "top" .}}
+<main id="main" class="plainpage">
+<h1>Licence</h1>
+<p>Graphvein is licensed under the Apache License, Version {{num "apache-version"}}: <a href="/LICENSE.txt">the licence text</a>. The notice below names the copyright holder and the material excluded from the licence; the third-party software in the graphvein binary and its licences are listed in <a href="/THIRD_PARTY_NOTICES.txt">the third-party notices</a>.</p>
+<h2 id="notice">Notice</h2>
+<pre class="code notice">{{index .Text "notice"}}</pre>
+<h2 id="trademark">Trademark</h2>
+{{index .Text "trademark"}}
+<h2 id="this-site">This site</h2>
+<p>This site is static: it sets no cookies, counts no visits and loads no third-party scripts or fonts.{{if .Public}} The star count in the header is fetched by your browser from GitHub's public API; nothing else is requested from another site.{{end}}</p>
+</main>
+{{template "bottom" .}}{{end}}
+
+{{define "changelog"}}{{template "top" .}}
+<main id="main" class="plainpage">
+<h1>Changelog</h1>
+{{- with index .Text "changelog"}}{{.}}{{else}}
+<p><strong>No release yet.</strong> The changelog starts with the first release.{{if $.Public}} Releases are listed on <a href="{{$.Repo}}/releases">GitHub Releases</a>.{{end}}</p>
+{{- end}}
+</main>
+{{template "bottom" .}}{{end}}
+
+{{define "notfound"}}{{template "top" .}}
+<main id="main" class="plainpage">
+<h1>Page not found</h1>
+<p>There is no page at this address. Try the <a href="/">home page</a> or the <a href="/docs/">documentation</a>.</p>
+</main>
+{{template "bottom" .}}{{end}}
+
+{{define "status"}}{{template "top" .}}{{with .Home}}
+<main id="main" class="plainpage wide">
+<h1>Status</h1>
+<div class="lede">{{.StatusIntro}}</div>
+<div class="status">{{.StatusTable}}</div>
+</main>
+{{end}}{{template "bottom" .}}{{end}}
+
+{{define "decides"}}{{template "top" .}}{{with .Home}}
+<main id="main" class="plainpage">
+<h1>How Graphvein decides</h1>
+<p>{{.Intro}}</p>
+<div class="dgrid one">
+{{- range .Decides}}
+  <article class="dcard" id="{{.Kind}}"><h2><span class="chip chip-{{.Kind}}">{{.Title}}</span><span class="rank">{{.Rank}}</span></h2><p>{{.Body}}</p></article>
+{{- end}}
+</div>
+<p>More: <a href="/docs/guide/1-start-here/">how to read a label</a> and <a href="/docs/known-gaps/">known gaps</a>.</p>
+</main>
+{{end}}{{template "bottom" .}}{{end}}
+
+{{define "verified"}}{{template "top" .}}{{with .Home}}
+<main id="main" class="plainpage">
+<h1>How it is verified</h1>
+<p>{{.Intro}}</p>
+<ul class="verified one">
+{{- range .Verified}}
+  <li{{if .Planned}} class="planned"{{end}}><strong>{{.Title}}.</strong> {{.Body}}{{if .Href}} <a href="{{.Href}}">{{.LinkText}}</a>{{end}}</li>
+{{- end}}
+</ul>
+</main>
+{{end}}{{template "bottom" .}}{{end}}

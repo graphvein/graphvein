@@ -1,0 +1,1 @@
+CREATE TABLE p (a char(5) PRIMARY KEY); CREATE TABLE c (a text REFERENCES p);

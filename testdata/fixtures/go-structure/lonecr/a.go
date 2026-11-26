@@ -1,0 +1,3 @@
+package lonecr
+
+func A() {}

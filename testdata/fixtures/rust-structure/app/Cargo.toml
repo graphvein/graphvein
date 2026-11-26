@@ -1,0 +1,18 @@
+[package]
+name = "probe-app"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "app_lib"
+
+[features]
+extra = []
+
+[dependencies]
+util = { path = "../util", package = "probe-util" }
+serde = { workspace = true }
+relay = { git = "https://example.invalid/relay.git" }
+widget = { path = "../widg\x65t" }
+old = { path = '''../old''' }
+ser = { package = "serde", version = "1" }

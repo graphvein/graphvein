@@ -1,0 +1,21 @@
+{
+  "model": "claude-opus-5-5",
+  "read_at": "2026-11-23T13:53:00Z",
+  "sources": [
+    "https://platform.claude.com/docs/en/about-claude/pricing"
+  ],
+  "unit": "USD per million tokens",
+  "listed": {
+    "prompt": 4,
+    "completion": 20,
+    "cache_read": 0.2,
+    "cache_write": 8
+  },
+  "preferred_endpoints": [],
+  "max_prompt": 4,
+  "max_completion": 20,
+  "max_cache_write": 8,
+  "context_length": 1000000,
+  "endpoints": [],
+  "note": "Anthropic first-party API prices of Claude Opus 5.5 at standard speed and global routing: input $4, output $20, cache read $0.20 (0.05x). Cache writes cost 1.25x input ($5) with the 5-minute TTL and 2x input ($8) with the 1-hour TTL; the Claude cap books every cache write at the higher 2x price because a transcript does not say which TTL was used. Fast mode ($8 / $40) and US-only inference (1.1x) are never enabled by the driver and are not covered by this bound."
+}

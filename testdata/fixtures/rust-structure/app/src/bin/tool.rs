@@ -1,0 +1,2 @@
+mod sub;
+fn main() {}

@@ -1,0 +1,28 @@
+{
+  "id": "review19-r3-x11-default-hex-junk",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y22",
+  "row": "review19",
+  "history": {
+    "id": "x11-default-hex-junk"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42601",
+        "message": "invalid hexadecimal integer at or near \"0x\"",
+        "statement": 1,
+        "statement_text": "CREATE TABLE t (a int DEFAULT 0x);"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

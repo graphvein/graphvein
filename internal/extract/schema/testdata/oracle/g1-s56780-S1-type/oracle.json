@@ -1,0 +1,69 @@
+{
+  "id": "g1-s56780-S1-type",
+  "signature": "type",
+  "class": "S1",
+  "owner": "P3",
+  "row": "",
+  "history": {
+    "id": "g1-s56780",
+    "tags": {
+      "1_m1.sql": [
+        "M1.create",
+        "M1b.inherits",
+        "M5a.if_not_exists"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "accepted",
+        "no_transaction": true
+      }
+    ],
+    "tables": [
+      {
+        "table": "history.t2",
+        "columns": [
+          {
+            "name": "c1",
+            "type": "smallint",
+            "not_null": false,
+            "has_default": false
+          }
+        ],
+        "primary_key": null,
+        "unique_keys": [],
+        "foreign_keys": [],
+        "indexes": []
+      },
+      {
+        "table": "history.t3",
+        "columns": [
+          {
+            "name": "c1",
+            "type": "smallint",
+            "not_null": false,
+            "has_default": false
+          },
+          {
+            "name": "extra",
+            "type": "integer",
+            "not_null": false,
+            "has_default": false
+          }
+        ],
+        "primary_key": null,
+        "unique_keys": [],
+        "foreign_keys": [],
+        "indexes": []
+      }
+    ],
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

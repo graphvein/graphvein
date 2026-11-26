@@ -1,0 +1,969 @@
+{
+  "api_version": 0,
+  "binary_extractor": "extractors-62",
+  "default": {
+    "covers": "every file label of a language no PL-L row names (all languages but go, python, typescript, tsx, javascript and rust, including java, c_sharp, dart, html, sql, unknown); routes other than Go's `net/http`, chi and gin routes (PL-F10), client calls, code calls, cross-boundary links, cross-repository links (never precise), Angular, Tauri, OpenAPI, test scope, any external-indexer run",
+    "families": [
+      {
+        "facts": {
+          "by_language": {},
+          "total": 0,
+          "unit": "tables"
+        },
+        "family": "schema_other",
+        "label": "best_effort",
+        "languages": []
+      },
+      {
+        "facts": {
+          "by_language": {},
+          "total": 0,
+          "unit": "edges"
+        },
+        "family": "table_access_other",
+        "label": "best_effort",
+        "languages": []
+      },
+      {
+        "facts": {
+          "by_language": {},
+          "total": 0,
+          "unit": "nodes"
+        },
+        "family": "routes",
+        "label": "best_effort",
+        "languages": []
+      },
+      {
+        "facts": {
+          "by_language": {},
+          "total": 0,
+          "unit": "nodes"
+        },
+        "family": "client_calls",
+        "label": "best_effort",
+        "languages": []
+      },
+      {
+        "facts": {
+          "by_language": {},
+          "total": 0,
+          "unit": "nodes"
+        },
+        "family": "ipc_commands",
+        "label": "best_effort",
+        "languages": []
+      },
+      {
+        "facts": {
+          "by_language": {},
+          "total": 0,
+          "unit": "nodes"
+        },
+        "family": "ipc_calls",
+        "label": "best_effort",
+        "languages": []
+      },
+      {
+        "facts": {
+          "by_language": {},
+          "total": 0,
+          "unit": "nodes"
+        },
+        "family": "server_actions",
+        "label": "best_effort",
+        "languages": []
+      },
+      {
+        "facts": {
+          "by_language": {},
+          "total": 0,
+          "unit": "nodes"
+        },
+        "family": "action_calls",
+        "label": "best_effort",
+        "languages": []
+      },
+      {
+        "facts": {
+          "by_language": {},
+          "total": 0,
+          "unit": "edges"
+        },
+        "family": "code_calls",
+        "label": "best_effort",
+        "languages": []
+      },
+      {
+        "facts": {
+          "by_language": {},
+          "total": 0,
+          "unit": "links"
+        },
+        "family": "cross_repository_links",
+        "label": "best_effort",
+        "languages": []
+      }
+    ],
+    "label": "best_effort",
+    "row": "D",
+    "scope": "everything else"
+  },
+  "files": {
+    "languages": [
+      {
+        "by_label": {
+          "best_effort": 3
+        },
+        "language": "markdown",
+        "reported_by_label": null,
+        "total": 3
+      },
+      {
+        "by_label": {
+          "best_effort": 52
+        },
+        "language": "sql",
+        "reported_by_label": null,
+        "total": 52
+      },
+      {
+        "by_label": {
+          "best_effort": 24
+        },
+        "language": "toml",
+        "reported_by_label": null,
+        "total": 24
+      }
+    ],
+    "reported_by": null,
+    "total": 79
+  },
+  "index": {
+    "contract_version": 1,
+    "finished_at": "2026-11-03T14:32:05.123Z",
+    "indexer": {
+      "name": "graphvein",
+      "version": "extractors-62"
+    }
+  },
+  "repository": "fixture",
+  "rules": [
+    {
+      "evidence": {
+        "contract": [
+          {
+            "name": "TestContractRows",
+            "package": "internal/extract/schema"
+          },
+          {
+            "name": "TestContractDocument",
+            "package": "internal/extract/schema"
+          }
+        ],
+        "corpus": [
+          {
+            "adr": "0051",
+            "quote": "Corpora: ten corpora identical to main except 14 axum schema records"
+          }
+        ],
+        "goldens": [
+          "sql-migrations"
+        ],
+        "oracle": [
+          {
+            "name": "TestOracleFixtures",
+            "package": "internal/extract/schema"
+          },
+          {
+            "name": "TestOracleRealHistories",
+            "package": "internal/extract/schema"
+          }
+        ],
+        "oracle_none": null,
+        "review": [
+          {
+            "adr": "0047",
+            "quote": "Nine reviews by fresh reviewers found confident wrong facts in rarer forms; Revisions 2-9 closed them as classes"
+          },
+          {
+            "adr": "0051",
+            "quote": "Revision 1.4 (after the independent review): class rules R1-R5"
+          }
+        ]
+      },
+      "facts": {
+        "by_language": {
+          "sql": 52
+        },
+        "total": 52,
+        "unit": "tables"
+      },
+      "id": "PL-F1",
+      "kind": "family",
+      "label": "precise",
+      "languages": [
+        "sql"
+      ],
+      "marker": "`migration`, `table`, `column`, `db_index` nodes of a migration set with tool `sqlx` and dialect `postgres`; their `contains`, `alters`, `foreign_key` edges",
+      "match": {
+        "dialects": [
+          "postgres"
+        ],
+        "family": "schema_migrations",
+        "tools": [
+          "sqlx"
+        ]
+      },
+      "reason": null,
+      "refusal": "a set with another or no dialect (`schema_unsupported_dialect`), or another tool",
+      "scope": "SQL migration schema, sqlx sets, postgres dialect"
+    },
+    {
+      "evidence": {
+        "contract": [
+          {
+            "name": "TestModelClaimContract",
+            "package": "internal/extract/models/sqlmodel"
+          }
+        ],
+        "corpus": [
+          {
+            "adr": "0054",
+            "quote": "Corpus oracle (Python 3.14.6, corpus locks as constraints): fastapi 2 tables, 12 columns"
+          }
+        ],
+        "goldens": [
+          "sqlmodel-models",
+          "sqlmodel-link"
+        ],
+        "oracle": [
+          {
+            "name": "TestModelOracle",
+            "package": "internal/extract/models/sqlmodel"
+          }
+        ],
+        "oracle_none": null,
+        "review": [
+          {
+            "adr": "0054",
+            "quote": "Independent review: no class-A finding."
+          }
+        ]
+      },
+      "facts": {
+        "by_language": {},
+        "total": 0,
+        "unit": "tables"
+      },
+      "id": "PL-F2",
+      "kind": "family",
+      "label": "precise",
+      "languages": [],
+      "marker": "model `table` / `column` nodes and their edges in groups with `tool` `sqlmodel`",
+      "match": {
+        "dialects": [],
+        "family": "schema_models",
+        "tools": [
+          "sqlmodel"
+        ]
+      },
+      "reason": null,
+      "refusal": "none beyond the global ones",
+      "scope": "SQLModel / SQLAlchemy models"
+    },
+    {
+      "evidence": {
+        "contract": [
+          {
+            "name": "TestPrismaContract",
+            "package": "internal/extract/models/prisma"
+          }
+        ],
+        "corpus": [
+          {
+            "adr": "0057",
+            "quote": "corpora umami 7.10.0 (2,513 facts: 26/26 tables complete"
+          }
+        ],
+        "goldens": [
+          "prisma-models"
+        ],
+        "oracle": [
+          {
+            "name": "TestPrismaOracle",
+            "package": "internal/extract/models/prisma"
+          }
+        ],
+        "oracle_none": null,
+        "review": [
+          {
+            "adr": "0057",
+            "quote": "Independent review: one class A (sqlserver `@unique` is a UNIQUE constraint; was claimed as an `oracle` unique index) and B1-B3, C1-C5, all fixed as class rules"
+          }
+        ]
+      },
+      "facts": {
+        "by_language": {},
+        "total": 0,
+        "unit": "tables"
+      },
+      "id": "PL-F3",
+      "kind": "family",
+      "label": "precise",
+      "languages": [],
+      "marker": "model `table` / `column` nodes and their edges in groups with `tool` `prisma`",
+      "match": {
+        "dialects": [],
+        "family": "schema_models",
+        "tools": [
+          "prisma"
+        ]
+      },
+      "reason": null,
+      "refusal": "none beyond the global ones",
+      "scope": "Prisma models"
+    },
+    {
+      "evidence": {
+        "contract": [
+          {
+            "name": "TestDrizzleContract",
+            "package": "internal/extract/models/drizzle"
+          }
+        ],
+        "corpus": [
+          {
+            "adr": "0059",
+            "quote": "kaneo 5,349 facts (51 tables, 442 columns, 66 foreign keys, 83 indexes), dokploy 9,499 facts"
+          }
+        ],
+        "goldens": [
+          "drizzle-models"
+        ],
+        "oracle": [
+          {
+            "name": "TestDrizzleOracle",
+            "package": "internal/extract/models/drizzle"
+          },
+          {
+            "name": "TestDrizzleOracleForms",
+            "package": "internal/extract/models/drizzle"
+          }
+        ],
+        "oracle_none": null,
+        "review": [
+          {
+            "adr": "0059",
+            "quote": "Independent review: no wrong stored fact on probes"
+          }
+        ]
+      },
+      "facts": {
+        "by_language": {},
+        "total": 0,
+        "unit": "tables"
+      },
+      "id": "PL-F4",
+      "kind": "family",
+      "label": "precise",
+      "languages": [],
+      "marker": "model `table` / `column` nodes and their edges in groups with `tool` `drizzle`",
+      "match": {
+        "dialects": [],
+        "family": "schema_models",
+        "tools": [
+          "drizzle"
+        ]
+      },
+      "reason": null,
+      "refusal": "none beyond the global ones",
+      "scope": "Drizzle models"
+    },
+    {
+      "evidence": {
+        "contract": [
+          {
+            "name": "TestSequelizeContract",
+            "package": "internal/extract/models/sequelize"
+          }
+        ],
+        "corpus": [
+          {
+            "adr": "0061",
+            "quote": "opencollective-api 6,952, Gladys 3,077, 0 disagreements"
+          }
+        ],
+        "goldens": [
+          "sequelize-models"
+        ],
+        "oracle": [
+          {
+            "name": "TestSequelizeOracle",
+            "package": "internal/extract/models/sequelize"
+          }
+        ],
+        "oracle_none": null,
+        "review": [
+          {
+            "adr": "0061",
+            "quote": "3 (independent review: mssql FK actions, instance hooks, non-unique target keys"
+          }
+        ]
+      },
+      "facts": {
+        "by_language": {},
+        "total": 0,
+        "unit": "tables"
+      },
+      "id": "PL-F5",
+      "kind": "family",
+      "label": "precise",
+      "languages": [],
+      "marker": "model `table` / `column` nodes and their edges in groups with `tool` `sequelize`",
+      "match": {
+        "dialects": [],
+        "family": "schema_models",
+        "tools": [
+          "sequelize"
+        ]
+      },
+      "reason": null,
+      "refusal": "none beyond the global ones",
+      "scope": "Sequelize models"
+    },
+    {
+      "evidence": {
+        "contract": [
+          {
+            "name": "TestDieselContract",
+            "package": "internal/extract/models/diesel"
+          }
+        ],
+        "corpus": [
+          {
+            "adr": "0062",
+            "quote": "Corpus snapshot: 16 corpora identical to main; crates.io gains only Diesel records"
+          }
+        ],
+        "goldens": [
+          "diesel-models"
+        ],
+        "oracle": [
+          {
+            "name": "TestDieselOracle",
+            "package": "internal/extract/models/diesel"
+          }
+        ],
+        "oracle_none": null,
+        "review": [
+          {
+            "adr": "0062",
+            "quote": "Independent review (DR): class A findings all fixed"
+          }
+        ]
+      },
+      "facts": {
+        "by_language": {},
+        "total": 0,
+        "unit": "tables"
+      },
+      "id": "PL-F6",
+      "kind": "family",
+      "label": "precise",
+      "languages": [],
+      "marker": "model `table` / `column` nodes and their edges in groups with `tool` `diesel`",
+      "match": {
+        "dialects": [],
+        "family": "schema_models",
+        "tools": [
+          "diesel"
+        ]
+      },
+      "reason": null,
+      "refusal": "none beyond the global ones",
+      "scope": "Diesel models"
+    },
+    {
+      "evidence": {
+        "contract": [
+          {
+            "name": "TestGormContract",
+            "package": "internal/extract/models/gorm"
+          }
+        ],
+        "corpus": [
+          {
+            "adr": "0063",
+            "quote": "Corpus snapshot: 16 of 18 corpora identical to main, gotify gains 5 complete tables, realworld-gin 8"
+          }
+        ],
+        "goldens": [
+          "gorm-models"
+        ],
+        "oracle": [
+          {
+            "name": "TestGormOracle",
+            "package": "internal/extract/models/gorm"
+          }
+        ],
+        "oracle_none": null,
+        "review": [
+          {
+            "adr": "0063",
+            "quote": "Independent review (GR): class A findings all fixed"
+          }
+        ]
+      },
+      "facts": {
+        "by_language": {},
+        "total": 0,
+        "unit": "tables"
+      },
+      "id": "PL-F7",
+      "kind": "family",
+      "label": "precise",
+      "languages": [],
+      "marker": "model `table` / `column` nodes and their edges in groups with `tool` `gorm`",
+      "match": {
+        "dialects": [],
+        "family": "schema_models",
+        "tools": [
+          "gorm"
+        ]
+      },
+      "reason": null,
+      "refusal": "none beyond the global ones",
+      "scope": "GORM models"
+    },
+    {
+      "evidence": {
+        "contract": [
+          {
+            "name": "TestTypeORMContract",
+            "package": "internal/extract/models/typeorm"
+          }
+        ],
+        "corpus": [
+          {
+            "adr": "0064",
+            "quote": "Corpus snapshot: 18 shared corpora identical to main; seerr 14, nest-admin 17"
+          }
+        ],
+        "goldens": [
+          "typeorm-models"
+        ],
+        "oracle": [
+          {
+            "name": "TestTypeORMOracle",
+            "package": "internal/extract/models/typeorm"
+          }
+        ],
+        "oracle_none": null,
+        "review": [
+          {
+            "adr": "0064",
+            "quote": "Independent review (TR): class A findings all fixed"
+          }
+        ]
+      },
+      "facts": {
+        "by_language": {},
+        "total": 0,
+        "unit": "tables"
+      },
+      "id": "PL-F8",
+      "kind": "family",
+      "label": "precise",
+      "languages": [],
+      "marker": "model `table` / `column` nodes and their edges in groups with `tool` `typeorm`",
+      "match": {
+        "dialects": [],
+        "family": "schema_models",
+        "tools": [
+          "typeorm"
+        ]
+      },
+      "reason": null,
+      "refusal": "none beyond the global ones",
+      "scope": "TypeORM models"
+    },
+    {
+      "evidence": {
+        "contract": [
+          {
+            "name": "TestTableAccessContract",
+            "package": "internal/extract/tableaccess"
+          }
+        ],
+        "corpus": [
+          {
+            "adr": "0060",
+            "quote": "corpora axum 24, axum-ddd 29, langflow 68, kaneo 19, umami 1"
+          }
+        ],
+        "goldens": [
+          "table-access-sqlmodel",
+          "table-access-prisma",
+          "table-access-drizzle",
+          "table-access-sqlx"
+        ],
+        "oracle": [
+          {
+            "name": "TestSQLTablesOracle",
+            "package": "internal/extract/tableaccess"
+          },
+          {
+            "name": "TestSQLAlchemyOracle",
+            "package": "internal/extract/tableaccess"
+          }
+        ],
+        "oracle_none": null,
+        "review": [
+          {
+            "adr": "0060",
+            "quote": "5 (review: build-then-execute role, FROM-position function keywords"
+          }
+        ]
+      },
+      "facts": {
+        "by_language": {},
+        "total": 0,
+        "unit": "edges"
+      },
+      "id": "PL-F9",
+      "kind": "family",
+      "label": "precise",
+      "languages": [],
+      "marker": "`reads_table` / `writes_table` edges and the owner's `table_access` rows",
+      "match": {
+        "dialects": [],
+        "family": "table_access",
+        "tools": [
+          "sqlx",
+          "sqlmodel",
+          "prisma",
+          "drizzle"
+        ]
+      },
+      "reason": null,
+      "refusal": "owner sites in `table_access_unknown` stay unknown (not labelled)",
+      "scope": "Code-to-table links"
+    },
+    {
+      "evidence": {
+        "contract": [
+          {
+            "name": "TestGoRoutesContract",
+            "package": "internal/extract/routes"
+          },
+          {
+            "name": "TestGoRoutesContractTags",
+            "package": "internal/extract/routes"
+          },
+          {
+            "name": "TestGoRoutePayloadContract",
+            "package": "internal/lang/golang"
+          }
+        ],
+        "corpus": [
+          {
+            "adr": "0076",
+            "quote": "Corpus: realworld-gin 27 of 27 production routes with a path, gotify 55 of 56, miniflux 74 of 174, owncast 272 of 273, dozzle 0 of 85"
+          }
+        ],
+        "goldens": [
+          "go-routes"
+        ],
+        "oracle": [
+          {
+            "name": "TestGoRoutesMuxOracle",
+            "package": "internal/extract/routes"
+          },
+          {
+            "name": "TestGoMuxPatternOracle",
+            "package": "internal/extract/routes"
+          }
+        ],
+        "oracle_none": null,
+        "review": [
+          {
+            "adr": "0076",
+            "quote": "Independent review (GR-R): class A findings all fixed"
+          }
+        ]
+      },
+      "facts": {
+        "by_language": {},
+        "total": 0,
+        "unit": "nodes"
+      },
+      "id": "PL-F10",
+      "kind": "family",
+      "label": "precise",
+      "languages": [],
+      "marker": "`route` nodes with `framework` `net/http`, `chi` or `gin`: route existence, `method`, `pattern`, `host` and the path entries' `template`, `trailing_slash` and `resolution`, with the GR-V assumptions shown, and the `go_routes_unread` counts (`docs/extract/routes.md`, Go section); not `handler`, `middleware`, the `exposes_route` edges, `conditional` or `scope` (no oracle compares them: served `unverified`, edges `not_compared`), nor the `calls_route` links of client calls (`client_calls`, row D)",
+      "match": {
+        "dialects": [],
+        "family": "routes",
+        "tools": [
+          "net/http",
+          "chi",
+          "gin"
+        ]
+      },
+      "reason": null,
+      "refusal": "routes of another framework (Express, FastAPI, Axum) stay best effort; a transport whose routes name several frameworks is `marker_conflict`",
+      "scope": "Go HTTP routes"
+    },
+    {
+      "evidence": {
+        "contract": [
+          {
+            "name": "TestGoStructureContract",
+            "package": "internal/lang/golang"
+          }
+        ],
+        "corpus": [
+          {
+            "adr": "0068",
+            "quote": "0 disagreements on the fixture (63 Go files with the written cases: 3 lone-CR, 2 rejected, 42 import specs of which 5 malformed and 9 refused), gotify (142 files, 734 import specs), realworld-gin (21 files, 106 import specs) and the self-index (820 files, 4700 import specs)"
+          }
+        ],
+        "goldens": [
+          "go-structure",
+          "go"
+        ],
+        "oracle": [
+          {
+            "name": "TestGoStructureOracle",
+            "package": "internal/lang/golang"
+          },
+          {
+            "name": "TestGoStructureGoList",
+            "package": "internal/lang/golang"
+          }
+        ],
+        "oracle_none": null,
+        "review": [
+          {
+            "adr": "0068",
+            "quote": "The PL-L1 flip is blocked. Four class A findings"
+          },
+          {
+            "adr": "0068",
+            "quote": "Every class A and B finding is fixed as a class rule"
+          },
+          {
+            "adr": "0068",
+            "quote": "No class A finding is open."
+          }
+        ]
+      },
+      "facts": null,
+      "id": "PL-L1",
+      "kind": "file",
+      "label": "precise",
+      "languages": [
+        "go"
+      ],
+      "marker": "files with language `go` (test files included): file records and nodes, top-level declarations and their `contains` edges, `imports` edges (`docs/lang/go-structure.md`); not `calls` edges (`code_calls`, row D)",
+      "match": {
+        "dialects": [],
+        "family": "",
+        "tools": []
+      },
+      "reason": null,
+      "refusal": "a Go file whose structure claims nothing (go/parser rejects it, GS-F2; a lone CR, GS-F3; not parsed, not extracted or dropped by validation) is stored `best_effort`, served with reason `structure_refused`",
+      "scope": "Go structure"
+    },
+    {
+      "evidence": {
+        "contract": [
+          {
+            "name": "TestPythonStructureContract",
+            "package": "internal/lang/python"
+          }
+        ],
+        "corpus": [
+          {
+            "adr": "0069",
+            "quote": "TestPythonStructureOracle (CPython 3.14.10): 0 gate records on the fixture, fastapi, langflow and the self-index"
+          }
+        ],
+        "goldens": [
+          "python-structure",
+          "python-implicit-roots",
+          "python"
+        ],
+        "oracle": [
+          {
+            "name": "TestPythonStructureOracle",
+            "package": "internal/lang/python"
+          }
+        ],
+        "oracle_none": null,
+        "review": [
+          {
+            "adr": "0069",
+            "quote": "The PL-L2 flip was blocked by one class A finding (A1)"
+          },
+          {
+            "adr": "0069",
+            "quote": "Every class A and B finding is fixed as a class rule"
+          },
+          {
+            "adr": "0069",
+            "quote": "No class A finding is open."
+          }
+        ]
+      },
+      "facts": null,
+      "id": "PL-L2",
+      "kind": "file",
+      "label": "precise",
+      "languages": [
+        "python"
+      ],
+      "marker": "files with language `python` (test files included): file records and nodes, top-level declarations and their `contains` edges, `imports` edges to repository files and to `python-stdlib` / `pypi` external nodes (`docs/lang/python-structure.md`); not `calls` edges (`code_calls`, row D)",
+      "match": {
+        "dialects": [],
+        "family": "",
+        "tools": []
+      },
+      "reason": null,
+      "refusal": "a Python file whose structure claims nothing (the reference Python rejects it, PS-F2; not parsed, not extracted or dropped by validation) is stored `best_effort`, served with reason `structure_refused`",
+      "scope": "Python structure"
+    },
+    {
+      "evidence": {
+        "contract": [
+          {
+            "name": "TestTypeScriptStructureContract",
+            "package": "internal/lang/typescript"
+          }
+        ],
+        "corpus": [
+          {
+            "adr": "0070",
+            "quote": "0 claimed disagreements on the fixture, the 17 corpora of the S3 review and the self-index"
+          }
+        ],
+        "goldens": [
+          "typescript-structure",
+          "module-resolution",
+          "typescript"
+        ],
+        "oracle": [
+          {
+            "name": "TestTypeScriptStructureOracle",
+            "package": "internal/lang/typescript"
+          }
+        ],
+        "oracle_none": null,
+        "review": [
+          {
+            "adr": "0070",
+            "quote": "The PL-L3 flip is blocked by one class A finding (A1)"
+          },
+          {
+            "adr": "0070",
+            "quote": "Each is fixed as a class rule"
+          },
+          {
+            "adr": "0070",
+            "quote": "No class A finding is open."
+          }
+        ]
+      },
+      "facts": null,
+      "id": "PL-L3",
+      "kind": "file",
+      "label": "precise",
+      "languages": [
+        "typescript",
+        "tsx",
+        "javascript"
+      ],
+      "marker": "files with language `typescript`, `tsx` or `javascript` (declaration and test files included): file records and nodes, declarations and their `contains` edges, `imports` edges to repository files and to `npm` external nodes (row TS-I5, `docs/lang/typescript-structure.md`); not `calls` edges (`code_calls`, row D)",
+      "match": {
+        "dialects": [],
+        "family": "",
+        "tools": []
+      },
+      "reason": null,
+      "refusal": "a TypeScript, TSX or JavaScript file whose structure claims nothing (tree-sitter rejects it, TS-F2; not parsed or not extracted, TS-F3; or dropped by validation) is stored `best_effort`, served with reason `structure_refused`",
+      "scope": "TypeScript, TSX, JavaScript structure"
+    },
+    {
+      "evidence": {
+        "contract": [
+          {
+            "name": "TestRustStructureContract",
+            "package": "internal/lang/rust"
+          }
+        ],
+        "corpus": [
+          {
+            "adr": "0071",
+            "quote": "TestRustStructureOracle reports 0 disagreements on claimed facts under 12 configurations"
+          },
+          {
+            "adr": "0071",
+            "quote": "48 Graphvein evidence entries no oracle configuration reaches (kftray 2, hoppscotch 22, localsend 13, self 11)"
+          },
+          {
+            "adr": "0071",
+            "quote": "is opt-in and never runs in CI"
+          }
+        ],
+        "goldens": [
+          "rust-structure",
+          "rust"
+        ],
+        "oracle": [
+          {
+            "name": "TestRustStructureOracle",
+            "package": "internal/lang/rust"
+          }
+        ],
+        "oracle_none": null,
+        "review": [
+          {
+            "adr": "0071",
+            "quote": "The Rust structure flip (PL-L4) is not ready. One class A finding"
+          },
+          {
+            "adr": "0071",
+            "quote": "Every class A and B finding is fixed as a class rule"
+          },
+          {
+            "adr": "0071",
+            "quote": "No class A finding is open."
+          }
+        ]
+      },
+      "facts": null,
+      "id": "PL-L4",
+      "kind": "file",
+      "label": "precise",
+      "languages": [
+        "rust"
+      ],
+      "marker": "files with language `rust` (tests, examples, benches and build scripts included): file records and nodes, module-level declarations, impl associated `const` / `type` items (RS-D9) and items in the bodies of claimed functions (RS-D10, `local: true`) with their `contains` edges, `mod` and `use` `imports` edges to repository files and to `cargo` external nodes for declared dependencies and sysroot crates (`docs/lang/rust-structure.md`); not `calls` edges (`code_calls`, row D)",
+      "match": {
+        "dialects": [],
+        "family": "",
+        "tools": []
+      },
+      "reason": null,
+      "refusal": "a Rust file whose structure claims nothing (tree-sitter reports a syntax error, RS-F2; a lone CR, RS-F3; not parsed, not extracted or dropped by validation) is stored `best_effort`, served with reason `structure_refused`; a Rust file reached from no crate root of a read `Cargo.toml` (its imports are not resolved as a crate member, and no oracle configuration compiles it) is stored `best_effort`, served with reason `structure_unrooted`",
+      "scope": "Rust structure"
+    }
+  ],
+  "run": {
+    "built_in": true,
+    "extractor_matches": true,
+    "refusal": null
+  }
+}

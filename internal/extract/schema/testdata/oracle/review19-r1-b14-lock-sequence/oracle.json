@@ -1,0 +1,29 @@
+{
+  "id": "review19-r1-b14-lock-sequence",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y05",
+  "row": "review19",
+  "history": {
+    "id": "b14-lock-sequence"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42809",
+        "message": "cannot lock relation \"s\"",
+        "detail": "This operation is not supported for sequences.",
+        "statement": 2,
+        "statement_text": "LOCK TABLE s;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

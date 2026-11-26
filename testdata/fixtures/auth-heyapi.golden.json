@@ -1,0 +1,77 @@
+[
+  {
+    "identity": "client_call:app.ts#computed.POST%20%27%2Ft026%2Fcomputed%27",
+    "library": "hey-api",
+    "method": "POST",
+    "security": "unknown",
+    "url_expression": "'/t026/computed'"
+  },
+  {
+    "identity": "client_call:app.ts#custom.GET%20%27%2Ft026%2Fcustom%27",
+    "library": "hey-api",
+    "method": "GET",
+    "security": "unknown",
+    "url_expression": "'/t026/custom'"
+  },
+  {
+    "identity": "client_call:client/sdk.gen.ts#createItem.POST%20%27%2Ft026%2Fitems%27",
+    "library": "hey-api",
+    "method": "POST",
+    "security": [
+      {
+        "name": "x-key",
+        "type": "apiKey"
+      },
+      {
+        "in": "query",
+        "name": "key",
+        "type": "apiKey"
+      }
+    ],
+    "url_expression": "'/t026/items'"
+  },
+  {
+    "identity": "client_call:client/sdk.gen.ts#deleteItem.DELETE%20%27%2Ft026%2Fitems%2F%7Bid%7D%27",
+    "library": "hey-api",
+    "method": "DELETE",
+    "security": [
+      {
+        "scheme": "basic",
+        "type": "http"
+      }
+    ],
+    "url_expression": "'/t026/items/{id}'"
+  },
+  {
+    "identity": "client_call:client/sdk.gen.ts#health.GET%20%27%2Ft026%2Fhealth%27",
+    "library": "hey-api",
+    "method": "GET",
+    "url_expression": "'/t026/health'"
+  },
+  {
+    "identity": "client_call:client/sdk.gen.ts#listItems.GET%20%27%2Ft026%2Fitems%27",
+    "library": "hey-api",
+    "method": "GET",
+    "security": [
+      {
+        "key": "BearerAuth",
+        "scheme": "bearer",
+        "type": "http"
+      }
+    ],
+    "url_expression": "'/t026/items'"
+  },
+  {
+    "identity": "client_call:client/sdk.gen.ts#readItem.GET%20%27%2Ft026%2Fitems%2F%7Bid%7D%27",
+    "library": "hey-api",
+    "method": "GET",
+    "security": [
+      {
+        "key": "Password",
+        "scheme": "bearer",
+        "type": "http"
+      }
+    ],
+    "url_expression": "'/t026/items/{id}'"
+  }
+]

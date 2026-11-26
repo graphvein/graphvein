@@ -1,0 +1,11 @@
+openapi: 3.0.3
+info:
+  title: Fixture
+  version: "1"
+servers:
+  - url: https://api.example.test/v1
+  - url: "{scheme}://templated.example.test"
+    variables:
+      scheme:
+        default: https
+paths: {}

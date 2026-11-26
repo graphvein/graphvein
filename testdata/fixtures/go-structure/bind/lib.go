@@ -1,0 +1,3 @@
+package bind
+
+func F() {}

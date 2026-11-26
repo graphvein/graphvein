@@ -1,0 +1,29 @@
+{
+  "id": "review-r16-insert-domain",
+  "signature": "agreed at af6a883",
+  "class": "S1",
+  "owner": "P5",
+  "row": "review",
+  "history": {
+    "id": "r16-insert-domain"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "23514",
+        "message": "value for domain d violates check constraint \"d_check\"",
+        "statement": 3,
+        "statement_text": "INSERT INTO t (a) VALUES (-1);",
+        "row_free": true
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

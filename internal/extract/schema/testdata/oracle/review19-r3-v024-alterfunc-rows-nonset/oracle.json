@@ -1,0 +1,29 @@
+{
+  "id": "review19-r3-v024-alterfunc-rows-nonset",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y16",
+  "row": "review19",
+  "history": {
+    "id": "v024-alterfunc-rows-nonset"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "22023",
+        "message": "ROWS is not applicable when function does not return a set",
+        "statement": 2,
+        "statement_text": "ALTER FUNCTION f() ROWS 10;",
+        "row_free": true
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

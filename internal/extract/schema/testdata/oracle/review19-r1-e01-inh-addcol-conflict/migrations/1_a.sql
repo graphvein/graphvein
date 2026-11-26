@@ -1,0 +1,3 @@
+CREATE TABLE p (a int);
+CREATE TABLE c (b text) INHERITS (p);
+ALTER TABLE p ADD COLUMN b int;

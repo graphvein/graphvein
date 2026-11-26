@@ -1,0 +1,1 @@
+ALTER VIEW nosuch_v RENAME TO y;

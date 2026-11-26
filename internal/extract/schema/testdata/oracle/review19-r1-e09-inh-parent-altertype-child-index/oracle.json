@@ -1,0 +1,28 @@
+{
+  "id": "review19-r1-e09-inh-parent-altertype-child-index",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y27",
+  "row": "review19",
+  "history": {
+    "id": "e09-inh-parent-altertype-child-index"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42701",
+        "message": "column \"b\" of relation \"c\" already exists",
+        "statement": 3,
+        "statement_text": "ALTER TABLE p RENAME COLUMN a TO b;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

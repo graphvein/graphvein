@@ -1,0 +1,9 @@
+// Prisma 7 rejects url in the schema (P1012): PR-P1 for the whole schema.
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Rejected {
+  id Int @id
+}

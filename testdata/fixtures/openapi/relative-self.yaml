@@ -1,0 +1,7 @@
+openapi: 3.2.0
+$self: sub/base.yaml
+paths:
+  /relative-ref: {$ref: ../fragment.yaml#/item}
+  /self-independent-server:
+    get:
+      servers: [{url: /served}]

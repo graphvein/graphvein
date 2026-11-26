@@ -1,0 +1,29 @@
+{
+  "id": "review19-r5-f15-func-returns-type-same-name-atomic",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y39",
+  "row": "review19",
+  "history": {
+    "id": "f15-func-returns-type-same-name-atomic"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "2BP01",
+        "message": "cannot drop type pair because other objects depend on it",
+        "detail": "function pair(integer,integer) depends on type pair",
+        "statement": 3,
+        "statement_text": "DROP TYPE pair;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

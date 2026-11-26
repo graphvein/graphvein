@@ -1,0 +1,64 @@
+{
+  "id": "review18-m01-enum-swap-forgot-col-noalter",
+  "signature": "agreed at Revision 1.8",
+  "class": "S1",
+  "owner": "X1",
+  "row": "review18",
+  "history": {
+    "id": "m01-enum-swap-forgot-col-noalter"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "accepted"
+      },
+      {
+        "file": "2_swap.sql",
+        "status": "refused",
+        "sqlstate": "2BP01",
+        "message": "cannot drop type status_old because other objects depend on it",
+        "detail": "column s of table t depends on type status_old",
+        "statement": 3,
+        "statement_text": "DROP TYPE status_old;"
+      }
+    ],
+    "tables": [
+      {
+        "table": "history.t",
+        "columns": [
+          {
+            "name": "id",
+            "type": "integer",
+            "not_null": false,
+            "has_default": false
+          },
+          {
+            "name": "s",
+            "type": "status",
+            "not_null": false,
+            "has_default": false
+          }
+        ],
+        "primary_key": null,
+        "unique_keys": [],
+        "foreign_keys": [],
+        "indexes": []
+      }
+    ],
+    "enums": [
+      {
+        "type": "history.status",
+        "labels": [
+          "a",
+          "b"
+        ]
+      }
+    ],
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

@@ -1,0 +1,4 @@
+CREATE TABLE t1 (id int PRIMARY KEY);
+CREATE TABLE t2 (a int, b int, CHECK (a > 0));
+ALTER TABLE t2 ADD CONSTRAINT t2_pkey CHECK (a > 0);
+ALTER INDEX t2_pkey RENAME TO ix_4;

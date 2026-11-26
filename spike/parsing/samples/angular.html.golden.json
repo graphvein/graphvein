@@ -1,0 +1,20 @@
+[
+  {"kind": "element", "name": "section", "line": 1},
+  {"kind": "structural_directive", "name": "*ngIf=\"ready\"", "line": 1},
+  {"kind": "element", "name": "p", "line": 2},
+  {"kind": "structural_directive", "name": "*ngFor=\"let item of items\"", "line": 2},
+  {"kind": "property_binding", "name": "[title]=\"item.name\"", "line": 2},
+  {"kind": "event_binding", "name": "(click)=\"select(item)\"", "line": 2},
+  {"kind": "interpolation", "name": "{{ item.name | uppercase }}", "line": 2},
+  {"kind": "pipe_call", "name": "uppercase", "line": 2},
+  {"kind": "element", "name": "input", "line": 3},
+  {"kind": "two_way_binding", "name": "[(ngModel)]=\"name\"", "line": 3},
+  {"kind": "control", "name": "if", "line": 5},
+  {"kind": "control", "name": "for", "line": 6},
+  {"kind": "element", "name": "app-item", "line": 7},
+  {"kind": "property_binding", "name": "[item]=\"item\"", "line": 7},
+  {"kind": "control", "name": "empty", "line": 8},
+  {"kind": "element", "name": "p", "line": 8},
+  {"kind": "control", "name": "else", "line": 9},
+  {"kind": "element", "name": "p", "line": 9}
+]

@@ -1,0 +1,29 @@
+{
+  "id": "review18-g05-index-on-type-name",
+  "signature": "agreed at Revision 1.8",
+  "class": "S1",
+  "owner": "X3",
+  "row": "review18",
+  "history": {
+    "id": "g05-index-on-type-name"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42809",
+        "message": "cannot open relation \"ty\"",
+        "detail": "This operation is not supported for composite types.",
+        "statement": 2,
+        "statement_text": "create index ty_a on ty (a);"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

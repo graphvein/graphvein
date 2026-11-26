@@ -1,0 +1,212 @@
+LOG:  parse tree:
+DETAIL:     {QUERY 
+   :commandType 6 
+   :querySource 0 
+   :canSetTag true 
+   :utilityStmt 
+      {PREPARESTMT 
+      :name p 
+      :argtypes <> 
+      :query 
+         {SELECTSTMT 
+         :distinctClause <> 
+         :intoClause <> 
+         :targetList (
+            {RESTARGET 
+            :name <> 
+            :indirection <> 
+            :val 
+               {COLUMNREF 
+               :fields ("id")
+               :location 20
+               }
+            :location 20
+            }
+         )
+         :fromClause (
+            {RANGEVAR 
+            :catalogname <> 
+            :schemaname <> 
+            :relname accounts 
+            :inh true 
+            :relpersistence p 
+            :alias <> 
+            :location 28
+            }
+         )
+         :whereClause <> 
+         :groupClause <> 
+         :groupDistinct false 
+         :havingClause <> 
+         :windowClause <> 
+         :valuesLists <> 
+         :sortClause <> 
+         :limitOffset <> 
+         :limitCount <> 
+         :limitOption 0 
+         :lockingClause (
+            {LOCKINGCLAUSE 
+            :lockedRels <> 
+            :strength 4 
+            :waitPolicy 0
+            }
+         )
+         :withClause <> 
+         :op 0 
+         :all false 
+         :larg <> 
+         :rarg <>
+         }
+      }
+   :resultRelation 0 
+   :hasAggs false 
+   :hasWindowFuncs false 
+   :hasTargetSRFs false 
+   :hasSubLinks false 
+   :hasDistinctOn false 
+   :hasRecursive false 
+   :hasModifyingCTE false 
+   :hasForUpdate false 
+   :hasRowSecurity false 
+   :isReturn false 
+   :cteList <> 
+   :rtable <> 
+   :rteperminfos <> 
+   :jointree <> 
+   :mergeActionList <> 
+   :mergeTargetRelation 0 
+   :mergeJoinCondition <> 
+   :targetList <> 
+   :override 0 
+   :onConflict <> 
+   :returningList <> 
+   :groupClause <> 
+   :groupDistinct false 
+   :groupingSets <> 
+   :havingQual <> 
+   :windowClause <> 
+   :distinctClause <> 
+   :sortClause <> 
+   :limitOffset <> 
+   :limitCount <> 
+   :limitOption 0 
+   :rowMarks <> 
+   :setOperations <> 
+   :constraintDeps <> 
+   :withCheckOptions <> 
+   :stmt_location 0 
+   :stmt_len 0
+   }
+
+LOG:  parse tree:
+DETAIL:     {QUERY 
+   :commandType 1 
+   :querySource 0 
+   :canSetTag true 
+   :utilityStmt <> 
+   :resultRelation 0 
+   :hasAggs false 
+   :hasWindowFuncs false 
+   :hasTargetSRFs false 
+   :hasSubLinks false 
+   :hasDistinctOn false 
+   :hasRecursive false 
+   :hasModifyingCTE false 
+   :hasForUpdate true 
+   :hasRowSecurity false 
+   :isReturn false 
+   :cteList <> 
+   :rtable (
+      {RANGETBLENTRY 
+      :alias <> 
+      :eref 
+         {ALIAS 
+         :aliasname accounts 
+         :colnames ("id" "email")
+         }
+      :rtekind 0 
+      :relid 16502 
+      :inh true 
+      :relkind r 
+      :rellockmode 2 
+      :perminfoindex 1 
+      :tablesample <> 
+      :lateral false 
+      :inFromCl true 
+      :securityQuals <>
+      }
+   )
+   :rteperminfos (
+      {RTEPERMISSIONINFO 
+      :relid 16502 
+      :inh true 
+      :requiredPerms 6 
+      :checkAsUser 0 
+      :selectedCols (b 8)
+      :insertedCols (b)
+      :updatedCols (b)
+      }
+   )
+   :jointree 
+      {FROMEXPR 
+      :fromlist (
+         {RANGETBLREF 
+         :rtindex 1
+         }
+      )
+      :quals <>
+      }
+   :mergeActionList <> 
+   :mergeTargetRelation 0 
+   :mergeJoinCondition <> 
+   :targetList (
+      {TARGETENTRY 
+      :expr 
+         {VAR 
+         :varno 1 
+         :varattno 1 
+         :vartype 23 
+         :vartypmod -1 
+         :varcollid 0 
+         :varnullingrels (b)
+         :varlevelsup 0 
+         :varnosyn 1 
+         :varattnosyn 1 
+         :location 20
+         }
+      :resno 1 
+      :resname id 
+      :ressortgroupref 0 
+      :resorigtbl 16502 
+      :resorigcol 1 
+      :resjunk false
+      }
+   )
+   :override 0 
+   :onConflict <> 
+   :returningList <> 
+   :groupClause <> 
+   :groupDistinct false 
+   :groupingSets <> 
+   :havingQual <> 
+   :windowClause <> 
+   :distinctClause <> 
+   :sortClause <> 
+   :limitOffset <> 
+   :limitCount <> 
+   :limitOption 0 
+   :rowMarks (
+      {ROWMARKCLAUSE 
+      :rti 1 
+      :strength 4 
+      :waitPolicy 0 
+      :pushedDown false
+      }
+   )
+   :setOperations <> 
+   :constraintDeps <> 
+   :withCheckOptions <> 
+   :stmt_location 0 
+   :stmt_len 0
+   }
+

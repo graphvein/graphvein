@@ -1,0 +1,3 @@
+package nocgo
+
+func A() {}

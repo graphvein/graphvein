@@ -1,0 +1,53 @@
+{
+  "id": "review18-g11-createtable-ifne-over-view-cross",
+  "signature": "agreed at Revision 1.8",
+  "class": "S1",
+  "owner": "X3",
+  "row": "review18",
+  "history": {
+    "id": "g11-createtable-ifne-over-view-cross"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "accepted"
+      },
+      {
+        "file": "2_t.sql",
+        "status": "accepted"
+      },
+      {
+        "file": "3_i.sql",
+        "status": "refused",
+        "sqlstate": "42809",
+        "message": "cannot create index on relation \"v\"",
+        "detail": "This operation is not supported for views.",
+        "statement": 1,
+        "statement_text": "create index v_b on v (b);"
+      }
+    ],
+    "tables": [
+      {
+        "table": "history.t",
+        "columns": [
+          {
+            "name": "a",
+            "type": "integer",
+            "not_null": false,
+            "has_default": false
+          }
+        ],
+        "primary_key": null,
+        "unique_keys": [],
+        "foreign_keys": [],
+        "indexes": []
+      }
+    ],
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

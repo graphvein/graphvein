@@ -1,0 +1,12 @@
+version: 1
+name: suggest-compose
+members:
+  - repository: frontend
+    path: frontend
+  - repository: backend
+    path: backend
+  - repository: backend2
+    path: backend2
+    scopes:
+      - name: jobs
+        path: jobs

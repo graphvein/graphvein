@@ -1,0 +1,28 @@
+{
+  "id": "review-p03-do-trigger",
+  "signature": "agreed at af6a883",
+  "class": "S1",
+  "owner": "P5",
+  "row": "review",
+  "history": {
+    "id": "p03-do-trigger"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42601",
+        "message": "syntax error at or near \"b$\"",
+        "statement": 2,
+        "statement_text": "DO $$ BEGIN EXECUTE $b$CREATE FUNCTION f() RETURNS trigger LANGUAGE plpgsql AS $c$ BEGIN INSERT INTO t2 VALUES (1); RETURN NEW; END $c$$b$;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

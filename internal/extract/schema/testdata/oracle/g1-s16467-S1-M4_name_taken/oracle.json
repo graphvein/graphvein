@@ -1,0 +1,39 @@
+{
+  "id": "g1-s16467-S1-M4_name_taken",
+  "signature": "applied|S1|42P07|M4.name_taken",
+  "class": "S1",
+  "owner": "P2",
+  "row": "M4.name_taken",
+  "history": {
+    "id": "g1-s16467",
+    "prelude": [
+      "CREATE TABLE ext_a (id int PRIMARY KEY, code text UNIQUE)"
+    ],
+    "tags": {
+      "1_m1.sql": [
+        "M1.create",
+        "M4.outside_table",
+        "M4.name_taken"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42P07",
+        "message": "relation \"ix_2\" already exists",
+        "statement": 3,
+        "statement_text": "CREATE UNIQUE INDEX ix_2 ON t1 (id);"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history.ext_a",
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

@@ -1,0 +1,22 @@
+openapi: 3.0.3
+info:
+  title: GitHub subset (T034)
+  version: "1"
+servers:
+  - url: https://api.github.com
+paths:
+  /repos/{owner}/{repo}:
+    get:
+      responses:
+        "200":
+          description: ok
+  /user:
+    get:
+      responses:
+        "200":
+          description: ok
+  /t034-api/t034-genres/movie:
+    get:
+      responses:
+        "200":
+          description: ok

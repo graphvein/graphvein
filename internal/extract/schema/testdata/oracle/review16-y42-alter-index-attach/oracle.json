@@ -1,0 +1,28 @@
+{
+  "id": "review16-y42-alter-index-attach",
+  "signature": "agreed at Revision 1.6",
+  "class": "S1",
+  "owner": "V4",
+  "row": "review16",
+  "history": {
+    "id": "y42-alter-index-attach"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42P01",
+        "message": "relation \"nosuch_a\" does not exist",
+        "statement": 1,
+        "statement_text": "ALTER INDEX nosuch_a ATTACH PARTITION nosuch_b;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

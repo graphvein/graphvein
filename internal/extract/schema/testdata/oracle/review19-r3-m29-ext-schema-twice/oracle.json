@@ -1,0 +1,29 @@
+{
+  "id": "review19-r3-m29-ext-schema-twice",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y33",
+  "row": "review19",
+  "history": {
+    "id": "m29-ext-schema-twice",
+    "fresh_db": true
+  },
+  "verdict": {
+    "default_schema": "public",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42601",
+        "message": "conflicting or redundant options",
+        "statement": 1,
+        "statement_text": "CREATE EXTENSION IF NOT EXISTS pgcrypto SCHEMA public SCHEMA public;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "public._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

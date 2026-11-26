@@ -1,0 +1,2 @@
+CREATE TABLE t (a int CHECK (a > 0) CHECK (a < 9));
+ALTER TABLE t DROP CONSTRAINT t_a_check1;

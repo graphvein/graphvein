@@ -1,0 +1,4 @@
+<button (click)="value | local" [(value)]="value | local"></button>
+@for (item of items; track item | local) { {{item | local | local}} }
+<div [value]="value | local!"></div>
+<div *rxLet="tags$; let tags | local"></div>

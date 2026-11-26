@@ -1,0 +1,35 @@
+{
+  "id": "g7-s2980-S1-O1_code_effects_u2",
+  "signature": "applied|S1|42703|O1.code_effects_u2",
+  "class": "S1",
+  "owner": "P12",
+  "row": "O1.code_effects_u2",
+  "history": {
+    "id": "g7-s2980",
+    "tags": {
+      "1_m1.sql": [
+        "O1.code_effects_u2",
+        "O1.code_effects_u2",
+        "O1.code_effects_u2"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42703",
+        "message": "column \"a\" does not exist",
+        "statement": 3,
+        "statement_text": "CREATE INDEX cx2 ON ct1 (a);"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

@@ -1,0 +1,1168 @@
+[
+  "route:server/api.go#GET%20%2F%7Borg%7D%2Fupb%2Fsettings paths=[] entries=[{\"conditional\":false,\"hop\":\"mount:server/api.go#API%20r.Route%28base%29\",\"prefix\":\"unresolved\",\"prefix_reason\":\"route_prefix_unresolved\",\"resolution\":\"literal\",\"template\":\"/{org}/upb/settings\"}]",
+  "route:server/api.go#GET%20%2Fapp%2F%2A paths=[{\"conditional\":false,\"resolution\":\"literal\",\"template\":\"/k/app/{*}\"}] entries=null",
+  "route:server/api.go#GET%20%2Fdaily paths=[] entries=[{\"conditional\":false,\"hop\":\"mount:server/api.go#API%20r.Route%28base%29\",\"prefix\":\"unresolved\",\"prefix_reason\":\"route_prefix_unresolved\",\"resolution\":\"literal\",\"template\":\"/daily\"}]",
+  "route:server/api.go#GET%20%2Fupb%2Ffiles%2F paths=[] entries=[{\"conditional\":false,\"hop\":\"mount:server/api.go#API%20r.Route%28base%29\",\"prefix\":\"unresolved\",\"prefix_reason\":\"route_prefix_unresolved\",\"resolution\":\"literal\",\"template\":\"/upb/files\",\"trailing_slash\":true}]",
+  "route:server/api.go#GET%20%2Fupb%2Finner%2F%7Bname%7D paths=[] entries=[{\"above\":\"/outer\",\"conditional\":false,\"hop\":\"mount:server/api.go#API%20r.Route%28base%29%402\",\"prefix\":\"unresolved\",\"prefix_reason\":\"route_prefix_unresolved\",\"resolution\":\"literal\",\"template\":\"/upb/inner/{name}\"}]",
+  "route:server/api.go#GET%20%2Fupb%2Fknown%2Fitems paths=[] entries=[{\"conditional\":false,\"hop\":\"mount:server/api.go#API%20r.Route%28base%29\",\"prefix\":\"unresolved\",\"prefix_reason\":\"route_prefix_unresolved\",\"resolution\":\"literal\",\"template\":\"/upb/known/items\"}]",
+  "route:server/api.go#GET%20%2Fupb%2Fknown%2Fitems%402 paths=[{\"conditional\":false,\"resolution\":\"literal\",\"template\":\"/k/upb/known/items\"}] entries=null",
+  "route:server/api.go#GET%20%2Fupb%2Forders%2F%7Bid%7D paths=[] entries=[{\"conditional\":false,\"hop\":\"mount:server/api.go#API%20r.Route%28base%29\",\"prefix\":\"unresolved\",\"prefix_reason\":\"route_prefix_unresolved\",\"resolution\":\"literal\",\"template\":\"/upb/orders/{id}\"}]",
+  "route:server/api.go#GET%20%2Fupb%2Freports%2F%7Bid%7D paths=[] entries=[{\"conditional\":false,\"hop\":\"mount:server/api.go#Reports%20root.Handle%28prefix%2B%22%2F%22%29\",\"prefix\":\"unresolved\",\"prefix_reason\":\"route_prefix_unresolved\",\"resolution\":\"literal\",\"template\":\"/upb/reports/{id}\"}]",
+  "route:server/api.go#GET%20%2Fupb%2Fshared%2Flist paths=[] entries=[{\"conditional\":false,\"hop\":\"mount:server/api.go#API%20r.Route%28base%29\",\"prefix\":\"unresolved\",\"prefix_reason\":\"route_prefix_unresolved\",\"resolution\":\"literal\",\"template\":\"/upb/shared/list\"}]",
+  "route:server/api.go#GET%20%2Fupb%2Fshared%2Flist%402 paths=[] entries=[{\"conditional\":false,\"hop\":\"mount:server/api.go#API%20r.Route%28other%29\",\"prefix\":\"unresolved\",\"prefix_reason\":\"route_prefix_unresolved\",\"resolution\":\"literal\",\"template\":\"/upb/shared/list\"}]",
+  "route:server/api.go#GET%20%2Fupb%2Fstats%2Fdaily paths=[] entries=[{\"conditional\":false,\"hop\":\"mount:server/api.go#API%20r.Route%28base%29\",\"prefix\":\"unresolved\",\"prefix_reason\":\"route_prefix_unresolved\",\"resolution\":\"literal\",\"template\":\"/upb/stats/daily\"}]",
+  "route:server/api.go#GET%20%2Fupb%2Fwidgets%2Flist paths=[] entries=[{\"conditional\":false,\"hop\":\"mount:server/api.go#Widgets%20r.Route%28base%29\",\"prefix\":\"unresolved\",\"prefix_reason\":\"route_prefix_unresolved\",\"resolution\":\"literal\",\"template\":\"/upb/widgets/list\"}]",
+  "route:server/api.go#GET%20%2Fupbping paths=[] entries=[{\"conditional\":false,\"hop\":\"mount:server/api.go#API%20r.Route%28base%29\",\"prefix\":\"unresolved\",\"prefix_reason\":\"route_prefix_unresolved\",\"resolution\":\"literal\",\"template\":\"/upbping\"}]",
+  "route:server/api.go#POST%20%2Fupb%2Forders paths=[] entries=[{\"conditional\":false,\"hop\":\"mount:server/api.go#API%20r.Route%28base%29\",\"prefix\":\"unresolved\",\"prefix_reason\":\"route_prefix_unresolved\",\"resolution\":\"literal\",\"template\":\"/upb/orders\"}]",
+  "route:server/api_test.go#GET%20%2Fupb%2Ftestonly%2Fitems paths=[] entries=[{\"conditional\":false,\"hop\":\"mount:server/api_test.go#TestBase%20r.Route%28t.Name%28%29%29\",\"prefix\":\"unresolved\",\"prefix_reason\":\"route_prefix_unresolved\",\"resolution\":\"literal\",\"scope\":\"test\",\"template\":\"/upb/testonly/items\"}]",
+  {
+    "confidence": 0.6,
+    "evidence": [
+      {
+        "file": "web/calls.ts",
+        "span": {
+          "end_column": 55,
+          "end_line": 21,
+          "start_column": 2,
+          "start_line": 21
+        }
+      }
+    ],
+    "kind": "calls_route",
+    "provenance": "inferred",
+    "source": "client_call:web/calls.ts#bases.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Fupb%2Forders%2F%24%7Bid%7D%60",
+    "target": "route:server/api.go#GET%20%2Fupb%2Forders%2F%7Bid%7D",
+    "type": "edge"
+  },
+  {
+    "confidence": 0.9,
+    "evidence": [
+      {
+        "file": "web/calls.ts",
+        "span": {
+          "end_column": 28,
+          "end_line": 28,
+          "start_column": 2,
+          "start_line": 28
+        }
+      }
+    ],
+    "kind": "calls_route",
+    "provenance": "inferred",
+    "source": "client_call:web/calls.ts#fallback.GET%20%27%2Fk%2Fapp%2Fother%2Fpage%27",
+    "target": "route:server/api.go#GET%20%2Fapp%2F%2A",
+    "type": "edge"
+  },
+  {
+    "confidence": 0.9,
+    "evidence": [
+      {
+        "file": "web/calls.ts",
+        "span": {
+          "end_column": 29,
+          "end_line": 12,
+          "start_column": 2,
+          "start_line": 12
+        }
+      }
+    ],
+    "kind": "calls_route",
+    "provenance": "inferred",
+    "source": "client_call:web/calls.ts#full.GET%20%27%2Fk%2Fupb%2Fknown%2Fitems%27",
+    "target": "route:server/api.go#GET%20%2Fupb%2Fknown%2Fitems%402",
+    "type": "edge"
+  },
+  {
+    "confidence": 0.6,
+    "evidence": [
+      {
+        "file": "web/calls.ts",
+        "span": {
+          "end_column": 25,
+          "end_line": 11,
+          "start_column": 2,
+          "start_line": 11
+        }
+      }
+    ],
+    "kind": "calls_route",
+    "provenance": "inferred",
+    "source": "client_call:web/calls.ts#full.GET%20%27%2Fv1%2Fupb%2Ffiles%2F%27",
+    "target": "route:server/api.go#GET%20%2Fupb%2Ffiles%2F",
+    "type": "edge"
+  },
+  {
+    "confidence": 0.6,
+    "evidence": [
+      {
+        "file": "web/calls.ts",
+        "span": {
+          "end_column": 29,
+          "end_line": 13,
+          "start_column": 2,
+          "start_line": 13
+        }
+      }
+    ],
+    "kind": "calls_route",
+    "provenance": "inferred",
+    "source": "client_call:web/calls.ts#full.GET%20%27%2Fz%2Fupb%2Fknown%2Fitems%27",
+    "target": "route:server/api.go#GET%20%2Fupb%2Fknown%2Fitems",
+    "type": "edge"
+  },
+  {
+    "confidence": 0.6,
+    "evidence": [
+      {
+        "file": "web/calls.ts",
+        "span": {
+          "end_column": 36,
+          "end_line": 17,
+          "start_column": 2,
+          "start_line": 17
+        }
+      }
+    ],
+    "kind": "calls_route",
+    "provenance": "inferred",
+    "source": "client_call:web/calls.ts#full.GET%20%60%2Fouter%2Fv2%2Fupb%2Finner%2F%24%7Bid%7D%60",
+    "target": "route:server/api.go#GET%20%2Fupb%2Finner%2F%7Bname%7D",
+    "type": "edge"
+  },
+  {
+    "confidence": 0.6,
+    "evidence": [
+      {
+        "file": "web/calls.ts",
+        "span": {
+          "end_column": 34,
+          "end_line": 8,
+          "start_column": 2,
+          "start_line": 8
+        }
+      }
+    ],
+    "kind": "calls_route",
+    "provenance": "inferred",
+    "source": "client_call:web/calls.ts#full.GET%20%60%2Fv1%2F%24%7Borg%7D%2Fupb%2Fsettings%60",
+    "target": "route:server/api.go#GET%20%2F%7Borg%7D%2Fupb%2Fsettings",
+    "type": "edge"
+  },
+  {
+    "confidence": 0.6,
+    "evidence": [
+      {
+        "file": "web/calls.ts",
+        "span": {
+          "end_column": 31,
+          "end_line": 2,
+          "start_column": 2,
+          "start_line": 2
+        }
+      }
+    ],
+    "kind": "calls_route",
+    "provenance": "inferred",
+    "source": "client_call:web/calls.ts#full.GET%20%60%2Fv1%2Fupb%2Forders%2F%24%7Bid%7D%60",
+    "target": "route:server/api.go#GET%20%2Fupb%2Forders%2F%7Bid%7D",
+    "type": "edge"
+  },
+  {
+    "confidence": 0.6,
+    "evidence": [
+      {
+        "file": "web/calls.ts",
+        "span": {
+          "end_column": 50,
+          "end_line": 14,
+          "start_column": 2,
+          "start_line": 14
+        }
+      }
+    ],
+    "kind": "calls_route",
+    "provenance": "inferred",
+    "source": "client_call:web/calls.ts#full.HEAD%20%60%2Fv1%2Fupb%2Freports%2F%24%7Bid%7D%60",
+    "target": "route:server/api.go#GET%20%2Fupb%2Freports%2F%7Bid%7D",
+    "type": "edge"
+  },
+  {
+    "confidence": 0.6,
+    "evidence": [
+      {
+        "file": "web/calls.ts",
+        "span": {
+          "end_column": 40,
+          "end_line": 3,
+          "start_column": 2,
+          "start_line": 3
+        }
+      }
+    ],
+    "kind": "calls_route",
+    "provenance": "inferred",
+    "source": "client_call:web/calls.ts#full.POST%20%27%2Fupb%2Forders%27",
+    "target": "route:server/api.go#POST%20%2Fupb%2Forders",
+    "type": "edge"
+  },
+  {
+    "attributes": {
+      "base": "unresolved",
+      "base_expression": "import.meta.env.VITE_API",
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "candidate_count": 0,
+          "candidates": [],
+          "conditional": false,
+          "match": null,
+          "origin": null,
+          "resolution": "literal",
+          "status": "unmatched",
+          "template": "/outer/upb/inner/{id}"
+        }
+      ],
+      "status": "unmatched",
+      "url_expression": "`${import.meta.env.VITE_API}/outer/upb/inner/${id}`",
+      "wrapper": null
+    },
+    "content_hash": "sha256:fd407c7fd18b8e723bb5b90056b42b5dcccfad1599709081df2d8cbfe7caa574",
+    "file": "web/calls.ts",
+    "identity": "client_call:web/calls.ts#bases.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Fouter%2Fupb%2Finner%2F%24%7Bid%7D%60",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET `${import.meta.env.VITE_API}/outer/upb/inner/${id}`",
+    "qualified_name": "bases.GET `${import.meta.env.VITE_API}/outer/upb/inner/${id}`",
+    "span": {
+      "end_column": 60,
+      "end_line": 23,
+      "start_column": 2,
+      "start_line": 23
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "assumes": [
+        "UP-V1",
+        "UP-V2"
+      ],
+      "base": "unresolved",
+      "base_expression": "import.meta.env.VITE_API",
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "assumes": [
+            "UP-V1",
+            "UP-V2"
+          ],
+          "candidate_count": 0,
+          "candidates": [
+            "route:server/api.go#GET%20%2Fupb%2Forders%2F%7Bid%7D"
+          ],
+          "conditional": false,
+          "match": "suffix",
+          "origin": null,
+          "resolution": "literal",
+          "route_prefix": "unresolved",
+          "status": "linked",
+          "template": "/upb/orders/{id}"
+        }
+      ],
+      "status": "linked",
+      "url_expression": "`${import.meta.env.VITE_API}/upb/orders/${id}`",
+      "wrapper": null
+    },
+    "content_hash": "sha256:bb6f089dc5e3fda5e6b578d999b80465a88b2c4f64d24f33c2b4c17817420563",
+    "file": "web/calls.ts",
+    "identity": "client_call:web/calls.ts#bases.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Fupb%2Forders%2F%24%7Bid%7D%60",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET `${import.meta.env.VITE_API}/upb/orders/${id}`",
+    "qualified_name": "bases.GET `${import.meta.env.VITE_API}/upb/orders/${id}`",
+    "span": {
+      "end_column": 55,
+      "end_line": 21,
+      "start_column": 2,
+      "start_line": 21
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "base": "unresolved",
+      "base_expression": "import.meta.env.VITE_API",
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "candidate_count": 0,
+          "candidates": [],
+          "conditional": false,
+          "match": null,
+          "origin": null,
+          "resolution": "literal",
+          "status": "unmatched",
+          "template": "/v1/upb/orders/{id}"
+        }
+      ],
+      "status": "unmatched",
+      "url_expression": "`${import.meta.env.VITE_API}/v1/upb/orders/${id}`",
+      "wrapper": null
+    },
+    "content_hash": "sha256:1af5d4a6d177cd44ef99cb0b19a7915554e2733e5381cc95ce7cd45fec8fcc2f",
+    "file": "web/calls.ts",
+    "identity": "client_call:web/calls.ts#bases.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Fv1%2Fupb%2Forders%2F%24%7Bid%7D%60",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET `${import.meta.env.VITE_API}/v1/upb/orders/${id}`",
+    "qualified_name": "bases.GET `${import.meta.env.VITE_API}/v1/upb/orders/${id}`",
+    "span": {
+      "end_column": 58,
+      "end_line": 22,
+      "start_column": 2,
+      "start_line": 22
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "base": "none",
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "candidate_count": 0,
+          "candidates": [],
+          "conditional": false,
+          "match": null,
+          "origin": "https://api.example.com",
+          "resolution": "literal",
+          "status": "unmatched",
+          "template": "/v1/upb/orders/{id}"
+        }
+      ],
+      "status": "unmatched",
+      "url_expression": "`https://api.example.com/v1/upb/orders/${id}`",
+      "wrapper": null
+    },
+    "content_hash": "sha256:119404caabbec97843f9342dd417917aec2a9e2a94c677888c1ce6fa1139bbf0",
+    "file": "web/calls.ts",
+    "identity": "client_call:web/calls.ts#bases.GET%20%60https%3A%2F%2Fapi.example.com%2Fv1%2Fupb%2Forders%2F%24%7Bid%7D%60",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET `https://api.example.com/v1/upb/orders/${id}`",
+    "qualified_name": "bases.GET `https://api.example.com/v1/upb/orders/${id}`",
+    "span": {
+      "end_column": 54,
+      "end_line": 24,
+      "start_column": 2,
+      "start_line": 24
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "base": "none",
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "candidate_count": 2,
+          "candidates": [
+            "route:server/api.go#GET%20%2Fapp%2F%2A",
+            "route:server/api.go#GET%20%2Fdaily"
+          ],
+          "conditional": false,
+          "match": null,
+          "origin": null,
+          "resolution": "literal",
+          "status": "ambiguous",
+          "template": "/k/app/daily"
+        }
+      ],
+      "status": "ambiguous",
+      "url_expression": "'/k/app/daily'",
+      "wrapper": null
+    },
+    "content_hash": "sha256:e7c00028c3a3013cc4deccbc032e1a003b58ad8278db4cbea36d766ab713d192",
+    "file": "web/calls.ts",
+    "identity": "client_call:web/calls.ts#fallback.GET%20%27%2Fk%2Fapp%2Fdaily%27",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET '/k/app/daily'",
+    "qualified_name": "fallback.GET '/k/app/daily'",
+    "span": {
+      "end_column": 23,
+      "end_line": 29,
+      "start_column": 2,
+      "start_line": 29
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "base": "none",
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "candidate_count": 0,
+          "candidates": [
+            "route:server/api.go#GET%20%2Fapp%2F%2A"
+          ],
+          "conditional": false,
+          "match": "exact",
+          "origin": null,
+          "resolution": "literal",
+          "status": "linked",
+          "template": "/k/app/other/page"
+        }
+      ],
+      "status": "linked",
+      "url_expression": "'/k/app/other/page'",
+      "wrapper": null
+    },
+    "content_hash": "sha256:61dd10a83d560f94e78bc5f9c72b6cfcf2f45228925fe862f018b80e36f4923e",
+    "file": "web/calls.ts",
+    "identity": "client_call:web/calls.ts#fallback.GET%20%27%2Fk%2Fapp%2Fother%2Fpage%27",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET '/k/app/other/page'",
+    "qualified_name": "fallback.GET '/k/app/other/page'",
+    "span": {
+      "end_column": 28,
+      "end_line": 28,
+      "start_column": 2,
+      "start_line": 28
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "base": "none",
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "candidate_count": 2,
+          "candidates": [
+            "route:server/api.go#GET%20%2Fapp%2F%2A",
+            "route:server/api.go#GET%20%2Fupb%2Fwidgets%2Flist"
+          ],
+          "conditional": false,
+          "match": null,
+          "origin": null,
+          "resolution": "literal",
+          "status": "ambiguous",
+          "template": "/k/app/upb/widgets/list"
+        }
+      ],
+      "status": "ambiguous",
+      "url_expression": "'/k/app/upb/widgets/list'",
+      "wrapper": null
+    },
+    "content_hash": "sha256:7ee973244e7f8026d1a711056d811110983a20f3e81b085acf145e78c93f51f9",
+    "file": "web/calls.ts",
+    "identity": "client_call:web/calls.ts#fallback.GET%20%27%2Fk%2Fapp%2Fupb%2Fwidgets%2Flist%27",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET '/k/app/upb/widgets/list'",
+    "qualified_name": "fallback.GET '/k/app/upb/widgets/list'",
+    "span": {
+      "end_column": 34,
+      "end_line": 27,
+      "start_column": 2,
+      "start_line": 27
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "base": "none",
+      "library": "fetch",
+      "method": "DELETE",
+      "paths": [
+        {
+          "candidate_count": 0,
+          "candidates": [],
+          "conditional": false,
+          "match": null,
+          "origin": null,
+          "resolution": "literal",
+          "status": "unmatched",
+          "template": "/v1/upb/orders/{id}"
+        }
+      ],
+      "status": "unmatched",
+      "url_expression": "`/v1/upb/orders/${id}`",
+      "wrapper": null
+    },
+    "content_hash": "sha256:3c107f2771c0ace69761a6a560ab0d88c72e756199c46c5c8d66c672ee26d114",
+    "file": "web/calls.ts",
+    "identity": "client_call:web/calls.ts#full.DELETE%20%60%2Fv1%2Fupb%2Forders%2F%24%7Bid%7D%60",
+    "kind": "client_call",
+    "level": 4,
+    "name": "DELETE `/v1/upb/orders/${id}`",
+    "qualified_name": "full.DELETE `/v1/upb/orders/${id}`",
+    "span": {
+      "end_column": 51,
+      "end_line": 18,
+      "start_column": 2,
+      "start_line": 18
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "base": "none",
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "candidate_count": 0,
+          "candidates": [
+            "route:server/api.go#GET%20%2Fupb%2Fknown%2Fitems%402"
+          ],
+          "conditional": false,
+          "match": "exact",
+          "origin": null,
+          "resolution": "literal",
+          "status": "linked",
+          "template": "/k/upb/known/items"
+        }
+      ],
+      "status": "linked",
+      "url_expression": "'/k/upb/known/items'",
+      "wrapper": null
+    },
+    "content_hash": "sha256:5fa18decc4494b42dc35460daf874f6b105a27aecd9442ecf133089578f16b43",
+    "file": "web/calls.ts",
+    "identity": "client_call:web/calls.ts#full.GET%20%27%2Fk%2Fupb%2Fknown%2Fitems%27",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET '/k/upb/known/items'",
+    "qualified_name": "full.GET '/k/upb/known/items'",
+    "span": {
+      "end_column": 29,
+      "end_line": 12,
+      "start_column": 2,
+      "start_line": 12
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "base": "none",
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "candidate_count": 0,
+          "candidates": [],
+          "conditional": false,
+          "match": null,
+          "origin": null,
+          "resolution": "literal",
+          "status": "unmatched",
+          "template": "/v1/acme/upb/settings"
+        }
+      ],
+      "status": "unmatched",
+      "url_expression": "'/v1/acme/upb/settings'",
+      "wrapper": null
+    },
+    "content_hash": "sha256:4543ac2f0506d8553bfa4fcd476651ca67de88d2ac4bc9ff5183d7bcdad4a0fc",
+    "file": "web/calls.ts",
+    "identity": "client_call:web/calls.ts#full.GET%20%27%2Fv1%2Facme%2Fupb%2Fsettings%27",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET '/v1/acme/upb/settings'",
+    "qualified_name": "full.GET '/v1/acme/upb/settings'",
+    "span": {
+      "end_column": 32,
+      "end_line": 7,
+      "start_column": 2,
+      "start_line": 7
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "base": "none",
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "candidate_count": 0,
+          "candidates": [],
+          "conditional": false,
+          "match": null,
+          "origin": null,
+          "resolution": "literal",
+          "status": "unmatched",
+          "template": "/v1/upb/files"
+        }
+      ],
+      "status": "unmatched",
+      "url_expression": "'/v1/upb/files'",
+      "wrapper": null
+    },
+    "content_hash": "sha256:12797fba34802e3a341a93a403464dddbe81a5ff4dea710eceb1479e168405d9",
+    "file": "web/calls.ts",
+    "identity": "client_call:web/calls.ts#full.GET%20%27%2Fv1%2Fupb%2Ffiles%27",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET '/v1/upb/files'",
+    "qualified_name": "full.GET '/v1/upb/files'",
+    "span": {
+      "end_column": 24,
+      "end_line": 10,
+      "start_column": 2,
+      "start_line": 10
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "assumes": [
+        "UP-V1"
+      ],
+      "base": "none",
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "assumes": [
+            "UP-V1"
+          ],
+          "candidate_count": 0,
+          "candidates": [
+            "route:server/api.go#GET%20%2Fupb%2Ffiles%2F"
+          ],
+          "conditional": false,
+          "match": "suffix",
+          "origin": null,
+          "resolution": "literal",
+          "route_prefix": "unresolved",
+          "status": "linked",
+          "template": "/v1/upb/files",
+          "trailing_slash": true
+        }
+      ],
+      "status": "linked",
+      "url_expression": "'/v1/upb/files/'",
+      "wrapper": null
+    },
+    "content_hash": "sha256:6d5fb026db44a0e443074b825ce0e9f23a17c2a7de4fa3624706dab76953324a",
+    "file": "web/calls.ts",
+    "identity": "client_call:web/calls.ts#full.GET%20%27%2Fv1%2Fupb%2Ffiles%2F%27",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET '/v1/upb/files/'",
+    "qualified_name": "full.GET '/v1/upb/files/'",
+    "span": {
+      "end_column": 25,
+      "end_line": 11,
+      "start_column": 2,
+      "start_line": 11
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "base": "none",
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "candidate_count": 2,
+          "candidates": [
+            "route:server/api.go#GET%20%2Fupb%2Fshared%2Flist",
+            "route:server/api.go#GET%20%2Fupb%2Fshared%2Flist%402"
+          ],
+          "conditional": false,
+          "match": null,
+          "origin": null,
+          "resolution": "literal",
+          "status": "ambiguous",
+          "template": "/v1/upb/shared/list"
+        }
+      ],
+      "status": "ambiguous",
+      "url_expression": "'/v1/upb/shared/list'",
+      "wrapper": null
+    },
+    "content_hash": "sha256:3512d959492e560819fb0f59a35a685f5e9457ec76734826d3eaeee2c2c40888",
+    "file": "web/calls.ts",
+    "identity": "client_call:web/calls.ts#full.GET%20%27%2Fv1%2Fupb%2Fshared%2Flist%27",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET '/v1/upb/shared/list'",
+    "qualified_name": "full.GET '/v1/upb/shared/list'",
+    "span": {
+      "end_column": 30,
+      "end_line": 5,
+      "start_column": 2,
+      "start_line": 5
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "base": "none",
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "candidate_count": 2,
+          "candidates": [
+            "route:server/api.go#GET%20%2Fdaily",
+            "route:server/api.go#GET%20%2Fupb%2Fstats%2Fdaily"
+          ],
+          "conditional": false,
+          "match": null,
+          "origin": null,
+          "resolution": "literal",
+          "status": "ambiguous",
+          "template": "/v1/upb/stats/daily"
+        }
+      ],
+      "status": "ambiguous",
+      "url_expression": "'/v1/upb/stats/daily'",
+      "wrapper": null
+    },
+    "content_hash": "sha256:f12b79e79b30d8a280b426186eaa8f4cb5a1d31c2a5f90fcfe1c90a2ac68f6d1",
+    "file": "web/calls.ts",
+    "identity": "client_call:web/calls.ts#full.GET%20%27%2Fv1%2Fupb%2Fstats%2Fdaily%27",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET '/v1/upb/stats/daily'",
+    "qualified_name": "full.GET '/v1/upb/stats/daily'",
+    "span": {
+      "end_column": 30,
+      "end_line": 6,
+      "start_column": 2,
+      "start_line": 6
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "base": "none",
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "candidate_count": 0,
+          "candidates": [
+            "route:server/api_test.go#GET%20%2Fupb%2Ftestonly%2Fitems"
+          ],
+          "conditional": false,
+          "match": null,
+          "origin": null,
+          "resolution": "literal",
+          "status": "test_only",
+          "template": "/v1/upb/testonly/items"
+        }
+      ],
+      "status": "test_only",
+      "url_expression": "'/v1/upb/testonly/items'",
+      "wrapper": null
+    },
+    "content_hash": "sha256:810377fb238323085ab459e8ccec9824d7240cd383a535f22f8c10d1f2cac6b8",
+    "file": "web/calls.ts",
+    "identity": "client_call:web/calls.ts#full.GET%20%27%2Fv1%2Fupb%2Ftestonly%2Fitems%27",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET '/v1/upb/testonly/items'",
+    "qualified_name": "full.GET '/v1/upb/testonly/items'",
+    "span": {
+      "end_column": 33,
+      "end_line": 16,
+      "start_column": 2,
+      "start_line": 16
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "base": "none",
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "candidate_count": 0,
+          "candidates": [],
+          "conditional": false,
+          "match": null,
+          "origin": null,
+          "resolution": "literal",
+          "status": "unmatched",
+          "template": "/v1/upbping"
+        }
+      ],
+      "status": "unmatched",
+      "url_expression": "'/v1/upbping'",
+      "wrapper": null
+    },
+    "content_hash": "sha256:dfed4102010a8a3ac946deac9b48de21839d6cf26d7ab2e5f3ba0acae1841c6c",
+    "file": "web/calls.ts",
+    "identity": "client_call:web/calls.ts#full.GET%20%27%2Fv1%2Fupbping%27",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET '/v1/upbping'",
+    "qualified_name": "full.GET '/v1/upbping'",
+    "span": {
+      "end_column": 22,
+      "end_line": 4,
+      "start_column": 2,
+      "start_line": 4
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "assumes": [
+        "UP-V1"
+      ],
+      "base": "none",
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "assumes": [
+            "UP-V1"
+          ],
+          "candidate_count": 0,
+          "candidates": [
+            "route:server/api.go#GET%20%2Fupb%2Fknown%2Fitems"
+          ],
+          "conditional": false,
+          "match": "suffix",
+          "origin": null,
+          "resolution": "literal",
+          "route_prefix": "unresolved",
+          "status": "linked",
+          "template": "/z/upb/known/items"
+        }
+      ],
+      "status": "linked",
+      "url_expression": "'/z/upb/known/items'",
+      "wrapper": null
+    },
+    "content_hash": "sha256:999fd09f3f59384885ccc13d2c1e75183f80c8a978ff627d97adaf498431f104",
+    "file": "web/calls.ts",
+    "identity": "client_call:web/calls.ts#full.GET%20%27%2Fz%2Fupb%2Fknown%2Fitems%27",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET '/z/upb/known/items'",
+    "qualified_name": "full.GET '/z/upb/known/items'",
+    "span": {
+      "end_column": 29,
+      "end_line": 13,
+      "start_column": 2,
+      "start_line": 13
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "base": "none",
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "candidate_count": 0,
+          "candidates": [],
+          "conditional": false,
+          "match": null,
+          "origin": null,
+          "resolution": "literal",
+          "status": "unmatched",
+          "template": "/{tenant}/upb/orders/{id}"
+        }
+      ],
+      "status": "unmatched",
+      "url_expression": "`/${tenant}/upb/orders/${id}`",
+      "wrapper": null
+    },
+    "content_hash": "sha256:60037ae53a4d8e7ac0d89c01a69da9bc104f5578332439071acd4ea7aa2c7755",
+    "file": "web/calls.ts",
+    "identity": "client_call:web/calls.ts#full.GET%20%60%2F%24%7Btenant%7D%2Fupb%2Forders%2F%24%7Bid%7D%60",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET `/${tenant}/upb/orders/${id}`",
+    "qualified_name": "full.GET `/${tenant}/upb/orders/${id}`",
+    "span": {
+      "end_column": 38,
+      "end_line": 9,
+      "start_column": 2,
+      "start_line": 9
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "assumes": [
+        "UP-V1"
+      ],
+      "base": "none",
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "assumes": [
+            "UP-V1"
+          ],
+          "candidate_count": 0,
+          "candidates": [
+            "route:server/api.go#GET%20%2Fupb%2Finner%2F%7Bname%7D"
+          ],
+          "conditional": false,
+          "match": "suffix",
+          "origin": null,
+          "resolution": "literal",
+          "route_prefix": "unresolved",
+          "status": "linked",
+          "template": "/outer/v2/upb/inner/{id}"
+        }
+      ],
+      "status": "linked",
+      "url_expression": "`/outer/v2/upb/inner/${id}`",
+      "wrapper": null
+    },
+    "content_hash": "sha256:91746516b9d017b527378b4f597266824ff913c3cc1e2324955af6bd0f693bc6",
+    "file": "web/calls.ts",
+    "identity": "client_call:web/calls.ts#full.GET%20%60%2Fouter%2Fv2%2Fupb%2Finner%2F%24%7Bid%7D%60",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET `/outer/v2/upb/inner/${id}`",
+    "qualified_name": "full.GET `/outer/v2/upb/inner/${id}`",
+    "span": {
+      "end_column": 36,
+      "end_line": 17,
+      "start_column": 2,
+      "start_line": 17
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "assumes": [
+        "UP-V1"
+      ],
+      "base": "none",
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "assumes": [
+            "UP-V1"
+          ],
+          "candidate_count": 0,
+          "candidates": [
+            "route:server/api.go#GET%20%2F%7Borg%7D%2Fupb%2Fsettings"
+          ],
+          "conditional": false,
+          "match": "suffix",
+          "origin": null,
+          "resolution": "literal",
+          "route_prefix": "unresolved",
+          "status": "linked",
+          "template": "/v1/{org}/upb/settings"
+        }
+      ],
+      "status": "linked",
+      "url_expression": "`/v1/${org}/upb/settings`",
+      "wrapper": null
+    },
+    "content_hash": "sha256:1cdc1de2fcd0c229a178887f6701d4ef337f4dbe015a8fa259e0aff48bb69bbb",
+    "file": "web/calls.ts",
+    "identity": "client_call:web/calls.ts#full.GET%20%60%2Fv1%2F%24%7Borg%7D%2Fupb%2Fsettings%60",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET `/v1/${org}/upb/settings`",
+    "qualified_name": "full.GET `/v1/${org}/upb/settings`",
+    "span": {
+      "end_column": 34,
+      "end_line": 8,
+      "start_column": 2,
+      "start_line": 8
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "assumes": [
+        "UP-V1"
+      ],
+      "base": "none",
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "assumes": [
+            "UP-V1"
+          ],
+          "candidate_count": 0,
+          "candidates": [
+            "route:server/api.go#GET%20%2Fupb%2Forders%2F%7Bid%7D"
+          ],
+          "conditional": false,
+          "match": "suffix",
+          "origin": null,
+          "resolution": "literal",
+          "route_prefix": "unresolved",
+          "status": "linked",
+          "template": "/v1/upb/orders/{id}"
+        }
+      ],
+      "status": "linked",
+      "url_expression": "`/v1/upb/orders/${id}`",
+      "wrapper": null
+    },
+    "content_hash": "sha256:e99fbee1ed9990c9076764be9e1b23c3e989d1987a0a4d00f15aa112109cc5ba",
+    "file": "web/calls.ts",
+    "identity": "client_call:web/calls.ts#full.GET%20%60%2Fv1%2Fupb%2Forders%2F%24%7Bid%7D%60",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET `/v1/upb/orders/${id}`",
+    "qualified_name": "full.GET `/v1/upb/orders/${id}`",
+    "span": {
+      "end_column": 31,
+      "end_line": 2,
+      "start_column": 2,
+      "start_line": 2
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "base": "none",
+      "library": "fetch",
+      "method": "HEAD",
+      "paths": [
+        {
+          "candidate_count": 0,
+          "candidates": [],
+          "conditional": false,
+          "match": null,
+          "origin": null,
+          "resolution": "literal",
+          "status": "unmatched",
+          "template": "/v1/upb/orders/{id}"
+        }
+      ],
+      "status": "unmatched",
+      "url_expression": "`/v1/upb/orders/${id}`",
+      "wrapper": null
+    },
+    "content_hash": "sha256:0dffdaf01df36c0806ea1999af1f4e29bf6ae0e59844ccdf2d36eb152c5e9117",
+    "file": "web/calls.ts",
+    "identity": "client_call:web/calls.ts#full.HEAD%20%60%2Fv1%2Fupb%2Forders%2F%24%7Bid%7D%60",
+    "kind": "client_call",
+    "level": 4,
+    "name": "HEAD `/v1/upb/orders/${id}`",
+    "qualified_name": "full.HEAD `/v1/upb/orders/${id}`",
+    "span": {
+      "end_column": 49,
+      "end_line": 15,
+      "start_column": 2,
+      "start_line": 15
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "assumes": [
+        "UP-V1"
+      ],
+      "base": "none",
+      "library": "fetch",
+      "method": "HEAD",
+      "paths": [
+        {
+          "assumes": [
+            "UP-V1"
+          ],
+          "candidate_count": 0,
+          "candidates": [
+            "route:server/api.go#GET%20%2Fupb%2Freports%2F%7Bid%7D"
+          ],
+          "conditional": false,
+          "match": "suffix",
+          "origin": null,
+          "resolution": "literal",
+          "route_prefix": "unresolved",
+          "status": "linked",
+          "template": "/v1/upb/reports/{id}"
+        }
+      ],
+      "status": "linked",
+      "url_expression": "`/v1/upb/reports/${id}`",
+      "wrapper": null
+    },
+    "content_hash": "sha256:e386d9577225a55f8312f8a2ee97fd2f39f9f2b2209d5b38ead922ca1f0c8da3",
+    "file": "web/calls.ts",
+    "identity": "client_call:web/calls.ts#full.HEAD%20%60%2Fv1%2Fupb%2Freports%2F%24%7Bid%7D%60",
+    "kind": "client_call",
+    "level": 4,
+    "name": "HEAD `/v1/upb/reports/${id}`",
+    "qualified_name": "full.HEAD `/v1/upb/reports/${id}`",
+    "span": {
+      "end_column": 50,
+      "end_line": 14,
+      "start_column": 2,
+      "start_line": 14
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "assumes": [
+        "UP-V1"
+      ],
+      "base": "none",
+      "library": "fetch",
+      "method": "POST",
+      "paths": [
+        {
+          "assumes": [
+            "UP-V1"
+          ],
+          "candidate_count": 0,
+          "candidates": [
+            "route:server/api.go#POST%20%2Fupb%2Forders"
+          ],
+          "conditional": false,
+          "match": "suffix",
+          "origin": null,
+          "resolution": "literal",
+          "route_prefix": "unresolved",
+          "status": "linked",
+          "template": "/upb/orders"
+        }
+      ],
+      "status": "linked",
+      "url_expression": "'/upb/orders'",
+      "wrapper": null
+    },
+    "content_hash": "sha256:0f9a2412aea69a2ee28ce63e9798bb4c8c56fb5548ea8ef7a9d67cb3be30353d",
+    "file": "web/calls.ts",
+    "identity": "client_call:web/calls.ts#full.POST%20%27%2Fupb%2Forders%27",
+    "kind": "client_call",
+    "level": 4,
+    "name": "POST '/upb/orders'",
+    "qualified_name": "full.POST '/upb/orders'",
+    "span": {
+      "end_column": 40,
+      "end_line": 3,
+      "start_column": 2,
+      "start_line": 3
+    },
+    "type": "node"
+  }
+]

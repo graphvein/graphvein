@@ -1,0 +1,28 @@
+{
+  "id": "review-q02-nullnotnull",
+  "signature": "agreed at af6a883",
+  "class": "S1",
+  "owner": "P7",
+  "row": "review",
+  "history": {
+    "id": "q02-nullnotnull"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42601",
+        "message": "conflicting NULL/NOT NULL declarations for column \"c\" of table \"t\"",
+        "statement": 1,
+        "statement_text": "CREATE TABLE t (c int NULL NOT NULL);"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

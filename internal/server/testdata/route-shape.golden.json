@@ -1,0 +1,246 @@
+{
+  "body": {
+    "items": [],
+    "state": "not_read"
+  },
+  "cookie": {
+    "items": [],
+    "state": "not_read"
+  },
+  "follow": {
+    "chains": [
+      {
+        "at": {
+          "file": "d.py",
+          "function": "e",
+          "line": 2
+        },
+        "depth": 4,
+        "detail": "depth cap reached (4)",
+        "section": "query",
+        "start": {
+          "file": "app.py",
+          "function": "get_item",
+          "line": 2
+        },
+        "steps": [
+          {
+            "file": "app.py",
+            "function": "a",
+            "line": 4
+          },
+          {
+            "file": "a.py",
+            "function": "b",
+            "line": 2
+          },
+          {
+            "file": "b.py",
+            "function": "c",
+            "line": 2
+          },
+          {
+            "file": "c.py",
+            "function": "d",
+            "line": 2
+          }
+        ],
+        "stop": "depth_cap"
+      }
+    ],
+    "depth_limit": 4
+  },
+  "header": {
+    "items": [
+      {
+        "access": "read_by_dependency",
+        "name": "X-Token",
+        "presence": "unknown",
+        "provenance": {
+          "chain": [
+            {
+              "file": "app.py",
+              "function": "token",
+              "line": 3
+            }
+          ],
+          "confidence": 1,
+          "file": "deps.py",
+          "kind": "read_in_handler",
+          "line": 7,
+          "rule": "SH-T2"
+        },
+        "schema": null
+      }
+    ],
+    "reason": "dependencies may read more headers",
+    "state": "partial"
+  },
+  "models": [
+    {
+      "name": "Item",
+      "provenance": {
+        "chain": [],
+        "confidence": 1,
+        "file": "app.py",
+        "kind": "fact",
+        "line": 3,
+        "rule": "SH-T1"
+      },
+      "schema": {
+        "additional": "forbidden",
+        "fields": [
+          {
+            "name": "id",
+            "presence": "required",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "kind",
+            "presence": "optional",
+            "schema": {
+              "enum": [
+                "a",
+                null
+              ],
+              "type": "enum"
+            }
+          },
+          {
+            "name": "tags",
+            "presence": "optional",
+            "schema": {
+              "items": {
+                "reason": "generic",
+                "type": "unknown"
+              },
+              "type": "array"
+            }
+          }
+        ],
+        "type": "object"
+      }
+    }
+  ],
+  "path": {
+    "evidence": {
+      "chain": [],
+      "confidence": 1,
+      "file": "app.py",
+      "kind": "fact",
+      "line": 3,
+      "rule": "SH-T1"
+    },
+    "items": [
+      {
+        "access": "declared",
+        "name": "id",
+        "presence": "required",
+        "provenance": {
+          "chain": [],
+          "confidence": 1,
+          "file": "app.py",
+          "kind": "fact",
+          "line": 3,
+          "rule": "SH-T1"
+        },
+        "schema": {
+          "type": "integer"
+        }
+      }
+    ],
+    "state": "complete"
+  },
+  "query": {
+    "items": [],
+    "reason": "depth cap reached (4)",
+    "state": "partial"
+  },
+  "responses": {
+    "items": [
+      {
+        "content_type": "application/json",
+        "provenance": {
+          "chain": [],
+          "confidence": 1,
+          "file": "app.py",
+          "kind": "fact",
+          "line": 3,
+          "rule": "SH-T1"
+        },
+        "schema": {
+          "ref": "Item",
+          "type": "ref"
+        },
+        "status": "200"
+      },
+      {
+        "content_type": null,
+        "provenance": {
+          "chain": [],
+          "confidence": 0.9,
+          "file": "openapi.yaml",
+          "kind": "mapped",
+          "line": 9,
+          "rule": "SH-T3"
+        },
+        "schema": null,
+        "status": "404"
+      }
+    ],
+    "reason": "error statuses not read",
+    "state": "partial"
+  },
+  "security": {
+    "evidence": {
+      "chain": [],
+      "confidence": 1,
+      "file": "app.py",
+      "kind": "fact",
+      "line": 3,
+      "rule": "SH-T1"
+    },
+    "items": [
+      {
+        "provenance": {
+          "chain": [],
+          "confidence": 1,
+          "file": "app.py",
+          "kind": "fact",
+          "line": 3,
+          "rule": "SH-T1"
+        },
+        "schemes": [
+          {
+            "name": "HTTPBearer",
+            "scopes": []
+          }
+        ]
+      }
+    ],
+    "state": "complete"
+  },
+  "security_schemes": [
+    {
+      "bearer_format": null,
+      "in": null,
+      "name": "HTTPBearer",
+      "openid_connect_url": null,
+      "param_name": null,
+      "provenance": {
+        "chain": [],
+        "confidence": 1,
+        "file": "app.py",
+        "kind": "fact",
+        "line": 3,
+        "rule": "SH-T1"
+      },
+      "scheme": "bearer",
+      "token_url": null,
+      "type": "http"
+    }
+  ],
+  "version": 1
+}

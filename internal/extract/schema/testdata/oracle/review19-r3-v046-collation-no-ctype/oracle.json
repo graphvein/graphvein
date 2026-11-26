@@ -1,0 +1,28 @@
+{
+  "id": "review19-r3-v046-collation-no-ctype",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y35",
+  "row": "review19",
+  "history": {
+    "id": "v046-collation-no-ctype"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42P17",
+        "message": "parameter \"lc_ctype\" must be specified",
+        "statement": 1,
+        "statement_text": "CREATE COLLATION c1 (lc_collate = 'C');"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

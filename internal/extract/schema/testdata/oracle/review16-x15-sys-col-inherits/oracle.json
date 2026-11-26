@@ -1,0 +1,28 @@
+{
+  "id": "review16-x15-sys-col-inherits",
+  "signature": "agreed at Revision 1.6",
+  "class": "S1",
+  "owner": "V11",
+  "row": "review16",
+  "history": {
+    "id": "x15-sys-col-inherits"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42701",
+        "message": "column name \"xmin\" conflicts with a system column name",
+        "statement": 3,
+        "statement_text": "CREATE TABLE ch (xmin int) INHERITS (p);"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

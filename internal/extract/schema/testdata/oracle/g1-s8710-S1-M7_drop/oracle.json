@@ -1,0 +1,35 @@
+{
+  "id": "g1-s8710-S1-M7_drop",
+  "signature": "applied|S1|2BP01|M7.drop",
+  "class": "S1",
+  "owner": "P2",
+  "row": "M7.drop",
+  "history": {
+    "id": "g1-s8710",
+    "tags": {
+      "1_m1.sql": [
+        "M1.create_fk",
+        "M8.rename",
+        "M7.drop"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "2BP01",
+        "message": "cannot drop index t1_pkey because constraint t1_pkey on table ix_4 requires it",
+        "statement": 3,
+        "statement_text": "DROP INDEX t1_pkey;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

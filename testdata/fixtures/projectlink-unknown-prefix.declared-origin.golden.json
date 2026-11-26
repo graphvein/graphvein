@@ -1,0 +1,153 @@
+{
+  "links": [
+    {
+      "assumes": [
+        "UP-V1",
+        "UP-V3"
+      ],
+      "assumption": "declared in graphvein-project.yaml: `web` consumes `api` (origins: https://api.example.com); route prefix not read from code: assumes UP-V1, UP-V3",
+      "attributes": {
+        "declaration": "`web` consumes `api` (origins: https://api.example.com)",
+        "match": "suffix",
+        "route_prefix": "unresolved",
+        "row": "PL-L7",
+        "template": "/upd/orders/list"
+      },
+      "confidence": 0.6,
+      "evidence": [
+        {
+          "file": "api.ts",
+          "span": {
+            "end_column": 50,
+            "end_line": 6,
+            "start_column": 2,
+            "start_line": 6
+          }
+        }
+      ],
+      "kind": "calls_route",
+      "provenance": "inferred",
+      "source": {
+        "content_hash": "sha256:7b2023313363b7e80b6cdb8bd7cb183c0090c745761fe97ed7ce6dc75e94e010",
+        "identity": "client_call:api.ts#calls.GET%20%22https%3A%2F%2Fapi.example.com%2Fupd%2Forders%2Flist%22",
+        "repository": "web",
+        "run": "\u003crun of web\u003e"
+      },
+      "target": {
+        "content_hash": "sha256:9d7e4173eaa7c7e870e87370e28671482467e444ca62c27369398f3e4e6d8978",
+        "identity": "route:server.go#GET%20%2Fupd%2Forders%2Flist",
+        "repository": "api",
+        "run": "\u003crun of api\u003e"
+      }
+    }
+  ],
+  "members": [
+    {
+      "repository": "web",
+      "run": "\u003crun of web\u003e"
+    },
+    {
+      "repository": "api",
+      "run": "\u003crun of api\u003e"
+    },
+    {
+      "repository": "api2",
+      "run": "\u003crun of api2\u003e"
+    }
+  ],
+  "outcomes": [
+    {
+      "candidate_count": 0,
+      "candidates": [
+        {
+          "identity": "route:server.go#GET%20%2Fupd%2Forders%2Flist",
+          "repository": "api"
+        }
+      ],
+      "kind": "calls_route",
+      "row": "PL-L7",
+      "source": {
+        "identity": "client_call:api.ts#calls.GET%20%22https%3A%2F%2Fapi.example.com%2Fupd%2Forders%2Flist%22",
+        "repository": "web"
+      },
+      "status": "linked",
+      "target": {
+        "identity": "route:server.go#GET%20%2Fupd%2Forders%2Flist",
+        "repository": "api"
+      },
+      "template": "/upd/orders/list"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [],
+      "kind": "calls_route",
+      "row": "PL-R6",
+      "source": {
+        "identity": "client_call:api.ts#calls.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Fupd%2Forder%2F%24%7Bid%7D%60",
+        "repository": "web"
+      },
+      "status": "unmatched",
+      "template": "/upd/order/{id}"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [],
+      "kind": "calls_route",
+      "row": "PL-R6",
+      "source": {
+        "identity": "client_call:api.ts#calls.GET%20%60%2Fv1%2Fupd%2Forder%2F%24%7Bid%7D%60",
+        "repository": "web"
+      },
+      "status": "unmatched",
+      "template": "/v1/upd/order/{id}"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [],
+      "kind": "calls_route",
+      "row": "PL-R6",
+      "source": {
+        "identity": "client_call:api.ts#calls.GET%20withBase%28%22%2Fupd%2Forders%2Flist%22%29",
+        "repository": "web"
+      },
+      "status": "unmatched",
+      "template": "/upd/orders/list"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [],
+      "kind": "calls_route",
+      "row": "PL-R6",
+      "source": {
+        "identity": "client_call:api.ts#calls.GET%20withBase%28%22%2Fupd%2Fshared%2Fitems%22%29",
+        "repository": "web"
+      },
+      "status": "unmatched",
+      "template": "/upd/shared/items"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [],
+      "kind": "calls_route",
+      "row": "PL-R6",
+      "source": {
+        "identity": "client_call:api.ts#calls.GET%20withBase%28%22%2Fupd%2Ftie%2Fitems%22%29",
+        "repository": "web"
+      },
+      "status": "unmatched",
+      "template": "/upd/tie/items"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [],
+      "kind": "calls_route",
+      "row": "PL-R6",
+      "source": {
+        "identity": "client_call:api.ts#calls.GET%20withBase%28%22%2Fupdping%22%29",
+        "repository": "web"
+      },
+      "status": "unmatched",
+      "template": "/updping"
+    }
+  ]
+}

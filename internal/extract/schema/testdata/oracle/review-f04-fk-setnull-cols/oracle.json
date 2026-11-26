@@ -1,0 +1,28 @@
+{
+  "id": "review-f04-fk-setnull-cols",
+  "signature": "applied|S1|42P10|",
+  "class": "S1",
+  "owner": "P4",
+  "row": "review",
+  "history": {
+    "id": "f04-fk-setnull-cols"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42P10",
+        "message": "column \"y\" referenced in ON DELETE SET action must be part of foreign key",
+        "statement": 2,
+        "statement_text": "CREATE TABLE c (x int, y int, FOREIGN KEY (x) REFERENCES p ON DELETE SET NULL (y));"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

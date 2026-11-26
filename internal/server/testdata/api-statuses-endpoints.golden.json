@@ -1,0 +1,292 @@
+{
+  "api_version": 0,
+  "index": {
+    "contract_version": 1,
+    "finished_at": "2026-11-03T14:32:05.123Z",
+    "indexer": {
+      "name": "crafted",
+      "version": "t016d1"
+    }
+  },
+  "repository": "statuses",
+  "root": null,
+  "scope": "all",
+  "transports": [
+    {
+      "callers_precision": {
+        "label": "best_effort",
+        "reason": "external_indexer",
+        "row": "D"
+      },
+      "calls": {
+        "by_status": {
+          "": 1,
+          "LINKED": 1,
+          "ambiguous": 2,
+          "dynamic": 3,
+          "linked": 3,
+          "test_only": 1,
+          "unmatched": 2,
+          "weird": 1,
+          "wrapper": 1
+        },
+        "edges_from_unlinked": 2,
+        "linked_without_edge": 1,
+        "total": 15,
+        "unknown_scope": 1
+      },
+      "endpoint_count": 3,
+      "endpoints": [
+        {
+          "caller_count": 4,
+          "documented": false,
+          "file": "server/routes.ts",
+          "flags": [
+            "handler_unresolved"
+          ],
+          "framework": "express",
+          "id": "route:server/routes.ts#GET%20%2Fs",
+          "line": 1,
+          "method": "GET",
+          "name": "GET /s",
+          "path": "/s",
+          "path_count": 1,
+          "pattern": "/s",
+          "scope": null
+        },
+        {
+          "caller_count": 0,
+          "documented": false,
+          "file": "server/routes.ts",
+          "flags": [
+            "conditional",
+            "handler_inline",
+            "test_paths"
+          ],
+          "framework": "express",
+          "id": "route:server/routes.ts#GET%20%2Ft",
+          "line": 2,
+          "method": "GET",
+          "name": "GET /t",
+          "path": "/t",
+          "path_count": 1,
+          "pattern": "/t",
+          "scope": "test"
+        },
+        {
+          "caller_count": 0,
+          "documented": false,
+          "file": "server/routes.ts",
+          "flags": [
+            "handler_inline",
+            "unmounted"
+          ],
+          "framework": "external",
+          "id": "route:server/routes.ts#TRACE%20%2Fu",
+          "line": 3,
+          "method": "TRACE",
+          "name": "TRACE /u",
+          "path": null,
+          "path_count": 0,
+          "pattern": "/u",
+          "scope": null
+        }
+      ],
+      "frameworks": [
+        "express",
+        "external"
+      ],
+      "never_called": 2,
+      "openapi": {
+        "documented_endpoints": 0,
+        "specs": 0
+      },
+      "precision": {
+        "label": "best_effort",
+        "reason": "external_indexer",
+        "row": "D"
+      },
+      "roots": [
+        {
+          "by_status": {
+            "unmatched": 1
+          },
+          "manifest": "lib/package.json",
+          "root": "lib",
+          "total": 1
+        },
+        {
+          "by_status": {
+            "": 1,
+            "LINKED": 1,
+            "ambiguous": 2,
+            "dynamic": 3,
+            "linked": 3,
+            "test_only": 1,
+            "unmatched": 1,
+            "weird": 1,
+            "wrapper": 1
+          },
+          "manifest": null,
+          "root": "src",
+          "total": 14
+        }
+      ],
+      "transport": "http"
+    },
+    {
+      "callers_precision": {
+        "label": "best_effort",
+        "reason": "external_indexer",
+        "row": "D"
+      },
+      "calls": {
+        "by_status": {
+          "": 1,
+          "LINKED": 1,
+          "acl_possible": 1,
+          "ambiguous": 1,
+          "dynamic": 1,
+          "global_unlinked": 1,
+          "linked": 2,
+          "plugin": 1,
+          "registry_unproven": 1,
+          "shadow_possible": 1,
+          "test_only": 1,
+          "unknown_command": 1,
+          "unmatched": 2,
+          "weird": 1,
+          "wrapper": 1
+        },
+        "edges_from_unlinked": 2,
+        "linked_without_edge": 1,
+        "total": 17,
+        "unknown_scope": 0
+      },
+      "endpoint_count": 3,
+      "endpoints": [
+        {
+          "caller_count": 0,
+          "cfg_gated": true,
+          "command": "p",
+          "file": "app/main.rs",
+          "flags": [
+            "cfg_gated",
+            "plugin_registry",
+            "test_only",
+            "unreachable"
+          ],
+          "framework": "tauri",
+          "handler": "function:app/main.rs#gone",
+          "id": "ipc_command:app/main.rs#plugin.COMMAND%20p",
+          "line": 6,
+          "name": "COMMAND p",
+          "plugin": "p",
+          "registry": "plugin",
+          "scope": "test",
+          "test_only": true,
+          "unreachable": true
+        },
+        {
+          "caller_count": 3,
+          "cfg_gated": false,
+          "command": "s",
+          "file": "app/main.rs",
+          "flags": [
+            "unproven_registry"
+          ],
+          "framework": "tauri",
+          "handler": null,
+          "id": "ipc_command:app/main.rs#main.COMMAND%20s",
+          "line": 4,
+          "name": "COMMAND s",
+          "plugin": null,
+          "registry": "unproven",
+          "scope": null,
+          "test_only": false,
+          "unreachable": false
+        },
+        {
+          "caller_count": 0,
+          "cfg_gated": false,
+          "command": null,
+          "file": "app/main.rs",
+          "flags": [
+            "unresolved_entry"
+          ],
+          "framework": "tauri",
+          "handler": null,
+          "id": "ipc_command:app/main.rs#main.COMMAND%20unknown",
+          "line": 5,
+          "name": "COMMAND unknown",
+          "plugin": null,
+          "registry": "app",
+          "scope": null,
+          "test_only": false,
+          "unreachable": false
+        }
+      ],
+      "frameworks": [
+        "tauri"
+      ],
+      "never_called": 2,
+      "openapi": null,
+      "precision": {
+        "label": "best_effort",
+        "reason": "external_indexer",
+        "row": "D"
+      },
+      "roots": [
+        {
+          "by_status": {
+            "": 1,
+            "LINKED": 1,
+            "acl_possible": 1,
+            "ambiguous": 1,
+            "dynamic": 1,
+            "global_unlinked": 1,
+            "linked": 2,
+            "plugin": 1,
+            "registry_unproven": 1,
+            "shadow_possible": 1,
+            "test_only": 1,
+            "unknown_command": 1,
+            "unmatched": 2,
+            "weird": 1,
+            "wrapper": 1
+          },
+          "manifest": null,
+          "root": "src",
+          "total": 17
+        }
+      ],
+      "transport": "tauri_ipc"
+    },
+    {
+      "callers_precision": {
+        "label": "best_effort",
+        "reason": "external_indexer",
+        "row": "D"
+      },
+      "calls": {
+        "by_status": {},
+        "edges_from_unlinked": 0,
+        "linked_without_edge": 0,
+        "total": 0,
+        "unknown_scope": 0
+      },
+      "endpoint_count": 0,
+      "endpoints": [],
+      "frameworks": [],
+      "never_called": 0,
+      "openapi": null,
+      "precision": {
+        "label": "best_effort",
+        "reason": "external_indexer",
+        "row": "D"
+      },
+      "roots": [],
+      "transport": "server_action"
+    }
+  ]
+}

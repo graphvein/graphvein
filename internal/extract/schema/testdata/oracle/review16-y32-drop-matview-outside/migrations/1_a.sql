@@ -1,0 +1,1 @@
+DROP MATERIALIZED VIEW nosuch_mv;

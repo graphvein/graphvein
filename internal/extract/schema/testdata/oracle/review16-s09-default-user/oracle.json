@@ -1,0 +1,40 @@
+{
+  "id": "review16-s09-default-user",
+  "signature": "agreed at Revision 1.6",
+  "class": "S1",
+  "owner": "V3",
+  "row": "review16",
+  "history": {
+    "id": "s09-default-user"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "accepted"
+      }
+    ],
+    "tables": [
+      {
+        "table": "history.t",
+        "columns": [
+          {
+            "name": "a",
+            "type": "text",
+            "not_null": false,
+            "has_default": true
+          }
+        ],
+        "primary_key": null,
+        "unique_keys": [],
+        "foreign_keys": [],
+        "indexes": []
+      }
+    ],
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

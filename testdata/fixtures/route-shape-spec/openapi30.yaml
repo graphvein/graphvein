@@ -1,0 +1,198 @@
+openapi: 3.0.3
+info: {title: Spec shape 3.0, version: "1"}
+security:
+  - rootKey: []
+paths:
+  /v30/items/{item_id}:
+    parameters:
+      - {name: item_id, in: path, required: true, schema: {type: integer}}
+      - {name: X-Trace, in: header, schema: {type: string}}
+    get:
+      parameters:
+        - {name: item_id, in: path, required: true, schema: {type: string}}
+        - {name: q, in: query, required: true, schema: {type: integer}}
+        - {name: extra, in: query, schema: {type: boolean, nullable: true}}
+        - {name: Accept, in: header, schema: {type: string}}
+        - {name: session, in: cookie, schema: {type: string}}
+        - name: filter
+          in: query
+          content:
+            application/json:
+              schema: {type: object}
+        - $ref: '#/components/parameters/Limit'
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/Item'}
+  /v30/items:
+    post:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: {$ref: '#/components/schemas/Item'}
+          application/xml: {}
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/Item'}
+        4xx:
+          $ref: '#/components/responses/Problem'
+        '204': {description: none}
+  /v30/plain:
+    get:
+      parameters:
+        - {name: page, in: query, schema: {type: integer}}
+      requestBody:
+        content:
+          application/json:
+            schema: {type: object}
+      responses:
+        '200': {description: ok}
+        default:
+          description: error
+          content:
+            text/plain:
+              schema: {type: string}
+  /v30/secure:
+    get:
+      security: []
+      responses:
+        '200': {description: ok}
+  /v30/secure2:
+    get:
+      security:
+        - HTTPBearer: []
+      responses:
+        '200': {description: ok}
+  /v30/accounts:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema: {$ref: '#/components/schemas/Account'}
+      responses:
+        '201':
+          description: created
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/Account'}
+        '202':
+          description: a pure reference cycle
+          content:
+            application/json:
+              schema: {$ref: '#/components/schemas/Loop'}
+  /v30/charset:
+    post:
+      requestBody:
+        content:
+          'application/json; charset=utf-8':
+            schema: {$ref: '#/components/schemas/Owner'}
+      responses:
+        '200':
+          description: ok
+          content:
+            'Application/JSON; charset=utf-8':
+              schema: {type: string}
+  /v30/wild:
+    post:
+      requestBody:
+        content:
+          '*/*':
+            schema: {type: object}
+      responses:
+        '200': {description: ok}
+  /dup:
+    get:
+      responses:
+        '200': {description: ok}
+components:
+  parameters:
+    Limit: {name: limit, in: query, schema: {type: integer, enum: [10, 50, 100]}}
+  responses:
+    Problem:
+      description: problem
+      content:
+        application/problem+json:
+          schema: {$ref: '#/components/schemas/Problem'}
+  securitySchemes:
+    rootKey: {type: apiKey, in: header, name: X-Root-Key}
+    HTTPBearer: {type: http, scheme: bearer}
+  schemas:
+    Item:
+      type: object
+      required: [id, name, price, tags]
+      additionalProperties: false
+      properties:
+        id: {type: integer, readOnly: true}
+        name: {type: string}
+        price: {type: number, nullable: true}
+        status: {type: string, enum: [new, sold, null], nullable: true}
+        tags:
+          type: array
+          items: {type: string}
+        owner:
+          allOf:
+            - $ref: '#/components/schemas/Owner'
+        parent: {$ref: '#/components/schemas/Item'}
+        variant:
+          oneOf:
+            - {type: string}
+            - {type: integer}
+        shape:
+          type: object
+          discriminator: {propertyName: kind}
+        notString:
+          not: {type: string}
+        remote: {$ref: 'refs/fragment.yaml#/Remote'}
+        missing: {$ref: '#/components/schemas/Nowhere'}
+        anything: {}
+        list: {type: array}
+        map:
+          type: object
+          additionalProperties: {type: string}
+        pattern:
+          type: object
+          patternProperties:
+            '^x': {type: string}
+        nullableRef:
+          allOf:
+            - $ref: '#/components/schemas/Owner'
+          nullable: true
+        typeList: {type: [string, 'null']}
+        nullType: {type: 'null'}
+        weird: {type: date}
+        noProperty: {type: object, required: [ghost]}
+    Owner:
+      type: object
+      properties:
+        name: {type: string}
+        friend: {$ref: '#/components/schemas/Owner'}
+    Problem:
+      type: object
+      properties:
+        title: {type: string}
+    Id: {type: string, readOnly: true}
+    WoBase: {type: string, writeOnly: true}
+    Wo:
+      allOf:
+        - $ref: '#/components/schemas/WoBase'
+    Loop: {$ref: '#/components/schemas/Loop'}
+    Account:
+      type: object
+      required: [id, id2, wid, name]
+      properties:
+        id: {$ref: '#/components/schemas/Id'}
+        id2:
+          allOf:
+            - $ref: '#/components/schemas/Id'
+        wid: {$ref: '#/components/schemas/Wo'}
+        name: {type: string}
+        created: {type: string, readOnly: true}
+        secret: {type: string, writeOnly: true}
+        big: {type: integer, enum: [9007199254740993]}
+        exact: {type: number, enum: [9007199254740992, 0.1, -3]}

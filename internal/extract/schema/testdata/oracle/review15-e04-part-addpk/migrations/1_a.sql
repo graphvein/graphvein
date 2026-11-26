@@ -1,0 +1,2 @@
+CREATE TABLE p (id int, k int) PARTITION BY RANGE (k);
+ALTER TABLE p ADD PRIMARY KEY (id);

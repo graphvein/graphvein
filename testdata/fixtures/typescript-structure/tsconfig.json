@@ -1,0 +1,5 @@
+{
+  "extends": "./base/tsconfig.base.json",
+  "compilerOptions": { "module": "esnext", "moduleResolution": "bundler", "baseUrl": ".", "paths": { "@/*": ["src/*"], "multi/*": ["missing/*", "src/lib/*"] }, "jsx": "preserve", "allowJs": true, "resolveJsonModule": true },
+  "include": ["src", "types"]
+}

@@ -1,0 +1,30 @@
+{
+  "id": "review19-r3-d27-drop-ext-with-dependent-default",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y34",
+  "row": "review19",
+  "history": {
+    "id": "d27-drop-ext-with-dependent-default",
+    "fresh_db": true
+  },
+  "verdict": {
+    "default_schema": "public",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "2BP01",
+        "message": "cannot drop extension pgcrypto because other objects depend on it",
+        "detail": "default value for column a of table t depends on function gen_random_bytes(integer)",
+        "statement": 3,
+        "statement_text": "DROP EXTENSION pgcrypto;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "public._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

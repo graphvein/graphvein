@@ -1,0 +1,36 @@
+{
+  "id": "g1-s4492-S1-M5d_drop_not_null",
+  "signature": "applied|S1|42P01|M5d.drop_not_null",
+  "class": "S1",
+  "owner": "P1",
+  "row": "M5d.drop_not_null",
+  "history": {
+    "id": "g1-s4492",
+    "fresh_db": true,
+    "tags": {
+      "1_m1.sql": [
+        "M1.create",
+        "M8.rename",
+        "M5d.drop_not_null"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "public",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42P01",
+        "message": "relation \"t1\" does not exist",
+        "statement": 3,
+        "statement_text": "ALTER TABLE t1 ALTER COLUMN c1 DROP NOT NULL;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "public._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

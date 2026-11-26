@@ -1,0 +1,75 @@
+{
+  "dir": ".",
+  "members": [
+    {
+      "checkout": true,
+      "consumes": [
+        {
+          "bases": [
+            "__API_URL__"
+          ],
+          "origins": [
+            "http://localhost:3000"
+          ],
+          "path_prefixes": [
+            "/api"
+          ],
+          "repository": "api",
+          "scope": ""
+        },
+        {
+          "bases": null,
+          "origins": null,
+          "path_prefixes": [
+            "/admin"
+          ],
+          "repository": "api",
+          "scope": "admin"
+        }
+      ],
+      "path": "web",
+      "path_source": "manifest",
+      "repository": "web",
+      "repository_source": "member graphvein.yaml",
+      "scopes": null
+    },
+    {
+      "checkout": true,
+      "consumes": null,
+      "path": "api",
+      "path_source": "local file",
+      "repository": "api",
+      "repository_source": "manifest",
+      "scopes": [
+        {
+          "consumes": [
+            {
+              "bases": null,
+              "origins": null,
+              "path_prefixes": null,
+              "repository": "auth",
+              "scope": ""
+            }
+          ],
+          "name": "admin",
+          "path": "apps/admin"
+        },
+        {
+          "consumes": null,
+          "name": "public",
+          "path": "apps/public"
+        }
+      ]
+    },
+    {
+      "checkout": false,
+      "consumes": null,
+      "path": "",
+      "path_source": "",
+      "repository": "auth",
+      "repository_source": "manifest",
+      "scopes": null
+    }
+  ],
+  "name": "shop"
+}

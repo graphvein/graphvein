@@ -1,0 +1,26 @@
+.graphvein/
+/dist/
+/bin/
+/web/node_modules/
+# Any node_modules under web/ (a vitest cache under web/src/node_modules
+# was once committed by mistake).
+/web/**/node_modules/
+/web/coverage/
+spike/parsing/.corpus/
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Grammar bundles: fetched for review / built by CI; reviewed assets are committed elsewhere
+grammars/runs/
+grammars/artifacts/
+/graphvein
+/site/dist/
+# The website generator binary built by "go build" in site/ (never commit it).
+/site/site
+/site/site.exe

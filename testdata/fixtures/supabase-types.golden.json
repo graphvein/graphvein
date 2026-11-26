@@ -1,0 +1,3484 @@
+{
+  "diagnostics": [
+    {
+      "code": "supabase_types_unread",
+      "file": "handwritten/database.ts",
+      "message": "handwritten/database.ts: not read as Supabase generated types (row SB-G1): line 8: notes: Row property body is optional",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "supabase_types_compared",
+      "file": "migrated/lib/types.ts",
+      "message": "migrated/lib/types.ts: generated types compared with Supabase migration set migrated/supabase/migrations (row SB-G2: not read as a schema source): 2 tables in both, 1 agree on columns, nullability and relationships, 1 disagree, 0 not compared (partial in the migration set); only in the generated types: [public.invites]; only in the migration set: [public.audit]; platform schemas not compared: [storage]",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "supabase_types_disagreement",
+      "file": "migrated/lib/types.ts",
+      "message": "migrated/lib/types.ts:12: table public.invites is in the generated types, not in the migration set (row SB-G2; the migration set is the schema source)",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "supabase_types_disagreement",
+      "file": "migrated/lib/types.ts",
+      "message": "migrated/lib/types.ts:26: column public.members.email: nullable false in the generated types (string), true in the migration set (row SB-G2; the migration set is the schema source)",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "supabase_types_disagreement",
+      "file": "migrated/lib/types.ts",
+      "message": "migrated/lib/types.ts:28: column public.members.nickname is in the generated types, not in the migration set (row SB-G2; the migration set is the schema source)",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "supabase_types_disagreement",
+      "file": "migrated/lib/types.ts",
+      "message": "migrated/lib/types.ts:24: column public.members.role of the migration set is not in the generated types (row SB-G2; the migration set is the schema source)",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "supabase_types_disagreement",
+      "file": "migrated/lib/types.ts",
+      "message": "migrated/lib/types.ts:51: relationship members_id_fkey of public.members (id) -\u003e users (id) matches no foreign key of the migration set (row SB-G2; the migration set is the schema source)",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "supabase_types_disagreement",
+      "file": "migrated/lib/types.ts",
+      "message": "migrated/lib/types.ts:9: table public.audit of the migration set is not in the generated types (row SB-G2; the migration set is the schema source)",
+      "severity": "info",
+      "type": "diagnostic"
+    }
+  ],
+  "edges": [
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/lib/database.types.ts",
+          "span": {
+            "end_column": 1,
+            "end_line": 116,
+            "start_column": 0,
+            "start_line": 9
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:app/lib/database.types.ts#app%2Flib%2Fdatabase.types.ts",
+      "target": "type_alias:app/lib/database.types.ts#Database",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/lib/database.types.ts",
+          "span": {
+            "end_column": 68,
+            "end_line": 118,
+            "start_column": 0,
+            "start_line": 118
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:app/lib/database.types.ts#app%2Flib%2Fdatabase.types.ts",
+      "target": "type_alias:app/lib/database.types.ts#DatabaseWithoutInternals",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/lib/database.types.ts",
+          "span": {
+            "end_column": 80,
+            "end_line": 120,
+            "start_column": 0,
+            "start_line": 120
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:app/lib/database.types.ts#app%2Flib%2Fdatabase.types.ts",
+      "target": "type_alias:app/lib/database.types.ts#DefaultSchema",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/lib/database.types.ts",
+          "span": {
+            "end_column": 11,
+            "end_line": 191,
+            "start_column": 0,
+            "start_line": 176
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:app/lib/database.types.ts#app%2Flib%2Fdatabase.types.ts",
+      "target": "type_alias:app/lib/database.types.ts#Enums",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/lib/database.types.ts",
+          "span": {
+            "end_column": 10,
+            "end_line": 7,
+            "start_column": 0,
+            "start_line": 1
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:app/lib/database.types.ts#app%2Flib%2Fdatabase.types.ts",
+      "target": "type_alias:app/lib/database.types.ts#Json",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/lib/database.types.ts",
+          "span": {
+            "end_column": 11,
+            "end_line": 149,
+            "start_column": 0,
+            "start_line": 122
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:app/lib/database.types.ts#app%2Flib%2Fdatabase.types.ts",
+      "target": "type_alias:app/lib/database.types.ts#Tables",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/lib/database.types.ts",
+          "span": {
+            "end_column": 11,
+            "end_line": 174,
+            "start_column": 0,
+            "start_line": 151
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:app/lib/database.types.ts#app%2Flib%2Fdatabase.types.ts",
+      "target": "type_alias:app/lib/database.types.ts#TablesInsert",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/lib/database.types.ts",
+          "span": {
+            "end_column": 10,
+            "end_line": 199,
+            "start_column": 0,
+            "start_line": 193
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:app/lib/database.types.ts#app%2Flib%2Fdatabase.types.ts",
+      "target": "variable:app/lib/database.types.ts#Constants",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "handwritten/database.ts",
+          "span": {
+            "end_column": 1,
+            "end_line": 37,
+            "start_column": 0,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:handwritten/database.ts#handwritten%2Fdatabase.ts",
+      "target": "type_alias:handwritten/database.ts#Database",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "handwritten/database.ts",
+          "span": {
+            "end_column": 98,
+            "end_line": 1,
+            "start_column": 0,
+            "start_line": 1
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:handwritten/database.ts#handwritten%2Fdatabase.ts",
+      "target": "type_alias:handwritten/database.ts#Json",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "kysely/db.ts",
+          "span": {
+            "end_column": 1,
+            "end_line": 4,
+            "start_column": 0,
+            "start_line": 2
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:kysely/db.ts#kysely%2Fdb.ts",
+      "target": "interface:kysely/db.ts#Database",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "legacy/src/types.ts",
+          "span": {
+            "end_column": 1,
+            "end_line": 42,
+            "start_column": 0,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:legacy/src/types.ts#legacy%2Fsrc%2Ftypes.ts",
+      "target": "interface:legacy/src/types.ts#Database",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "legacy/src/types.ts",
+          "span": {
+            "end_column": 99,
+            "end_line": 1,
+            "start_column": 0,
+            "start_line": 1
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:legacy/src/types.ts#legacy%2Fsrc%2Ftypes.ts",
+      "target": "type_alias:legacy/src/types.ts#Json",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "legacy/src/types.ts",
+          "span": {
+            "end_column": 10,
+            "end_line": 65,
+            "start_column": 0,
+            "start_line": 44
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:legacy/src/types.ts#legacy%2Fsrc%2Ftypes.ts",
+      "target": "type_alias:legacy/src/types.ts#Tables",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "migrated/lib/types.ts",
+          "span": {
+            "end_column": 1,
+            "end_line": 120,
+            "start_column": 0,
+            "start_line": 9
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:migrated/lib/types.ts#migrated%2Flib%2Ftypes.ts",
+      "target": "type_alias:migrated/lib/types.ts#Database",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "migrated/lib/types.ts",
+          "span": {
+            "end_column": 10,
+            "end_line": 7,
+            "start_column": 0,
+            "start_line": 1
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:migrated/lib/types.ts#migrated%2Flib%2Ftypes.ts",
+      "target": "type_alias:migrated/lib/types.ts#Json",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "migrated/supabase/migrations/20240101000000_init.sql",
+          "span": {
+            "end_column": 0,
+            "end_line": 17,
+            "start_column": 0,
+            "start_line": 1
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:migrated/supabase/migrations/20240101000000_init.sql#migrated%2Fsupabase%2Fmigrations%2F20240101000000_init.sql",
+      "target": "migration:migrated/supabase/migrations/20240101000000_init.sql#migration",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "migrated/supabase/migrations/20240101000000_init.sql",
+          "span": {
+            "end_column": 2,
+            "end_line": 16,
+            "start_column": 0,
+            "start_line": 13
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "migration:migrated/supabase/migrations/20240101000000_init.sql#migration",
+      "target": "table:migrated/supabase/migrations/20240101000000_init.sql#public.audit",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "migrated/supabase/migrations/20240101000000_init.sql",
+          "span": {
+            "end_column": 2,
+            "end_line": 11,
+            "start_column": 0,
+            "start_line": 6
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "migration:migrated/supabase/migrations/20240101000000_init.sql#migration",
+      "target": "table:migrated/supabase/migrations/20240101000000_init.sql#public.members",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "migrated/supabase/migrations/20240101000000_init.sql",
+          "span": {
+            "end_column": 2,
+            "end_line": 4,
+            "start_column": 0,
+            "start_line": 1
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "migration:migrated/supabase/migrations/20240101000000_init.sql#migration",
+      "target": "table:migrated/supabase/migrations/20240101000000_init.sql#public.teams",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/lib/database.types.ts",
+          "span": {
+            "end_column": 0,
+            "end_line": 19,
+            "start_column": 0,
+            "start_line": 19
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "table:app/lib/database.types.ts#public.lists",
+      "target": "column:app/lib/database.types.ts#public.lists.created_at",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/lib/database.types.ts",
+          "span": {
+            "end_column": 0,
+            "end_line": 20,
+            "start_column": 0,
+            "start_line": 20
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "table:app/lib/database.types.ts#public.lists",
+      "target": "column:app/lib/database.types.ts#public.lists.id",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/lib/database.types.ts",
+          "span": {
+            "end_column": 0,
+            "end_line": 21,
+            "start_column": 0,
+            "start_line": 21
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "table:app/lib/database.types.ts#public.lists",
+      "target": "column:app/lib/database.types.ts#public.lists.owner",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/lib/database.types.ts",
+          "span": {
+            "end_column": 0,
+            "end_line": 22,
+            "start_column": 0,
+            "start_line": 22
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "table:app/lib/database.types.ts#public.lists",
+      "target": "column:app/lib/database.types.ts#public.lists.title",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/lib/database.types.ts",
+          "span": {
+            "end_column": 0,
+            "end_line": 41,
+            "start_column": 0,
+            "start_line": 41
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "table:app/lib/database.types.ts#public.todos",
+      "target": "column:app/lib/database.types.ts#public.todos.done",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/lib/database.types.ts",
+          "span": {
+            "end_column": 0,
+            "end_line": 42,
+            "start_column": 0,
+            "start_line": 42
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "table:app/lib/database.types.ts#public.todos",
+      "target": "column:app/lib/database.types.ts#public.todos.id",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/lib/database.types.ts",
+          "span": {
+            "end_column": 0,
+            "end_line": 43,
+            "start_column": 0,
+            "start_line": 43
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "table:app/lib/database.types.ts#public.todos",
+      "target": "column:app/lib/database.types.ts#public.todos.list_id",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/lib/database.types.ts",
+          "span": {
+            "end_column": 0,
+            "end_line": 44,
+            "start_column": 0,
+            "start_line": 44
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "table:app/lib/database.types.ts#public.todos",
+      "target": "column:app/lib/database.types.ts#public.todos.meta",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/lib/database.types.ts",
+          "span": {
+            "end_column": 0,
+            "end_line": 45,
+            "start_column": 0,
+            "start_line": 45
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "table:app/lib/database.types.ts#public.todos",
+      "target": "column:app/lib/database.types.ts#public.todos.priority",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/lib/database.types.ts",
+          "span": {
+            "end_column": 0,
+            "end_line": 46,
+            "start_column": 0,
+            "start_line": 46
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "table:app/lib/database.types.ts#public.todos",
+      "target": "column:app/lib/database.types.ts#public.todos.tags",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/lib/database.types.ts",
+          "span": {
+            "end_column": 0,
+            "end_line": 47,
+            "start_column": 0,
+            "start_line": 47
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "table:app/lib/database.types.ts#public.todos",
+      "target": "column:app/lib/database.types.ts#public.todos.window",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "legacy/src/types.ts",
+          "span": {
+            "end_column": 0,
+            "end_line": 8,
+            "start_column": 0,
+            "start_line": 8
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "table:legacy/src/types.ts#public.customers",
+      "target": "column:legacy/src/types.ts#public.customers.id",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "legacy/src/types.ts",
+          "span": {
+            "end_column": 0,
+            "end_line": 9,
+            "start_column": 0,
+            "start_line": 9
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "table:legacy/src/types.ts#public.customers",
+      "target": "column:legacy/src/types.ts#public.customers.stripe_customer_id",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "migrated/supabase/migrations/20240101000000_init.sql",
+          "span": {
+            "end_column": 23,
+            "end_line": 14,
+            "start_column": 2,
+            "start_line": 14
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "table:migrated/supabase/migrations/20240101000000_init.sql#public.audit",
+      "target": "column:migrated/supabase/migrations/20240101000000_init.sql#public.audit.id",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "migrated/supabase/migrations/20240101000000_init.sql",
+          "span": {
+            "end_column": 11,
+            "end_line": 15,
+            "start_column": 2,
+            "start_line": 15
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "table:migrated/supabase/migrations/20240101000000_init.sql#public.audit",
+      "target": "column:migrated/supabase/migrations/20240101000000_init.sql#public.audit.note",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "migrated/supabase/migrations/20240101000000_init.sql",
+          "span": {
+            "end_column": 12,
+            "end_line": 9,
+            "start_column": 2,
+            "start_line": 9
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "table:migrated/supabase/migrations/20240101000000_init.sql#public.members",
+      "target": "column:migrated/supabase/migrations/20240101000000_init.sql#public.members.email",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "migrated/supabase/migrations/20240101000000_init.sql",
+          "span": {
+            "end_column": 21,
+            "end_line": 7,
+            "start_column": 2,
+            "start_line": 7
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "table:migrated/supabase/migrations/20240101000000_init.sql#public.members",
+      "target": "column:migrated/supabase/migrations/20240101000000_init.sql#public.members.id",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "migrated/supabase/migrations/20240101000000_init.sql",
+          "span": {
+            "end_column": 20,
+            "end_line": 10,
+            "start_column": 2,
+            "start_line": 10
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "table:migrated/supabase/migrations/20240101000000_init.sql#public.members",
+      "target": "column:migrated/supabase/migrations/20240101000000_init.sql#public.members.role",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "migrated/supabase/migrations/20240101000000_init.sql",
+          "span": {
+            "end_column": 45,
+            "end_line": 8,
+            "start_column": 2,
+            "start_line": 8
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "table:migrated/supabase/migrations/20240101000000_init.sql#public.members",
+      "target": "column:migrated/supabase/migrations/20240101000000_init.sql#public.members.team_id",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "migrated/supabase/migrations/20240101000000_init.sql",
+          "span": {
+            "end_column": 52,
+            "end_line": 2,
+            "start_column": 2,
+            "start_line": 2
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "table:migrated/supabase/migrations/20240101000000_init.sql#public.teams",
+      "target": "column:migrated/supabase/migrations/20240101000000_init.sql#public.teams.id",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "migrated/supabase/migrations/20240101000000_init.sql",
+          "span": {
+            "end_column": 20,
+            "end_line": 3,
+            "start_column": 2,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "table:migrated/supabase/migrations/20240101000000_init.sql#public.teams",
+      "target": "column:migrated/supabase/migrations/20240101000000_init.sql#public.teams.name",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "migrated/supabase/migrations/20240101000000_init.sql",
+          "span": {
+            "end_column": 45,
+            "end_line": 8,
+            "start_column": 17,
+            "start_line": 8
+          }
+        }
+      ],
+      "kind": "foreign_key",
+      "provenance": "fact",
+      "source": "column:migrated/supabase/migrations/20240101000000_init.sql#public.members.team_id",
+      "target": "column:migrated/supabase/migrations/20240101000000_init.sql#public.teams.id",
+      "type": "edge"
+    }
+  ],
+  "files": null,
+  "nodes": [
+    {
+      "attributes": {
+        "attribute": "created_at",
+        "claims": [
+          {
+            "fact": "name",
+            "file": "app/lib/database.types.ts",
+            "row": "SB-G1",
+            "span": {
+              "end_column": 0,
+              "end_line": 19,
+              "start_column": 0,
+              "start_line": 19
+            },
+            "verification": "mapped"
+          },
+          {
+            "fact": "nullable",
+            "file": "app/lib/database.types.ts",
+            "row": "SB-G1",
+            "span": {
+              "end_column": 0,
+              "end_line": 19,
+              "start_column": 0,
+              "start_line": 19
+            },
+            "verification": "mapped"
+          }
+        ],
+        "default": null,
+        "defined_in": {
+          "file": "app/lib/database.types.ts",
+          "line": 19
+        },
+        "foreign_keys": null,
+        "name": "created_at",
+        "nullable": false,
+        "primary_key": null,
+        "reasons": [
+          {
+            "fact": "foreign_keys",
+            "file": "app/lib/database.types.ts",
+            "line": 19,
+            "reason": "generated types name no referenced schema; relationships are listed on the table as written",
+            "row": "SB-G1"
+          }
+        ],
+        "source": "model",
+        "state": "read",
+        "tool_type": "string",
+        "type": null,
+        "unique": null
+      },
+      "content_hash": "sha256:f7f9c8a054dbf02a4d0725190d44c7a4f3904a79bc29d7ff12f8c5bfcadc9cab",
+      "file": "app/lib/database.types.ts",
+      "identity": "column:app/lib/database.types.ts#public.lists.created_at",
+      "kind": "column",
+      "level": 4,
+      "name": "created_at",
+      "qualified_name": "public.lists.created_at",
+      "span": {
+        "end_column": 0,
+        "end_line": 19,
+        "start_column": 0,
+        "start_line": 19
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "attribute": "id",
+        "claims": [
+          {
+            "fact": "name",
+            "file": "app/lib/database.types.ts",
+            "row": "SB-G1",
+            "span": {
+              "end_column": 0,
+              "end_line": 20,
+              "start_column": 0,
+              "start_line": 20
+            },
+            "verification": "mapped"
+          },
+          {
+            "fact": "nullable",
+            "file": "app/lib/database.types.ts",
+            "row": "SB-G1",
+            "span": {
+              "end_column": 0,
+              "end_line": 20,
+              "start_column": 0,
+              "start_line": 20
+            },
+            "verification": "mapped"
+          }
+        ],
+        "default": null,
+        "defined_in": {
+          "file": "app/lib/database.types.ts",
+          "line": 20
+        },
+        "foreign_keys": null,
+        "name": "id",
+        "nullable": false,
+        "primary_key": null,
+        "reasons": [
+          {
+            "fact": "foreign_keys",
+            "file": "app/lib/database.types.ts",
+            "line": 20,
+            "reason": "generated types name no referenced schema; relationships are listed on the table as written",
+            "row": "SB-G1"
+          }
+        ],
+        "source": "model",
+        "state": "read",
+        "tool_type": "number",
+        "type": null,
+        "unique": null
+      },
+      "content_hash": "sha256:f7f3a063a6d29211442d38f47b286627be5a2a24f910ff3cea52a7ddf32443bf",
+      "file": "app/lib/database.types.ts",
+      "identity": "column:app/lib/database.types.ts#public.lists.id",
+      "kind": "column",
+      "level": 4,
+      "name": "id",
+      "qualified_name": "public.lists.id",
+      "span": {
+        "end_column": 0,
+        "end_line": 20,
+        "start_column": 0,
+        "start_line": 20
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "attribute": "owner",
+        "claims": [
+          {
+            "fact": "name",
+            "file": "app/lib/database.types.ts",
+            "row": "SB-G1",
+            "span": {
+              "end_column": 0,
+              "end_line": 21,
+              "start_column": 0,
+              "start_line": 21
+            },
+            "verification": "mapped"
+          },
+          {
+            "fact": "nullable",
+            "file": "app/lib/database.types.ts",
+            "row": "SB-G1",
+            "span": {
+              "end_column": 0,
+              "end_line": 21,
+              "start_column": 0,
+              "start_line": 21
+            },
+            "verification": "mapped"
+          }
+        ],
+        "default": null,
+        "defined_in": {
+          "file": "app/lib/database.types.ts",
+          "line": 21
+        },
+        "foreign_keys": null,
+        "name": "owner",
+        "nullable": false,
+        "primary_key": null,
+        "reasons": [
+          {
+            "fact": "foreign_keys",
+            "file": "app/lib/database.types.ts",
+            "line": 21,
+            "reason": "generated types name no referenced schema; relationships are listed on the table as written",
+            "row": "SB-G1"
+          }
+        ],
+        "source": "model",
+        "state": "read",
+        "tool_type": "string",
+        "type": null,
+        "unique": null
+      },
+      "content_hash": "sha256:70f214d0b5d2559d48f776e299a7330608141b5f67e97f771751ba2e76e52c03",
+      "file": "app/lib/database.types.ts",
+      "identity": "column:app/lib/database.types.ts#public.lists.owner",
+      "kind": "column",
+      "level": 4,
+      "name": "owner",
+      "qualified_name": "public.lists.owner",
+      "span": {
+        "end_column": 0,
+        "end_line": 21,
+        "start_column": 0,
+        "start_line": 21
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "attribute": "title",
+        "claims": [
+          {
+            "fact": "name",
+            "file": "app/lib/database.types.ts",
+            "row": "SB-G1",
+            "span": {
+              "end_column": 0,
+              "end_line": 22,
+              "start_column": 0,
+              "start_line": 22
+            },
+            "verification": "mapped"
+          },
+          {
+            "fact": "nullable",
+            "file": "app/lib/database.types.ts",
+            "row": "SB-G1",
+            "span": {
+              "end_column": 0,
+              "end_line": 22,
+              "start_column": 0,
+              "start_line": 22
+            },
+            "verification": "mapped"
+          }
+        ],
+        "default": null,
+        "defined_in": {
+          "file": "app/lib/database.types.ts",
+          "line": 22
+        },
+        "foreign_keys": null,
+        "name": "title",
+        "nullable": false,
+        "primary_key": null,
+        "reasons": [
+          {
+            "fact": "foreign_keys",
+            "file": "app/lib/database.types.ts",
+            "line": 22,
+            "reason": "generated types name no referenced schema; relationships are listed on the table as written",
+            "row": "SB-G1"
+          }
+        ],
+        "source": "model",
+        "state": "read",
+        "tool_type": "string",
+        "type": null,
+        "unique": null
+      },
+      "content_hash": "sha256:fcf79044ef534699bcc6e8f365d044f5300f8b45584fd1df1400b65eb06ad7bd",
+      "file": "app/lib/database.types.ts",
+      "identity": "column:app/lib/database.types.ts#public.lists.title",
+      "kind": "column",
+      "level": 4,
+      "name": "title",
+      "qualified_name": "public.lists.title",
+      "span": {
+        "end_column": 0,
+        "end_line": 22,
+        "start_column": 0,
+        "start_line": 22
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "attribute": "done",
+        "claims": [
+          {
+            "fact": "name",
+            "file": "app/lib/database.types.ts",
+            "row": "SB-G1",
+            "span": {
+              "end_column": 0,
+              "end_line": 41,
+              "start_column": 0,
+              "start_line": 41
+            },
+            "verification": "mapped"
+          },
+          {
+            "fact": "nullable",
+            "file": "app/lib/database.types.ts",
+            "row": "SB-G1",
+            "span": {
+              "end_column": 0,
+              "end_line": 41,
+              "start_column": 0,
+              "start_line": 41
+            },
+            "verification": "mapped"
+          }
+        ],
+        "default": null,
+        "defined_in": {
+          "file": "app/lib/database.types.ts",
+          "line": 41
+        },
+        "foreign_keys": null,
+        "name": "done",
+        "nullable": false,
+        "primary_key": null,
+        "reasons": [
+          {
+            "fact": "foreign_keys",
+            "file": "app/lib/database.types.ts",
+            "line": 41,
+            "reason": "generated types name no referenced schema; relationships are listed on the table as written",
+            "row": "SB-G1"
+          }
+        ],
+        "source": "model",
+        "state": "read",
+        "tool_type": "boolean",
+        "type": null,
+        "unique": null
+      },
+      "content_hash": "sha256:509a252d3f1a46ac0476b042bfea5befb6e59957fd4fcabf51c6205f269ed863",
+      "file": "app/lib/database.types.ts",
+      "identity": "column:app/lib/database.types.ts#public.todos.done",
+      "kind": "column",
+      "level": 4,
+      "name": "done",
+      "qualified_name": "public.todos.done",
+      "span": {
+        "end_column": 0,
+        "end_line": 41,
+        "start_column": 0,
+        "start_line": 41
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "attribute": "id",
+        "claims": [
+          {
+            "fact": "name",
+            "file": "app/lib/database.types.ts",
+            "row": "SB-G1",
+            "span": {
+              "end_column": 0,
+              "end_line": 42,
+              "start_column": 0,
+              "start_line": 42
+            },
+            "verification": "mapped"
+          },
+          {
+            "fact": "nullable",
+            "file": "app/lib/database.types.ts",
+            "row": "SB-G1",
+            "span": {
+              "end_column": 0,
+              "end_line": 42,
+              "start_column": 0,
+              "start_line": 42
+            },
+            "verification": "mapped"
+          }
+        ],
+        "default": null,
+        "defined_in": {
+          "file": "app/lib/database.types.ts",
+          "line": 42
+        },
+        "foreign_keys": null,
+        "name": "id",
+        "nullable": false,
+        "primary_key": null,
+        "reasons": [
+          {
+            "fact": "foreign_keys",
+            "file": "app/lib/database.types.ts",
+            "line": 42,
+            "reason": "generated types name no referenced schema; relationships are listed on the table as written",
+            "row": "SB-G1"
+          }
+        ],
+        "source": "model",
+        "state": "read",
+        "tool_type": "string",
+        "type": null,
+        "unique": null
+      },
+      "content_hash": "sha256:deef8f85f7f30bb34eee0dbbfee12f68b72c8e854116533b68cb4c0c99dce10a",
+      "file": "app/lib/database.types.ts",
+      "identity": "column:app/lib/database.types.ts#public.todos.id",
+      "kind": "column",
+      "level": 4,
+      "name": "id",
+      "qualified_name": "public.todos.id",
+      "span": {
+        "end_column": 0,
+        "end_line": 42,
+        "start_column": 0,
+        "start_line": 42
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "attribute": "list_id",
+        "claims": [
+          {
+            "fact": "name",
+            "file": "app/lib/database.types.ts",
+            "row": "SB-G1",
+            "span": {
+              "end_column": 0,
+              "end_line": 43,
+              "start_column": 0,
+              "start_line": 43
+            },
+            "verification": "mapped"
+          },
+          {
+            "fact": "nullable",
+            "file": "app/lib/database.types.ts",
+            "row": "SB-G1",
+            "span": {
+              "end_column": 0,
+              "end_line": 43,
+              "start_column": 0,
+              "start_line": 43
+            },
+            "verification": "mapped"
+          }
+        ],
+        "default": null,
+        "defined_in": {
+          "file": "app/lib/database.types.ts",
+          "line": 43
+        },
+        "foreign_keys": null,
+        "name": "list_id",
+        "nullable": true,
+        "primary_key": null,
+        "reasons": [
+          {
+            "fact": "foreign_keys",
+            "file": "app/lib/database.types.ts",
+            "line": 43,
+            "reason": "generated types name no referenced schema; relationships are listed on the table as written",
+            "row": "SB-G1"
+          }
+        ],
+        "source": "model",
+        "state": "read",
+        "tool_type": "number | null",
+        "type": null,
+        "unique": null
+      },
+      "content_hash": "sha256:33811df0c2407b57317b2bc5bd53685ab3624500b09c54bbc8050043b16439f7",
+      "file": "app/lib/database.types.ts",
+      "identity": "column:app/lib/database.types.ts#public.todos.list_id",
+      "kind": "column",
+      "level": 4,
+      "name": "list_id",
+      "qualified_name": "public.todos.list_id",
+      "span": {
+        "end_column": 0,
+        "end_line": 43,
+        "start_column": 0,
+        "start_line": 43
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "attribute": "meta",
+        "claims": [
+          {
+            "fact": "name",
+            "file": "app/lib/database.types.ts",
+            "row": "SB-G1",
+            "span": {
+              "end_column": 0,
+              "end_line": 44,
+              "start_column": 0,
+              "start_line": 44
+            },
+            "verification": "mapped"
+          },
+          {
+            "fact": "nullable",
+            "file": "app/lib/database.types.ts",
+            "row": "SB-G1",
+            "span": {
+              "end_column": 0,
+              "end_line": 44,
+              "start_column": 0,
+              "start_line": 44
+            },
+            "verification": "mapped"
+          }
+        ],
+        "default": null,
+        "defined_in": {
+          "file": "app/lib/database.types.ts",
+          "line": 44
+        },
+        "foreign_keys": null,
+        "name": "meta",
+        "nullable": false,
+        "primary_key": null,
+        "reasons": [
+          {
+            "fact": "foreign_keys",
+            "file": "app/lib/database.types.ts",
+            "line": 44,
+            "reason": "generated types name no referenced schema; relationships are listed on the table as written",
+            "row": "SB-G1"
+          }
+        ],
+        "source": "model",
+        "state": "read",
+        "tool_type": "Json",
+        "type": null,
+        "unique": null
+      },
+      "content_hash": "sha256:db0abf269778848f6eb7013b50dc20417a5d4e30ba796bdc22bec04685611ff0",
+      "file": "app/lib/database.types.ts",
+      "identity": "column:app/lib/database.types.ts#public.todos.meta",
+      "kind": "column",
+      "level": 4,
+      "name": "meta",
+      "qualified_name": "public.todos.meta",
+      "span": {
+        "end_column": 0,
+        "end_line": 44,
+        "start_column": 0,
+        "start_line": 44
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "attribute": "priority",
+        "claims": [
+          {
+            "fact": "name",
+            "file": "app/lib/database.types.ts",
+            "row": "SB-G1",
+            "span": {
+              "end_column": 0,
+              "end_line": 45,
+              "start_column": 0,
+              "start_line": 45
+            },
+            "verification": "mapped"
+          },
+          {
+            "fact": "nullable",
+            "file": "app/lib/database.types.ts",
+            "row": "SB-G1",
+            "span": {
+              "end_column": 0,
+              "end_line": 45,
+              "start_column": 0,
+              "start_line": 45
+            },
+            "verification": "mapped"
+          }
+        ],
+        "default": null,
+        "defined_in": {
+          "file": "app/lib/database.types.ts",
+          "line": 45
+        },
+        "foreign_keys": null,
+        "name": "priority",
+        "nullable": true,
+        "primary_key": null,
+        "reasons": [
+          {
+            "fact": "foreign_keys",
+            "file": "app/lib/database.types.ts",
+            "line": 45,
+            "reason": "generated types name no referenced schema; relationships are listed on the table as written",
+            "row": "SB-G1"
+          }
+        ],
+        "source": "model",
+        "state": "read",
+        "tool_type": "Database[\"public\"][\"Enums\"][\"priority\"] | null",
+        "type": null,
+        "unique": null
+      },
+      "content_hash": "sha256:6262e7e92fc639ed005a6b8be47f5912e4630ba114cba4336d03c87bb97fc678",
+      "file": "app/lib/database.types.ts",
+      "identity": "column:app/lib/database.types.ts#public.todos.priority",
+      "kind": "column",
+      "level": 4,
+      "name": "priority",
+      "qualified_name": "public.todos.priority",
+      "span": {
+        "end_column": 0,
+        "end_line": 45,
+        "start_column": 0,
+        "start_line": 45
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "attribute": "tags",
+        "claims": [
+          {
+            "fact": "name",
+            "file": "app/lib/database.types.ts",
+            "row": "SB-G1",
+            "span": {
+              "end_column": 0,
+              "end_line": 46,
+              "start_column": 0,
+              "start_line": 46
+            },
+            "verification": "mapped"
+          },
+          {
+            "fact": "nullable",
+            "file": "app/lib/database.types.ts",
+            "row": "SB-G1",
+            "span": {
+              "end_column": 0,
+              "end_line": 46,
+              "start_column": 0,
+              "start_line": 46
+            },
+            "verification": "mapped"
+          }
+        ],
+        "default": null,
+        "defined_in": {
+          "file": "app/lib/database.types.ts",
+          "line": 46
+        },
+        "foreign_keys": null,
+        "name": "tags",
+        "nullable": true,
+        "primary_key": null,
+        "reasons": [
+          {
+            "fact": "foreign_keys",
+            "file": "app/lib/database.types.ts",
+            "line": 46,
+            "reason": "generated types name no referenced schema; relationships are listed on the table as written",
+            "row": "SB-G1"
+          }
+        ],
+        "source": "model",
+        "state": "read",
+        "tool_type": "string[] | null",
+        "type": null,
+        "unique": null
+      },
+      "content_hash": "sha256:df7d857305577bed054c312d5e36e331e3b6d9e6824b0ba8ccef8e6ed6639457",
+      "file": "app/lib/database.types.ts",
+      "identity": "column:app/lib/database.types.ts#public.todos.tags",
+      "kind": "column",
+      "level": 4,
+      "name": "tags",
+      "qualified_name": "public.todos.tags",
+      "span": {
+        "end_column": 0,
+        "end_line": 46,
+        "start_column": 0,
+        "start_line": 46
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "attribute": "window",
+        "claims": [
+          {
+            "fact": "name",
+            "file": "app/lib/database.types.ts",
+            "row": "SB-G1",
+            "span": {
+              "end_column": 0,
+              "end_line": 47,
+              "start_column": 0,
+              "start_line": 47
+            },
+            "verification": "mapped"
+          }
+        ],
+        "default": null,
+        "defined_in": {
+          "file": "app/lib/database.types.ts",
+          "line": 47
+        },
+        "foreign_keys": null,
+        "name": "window",
+        "nullable": null,
+        "primary_key": null,
+        "reasons": [
+          {
+            "fact": "foreign_keys",
+            "file": "app/lib/database.types.ts",
+            "line": 47,
+            "reason": "generated types name no referenced schema; relationships are listed on the table as written",
+            "row": "SB-G1"
+          },
+          {
+            "fact": "nullable",
+            "file": "app/lib/database.types.ts",
+            "line": 47,
+            "reason": "type unknown includes null; the generator writes no | null beside it",
+            "row": "SB-G1"
+          }
+        ],
+        "source": "model",
+        "state": "read",
+        "tool_type": "unknown",
+        "type": null,
+        "unique": null
+      },
+      "content_hash": "sha256:bb912e3e1bfd37368a6580605f23f87220511c2e888c723be8c02c8d061e625a",
+      "file": "app/lib/database.types.ts",
+      "identity": "column:app/lib/database.types.ts#public.todos.window",
+      "kind": "column",
+      "level": 4,
+      "name": "window",
+      "qualified_name": "public.todos.window",
+      "span": {
+        "end_column": 0,
+        "end_line": 47,
+        "start_column": 0,
+        "start_line": 47
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "attribute": "id",
+        "claims": [
+          {
+            "fact": "name",
+            "file": "legacy/src/types.ts",
+            "row": "SB-G1",
+            "span": {
+              "end_column": 0,
+              "end_line": 8,
+              "start_column": 0,
+              "start_line": 8
+            },
+            "verification": "mapped"
+          },
+          {
+            "fact": "nullable",
+            "file": "legacy/src/types.ts",
+            "row": "SB-G1",
+            "span": {
+              "end_column": 0,
+              "end_line": 8,
+              "start_column": 0,
+              "start_line": 8
+            },
+            "verification": "mapped"
+          }
+        ],
+        "default": null,
+        "defined_in": {
+          "file": "legacy/src/types.ts",
+          "line": 8
+        },
+        "foreign_keys": null,
+        "name": "id",
+        "nullable": false,
+        "primary_key": null,
+        "reasons": [
+          {
+            "fact": "foreign_keys",
+            "file": "legacy/src/types.ts",
+            "line": 8,
+            "reason": "generated types name no referenced schema; relationships are listed on the table as written",
+            "row": "SB-G1"
+          }
+        ],
+        "source": "model",
+        "state": "read",
+        "tool_type": "string",
+        "type": null,
+        "unique": null
+      },
+      "content_hash": "sha256:cbbc23d81607881cf6a875b2207a9c7b990586a643077dfca7c20570e68fb997",
+      "file": "legacy/src/types.ts",
+      "identity": "column:legacy/src/types.ts#public.customers.id",
+      "kind": "column",
+      "level": 4,
+      "name": "id",
+      "qualified_name": "public.customers.id",
+      "span": {
+        "end_column": 0,
+        "end_line": 8,
+        "start_column": 0,
+        "start_line": 8
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "attribute": "stripe_customer_id",
+        "claims": [
+          {
+            "fact": "name",
+            "file": "legacy/src/types.ts",
+            "row": "SB-G1",
+            "span": {
+              "end_column": 0,
+              "end_line": 9,
+              "start_column": 0,
+              "start_line": 9
+            },
+            "verification": "mapped"
+          },
+          {
+            "fact": "nullable",
+            "file": "legacy/src/types.ts",
+            "row": "SB-G1",
+            "span": {
+              "end_column": 0,
+              "end_line": 9,
+              "start_column": 0,
+              "start_line": 9
+            },
+            "verification": "mapped"
+          }
+        ],
+        "default": null,
+        "defined_in": {
+          "file": "legacy/src/types.ts",
+          "line": 9
+        },
+        "foreign_keys": null,
+        "name": "stripe_customer_id",
+        "nullable": true,
+        "primary_key": null,
+        "reasons": [
+          {
+            "fact": "foreign_keys",
+            "file": "legacy/src/types.ts",
+            "line": 9,
+            "reason": "generated types name no referenced schema; relationships are listed on the table as written",
+            "row": "SB-G1"
+          }
+        ],
+        "source": "model",
+        "state": "read",
+        "tool_type": "string | null",
+        "type": null,
+        "unique": null
+      },
+      "content_hash": "sha256:7546547685fb731e13ab05a037faef83597baab3f1c8116bf4050255b6a771a8",
+      "file": "legacy/src/types.ts",
+      "identity": "column:legacy/src/types.ts#public.customers.stripe_customer_id",
+      "kind": "column",
+      "level": 4,
+      "name": "stripe_customer_id",
+      "qualified_name": "public.customers.stripe_customer_id",
+      "span": {
+        "end_column": 0,
+        "end_line": 9,
+        "start_column": 0,
+        "start_line": 9
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "claims": [
+          {
+            "fact": "exists",
+            "migration": "migration:migrated/supabase/migrations/20240101000000_init.sql#migration",
+            "row": "M1",
+            "span": {
+              "end_column": 2,
+              "end_line": 16,
+              "start_column": 0,
+              "start_line": 13
+            }
+          },
+          {
+            "fact": "nullable",
+            "migration": "migration:migrated/supabase/migrations/20240101000000_init.sql#migration",
+            "row": "M1",
+            "span": {
+              "end_column": 2,
+              "end_line": 16,
+              "start_column": 0,
+              "start_line": 13
+            }
+          },
+          {
+            "fact": "primary_key",
+            "migration": "migration:migrated/supabase/migrations/20240101000000_init.sql#migration",
+            "row": "M1",
+            "span": {
+              "end_column": 2,
+              "end_line": 16,
+              "start_column": 0,
+              "start_line": 13
+            }
+          },
+          {
+            "fact": "type",
+            "migration": "migration:migrated/supabase/migrations/20240101000000_init.sql#migration",
+            "row": "M2",
+            "span": {
+              "end_column": 2,
+              "end_line": 16,
+              "start_column": 0,
+              "start_line": 13
+            }
+          },
+          {
+            "fact": "unique",
+            "migration": "migration:migrated/supabase/migrations/20240101000000_init.sql#migration",
+            "row": "M1",
+            "span": {
+              "end_column": 2,
+              "end_line": 16,
+              "start_column": 0,
+              "start_line": 13
+            }
+          }
+        ],
+        "collation": null,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "name": "id",
+        "nullable": false,
+        "position": 1,
+        "previous_names": [],
+        "primary_key": true,
+        "references": null,
+        "type": "bigint",
+        "unique": true
+      },
+      "content_hash": "sha256:14753f5cae241a083209ae6c3cf13a677ffe83b4b88e96a51d9da79a5443aa37",
+      "file": "migrated/supabase/migrations/20240101000000_init.sql",
+      "identity": "column:migrated/supabase/migrations/20240101000000_init.sql#public.audit.id",
+      "kind": "column",
+      "level": 4,
+      "name": "id",
+      "qualified_name": "public.audit.id",
+      "span": {
+        "end_column": 23,
+        "end_line": 14,
+        "start_column": 2,
+        "start_line": 14
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "claims": [
+          {
+            "fact": "exists",
+            "migration": "migration:migrated/supabase/migrations/20240101000000_init.sql#migration",
+            "row": "M1",
+            "span": {
+              "end_column": 2,
+              "end_line": 16,
+              "start_column": 0,
+              "start_line": 13
+            }
+          },
+          {
+            "fact": "nullable",
+            "migration": "migration:migrated/supabase/migrations/20240101000000_init.sql#migration",
+            "row": "M1",
+            "span": {
+              "end_column": 2,
+              "end_line": 16,
+              "start_column": 0,
+              "start_line": 13
+            }
+          },
+          {
+            "fact": "primary_key",
+            "migration": "migration:migrated/supabase/migrations/20240101000000_init.sql#migration",
+            "row": "M1",
+            "span": {
+              "end_column": 2,
+              "end_line": 16,
+              "start_column": 0,
+              "start_line": 13
+            }
+          },
+          {
+            "fact": "type",
+            "migration": "migration:migrated/supabase/migrations/20240101000000_init.sql#migration",
+            "row": "M2",
+            "span": {
+              "end_column": 2,
+              "end_line": 16,
+              "start_column": 0,
+              "start_line": 13
+            }
+          },
+          {
+            "fact": "unique",
+            "migration": "migration:migrated/supabase/migrations/20240101000000_init.sql#migration",
+            "row": "M1",
+            "span": {
+              "end_column": 2,
+              "end_line": 16,
+              "start_column": 0,
+              "start_line": 13
+            }
+          }
+        ],
+        "collation": null,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "name": "note",
+        "nullable": true,
+        "position": 2,
+        "previous_names": [],
+        "primary_key": false,
+        "references": null,
+        "type": "text",
+        "unique": false
+      },
+      "content_hash": "sha256:128ad046ef934ada6b5cd6ba28866ef90046bedbb02dc8ffd75378c07f3c3d41",
+      "file": "migrated/supabase/migrations/20240101000000_init.sql",
+      "identity": "column:migrated/supabase/migrations/20240101000000_init.sql#public.audit.note",
+      "kind": "column",
+      "level": 4,
+      "name": "note",
+      "qualified_name": "public.audit.note",
+      "span": {
+        "end_column": 11,
+        "end_line": 15,
+        "start_column": 2,
+        "start_line": 15
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "claims": [
+          {
+            "fact": "exists",
+            "migration": "migration:migrated/supabase/migrations/20240101000000_init.sql#migration",
+            "row": "M1",
+            "span": {
+              "end_column": 2,
+              "end_line": 11,
+              "start_column": 0,
+              "start_line": 6
+            }
+          },
+          {
+            "fact": "nullable",
+            "migration": "migration:migrated/supabase/migrations/20240101000000_init.sql#migration",
+            "row": "M1",
+            "span": {
+              "end_column": 2,
+              "end_line": 11,
+              "start_column": 0,
+              "start_line": 6
+            }
+          },
+          {
+            "fact": "primary_key",
+            "migration": "migration:migrated/supabase/migrations/20240101000000_init.sql#migration",
+            "row": "M1",
+            "span": {
+              "end_column": 2,
+              "end_line": 11,
+              "start_column": 0,
+              "start_line": 6
+            }
+          },
+          {
+            "fact": "type",
+            "migration": "migration:migrated/supabase/migrations/20240101000000_init.sql#migration",
+            "row": "M2",
+            "span": {
+              "end_column": 2,
+              "end_line": 11,
+              "start_column": 0,
+              "start_line": 6
+            }
+          },
+          {
+            "fact": "unique",
+            "migration": "migration:migrated/supabase/migrations/20240101000000_init.sql#migration",
+            "row": "M1",
+            "span": {
+              "end_column": 2,
+              "end_line": 11,
+              "start_column": 0,
+              "start_line": 6
+            }
+          }
+        ],
+        "collation": null,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "name": "email",
+        "nullable": true,
+        "position": 3,
+        "previous_names": [],
+        "primary_key": false,
+        "references": null,
+        "type": "text",
+        "unique": false
+      },
+      "content_hash": "sha256:415def399109a1373627501c5006f4c8009fffd99cb0a8068af7101f51aa4fed",
+      "file": "migrated/supabase/migrations/20240101000000_init.sql",
+      "identity": "column:migrated/supabase/migrations/20240101000000_init.sql#public.members.email",
+      "kind": "column",
+      "level": 4,
+      "name": "email",
+      "qualified_name": "public.members.email",
+      "span": {
+        "end_column": 12,
+        "end_line": 9,
+        "start_column": 2,
+        "start_line": 9
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "claims": [
+          {
+            "fact": "exists",
+            "migration": "migration:migrated/supabase/migrations/20240101000000_init.sql#migration",
+            "row": "M1",
+            "span": {
+              "end_column": 2,
+              "end_line": 11,
+              "start_column": 0,
+              "start_line": 6
+            }
+          },
+          {
+            "fact": "nullable",
+            "migration": "migration:migrated/supabase/migrations/20240101000000_init.sql#migration",
+            "row": "M1",
+            "span": {
+              "end_column": 2,
+              "end_line": 11,
+              "start_column": 0,
+              "start_line": 6
+            }
+          },
+          {
+            "fact": "primary_key",
+            "migration": "migration:migrated/supabase/migrations/20240101000000_init.sql#migration",
+            "row": "M1",
+            "span": {
+              "end_column": 2,
+              "end_line": 11,
+              "start_column": 0,
+              "start_line": 6
+            }
+          },
+          {
+            "fact": "type",
+            "migration": "migration:migrated/supabase/migrations/20240101000000_init.sql#migration",
+            "row": "M2",
+            "span": {
+              "end_column": 2,
+              "end_line": 11,
+              "start_column": 0,
+              "start_line": 6
+            }
+          },
+          {
+            "fact": "unique",
+            "migration": "migration:migrated/supabase/migrations/20240101000000_init.sql#migration",
+            "row": "M1",
+            "span": {
+              "end_column": 2,
+              "end_line": 11,
+              "start_column": 0,
+              "start_line": 6
+            }
+          }
+        ],
+        "collation": null,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "name": "id",
+        "nullable": false,
+        "position": 1,
+        "previous_names": [],
+        "primary_key": true,
+        "references": null,
+        "type": "uuid",
+        "unique": true
+      },
+      "content_hash": "sha256:37f7c40f8e0e4a40d044567deba0a66bab0ad9d4e3c6db4e8bf8b60a36971b7a",
+      "file": "migrated/supabase/migrations/20240101000000_init.sql",
+      "identity": "column:migrated/supabase/migrations/20240101000000_init.sql#public.members.id",
+      "kind": "column",
+      "level": 4,
+      "name": "id",
+      "qualified_name": "public.members.id",
+      "span": {
+        "end_column": 21,
+        "end_line": 7,
+        "start_column": 2,
+        "start_line": 7
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "claims": [
+          {
+            "fact": "exists",
+            "migration": "migration:migrated/supabase/migrations/20240101000000_init.sql#migration",
+            "row": "M1",
+            "span": {
+              "end_column": 2,
+              "end_line": 11,
+              "start_column": 0,
+              "start_line": 6
+            }
+          },
+          {
+            "fact": "nullable",
+            "migration": "migration:migrated/supabase/migrations/20240101000000_init.sql#migration",
+            "row": "M1",
+            "span": {
+              "end_column": 2,
+              "end_line": 11,
+              "start_column": 0,
+              "start_line": 6
+            }
+          },
+          {
+            "fact": "primary_key",
+            "migration": "migration:migrated/supabase/migrations/20240101000000_init.sql#migration",
+            "row": "M1",
+            "span": {
+              "end_column": 2,
+              "end_line": 11,
+              "start_column": 0,
+              "start_line": 6
+            }
+          },
+          {
+            "fact": "type",
+            "migration": "migration:migrated/supabase/migrations/20240101000000_init.sql#migration",
+            "row": "M2",
+            "span": {
+              "end_column": 2,
+              "end_line": 11,
+              "start_column": 0,
+              "start_line": 6
+            }
+          },
+          {
+            "fact": "unique",
+            "migration": "migration:migrated/supabase/migrations/20240101000000_init.sql#migration",
+            "row": "M1",
+            "span": {
+              "end_column": 2,
+              "end_line": 11,
+              "start_column": 0,
+              "start_line": 6
+            }
+          }
+        ],
+        "collation": null,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "name": "role",
+        "nullable": false,
+        "position": 4,
+        "previous_names": [],
+        "primary_key": false,
+        "references": null,
+        "type": "text",
+        "unique": false
+      },
+      "content_hash": "sha256:44189d0063771b4fd031dfce878a9e05e2db4ecfbed1a26045b582651e147681",
+      "file": "migrated/supabase/migrations/20240101000000_init.sql",
+      "identity": "column:migrated/supabase/migrations/20240101000000_init.sql#public.members.role",
+      "kind": "column",
+      "level": 4,
+      "name": "role",
+      "qualified_name": "public.members.role",
+      "span": {
+        "end_column": 20,
+        "end_line": 10,
+        "start_column": 2,
+        "start_line": 10
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "claims": [
+          {
+            "fact": "exists",
+            "migration": "migration:migrated/supabase/migrations/20240101000000_init.sql#migration",
+            "row": "M1",
+            "span": {
+              "end_column": 2,
+              "end_line": 11,
+              "start_column": 0,
+              "start_line": 6
+            }
+          },
+          {
+            "fact": "nullable",
+            "migration": "migration:migrated/supabase/migrations/20240101000000_init.sql#migration",
+            "row": "M1",
+            "span": {
+              "end_column": 2,
+              "end_line": 11,
+              "start_column": 0,
+              "start_line": 6
+            }
+          },
+          {
+            "fact": "primary_key",
+            "migration": "migration:migrated/supabase/migrations/20240101000000_init.sql#migration",
+            "row": "M1",
+            "span": {
+              "end_column": 2,
+              "end_line": 11,
+              "start_column": 0,
+              "start_line": 6
+            }
+          },
+          {
+            "fact": "references",
+            "migration": "migration:migrated/supabase/migrations/20240101000000_init.sql#migration",
+            "row": "M3",
+            "span": {
+              "end_column": 2,
+              "end_line": 11,
+              "start_column": 0,
+              "start_line": 6
+            }
+          },
+          {
+            "fact": "type",
+            "migration": "migration:migrated/supabase/migrations/20240101000000_init.sql#migration",
+            "row": "M2",
+            "span": {
+              "end_column": 2,
+              "end_line": 11,
+              "start_column": 0,
+              "start_line": 6
+            }
+          },
+          {
+            "fact": "unique",
+            "migration": "migration:migrated/supabase/migrations/20240101000000_init.sql#migration",
+            "row": "M1",
+            "span": {
+              "end_column": 2,
+              "end_line": 11,
+              "start_column": 0,
+              "start_line": 6
+            }
+          }
+        ],
+        "collation": null,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "name": "team_id",
+        "nullable": true,
+        "position": 2,
+        "previous_names": [],
+        "primary_key": false,
+        "references": {
+          "columns": [
+            "id"
+          ],
+          "constraint": null,
+          "local_columns": [
+            "team_id"
+          ],
+          "on_delete": null,
+          "on_update": null,
+          "status": "linked",
+          "table": "public.teams"
+        },
+        "type": "bigint",
+        "unique": false
+      },
+      "content_hash": "sha256:4b83f185fabca2bad004a050dea815aa6874d608964685e9cd2d34b72ddd9ab6",
+      "file": "migrated/supabase/migrations/20240101000000_init.sql",
+      "identity": "column:migrated/supabase/migrations/20240101000000_init.sql#public.members.team_id",
+      "kind": "column",
+      "level": 4,
+      "name": "team_id",
+      "qualified_name": "public.members.team_id",
+      "span": {
+        "end_column": 45,
+        "end_line": 8,
+        "start_column": 2,
+        "start_line": 8
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "claims": [
+          {
+            "fact": "exists",
+            "migration": "migration:migrated/supabase/migrations/20240101000000_init.sql#migration",
+            "row": "M1",
+            "span": {
+              "end_column": 2,
+              "end_line": 4,
+              "start_column": 0,
+              "start_line": 1
+            }
+          },
+          {
+            "fact": "identity",
+            "migration": "migration:migrated/supabase/migrations/20240101000000_init.sql#migration",
+            "row": "M1",
+            "span": {
+              "end_column": 2,
+              "end_line": 4,
+              "start_column": 0,
+              "start_line": 1
+            }
+          },
+          {
+            "fact": "nullable",
+            "migration": "migration:migrated/supabase/migrations/20240101000000_init.sql#migration",
+            "row": "M1",
+            "span": {
+              "end_column": 2,
+              "end_line": 4,
+              "start_column": 0,
+              "start_line": 1
+            }
+          },
+          {
+            "fact": "primary_key",
+            "migration": "migration:migrated/supabase/migrations/20240101000000_init.sql#migration",
+            "row": "M1",
+            "span": {
+              "end_column": 2,
+              "end_line": 4,
+              "start_column": 0,
+              "start_line": 1
+            }
+          },
+          {
+            "fact": "type",
+            "migration": "migration:migrated/supabase/migrations/20240101000000_init.sql#migration",
+            "row": "M2",
+            "span": {
+              "end_column": 2,
+              "end_line": 4,
+              "start_column": 0,
+              "start_line": 1
+            }
+          },
+          {
+            "fact": "unique",
+            "migration": "migration:migrated/supabase/migrations/20240101000000_init.sql#migration",
+            "row": "M1",
+            "span": {
+              "end_column": 2,
+              "end_line": 4,
+              "start_column": 0,
+              "start_line": 1
+            }
+          }
+        ],
+        "collation": null,
+        "default": null,
+        "generated": null,
+        "identity": "always",
+        "name": "id",
+        "nullable": false,
+        "position": 1,
+        "previous_names": [],
+        "primary_key": true,
+        "references": null,
+        "type": "bigint",
+        "unique": true
+      },
+      "content_hash": "sha256:a6d845a5ad22d4bb770b418d059ccb96976454da1a854387365cdbe3f2eae597",
+      "file": "migrated/supabase/migrations/20240101000000_init.sql",
+      "identity": "column:migrated/supabase/migrations/20240101000000_init.sql#public.teams.id",
+      "kind": "column",
+      "level": 4,
+      "name": "id",
+      "qualified_name": "public.teams.id",
+      "span": {
+        "end_column": 52,
+        "end_line": 2,
+        "start_column": 2,
+        "start_line": 2
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "claims": [
+          {
+            "fact": "exists",
+            "migration": "migration:migrated/supabase/migrations/20240101000000_init.sql#migration",
+            "row": "M1",
+            "span": {
+              "end_column": 2,
+              "end_line": 4,
+              "start_column": 0,
+              "start_line": 1
+            }
+          },
+          {
+            "fact": "nullable",
+            "migration": "migration:migrated/supabase/migrations/20240101000000_init.sql#migration",
+            "row": "M1",
+            "span": {
+              "end_column": 2,
+              "end_line": 4,
+              "start_column": 0,
+              "start_line": 1
+            }
+          },
+          {
+            "fact": "primary_key",
+            "migration": "migration:migrated/supabase/migrations/20240101000000_init.sql#migration",
+            "row": "M1",
+            "span": {
+              "end_column": 2,
+              "end_line": 4,
+              "start_column": 0,
+              "start_line": 1
+            }
+          },
+          {
+            "fact": "type",
+            "migration": "migration:migrated/supabase/migrations/20240101000000_init.sql#migration",
+            "row": "M2",
+            "span": {
+              "end_column": 2,
+              "end_line": 4,
+              "start_column": 0,
+              "start_line": 1
+            }
+          },
+          {
+            "fact": "unique",
+            "migration": "migration:migrated/supabase/migrations/20240101000000_init.sql#migration",
+            "row": "M1",
+            "span": {
+              "end_column": 2,
+              "end_line": 4,
+              "start_column": 0,
+              "start_line": 1
+            }
+          }
+        ],
+        "collation": null,
+        "default": null,
+        "generated": null,
+        "identity": null,
+        "name": "name",
+        "nullable": false,
+        "position": 2,
+        "previous_names": [],
+        "primary_key": false,
+        "references": null,
+        "type": "text",
+        "unique": false
+      },
+      "content_hash": "sha256:3ad54bf9b60b0edbe3e0ca509487e9ec30e3cdd53e37f96829eecdbec23be262",
+      "file": "migrated/supabase/migrations/20240101000000_init.sql",
+      "identity": "column:migrated/supabase/migrations/20240101000000_init.sql#public.teams.name",
+      "kind": "column",
+      "level": 4,
+      "name": "name",
+      "qualified_name": "public.teams.name",
+      "span": {
+        "end_column": 20,
+        "end_line": 3,
+        "start_column": 2,
+        "start_line": 3
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:303228d845a08610ddadb568111baf94d38ba124aa4c435d5364c54e9d878bc4",
+      "file": "README.md",
+      "identity": "file:README.md#README.md",
+      "kind": "file",
+      "level": 3,
+      "name": "README.md",
+      "qualified_name": "README.md",
+      "span": {
+        "end_column": 0,
+        "end_line": 30,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:a41d80bc007eedead9090788b2f481580eb82d60921d71b4eb9b6a5ef5e2c041",
+      "file": "app/lib/database.types.ts",
+      "identity": "file:app/lib/database.types.ts#app%2Flib%2Fdatabase.types.ts",
+      "kind": "file",
+      "level": 3,
+      "name": "database.types.ts",
+      "qualified_name": "app/lib/database.types.ts",
+      "span": {
+        "end_column": 0,
+        "end_line": 200,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:f8f615a27b974d6343e0d40cfeaf214f55008480edbd22554c4acbd5d6d8b75d",
+      "file": "app/package.json",
+      "identity": "file:app/package.json#app%2Fpackage.json",
+      "kind": "file",
+      "level": 3,
+      "name": "package.json",
+      "qualified_name": "app/package.json",
+      "span": {
+        "end_column": 0,
+        "end_line": 6,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:c058e356b75b43cd5aee04ed1723d2d7773c6ca26a4b2ecdec0b449adca2b766",
+      "file": "handwritten/database.ts",
+      "identity": "file:handwritten/database.ts#handwritten%2Fdatabase.ts",
+      "kind": "file",
+      "level": 3,
+      "name": "database.ts",
+      "qualified_name": "handwritten/database.ts",
+      "span": {
+        "end_column": 0,
+        "end_line": 38,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:95088d0cb1cbfd198ff8e644d68f7f7b48e07884610d52fe646f7771fe116340",
+      "file": "handwritten/package.json",
+      "identity": "file:handwritten/package.json#handwritten%2Fpackage.json",
+      "kind": "file",
+      "level": 3,
+      "name": "package.json",
+      "qualified_name": "handwritten/package.json",
+      "span": {
+        "end_column": 0,
+        "end_line": 6,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:d8f4458e48c94d05426f4d0edc582b27768d7effcb24f669077a667303831fe8",
+      "file": "kysely/db.ts",
+      "identity": "file:kysely/db.ts#kysely%2Fdb.ts",
+      "kind": "file",
+      "level": 3,
+      "name": "db.ts",
+      "qualified_name": "kysely/db.ts",
+      "span": {
+        "end_column": 0,
+        "end_line": 5,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:91a46e36bd52d9da62628cb8c78fcab2806e7b406e82aca2d4cfc7d144fae639",
+      "file": "legacy/package.json",
+      "identity": "file:legacy/package.json#legacy%2Fpackage.json",
+      "kind": "file",
+      "level": 3,
+      "name": "package.json",
+      "qualified_name": "legacy/package.json",
+      "span": {
+        "end_column": 0,
+        "end_line": 6,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:1d134b92f95d391948f7400703c37197201f5afb3c5ec5bceb12c477495d6984",
+      "file": "legacy/src/types.ts",
+      "identity": "file:legacy/src/types.ts#legacy%2Fsrc%2Ftypes.ts",
+      "kind": "file",
+      "level": 3,
+      "name": "types.ts",
+      "qualified_name": "legacy/src/types.ts",
+      "span": {
+        "end_column": 0,
+        "end_line": 66,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:df1b921ea82d552ed53f981e4579b9e36693f40056a60f242db9f5ceb58ab7dc",
+      "file": "migrated/lib/types.ts",
+      "identity": "file:migrated/lib/types.ts#migrated%2Flib%2Ftypes.ts",
+      "kind": "file",
+      "level": 3,
+      "name": "types.ts",
+      "qualified_name": "migrated/lib/types.ts",
+      "span": {
+        "end_column": 0,
+        "end_line": 121,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:cb0704b3d3c897b772b831dcee17016f4afeed14b9f64e6413dba6c7e6abf701",
+      "file": "migrated/package.json",
+      "identity": "file:migrated/package.json#migrated%2Fpackage.json",
+      "kind": "file",
+      "level": 3,
+      "name": "package.json",
+      "qualified_name": "migrated/package.json",
+      "span": {
+        "end_column": 0,
+        "end_line": 6,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:e5bb440fb8195c9ce832e4dd16fb95265f8bc5c0f5aa0696e2fe5d3b40cc6b01",
+      "file": "migrated/supabase/config.toml",
+      "identity": "file:migrated/supabase/config.toml#migrated%2Fsupabase%2Fconfig.toml",
+      "kind": "file",
+      "level": 3,
+      "name": "config.toml",
+      "qualified_name": "migrated/supabase/config.toml",
+      "span": {
+        "end_column": 0,
+        "end_line": 2,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:9fda9f57dd3ba85b67fe4b137dcf0b62132d7d0fe7a1bc5da6c4f51a9a0e34fc",
+      "file": "migrated/supabase/migrations/20240101000000_init.sql",
+      "identity": "file:migrated/supabase/migrations/20240101000000_init.sql#migrated%2Fsupabase%2Fmigrations%2F20240101000000_init.sql",
+      "kind": "file",
+      "level": 3,
+      "name": "20240101000000_init.sql",
+      "qualified_name": "migrated/supabase/migrations/20240101000000_init.sql",
+      "span": {
+        "end_column": 0,
+        "end_line": 17,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "exported": true
+      },
+      "content_hash": "sha256:aa0627000c9a8019601e35515438227524572282d3d137f3f0dd72213bc2b6e9",
+      "file": "kysely/db.ts",
+      "identity": "interface:kysely/db.ts#Database",
+      "kind": "interface",
+      "level": 4,
+      "name": "Database",
+      "qualified_name": "Database",
+      "span": {
+        "end_column": 1,
+        "end_line": 4,
+        "start_column": 0,
+        "start_line": 2
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "exported": true
+      },
+      "content_hash": "sha256:11fb33bf20232d7a84883dd3e2d94de4f7d122be26fa4ccbad4bb6287039e344",
+      "file": "legacy/src/types.ts",
+      "identity": "interface:legacy/src/types.ts#Database",
+      "kind": "interface",
+      "level": 4,
+      "name": "Database",
+      "qualified_name": "Database",
+      "span": {
+        "end_column": 1,
+        "end_line": 42,
+        "start_column": 0,
+        "start_line": 3
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "applied": true,
+        "description": "init",
+        "dialect": "postgres",
+        "direction": "simple",
+        "errors": 0,
+        "extensions": [],
+        "modeled": 3,
+        "no_effect": 0,
+        "opaque": 0,
+        "opaque_sites": [],
+        "order": 1,
+        "package": "migrated/supabase/config.toml",
+        "platform": {
+          "assumption": "SB-V2",
+          "assumptions": [],
+          "name": "supabase",
+          "objects": [
+            "schemas auth, storage, extensions, realtime, vault",
+            "roles anon, authenticated, service_role",
+            "tables auth.users (id uuid primary key), storage.buckets (id text primary key), storage.objects (id uuid primary key)",
+            "functions auth.uid(), auth.role(), auth.jwt(), storage.foldername(text), storage.filename(text)"
+          ]
+        },
+        "set": "migrated/supabase/migrations",
+        "set_opaque_statements": {
+          "by_kind": {},
+          "total": 0
+        },
+        "statements": 3,
+        "tool": "supabase",
+        "unsupported": 0,
+        "version": "20240101000000",
+        "version_text": "20240101000000"
+      },
+      "content_hash": "sha256:9fda9f57dd3ba85b67fe4b137dcf0b62132d7d0fe7a1bc5da6c4f51a9a0e34fc",
+      "file": "migrated/supabase/migrations/20240101000000_init.sql",
+      "identity": "migration:migrated/supabase/migrations/20240101000000_init.sql#migration",
+      "kind": "migration",
+      "level": 3,
+      "name": "20240101000000_init.sql",
+      "qualified_name": "migration",
+      "span": {
+        "end_column": 0,
+        "end_line": 17,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "dependencies": [
+          "@supabase/supabase-js"
+        ],
+        "directory": "app",
+        "ecosystem": "npm",
+        "name": "types-app"
+      },
+      "content_hash": "sha256:f8f615a27b974d6343e0d40cfeaf214f55008480edbd22554c4acbd5d6d8b75d",
+      "file": "app/package.json",
+      "identity": "package:app/package.json#types-app",
+      "kind": "package",
+      "level": 2,
+      "name": "types-app",
+      "qualified_name": "types-app",
+      "span": {
+        "end_column": 0,
+        "end_line": 6,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "dependencies": [
+          "@supabase/supabase-js"
+        ],
+        "directory": "handwritten",
+        "ecosystem": "npm",
+        "name": "types-handwritten"
+      },
+      "content_hash": "sha256:95088d0cb1cbfd198ff8e644d68f7f7b48e07884610d52fe646f7771fe116340",
+      "file": "handwritten/package.json",
+      "identity": "package:handwritten/package.json#types-handwritten",
+      "kind": "package",
+      "level": 2,
+      "name": "types-handwritten",
+      "qualified_name": "types-handwritten",
+      "span": {
+        "end_column": 0,
+        "end_line": 6,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "dependencies": [
+          "@supabase/supabase-js"
+        ],
+        "directory": "legacy",
+        "ecosystem": "npm",
+        "name": "types-legacy"
+      },
+      "content_hash": "sha256:91a46e36bd52d9da62628cb8c78fcab2806e7b406e82aca2d4cfc7d144fae639",
+      "file": "legacy/package.json",
+      "identity": "package:legacy/package.json#types-legacy",
+      "kind": "package",
+      "level": 2,
+      "name": "types-legacy",
+      "qualified_name": "types-legacy",
+      "span": {
+        "end_column": 0,
+        "end_line": 6,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "dependencies": [
+          "@supabase/supabase-js"
+        ],
+        "directory": "migrated",
+        "ecosystem": "npm",
+        "name": "types-migrated"
+      },
+      "content_hash": "sha256:cb0704b3d3c897b772b831dcee17016f4afeed14b9f64e6413dba6c7e6abf701",
+      "file": "migrated/package.json",
+      "identity": "package:migrated/package.json#types-migrated",
+      "kind": "package",
+      "level": 2,
+      "name": "types-migrated",
+      "qualified_name": "types-migrated",
+      "span": {
+        "end_column": 0,
+        "end_line": 6,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "assumptions": [
+          "SB-V6"
+        ],
+        "check_constraints": null,
+        "column_set": "complete",
+        "computed_fields": [
+          "todo_count"
+        ],
+        "constraint_set": "partial",
+        "dialect": "postgres",
+        "indexes": null,
+        "label": "generated types",
+        "name": "lists",
+        "package": "app",
+        "pins": {
+          "postgres-meta": "0.70.0 to 0.97.0 (dist/server/templates/typescript.js)"
+        },
+        "primary_key": null,
+        "reasons": [
+          {
+            "fact": "constraint_set",
+            "file": "app/lib/database.types.ts",
+            "line": 17,
+            "reason": "generated types state no primary key, unique, index or check constraint",
+            "row": "SB-G1"
+          }
+        ],
+        "relationships": [],
+        "schema": "public",
+        "schema_known": true,
+        "set": "models/supabase_types/app/lib/database.types.ts",
+        "source": "model",
+        "state": "partial",
+        "tool": "supabase_types",
+        "types_header": "type",
+        "unique_constraints": null,
+        "verification": "mapped",
+        "verification_counts": {
+          "mapped": 8
+        }
+      },
+      "content_hash": "sha256:9296cd217c0358bac399645b10b206767d70b1b2bc15e55114b7b9a5417e0cce",
+      "file": "app/lib/database.types.ts",
+      "identity": "table:app/lib/database.types.ts#public.lists",
+      "kind": "table",
+      "level": 4,
+      "name": "lists",
+      "qualified_name": "public.lists",
+      "span": {
+        "end_column": 0,
+        "end_line": 38,
+        "start_column": 0,
+        "start_line": 17
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "assumptions": [
+          "SB-V6"
+        ],
+        "check_constraints": null,
+        "column_set": "complete",
+        "computed_fields": [],
+        "constraint_set": "partial",
+        "dialect": "postgres",
+        "indexes": null,
+        "label": "generated types",
+        "name": "todos",
+        "package": "app",
+        "pins": {
+          "postgres-meta": "0.70.0 to 0.97.0 (dist/server/templates/typescript.js)"
+        },
+        "primary_key": null,
+        "reasons": [
+          {
+            "fact": "constraint_set",
+            "file": "app/lib/database.types.ts",
+            "line": 39,
+            "reason": "generated types state no primary key, unique, index or check constraint",
+            "row": "SB-G1"
+          }
+        ],
+        "relationships": [
+          {
+            "columns": [
+              "list_id"
+            ],
+            "foreign_key_name": "todos_list_id_fkey",
+            "is_one_to_one": false,
+            "line": 68,
+            "referenced_columns": [
+              "id"
+            ],
+            "referenced_relation": "lists"
+          }
+        ],
+        "schema": "public",
+        "schema_known": true,
+        "set": "models/supabase_types/app/lib/database.types.ts",
+        "source": "model",
+        "state": "partial",
+        "tool": "supabase_types",
+        "types_header": "type",
+        "unique_constraints": null,
+        "verification": "mapped",
+        "verification_counts": {
+          "mapped": 13
+        }
+      },
+      "content_hash": "sha256:571bcfa912054ee126e0e009740d6415fcfb28cf791beae9bb0c32ad7ba56d68",
+      "file": "app/lib/database.types.ts",
+      "identity": "table:app/lib/database.types.ts#public.todos",
+      "kind": "table",
+      "level": 4,
+      "name": "todos",
+      "qualified_name": "public.todos",
+      "span": {
+        "end_column": 0,
+        "end_line": 76,
+        "start_column": 0,
+        "start_line": 39
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "assumptions": [
+          "SB-V6"
+        ],
+        "check_constraints": null,
+        "column_set": "complete",
+        "computed_fields": [],
+        "constraint_set": "partial",
+        "dialect": "postgres",
+        "indexes": null,
+        "label": "generated types",
+        "name": "customers",
+        "package": "legacy",
+        "pins": {
+          "postgres-meta": "0.70.0 to 0.97.0 (dist/server/templates/typescript.js)"
+        },
+        "primary_key": null,
+        "reasons": [
+          {
+            "fact": "constraint_set",
+            "file": "legacy/src/types.ts",
+            "line": 6,
+            "reason": "generated types state no primary key, unique, index or check constraint",
+            "row": "SB-G1"
+          }
+        ],
+        "relationships": [
+          {
+            "columns": [
+              "id"
+            ],
+            "foreign_key_name": "customers_id_fkey",
+            "is_one_to_one": null,
+            "line": 20,
+            "referenced_columns": [
+              "id"
+            ],
+            "referenced_relation": "users"
+          }
+        ],
+        "schema": "public",
+        "schema_known": true,
+        "set": "models/supabase_types/legacy/src/types.ts",
+        "source": "model",
+        "state": "partial",
+        "tool": "supabase_types",
+        "types_header": "interface",
+        "unique_constraints": null,
+        "verification": "mapped",
+        "verification_counts": {
+          "mapped": 4
+        }
+      },
+      "content_hash": "sha256:6da45b5623aad748a5452f249051b26dbbbdedd7b6dcce251b5d97e1416c3921",
+      "file": "legacy/src/types.ts",
+      "identity": "table:legacy/src/types.ts#public.customers",
+      "kind": "table",
+      "level": 4,
+      "name": "customers",
+      "qualified_name": "public.customers",
+      "span": {
+        "end_column": 0,
+        "end_line": 27,
+        "start_column": 0,
+        "start_line": 6
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "dialect": "postgres",
+        "name": "audit",
+        "opaque_after": 0,
+        "policies": [],
+        "previous_names": [],
+        "primary_key": [
+          "id"
+        ],
+        "reasons": [],
+        "rls": {
+          "enabled": false,
+          "forced": false
+        },
+        "schema": "public",
+        "set": "migrated/supabase/migrations",
+        "state": "complete",
+        "unique_keys": []
+      },
+      "content_hash": "sha256:cc2284ec20100f7f3f8098d49b5a576d64be1cfbfeda6b47ef82352897659df1",
+      "file": "migrated/supabase/migrations/20240101000000_init.sql",
+      "identity": "table:migrated/supabase/migrations/20240101000000_init.sql#public.audit",
+      "kind": "table",
+      "level": 4,
+      "name": "audit",
+      "qualified_name": "public.audit",
+      "span": {
+        "end_column": 2,
+        "end_line": 16,
+        "start_column": 0,
+        "start_line": 13
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "dialect": "postgres",
+        "name": "members",
+        "opaque_after": 0,
+        "policies": [],
+        "previous_names": [],
+        "primary_key": [
+          "id"
+        ],
+        "reasons": [],
+        "rls": {
+          "enabled": false,
+          "forced": false
+        },
+        "schema": "public",
+        "set": "migrated/supabase/migrations",
+        "state": "complete",
+        "unique_keys": []
+      },
+      "content_hash": "sha256:ce1a01ea72d6de212e5f77f317a851610f6e67badbfa048e05d4aff0d087022c",
+      "file": "migrated/supabase/migrations/20240101000000_init.sql",
+      "identity": "table:migrated/supabase/migrations/20240101000000_init.sql#public.members",
+      "kind": "table",
+      "level": 4,
+      "name": "members",
+      "qualified_name": "public.members",
+      "span": {
+        "end_column": 2,
+        "end_line": 11,
+        "start_column": 0,
+        "start_line": 6
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "dialect": "postgres",
+        "name": "teams",
+        "opaque_after": 0,
+        "policies": [],
+        "previous_names": [],
+        "primary_key": [
+          "id"
+        ],
+        "reasons": [],
+        "rls": {
+          "enabled": false,
+          "forced": false
+        },
+        "schema": "public",
+        "set": "migrated/supabase/migrations",
+        "state": "complete",
+        "unique_keys": []
+      },
+      "content_hash": "sha256:5f4fd9bab20d559b14c631857c8fd93601740ba017b91530678e88a93ac05fd5",
+      "file": "migrated/supabase/migrations/20240101000000_init.sql",
+      "identity": "table:migrated/supabase/migrations/20240101000000_init.sql#public.teams",
+      "kind": "table",
+      "level": 4,
+      "name": "teams",
+      "qualified_name": "public.teams",
+      "span": {
+        "end_column": 2,
+        "end_line": 4,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "exported": true
+      },
+      "content_hash": "sha256:ced26d47b925ffe89aaad2ebe18eeaebc09610838e8acb8b179612ad05dda8b4",
+      "file": "app/lib/database.types.ts",
+      "identity": "type_alias:app/lib/database.types.ts#Database",
+      "kind": "type_alias",
+      "level": 4,
+      "name": "Database",
+      "qualified_name": "Database",
+      "span": {
+        "end_column": 1,
+        "end_line": 116,
+        "start_column": 0,
+        "start_line": 9
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:6d5ee24df3945299e2199e2541de6a80dd4b487d82efba595c35bf62a8821fbc",
+      "file": "app/lib/database.types.ts",
+      "identity": "type_alias:app/lib/database.types.ts#DatabaseWithoutInternals",
+      "kind": "type_alias",
+      "level": 4,
+      "name": "DatabaseWithoutInternals",
+      "qualified_name": "DatabaseWithoutInternals",
+      "span": {
+        "end_column": 68,
+        "end_line": 118,
+        "start_column": 0,
+        "start_line": 118
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:cb59b970b0acd635d116811bdd24bcaaa773417fd674e0daa9abd285f486bbb7",
+      "file": "app/lib/database.types.ts",
+      "identity": "type_alias:app/lib/database.types.ts#DefaultSchema",
+      "kind": "type_alias",
+      "level": 4,
+      "name": "DefaultSchema",
+      "qualified_name": "DefaultSchema",
+      "span": {
+        "end_column": 80,
+        "end_line": 120,
+        "start_column": 0,
+        "start_line": 120
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "exported": true
+      },
+      "content_hash": "sha256:b97429dc1ea761a11c8beaf3ce219e8afa1b6cec59faf495c4342280f1a760a9",
+      "file": "app/lib/database.types.ts",
+      "identity": "type_alias:app/lib/database.types.ts#Enums",
+      "kind": "type_alias",
+      "level": 4,
+      "name": "Enums",
+      "qualified_name": "Enums",
+      "span": {
+        "end_column": 11,
+        "end_line": 191,
+        "start_column": 0,
+        "start_line": 176
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "exported": true
+      },
+      "content_hash": "sha256:97952ff96e300a97840b0896d408fe9b4e64eff7708dd3ba8b8d3b01dcacb594",
+      "file": "app/lib/database.types.ts",
+      "identity": "type_alias:app/lib/database.types.ts#Json",
+      "kind": "type_alias",
+      "level": 4,
+      "name": "Json",
+      "qualified_name": "Json",
+      "span": {
+        "end_column": 10,
+        "end_line": 7,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "exported": true
+      },
+      "content_hash": "sha256:424d63b386f8e29d204efdc5ecfdc9f05a7dcf2d2c1a66c4f5054f167b8a42c7",
+      "file": "app/lib/database.types.ts",
+      "identity": "type_alias:app/lib/database.types.ts#Tables",
+      "kind": "type_alias",
+      "level": 4,
+      "name": "Tables",
+      "qualified_name": "Tables",
+      "span": {
+        "end_column": 11,
+        "end_line": 149,
+        "start_column": 0,
+        "start_line": 122
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "exported": true
+      },
+      "content_hash": "sha256:b5a4b24faf3e51de5c6b57aba49e714926703d99a97d5156bfdd1b75dcaf3c0a",
+      "file": "app/lib/database.types.ts",
+      "identity": "type_alias:app/lib/database.types.ts#TablesInsert",
+      "kind": "type_alias",
+      "level": 4,
+      "name": "TablesInsert",
+      "qualified_name": "TablesInsert",
+      "span": {
+        "end_column": 11,
+        "end_line": 174,
+        "start_column": 0,
+        "start_line": 151
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "exported": true
+      },
+      "content_hash": "sha256:d71b2b3cee038c64f038f1e820374e9116df617ced7f7615cbda82b8b046133b",
+      "file": "handwritten/database.ts",
+      "identity": "type_alias:handwritten/database.ts#Database",
+      "kind": "type_alias",
+      "level": 4,
+      "name": "Database",
+      "qualified_name": "Database",
+      "span": {
+        "end_column": 1,
+        "end_line": 37,
+        "start_column": 0,
+        "start_line": 5
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "exported": true
+      },
+      "content_hash": "sha256:8f40cb3a5384cc42da5fb58226cc75adcdf80c4017b318711f3f78bb8caf9af2",
+      "file": "handwritten/database.ts",
+      "identity": "type_alias:handwritten/database.ts#Json",
+      "kind": "type_alias",
+      "level": 4,
+      "name": "Json",
+      "qualified_name": "Json",
+      "span": {
+        "end_column": 98,
+        "end_line": 1,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "exported": true
+      },
+      "content_hash": "sha256:eb31050854517ad457abee2f026ec04d8e8e9a3a8d1175da0ad94c357d66f416",
+      "file": "legacy/src/types.ts",
+      "identity": "type_alias:legacy/src/types.ts#Json",
+      "kind": "type_alias",
+      "level": 4,
+      "name": "Json",
+      "qualified_name": "Json",
+      "span": {
+        "end_column": 99,
+        "end_line": 1,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "exported": true
+      },
+      "content_hash": "sha256:abf9d83d06637072ce22f9b233c0ee414515e925a3686a13eda4f63bf97cf3dd",
+      "file": "legacy/src/types.ts",
+      "identity": "type_alias:legacy/src/types.ts#Tables",
+      "kind": "type_alias",
+      "level": 4,
+      "name": "Tables",
+      "qualified_name": "Tables",
+      "span": {
+        "end_column": 10,
+        "end_line": 65,
+        "start_column": 0,
+        "start_line": 44
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "exported": true
+      },
+      "content_hash": "sha256:1c04b1fb9486655ac399de24b451d7e464a12eb209904aef2945ad242f968bef",
+      "file": "migrated/lib/types.ts",
+      "identity": "type_alias:migrated/lib/types.ts#Database",
+      "kind": "type_alias",
+      "level": 4,
+      "name": "Database",
+      "qualified_name": "Database",
+      "span": {
+        "end_column": 1,
+        "end_line": 120,
+        "start_column": 0,
+        "start_line": 9
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "exported": true
+      },
+      "content_hash": "sha256:97952ff96e300a97840b0896d408fe9b4e64eff7708dd3ba8b8d3b01dcacb594",
+      "file": "migrated/lib/types.ts",
+      "identity": "type_alias:migrated/lib/types.ts#Json",
+      "kind": "type_alias",
+      "level": 4,
+      "name": "Json",
+      "qualified_name": "Json",
+      "span": {
+        "end_column": 10,
+        "end_line": 7,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "exported": true
+      },
+      "content_hash": "sha256:58bfb565b0aed1782a6925c73ddc71be1a36dfac7a9fbe96ab475610fcbf209e",
+      "file": "app/lib/database.types.ts",
+      "identity": "variable:app/lib/database.types.ts#Constants",
+      "kind": "variable",
+      "level": 4,
+      "name": "Constants",
+      "qualified_name": "Constants",
+      "span": {
+        "end_column": 10,
+        "end_line": 199,
+        "start_column": 0,
+        "start_line": 193
+      },
+      "type": "node"
+    }
+  ]
+}

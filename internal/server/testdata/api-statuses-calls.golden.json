@@ -1,0 +1,1740 @@
+{
+  "http": {
+    "api_version": 0,
+    "calls": [
+      {
+        "node": {
+          "attributes": {
+            "base": "unresolved",
+            "base_expression": "API",
+            "library": "fetch",
+            "method": "GET",
+            "paths": [
+              {
+                "candidate_count": 0,
+                "candidates": [],
+                "conditional": false,
+                "match": null,
+                "origin": null,
+                "resolution": "literal",
+                "status": "unmatched",
+                "template": "/nothing"
+              }
+            ],
+            "status": "unmatched",
+            "url_expression": "'base'",
+            "wrapper": null
+          },
+          "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "file": "lib/extra.ts",
+          "file_state": "missing",
+          "ide": {
+            "column": 1,
+            "exact": false,
+            "line": 21,
+            "link": "vscode://file/{ROOT}/lib/extra.ts:21:1"
+          },
+          "identity": "client_call:lib/extra.ts#owner.base",
+          "kind": "client_call",
+          "level": 4,
+          "name": "GET base",
+          "qualified_name": "owner.base",
+          "source_root": "lib",
+          "span": {
+            "end_column": 1,
+            "end_line": 21,
+            "start_column": 0,
+            "start_line": 21
+          },
+          "type": "node"
+        },
+        "owner": null,
+        "reasons": [
+          {
+            "code": "no_matching_route",
+            "detail": "GET /nothing",
+            "text": "No route matches this method and path"
+          },
+          {
+            "code": "base_unresolved",
+            "detail": "API",
+            "text": "Base URL is not resolved"
+          }
+        ],
+        "targets": []
+      },
+      {
+        "node": {
+          "attributes": {
+            "base": "none",
+            "library": "fetch",
+            "method": "GET",
+            "paths": [
+              {
+                "candidate_count": 0,
+                "candidates": [
+                  "route:server/routes.ts#GET%20%2Fs"
+                ],
+                "conditional": false,
+                "match": "exact",
+                "origin": null,
+                "resolution": "literal",
+                "status": "linked",
+                "template": "/s"
+              }
+            ],
+            "status": "linked",
+            "url_expression": "'linked'",
+            "wrapper": null
+          },
+          "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "file": "src/calls.ts",
+          "file_state": "missing",
+          "ide": {
+            "column": 1,
+            "exact": false,
+            "line": 8,
+            "link": "vscode://file/{ROOT}/src/calls.ts:8:1"
+          },
+          "identity": "client_call:src/calls.ts#owner.linked",
+          "kind": "client_call",
+          "level": 4,
+          "name": "GET linked",
+          "qualified_name": "owner.linked",
+          "source_root": "src",
+          "span": {
+            "end_column": 1,
+            "end_line": 8,
+            "start_column": 0,
+            "start_line": 8
+          },
+          "type": "node"
+        },
+        "owner": {
+          "id": "function:src/calls.ts#owner",
+          "kind": "function",
+          "qualified_name": "owner"
+        },
+        "reasons": [],
+        "targets": [
+          "route:server/routes.ts#GET%20%2Fs"
+        ]
+      },
+      {
+        "node": {
+          "attributes": {
+            "base": "none",
+            "library": "fetch",
+            "method": "GET",
+            "paths": [
+              {
+                "candidate_count": 12,
+                "candidates": [
+                  "route:server/routes.ts#GET%20%2Fs",
+                  "route:server/other.ts#GET%20%2Fs%402",
+                  "route:server/other.ts#GET%20%2Fs%403",
+                  "route:server/other.ts#GET%20%2Fs%404",
+                  "route:server/other.ts#GET%20%2Fs%405",
+                  "route:server/other.ts#GET%20%2Fs%406",
+                  "route:server/other.ts#GET%20%2Fs%407",
+                  "route:server/other.ts#GET%20%2Fs%408",
+                  "route:server/other.ts#GET%20%2Fs%409",
+                  "route:server/other.ts#GET%20%2Fs%4010"
+                ],
+                "conditional": false,
+                "match": null,
+                "origin": null,
+                "resolution": "literal",
+                "status": "ambiguous",
+                "template": "/s"
+              }
+            ],
+            "status": "ambiguous",
+            "url_expression": "'ambiguous'",
+            "wrapper": null
+          },
+          "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "file": "src/calls.ts",
+          "file_state": "missing",
+          "ide": {
+            "column": 1,
+            "exact": false,
+            "line": 9,
+            "link": "vscode://file/{ROOT}/src/calls.ts:9:1"
+          },
+          "identity": "client_call:src/calls.ts#owner.ambiguous",
+          "kind": "client_call",
+          "level": 4,
+          "name": "GET ambiguous",
+          "qualified_name": "owner.ambiguous",
+          "source_root": "src",
+          "span": {
+            "end_column": 1,
+            "end_line": 9,
+            "start_column": 0,
+            "start_line": 9
+          },
+          "type": "node"
+        },
+        "owner": {
+          "id": "function:src/calls.ts#owner",
+          "kind": "function",
+          "qualified_name": "owner"
+        },
+        "reasons": [
+          {
+            "code": "ambiguous",
+            "detail": "/s",
+            "text": "12 routes match equally"
+          }
+        ],
+        "targets": []
+      },
+      {
+        "node": {
+          "attributes": {
+            "base": "none",
+            "library": "fetch",
+            "method": "GET",
+            "paths": [
+              {
+                "candidate_count": 11,
+                "candidates": [
+                  "route:server/other.ts#GET%20%2Fs%402",
+                  "route:server/other.ts#GET%20%2Fs%403",
+                  "route:server/other.ts#GET%20%2Fs%404",
+                  "route:server/other.ts#GET%20%2Fs%405",
+                  "route:server/other.ts#GET%20%2Fs%406",
+                  "route:server/other.ts#GET%20%2Fs%407",
+                  "route:server/other.ts#GET%20%2Fs%408",
+                  "route:server/other.ts#GET%20%2Fs%409",
+                  "route:server/other.ts#GET%20%2Fs%4010",
+                  "route:server/other.ts#GET%20%2Fs%4011"
+                ],
+                "conditional": false,
+                "match": null,
+                "origin": null,
+                "resolution": "literal",
+                "status": "ambiguous",
+                "template": "/s"
+              }
+            ],
+            "status": "ambiguous",
+            "url_expression": "'ambiguous-elsewhere'",
+            "wrapper": null
+          },
+          "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "file": "src/calls.ts",
+          "file_state": "missing",
+          "ide": {
+            "column": 1,
+            "exact": false,
+            "line": 10,
+            "link": "vscode://file/{ROOT}/src/calls.ts:10:1"
+          },
+          "identity": "client_call:src/calls.ts#owner.ambiguous-elsewhere",
+          "kind": "client_call",
+          "level": 4,
+          "name": "GET ambiguous-elsewhere",
+          "qualified_name": "owner.ambiguous-elsewhere",
+          "source_root": "src",
+          "span": {
+            "end_column": 1,
+            "end_line": 10,
+            "start_column": 0,
+            "start_line": 10
+          },
+          "type": "node"
+        },
+        "owner": null,
+        "reasons": [
+          {
+            "code": "ambiguous",
+            "detail": "/s",
+            "text": "11 routes match equally"
+          }
+        ],
+        "targets": []
+      },
+      {
+        "node": {
+          "attributes": {
+            "base": "none",
+            "library": "fetch",
+            "method": "POST",
+            "paths": [
+              {
+                "candidate_count": 0,
+                "candidates": [],
+                "conditional": false,
+                "match": null,
+                "origin": null,
+                "resolution": "literal",
+                "status": "unmatched",
+                "template": "/nope"
+              }
+            ],
+            "status": "unmatched",
+            "url_expression": "'unmatched'",
+            "wrapper": null
+          },
+          "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "file": "src/calls.ts",
+          "file_state": "missing",
+          "ide": {
+            "column": 1,
+            "exact": false,
+            "line": 11,
+            "link": "vscode://file/{ROOT}/src/calls.ts:11:1"
+          },
+          "identity": "client_call:src/calls.ts#owner.unmatched",
+          "kind": "client_call",
+          "level": 4,
+          "name": "GET unmatched",
+          "qualified_name": "owner.unmatched",
+          "source_root": "src",
+          "span": {
+            "end_column": 1,
+            "end_line": 11,
+            "start_column": 0,
+            "start_line": 11
+          },
+          "type": "node"
+        },
+        "owner": null,
+        "reasons": [
+          {
+            "code": "no_matching_route",
+            "detail": "POST /nope",
+            "text": "No route matches this method and path"
+          }
+        ],
+        "targets": []
+      },
+      {
+        "node": {
+          "attributes": {
+            "base": "none",
+            "library": "fetch",
+            "method": null,
+            "method_expression": "options.method",
+            "paths": [
+              {
+                "candidate_count": 0,
+                "candidates": [],
+                "conditional": false,
+                "match": null,
+                "origin": null,
+                "resolution": "evaluated",
+                "status": "dynamic",
+                "template": null
+              }
+            ],
+            "status": "dynamic",
+            "url_expression": "u",
+            "wrapper": null
+          },
+          "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "file": "src/calls.ts",
+          "file_state": "missing",
+          "ide": {
+            "column": 1,
+            "exact": false,
+            "line": 12,
+            "link": "vscode://file/{ROOT}/src/calls.ts:12:1"
+          },
+          "identity": "client_call:src/calls.ts#owner.dynamic",
+          "kind": "client_call",
+          "level": 4,
+          "name": "GET dynamic",
+          "qualified_name": "owner.dynamic",
+          "source_root": "src",
+          "span": {
+            "end_column": 1,
+            "end_line": 12,
+            "start_column": 0,
+            "start_line": 12
+          },
+          "type": "node"
+        },
+        "owner": null,
+        "reasons": [
+          {
+            "code": "url_unevaluated",
+            "detail": "u",
+            "text": "URL is not evaluated statically"
+          },
+          {
+            "code": "method_unknown",
+            "detail": "options.method",
+            "text": "Method is not known statically"
+          }
+        ],
+        "targets": []
+      },
+      {
+        "node": {
+          "attributes": {
+            "base": "none",
+            "library": "fetch",
+            "method": "GET",
+            "paths": [
+              {
+                "candidate_count": 0,
+                "candidates": [
+                  "route:server/routes.ts#GET%20%2Ft"
+                ],
+                "conditional": false,
+                "match": null,
+                "origin": null,
+                "resolution": "literal",
+                "status": "test_only",
+                "template": "/t"
+              }
+            ],
+            "status": "test_only",
+            "url_expression": "'test_only'",
+            "wrapper": null
+          },
+          "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "file": "src/calls.ts",
+          "file_state": "missing",
+          "ide": {
+            "column": 1,
+            "exact": false,
+            "line": 13,
+            "link": "vscode://file/{ROOT}/src/calls.ts:13:1"
+          },
+          "identity": "client_call:src/calls.ts#owner.test_only",
+          "kind": "client_call",
+          "level": 4,
+          "name": "GET test_only",
+          "qualified_name": "owner.test_only",
+          "source_root": "src",
+          "span": {
+            "end_column": 1,
+            "end_line": 13,
+            "start_column": 0,
+            "start_line": 13
+          },
+          "type": "node"
+        },
+        "owner": null,
+        "reasons": [
+          {
+            "code": "test_only_target",
+            "detail": "/t",
+            "text": "Only test-scope routes match"
+          }
+        ],
+        "targets": []
+      },
+      {
+        "node": {
+          "attributes": {
+            "base": "none",
+            "library": "fetch",
+            "method": "GET",
+            "paths": [
+              {
+                "candidate_count": 0,
+                "candidates": [],
+                "conditional": false,
+                "match": null,
+                "origin": null,
+                "resolution": "literal",
+                "status": "dynamic",
+                "template": "/{path}"
+              }
+            ],
+            "status": "wrapper",
+            "url_expression": "'wrapper'",
+            "wrapper": null
+          },
+          "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "file": "src/calls.ts",
+          "file_state": "missing",
+          "ide": {
+            "column": 1,
+            "exact": false,
+            "line": 14,
+            "link": "vscode://file/{ROOT}/src/calls.ts:14:1"
+          },
+          "identity": "client_call:src/calls.ts#owner.wrapper",
+          "kind": "client_call",
+          "level": 4,
+          "name": "GET wrapper",
+          "qualified_name": "owner.wrapper",
+          "source_root": "src",
+          "span": {
+            "end_column": 1,
+            "end_line": 14,
+            "start_column": 0,
+            "start_line": 14
+          },
+          "type": "node"
+        },
+        "owner": null,
+        "reasons": [
+          {
+            "code": "wrapper_inner",
+            "detail": null,
+            "text": "Inner request of a wrapper; the wrapper's call sites are listed as calls"
+          }
+        ],
+        "targets": []
+      },
+      {
+        "node": {
+          "attributes": {
+            "base": "none",
+            "library": "fetch",
+            "method": "GET",
+            "paths": [
+              {
+                "candidate_count": 0,
+                "candidates": [
+                  "route:server/routes.ts#GET%20%2Fs"
+                ],
+                "conditional": false,
+                "match": "exact",
+                "origin": null,
+                "resolution": "literal",
+                "status": "linked",
+                "template": "/s"
+              }
+            ],
+            "status": "weird",
+            "url_expression": "'weird'",
+            "wrapper": null
+          },
+          "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "file": "src/calls.ts",
+          "file_state": "missing",
+          "ide": {
+            "column": 1,
+            "exact": false,
+            "line": 15,
+            "link": "vscode://file/{ROOT}/src/calls.ts:15:1"
+          },
+          "identity": "client_call:src/calls.ts#owner.weird",
+          "kind": "client_call",
+          "level": 4,
+          "name": "GET weird",
+          "qualified_name": "owner.weird",
+          "source_root": "src",
+          "span": {
+            "end_column": 1,
+            "end_line": 15,
+            "start_column": 0,
+            "start_line": 15
+          },
+          "type": "node"
+        },
+        "owner": null,
+        "reasons": [
+          {
+            "code": "status_unknown",
+            "detail": "weird",
+            "text": "Status \"weird\" is not known to this Graphvein version"
+          }
+        ],
+        "targets": []
+      },
+      {
+        "node": {
+          "attributes": {
+            "base": "none",
+            "library": "fetch",
+            "method": "GET",
+            "paths": [
+              {
+                "candidate_count": 0,
+                "candidates": [
+                  "route:server/routes.ts#GET%20%2Fs"
+                ],
+                "conditional": false,
+                "match": "exact",
+                "origin": null,
+                "resolution": "literal",
+                "status": "linked",
+                "template": "/s"
+              }
+            ],
+            "status": "LINKED",
+            "url_expression": "'LINKED'",
+            "wrapper": null
+          },
+          "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "file": "src/calls.ts",
+          "file_state": "missing",
+          "ide": {
+            "column": 1,
+            "exact": false,
+            "line": 16,
+            "link": "vscode://file/{ROOT}/src/calls.ts:16:1"
+          },
+          "identity": "client_call:src/calls.ts#owner.LINKED",
+          "kind": "client_call",
+          "level": 4,
+          "name": "GET LINKED",
+          "qualified_name": "owner.LINKED",
+          "source_root": "src",
+          "span": {
+            "end_column": 1,
+            "end_line": 16,
+            "start_column": 0,
+            "start_line": 16
+          },
+          "type": "node"
+        },
+        "owner": null,
+        "reasons": [
+          {
+            "code": "status_unknown",
+            "detail": "LINKED",
+            "text": "Status \"LINKED\" is not known to this Graphvein version"
+          }
+        ],
+        "targets": [
+          "route:server/routes.ts#GET%20%2Fs"
+        ]
+      },
+      {
+        "node": {
+          "attributes": {
+            "base": "none",
+            "library": "fetch",
+            "method": "GET",
+            "paths": [
+              {
+                "candidate_count": 0,
+                "candidates": [
+                  "route:server/routes.ts#GET%20%2Fs"
+                ],
+                "conditional": false,
+                "match": "exact",
+                "origin": null,
+                "resolution": "literal",
+                "status": "linked",
+                "template": "/s"
+              }
+            ],
+            "url_expression": "'no-status'",
+            "wrapper": null
+          },
+          "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "file": "src/calls.ts",
+          "file_state": "missing",
+          "ide": {
+            "column": 1,
+            "exact": false,
+            "line": 17,
+            "link": "vscode://file/{ROOT}/src/calls.ts:17:1"
+          },
+          "identity": "client_call:src/calls.ts#owner.no-status",
+          "kind": "client_call",
+          "level": 4,
+          "name": "GET no-status",
+          "qualified_name": "owner.no-status",
+          "source_root": "src",
+          "span": {
+            "end_column": 1,
+            "end_line": 17,
+            "start_column": 0,
+            "start_line": 17
+          },
+          "type": "node"
+        },
+        "owner": null,
+        "reasons": [
+          {
+            "code": "status_unknown",
+            "detail": "",
+            "text": "Status \"\" is not known to this Graphvein version"
+          }
+        ],
+        "targets": []
+      },
+      {
+        "node": {
+          "attributes": {
+            "base": "none",
+            "library": "fetch",
+            "method": "GET",
+            "paths": [
+              {
+                "candidate_count": 0,
+                "candidates": [
+                  "route:server/routes.ts#GET%20%2Fs"
+                ],
+                "conditional": false,
+                "match": "exact",
+                "origin": null,
+                "resolution": "literal",
+                "status": "linked",
+                "template": "/s"
+              }
+            ],
+            "scope": "fixture",
+            "status": "linked",
+            "url_expression": "'fixture-scope'",
+            "wrapper": null
+          },
+          "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "file": "src/calls.ts",
+          "file_state": "missing",
+          "ide": {
+            "column": 1,
+            "exact": false,
+            "line": 18,
+            "link": "vscode://file/{ROOT}/src/calls.ts:18:1"
+          },
+          "identity": "client_call:src/calls.ts#owner.fixture-scope",
+          "kind": "client_call",
+          "level": 4,
+          "name": "GET fixture-scope",
+          "qualified_name": "owner.fixture-scope",
+          "source_root": "src",
+          "span": {
+            "end_column": 1,
+            "end_line": 18,
+            "start_column": 0,
+            "start_line": 18
+          },
+          "type": "node"
+        },
+        "owner": null,
+        "reasons": [],
+        "targets": [
+          "route:server/routes.ts#GET%20%2Fs"
+        ]
+      },
+      {
+        "node": {
+          "attributes": {
+            "base": "none",
+            "library": "fetch",
+            "method": "GET",
+            "paths": [
+              {
+                "candidate_count": 0,
+                "candidates": [
+                  "route:server/routes.ts#GET%20%2Fs"
+                ],
+                "conditional": false,
+                "match": "exact",
+                "origin": null,
+                "resolution": "literal",
+                "status": "linked",
+                "template": "/s"
+              }
+            ],
+            "status": "linked",
+            "url_expression": "'linked-without-edge'",
+            "wrapper": null
+          },
+          "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "file": "src/calls.ts",
+          "file_state": "missing",
+          "ide": {
+            "column": 1,
+            "exact": false,
+            "line": 19,
+            "link": "vscode://file/{ROOT}/src/calls.ts:19:1"
+          },
+          "identity": "client_call:src/calls.ts#owner.linked-without-edge",
+          "kind": "client_call",
+          "level": 4,
+          "name": "GET linked-without-edge",
+          "qualified_name": "owner.linked-without-edge",
+          "source_root": "src",
+          "span": {
+            "end_column": 1,
+            "end_line": 19,
+            "start_column": 0,
+            "start_line": 19
+          },
+          "type": "node"
+        },
+        "owner": null,
+        "reasons": [],
+        "targets": []
+      },
+      {
+        "node": {
+          "attributes": {
+            "base": "none",
+            "library": "orval",
+            "method": "GET",
+            "operation": "listThings",
+            "paths": [
+              {
+                "candidate_count": 0,
+                "candidates": [],
+                "conditional": false,
+                "match": null,
+                "origin": null,
+                "resolution": "generated",
+                "status": "dynamic",
+                "template": null
+              }
+            ],
+            "status": "dynamic",
+            "url_expression": "listThings()",
+            "wrapper": null
+          },
+          "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "file": "src/calls.ts",
+          "file_state": "missing",
+          "ide": {
+            "column": 1,
+            "exact": false,
+            "line": 20,
+            "link": "vscode://file/{ROOT}/src/calls.ts:20:1"
+          },
+          "identity": "client_call:src/calls.ts#owner.orval",
+          "kind": "client_call",
+          "level": 4,
+          "name": "GET orval",
+          "qualified_name": "owner.orval",
+          "source_root": "src",
+          "span": {
+            "end_column": 1,
+            "end_line": 20,
+            "start_column": 0,
+            "start_line": 20
+          },
+          "type": "node"
+        },
+        "owner": null,
+        "reasons": [
+          {
+            "code": "url_unevaluated",
+            "detail": "listThings()",
+            "text": "URL is not evaluated statically"
+          },
+          {
+            "code": "generated_unproven",
+            "detail": "listThings",
+            "text": "Generated client; its transport is not proven"
+          }
+        ],
+        "targets": []
+      },
+      {
+        "node": {
+          "attributes": {
+            "base": "none",
+            "library": "fetch",
+            "method": "GET",
+            "paths": [
+              {
+                "candidate_count": 0,
+                "candidates": [
+                  "route:server/routes.ts#GET%20%2Fs"
+                ],
+                "conditional": false,
+                "match": "exact",
+                "origin": null,
+                "resolution": "literal",
+                "status": "linked",
+                "template": "/s"
+              },
+              {
+                "candidate_count": 0,
+                "candidates": [],
+                "conditional": false,
+                "match": null,
+                "origin": null,
+                "resolution": "evaluated",
+                "status": "dynamic",
+                "template": null
+              }
+            ],
+            "status": "dynamic",
+            "url_expression": "flag?'/s':u",
+            "wrapper": null
+          },
+          "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "file": "src/calls.ts",
+          "file_state": "missing",
+          "ide": {
+            "column": 1,
+            "exact": false,
+            "line": 22,
+            "link": "vscode://file/{ROOT}/src/calls.ts:22:1"
+          },
+          "identity": "client_call:src/calls.ts#owner.partly",
+          "kind": "client_call",
+          "level": 4,
+          "name": "GET partly",
+          "qualified_name": "owner.partly",
+          "source_root": "src",
+          "span": {
+            "end_column": 1,
+            "end_line": 22,
+            "start_column": 0,
+            "start_line": 22
+          },
+          "type": "node"
+        },
+        "owner": null,
+        "reasons": [
+          {
+            "code": "some_alternatives_unevaluated",
+            "detail": "flag?'/s':u",
+            "text": "Some URL alternatives are not evaluated"
+          },
+          {
+            "code": "alternative_linked",
+            "detail": null,
+            "text": "A stored link exists although the status is \"dynamic\""
+          }
+        ],
+        "targets": [
+          "route:server/routes.ts#GET%20%2Fs"
+        ]
+      }
+    ],
+    "ide": {
+      "available": true,
+      "editor": "vscode",
+      "error": null,
+      "label": "Open in VS Code",
+      "source": "builtin"
+    },
+    "index": {
+      "contract_version": 1,
+      "finished_at": "2026-11-03T14:32:05.123Z",
+      "indexer": {
+        "name": "crafted",
+        "version": "t016d1"
+      }
+    },
+    "repository": "statuses",
+    "root": null,
+    "scope": "all",
+    "statuses": [
+      "",
+      "LINKED",
+      "ambiguous",
+      "dynamic",
+      "linked",
+      "test_only",
+      "unmatched",
+      "weird",
+      "wrapper"
+    ],
+    "total": 15,
+    "transport": "http"
+  },
+  "tauri_ipc": {
+    "api_version": 0,
+    "calls": [
+      {
+        "node": {
+          "attributes": {
+            "command": null,
+            "conditional": false,
+            "form": "direct",
+            "framework": "tauri",
+            "status": "dynamic",
+            "transport": "tauri_ipc"
+          },
+          "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "file": "src/ipc.ts",
+          "file_state": "missing",
+          "ide": {
+            "column": 1,
+            "exact": false,
+            "line": 23,
+            "link": "vscode://file/{ROOT}/src/ipc.ts:23:1"
+          },
+          "identity": "ipc_call:src/ipc.ts#owner.INVOKE%20%27dynamic%27",
+          "kind": "ipc_call",
+          "level": 4,
+          "name": "INVOKE 'dynamic'",
+          "qualified_name": "owner.INVOKE 'dynamic'",
+          "source_root": "src",
+          "span": {
+            "end_column": 1,
+            "end_line": 23,
+            "start_column": 0,
+            "start_line": 23
+          },
+          "type": "node"
+        },
+        "owner": null,
+        "reasons": [
+          {
+            "code": "command_unevaluated",
+            "detail": "'dynamic'",
+            "text": "Command name is not evaluated statically"
+          }
+        ],
+        "targets": []
+      },
+      {
+        "node": {
+          "attributes": {
+            "command": "registry_unproven",
+            "conditional": false,
+            "form": "direct",
+            "framework": "tauri",
+            "status": "registry_unproven",
+            "transport": "tauri_ipc"
+          },
+          "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "file": "src/ipc.ts",
+          "file_state": "missing",
+          "ide": {
+            "column": 1,
+            "exact": false,
+            "line": 24,
+            "link": "vscode://file/{ROOT}/src/ipc.ts:24:1"
+          },
+          "identity": "ipc_call:src/ipc.ts#owner.INVOKE%20%27registry_unproven%27",
+          "kind": "ipc_call",
+          "level": 4,
+          "name": "INVOKE 'registry_unproven'",
+          "qualified_name": "owner.INVOKE 'registry_unproven'",
+          "source_root": "src",
+          "span": {
+            "end_column": 1,
+            "end_line": 24,
+            "start_column": 0,
+            "start_line": 24
+          },
+          "type": "node"
+        },
+        "owner": null,
+        "reasons": [
+          {
+            "code": "registry_unproven",
+            "detail": null,
+            "text": "A command registry in this repository is not proven; it could be the one that receives this call"
+          }
+        ],
+        "targets": []
+      },
+      {
+        "node": {
+          "attributes": {
+            "command": "acl_possible",
+            "conditional": false,
+            "form": "direct",
+            "framework": "tauri",
+            "status": "acl_possible",
+            "transport": "tauri_ipc"
+          },
+          "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "file": "src/ipc.ts",
+          "file_state": "missing",
+          "ide": {
+            "column": 1,
+            "exact": false,
+            "line": 25,
+            "link": "vscode://file/{ROOT}/src/ipc.ts:25:1"
+          },
+          "identity": "ipc_call:src/ipc.ts#owner.INVOKE%20%27acl_possible%27",
+          "kind": "ipc_call",
+          "level": 4,
+          "name": "INVOKE 'acl_possible'",
+          "qualified_name": "owner.INVOKE 'acl_possible'",
+          "source_root": "src",
+          "span": {
+            "end_column": 1,
+            "end_line": 25,
+            "start_column": 0,
+            "start_line": 25
+          },
+          "type": "node"
+        },
+        "owner": null,
+        "reasons": [
+          {
+            "code": "acl_possible",
+            "detail": null,
+            "text": "The app may restrict commands with permissions; whether this call is allowed is not proven"
+          }
+        ],
+        "targets": []
+      },
+      {
+        "node": {
+          "attributes": {
+            "command": "shadow_possible",
+            "conditional": false,
+            "form": "direct",
+            "framework": "tauri",
+            "status": "shadow_possible",
+            "transport": "tauri_ipc"
+          },
+          "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "file": "src/ipc.ts",
+          "file_state": "missing",
+          "ide": {
+            "column": 1,
+            "exact": false,
+            "line": 26,
+            "link": "vscode://file/{ROOT}/src/ipc.ts:26:1"
+          },
+          "identity": "ipc_call:src/ipc.ts#owner.INVOKE%20%27shadow_possible%27",
+          "kind": "ipc_call",
+          "level": 4,
+          "name": "INVOKE 'shadow_possible'",
+          "qualified_name": "owner.INVOKE 'shadow_possible'",
+          "source_root": "src",
+          "span": {
+            "end_column": 1,
+            "end_line": 26,
+            "start_column": 0,
+            "start_line": 26
+          },
+          "type": "node"
+        },
+        "owner": null,
+        "reasons": [
+          {
+            "code": "shadow_possible",
+            "detail": null,
+            "text": "An unresolved registry entry before the match could take this name"
+          }
+        ],
+        "targets": []
+      },
+      {
+        "node": {
+          "attributes": {
+            "command": "unknown_command",
+            "conditional": false,
+            "form": "direct",
+            "framework": "tauri",
+            "status": "unknown_command",
+            "transport": "tauri_ipc"
+          },
+          "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "file": "src/ipc.ts",
+          "file_state": "missing",
+          "ide": {
+            "column": 1,
+            "exact": false,
+            "line": 27,
+            "link": "vscode://file/{ROOT}/src/ipc.ts:27:1"
+          },
+          "identity": "ipc_call:src/ipc.ts#owner.INVOKE%20%27unknown_command%27",
+          "kind": "ipc_call",
+          "level": 4,
+          "name": "INVOKE 'unknown_command'",
+          "qualified_name": "owner.INVOKE 'unknown_command'",
+          "source_root": "src",
+          "span": {
+            "end_column": 1,
+            "end_line": 27,
+            "start_column": 0,
+            "start_line": 27
+          },
+          "type": "node"
+        },
+        "owner": null,
+        "reasons": [
+          {
+            "code": "unknown_command",
+            "detail": null,
+            "text": "No resolved command has this name, but an unresolved registry entry might"
+          }
+        ],
+        "targets": []
+      },
+      {
+        "node": {
+          "attributes": {
+            "command": "unmatched",
+            "conditional": false,
+            "form": "direct",
+            "framework": "tauri",
+            "status": "unmatched",
+            "transport": "tauri_ipc"
+          },
+          "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "file": "src/ipc.ts",
+          "file_state": "missing",
+          "ide": {
+            "column": 1,
+            "exact": false,
+            "line": 28,
+            "link": "vscode://file/{ROOT}/src/ipc.ts:28:1"
+          },
+          "identity": "ipc_call:src/ipc.ts#owner.INVOKE%20%27unmatched%27",
+          "kind": "ipc_call",
+          "level": 4,
+          "name": "INVOKE 'unmatched'",
+          "qualified_name": "owner.INVOKE 'unmatched'",
+          "source_root": "src",
+          "span": {
+            "end_column": 1,
+            "end_line": 28,
+            "start_column": 0,
+            "start_line": 28
+          },
+          "type": "node"
+        },
+        "owner": null,
+        "reasons": [
+          {
+            "code": "unmatched",
+            "detail": "unmatched",
+            "text": "No registered command has this name"
+          }
+        ],
+        "targets": []
+      },
+      {
+        "node": {
+          "attributes": {
+            "candidates": [
+              "ipc_command:app/main.rs#main.COMMAND%20s",
+              "ipc_command:app/other.rs#main.COMMAND%20s%402",
+              "ipc_command:app/other.rs#main.COMMAND%20s%403",
+              "ipc_command:app/other.rs#main.COMMAND%20s%404",
+              "ipc_command:app/other.rs#main.COMMAND%20s%405",
+              "ipc_command:app/other.rs#main.COMMAND%20s%406",
+              "ipc_command:app/other.rs#main.COMMAND%20s%407",
+              "ipc_command:app/other.rs#main.COMMAND%20s%408",
+              "ipc_command:app/other.rs#main.COMMAND%20s%409",
+              "ipc_command:app/other.rs#main.COMMAND%20s%4010"
+            ],
+            "command": "ambiguous",
+            "conditional": false,
+            "form": "direct",
+            "framework": "tauri",
+            "status": "ambiguous",
+            "transport": "tauri_ipc"
+          },
+          "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "file": "src/ipc.ts",
+          "file_state": "missing",
+          "ide": {
+            "column": 1,
+            "exact": false,
+            "line": 29,
+            "link": "vscode://file/{ROOT}/src/ipc.ts:29:1"
+          },
+          "identity": "ipc_call:src/ipc.ts#owner.INVOKE%20%27ambiguous%27",
+          "kind": "ipc_call",
+          "level": 4,
+          "name": "INVOKE 'ambiguous'",
+          "qualified_name": "owner.INVOKE 'ambiguous'",
+          "source_root": "src",
+          "span": {
+            "end_column": 1,
+            "end_line": 29,
+            "start_column": 0,
+            "start_line": 29
+          },
+          "type": "node"
+        },
+        "owner": null,
+        "reasons": [
+          {
+            "code": "ambiguous",
+            "detail": null,
+            "text": "More than one Tauri app could receive this call"
+          }
+        ],
+        "targets": []
+      },
+      {
+        "node": {
+          "attributes": {
+            "candidates": [
+              "ipc_command:app/main.rs#main.COMMAND%20s"
+            ],
+            "command": "test_only",
+            "conditional": false,
+            "form": "direct",
+            "framework": "tauri",
+            "status": "test_only",
+            "transport": "tauri_ipc"
+          },
+          "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "file": "src/ipc.ts",
+          "file_state": "missing",
+          "ide": {
+            "column": 1,
+            "exact": false,
+            "line": 30,
+            "link": "vscode://file/{ROOT}/src/ipc.ts:30:1"
+          },
+          "identity": "ipc_call:src/ipc.ts#owner.INVOKE%20%27test_only%27",
+          "kind": "ipc_call",
+          "level": 4,
+          "name": "INVOKE 'test_only'",
+          "qualified_name": "owner.INVOKE 'test_only'",
+          "source_root": "src",
+          "span": {
+            "end_column": 1,
+            "end_line": 30,
+            "start_column": 0,
+            "start_line": 30
+          },
+          "type": "node"
+        },
+        "owner": null,
+        "reasons": [
+          {
+            "code": "test_only",
+            "detail": null,
+            "text": "Only test-scope or test-only commands have this name"
+          }
+        ],
+        "targets": []
+      },
+      {
+        "node": {
+          "attributes": {
+            "command": "plugin:fs|read_file",
+            "conditional": false,
+            "form": "direct",
+            "framework": "tauri",
+            "plugin": "fs",
+            "plugin_command": "read_file",
+            "status": "plugin",
+            "transport": "tauri_ipc"
+          },
+          "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "file": "src/ipc.ts",
+          "file_state": "missing",
+          "ide": {
+            "column": 1,
+            "exact": false,
+            "line": 31,
+            "link": "vscode://file/{ROOT}/src/ipc.ts:31:1"
+          },
+          "identity": "ipc_call:src/ipc.ts#owner.INVOKE%20%27plugin%3Afs%7Cread_file%27",
+          "kind": "ipc_call",
+          "level": 4,
+          "name": "INVOKE 'plugin:fs|read_file'",
+          "qualified_name": "owner.INVOKE 'plugin:fs|read_file'",
+          "source_root": "src",
+          "span": {
+            "end_column": 1,
+            "end_line": 31,
+            "start_column": 0,
+            "start_line": 31
+          },
+          "type": "node"
+        },
+        "owner": null,
+        "reasons": [
+          {
+            "code": "plugin",
+            "detail": "fs|read_file",
+            "text": "Plugin command; plugin commands are not linked"
+          }
+        ],
+        "targets": []
+      },
+      {
+        "node": {
+          "attributes": {
+            "command": "global",
+            "conditional": false,
+            "form": "global",
+            "framework": "tauri",
+            "status": "global_unlinked",
+            "transport": "tauri_ipc"
+          },
+          "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "file": "src/ipc.ts",
+          "file_state": "missing",
+          "ide": {
+            "column": 1,
+            "exact": false,
+            "line": 32,
+            "link": "vscode://file/{ROOT}/src/ipc.ts:32:1"
+          },
+          "identity": "ipc_call:src/ipc.ts#owner.INVOKE%20%27global%27",
+          "kind": "ipc_call",
+          "level": 4,
+          "name": "INVOKE 'global'",
+          "qualified_name": "owner.INVOKE 'global'",
+          "source_root": "src",
+          "span": {
+            "end_column": 1,
+            "end_line": 32,
+            "start_column": 0,
+            "start_line": 32
+          },
+          "type": "node"
+        },
+        "owner": null,
+        "reasons": [
+          {
+            "code": "global_form",
+            "detail": null,
+            "text": "Called through a window.__TAURI__ global, not an imported invoke"
+          },
+          {
+            "code": "global_unlinked",
+            "detail": null,
+            "text": "Calls through the window.__TAURI__ globals are not linked"
+          }
+        ],
+        "targets": []
+      },
+      {
+        "node": {
+          "attributes": {
+            "command": "s",
+            "conditional": false,
+            "form": "direct",
+            "framework": "tauri",
+            "status": "linked",
+            "transport": "tauri_ipc"
+          },
+          "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "file": "src/ipc.ts",
+          "file_state": "missing",
+          "ide": {
+            "column": 1,
+            "exact": false,
+            "line": 33,
+            "link": "vscode://file/{ROOT}/src/ipc.ts:33:1"
+          },
+          "identity": "ipc_call:src/ipc.ts#owner.INVOKE%20%27s%27",
+          "kind": "ipc_call",
+          "level": 4,
+          "name": "INVOKE 's'",
+          "qualified_name": "owner.INVOKE 's'",
+          "source_root": "src",
+          "span": {
+            "end_column": 1,
+            "end_line": 33,
+            "start_column": 0,
+            "start_line": 33
+          },
+          "type": "node"
+        },
+        "owner": null,
+        "reasons": [],
+        "targets": [
+          "ipc_command:app/main.rs#main.COMMAND%20s"
+        ]
+      },
+      {
+        "node": {
+          "attributes": {
+            "command": null,
+            "conditional": false,
+            "form": "direct",
+            "framework": "tauri",
+            "status": "wrapper",
+            "transport": "tauri_ipc",
+            "wrapper": true
+          },
+          "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "file": "src/ipc.ts",
+          "file_state": "missing",
+          "ide": {
+            "column": 1,
+            "exact": false,
+            "line": 34,
+            "link": "vscode://file/{ROOT}/src/ipc.ts:34:1"
+          },
+          "identity": "ipc_call:src/ipc.ts#owner.INVOKE%20%27wrapper%27",
+          "kind": "ipc_call",
+          "level": 4,
+          "name": "INVOKE 'wrapper'",
+          "qualified_name": "owner.INVOKE 'wrapper'",
+          "source_root": "src",
+          "span": {
+            "end_column": 1,
+            "end_line": 34,
+            "start_column": 0,
+            "start_line": 34
+          },
+          "type": "node"
+        },
+        "owner": null,
+        "reasons": [
+          {
+            "code": "wrapper_inner",
+            "detail": null,
+            "text": "Inner invoke of a wrapper; the wrapper's call sites are listed as calls"
+          }
+        ],
+        "targets": []
+      },
+      {
+        "node": {
+          "attributes": {
+            "command": "weird",
+            "conditional": false,
+            "form": "direct",
+            "framework": "tauri",
+            "status": "weird",
+            "transport": "tauri_ipc"
+          },
+          "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "file": "src/ipc.ts",
+          "file_state": "missing",
+          "ide": {
+            "column": 1,
+            "exact": false,
+            "line": 35,
+            "link": "vscode://file/{ROOT}/src/ipc.ts:35:1"
+          },
+          "identity": "ipc_call:src/ipc.ts#owner.INVOKE%20%27weird%27",
+          "kind": "ipc_call",
+          "level": 4,
+          "name": "INVOKE 'weird'",
+          "qualified_name": "owner.INVOKE 'weird'",
+          "source_root": "src",
+          "span": {
+            "end_column": 1,
+            "end_line": 35,
+            "start_column": 0,
+            "start_line": 35
+          },
+          "type": "node"
+        },
+        "owner": null,
+        "reasons": [
+          {
+            "code": "status_unknown",
+            "detail": "weird",
+            "text": "Status \"weird\" is not known to this Graphvein version"
+          }
+        ],
+        "targets": []
+      },
+      {
+        "node": {
+          "attributes": {
+            "command": "LINKED",
+            "conditional": false,
+            "form": "direct",
+            "framework": "tauri",
+            "status": "LINKED",
+            "transport": "tauri_ipc"
+          },
+          "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "file": "src/ipc.ts",
+          "file_state": "missing",
+          "ide": {
+            "column": 1,
+            "exact": false,
+            "line": 36,
+            "link": "vscode://file/{ROOT}/src/ipc.ts:36:1"
+          },
+          "identity": "ipc_call:src/ipc.ts#owner.INVOKE%20%27LINKED%27",
+          "kind": "ipc_call",
+          "level": 4,
+          "name": "INVOKE 'LINKED'",
+          "qualified_name": "owner.INVOKE 'LINKED'",
+          "source_root": "src",
+          "span": {
+            "end_column": 1,
+            "end_line": 36,
+            "start_column": 0,
+            "start_line": 36
+          },
+          "type": "node"
+        },
+        "owner": null,
+        "reasons": [
+          {
+            "code": "status_unknown",
+            "detail": "LINKED",
+            "text": "Status \"LINKED\" is not known to this Graphvein version"
+          }
+        ],
+        "targets": [
+          "ipc_command:app/main.rs#main.COMMAND%20s"
+        ]
+      },
+      {
+        "node": {
+          "attributes": {
+            "command": "no-status",
+            "conditional": false,
+            "form": "direct",
+            "framework": "tauri",
+            "transport": "tauri_ipc"
+          },
+          "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "file": "src/ipc.ts",
+          "file_state": "missing",
+          "ide": {
+            "column": 1,
+            "exact": false,
+            "line": 37,
+            "link": "vscode://file/{ROOT}/src/ipc.ts:37:1"
+          },
+          "identity": "ipc_call:src/ipc.ts#owner.INVOKE%20%27no-status%27",
+          "kind": "ipc_call",
+          "level": 4,
+          "name": "INVOKE 'no-status'",
+          "qualified_name": "owner.INVOKE 'no-status'",
+          "source_root": "src",
+          "span": {
+            "end_column": 1,
+            "end_line": 37,
+            "start_column": 0,
+            "start_line": 37
+          },
+          "type": "node"
+        },
+        "owner": null,
+        "reasons": [
+          {
+            "code": "status_unknown",
+            "detail": "",
+            "text": "Status \"\" is not known to this Graphvein version"
+          }
+        ],
+        "targets": []
+      },
+      {
+        "node": {
+          "attributes": {
+            "command": "linked-without-edge",
+            "conditional": false,
+            "form": "direct",
+            "framework": "tauri",
+            "status": "linked",
+            "transport": "tauri_ipc"
+          },
+          "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "file": "src/ipc.ts",
+          "file_state": "missing",
+          "ide": {
+            "column": 1,
+            "exact": false,
+            "line": 38,
+            "link": "vscode://file/{ROOT}/src/ipc.ts:38:1"
+          },
+          "identity": "ipc_call:src/ipc.ts#owner.INVOKE%20%27linked-without-edge%27",
+          "kind": "ipc_call",
+          "level": 4,
+          "name": "INVOKE 'linked-without-edge'",
+          "qualified_name": "owner.INVOKE 'linked-without-edge'",
+          "source_root": "src",
+          "span": {
+            "end_column": 1,
+            "end_line": 38,
+            "start_column": 0,
+            "start_line": 38
+          },
+          "type": "node"
+        },
+        "owner": null,
+        "reasons": [],
+        "targets": []
+      },
+      {
+        "node": {
+          "attributes": {
+            "alternatives": [
+              {
+                "cfg_gated": false,
+                "command": "s",
+                "conditional": true,
+                "status": "linked",
+                "target": "ipc_command:app/main.rs#main.COMMAND%20s"
+              },
+              {
+                "command": "nope",
+                "conditional": true,
+                "status": "unmatched"
+              }
+            ],
+            "command": null,
+            "conditional": true,
+            "form": "direct",
+            "framework": "tauri",
+            "status": "unmatched",
+            "transport": "tauri_ipc"
+          },
+          "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "file": "src/ipc.ts",
+          "file_state": "missing",
+          "ide": {
+            "column": 1,
+            "exact": false,
+            "line": 39,
+            "link": "vscode://file/{ROOT}/src/ipc.ts:39:1"
+          },
+          "identity": "ipc_call:src/ipc.ts#owner.INVOKE%20%27alternatives%27",
+          "kind": "ipc_call",
+          "level": 4,
+          "name": "INVOKE 'alternatives'",
+          "qualified_name": "owner.INVOKE 'alternatives'",
+          "source_root": "src",
+          "span": {
+            "end_column": 1,
+            "end_line": 39,
+            "start_column": 0,
+            "start_line": 39
+          },
+          "type": "node"
+        },
+        "owner": null,
+        "reasons": [
+          {
+            "code": "unmatched",
+            "detail": "nope",
+            "text": "No registered command has this name"
+          },
+          {
+            "code": "alternative_linked",
+            "detail": null,
+            "text": "A stored link exists although the status is \"unmatched\""
+          }
+        ],
+        "targets": [
+          "ipc_command:app/main.rs#main.COMMAND%20s"
+        ]
+      }
+    ],
+    "ide": {
+      "available": true,
+      "editor": "vscode",
+      "error": null,
+      "label": "Open in VS Code",
+      "source": "builtin"
+    },
+    "index": {
+      "contract_version": 1,
+      "finished_at": "2026-11-03T14:32:05.123Z",
+      "indexer": {
+        "name": "crafted",
+        "version": "t016d1"
+      }
+    },
+    "repository": "statuses",
+    "root": null,
+    "scope": "all",
+    "statuses": [
+      "",
+      "LINKED",
+      "acl_possible",
+      "ambiguous",
+      "dynamic",
+      "global_unlinked",
+      "linked",
+      "plugin",
+      "registry_unproven",
+      "shadow_possible",
+      "test_only",
+      "unknown_command",
+      "unmatched",
+      "weird",
+      "wrapper"
+    ],
+    "total": 17,
+    "transport": "tauri_ipc"
+  }
+}

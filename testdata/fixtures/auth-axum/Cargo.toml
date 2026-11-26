@@ -1,0 +1,10 @@
+[package]
+name = "auth-axum"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+axum = "0.8.8"
+axum-login = "0.18.0"
+tower = "0.5.3"
+tower-http = { version = "0.6.8", features = ["auth", "cors", "trace", "validate-request"] }

@@ -1,0 +1,28 @@
+{
+  "id": "review-q13-twopk",
+  "signature": "applied|S1|42P16|",
+  "class": "S1",
+  "owner": "P4",
+  "row": "review",
+  "history": {
+    "id": "q13-twopk"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42P16",
+        "message": "multiple primary keys for table \"t\" are not allowed",
+        "statement": 1,
+        "statement_text": "CREATE TABLE t (a int PRIMARY KEY PRIMARY KEY);"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

@@ -1,0 +1,11 @@
+services:
+  api:
+    build: ../backend
+    expose:
+      - "8080"
+  cache:
+    image: redis:7
+  web:
+    build: .
+    expose:
+      - "5173"

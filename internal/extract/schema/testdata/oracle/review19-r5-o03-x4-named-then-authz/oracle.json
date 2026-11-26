@@ -1,0 +1,29 @@
+{
+  "id": "review19-r5-o03-x4-named-then-authz",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y43",
+  "row": "review19",
+  "history": {
+    "id": "o03-x4-named-then-authz",
+    "fresh_db": true
+  },
+  "verdict": {
+    "default_schema": "public",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42P06",
+        "message": "schema \"r5app3\" already exists",
+        "statement": 4,
+        "statement_text": "CREATE SCHEMA AUTHORIZATION r5app3;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "public._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

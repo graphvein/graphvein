@@ -1,0 +1,333 @@
+{
+  "api_version": 0,
+  "callers": [
+    {
+      "edges": [
+        {
+          "confidence": 1,
+          "kind": "invokes_command",
+          "provenance": "fact"
+        }
+      ],
+      "node": {
+        "attributes": {
+          "command": "t016d_greet",
+          "conditional": false,
+          "form": "direct",
+          "framework": "tauri",
+          "scope": "test",
+          "status": "linked",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:efcb7ce4e6c0602eed4fc24f5cdbb4c9ad432db8530bed11a52ae060c194b64d",
+        "file": "web/src/ipc.test.ts",
+        "file_state": "unchanged",
+        "ide": {
+          "column": 10,
+          "exact": true,
+          "line": 4,
+          "link": "vscode://file/{ROOT}/web/src/ipc.test.ts:4:10"
+        },
+        "identity": "ipc_call:web/src/ipc.test.ts#fromTest.INVOKE%20%27t016d_greet%27",
+        "kind": "ipc_call",
+        "level": 4,
+        "name": "INVOKE 't016d_greet'",
+        "qualified_name": "fromTest.INVOKE 't016d_greet'",
+        "source_root": "web",
+        "span": {
+          "end_column": 30,
+          "end_line": 4,
+          "start_column": 9,
+          "start_line": 4
+        },
+        "type": "node"
+      },
+      "owner": {
+        "id": "function:web/src/ipc.test.ts#fromTest",
+        "kind": "function",
+        "qualified_name": "fromTest"
+      },
+      "reasons": []
+    },
+    {
+      "edges": [
+        {
+          "confidence": 1,
+          "kind": "invokes_command",
+          "provenance": "fact"
+        }
+      ],
+      "node": {
+        "attributes": {
+          "command": "t016d_greet",
+          "conditional": false,
+          "form": "direct",
+          "framework": "tauri",
+          "status": "linked",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:a3c1a88f24bdb7196ca5d1240166f641329e3727f99b2eaa985e9792cca4befa",
+        "file": "web/src/ipc.ts",
+        "file_state": "unchanged",
+        "ide": {
+          "column": 9,
+          "exact": true,
+          "line": 6,
+          "link": "vscode://file/{ROOT}/web/src/ipc.ts:6:9"
+        },
+        "identity": "ipc_call:web/src/ipc.ts#direct.INVOKE%20%27t016d_greet%27",
+        "kind": "ipc_call",
+        "level": 4,
+        "name": "INVOKE 't016d_greet'",
+        "qualified_name": "direct.INVOKE 't016d_greet'",
+        "source_root": "web",
+        "span": {
+          "end_column": 50,
+          "end_line": 6,
+          "start_column": 8,
+          "start_line": 6
+        },
+        "type": "node"
+      },
+      "owner": {
+        "id": "function:web/src/ipc.ts#direct",
+        "kind": "function",
+        "qualified_name": "direct"
+      },
+      "reasons": []
+    },
+    {
+      "edges": [
+        {
+          "confidence": 1,
+          "kind": "invokes_command",
+          "provenance": "fact"
+        }
+      ],
+      "node": {
+        "attributes": {
+          "alternatives": [
+            {
+              "cfg_gated": false,
+              "command": "t016d_greet",
+              "conditional": true,
+              "status": "linked",
+              "target": "ipc_command:app/src/main.rs#main.COMMAND%20t016d_greet"
+            },
+            {
+              "cfg_gated": false,
+              "command": "t016d_items",
+              "conditional": true,
+              "status": "linked",
+              "target": "ipc_command:app/src/main.rs#main.COMMAND%20t016d_items"
+            }
+          ],
+          "command": null,
+          "conditional": true,
+          "form": "direct",
+          "framework": "tauri",
+          "status": "linked",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:1dda1a217f6b4b1ea9a220cb0b8971dd7e04eabc886b57d3caffb8302b1806a2",
+        "file": "web/src/ipc.ts",
+        "file_state": "unchanged",
+        "ide": {
+          "column": 10,
+          "exact": true,
+          "line": 18,
+          "link": "vscode://file/{ROOT}/web/src/ipc.ts:18:10"
+        },
+        "identity": "ipc_call:web/src/ipc.ts#conditional.INVOKE%20flag%3F%27t016d_greet%27%3A%27t016d_items%27",
+        "kind": "ipc_call",
+        "level": 4,
+        "name": "INVOKE flag?'t016d_greet':'t016d_items'",
+        "qualified_name": "conditional.INVOKE flag?'t016d_greet':'t016d_items'",
+        "source_root": "web",
+        "span": {
+          "end_column": 53,
+          "end_line": 18,
+          "start_column": 9,
+          "start_line": 18
+        },
+        "type": "node"
+      },
+      "owner": {
+        "id": "function:web/src/ipc.ts#conditional",
+        "kind": "function",
+        "qualified_name": "conditional"
+      },
+      "reasons": []
+    },
+    {
+      "edges": [
+        {
+          "confidence": 1,
+          "kind": "invokes_command",
+          "provenance": "fact"
+        }
+      ],
+      "node": {
+        "attributes": {
+          "alternatives": [
+            {
+              "cfg_gated": false,
+              "command": "t016d_greet",
+              "conditional": true,
+              "status": "linked",
+              "target": "ipc_command:app/src/main.rs#main.COMMAND%20t016d_greet"
+            },
+            {
+              "command": "t016d_nope",
+              "conditional": true,
+              "status": "unmatched"
+            }
+          ],
+          "command": null,
+          "conditional": true,
+          "form": "direct",
+          "framework": "tauri",
+          "status": "unmatched",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:9082caa14924ed5aa4d1f4b08f04e593cf37736955f6dd020cc11727b451ff95",
+        "file": "web/src/ipc.ts",
+        "file_state": "unchanged",
+        "ide": {
+          "column": 10,
+          "exact": true,
+          "line": 22,
+          "link": "vscode://file/{ROOT}/web/src/ipc.ts:22:10"
+        },
+        "identity": "ipc_call:web/src/ipc.ts#partlyUnmatched.INVOKE%20flag%3F%27t016d_greet%27%3A%27t016d_nope%27",
+        "kind": "ipc_call",
+        "level": 4,
+        "name": "INVOKE flag?'t016d_greet':'t016d_nope'",
+        "qualified_name": "partlyUnmatched.INVOKE flag?'t016d_greet':'t016d_nope'",
+        "source_root": "web",
+        "span": {
+          "end_column": 52,
+          "end_line": 22,
+          "start_column": 9,
+          "start_line": 22
+        },
+        "type": "node"
+      },
+      "owner": {
+        "id": "function:web/src/ipc.ts#partlyUnmatched",
+        "kind": "function",
+        "qualified_name": "partlyUnmatched"
+      },
+      "reasons": [
+        {
+          "code": "unmatched",
+          "detail": "t016d_nope",
+          "text": "No registered command has this name"
+        },
+        {
+          "code": "alternative_linked",
+          "detail": null,
+          "text": "A stored link exists although the status is \"unmatched\""
+        }
+      ]
+    }
+  ],
+  "callers_precision": {
+    "label": "best_effort",
+    "reason": "default_branch",
+    "row": "D"
+  },
+  "endpoint": {
+    "attributes": {
+      "cfg_gated": false,
+      "command": "t016d_greet",
+      "framework": "tauri",
+      "handler": "function:app/src/commands.rs#t016d_greet",
+      "registry": "app",
+      "transport": "tauri_ipc"
+    },
+    "content_hash": "sha256:cac0a757d331a4c0548df4b77ee2b7590125f08dbb9f17d9ac856ae40cec8bca",
+    "file": "app/src/main.rs",
+    "file_state": "unchanged",
+    "ide": {
+      "column": 13,
+      "exact": true,
+      "line": 6,
+      "link": "vscode://file/{ROOT}/app/src/main.rs:6:13"
+    },
+    "identity": "ipc_command:app/src/main.rs#main.COMMAND%20t016d_greet",
+    "kind": "ipc_command",
+    "level": 4,
+    "name": "COMMAND t016d_greet",
+    "qualified_name": "main.COMMAND t016d_greet",
+    "span": {
+      "end_column": 33,
+      "end_line": 6,
+      "start_column": 12,
+      "start_line": 6
+    },
+    "type": "node"
+  },
+  "handler": {
+    "edge": {
+      "confidence": 1,
+      "kind": "exposes_command",
+      "provenance": "fact"
+    },
+    "expression": null,
+    "node": {
+      "attributes": {
+        "module": ""
+      },
+      "content_hash": "sha256:dbbdf016085c80c3a1872fa01956e728464d96ea1b9fcb591c057c6099427f33",
+      "file": "app/src/commands.rs",
+      "file_state": "unchanged",
+      "ide": {
+        "column": 1,
+        "exact": true,
+        "line": 2,
+        "link": "vscode://file/{ROOT}/app/src/commands.rs:2:1"
+      },
+      "identity": "function:app/src/commands.rs#t016d_greet",
+      "kind": "function",
+      "level": 4,
+      "name": "t016d_greet",
+      "qualified_name": "t016d_greet",
+      "span": {
+        "end_column": 1,
+        "end_line": 4,
+        "start_column": 0,
+        "start_line": 2
+      },
+      "type": "node"
+    },
+    "state": "resolved"
+  },
+  "ide": {
+    "available": true,
+    "editor": "vscode",
+    "error": null,
+    "label": "Open in VS Code",
+    "source": "builtin"
+  },
+  "index": {
+    "contract_version": 1,
+    "finished_at": "2026-11-03T14:32:05.123Z",
+    "indexer": {
+      "name": "graphvein",
+      "version": "extractors-62"
+    }
+  },
+  "near_misses": [],
+  "near_misses_incomplete": 0,
+  "openapi": null,
+  "precision": {
+    "label": "best_effort",
+    "reason": "default_branch",
+    "row": "D"
+  },
+  "repository": "fixture",
+  "root": null,
+  "scope": "all",
+  "transport": "tauri_ipc"
+}

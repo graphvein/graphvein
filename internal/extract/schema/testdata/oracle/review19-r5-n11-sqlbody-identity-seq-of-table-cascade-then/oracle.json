@@ -1,0 +1,28 @@
+{
+  "id": "review19-r5-n11-sqlbody-identity-seq-of-table-cascade-then",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y40",
+  "row": "review19",
+  "history": {
+    "id": "n11-sqlbody-identity-seq-of-table-cascade-then"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42883",
+        "message": "function nx() does not exist",
+        "statement": 4,
+        "statement_text": "SELECT nx();"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

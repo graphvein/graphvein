@@ -1,0 +1,42 @@
+{
+  "id": "g3-s43863-S1-applied",
+  "signature": "applied|S1|42804|",
+  "class": "S1",
+  "owner": "H10",
+  "row": "",
+  "history": {
+    "id": "g3-s43863",
+    "prelude": [
+      "CREATE TABLE t5 (id int PRIMARY KEY)"
+    ],
+    "tags": {
+      "1_m1.sql": [
+        "R2.create_enum",
+        "R3.add_value",
+        "M1.enum_default_k2",
+        "M1.create_fk"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42804",
+        "message": "foreign key constraint \"t4_c1_fkey\" cannot be implemented",
+        "detail": "Key columns \"c1\" and \"id\" are of incompatible types: date and integer.",
+        "statement": 4,
+        "statement_text": "CREATE TABLE t4 (c1 date DEFAULT now(), FOREIGN KEY (c1) REFERENCES t5);",
+        "assumption": "E1"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history.t5",
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

@@ -1,0 +1,12 @@
+CREATE TABLE repositories (repository TEXT COLLATE "C" PRIMARY KEY, generation INTEGER NOT NULL DEFAULT 0);
+CREATE TABLE index_runs (id TEXT COLLATE "C" PRIMARY KEY, repository TEXT COLLATE "C" NOT NULL REFERENCES repositories(repository), payload TEXT NOT NULL);
+CREATE INDEX runs_repository ON index_runs(repository);
+CREATE TABLE files (repository TEXT COLLATE "C" NOT NULL REFERENCES repositories(repository), path TEXT COLLATE "C" NOT NULL, content_hash TEXT NOT NULL, payload TEXT NOT NULL, PRIMARY KEY(repository,path));
+CREATE TABLE nodes (repository TEXT COLLATE "C" NOT NULL REFERENCES repositories(repository), identity TEXT COLLATE "C" NOT NULL, file TEXT COLLATE "C", kind TEXT COLLATE "C" NOT NULL, level INTEGER NOT NULL, content_hash TEXT NOT NULL, payload TEXT NOT NULL, PRIMARY KEY(repository,identity), FOREIGN KEY(repository,file) REFERENCES files(repository,path) ON DELETE CASCADE);
+CREATE INDEX nodes_file ON nodes(repository,file);
+CREATE INDEX nodes_kind_level ON nodes(repository,kind,level);
+CREATE TABLE edges (repository TEXT COLLATE "C" NOT NULL, kind TEXT COLLATE "C" NOT NULL, source TEXT COLLATE "C" NOT NULL, target TEXT COLLATE "C" NOT NULL, payload TEXT NOT NULL, PRIMARY KEY(repository,kind,source,target), FOREIGN KEY(repository,source) REFERENCES nodes(repository,identity) ON DELETE CASCADE, FOREIGN KEY(repository,target) REFERENCES nodes(repository,identity) ON DELETE CASCADE);
+CREATE INDEX edges_outgoing ON edges(repository,source,kind);
+CREATE INDEX edges_incoming ON edges(repository,target,kind);
+CREATE TABLE diagnostics (repository TEXT COLLATE "C" NOT NULL REFERENCES repositories(repository), ordinal INTEGER NOT NULL, file TEXT COLLATE "C" NOT NULL, payload TEXT NOT NULL, PRIMARY KEY(repository,ordinal));
+CREATE INDEX diagnostics_file ON diagnostics(repository,file);

@@ -1,0 +1,3 @@
+package badbuild
+
+func Y() {}

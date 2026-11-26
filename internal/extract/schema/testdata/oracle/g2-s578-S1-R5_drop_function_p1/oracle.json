@@ -1,0 +1,35 @@
+{
+  "id": "g2-s578-S1-R5_drop_function_p1",
+  "signature": "applied|S1|42883|R5.drop_function_p1",
+  "class": "S1",
+  "owner": "P4",
+  "row": "R5.drop_function_p1",
+  "history": {
+    "id": "g2-s578",
+    "fresh_db": true,
+    "tags": {
+      "1_m1.sql": [
+        "R6.procedure",
+        "R5.drop_function_p1"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "public",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42883",
+        "message": "could not find a function named \"p1\"",
+        "statement": 2,
+        "statement_text": "DROP FUNCTION p1;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "public._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

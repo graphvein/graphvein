@@ -1,0 +1,342 @@
+{
+  "diagnostics": [
+    {
+      "code": "unresolved_import",
+      "file": "src/App/Client.cs",
+      "message": "using Gen.Messages is not declared by a readable scanned file, but may be declared in a file refused for invalid syntax or a failed parse: src/Gen/Messages.cs",
+      "severity": "warning",
+      "type": "diagnostic"
+    },
+    {
+      "code": "unresolved_import",
+      "file": "src/App/Client.cs",
+      "message": "using Gen is not declared by a readable scanned file, but may be declared in a file refused for invalid syntax or a failed parse: src/Gen/Messages.cs",
+      "severity": "warning",
+      "type": "diagnostic"
+    },
+    {
+      "code": "unresolved_import",
+      "file": "src/App/Client.cs",
+      "message": "using Wire is not declared by a readable scanned file, but may be declared in a file refused for invalid syntax or a failed parse: src/Gen/Messages.cs",
+      "severity": "warning",
+      "type": "diagnostic"
+    },
+    {
+      "code": "unresolved_import",
+      "file": "src/App/Client.cs",
+      "message": "using static Helpers.Text is not declared by a readable scanned file, but may be declared in a file refused for invalid syntax or a failed parse: src/Gen/Global.cs and 1 more",
+      "severity": "warning",
+      "type": "diagnostic"
+    },
+    {
+      "code": "unresolved_import",
+      "file": "src/App/Client.cs",
+      "message": "using Newtonsoft.Json is not declared by a readable scanned file, but may be declared in a file refused for invalid syntax or a failed parse: src/Gen/Global.cs and 1 more",
+      "severity": "warning",
+      "type": "diagnostic"
+    },
+    {
+      "code": "syntax_error",
+      "file": "src/Gen/Global.cs",
+      "message": "tree-sitter recovered from invalid syntax",
+      "severity": "warning",
+      "type": "diagnostic"
+    },
+    {
+      "code": "syntax_error",
+      "file": "src/Gen/Messages.cs",
+      "message": "tree-sitter recovered from invalid syntax",
+      "severity": "warning",
+      "type": "diagnostic"
+    }
+  ],
+  "edges": [
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/App/Client.cs",
+          "span": {
+            "end_column": 26,
+            "end_line": 14,
+            "start_column": 4,
+            "start_line": 14
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:src/App/Client.cs#Client",
+      "target": "method:src/App/Client.cs#Client.Send",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/App/Client.cs",
+          "span": {
+            "end_column": 1,
+            "end_line": 15,
+            "start_column": 0,
+            "start_line": 12
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/App/Client.cs#src%2FApp%2FClient.cs",
+      "target": "class:src/App/Client.cs#Client",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/App/Item.cs",
+          "span": {
+            "end_column": 32,
+            "end_line": 3,
+            "start_column": 0,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/App/Item.cs#src%2FApp%2FItem.cs",
+      "target": "record:src/App/Item.cs#Item",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/App/Client.cs",
+          "span": {
+            "end_column": 17,
+            "end_line": 5,
+            "start_column": 0,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:src/App/Client.cs#src%2FApp%2FClient.cs",
+      "target": "external:.#dotnet%3AGenX.Tools",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/App/Client.cs",
+          "span": {
+            "end_column": 13,
+            "end_line": 1,
+            "start_column": 0,
+            "start_line": 1
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:src/App/Client.cs#src%2FApp%2FClient.cs",
+      "target": "external:.#dotnet%3ASystem",
+      "type": "edge"
+    }
+  ],
+  "files": null,
+  "nodes": [
+    {
+      "attributes": {},
+      "content_hash": "sha256:f7dbd88ab20e6f70e57773ef0e8fac1ba415227cf5e5b1133982f4ed82b92770",
+      "file": "src/App/Client.cs",
+      "identity": "class:src/App/Client.cs#Client",
+      "kind": "class",
+      "level": 4,
+      "name": "Client",
+      "qualified_name": "Client",
+      "span": {
+        "end_column": 1,
+        "end_line": 15,
+        "start_column": 0,
+        "start_line": 12
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "ecosystem": "dotnet",
+        "name": "GenX.Tools"
+      },
+      "content_hash": "sha256:6c9828e48aeeee61d1fef8970441cf86a2673bc20b61ffff99b8c19f4017ce6d",
+      "file": ".",
+      "identity": "external:.#dotnet%3AGenX.Tools",
+      "kind": "external",
+      "level": 1,
+      "name": "GenX.Tools",
+      "qualified_name": "dotnet:GenX.Tools",
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "ecosystem": "dotnet",
+        "name": "System"
+      },
+      "content_hash": "sha256:c229e12330eb69486bfb0b6393714b5aa4fce4ff45f40843453c2206d44e871c",
+      "file": ".",
+      "identity": "external:.#dotnet%3ASystem",
+      "kind": "external",
+      "level": 1,
+      "name": "System",
+      "qualified_name": "dotnet:System",
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:a61f31035dfd07bed47862ddcaa3549387748af2139c95dc41ce84914e692b8b",
+      "file": "README.md",
+      "identity": "file:README.md#README.md",
+      "kind": "file",
+      "level": 3,
+      "name": "README.md",
+      "qualified_name": "README.md",
+      "span": {
+        "end_column": 0,
+        "end_line": 30,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:027bbcc2a9e5253005d1c92c950f3ab4c05d36c6e861f6ab550553dff6a23dfe",
+      "file": "src/App/Client.cs",
+      "identity": "file:src/App/Client.cs#src%2FApp%2FClient.cs",
+      "kind": "file",
+      "level": 3,
+      "name": "Client.cs",
+      "qualified_name": "src/App/Client.cs",
+      "span": {
+        "end_column": 0,
+        "end_line": 16,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:02397832cef91d5853d95fc9a101116d1fc05899063ba46dda99d7e97cc06bcc",
+      "file": "src/App/Item.cs",
+      "identity": "file:src/App/Item.cs#src%2FApp%2FItem.cs",
+      "kind": "file",
+      "level": 3,
+      "name": "Item.cs",
+      "qualified_name": "src/App/Item.cs",
+      "span": {
+        "end_column": 0,
+        "end_line": 4,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:ffc3ed6a127bc9c3ce008b724bb691a666985e5480f0c40231c454126c39bdd4",
+      "file": "src/Gen/Global.cs",
+      "identity": "file:src/Gen/Global.cs#src%2FGen%2FGlobal.cs",
+      "kind": "file",
+      "level": 3,
+      "name": "Global.cs",
+      "qualified_name": "src/Gen/Global.cs",
+      "span": {
+        "end_column": 0,
+        "end_line": 10,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:36d0aa6fd0925425e5f46a6ce3534905e8ce02da47185653787b17bb8b5ae7eb",
+      "file": "src/Gen/Messages.cs",
+      "identity": "file:src/Gen/Messages.cs#src%2FGen%2FMessages.cs",
+      "kind": "file",
+      "level": 3,
+      "name": "Messages.cs",
+      "qualified_name": "src/Gen/Messages.cs",
+      "span": {
+        "end_column": 0,
+        "end_line": 21,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:2defac91e5b410813ded1c56905290e1a276dd954560859ea872f4b13953528d",
+      "file": "src/App/Client.cs",
+      "identity": "method:src/App/Client.cs#Client.Send",
+      "kind": "method",
+      "level": 4,
+      "name": "Send",
+      "qualified_name": "Client.Send",
+      "span": {
+        "end_column": 26,
+        "end_line": 14,
+        "start_column": 4,
+        "start_line": 14
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:37cda2c9650c52a4454ba0459d99b1c6520e80eb32d33337d969142b79adcfec",
+      "file": "src/App/Item.cs",
+      "identity": "record:src/App/Item.cs#Item",
+      "kind": "record",
+      "level": 4,
+      "name": "Item",
+      "qualified_name": "Item",
+      "span": {
+        "end_column": 32,
+        "end_line": 3,
+        "start_column": 0,
+        "start_line": 3
+      },
+      "type": "node"
+    }
+  ]
+}

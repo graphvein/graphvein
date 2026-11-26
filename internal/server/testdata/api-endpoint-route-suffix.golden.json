@@ -1,0 +1,485 @@
+{
+  "api_version": 0,
+  "callers": [
+    {
+      "edges": [
+        {
+          "confidence": 0.9,
+          "kind": "calls_route",
+          "match": "exact",
+          "provenance": "inferred"
+        }
+      ],
+      "node": {
+        "attributes": {
+          "base": "none",
+          "library": "fetch",
+          "method": "GET",
+          "paths": [
+            {
+              "candidate_count": 0,
+              "candidates": [
+                "route:server/app.ts#GET%20%2Ft016d-api%2Ft016d-users"
+              ],
+              "conditional": false,
+              "match": "exact",
+              "origin": null,
+              "resolution": "literal",
+              "status": "linked",
+              "template": "/t016d-api/t016d-users"
+            }
+          ],
+          "status": "linked",
+          "url_expression": "'/t016d-api/t016d-users'",
+          "wrapper": null
+        },
+        "content_hash": "sha256:9acb83463e38ac2c485a78c4a7419c463ea6befa4a15c8c119fd549c99b2f776",
+        "file": "scripts/probe.ts",
+        "file_state": "unchanged",
+        "ide": {
+          "column": 10,
+          "exact": true,
+          "line": 2,
+          "link": "vscode://file/{ROOT}/scripts/probe.ts:2:10"
+        },
+        "identity": "client_call:scripts/probe.ts#probe.GET%20%27%2Ft016d-api%2Ft016d-users%27",
+        "kind": "client_call",
+        "level": 4,
+        "name": "GET '/t016d-api/t016d-users'",
+        "qualified_name": "probe.GET '/t016d-api/t016d-users'",
+        "source_root": "scripts",
+        "span": {
+          "end_column": 40,
+          "end_line": 2,
+          "start_column": 9,
+          "start_line": 2
+        },
+        "type": "node"
+      },
+      "owner": {
+        "id": "function:scripts/probe.ts#probe",
+        "kind": "function",
+        "qualified_name": "probe"
+      },
+      "reasons": []
+    },
+    {
+      "edges": [
+        {
+          "confidence": 0.6,
+          "kind": "calls_route",
+          "match": "suffix",
+          "provenance": "inferred"
+        }
+      ],
+      "node": {
+        "attributes": {
+          "base": "unresolved",
+          "base_expression": "process.env.T016D_API",
+          "library": "axios",
+          "method": "GET",
+          "paths": [
+            {
+              "candidate_count": 0,
+              "candidates": [
+                "route:server/app.ts#GET%20%2Ft016d-api%2Ft016d-users"
+              ],
+              "conditional": false,
+              "match": "suffix",
+              "origin": null,
+              "resolution": "literal",
+              "status": "linked",
+              "template": "/t016d-users"
+            }
+          ],
+          "status": "linked",
+          "url_expression": "'/t016d-users'",
+          "wrapper": null
+        },
+        "content_hash": "sha256:570000b949b25b6c6e08f71123584c86878b3debb4e3a01df49c3881dfc322ff",
+        "file": "web/src/http.ts",
+        "file_state": "unchanged",
+        "ide": {
+          "column": 10,
+          "exact": true,
+          "line": 15,
+          "link": "vscode://file/{ROOT}/web/src/http.ts:15:10"
+        },
+        "identity": "client_call:web/src/http.ts#linkedSuffix.GET%20%27%2Ft016d-users%27",
+        "kind": "client_call",
+        "level": 4,
+        "name": "GET '/t016d-users'",
+        "qualified_name": "linkedSuffix.GET '/t016d-users'",
+        "source_root": "web",
+        "span": {
+          "end_column": 35,
+          "end_line": 15,
+          "start_column": 9,
+          "start_line": 15
+        },
+        "type": "node"
+      },
+      "owner": {
+        "id": "function:web/src/http.ts#linkedSuffix",
+        "kind": "function",
+        "qualified_name": "linkedSuffix"
+      },
+      "reasons": []
+    },
+    {
+      "edges": [
+        {
+          "confidence": 0.9,
+          "kind": "calls_route",
+          "match": "exact",
+          "provenance": "inferred"
+        }
+      ],
+      "node": {
+        "attributes": {
+          "base": "none",
+          "library": "fetch",
+          "method": "GET",
+          "paths": [
+            {
+              "candidate_count": 0,
+              "candidates": [
+                "route:server/app.ts#GET%20%2Ft016d-api%2Ft016d-users"
+              ],
+              "conditional": false,
+              "match": "exact",
+              "origin": null,
+              "resolution": "literal",
+              "status": "linked",
+              "template": "/t016d-api/t016d-users"
+            }
+          ],
+          "status": "linked",
+          "url_expression": "'/t016d-users'",
+          "wrapper": "function:web/src/client.ts#apiGet"
+        },
+        "content_hash": "sha256:4d20be08863af1a6a743e1dca319f60f8be4fd23dc8a783d63fbba16098e4955",
+        "file": "web/src/http.ts",
+        "file_state": "unchanged",
+        "ide": {
+          "column": 10,
+          "exact": true,
+          "line": 19,
+          "link": "vscode://file/{ROOT}/web/src/http.ts:19:10"
+        },
+        "identity": "client_call:web/src/http.ts#viaWrapper.GET%20%27%2Ft016d-users%27",
+        "kind": "client_call",
+        "level": 4,
+        "name": "GET '/t016d-users'",
+        "qualified_name": "viaWrapper.GET '/t016d-users'",
+        "source_root": "web",
+        "span": {
+          "end_column": 31,
+          "end_line": 19,
+          "start_column": 9,
+          "start_line": 19
+        },
+        "type": "node"
+      },
+      "owner": {
+        "id": "function:web/src/http.ts#viaWrapper",
+        "kind": "function",
+        "qualified_name": "viaWrapper"
+      },
+      "reasons": []
+    },
+    {
+      "edges": [
+        {
+          "confidence": 0.9,
+          "kind": "calls_route",
+          "match": "exact",
+          "provenance": "inferred"
+        }
+      ],
+      "node": {
+        "attributes": {
+          "base": "none",
+          "library": "fetch",
+          "method": "GET",
+          "paths": [
+            {
+              "base": "none",
+              "candidate_count": 0,
+              "candidates": [
+                "route:server/app.ts#GET%20%2Ft016d-api%2Ft016d-users"
+              ],
+              "conditional": true,
+              "match": "exact",
+              "origin": null,
+              "resolution": "evaluated",
+              "status": "linked",
+              "template": "/t016d-api/t016d-users"
+            },
+            {
+              "base": "none",
+              "candidate_count": 0,
+              "candidates": [
+                "route:server/app.ts#GET%20%2Ft016d-items"
+              ],
+              "conditional": true,
+              "match": "exact",
+              "origin": null,
+              "resolution": "evaluated",
+              "status": "linked",
+              "template": "/t016d-items"
+            }
+          ],
+          "status": "linked",
+          "url_expression": "flag?'/t016d-items':'/t016d-api/t016d-users'",
+          "wrapper": null
+        },
+        "content_hash": "sha256:09928e53642b0eb47b4d00a6642b940e813269c3f66f13fdd90e36c01669924c",
+        "file": "web/src/http.ts",
+        "file_state": "unchanged",
+        "ide": {
+          "column": 10,
+          "exact": true,
+          "line": 51,
+          "link": "vscode://file/{ROOT}/web/src/http.ts:51:10"
+        },
+        "identity": "client_call:web/src/http.ts#conditional.GET%20flag%3F%27%2Ft016d-items%27%3A%27%2Ft016d-api%2Ft016d-users%27",
+        "kind": "client_call",
+        "level": 4,
+        "name": "GET flag?'/t016d-items':'/t016d-api/t016d-users'",
+        "qualified_name": "conditional.GET flag?'/t016d-items':'/t016d-api/t016d-users'",
+        "source_root": "web",
+        "span": {
+          "end_column": 64,
+          "end_line": 51,
+          "start_column": 9,
+          "start_line": 51
+        },
+        "type": "node"
+      },
+      "owner": {
+        "id": "function:web/src/http.ts#conditional",
+        "kind": "function",
+        "qualified_name": "conditional"
+      },
+      "reasons": []
+    }
+  ],
+  "callers_precision": {
+    "label": "best_effort",
+    "reason": "default_branch",
+    "row": "D"
+  },
+  "endpoint": {
+    "attributes": {
+      "framework": "express",
+      "handler": "function:server/app.ts#listUsers",
+      "handler_inline": false,
+      "method": "GET",
+      "middleware": [],
+      "paths": [
+        {
+          "conditional": false,
+          "resolution": "literal",
+          "template": "/t016d-api/t016d-users"
+        }
+      ],
+      "pattern": "/t016d-api/t016d-users",
+      "shape": {
+        "body": {
+          "items": [],
+          "reason": "the handler reads no request property; no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+          "state": "not_read"
+        },
+        "cookie": {
+          "items": [],
+          "reason": "the handler reads no request property",
+          "state": "not_read"
+        },
+        "follow": {
+          "chains": [],
+          "depth_limit": 6
+        },
+        "header": {
+          "items": [],
+          "reason": "the handler reads no request property",
+          "state": "not_read"
+        },
+        "models": [],
+        "path": {
+          "evidence": {
+            "chain": [],
+            "confidence": 1,
+            "file": "server/app.ts",
+            "kind": "fact",
+            "line": 16,
+            "rule": "SH-E2"
+          },
+          "items": [],
+          "state": "provably_none"
+        },
+        "query": {
+          "items": [],
+          "reason": "the handler reads no request property",
+          "state": "not_read"
+        },
+        "responses": {
+          "items": [],
+          "reason": "the handler does not use a response parameter in a read form",
+          "state": "not_read"
+        },
+        "security": {
+          "items": [],
+          "state": "not_read"
+        },
+        "security_schemes": [],
+        "version": 1
+      }
+    },
+    "content_hash": "sha256:4cea869365270314c93b929e371ac07b0b912b3215a47e0252145d9bfc6c20ff",
+    "file": "server/app.ts",
+    "file_state": "unchanged",
+    "ide": {
+      "column": 1,
+      "exact": true,
+      "line": 16,
+      "link": "vscode://file/{ROOT}/server/app.ts:16:1"
+    },
+    "identity": "route:server/app.ts#GET%20%2Ft016d-api%2Ft016d-users",
+    "kind": "route",
+    "level": 4,
+    "name": "GET /t016d-api/t016d-users",
+    "qualified_name": "GET /t016d-api/t016d-users",
+    "span": {
+      "end_column": 44,
+      "end_line": 16,
+      "start_column": 0,
+      "start_line": 16
+    },
+    "type": "node"
+  },
+  "handler": {
+    "edge": {
+      "confidence": 1,
+      "kind": "exposes_route",
+      "provenance": "fact"
+    },
+    "expression": null,
+    "node": {
+      "attributes": {
+        "exported": true
+      },
+      "content_hash": "sha256:99cc7988ee12ec0dab88f2bf06e79a32e67ec3157d78b171a723372815a4cf7f",
+      "file": "server/app.ts",
+      "file_state": "unchanged",
+      "ide": {
+        "column": 1,
+        "exact": true,
+        "line": 8,
+        "link": "vscode://file/{ROOT}/server/app.ts:8:1"
+      },
+      "identity": "function:server/app.ts#listUsers",
+      "kind": "function",
+      "level": 4,
+      "name": "listUsers",
+      "qualified_name": "listUsers",
+      "span": {
+        "end_column": 30,
+        "end_line": 8,
+        "start_column": 0,
+        "start_line": 8
+      },
+      "type": "node"
+    },
+    "state": "resolved"
+  },
+  "ide": {
+    "available": true,
+    "editor": "vscode",
+    "error": null,
+    "label": "Open in VS Code",
+    "source": "builtin"
+  },
+  "index": {
+    "contract_version": 1,
+    "finished_at": "2026-11-03T14:32:05.123Z",
+    "indexer": {
+      "name": "graphvein",
+      "version": "extractors-62"
+    }
+  },
+  "model_tables": [],
+  "near_misses": [],
+  "near_misses_incomplete": 0,
+  "openapi": {
+    "operations": [],
+    "specs": 1
+  },
+  "precision": {
+    "label": "best_effort",
+    "reason": "default_branch",
+    "row": "D"
+  },
+  "repository": "fixture",
+  "root": null,
+  "scope": "all",
+  "shape": {
+    "body": {
+      "items": [],
+      "reason": "the handler reads no request property; no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+      "state": "not_read"
+    },
+    "cookie": {
+      "items": [],
+      "reason": "the handler reads no request property",
+      "state": "not_read"
+    },
+    "follow": {
+      "chains": [],
+      "depth_limit": 6
+    },
+    "header": {
+      "items": [],
+      "reason": "the handler reads no request property",
+      "state": "not_read"
+    },
+    "models": [],
+    "path": {
+      "evidence": {
+        "chain": [],
+        "confidence": 1,
+        "file": "server/app.ts",
+        "kind": "fact",
+        "line": 16,
+        "rule": "SH-E2"
+      },
+      "items": [],
+      "state": "provably_none"
+    },
+    "query": {
+      "items": [],
+      "reason": "the handler reads no request property",
+      "state": "not_read"
+    },
+    "responses": {
+      "items": [],
+      "reason": "the handler does not use a response parameter in a read form",
+      "state": "not_read"
+    },
+    "security": {
+      "items": [],
+      "state": "not_read"
+    },
+    "security_schemes": [],
+    "version": 1
+  },
+  "shape_links": {
+    "server/app.ts:16": {
+      "column": 1,
+      "exact": true,
+      "line": 16,
+      "link": "vscode://file/{ROOT}/server/app.ts:16:1"
+    }
+  },
+  "transport": "http"
+}

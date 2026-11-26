@@ -1,0 +1,39 @@
+# React pin: 969709a379b13935b4e1caae0ad8cad548e5879a
+# Operation intent inventory, NOT verified executable wrapper chains.
+# Each operation is cross-checked against react/openapi.yaml operationId and
+# realworld-api.txt. Paths below are relative to the React checkout.
+# missing: names identify Orval exports whose source is absent from this pin;
+# they are not emitted node identities. Query-options calls schedule a request
+# through TanStack fetchQuery/ensureQueryData; they do not themselves send HTTP.
+# Intended common tail: missing generated request function ->
+# function:src/shared/api/auth-fetch.ts#apiFetch -> global fetch at line 68.
+# Actual URL: requestUrl.toString(), formed using new URL(url, __API_URL__),
+# with protocol/host overwritten from new URL(__API_URL__). Method is carried
+# by ...options. Neither missing URL/method source nor chain is guessed.
+POST /api/users/login <- src/pages/login/actions/user-login.action.ts:22 [via missing:login function:src/shared/api/auth-fetch.ts#apiFetch]
+POST /api/users <- src/pages/register/actions/user-register.action.ts:22 [via missing:createUser function:src/shared/api/auth-fetch.ts#apiFetch]
+GET /api/user <- src/shared/lib/react-router/loadUserMiddleware.ts:23 [via missing:getGetCurrentUserQueryOptions function:src/shared/api/auth-fetch.ts#apiFetch]
+PUT /api/user <- src/pages/settings/actions/user-update.action.ts:22 [via missing:updateCurrentUser function:src/shared/api/auth-fetch.ts#apiFetch]
+GET /api/profiles/{username} <- src/pages/profile/profile.loader.ts:26 [via missing:getGetProfileByUsernameQueryOptions function:src/shared/api/auth-fetch.ts#apiFetch]
+POST /api/profiles/{username}/follow <- src/pages/profile/actions/profile-follow-toggle.action.ts:22 [via missing:followUserByUsername function:src/shared/api/auth-fetch.ts#apiFetch]
+DELETE /api/profiles/{username}/follow <- src/pages/profile/actions/profile-follow-toggle.action.ts:17 [via missing:unfollowUserByUsername function:src/shared/api/auth-fetch.ts#apiFetch]
+POST /api/profiles/{username}/follow <- src/pages/article/actions/profile-follow-toggle.action.ts:22 [via missing:followUserByUsername function:src/shared/api/auth-fetch.ts#apiFetch]
+DELETE /api/profiles/{username}/follow <- src/pages/article/actions/profile-follow-toggle.action.ts:17 [via missing:unfollowUserByUsername function:src/shared/api/auth-fetch.ts#apiFetch]
+GET /api/articles/feed <- src/pages/home/home.loader.ts:38 [via missing:getGetArticlesFeedQueryOptions function:src/shared/api/auth-fetch.ts#apiFetch]
+GET /api/articles <- src/pages/home/home.loader.ts:46 [via missing:getGetArticlesQueryOptions function:src/shared/api/auth-fetch.ts#apiFetch]
+GET /api/articles <- src/pages/profile/profile.loader.ts:30 [via missing:getGetArticlesQueryOptions function:src/shared/api/auth-fetch.ts#apiFetch]
+POST /api/articles <- src/pages/editor/actions/article-create.action.ts:33 [via missing:createArticle function:src/shared/api/auth-fetch.ts#apiFetch]
+GET /api/articles/{slug} <- src/pages/article/article.loader.ts:15 [via missing:getGetArticleQueryOptions function:src/shared/api/auth-fetch.ts#apiFetch]
+GET /api/articles/{slug} <- src/pages/editor/editor.loader.ts:13 [via missing:getGetArticleQueryOptions function:src/shared/api/auth-fetch.ts#apiFetch]
+PUT /api/articles/{slug} <- src/pages/editor/actions/article-update.action.ts:38 [via missing:updateArticle function:src/shared/api/auth-fetch.ts#apiFetch]
+DELETE /api/articles/{slug} <- src/pages/article/actions/article-delete.action.ts:14 [via missing:deleteArticle function:src/shared/api/auth-fetch.ts#apiFetch]
+GET /api/articles/{slug}/comments <- src/pages/article/article.loader.ts:19 [via missing:getGetArticleCommentsQueryOptions function:src/shared/api/auth-fetch.ts#apiFetch]
+POST /api/articles/{slug}/comments <- src/pages/article/actions/comment-create.action.ts:22 [via missing:createArticleComment function:src/shared/api/auth-fetch.ts#apiFetch]
+DELETE /api/articles/{slug}/comments/{id} <- src/pages/article/actions/comment-delete.action.ts:22 [via missing:deleteArticleComment function:src/shared/api/auth-fetch.ts#apiFetch]
+POST /api/articles/{slug}/favorite <- src/pages/article/actions/article-favorite-toggle.action.ts:21 [via missing:createArticleFavorite function:src/shared/api/auth-fetch.ts#apiFetch]
+DELETE /api/articles/{slug}/favorite <- src/pages/article/actions/article-favorite-toggle.action.ts:16 [via missing:deleteArticleFavorite function:src/shared/api/auth-fetch.ts#apiFetch]
+POST /api/articles/{slug}/favorite <- src/pages/home/actions/article-favorite-toggle.action.ts:21 [via missing:createArticleFavorite function:src/shared/api/auth-fetch.ts#apiFetch]
+DELETE /api/articles/{slug}/favorite <- src/pages/home/actions/article-favorite-toggle.action.ts:16 [via missing:deleteArticleFavorite function:src/shared/api/auth-fetch.ts#apiFetch]
+POST /api/articles/{slug}/favorite <- src/pages/profile/actions/article-favorite-toggle.action.ts:21 [via missing:createArticleFavorite function:src/shared/api/auth-fetch.ts#apiFetch]
+DELETE /api/articles/{slug}/favorite <- src/pages/profile/actions/article-favorite-toggle.action.ts:16 [via missing:deleteArticleFavorite function:src/shared/api/auth-fetch.ts#apiFetch]
+GET /api/tags <- src/pages/home/home.loader.ts:31 [via missing:getGetTagsQueryOptions function:src/shared/api/auth-fetch.ts#apiFetch]

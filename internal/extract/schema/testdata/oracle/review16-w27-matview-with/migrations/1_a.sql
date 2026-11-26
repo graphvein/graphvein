@@ -1,0 +1,1 @@
+CREATE MATERIALIZED VIEW mv WITH (fillfactor = 5) AS SELECT 1 AS a;

@@ -1,0 +1,41 @@
+{
+  "id": "g8-s1212-S1-R4_relkinds_v4",
+  "signature": "applied|S1|42P01|R4.relkinds_v4",
+  "class": "S1",
+  "owner": "V4",
+  "row": "R4.relkinds_v4",
+  "history": {
+    "id": "g8-s1212",
+    "tags": {
+      "1_m1.sql": [
+        "R4.relkinds_v4",
+        "R4.relkinds_v4",
+        "R4.relkinds_v4",
+        "R4.relkinds_v4",
+        "R4.relkinds_v4",
+        "R4.relkinds_v4",
+        "R4.relkinds_v4",
+        "R4.relkinds_v4",
+        "R4.relkinds_v4"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42P01",
+        "message": "relation \"nosuch12\" does not exist",
+        "statement": 9,
+        "statement_text": "ALTER TYPE nosuch12 ALTER ATTRIBUTE a TYPE bigint;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

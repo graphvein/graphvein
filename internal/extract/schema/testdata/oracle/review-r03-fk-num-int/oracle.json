@@ -1,0 +1,29 @@
+{
+  "id": "review-r03-fk-num-int",
+  "signature": "agreed at af6a883",
+  "class": "S1",
+  "owner": "P5",
+  "row": "review",
+  "history": {
+    "id": "r03-fk-num-int"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42804",
+        "message": "foreign key constraint \"c_a_fkey\" cannot be implemented",
+        "detail": "Key columns \"a\" and \"a\" are of incompatible types: numeric and integer.",
+        "statement": 2,
+        "statement_text": "CREATE TABLE c (a numeric REFERENCES p);"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

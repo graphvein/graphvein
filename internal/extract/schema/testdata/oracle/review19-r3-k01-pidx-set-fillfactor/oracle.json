@@ -1,0 +1,29 @@
+{
+  "id": "review19-r3-k01-pidx-set-fillfactor",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y30",
+  "row": "review19",
+  "history": {
+    "id": "k01-pidx-set-fillfactor"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42809",
+        "message": "ALTER action SET cannot be performed on relation \"pi\"",
+        "detail": "This operation is not supported for partitioned indexes.",
+        "statement": 3,
+        "statement_text": "ALTER INDEX pi SET (fillfactor = 50);"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

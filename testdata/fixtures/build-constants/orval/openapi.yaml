@@ -1,0 +1,25 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Build constants",
+    "version": "1"
+  },
+  "paths": {
+    "/bc/articles/{slug}": {
+      "get": {
+        "operationId": "GetArticle",
+        "tags": [
+          "Articles"
+        ],
+        "parameters": [
+          {
+            "name": "slug",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {}
+      }
+    }
+  }
+}

@@ -1,0 +1,397 @@
+{
+  "api_version": 0,
+  "columns": [
+    {
+      "claims": null,
+      "default_state": "unknown",
+      "foreign_keys": [],
+      "node": {
+        "attributes": {
+          "collation": null,
+          "generated": null,
+          "identity": null,
+          "name": "id",
+          "nullable": false,
+          "position": 1,
+          "previous_names": [],
+          "primary_key": true,
+          "references": null,
+          "type": "integer",
+          "unique": true
+        },
+        "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "file": "a/migrations/1_init.sql",
+        "file_state": "missing",
+        "ide": {
+          "column": 1,
+          "exact": false,
+          "line": 1,
+          "link": "vscode://file/{ROOT}/a/migrations/1_init.sql:1:1"
+        },
+        "identity": "column:a/migrations/1_init.sql#t_self.id",
+        "kind": "column",
+        "level": 4,
+        "name": "id",
+        "qualified_name": "t_self.id",
+        "span": {
+          "end_column": 1,
+          "end_line": 1,
+          "start_column": 0,
+          "start_line": 1
+        },
+        "type": "node"
+      }
+    },
+    {
+      "claims": null,
+      "default_state": "unknown",
+      "foreign_keys": [
+        {
+          "edge": {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "a/migrations/1_init.sql",
+                "span": {
+                  "end_column": 1,
+                  "end_line": 1,
+                  "start_column": 0,
+                  "start_line": 1
+                }
+              }
+            ],
+            "kind": "foreign_key",
+            "provenance": "fact"
+          },
+          "target_column": "column:a/migrations/1_init.sql#t_self.id",
+          "target_table": "table:a/migrations/1_init.sql#t_self"
+        }
+      ],
+      "node": {
+        "attributes": {
+          "collation": null,
+          "default": 5,
+          "generated": null,
+          "identity": null,
+          "name": "parent",
+          "nullable": true,
+          "position": 2,
+          "previous_names": [],
+          "primary_key": false,
+          "references": {
+            "columns": [
+              "id"
+            ],
+            "constraint": null,
+            "local_columns": [
+              "parent"
+            ],
+            "on_delete": null,
+            "on_update": null,
+            "status": "linked",
+            "table": "t_self"
+          },
+          "type": "integer",
+          "unique": false
+        },
+        "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "file": "a/migrations/1_init.sql",
+        "file_state": "missing",
+        "ide": {
+          "column": 1,
+          "exact": false,
+          "line": 1,
+          "link": "vscode://file/{ROOT}/a/migrations/1_init.sql:1:1"
+        },
+        "identity": "column:a/migrations/1_init.sql#t_self.parent",
+        "kind": "column",
+        "level": 4,
+        "name": "parent",
+        "qualified_name": "t_self.parent",
+        "span": {
+          "end_column": 1,
+          "end_line": 1,
+          "start_column": 0,
+          "start_line": 1
+        },
+        "type": "node"
+      }
+    },
+    {
+      "claims": null,
+      "default_state": "none",
+      "foreign_keys": [],
+      "node": {
+        "attributes": {
+          "collation": null,
+          "default": null,
+          "generated": null,
+          "identity": null,
+          "name": "note",
+          "nullable": true,
+          "previous_names": [],
+          "primary_key": false,
+          "references": null,
+          "type": "text",
+          "unique": false
+        },
+        "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "file": "a/migrations/1_init.sql",
+        "file_state": "missing",
+        "ide": {
+          "column": 1,
+          "exact": false,
+          "line": 1,
+          "link": "vscode://file/{ROOT}/a/migrations/1_init.sql:1:1"
+        },
+        "identity": "column:a/migrations/1_init.sql#t_self.note",
+        "kind": "column",
+        "level": 4,
+        "name": "note",
+        "qualified_name": "t_self.note",
+        "span": {
+          "end_column": 1,
+          "end_line": 1,
+          "start_column": 0,
+          "start_line": 1
+        },
+        "type": "node"
+      }
+    }
+  ],
+  "completeness": "complete",
+  "dialect": "postgres",
+  "history": [
+    {
+      "event": "created",
+      "evidence": [
+        {
+          "file": "a/migrations/1_init.sql",
+          "span": {
+            "end_column": 1,
+            "end_line": 1,
+            "start_column": 0,
+            "start_line": 1
+          }
+        }
+      ],
+      "migration": {
+        "description": "init",
+        "file": "a/migrations/1_init.sql",
+        "id": "migration:a/migrations/1_init.sql#migration",
+        "order": 1,
+        "version": "1"
+      }
+    },
+    {
+      "event": "altered",
+      "evidence": [
+        {
+          "file": "a/migrations/2_more.sql",
+          "span": {
+            "end_column": 40,
+            "end_line": 3,
+            "start_column": 0,
+            "start_line": 3
+          }
+        }
+      ],
+      "migration": {
+        "description": "more",
+        "file": "a/migrations/2_more.sql",
+        "id": "migration:a/migrations/2_more.sql#migration",
+        "order": 2,
+        "version": "2"
+      }
+    }
+  ],
+  "ide": {
+    "available": true,
+    "editor": "vscode",
+    "error": null,
+    "label": "Open in VS Code",
+    "source": "builtin"
+  },
+  "index": {
+    "contract_version": 1,
+    "finished_at": "2026-11-03T14:32:05.123Z",
+    "indexer": {
+      "name": "crafted",
+      "version": "t018b1"
+    }
+  },
+  "indexes": [],
+  "neighbours": {
+    "incoming": [
+      {
+        "completeness": "complete",
+        "pairs": [
+          {
+            "source_column": "column:a/migrations/1_init.sql#t_self.parent",
+            "target_column": "column:a/migrations/1_init.sql#t_self.id"
+          }
+        ],
+        "table": {
+          "attributes": {
+            "dialect": "postgres",
+            "name": "t_self",
+            "opaque_after": 0,
+            "previous_names": [],
+            "primary_key": [
+              "id"
+            ],
+            "reasons": [],
+            "schema": null,
+            "set": "a/migrations",
+            "state": "complete",
+            "unique_keys": []
+          },
+          "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "file": "a/migrations/1_init.sql",
+          "identity": "table:a/migrations/1_init.sql#t_self",
+          "kind": "table",
+          "level": 4,
+          "name": "t_self",
+          "qualified_name": "t_self",
+          "span": {
+            "end_column": 1,
+            "end_line": 1,
+            "start_column": 0,
+            "start_line": 1
+          },
+          "type": "node"
+        }
+      },
+      {
+        "completeness": "complete",
+        "pairs": [
+          {
+            "source_column": "column:a/migrations/2_more.sql#t_multi.m",
+            "target_column": "column:a/migrations/1_init.sql#t_self.id"
+          }
+        ],
+        "table": {
+          "attributes": {
+            "dialect": "postgres",
+            "name": "t_multi",
+            "opaque_after": 0,
+            "previous_names": [],
+            "primary_key": [
+              "id"
+            ],
+            "reasons": [],
+            "schema": null,
+            "set": "a/migrations",
+            "state": "complete",
+            "unique_keys": []
+          },
+          "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "file": "a/migrations/2_more.sql",
+          "identity": "table:a/migrations/2_more.sql#t_multi",
+          "kind": "table",
+          "level": 4,
+          "name": "t_multi",
+          "qualified_name": "t_multi",
+          "span": {
+            "end_column": 1,
+            "end_line": 1,
+            "start_column": 0,
+            "start_line": 1
+          },
+          "type": "node"
+        }
+      }
+    ],
+    "outgoing": [
+      {
+        "completeness": "complete",
+        "pairs": [
+          {
+            "source_column": "column:a/migrations/1_init.sql#t_self.parent",
+            "target_column": "column:a/migrations/1_init.sql#t_self.id"
+          }
+        ],
+        "table": {
+          "attributes": {
+            "dialect": "postgres",
+            "name": "t_self",
+            "opaque_after": 0,
+            "previous_names": [],
+            "primary_key": [
+              "id"
+            ],
+            "reasons": [],
+            "schema": null,
+            "set": "a/migrations",
+            "state": "complete",
+            "unique_keys": []
+          },
+          "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "file": "a/migrations/1_init.sql",
+          "identity": "table:a/migrations/1_init.sql#t_self",
+          "kind": "table",
+          "level": 4,
+          "name": "t_self",
+          "qualified_name": "t_self",
+          "span": {
+            "end_column": 1,
+            "end_line": 1,
+            "start_column": 0,
+            "start_line": 1
+          },
+          "type": "node"
+        }
+      }
+    ]
+  },
+  "opaque_sites": null,
+  "overlaps": null,
+  "precision": {
+    "label": "best_effort",
+    "reason": "external_indexer",
+    "row": "D"
+  },
+  "reasons": [],
+  "repository": "states",
+  "rests_on": null,
+  "set": "a/migrations",
+  "table": {
+    "attributes": {
+      "dialect": "postgres",
+      "name": "t_self",
+      "opaque_after": 0,
+      "previous_names": [],
+      "primary_key": [
+        "id"
+      ],
+      "reasons": [],
+      "schema": null,
+      "set": "a/migrations",
+      "state": "complete",
+      "unique_keys": []
+    },
+    "content_hash": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "file": "a/migrations/1_init.sql",
+    "file_state": "missing",
+    "ide": {
+      "column": 1,
+      "exact": false,
+      "line": 1,
+      "link": "vscode://file/{ROOT}/a/migrations/1_init.sql:1:1"
+    },
+    "identity": "table:a/migrations/1_init.sql#t_self",
+    "kind": "table",
+    "level": 4,
+    "name": "t_self",
+    "qualified_name": "t_self",
+    "span": {
+      "end_column": 1,
+      "end_line": 1,
+      "start_column": 0,
+      "start_line": 1
+    },
+    "type": "node"
+  },
+  "truncated": null,
+  "unresolved_references": []
+}

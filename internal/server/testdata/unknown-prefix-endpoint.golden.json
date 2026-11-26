@@ -1,0 +1,420 @@
+{
+  "api_version": 0,
+  "callers": [
+    {
+      "edges": [
+        {
+          "confidence": 0.6,
+          "kind": "calls_route",
+          "match": "suffix",
+          "provenance": "inferred"
+        }
+      ],
+      "node": {
+        "attributes": {
+          "assumes": [
+            "UP-V1"
+          ],
+          "base": "none",
+          "library": "fetch",
+          "method": "GET",
+          "paths": [
+            {
+              "assumes": [
+                "UP-V1"
+              ],
+              "candidate_count": 0,
+              "candidates": [
+                "route:server/api.go#GET%20%2Fupb%2Forders%2F%7Bid%7D"
+              ],
+              "conditional": false,
+              "match": "suffix",
+              "origin": null,
+              "resolution": "literal",
+              "route_prefix": "unresolved",
+              "status": "linked",
+              "template": "/v1/upb/orders/{id}"
+            }
+          ],
+          "status": "linked",
+          "url_expression": "`/v1/upb/orders/${id}`",
+          "wrapper": null
+        },
+        "content_hash": "sha256:e99fbee1ed9990c9076764be9e1b23c3e989d1987a0a4d00f15aa112109cc5ba",
+        "file": "web/calls.ts",
+        "file_state": "unchanged",
+        "ide": {
+          "column": 3,
+          "exact": true,
+          "line": 2,
+          "link": "vscode://file/{ROOT}/web/calls.ts:2:3"
+        },
+        "identity": "client_call:web/calls.ts#full.GET%20%60%2Fv1%2Fupb%2Forders%2F%24%7Bid%7D%60",
+        "kind": "client_call",
+        "level": 4,
+        "name": "GET `/v1/upb/orders/${id}`",
+        "qualified_name": "full.GET `/v1/upb/orders/${id}`",
+        "source_root": ".",
+        "span": {
+          "end_column": 31,
+          "end_line": 2,
+          "start_column": 2,
+          "start_line": 2
+        },
+        "type": "node"
+      },
+      "owner": {
+        "id": "function:web/calls.ts#full",
+        "kind": "function",
+        "qualified_name": "full"
+      },
+      "reasons": [
+        {
+          "code": "prefix_assumed",
+          "detail": "UP-V1",
+          "text": "Assumption: The route is served below a prefix the code does not fix (configuration or an unproven hop); the call is taken to reach it because its path ends with the route's proven path below that prefix."
+        }
+      ]
+    },
+    {
+      "edges": [
+        {
+          "confidence": 0.6,
+          "kind": "calls_route",
+          "match": "suffix",
+          "provenance": "inferred"
+        }
+      ],
+      "node": {
+        "attributes": {
+          "assumes": [
+            "UP-V1",
+            "UP-V2"
+          ],
+          "base": "unresolved",
+          "base_expression": "import.meta.env.VITE_API",
+          "library": "fetch",
+          "method": "GET",
+          "paths": [
+            {
+              "assumes": [
+                "UP-V1",
+                "UP-V2"
+              ],
+              "candidate_count": 0,
+              "candidates": [
+                "route:server/api.go#GET%20%2Fupb%2Forders%2F%7Bid%7D"
+              ],
+              "conditional": false,
+              "match": "suffix",
+              "origin": null,
+              "resolution": "literal",
+              "route_prefix": "unresolved",
+              "status": "linked",
+              "template": "/upb/orders/{id}"
+            }
+          ],
+          "status": "linked",
+          "url_expression": "`${import.meta.env.VITE_API}/upb/orders/${id}`",
+          "wrapper": null
+        },
+        "content_hash": "sha256:bb6f089dc5e3fda5e6b578d999b80465a88b2c4f64d24f33c2b4c17817420563",
+        "file": "web/calls.ts",
+        "file_state": "unchanged",
+        "ide": {
+          "column": 3,
+          "exact": true,
+          "line": 21,
+          "link": "vscode://file/{ROOT}/web/calls.ts:21:3"
+        },
+        "identity": "client_call:web/calls.ts#bases.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Fupb%2Forders%2F%24%7Bid%7D%60",
+        "kind": "client_call",
+        "level": 4,
+        "name": "GET `${import.meta.env.VITE_API}/upb/orders/${id}`",
+        "qualified_name": "bases.GET `${import.meta.env.VITE_API}/upb/orders/${id}`",
+        "source_root": ".",
+        "span": {
+          "end_column": 55,
+          "end_line": 21,
+          "start_column": 2,
+          "start_line": 21
+        },
+        "type": "node"
+      },
+      "owner": {
+        "id": "function:web/calls.ts#bases",
+        "kind": "function",
+        "qualified_name": "bases"
+      },
+      "reasons": [
+        {
+          "code": "prefix_assumed",
+          "detail": "UP-V1",
+          "text": "Assumption: The route is served below a prefix the code does not fix (configuration or an unproven hop); the call is taken to reach it because its path ends with the route's proven path below that prefix."
+        },
+        {
+          "code": "prefix_assumed",
+          "detail": "UP-V2",
+          "text": "Assumption: The call's unknown base and the route's unknown prefix are the same value (for example both read from the same configuration)."
+        }
+      ]
+    }
+  ],
+  "callers_precision": {
+    "label": "best_effort",
+    "reason": "default_branch",
+    "row": "D"
+  },
+  "endpoint": {
+    "attributes": {
+      "framework": "chi",
+      "handler": "function:server/api.go#h",
+      "handler_inline": false,
+      "method": "GET",
+      "middleware": [],
+      "paths": [],
+      "pattern": "/upb/orders/{id}",
+      "shape": {
+        "body": {
+          "items": [],
+          "reason": "read from the handler and the calls followed from it; middleware is not read; no body read",
+          "state": "partial"
+        },
+        "cookie": {
+          "items": [],
+          "reason": "read from the handler and the calls followed from it; middleware is not read; no cookie parameter read",
+          "state": "partial"
+        },
+        "follow": {
+          "chains": [
+            {
+              "at": null,
+              "depth": 0,
+              "section": "responses",
+              "start": {
+                "file": "server/api.go",
+                "function": "h",
+                "line": 9
+              },
+              "steps": [],
+              "stop": "ended"
+            }
+          ],
+          "depth_limit": 6
+        },
+        "header": {
+          "items": [],
+          "reason": "read from the handler and the calls followed from it; middleware is not read; no header parameter read",
+          "state": "partial"
+        },
+        "models": [],
+        "path": {
+          "items": [],
+          "reason": "read from the handler and the calls followed from it; middleware is not read; no path parameter read",
+          "state": "partial"
+        },
+        "query": {
+          "items": [],
+          "reason": "read from the handler and the calls followed from it; middleware is not read; no query parameter read",
+          "state": "partial"
+        },
+        "responses": {
+          "items": [],
+          "reason": "read from the handler and the calls followed from it; middleware is not read; middleware and error handlers may answer other statuses",
+          "state": "partial"
+        },
+        "security": {
+          "items": [],
+          "state": "not_read"
+        },
+        "security_schemes": [],
+        "version": 1
+      },
+      "unresolved_mounts": [
+        {
+          "file": "server/api.go",
+          "hop": "r.Route(base,func(...){...})",
+          "key": "mount:server/api.go#API%20r.Route%28base%29",
+          "line": 15,
+          "paths": [
+            {
+              "conditional": false,
+              "resolution": "literal",
+              "template": "/upb/orders/{id}"
+            }
+          ],
+          "reason": "route_prefix_unresolved",
+          "registration": "sha256:3d172e4a7a760f747c55dfc064d04afef9f4852aea28857fffbb9eef512cbeeb",
+          "shadowing": "not_checked",
+          "value_covers": "hop"
+        }
+      ],
+      "unresolved_prefix_paths": [
+        {
+          "conditional": false,
+          "hop": "mount:server/api.go#API%20r.Route%28base%29",
+          "prefix": "unresolved",
+          "prefix_reason": "route_prefix_unresolved",
+          "resolution": "literal",
+          "template": "/upb/orders/{id}"
+        }
+      ]
+    },
+    "content_hash": "sha256:4f70940b4606775cf98228520496b0b750bc0d516dfb2209a3502ac718aea930",
+    "file": "server/api.go",
+    "file_state": "unchanged",
+    "ide": {
+      "column": 3,
+      "exact": true,
+      "line": 16,
+      "link": "vscode://file/{ROOT}/server/api.go:16:3"
+    },
+    "identity": "route:server/api.go#GET%20%2Fupb%2Forders%2F%7Bid%7D",
+    "kind": "route",
+    "level": 4,
+    "name": "GET /upb/orders/{id}",
+    "qualified_name": "GET /upb/orders/{id}",
+    "span": {
+      "end_column": 30,
+      "end_line": 16,
+      "start_column": 2,
+      "start_line": 16
+    },
+    "type": "node"
+  },
+  "handler": {
+    "edge": {
+      "confidence": 1,
+      "kind": "exposes_route",
+      "provenance": "fact"
+    },
+    "expression": null,
+    "node": {
+      "attributes": {},
+      "content_hash": "sha256:4d6aa3c037351ee6c72bdd5b894c0d9fed1ca4384df82d8645796326c21c3c11",
+      "file": "server/api.go",
+      "file_state": "unchanged",
+      "ide": {
+        "column": 1,
+        "exact": true,
+        "line": 9,
+        "link": "vscode://file/{ROOT}/server/api.go:9:1"
+      },
+      "identity": "function:server/api.go#h",
+      "kind": "function",
+      "level": 4,
+      "name": "h",
+      "qualified_name": "h",
+      "span": {
+        "end_column": 49,
+        "end_line": 9,
+        "start_column": 0,
+        "start_line": 9
+      },
+      "type": "node"
+    },
+    "state": "resolved"
+  },
+  "ide": {
+    "available": true,
+    "editor": "vscode",
+    "error": null,
+    "label": "Open in VS Code",
+    "source": "builtin"
+  },
+  "index": {
+    "contract_version": 1,
+    "finished_at": "2026-11-03T14:32:05.123Z",
+    "indexer": {
+      "name": "graphvein",
+      "version": "extractors-62"
+    }
+  },
+  "model_tables": [],
+  "near_misses": [],
+  "near_misses_incomplete": 0,
+  "openapi": {
+    "operations": [],
+    "specs": 0
+  },
+  "precision": {
+    "label": "precise",
+    "reason": null,
+    "row": "PL-F10",
+    "unverified": [
+      "handler",
+      "middleware",
+      "conditional",
+      "scope",
+      "prefix-unknown paths"
+    ]
+  },
+  "repository": "up",
+  "root": null,
+  "scope": "all",
+  "shape": {
+    "body": {
+      "items": [],
+      "reason": "read from the handler and the calls followed from it; middleware is not read; no body read",
+      "state": "partial"
+    },
+    "cookie": {
+      "items": [],
+      "reason": "read from the handler and the calls followed from it; middleware is not read; no cookie parameter read",
+      "state": "partial"
+    },
+    "follow": {
+      "chains": [
+        {
+          "at": null,
+          "depth": 0,
+          "section": "responses",
+          "start": {
+            "file": "server/api.go",
+            "function": "h",
+            "line": 9
+          },
+          "steps": [],
+          "stop": "ended"
+        }
+      ],
+      "depth_limit": 6
+    },
+    "header": {
+      "items": [],
+      "reason": "read from the handler and the calls followed from it; middleware is not read; no header parameter read",
+      "state": "partial"
+    },
+    "models": [],
+    "path": {
+      "items": [],
+      "reason": "read from the handler and the calls followed from it; middleware is not read; no path parameter read",
+      "state": "partial"
+    },
+    "query": {
+      "items": [],
+      "reason": "read from the handler and the calls followed from it; middleware is not read; no query parameter read",
+      "state": "partial"
+    },
+    "responses": {
+      "items": [],
+      "reason": "read from the handler and the calls followed from it; middleware is not read; middleware and error handlers may answer other statuses",
+      "state": "partial"
+    },
+    "security": {
+      "items": [],
+      "state": "not_read"
+    },
+    "security_schemes": [],
+    "version": 1
+  },
+  "shape_links": {
+    "server/api.go:16": {
+      "column": 1,
+      "exact": true,
+      "line": 16,
+      "link": "vscode://file/{ROOT}/server/api.go:16:1"
+    }
+  },
+  "transport": "http"
+}

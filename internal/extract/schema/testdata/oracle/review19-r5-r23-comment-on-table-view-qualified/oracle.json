@@ -1,0 +1,29 @@
+{
+  "id": "review19-r5-r23-comment-on-table-view-qualified",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y42",
+  "row": "review19",
+  "history": {
+    "id": "r23-comment-on-table-view-qualified",
+    "fresh_db": true
+  },
+  "verdict": {
+    "default_schema": "public",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42809",
+        "message": "\"v\" is not a table",
+        "statement": 3,
+        "statement_text": "COMMENT ON TABLE public.v IS 'x';"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "public._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

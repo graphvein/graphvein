@@ -1,0 +1,422 @@
+{
+  "models": {
+    "HTTPValidationError": {
+      "additional": "unknown",
+      "fields": [
+        {
+          "name": "detail",
+          "presence": "optional",
+          "schema": {
+            "items": {
+              "ref": "ValidationError",
+              "type": "ref"
+            },
+            "type": "array"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "Item": {
+      "additional": "unknown",
+      "fields": [
+        {
+          "name": "name",
+          "presence": "required",
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "Person": {
+      "additional": "unknown",
+      "fields": [
+        {
+          "name": "name",
+          "presence": "required",
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "nick",
+          "presence": "unknown",
+          "schema": {
+            "nullable": true,
+            "type": "string"
+          }
+        },
+        {
+          "name": "t",
+          "presence": "unknown",
+          "schema": {
+            "nullable": true,
+            "type": "string"
+          }
+        },
+        {
+          "name": "count",
+          "presence": "required",
+          "schema": {
+            "nullable": true,
+            "type": "integer"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "ValidationError": {
+      "additional": "unknown",
+      "fields": [
+        {
+          "name": "loc",
+          "presence": "required",
+          "schema": {
+            "items": {
+              "reason": "a string or an integer",
+              "type": "unknown"
+            },
+            "type": "array"
+          }
+        },
+        {
+          "name": "msg",
+          "presence": "required",
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "type",
+          "presence": "required",
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "input",
+          "presence": "optional",
+          "schema": {
+            "reason": "any value",
+            "type": "unknown"
+          }
+        },
+        {
+          "name": "ctx",
+          "presence": "optional",
+          "schema": {
+            "additional": "allowed",
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    }
+  },
+  "routes": [
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/main.py#GET%20%2Fannotated",
+      "models": [
+        "Item"
+      ],
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/main.py:50",
+          "state": "provably_none"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/main.py:50",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/main.py:50",
+          "state": "provably_none"
+        },
+        "path": {
+          "evidence": "SH-F3 app/main.py:49",
+          "state": "provably_none"
+        },
+        "query": {
+          "evidence": "SH-F23 app/main.py:50",
+          "state": "provably_none"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/main.py:50",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "returned",
+              "rule": "SH-F26",
+              "schema": {
+                "ref": "Item",
+                "type": "ref"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read; the return annotation is validated from FastAPI 0.89.0; no pyproject.toml proves that version",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/main.py#GET%20%2Fmissing",
+      "models": [
+        "HTTPValidationError",
+        "ValidationError",
+        "Item"
+      ],
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/main.py:40",
+          "state": "provably_none"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/main.py:40",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/main.py:40",
+          "state": "provably_none"
+        },
+        "path": {
+          "evidence": "SH-F3 app/main.py:39",
+          "state": "provably_none"
+        },
+        "query": {
+          "evidence": "SH-F23 app/main.py:40",
+          "items": [
+            {
+              "access": "declared",
+              "at": "app/main.py:40",
+              "key": "q",
+              "kind": "fact",
+              "presence": "required",
+              "rule": "SH-F4",
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "state": "complete"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/main.py:40",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "returned",
+              "rule": "SH-F26",
+              "schema": {
+                "ref": "Item",
+                "type": "ref"
+              }
+            },
+            {
+              "at": "app/main.py:39",
+              "content_type": "application/json",
+              "key": "422",
+              "kind": "intended",
+              "rule": "SH-F30",
+              "schema": {
+                "ref": "HTTPValidationError",
+                "type": "ref"
+              }
+            },
+            {
+              "at": "app/main.py:41",
+              "content_type": null,
+              "key": "404",
+              "kind": "intended",
+              "rule": "SH-F29",
+              "schema": null
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read; an exception handler for starlette.exceptions.HTTPException (app/main.py:17) can rewrite a raised HTTPException; the return annotation is validated from FastAPI 0.89.0; no pyproject.toml proves that version; an exception handler for fastapi.exceptions.RequestValidationError (app/main.py:34) can replace the 422 response",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/main.py#GET%20%2Fteapot",
+      "models": [
+        "HTTPValidationError",
+        "ValidationError"
+      ],
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/main.py:45",
+          "state": "provably_none"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/main.py:45",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/main.py:45",
+          "state": "provably_none"
+        },
+        "path": {
+          "evidence": "SH-F3 app/main.py:44",
+          "state": "provably_none"
+        },
+        "query": {
+          "evidence": "SH-F23 app/main.py:45",
+          "items": [
+            {
+              "access": "declared",
+              "at": "app/main.py:45",
+              "key": "q",
+              "kind": "fact",
+              "presence": "required",
+              "rule": "SH-F4",
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "state": "complete"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/main.py:44",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "fact",
+              "rule": "SH-F27",
+              "schema": {
+                "reason": "no response model is declared",
+                "type": "unknown"
+              }
+            },
+            {
+              "at": "app/main.py:44",
+              "content_type": "application/json",
+              "key": "422",
+              "kind": "intended",
+              "rule": "SH-F30",
+              "schema": {
+                "ref": "HTTPValidationError",
+                "type": "ref"
+              }
+            },
+            {
+              "at": "app/main.py:46",
+              "content_type": null,
+              "key": "418",
+              "kind": "intended",
+              "rule": "SH-F29",
+              "schema": null
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read; an exception handler for starlette.exceptions.HTTPException (app/main.py:17) can rewrite a raised HTTPException; an exception handler for status 418 (app/main.py:35) can rewrite a raised HTTPException; an exception handler for fastapi.exceptions.RequestValidationError (app/main.py:34) can replace the 422 response",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/main.py#POST%20%2Fpeople",
+      "models": [
+        "HTTPValidationError",
+        "ValidationError",
+        "Person"
+      ],
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/main.py:71",
+          "items": [
+            {
+              "at": "app/main.py:71",
+              "content_type": "application/json",
+              "key": "body",
+              "kind": "fact",
+              "rule": "SH-F18",
+              "schema": {
+                "ref": "Person",
+                "type": "ref"
+              }
+            }
+          ],
+          "state": "complete"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/main.py:71",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/main.py:71",
+          "state": "provably_none"
+        },
+        "path": {
+          "evidence": "SH-F3 app/main.py:70",
+          "state": "provably_none"
+        },
+        "query": {
+          "evidence": "SH-F23 app/main.py:71",
+          "state": "provably_none"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/main.py:70",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "fact",
+              "rule": "SH-F27",
+              "schema": {
+                "reason": "no response model is declared",
+                "type": "unknown"
+              }
+            },
+            {
+              "at": "app/main.py:70",
+              "content_type": "application/json",
+              "key": "422",
+              "kind": "intended",
+              "rule": "SH-F30",
+              "schema": {
+                "ref": "HTTPValidationError",
+                "type": "ref"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read; a returned value is not read (app/main.py:72); an exception handler for fastapi.exceptions.RequestValidationError (app/main.py:34) can replace the 422 response",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    }
+  ],
+  "security_schemes": {}
+}

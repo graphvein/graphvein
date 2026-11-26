@@ -1,0 +1,604 @@
+{
+  "links": [
+    {
+      "assumption": "declared in graphvein-project.yaml: `frontend` consumes `backend`",
+      "attributes": {
+        "declaration": "`frontend` consumes `backend`",
+        "match": "exact",
+        "row": "PL-L2",
+        "template": "/t022/orders"
+      },
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "file": "api.ts",
+          "span": {
+            "end_column": 77,
+            "end_line": 10,
+            "start_column": 9,
+            "start_line": 10
+          }
+        }
+      ],
+      "kind": "calls_route",
+      "provenance": "inferred",
+      "source": {
+        "content_hash": "sha256:29860ca0787e9cd55ba71482a957a7122d898a6e4310bcdf354c86f8adc5d485",
+        "identity": "client_call:api.ts#createOrder.POST%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022%2Forders%60",
+        "repository": "frontend",
+        "run": "\u003crun of frontend\u003e"
+      },
+      "target": {
+        "content_hash": "sha256:52d9d531022e7a0c147081bb9431663189d957e6937e46e86b0ae2ebb495ea0f",
+        "identity": "route:server.ts#POST%20%2Ft022%2Forders",
+        "repository": "backend",
+        "run": "\u003crun of backend\u003e"
+      }
+    },
+    {
+      "assumption": "declared in graphvein-project.yaml: `frontend` consumes `backend`",
+      "attributes": {
+        "declaration": "`frontend` consumes `backend`",
+        "match": "exact",
+        "row": "PL-L2",
+        "template": "/t022/users"
+      },
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "file": "api.ts",
+          "span": {
+            "end_column": 107,
+            "end_line": 22,
+            "start_column": 9,
+            "start_line": 22
+          }
+        }
+      ],
+      "kind": "calls_route",
+      "provenance": "inferred",
+      "source": {
+        "content_hash": "sha256:9d4269cb5658b2db95acf6984c983661420b75f0e4a9fb88fb812573178190bd",
+        "identity": "client_call:api.ts#either.GET%20flag%3F%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022%2Fusers%60%3A%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022%2Forders%60",
+        "repository": "frontend",
+        "run": "\u003crun of frontend\u003e"
+      },
+      "target": {
+        "content_hash": "sha256:2ea8ba8fea1c24c4483178ae65ddf4380c0427c20089a7234049a6db9c82199b",
+        "identity": "route:server.ts#GET%20%2Ft022%2Fusers",
+        "repository": "backend",
+        "run": "\u003crun of backend\u003e"
+      }
+    },
+    {
+      "assumption": "declared in graphvein-project.yaml: `frontend` consumes `backend`",
+      "attributes": {
+        "declaration": "`frontend` consumes `backend`",
+        "match": "exact",
+        "row": "PL-L2",
+        "template": "/t022/users/{id}"
+      },
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "file": "api.ts",
+          "span": {
+            "end_column": 67,
+            "end_line": 7,
+            "start_column": 9,
+            "start_line": 7
+          }
+        }
+      ],
+      "kind": "calls_route",
+      "provenance": "inferred",
+      "source": {
+        "content_hash": "sha256:7d60966bbb64395e5ed13859a16a127ef4e609cfa3fe14e2a84a5891473bfe7e",
+        "identity": "client_call:api.ts#getUser.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022%2Fusers%2F%24%7Buser.id%7D%60",
+        "repository": "frontend",
+        "run": "\u003crun of frontend\u003e"
+      },
+      "target": {
+        "content_hash": "sha256:45835f5a55a26bde915c2238366bc3292af872c712323a8ba8e10917b2215c03",
+        "identity": "route:server.ts#GET%20%2Ft022%2Fusers%2F%3Aid",
+        "repository": "backend",
+        "run": "\u003crun of backend\u003e"
+      }
+    },
+    {
+      "assumption": "declared in graphvein-project.yaml: `frontend` consumes `backend`",
+      "attributes": {
+        "declaration": "`frontend` consumes `backend`",
+        "match": "exact",
+        "row": "PL-L2",
+        "template": "/t022/users"
+      },
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "file": "api.ts",
+          "span": {
+            "end_column": 56,
+            "end_line": 4,
+            "start_column": 9,
+            "start_line": 4
+          }
+        }
+      ],
+      "kind": "calls_route",
+      "provenance": "inferred",
+      "source": {
+        "content_hash": "sha256:51df6023688dec1b8bc75a42139c089ef6ebb002cd616bbb013c38291f4137af",
+        "identity": "client_call:api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022%2Fusers%60",
+        "repository": "frontend",
+        "run": "\u003crun of frontend\u003e"
+      },
+      "target": {
+        "content_hash": "sha256:2ea8ba8fea1c24c4483178ae65ddf4380c0427c20089a7234049a6db9c82199b",
+        "identity": "route:server.ts#GET%20%2Ft022%2Fusers",
+        "repository": "backend",
+        "run": "\u003crun of backend\u003e"
+      }
+    },
+    {
+      "assumption": "declared in graphvein-project.yaml: `frontend` consumes `backend`",
+      "attributes": {
+        "declaration": "`frontend` consumes `backend`",
+        "match": "exact",
+        "row": "PL-L2",
+        "template": "/t022/users"
+      },
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "file": "api.ts",
+          "span": {
+            "end_column": 116,
+            "end_line": 30,
+            "start_column": 9,
+            "start_line": 30
+          }
+        }
+      ],
+      "kind": "calls_route",
+      "provenance": "inferred",
+      "source": {
+        "content_hash": "sha256:0f88c0973eaf5e746e0d96d5ddf4597bc0a4cee06d85919d21bc7a6f60c70539",
+        "identity": "client_call:api.ts#mixed.GET%20flag%3F%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022%2Fusers%2F%24%7Bid%7D%60%3A%60%24%7Bimport.meta.env.VITE_PARTNER%7D%2Ft022%2Fusers%60",
+        "repository": "frontend",
+        "run": "\u003crun of frontend\u003e"
+      },
+      "target": {
+        "content_hash": "sha256:2ea8ba8fea1c24c4483178ae65ddf4380c0427c20089a7234049a6db9c82199b",
+        "identity": "route:server.ts#GET%20%2Ft022%2Fusers",
+        "repository": "backend",
+        "run": "\u003crun of backend\u003e"
+      }
+    },
+    {
+      "assumption": "declared in graphvein-project.yaml: `frontend` consumes `backend`",
+      "attributes": {
+        "declaration": "`frontend` consumes `backend`",
+        "match": "exact",
+        "row": "PL-L2",
+        "template": "/t022/users/{id}"
+      },
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "file": "api.ts",
+          "span": {
+            "end_column": 116,
+            "end_line": 30,
+            "start_column": 9,
+            "start_line": 30
+          }
+        }
+      ],
+      "kind": "calls_route",
+      "provenance": "inferred",
+      "source": {
+        "content_hash": "sha256:0f88c0973eaf5e746e0d96d5ddf4597bc0a4cee06d85919d21bc7a6f60c70539",
+        "identity": "client_call:api.ts#mixed.GET%20flag%3F%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022%2Fusers%2F%24%7Bid%7D%60%3A%60%24%7Bimport.meta.env.VITE_PARTNER%7D%2Ft022%2Fusers%60",
+        "repository": "frontend",
+        "run": "\u003crun of frontend\u003e"
+      },
+      "target": {
+        "content_hash": "sha256:45835f5a55a26bde915c2238366bc3292af872c712323a8ba8e10917b2215c03",
+        "identity": "route:server.ts#GET%20%2Ft022%2Fusers%2F%3Aid",
+        "repository": "backend",
+        "run": "\u003crun of backend\u003e"
+      }
+    },
+    {
+      "assumption": "declared in graphvein-project.yaml: `frontend` consumes `backend`",
+      "attributes": {
+        "declaration": "`frontend` consumes `backend`",
+        "match": "exact",
+        "row": "PL-L2",
+        "template": "/t022/same"
+      },
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "file": "api.ts",
+          "span": {
+            "end_column": 55,
+            "end_line": 25,
+            "start_column": 9,
+            "start_line": 25
+          }
+        }
+      ],
+      "kind": "calls_route",
+      "provenance": "inferred",
+      "source": {
+        "content_hash": "sha256:ef286d1fc7a575be84ccece4601d8c20c19d9fb0b8e3fc648283bffc8df321c5",
+        "identity": "client_call:api.ts#sameRoute.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022%2Fsame%60",
+        "repository": "frontend",
+        "run": "\u003crun of frontend\u003e"
+      },
+      "target": {
+        "content_hash": "sha256:9da2d6c13ef34e16b210bbfcdc79b07528d5f740dca05ac76bfa0f5f79e0ff88",
+        "identity": "route:server.ts#GET%20%2Ft022%2Fsame",
+        "repository": "backend",
+        "run": "\u003crun of backend\u003e"
+      }
+    },
+    {
+      "assumption": "declared in graphvein-project.yaml: `frontend` consumes `backend`; origin https://partner.example.com assumed to be backend's server",
+      "attributes": {
+        "declaration": "`frontend` consumes `backend`",
+        "match": "exact",
+        "row": "PL-L6",
+        "template": "/t022/users"
+      },
+      "confidence": 0.7,
+      "evidence": [
+        {
+          "file": "openapi.yaml",
+          "span": {
+            "end_column": 11,
+            "end_line": 9,
+            "start_column": 4,
+            "start_line": 9
+          }
+        }
+      ],
+      "kind": "documents_route",
+      "provenance": "inferred",
+      "source": {
+        "content_hash": "sha256:101f440014d1f0aebf310e6e34d43dcb5f5d42b19f8b90df4e2a8d1dfff6d2aa",
+        "identity": "api_operation:openapi.yaml#GET%20%2Ft022%2Fusers",
+        "repository": "frontend",
+        "run": "\u003crun of frontend\u003e"
+      },
+      "target": {
+        "content_hash": "sha256:2ea8ba8fea1c24c4483178ae65ddf4380c0427c20089a7234049a6db9c82199b",
+        "identity": "route:server.ts#GET%20%2Ft022%2Fusers",
+        "repository": "backend",
+        "run": "\u003crun of backend\u003e"
+      }
+    },
+    {
+      "assumption": "declared in graphvein-project.yaml: `frontend` consumes `backend`; origin https://partner.example.com assumed to be backend's server",
+      "attributes": {
+        "declaration": "`frontend` consumes `backend`",
+        "match": "exact",
+        "row": "PL-L6",
+        "template": "/t022/orders"
+      },
+      "confidence": 0.7,
+      "evidence": [
+        {
+          "file": "openapi.yaml",
+          "span": {
+            "end_column": 12,
+            "end_line": 11,
+            "start_column": 4,
+            "start_line": 11
+          }
+        }
+      ],
+      "kind": "documents_route",
+      "provenance": "inferred",
+      "source": {
+        "content_hash": "sha256:009a7e565011caad92a99f5f8afa5bcfd9714cb5eb4bb77d2dbf9db43f38e0f8",
+        "identity": "api_operation:openapi.yaml#POST%20%2Ft022%2Forders",
+        "repository": "frontend",
+        "run": "\u003crun of frontend\u003e"
+      },
+      "target": {
+        "content_hash": "sha256:52d9d531022e7a0c147081bb9431663189d957e6937e46e86b0ae2ebb495ea0f",
+        "identity": "route:server.ts#POST%20%2Ft022%2Forders",
+        "repository": "backend",
+        "run": "\u003crun of backend\u003e"
+      }
+    }
+  ],
+  "members": [
+    {
+      "repository": "frontend",
+      "run": "\u003crun of frontend\u003e"
+    },
+    {
+      "repository": "backend",
+      "run": "\u003crun of backend\u003e"
+    },
+    {
+      "repository": "backend2",
+      "run": "\u003crun of backend2\u003e"
+    }
+  ],
+  "outcomes": [
+    {
+      "candidate_count": 0,
+      "candidates": [],
+      "kind": "calls_route",
+      "row": "PL-R2",
+      "source": {
+        "identity": "client_call:api.ts#anywhere.GET%20nextUrl%28%29",
+        "repository": "frontend"
+      },
+      "status": "dynamic"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [
+        {
+          "identity": "route:server.ts#POST%20%2Ft022%2Forders",
+          "repository": "backend"
+        }
+      ],
+      "kind": "calls_route",
+      "row": "PL-L2",
+      "source": {
+        "identity": "client_call:api.ts#createOrder.POST%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022%2Forders%60",
+        "repository": "frontend"
+      },
+      "status": "linked",
+      "target": {
+        "identity": "route:server.ts#POST%20%2Ft022%2Forders",
+        "repository": "backend"
+      },
+      "template": "/t022/orders"
+    },
+    {
+      "candidate_count": 2,
+      "candidates": [
+        {
+          "identity": "route:server.ts#GET%20%2Ft022%2Fduplicate",
+          "repository": "backend"
+        },
+        {
+          "identity": "route:server.ts#GET%20%2Ft022%2Fduplicate%402",
+          "repository": "backend"
+        }
+      ],
+      "kind": "calls_route",
+      "row": "PL-R10",
+      "source": {
+        "identity": "client_call:api.ts#duplicate.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022%2Fduplicate%60",
+        "repository": "frontend"
+      },
+      "status": "ambiguous",
+      "template": "/t022/duplicate"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [],
+      "kind": "calls_route",
+      "row": "PL-R8",
+      "source": {
+        "identity": "client_call:api.ts#either.GET%20flag%3F%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022%2Fusers%60%3A%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022%2Forders%60",
+        "repository": "frontend"
+      },
+      "status": "unmatched",
+      "template": "/t022/orders"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [
+        {
+          "identity": "route:server.ts#GET%20%2Ft022%2Fusers",
+          "repository": "backend"
+        }
+      ],
+      "kind": "calls_route",
+      "row": "PL-L2",
+      "source": {
+        "identity": "client_call:api.ts#either.GET%20flag%3F%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022%2Fusers%60%3A%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022%2Forders%60",
+        "repository": "frontend"
+      },
+      "status": "linked",
+      "target": {
+        "identity": "route:server.ts#GET%20%2Ft022%2Fusers",
+        "repository": "backend"
+      },
+      "template": "/t022/users"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [
+        {
+          "identity": "route:server.ts#GET%20%2Ft022%2Fusers%2F%3Aid",
+          "repository": "backend"
+        }
+      ],
+      "kind": "calls_route",
+      "row": "PL-L2",
+      "source": {
+        "identity": "client_call:api.ts#getUser.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022%2Fusers%2F%24%7Buser.id%7D%60",
+        "repository": "frontend"
+      },
+      "status": "linked",
+      "target": {
+        "identity": "route:server.ts#GET%20%2Ft022%2Fusers%2F%3Aid",
+        "repository": "backend"
+      },
+      "template": "/t022/users/{id}"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [],
+      "kind": "calls_route",
+      "row": "PL-R8",
+      "source": {
+        "identity": "client_call:api.ts#health.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022%2Fhealth%60",
+        "repository": "frontend"
+      },
+      "status": "unmatched",
+      "template": "/t022/health"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [
+        {
+          "identity": "route:server.ts#GET%20%2Ft022%2Fusers",
+          "repository": "backend"
+        }
+      ],
+      "kind": "calls_route",
+      "row": "PL-L2",
+      "source": {
+        "identity": "client_call:api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022%2Fusers%60",
+        "repository": "frontend"
+      },
+      "status": "linked",
+      "target": {
+        "identity": "route:server.ts#GET%20%2Ft022%2Fusers",
+        "repository": "backend"
+      },
+      "template": "/t022/users"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [
+        {
+          "identity": "route:server.ts#GET%20%2Ft022%2Fusers",
+          "repository": "backend"
+        }
+      ],
+      "kind": "calls_route",
+      "row": "PL-L2",
+      "source": {
+        "identity": "client_call:api.ts#mixed.GET%20flag%3F%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022%2Fusers%2F%24%7Bid%7D%60%3A%60%24%7Bimport.meta.env.VITE_PARTNER%7D%2Ft022%2Fusers%60",
+        "repository": "frontend"
+      },
+      "status": "linked",
+      "target": {
+        "identity": "route:server.ts#GET%20%2Ft022%2Fusers",
+        "repository": "backend"
+      },
+      "template": "/t022/users"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [
+        {
+          "identity": "route:server.ts#GET%20%2Ft022%2Fusers%2F%3Aid",
+          "repository": "backend"
+        }
+      ],
+      "kind": "calls_route",
+      "row": "PL-L2",
+      "source": {
+        "identity": "client_call:api.ts#mixed.GET%20flag%3F%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022%2Fusers%2F%24%7Bid%7D%60%3A%60%24%7Bimport.meta.env.VITE_PARTNER%7D%2Ft022%2Fusers%60",
+        "repository": "frontend"
+      },
+      "status": "linked",
+      "target": {
+        "identity": "route:server.ts#GET%20%2Ft022%2Fusers%2F%3Aid",
+        "repository": "backend"
+      },
+      "template": "/t022/users/{id}"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [],
+      "kind": "calls_route",
+      "row": "PL-R5",
+      "source": {
+        "identity": "client_call:api.ts#partner.GET%20%27https%3A%2F%2Fpartner.example.com%2Ft022%2Fusers%27",
+        "repository": "frontend"
+      },
+      "status": "unmatched",
+      "template": "/t022/users"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [
+        {
+          "identity": "route:server.ts#GET%20%2Ft022%2Fsame",
+          "repository": "backend"
+        }
+      ],
+      "kind": "calls_route",
+      "row": "PL-L2",
+      "source": {
+        "identity": "client_call:api.ts#sameRoute.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022%2Fsame%60",
+        "repository": "frontend"
+      },
+      "status": "linked",
+      "target": {
+        "identity": "route:server.ts#GET%20%2Ft022%2Fsame",
+        "repository": "backend"
+      },
+      "template": "/t022/same"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [],
+      "kind": "documents_route",
+      "row": "PL-R8",
+      "source": {
+        "identity": "api_operation:openapi.yaml#GET%20%2Ft022%2Fmissing",
+        "repository": "frontend"
+      },
+      "status": "unmatched",
+      "template": "/t022/missing"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [
+        {
+          "identity": "route:server.ts#GET%20%2Ft022%2Fusers",
+          "repository": "backend"
+        }
+      ],
+      "kind": "documents_route",
+      "row": "PL-L6",
+      "source": {
+        "identity": "api_operation:openapi.yaml#GET%20%2Ft022%2Fusers",
+        "repository": "frontend"
+      },
+      "status": "linked",
+      "target": {
+        "identity": "route:server.ts#GET%20%2Ft022%2Fusers",
+        "repository": "backend"
+      },
+      "template": "/t022/users"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [
+        {
+          "identity": "route:server.ts#POST%20%2Ft022%2Forders",
+          "repository": "backend"
+        }
+      ],
+      "kind": "documents_route",
+      "row": "PL-L6",
+      "source": {
+        "identity": "api_operation:openapi.yaml#POST%20%2Ft022%2Forders",
+        "repository": "frontend"
+      },
+      "status": "linked",
+      "target": {
+        "identity": "route:server.ts#POST%20%2Ft022%2Forders",
+        "repository": "backend"
+      },
+      "template": "/t022/orders"
+    }
+  ]
+}

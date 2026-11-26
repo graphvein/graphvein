@@ -1,0 +1,29 @@
+{
+  "id": "review16-y11-plpgsql-raise-count",
+  "signature": "agreed at Revision 1.6",
+  "class": "S1",
+  "owner": "V1",
+  "row": "review16",
+  "history": {
+    "id": "y11-plpgsql-raise-count"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42601",
+        "message": "too many parameters specified for RAISE",
+        "where": "compilation of PL/pgSQL function \"a\" near line 1",
+        "statement": 1,
+        "statement_text": "CREATE FUNCTION a() RETURNS void LANGUAGE plpgsql AS $$ BEGIN RAISE EXCEPTION 'x %', 1, 2; END $$;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

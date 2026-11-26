@@ -1,0 +1,1639 @@
+{
+  "base": "previous",
+  "hidden_tests": 0,
+  "impacts": [
+    {
+      "impact": {
+        "caps": [],
+        "depth": 3,
+        "paths": [
+          {
+            "claim": "depends on",
+            "confidence": 1,
+            "distance": 1,
+            "kind": "route",
+            "node": "route:py/app/main.py#POST%20%2Fusers",
+            "provenance": "fact",
+            "relation": "I16",
+            "route_paths": [
+              {
+                "scope": null,
+                "template": "/users",
+                "trailing_slash": false
+              }
+            ],
+            "seed": "class:py/app/models.py#Address",
+            "steps": [
+              {
+                "confidence": 1,
+                "evidence": [
+                  {
+                    "file": "py/app/main.py",
+                    "span": {
+                      "end_column": 0,
+                      "end_line": 9,
+                      "start_column": 0,
+                      "start_line": 9
+                    }
+                  }
+                ],
+                "kind": "uses_model",
+                "model": {
+                  "name": "Address",
+                  "uses": [
+                    {
+                      "confidence": 1,
+                      "file": "py/app/main.py",
+                      "kind": "fact",
+                      "line": 9,
+                      "rule": "SH-F18",
+                      "section": "body",
+                      "status": null
+                    }
+                  ]
+                },
+                "provenance": "fact",
+                "relation": "I16",
+                "removed": false,
+                "source": "route:py/app/main.py#POST%20%2Fusers",
+                "target": "class:py/app/models.py#Address",
+                "via": null
+              }
+            ],
+            "wording": "through request body (fact) model Address"
+          }
+        ],
+        "seeds": [
+          "class:py/app/models.py#Address"
+        ],
+        "table_uses": [],
+        "unknowns": {
+          "blind_spots": [],
+          "gap_nodes": [],
+          "near_misses": [],
+          "not_extracted": [
+            {
+              "nodes": [],
+              "relation": "I11"
+            }
+          ],
+          "untraversed": {
+            "contains": 2,
+            "exposes_route": 1
+          }
+        }
+      },
+      "seed": "class:py/app/models.py#Address"
+    },
+    {
+      "impact": {
+        "caps": [],
+        "depth": 3,
+        "paths": [
+          {
+            "claim": "depends on",
+            "confidence": 1,
+            "distance": 1,
+            "kind": "route",
+            "node": "route:py/app/main.py#GET%20%2Fusers%2F%7Buser_id%7D",
+            "provenance": "fact",
+            "relation": "I16",
+            "route_paths": [
+              {
+                "scope": null,
+                "template": "/users/{user_id}",
+                "trailing_slash": false
+              }
+            ],
+            "seed": "class:py/app/models.py#UserBase",
+            "steps": [
+              {
+                "confidence": 1,
+                "evidence": [
+                  {
+                    "file": "py/app/main.py",
+                    "span": {
+                      "end_column": 0,
+                      "end_line": 13,
+                      "start_column": 0,
+                      "start_line": 13
+                    }
+                  }
+                ],
+                "kind": "uses_model",
+                "model": {
+                  "name": "UserBase",
+                  "uses": [
+                    {
+                      "confidence": 1,
+                      "file": "py/app/main.py",
+                      "kind": "fact",
+                      "line": 13,
+                      "rule": "SH-F25",
+                      "section": "responses",
+                      "status": "200"
+                    }
+                  ]
+                },
+                "provenance": "fact",
+                "relation": "I16",
+                "removed": false,
+                "source": "route:py/app/main.py#GET%20%2Fusers%2F%7Buser_id%7D",
+                "target": "class:py/app/models.py#UserBase",
+                "via": null
+              }
+            ],
+            "wording": "through response (fact) model UserBase"
+          },
+          {
+            "claim": "depends on",
+            "confidence": 1,
+            "distance": 1,
+            "kind": "route",
+            "node": "route:py/app/main.py#POST%20%2Fusers",
+            "provenance": "fact",
+            "relation": "I16",
+            "route_paths": [
+              {
+                "scope": null,
+                "template": "/users",
+                "trailing_slash": false
+              }
+            ],
+            "seed": "class:py/app/models.py#UserBase",
+            "steps": [
+              {
+                "confidence": 1,
+                "evidence": [
+                  {
+                    "file": "py/app/main.py",
+                    "span": {
+                      "end_column": 0,
+                      "end_line": 8,
+                      "start_column": 0,
+                      "start_line": 8
+                    }
+                  },
+                  {
+                    "file": "py/app/main.py",
+                    "span": {
+                      "end_column": 0,
+                      "end_line": 9,
+                      "start_column": 0,
+                      "start_line": 9
+                    }
+                  }
+                ],
+                "kind": "uses_model",
+                "model": {
+                  "name": "UserBase",
+                  "uses": [
+                    {
+                      "confidence": 1,
+                      "file": "py/app/main.py",
+                      "kind": "fact",
+                      "line": 9,
+                      "rule": "SH-F18",
+                      "section": "body",
+                      "status": null
+                    },
+                    {
+                      "confidence": 1,
+                      "file": "py/app/main.py",
+                      "kind": "fact",
+                      "line": 8,
+                      "rule": "SH-F25",
+                      "section": "responses",
+                      "status": "200"
+                    }
+                  ]
+                },
+                "provenance": "fact",
+                "relation": "I16",
+                "removed": false,
+                "source": "route:py/app/main.py#POST%20%2Fusers",
+                "target": "class:py/app/models.py#UserBase",
+                "via": null
+              }
+            ],
+            "wording": "through request body (fact) and response (fact) model UserBase"
+          }
+        ],
+        "seeds": [
+          "class:py/app/models.py#UserBase"
+        ],
+        "table_uses": [],
+        "unknowns": {
+          "blind_spots": [],
+          "gap_nodes": [],
+          "near_misses": [],
+          "not_extracted": [
+            {
+              "nodes": [],
+              "relation": "I11"
+            }
+          ],
+          "untraversed": {
+            "contains": 3,
+            "exposes_route": 2
+          }
+        }
+      },
+      "seed": "class:py/app/models.py#UserBase"
+    },
+    {
+      "impact": {
+        "caps": [],
+        "depth": 3,
+        "paths": [
+          {
+            "claim": "depends on",
+            "confidence": 1,
+            "distance": 1,
+            "kind": "route",
+            "node": "route:go/main.go#GET%20%2Forders%2F%3Aid",
+            "provenance": "fact",
+            "relation": "I16",
+            "route_paths": [
+              {
+                "scope": null,
+                "template": "/orders/{id}",
+                "trailing_slash": false
+              }
+            ],
+            "seed": "struct:go/types.go#Money",
+            "steps": [
+              {
+                "confidence": 1,
+                "evidence": [
+                  {
+                    "file": "go/main.go",
+                    "span": {
+                      "end_column": 0,
+                      "end_line": 27,
+                      "start_column": 0,
+                      "start_line": 27
+                    }
+                  }
+                ],
+                "kind": "uses_model",
+                "model": {
+                  "name": "Money",
+                  "uses": [
+                    {
+                      "confidence": 1,
+                      "file": "go/main.go",
+                      "kind": "returned",
+                      "line": 27,
+                      "rule": "SH-G18",
+                      "section": "responses",
+                      "status": "200"
+                    }
+                  ]
+                },
+                "provenance": "fact",
+                "relation": "I16",
+                "removed": false,
+                "source": "route:go/main.go#GET%20%2Forders%2F%3Aid",
+                "target": "struct:go/types.go#Money",
+                "via": null
+              }
+            ],
+            "wording": "through response (returned) model Money"
+          },
+          {
+            "claim": "depends on",
+            "confidence": 1,
+            "distance": 1,
+            "kind": "route",
+            "node": "route:go/main.go#POST%20%2Forders",
+            "provenance": "fact",
+            "relation": "I16",
+            "route_paths": [
+              {
+                "scope": null,
+                "template": "/orders",
+                "trailing_slash": false
+              }
+            ],
+            "seed": "struct:go/types.go#Money",
+            "steps": [
+              {
+                "confidence": 1,
+                "evidence": [
+                  {
+                    "file": "go/main.go",
+                    "span": {
+                      "end_column": 0,
+                      "end_line": 23,
+                      "start_column": 0,
+                      "start_line": 23
+                    }
+                  }
+                ],
+                "kind": "uses_model",
+                "model": {
+                  "name": "Money",
+                  "uses": [
+                    {
+                      "confidence": 1,
+                      "file": "go/main.go",
+                      "kind": "returned",
+                      "line": 23,
+                      "rule": "SH-G18",
+                      "section": "responses",
+                      "status": "201"
+                    }
+                  ]
+                },
+                "provenance": "fact",
+                "relation": "I16",
+                "removed": false,
+                "source": "route:go/main.go#POST%20%2Forders",
+                "target": "struct:go/types.go#Money",
+                "via": null
+              }
+            ],
+            "wording": "through response (returned) model Money"
+          }
+        ],
+        "seeds": [
+          "struct:go/types.go#Money"
+        ],
+        "table_uses": [],
+        "unknowns": {
+          "blind_spots": [],
+          "gap_nodes": [],
+          "near_misses": [],
+          "not_extracted": [
+            {
+              "nodes": [],
+              "relation": "I11"
+            }
+          ],
+          "untraversed": {
+            "contains": 3,
+            "exposes_route": 2
+          }
+        }
+      },
+      "seed": "struct:go/types.go#Money"
+    },
+    {
+      "impact": {
+        "caps": [],
+        "depth": 3,
+        "paths": [
+          {
+            "claim": "depends on",
+            "confidence": 1,
+            "distance": 1,
+            "kind": "route",
+            "node": "route:go/main.go#GET%20%2Fhealth",
+            "provenance": "fact",
+            "relation": "I16",
+            "route_paths": [
+              {
+                "scope": null,
+                "template": "/health",
+                "trailing_slash": false
+              }
+            ],
+            "seed": "struct:go/types.go#Status",
+            "steps": [
+              {
+                "confidence": 1,
+                "evidence": [
+                  {
+                    "file": "go/main.go",
+                    "span": {
+                      "end_column": 0,
+                      "end_line": 31,
+                      "start_column": 0,
+                      "start_line": 31
+                    }
+                  }
+                ],
+                "kind": "uses_model",
+                "model": {
+                  "name": "Status",
+                  "uses": [
+                    {
+                      "confidence": 1,
+                      "file": "go/main.go",
+                      "kind": "returned",
+                      "line": 31,
+                      "rule": "SH-G18",
+                      "section": "responses",
+                      "status": "200"
+                    }
+                  ]
+                },
+                "provenance": "fact",
+                "relation": "I16",
+                "removed": false,
+                "source": "route:go/main.go#GET%20%2Fhealth",
+                "target": "struct:go/types.go#Status",
+                "via": null
+              }
+            ],
+            "wording": "through response (returned) model Status"
+          }
+        ],
+        "seeds": [
+          "struct:go/types.go#Status"
+        ],
+        "table_uses": [],
+        "unknowns": {
+          "blind_spots": [],
+          "gap_nodes": [],
+          "near_misses": [],
+          "not_extracted": [
+            {
+              "nodes": [],
+              "relation": "I11"
+            }
+          ],
+          "untraversed": {
+            "contains": 2,
+            "exposes_route": 1
+          }
+        }
+      },
+      "seed": "struct:go/types.go#Status"
+    },
+    {
+      "impact": {
+        "caps": [],
+        "depth": 3,
+        "paths": [
+          {
+            "claim": "depends on",
+            "confidence": 1,
+            "distance": 1,
+            "kind": "route",
+            "node": "route:web/src/app.ts#GET%20%2Fpets%2F%3Aid",
+            "provenance": "fact",
+            "relation": "I16",
+            "route_paths": [
+              {
+                "scope": null,
+                "template": "/pets/{id}",
+                "trailing_slash": false
+              }
+            ],
+            "seed": "interface:web/src/types.ts#Pet",
+            "steps": [
+              {
+                "confidence": 1,
+                "evidence": [
+                  {
+                    "file": "web/src/app.ts",
+                    "span": {
+                      "end_column": 0,
+                      "end_line": 23,
+                      "start_column": 0,
+                      "start_line": 23
+                    }
+                  }
+                ],
+                "kind": "uses_model",
+                "model": {
+                  "name": "Pet",
+                  "uses": [
+                    {
+                      "confidence": 1,
+                      "file": "web/src/app.ts",
+                      "kind": "returned",
+                      "line": 23,
+                      "rule": "SH-E28",
+                      "section": "responses",
+                      "status": "200"
+                    }
+                  ]
+                },
+                "provenance": "fact",
+                "relation": "I16",
+                "removed": false,
+                "source": "route:web/src/app.ts#GET%20%2Fpets%2F%3Aid",
+                "target": "interface:web/src/types.ts#Pet",
+                "via": null
+              }
+            ],
+            "wording": "through response (returned) model Pet"
+          },
+          {
+            "claim": "may depend on",
+            "confidence": 0.9,
+            "distance": 2,
+            "kind": "client_call",
+            "node": "client_call:web/src/client.ts#showPet.GET%20%27%2Fpets%2F1%27",
+            "provenance": "inferred",
+            "relation": "I3",
+            "seed": "interface:web/src/types.ts#Pet",
+            "steps": [
+              {
+                "confidence": 1,
+                "evidence": [
+                  {
+                    "file": "web/src/app.ts",
+                    "span": {
+                      "end_column": 0,
+                      "end_line": 23,
+                      "start_column": 0,
+                      "start_line": 23
+                    }
+                  }
+                ],
+                "kind": "uses_model",
+                "model": {
+                  "name": "Pet",
+                  "uses": [
+                    {
+                      "confidence": 1,
+                      "file": "web/src/app.ts",
+                      "kind": "returned",
+                      "line": 23,
+                      "rule": "SH-E28",
+                      "section": "responses",
+                      "status": "200"
+                    }
+                  ]
+                },
+                "provenance": "fact",
+                "relation": "I16",
+                "removed": false,
+                "source": "route:web/src/app.ts#GET%20%2Fpets%2F%3Aid",
+                "target": "interface:web/src/types.ts#Pet",
+                "via": null
+              },
+              {
+                "confidence": 0.9,
+                "evidence": [
+                  {
+                    "file": "web/src/client.ts",
+                    "span": {
+                      "end_column": 36,
+                      "end_line": 2,
+                      "start_column": 20,
+                      "start_line": 2
+                    }
+                  }
+                ],
+                "kind": "calls_route",
+                "provenance": "inferred",
+                "relation": "I3",
+                "removed": false,
+                "source": "client_call:web/src/client.ts#showPet.GET%20%27%2Fpets%2F1%27",
+                "target": "route:web/src/app.ts#GET%20%2Fpets%2F%3Aid",
+                "via": null
+              }
+            ],
+            "wording": "calls this route"
+          },
+          {
+            "claim": "may depend on",
+            "confidence": 0.9,
+            "distance": 3,
+            "kind": "function",
+            "node": "function:web/src/client.ts#showPet",
+            "provenance": "inferred",
+            "relation": "I2",
+            "seed": "interface:web/src/types.ts#Pet",
+            "steps": [
+              {
+                "confidence": 1,
+                "evidence": [
+                  {
+                    "file": "web/src/app.ts",
+                    "span": {
+                      "end_column": 0,
+                      "end_line": 23,
+                      "start_column": 0,
+                      "start_line": 23
+                    }
+                  }
+                ],
+                "kind": "uses_model",
+                "model": {
+                  "name": "Pet",
+                  "uses": [
+                    {
+                      "confidence": 1,
+                      "file": "web/src/app.ts",
+                      "kind": "returned",
+                      "line": 23,
+                      "rule": "SH-E28",
+                      "section": "responses",
+                      "status": "200"
+                    }
+                  ]
+                },
+                "provenance": "fact",
+                "relation": "I16",
+                "removed": false,
+                "source": "route:web/src/app.ts#GET%20%2Fpets%2F%3Aid",
+                "target": "interface:web/src/types.ts#Pet",
+                "via": null
+              },
+              {
+                "confidence": 0.9,
+                "evidence": [
+                  {
+                    "file": "web/src/client.ts",
+                    "span": {
+                      "end_column": 36,
+                      "end_line": 2,
+                      "start_column": 20,
+                      "start_line": 2
+                    }
+                  }
+                ],
+                "kind": "calls_route",
+                "provenance": "inferred",
+                "relation": "I3",
+                "removed": false,
+                "source": "client_call:web/src/client.ts#showPet.GET%20%27%2Fpets%2F1%27",
+                "target": "route:web/src/app.ts#GET%20%2Fpets%2F%3Aid",
+                "via": null
+              },
+              {
+                "confidence": 1,
+                "evidence": [
+                  {
+                    "file": "web/src/client.ts",
+                    "span": {
+                      "end_column": 36,
+                      "end_line": 2,
+                      "start_column": 20,
+                      "start_line": 2
+                    }
+                  }
+                ],
+                "kind": "contains",
+                "provenance": "fact",
+                "relation": "I2",
+                "removed": false,
+                "source": "function:web/src/client.ts#showPet",
+                "target": "client_call:web/src/client.ts#showPet.GET%20%27%2Fpets%2F1%27",
+                "via": null
+              }
+            ],
+            "wording": "makes the changed call"
+          }
+        ],
+        "seeds": [
+          "interface:web/src/types.ts#Pet"
+        ],
+        "table_uses": [],
+        "unknowns": {
+          "blind_spots": [],
+          "gap_nodes": [],
+          "near_misses": [],
+          "not_extracted": [
+            {
+              "nodes": [],
+              "relation": "I11"
+            }
+          ],
+          "untraversed": {
+            "contains": 2
+          }
+        }
+      },
+      "seed": "interface:web/src/types.ts#Pet"
+    },
+    {
+      "impact": {
+        "caps": [],
+        "depth": 3,
+        "paths": [
+          {
+            "claim": "depends on",
+            "confidence": 1,
+            "distance": 1,
+            "kind": "route",
+            "node": "route:web/src/app.ts#POST%20%2Fpets%2Fchecked",
+            "provenance": "fact",
+            "relation": "I16",
+            "route_paths": [
+              {
+                "scope": null,
+                "template": "/pets/checked",
+                "trailing_slash": false
+              }
+            ],
+            "seed": "variable:web/src/schemas.ts#NewPet",
+            "steps": [
+              {
+                "confidence": 1,
+                "evidence": [
+                  {
+                    "file": "web/src/app.ts",
+                    "span": {
+                      "end_column": 0,
+                      "end_line": 17,
+                      "start_column": 0,
+                      "start_line": 17
+                    }
+                  }
+                ],
+                "kind": "uses_model",
+                "model": {
+                  "name": "NewPet",
+                  "uses": [
+                    {
+                      "confidence": 1,
+                      "file": "web/src/app.ts",
+                      "kind": "fact",
+                      "line": 17,
+                      "rule": "SH-E12",
+                      "section": "body",
+                      "status": null
+                    }
+                  ]
+                },
+                "provenance": "fact",
+                "relation": "I16",
+                "removed": false,
+                "source": "route:web/src/app.ts#POST%20%2Fpets%2Fchecked",
+                "target": "variable:web/src/schemas.ts#NewPet",
+                "via": null
+              }
+            ],
+            "wording": "through request body (fact) model NewPet"
+          }
+        ],
+        "seeds": [
+          "variable:web/src/schemas.ts#NewPet"
+        ],
+        "table_uses": [],
+        "unknowns": {
+          "blind_spots": [],
+          "gap_nodes": [],
+          "near_misses": [],
+          "not_extracted": [
+            {
+              "nodes": [],
+              "relation": "I11"
+            }
+          ],
+          "untraversed": {
+            "contains": 2
+          }
+        }
+      },
+      "seed": "variable:web/src/schemas.ts#NewPet"
+    }
+  ],
+  "items": [
+    {
+      "after": {
+        "fields": {
+          "framework": "gin",
+          "handler": "function:go/main.go#health",
+          "method": "GET",
+          "paths": [
+            {
+              "conditional": false,
+              "resolution": "literal",
+              "template": "/health"
+            }
+          ],
+          "pattern": "/health",
+          "scope": null
+        },
+        "file": "go/main.go",
+        "span": {
+          "end_column": 25,
+          "end_line": 13,
+          "start_column": 1,
+          "start_line": 13
+        }
+      },
+      "before": {
+        "fields": {
+          "framework": "gin",
+          "handler": "function:go/main.go#health",
+          "method": "GET",
+          "paths": [
+            {
+              "conditional": false,
+              "resolution": "literal",
+              "template": "/health"
+            }
+          ],
+          "pattern": "/health",
+          "scope": null
+        },
+        "file": "go/main.go",
+        "span": {
+          "end_column": 25,
+          "end_line": 13,
+          "start_column": 1,
+          "start_line": 13
+        }
+      },
+      "cause": "code",
+      "change": "changed",
+      "confidence": null,
+      "fields": [
+        {
+          "after": [
+            "struct:go/types.go#Status"
+          ],
+          "before": [],
+          "change": "changed",
+          "name": "model_edges"
+        }
+      ],
+      "group": "routes",
+      "hints": [],
+      "id": "route:go/main.go#GET%20%2Fhealth",
+      "identity": "route:go/main.go#GET%20%2Fhealth",
+      "impact_count": null,
+      "kind": "route",
+      "labels": [
+        "models_changed"
+      ],
+      "name": "GET /health",
+      "provenance": null,
+      "reason": null,
+      "record": "node",
+      "row": "C3",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": {
+        "fields": {},
+        "file": "go/types.go",
+        "span": {
+          "end_column": 1,
+          "end_line": 18,
+          "start_column": 5,
+          "start_line": 16
+        }
+      },
+      "before": null,
+      "cause": "code",
+      "change": "added",
+      "confidence": null,
+      "fields": [],
+      "group": "code",
+      "hints": [],
+      "id": "struct:go/types.go#Status",
+      "identity": "struct:go/types.go#Status",
+      "impact_count": 1,
+      "kind": "struct",
+      "labels": [],
+      "name": "Status",
+      "provenance": null,
+      "reason": null,
+      "record": "node",
+      "row": "C2",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": {
+        "fields": {},
+        "file": "py/app/models.py",
+        "span": {
+          "end_column": 12,
+          "end_line": 7,
+          "start_column": 0,
+          "start_line": 4
+        }
+      },
+      "before": {
+        "fields": {},
+        "file": "py/app/models.py",
+        "span": {
+          "end_column": 13,
+          "end_line": 6,
+          "start_column": 0,
+          "start_line": 4
+        }
+      },
+      "cause": "code",
+      "change": "body_changed",
+      "confidence": null,
+      "fields": [],
+      "group": "code",
+      "hints": [],
+      "id": "class:py/app/models.py#Address",
+      "identity": "class:py/app/models.py#Address",
+      "impact_count": 1,
+      "kind": "class",
+      "labels": [],
+      "name": "Address",
+      "provenance": null,
+      "reason": null,
+      "record": "node",
+      "row": "C2",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": {
+        "fields": {},
+        "file": "py/app/models.py",
+        "span": {
+          "end_column": 14,
+          "end_line": 12,
+          "start_column": 0,
+          "start_line": 10
+        }
+      },
+      "before": {
+        "fields": {},
+        "file": "py/app/models.py",
+        "span": {
+          "end_column": 13,
+          "end_line": 10,
+          "start_column": 0,
+          "start_line": 9
+        }
+      },
+      "cause": "code",
+      "change": "body_changed",
+      "confidence": null,
+      "fields": [],
+      "group": "code",
+      "hints": [],
+      "id": "class:py/app/models.py#UserBase",
+      "identity": "class:py/app/models.py#UserBase",
+      "impact_count": 2,
+      "kind": "class",
+      "labels": [],
+      "name": "UserBase",
+      "provenance": null,
+      "reason": null,
+      "record": "node",
+      "row": "C2",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": {
+        "fields": {},
+        "file": "go/main.go",
+        "span": {
+          "end_column": 1,
+          "end_line": 32,
+          "start_column": 0,
+          "start_line": 30
+        }
+      },
+      "before": {
+        "fields": {},
+        "file": "go/main.go",
+        "span": {
+          "end_column": 1,
+          "end_line": 32,
+          "start_column": 0,
+          "start_line": 30
+        }
+      },
+      "cause": "code",
+      "change": "body_changed",
+      "confidence": null,
+      "fields": [],
+      "group": "code",
+      "hints": [],
+      "id": "function:go/main.go#health",
+      "identity": "function:go/main.go#health",
+      "impact_count": null,
+      "kind": "function",
+      "labels": [],
+      "name": "health",
+      "provenance": null,
+      "reason": null,
+      "record": "node",
+      "row": "C2",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": {
+        "fields": {},
+        "file": "web/src/types.ts",
+        "span": {
+          "end_column": 1,
+          "end_line": 5,
+          "start_column": 0,
+          "start_line": 1
+        }
+      },
+      "before": {
+        "fields": {},
+        "file": "web/src/types.ts",
+        "span": {
+          "end_column": 1,
+          "end_line": 4,
+          "start_column": 0,
+          "start_line": 1
+        }
+      },
+      "cause": "code",
+      "change": "body_changed",
+      "confidence": null,
+      "fields": [],
+      "group": "code",
+      "hints": [],
+      "id": "interface:web/src/types.ts#Pet",
+      "identity": "interface:web/src/types.ts#Pet",
+      "impact_count": 3,
+      "kind": "interface",
+      "labels": [],
+      "name": "Pet",
+      "provenance": null,
+      "reason": null,
+      "record": "node",
+      "row": "C2",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": {
+        "fields": {},
+        "file": "go/types.go",
+        "span": {
+          "end_column": 1,
+          "end_line": 8,
+          "start_column": 5,
+          "start_line": 4
+        }
+      },
+      "before": {
+        "fields": {},
+        "file": "go/types.go",
+        "span": {
+          "end_column": 1,
+          "end_line": 7,
+          "start_column": 5,
+          "start_line": 4
+        }
+      },
+      "cause": "code",
+      "change": "body_changed",
+      "confidence": null,
+      "fields": [],
+      "group": "code",
+      "hints": [],
+      "id": "struct:go/types.go#Money",
+      "identity": "struct:go/types.go#Money",
+      "impact_count": 2,
+      "kind": "struct",
+      "labels": [],
+      "name": "Money",
+      "provenance": null,
+      "reason": null,
+      "record": "node",
+      "row": "C2",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": {
+        "fields": {},
+        "file": "web/src/schemas.ts",
+        "span": {
+          "end_column": 2,
+          "end_line": 6,
+          "start_column": 0,
+          "start_line": 3
+        }
+      },
+      "before": {
+        "fields": {},
+        "file": "web/src/schemas.ts",
+        "span": {
+          "end_column": 2,
+          "end_line": 5,
+          "start_column": 0,
+          "start_line": 3
+        }
+      },
+      "cause": "code",
+      "change": "body_changed",
+      "confidence": null,
+      "fields": [],
+      "group": "code",
+      "hints": [],
+      "id": "variable:web/src/schemas.ts#NewPet",
+      "identity": "variable:web/src/schemas.ts#NewPet",
+      "impact_count": 1,
+      "kind": "variable",
+      "labels": [],
+      "name": "NewPet",
+      "provenance": null,
+      "reason": null,
+      "record": "node",
+      "row": "C2",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": {
+        "fields": {
+          "content_hash": "sha256:2eddd6de591de95c857f8d30085f6e5b5bda3ced550b44a6aeea041172981f46",
+          "language": "go",
+          "precision": "precise"
+        },
+        "file": "go/main.go"
+      },
+      "before": {
+        "fields": {
+          "content_hash": "sha256:53f1cd246ec724233d7c5cdda36bd691970b6075f4476b2f76f33ff4a7aef773",
+          "language": "go",
+          "precision": "precise"
+        },
+        "file": "go/main.go"
+      },
+      "cause": "code",
+      "change": "changed",
+      "confidence": null,
+      "fields": [
+        {
+          "after": "sha256:2eddd6de591de95c857f8d30085f6e5b5bda3ced550b44a6aeea041172981f46",
+          "before": "sha256:53f1cd246ec724233d7c5cdda36bd691970b6075f4476b2f76f33ff4a7aef773",
+          "change": "changed",
+          "name": "content_hash"
+        }
+      ],
+      "group": "files",
+      "hints": [],
+      "id": "file:go/main.go",
+      "identity": "go/main.go",
+      "impact_count": null,
+      "kind": "file",
+      "labels": [],
+      "name": "go/main.go",
+      "provenance": null,
+      "reason": null,
+      "record": "file",
+      "row": "C1",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": {
+        "fields": {
+          "content_hash": "sha256:2c92403190ea58483fe05d9aaa870e8da1cc7d5479689fa5e303d738be1a2616",
+          "language": "go",
+          "precision": "precise"
+        },
+        "file": "go/types.go"
+      },
+      "before": {
+        "fields": {
+          "content_hash": "sha256:280bdb8eff9b91037827992276a3ef8b30a4f1297091826603c5328f563db0cc",
+          "language": "go",
+          "precision": "precise"
+        },
+        "file": "go/types.go"
+      },
+      "cause": "code",
+      "change": "changed",
+      "confidence": null,
+      "fields": [
+        {
+          "after": "sha256:2c92403190ea58483fe05d9aaa870e8da1cc7d5479689fa5e303d738be1a2616",
+          "before": "sha256:280bdb8eff9b91037827992276a3ef8b30a4f1297091826603c5328f563db0cc",
+          "change": "changed",
+          "name": "content_hash"
+        }
+      ],
+      "group": "files",
+      "hints": [],
+      "id": "file:go/types.go",
+      "identity": "go/types.go",
+      "impact_count": null,
+      "kind": "file",
+      "labels": [],
+      "name": "go/types.go",
+      "provenance": null,
+      "reason": null,
+      "record": "file",
+      "row": "C1",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": {
+        "fields": {
+          "content_hash": "sha256:55b375c4ba5c6ef055f183f4cc1a1069a945302f6aada221d961b887f7bc3d88",
+          "language": "python",
+          "precision": "precise"
+        },
+        "file": "py/app/models.py"
+      },
+      "before": {
+        "fields": {
+          "content_hash": "sha256:d28aa9a0a95039b9a7699c813c33885ce8b97e34600c63234c406914d533bcb9",
+          "language": "python",
+          "precision": "precise"
+        },
+        "file": "py/app/models.py"
+      },
+      "cause": "code",
+      "change": "changed",
+      "confidence": null,
+      "fields": [
+        {
+          "after": "sha256:55b375c4ba5c6ef055f183f4cc1a1069a945302f6aada221d961b887f7bc3d88",
+          "before": "sha256:d28aa9a0a95039b9a7699c813c33885ce8b97e34600c63234c406914d533bcb9",
+          "change": "changed",
+          "name": "content_hash"
+        }
+      ],
+      "group": "files",
+      "hints": [],
+      "id": "file:py/app/models.py",
+      "identity": "py/app/models.py",
+      "impact_count": null,
+      "kind": "file",
+      "labels": [],
+      "name": "py/app/models.py",
+      "provenance": null,
+      "reason": null,
+      "record": "file",
+      "row": "C1",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": {
+        "fields": {
+          "content_hash": "sha256:a399693d4b3ded5143b0c7e3ab836ea6060aa4999d5963469e54b5cd1bef44c8",
+          "language": "typescript",
+          "precision": "precise"
+        },
+        "file": "web/src/schemas.ts"
+      },
+      "before": {
+        "fields": {
+          "content_hash": "sha256:b1d465db9d96d4fcc30525f8e4c982f8874e3a43596896bd44b20d6ae24b6cbf",
+          "language": "typescript",
+          "precision": "precise"
+        },
+        "file": "web/src/schemas.ts"
+      },
+      "cause": "code",
+      "change": "changed",
+      "confidence": null,
+      "fields": [
+        {
+          "after": "sha256:a399693d4b3ded5143b0c7e3ab836ea6060aa4999d5963469e54b5cd1bef44c8",
+          "before": "sha256:b1d465db9d96d4fcc30525f8e4c982f8874e3a43596896bd44b20d6ae24b6cbf",
+          "change": "changed",
+          "name": "content_hash"
+        }
+      ],
+      "group": "files",
+      "hints": [],
+      "id": "file:web/src/schemas.ts",
+      "identity": "web/src/schemas.ts",
+      "impact_count": null,
+      "kind": "file",
+      "labels": [],
+      "name": "web/src/schemas.ts",
+      "provenance": null,
+      "reason": null,
+      "record": "file",
+      "row": "C1",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": {
+        "fields": {
+          "content_hash": "sha256:238d9b0a9ab8e3d595d0636670d5b5594a5d8979eb1b069b0728a8d6b04a439c",
+          "language": "typescript",
+          "precision": "precise"
+        },
+        "file": "web/src/types.ts"
+      },
+      "before": {
+        "fields": {
+          "content_hash": "sha256:2e02c97beed477866901c9dd497659782071dc8b33f441bb3519d84e6d34271d",
+          "language": "typescript",
+          "precision": "precise"
+        },
+        "file": "web/src/types.ts"
+      },
+      "cause": "code",
+      "change": "changed",
+      "confidence": null,
+      "fields": [
+        {
+          "after": "sha256:238d9b0a9ab8e3d595d0636670d5b5594a5d8979eb1b069b0728a8d6b04a439c",
+          "before": "sha256:2e02c97beed477866901c9dd497659782071dc8b33f441bb3519d84e6d34271d",
+          "change": "changed",
+          "name": "content_hash"
+        }
+      ],
+      "group": "files",
+      "hints": [],
+      "id": "file:web/src/types.ts",
+      "identity": "web/src/types.ts",
+      "impact_count": null,
+      "kind": "file",
+      "labels": [],
+      "name": "web/src/types.ts",
+      "provenance": null,
+      "reason": null,
+      "record": "file",
+      "row": "C1",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": {
+        "fields": {
+          "confidence": 1,
+          "provenance": "fact"
+        },
+        "file": "go/types.go",
+        "span": {
+          "end_column": 1,
+          "end_line": 18,
+          "start_column": 5,
+          "start_line": 16
+        }
+      },
+      "before": null,
+      "cause": "code",
+      "change": "added",
+      "confidence": 1,
+      "fields": [],
+      "group": "other",
+      "hints": [],
+      "id": "edge:[\"contains\",\"file:go/types.go#go%2Ftypes.go\",\"struct:go/types.go#Status\"]",
+      "identity": "[\"contains\",\"file:go/types.go#go%2Ftypes.go\",\"struct:go/types.go#Status\"]",
+      "impact_count": null,
+      "kind": "contains",
+      "labels": [],
+      "name": "file:go/types.go#go%2Ftypes.go -\u003e struct:go/types.go#Status",
+      "provenance": "fact",
+      "reason": null,
+      "record": "edge",
+      "row": "C16",
+      "test": false,
+      "wording": null
+    }
+  ],
+  "repository": "fixture",
+  "summary": {
+    "base": {
+      "dirty": null,
+      "extractor": {
+        "name": "graphvein",
+        "version": "extractors-62"
+      },
+      "finished_at": "\u003ctime-1\u003e",
+      "gaps": [],
+      "gaps_truncated": false,
+      "kind": "run",
+      "partial": false,
+      "partial_reasons": [],
+      "repository": "fixture",
+      "run": "\u003crun-1\u003e"
+    },
+    "contract_version": "T019-r8",
+    "extractor_changed": false,
+    "extractor_recheck": null,
+    "file_metadata_only": 0,
+    "groups": [
+      {
+        "causes": {
+          "code": 1
+        },
+        "changes": {
+          "changed": 1
+        },
+        "context": 0,
+        "group": "routes",
+        "hidden_tests": 0,
+        "items": 1,
+        "kinds": {
+          "route": 1
+        },
+        "moves": 1,
+        "other_changes": 7
+      },
+      {
+        "causes": {},
+        "changes": {},
+        "context": 0,
+        "group": "client_calls",
+        "hidden_tests": 0,
+        "items": 0,
+        "kinds": {},
+        "moves": 0,
+        "other_changes": 0
+      },
+      {
+        "causes": {},
+        "changes": {},
+        "context": 0,
+        "group": "api_operations",
+        "hidden_tests": 0,
+        "items": 0,
+        "kinds": {},
+        "moves": 0,
+        "other_changes": 0
+      },
+      {
+        "causes": {},
+        "changes": {},
+        "context": 0,
+        "group": "ipc",
+        "hidden_tests": 0,
+        "items": 0,
+        "kinds": {},
+        "moves": 0,
+        "other_changes": 0
+      },
+      {
+        "causes": {},
+        "changes": {},
+        "context": 0,
+        "group": "server_actions",
+        "hidden_tests": 0,
+        "items": 0,
+        "kinds": {},
+        "moves": 0,
+        "other_changes": 0
+      },
+      {
+        "causes": {},
+        "changes": {},
+        "context": 0,
+        "group": "migration_tables",
+        "hidden_tests": 0,
+        "items": 0,
+        "kinds": {},
+        "moves": 0,
+        "other_changes": 0
+      },
+      {
+        "causes": {},
+        "changes": {},
+        "context": 0,
+        "group": "model_tables",
+        "hidden_tests": 0,
+        "items": 0,
+        "kinds": {},
+        "moves": 0,
+        "other_changes": 0
+      },
+      {
+        "causes": {},
+        "changes": {},
+        "context": 0,
+        "group": "migrations",
+        "hidden_tests": 0,
+        "items": 0,
+        "kinds": {},
+        "moves": 0,
+        "other_changes": 0
+      },
+      {
+        "causes": {
+          "code": 7
+        },
+        "changes": {
+          "added": 1,
+          "body_changed": 6
+        },
+        "context": 0,
+        "group": "code",
+        "hidden_tests": 0,
+        "items": 7,
+        "kinds": {
+          "class": 2,
+          "function": 1,
+          "interface": 1,
+          "struct": 2,
+          "variable": 1
+        },
+        "moves": 6,
+        "other_changes": 0
+      },
+      {
+        "causes": {},
+        "changes": {},
+        "context": 0,
+        "group": "angular",
+        "hidden_tests": 0,
+        "items": 0,
+        "kinds": {},
+        "moves": 0,
+        "other_changes": 0
+      },
+      {
+        "causes": {},
+        "changes": {},
+        "context": 0,
+        "group": "react",
+        "hidden_tests": 0,
+        "items": 0,
+        "kinds": {},
+        "moves": 0,
+        "other_changes": 0
+      },
+      {
+        "causes": {},
+        "changes": {},
+        "context": 0,
+        "group": "architecture",
+        "hidden_tests": 0,
+        "items": 0,
+        "kinds": {},
+        "moves": 0,
+        "other_changes": 0
+      },
+      {
+        "causes": {
+          "code": 5
+        },
+        "changes": {
+          "changed": 5
+        },
+        "context": 5,
+        "group": "files",
+        "hidden_tests": 0,
+        "items": 5,
+        "kinds": {
+          "file": 5
+        },
+        "moves": 0,
+        "other_changes": 0
+      },
+      {
+        "causes": {},
+        "changes": {},
+        "context": 0,
+        "group": "gaps",
+        "hidden_tests": 0,
+        "items": 0,
+        "kinds": {},
+        "moves": 0,
+        "other_changes": 0
+      },
+      {
+        "causes": {
+          "code": 1
+        },
+        "changes": {
+          "added": 1
+        },
+        "context": 0,
+        "group": "other",
+        "hidden_tests": 0,
+        "items": 1,
+        "kinds": {
+          "contains": 1
+        },
+        "moves": 11,
+        "other_changes": 0
+      },
+      {
+        "causes": {},
+        "changes": {},
+        "context": 0,
+        "group": "unclassified",
+        "hidden_tests": 0,
+        "items": 0,
+        "kinds": {},
+        "moves": 0,
+        "other_changes": 0
+      }
+    ],
+    "head": {
+      "dirty": null,
+      "extractor": {
+        "name": "graphvein",
+        "version": "extractors-62"
+      },
+      "finished_at": "\u003ctime-2\u003e",
+      "gaps": [],
+      "gaps_truncated": false,
+      "kind": "current",
+      "partial": false,
+      "partial_reasons": [],
+      "repository": "fixture",
+      "run": "\u003crun-2\u003e"
+    },
+    "head_commit_differs": false,
+    "locations": 0,
+    "not_extracted": [
+      "architecture"
+    ],
+    "partial": false,
+    "total": 14
+  }
+}

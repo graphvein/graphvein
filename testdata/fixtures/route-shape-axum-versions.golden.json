@@ -1,0 +1,1696 @@
+{
+  "diagnostics": [],
+  "shapes": {
+    "route:unlocked/any/src/lib.rs#ANY /form-any": {
+      "body": {
+        "items": [],
+        "reason": "Form on ANY reads the query on GET and the body on other methods",
+        "state": "partial"
+      },
+      "cookie": {
+        "items": [],
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [],
+        "state": "not_read"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "unlocked/any/src/lib.rs",
+          "kind": "fact",
+          "line": 45,
+          "rule": "SH-X1"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "query": {
+        "items": [],
+        "reason": "Form on ANY reads the query on GET and the body on other methods",
+        "state": "partial"
+      },
+      "responses": {
+        "items": [
+          {
+            "content_type": null,
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "unlocked/any/src/lib.rs",
+              "kind": "returned",
+              "line": 28,
+              "rule": "SH-X25"
+            },
+            "schema": {
+              "type": "string"
+            },
+            "status": "200"
+          }
+        ],
+        "reason": "the content type of text responses depends on the axum version, which is not proven (the axum requirement \u003e=0.3 is not read); panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:unlocked/any/src/lib.rs#GET /page": {
+      "body": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "unlocked/any/src/lib.rs",
+          "kind": "fact",
+          "line": 19,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "cookie": {
+        "items": [],
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [],
+        "state": "not_read"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "unlocked/any/src/lib.rs",
+          "kind": "fact",
+          "line": 43,
+          "rule": "SH-X1"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "query": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "unlocked/any/src/lib.rs",
+          "kind": "fact",
+          "line": 19,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "responses": {
+        "items": [
+          {
+            "content_type": null,
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "unlocked/any/src/lib.rs",
+              "kind": "returned",
+              "line": 19,
+              "rule": "SH-X25"
+            },
+            "schema": {
+              "type": "string"
+            },
+            "status": "200"
+          }
+        ],
+        "reason": "the content type of text responses depends on the axum version, which is not proven (the axum requirement \u003e=0.3 is not read); panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:unlocked/any/src/lib.rs#GET /text": {
+      "body": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "unlocked/any/src/lib.rs",
+          "kind": "fact",
+          "line": 15,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "cookie": {
+        "items": [],
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [],
+        "state": "not_read"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "unlocked/any/src/lib.rs",
+          "kind": "fact",
+          "line": 42,
+          "rule": "SH-X1"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "query": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "unlocked/any/src/lib.rs",
+          "kind": "fact",
+          "line": 15,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "responses": {
+        "items": [
+          {
+            "content_type": null,
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "unlocked/any/src/lib.rs",
+              "kind": "returned",
+              "line": 15,
+              "rule": "SH-X25"
+            },
+            "schema": {
+              "type": "string"
+            },
+            "status": "200"
+          }
+        ],
+        "reason": "the content type of text responses depends on the axum version, which is not proven (the axum requirement \u003e=0.3 is not read); panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:unlocked/any/src/lib.rs#HEAD /form-head": {
+      "body": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "unlocked/any/src/lib.rs",
+          "kind": "fact",
+          "line": 23,
+          "rule": "SH-X29"
+        },
+        "items": [
+          {
+            "content_type": "application/x-www-form-urlencoded",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "unlocked/any/src/lib.rs",
+              "kind": "fact",
+              "line": 23,
+              "rule": "SH-X7"
+            },
+            "schema": {
+              "additional": "allowed",
+              "fields": [
+                {
+                  "name": "user",
+                  "presence": "required",
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "state": "complete"
+      },
+      "cookie": {
+        "items": [],
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [],
+        "state": "not_read"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "unlocked/any/src/lib.rs",
+          "kind": "fact",
+          "line": 44,
+          "rule": "SH-X1"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "query": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "unlocked/any/src/lib.rs",
+          "kind": "fact",
+          "line": 23,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "responses": {
+        "items": [
+          {
+            "content_type": null,
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "unlocked/any/src/lib.rs",
+              "kind": "returned",
+              "line": 25,
+              "rule": "SH-X23"
+            },
+            "schema": {
+              "type": "null"
+            },
+            "status": "200"
+          }
+        ],
+        "reason": "panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:unlocked/any/src/lib.rs#POST /headers-first": {
+      "body": {
+        "items": [],
+        "reason": "HeaderMap at unlocked/any/src/lib.rs:32 takes the headers before a later extractor in axum before 0.5, and the axum version is not proven to be later (the axum requirement \u003e=0.3 is not read)",
+        "state": "partial"
+      },
+      "cookie": {
+        "items": [],
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [
+          {
+            "at": null,
+            "depth": 0,
+            "section": "header",
+            "start": {
+              "file": "unlocked/any/src/lib.rs",
+              "function": "headers_first",
+              "line": 32
+            },
+            "steps": [],
+            "stop": "ended"
+          }
+        ],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [
+          {
+            "access": "read_by_handler",
+            "name": "x-a",
+            "presence": "unknown",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "unlocked/any/src/lib.rs",
+              "kind": "read_in_handler",
+              "line": 33,
+              "rule": "SH-X11"
+            },
+            "schema": null
+          }
+        ],
+        "reason": "middleware (layers) is not read",
+        "state": "partial"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "unlocked/any/src/lib.rs",
+          "kind": "fact",
+          "line": 46,
+          "rule": "SH-X1"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "query": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "unlocked/any/src/lib.rs",
+          "kind": "fact",
+          "line": 32,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "responses": {
+        "items": [],
+        "reason": "HeaderMap at unlocked/any/src/lib.rs:32 takes the headers before a later extractor in axum before 0.5, and the axum version is not proven to be later (the axum requirement \u003e=0.3 is not read); panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:workspace/inherit/src/lib.rs#ANY /form-any": {
+      "body": {
+        "items": [],
+        "reason": "Form on ANY reads the query on GET and the body on other methods",
+        "state": "partial"
+      },
+      "cookie": {
+        "items": [],
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [],
+        "state": "not_read"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "workspace/inherit/src/lib.rs",
+          "kind": "fact",
+          "line": 45,
+          "rule": "SH-X1"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "query": {
+        "items": [],
+        "reason": "Form on ANY reads the query on GET and the body on other methods",
+        "state": "partial"
+      },
+      "responses": {
+        "items": [
+          {
+            "content_type": "text/plain; charset=utf-8",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "workspace/inherit/src/lib.rs",
+              "kind": "returned",
+              "line": 28,
+              "rule": "SH-X25"
+            },
+            "schema": {
+              "type": "string"
+            },
+            "status": "200"
+          }
+        ],
+        "reason": "panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:workspace/inherit/src/lib.rs#GET /page": {
+      "body": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "workspace/inherit/src/lib.rs",
+          "kind": "fact",
+          "line": 19,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "cookie": {
+        "items": [],
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [],
+        "state": "not_read"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "workspace/inherit/src/lib.rs",
+          "kind": "fact",
+          "line": 43,
+          "rule": "SH-X1"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "query": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "workspace/inherit/src/lib.rs",
+          "kind": "fact",
+          "line": 19,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "responses": {
+        "items": [
+          {
+            "content_type": "text/html; charset=utf-8",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "workspace/inherit/src/lib.rs",
+              "kind": "returned",
+              "line": 19,
+              "rule": "SH-X25"
+            },
+            "schema": {
+              "type": "string"
+            },
+            "status": "200"
+          }
+        ],
+        "reason": "panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:workspace/inherit/src/lib.rs#GET /text": {
+      "body": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "workspace/inherit/src/lib.rs",
+          "kind": "fact",
+          "line": 15,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "cookie": {
+        "items": [],
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [],
+        "state": "not_read"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "workspace/inherit/src/lib.rs",
+          "kind": "fact",
+          "line": 42,
+          "rule": "SH-X1"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "query": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "workspace/inherit/src/lib.rs",
+          "kind": "fact",
+          "line": 15,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "responses": {
+        "items": [
+          {
+            "content_type": "text/plain; charset=utf-8",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "workspace/inherit/src/lib.rs",
+              "kind": "returned",
+              "line": 15,
+              "rule": "SH-X25"
+            },
+            "schema": {
+              "type": "string"
+            },
+            "status": "200"
+          }
+        ],
+        "reason": "panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:workspace/inherit/src/lib.rs#HEAD /form-head": {
+      "body": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "workspace/inherit/src/lib.rs",
+          "kind": "fact",
+          "line": 23,
+          "rule": "SH-X29"
+        },
+        "items": [
+          {
+            "content_type": "application/x-www-form-urlencoded",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "workspace/inherit/src/lib.rs",
+              "kind": "fact",
+              "line": 23,
+              "rule": "SH-X7"
+            },
+            "schema": {
+              "additional": "allowed",
+              "fields": [
+                {
+                  "name": "user",
+                  "presence": "required",
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "state": "complete"
+      },
+      "cookie": {
+        "items": [],
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [],
+        "state": "not_read"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "workspace/inherit/src/lib.rs",
+          "kind": "fact",
+          "line": 44,
+          "rule": "SH-X1"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "query": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "workspace/inherit/src/lib.rs",
+          "kind": "fact",
+          "line": 23,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "responses": {
+        "items": [
+          {
+            "content_type": null,
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "workspace/inherit/src/lib.rs",
+              "kind": "returned",
+              "line": 25,
+              "rule": "SH-X23"
+            },
+            "schema": {
+              "type": "null"
+            },
+            "status": "200"
+          }
+        ],
+        "reason": "panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:workspace/inherit/src/lib.rs#POST /headers-first": {
+      "body": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "workspace/inherit/src/lib.rs",
+          "kind": "fact",
+          "line": 32,
+          "rule": "SH-X29"
+        },
+        "items": [
+          {
+            "content_type": "application/json",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "workspace/inherit/src/lib.rs",
+              "kind": "fact",
+              "line": 32,
+              "rule": "SH-X6"
+            },
+            "schema": {
+              "additional": "allowed",
+              "fields": [
+                {
+                  "name": "user",
+                  "presence": "required",
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "state": "complete"
+      },
+      "cookie": {
+        "items": [],
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [
+          {
+            "at": null,
+            "depth": 0,
+            "section": "header",
+            "start": {
+              "file": "workspace/inherit/src/lib.rs",
+              "function": "headers_first",
+              "line": 32
+            },
+            "steps": [],
+            "stop": "ended"
+          }
+        ],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [
+          {
+            "access": "read_by_handler",
+            "name": "x-a",
+            "presence": "unknown",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "workspace/inherit/src/lib.rs",
+              "kind": "read_in_handler",
+              "line": 33,
+              "rule": "SH-X11"
+            },
+            "schema": null
+          }
+        ],
+        "reason": "middleware (layers) is not read",
+        "state": "partial"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "workspace/inherit/src/lib.rs",
+          "kind": "fact",
+          "line": 46,
+          "rule": "SH-X1"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "query": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "workspace/inherit/src/lib.rs",
+          "kind": "fact",
+          "line": 32,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "responses": {
+        "items": [
+          {
+            "content_type": null,
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "workspace/inherit/src/lib.rs",
+              "kind": "returned",
+              "line": 34,
+              "rule": "SH-X23"
+            },
+            "schema": {
+              "type": "null"
+            },
+            "status": "200"
+          },
+          {
+            "content_type": null,
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "workspace/inherit/src/lib.rs",
+              "kind": "returned",
+              "line": 36,
+              "rule": "SH-X23"
+            },
+            "schema": {
+              "type": "null"
+            },
+            "status": "202"
+          }
+        ],
+        "reason": "panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:workspace/locked-old/src/lib.rs#ANY /form-any": {
+      "body": {
+        "items": [],
+        "reason": "Form on ANY reads the query on GET and the body on other methods",
+        "state": "partial"
+      },
+      "cookie": {
+        "items": [],
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [],
+        "state": "not_read"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "workspace/locked-old/src/lib.rs",
+          "kind": "fact",
+          "line": 45,
+          "rule": "SH-X1"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "query": {
+        "items": [],
+        "reason": "Form on ANY reads the query on GET and the body on other methods",
+        "state": "partial"
+      },
+      "responses": {
+        "items": [
+          {
+            "content_type": "text/plain",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "workspace/locked-old/src/lib.rs",
+              "kind": "returned",
+              "line": 28,
+              "rule": "SH-X25"
+            },
+            "schema": {
+              "type": "string"
+            },
+            "status": "200"
+          }
+        ],
+        "reason": "panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:workspace/locked-old/src/lib.rs#GET /page": {
+      "body": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "workspace/locked-old/src/lib.rs",
+          "kind": "fact",
+          "line": 19,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "cookie": {
+        "items": [],
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [],
+        "state": "not_read"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "workspace/locked-old/src/lib.rs",
+          "kind": "fact",
+          "line": 43,
+          "rule": "SH-X1"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "query": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "workspace/locked-old/src/lib.rs",
+          "kind": "fact",
+          "line": 19,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "responses": {
+        "items": [
+          {
+            "content_type": "text/html",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "workspace/locked-old/src/lib.rs",
+              "kind": "returned",
+              "line": 19,
+              "rule": "SH-X25"
+            },
+            "schema": {
+              "type": "string"
+            },
+            "status": "200"
+          }
+        ],
+        "reason": "panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:workspace/locked-old/src/lib.rs#GET /text": {
+      "body": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "workspace/locked-old/src/lib.rs",
+          "kind": "fact",
+          "line": 15,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "cookie": {
+        "items": [],
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [],
+        "state": "not_read"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "workspace/locked-old/src/lib.rs",
+          "kind": "fact",
+          "line": 42,
+          "rule": "SH-X1"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "query": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "workspace/locked-old/src/lib.rs",
+          "kind": "fact",
+          "line": 15,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "responses": {
+        "items": [
+          {
+            "content_type": "text/plain",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "workspace/locked-old/src/lib.rs",
+              "kind": "returned",
+              "line": 15,
+              "rule": "SH-X25"
+            },
+            "schema": {
+              "type": "string"
+            },
+            "status": "200"
+          }
+        ],
+        "reason": "panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:workspace/locked-old/src/lib.rs#HEAD /form-head": {
+      "body": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "workspace/locked-old/src/lib.rs",
+          "kind": "fact",
+          "line": 23,
+          "rule": "SH-X29"
+        },
+        "items": [
+          {
+            "content_type": "application/x-www-form-urlencoded",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "workspace/locked-old/src/lib.rs",
+              "kind": "fact",
+              "line": 23,
+              "rule": "SH-X7"
+            },
+            "schema": {
+              "additional": "allowed",
+              "fields": [
+                {
+                  "name": "user",
+                  "presence": "required",
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "state": "complete"
+      },
+      "cookie": {
+        "items": [],
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [],
+        "state": "not_read"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "workspace/locked-old/src/lib.rs",
+          "kind": "fact",
+          "line": 44,
+          "rule": "SH-X1"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "query": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "workspace/locked-old/src/lib.rs",
+          "kind": "fact",
+          "line": 23,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "responses": {
+        "items": [
+          {
+            "content_type": null,
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "workspace/locked-old/src/lib.rs",
+              "kind": "returned",
+              "line": 25,
+              "rule": "SH-X23"
+            },
+            "schema": {
+              "type": "null"
+            },
+            "status": "200"
+          }
+        ],
+        "reason": "panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:workspace/locked-old/src/lib.rs#POST /headers-first": {
+      "body": {
+        "items": [],
+        "reason": "HeaderMap at workspace/locked-old/src/lib.rs:32 takes the headers before a later extractor in axum before 0.5, and the axum version is not proven to be later (axum 0.3.4 (workspace/Cargo.lock))",
+        "state": "partial"
+      },
+      "cookie": {
+        "items": [],
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [
+          {
+            "at": null,
+            "depth": 0,
+            "section": "header",
+            "start": {
+              "file": "workspace/locked-old/src/lib.rs",
+              "function": "headers_first",
+              "line": 32
+            },
+            "steps": [],
+            "stop": "ended"
+          }
+        ],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [
+          {
+            "access": "read_by_handler",
+            "name": "x-a",
+            "presence": "unknown",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "workspace/locked-old/src/lib.rs",
+              "kind": "read_in_handler",
+              "line": 33,
+              "rule": "SH-X11"
+            },
+            "schema": null
+          }
+        ],
+        "reason": "middleware (layers) is not read",
+        "state": "partial"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "workspace/locked-old/src/lib.rs",
+          "kind": "fact",
+          "line": 46,
+          "rule": "SH-X1"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "query": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "workspace/locked-old/src/lib.rs",
+          "kind": "fact",
+          "line": 32,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "responses": {
+        "items": [],
+        "reason": "HeaderMap at workspace/locked-old/src/lib.rs:32 takes the headers before a later extractor in axum before 0.5, and the axum version is not proven to be later (axum 0.3.4 (workspace/Cargo.lock)); panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:workspace/unlisted/src/lib.rs#ANY /form-any": {
+      "body": {
+        "items": [],
+        "reason": "Form on ANY reads the query on GET and the body on other methods",
+        "state": "partial"
+      },
+      "cookie": {
+        "items": [],
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [],
+        "state": "not_read"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "workspace/unlisted/src/lib.rs",
+          "kind": "fact",
+          "line": 45,
+          "rule": "SH-X1"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "query": {
+        "items": [],
+        "reason": "Form on ANY reads the query on GET and the body on other methods",
+        "state": "partial"
+      },
+      "responses": {
+        "items": [
+          {
+            "content_type": null,
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "workspace/unlisted/src/lib.rs",
+              "kind": "returned",
+              "line": 28,
+              "rule": "SH-X25"
+            },
+            "schema": {
+              "type": "string"
+            },
+            "status": "200"
+          }
+        ],
+        "reason": "the content type of text responses depends on the axum version, which is not proven (workspace/Cargo.lock does not lock one package unlisted); panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:workspace/unlisted/src/lib.rs#GET /page": {
+      "body": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "workspace/unlisted/src/lib.rs",
+          "kind": "fact",
+          "line": 19,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "cookie": {
+        "items": [],
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [],
+        "state": "not_read"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "workspace/unlisted/src/lib.rs",
+          "kind": "fact",
+          "line": 43,
+          "rule": "SH-X1"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "query": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "workspace/unlisted/src/lib.rs",
+          "kind": "fact",
+          "line": 19,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "responses": {
+        "items": [
+          {
+            "content_type": null,
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "workspace/unlisted/src/lib.rs",
+              "kind": "returned",
+              "line": 19,
+              "rule": "SH-X25"
+            },
+            "schema": {
+              "type": "string"
+            },
+            "status": "200"
+          }
+        ],
+        "reason": "the content type of text responses depends on the axum version, which is not proven (workspace/Cargo.lock does not lock one package unlisted); panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:workspace/unlisted/src/lib.rs#GET /text": {
+      "body": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "workspace/unlisted/src/lib.rs",
+          "kind": "fact",
+          "line": 15,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "cookie": {
+        "items": [],
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [],
+        "state": "not_read"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "workspace/unlisted/src/lib.rs",
+          "kind": "fact",
+          "line": 42,
+          "rule": "SH-X1"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "query": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "workspace/unlisted/src/lib.rs",
+          "kind": "fact",
+          "line": 15,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "responses": {
+        "items": [
+          {
+            "content_type": null,
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "workspace/unlisted/src/lib.rs",
+              "kind": "returned",
+              "line": 15,
+              "rule": "SH-X25"
+            },
+            "schema": {
+              "type": "string"
+            },
+            "status": "200"
+          }
+        ],
+        "reason": "the content type of text responses depends on the axum version, which is not proven (workspace/Cargo.lock does not lock one package unlisted); panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:workspace/unlisted/src/lib.rs#HEAD /form-head": {
+      "body": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "workspace/unlisted/src/lib.rs",
+          "kind": "fact",
+          "line": 23,
+          "rule": "SH-X29"
+        },
+        "items": [
+          {
+            "content_type": "application/x-www-form-urlencoded",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "workspace/unlisted/src/lib.rs",
+              "kind": "fact",
+              "line": 23,
+              "rule": "SH-X7"
+            },
+            "schema": {
+              "additional": "allowed",
+              "fields": [
+                {
+                  "name": "user",
+                  "presence": "required",
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "state": "complete"
+      },
+      "cookie": {
+        "items": [],
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [],
+        "state": "not_read"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "workspace/unlisted/src/lib.rs",
+          "kind": "fact",
+          "line": 44,
+          "rule": "SH-X1"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "query": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "workspace/unlisted/src/lib.rs",
+          "kind": "fact",
+          "line": 23,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "responses": {
+        "items": [
+          {
+            "content_type": null,
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "workspace/unlisted/src/lib.rs",
+              "kind": "returned",
+              "line": 25,
+              "rule": "SH-X23"
+            },
+            "schema": {
+              "type": "null"
+            },
+            "status": "200"
+          }
+        ],
+        "reason": "panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    },
+    "route:workspace/unlisted/src/lib.rs#POST /headers-first": {
+      "body": {
+        "items": [],
+        "reason": "HeaderMap at workspace/unlisted/src/lib.rs:32 takes the headers before a later extractor in axum before 0.5, and the axum version is not proven to be later (workspace/Cargo.lock does not lock one package unlisted)",
+        "state": "partial"
+      },
+      "cookie": {
+        "items": [],
+        "state": "not_read"
+      },
+      "follow": {
+        "chains": [
+          {
+            "at": null,
+            "depth": 0,
+            "section": "header",
+            "start": {
+              "file": "workspace/unlisted/src/lib.rs",
+              "function": "headers_first",
+              "line": 32
+            },
+            "steps": [],
+            "stop": "ended"
+          }
+        ],
+        "depth_limit": 6
+      },
+      "header": {
+        "items": [
+          {
+            "access": "read_by_handler",
+            "name": "x-a",
+            "presence": "unknown",
+            "provenance": {
+              "chain": [],
+              "confidence": 1,
+              "file": "workspace/unlisted/src/lib.rs",
+              "kind": "read_in_handler",
+              "line": 33,
+              "rule": "SH-X11"
+            },
+            "schema": null
+          }
+        ],
+        "reason": "middleware (layers) is not read",
+        "state": "partial"
+      },
+      "models": [],
+      "path": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "workspace/unlisted/src/lib.rs",
+          "kind": "fact",
+          "line": 46,
+          "rule": "SH-X1"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "query": {
+        "evidence": {
+          "chain": [],
+          "confidence": 1,
+          "file": "workspace/unlisted/src/lib.rs",
+          "kind": "fact",
+          "line": 32,
+          "rule": "SH-X29"
+        },
+        "items": [],
+        "state": "provably_none"
+      },
+      "responses": {
+        "items": [],
+        "reason": "HeaderMap at workspace/unlisted/src/lib.rs:32 takes the headers before a later extractor in axum before 0.5, and the axum version is not proven to be later (workspace/Cargo.lock does not lock one package unlisted); panics, extractor rejections and middleware (layers) are not read",
+        "state": "partial"
+      },
+      "security": {
+        "items": [],
+        "state": "not_read"
+      },
+      "security_schemes": [],
+      "version": 1
+    }
+  }
+}

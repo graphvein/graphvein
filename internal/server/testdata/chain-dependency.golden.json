@@ -1,0 +1,76 @@
+{
+  "api_version": 0,
+  "caps": {
+    "depth": 10,
+    "fan_out": 200,
+    "members": 2000
+  },
+  "depth": 6,
+  "direction": "up",
+  "down": null,
+  "index": {
+    "contract_version": 1,
+    "finished_at": "2026-11-03T14:32:05.123Z",
+    "indexer": {
+      "name": "crafted",
+      "version": "t026-chain"
+    }
+  },
+  "map": {
+    "folded": 0,
+    "open_in_flow": false,
+    "per_step": 5,
+    "shown": 1,
+    "steps": 3,
+    "total": 40
+  },
+  "repository": "chainsynth",
+  "scope": "production",
+  "start": {
+    "id": "function:api/deps.py#get_current_user",
+    "kind": "function",
+    "level": "node"
+  },
+  "up": {
+    "caps": [],
+    "edges": [],
+    "ends": [
+      {
+        "member": "function:api/deps.py#get_current_user",
+        "row": "CH11",
+        "text": "? not modelled: no stored caller; FastAPI dependency injection into 1 route(s) as declared in security_dependencies (GET /items in api/items.py); the injection is not a stored call"
+      }
+    ],
+    "hidden_test": 0,
+    "members": 0,
+    "not_followed": {},
+    "steps": [
+      {
+        "bounds": [],
+        "hidden_test": 0,
+        "map": {
+          "folded": 0,
+          "shown": [
+            "function:api/deps.py#get_current_user"
+          ]
+        },
+        "members": [
+          {
+            "component": "api",
+            "file": "api/deps.py",
+            "id": "function:api/deps.py#get_current_user",
+            "kind": "function",
+            "line": 224,
+            "name": "get_current_user",
+            "parents": [],
+            "qualified_name": "get_current_user",
+            "row": "",
+            "tier": "fact",
+            "tier_step": 0
+          }
+        ],
+        "step": 0
+      }
+    ]
+  }
+}

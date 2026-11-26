@@ -1,0 +1,28 @@
+{
+  "id": "review-f02-check-agg",
+  "signature": "applied|S1|42803|",
+  "class": "S1",
+  "owner": "P5",
+  "row": "review",
+  "history": {
+    "id": "f02-check-agg"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42803",
+        "message": "aggregate functions are not allowed in check constraints",
+        "statement": 1,
+        "statement_text": "CREATE TABLE t (a int CHECK (count(a) \u003e 0));"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

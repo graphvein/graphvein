@@ -1,0 +1,40 @@
+{
+  "id": "review18-j04-schema-authorization-dropped",
+  "signature": "agreed at Revision 1.8",
+  "class": "S1",
+  "owner": "X4",
+  "row": "review18",
+  "history": {
+    "id": "j04-schema-authorization-dropped",
+    "prelude": [
+      "CREATE ROLE r4auth;"
+    ],
+    "fresh_db": true
+  },
+  "verdict": {
+    "default_schema": "public",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "accepted"
+      },
+      {
+        "file": "2_d.sql",
+        "status": "accepted"
+      },
+      {
+        "file": "3_t.sql",
+        "status": "refused",
+        "sqlstate": "3F000",
+        "message": "schema \"r4auth\" does not exist",
+        "statement": 1,
+        "statement_text": "create table r4auth.t (a int);"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "public._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

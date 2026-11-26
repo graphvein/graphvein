@@ -1,0 +1,1256 @@
+{
+  "diagnostics": [
+    {
+      "code": "ts_structure_unread",
+      "file": "src/app.module.ts",
+      "message": "4 TypeScript or JavaScript declarations or imports are outside the structural claim contract and claim nothing (undeclared_package=4)",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "ts_structure_unread",
+      "file": "src/config/database.config.ts",
+      "message": "2 TypeScript or JavaScript declarations or imports are outside the structural claim contract and claim nothing (undeclared_package=2)",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "ts_structure_unread",
+      "file": "src/data-source.ts",
+      "message": "2 TypeScript or JavaScript declarations or imports are outside the structural claim contract and claim nothing (undeclared_package=2)",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "ts_structure_unread",
+      "file": "src/entity/Author.ts",
+      "message": "3 TypeScript or JavaScript declarations or imports are outside the structural claim contract and claim nothing (undeclared_package=3)",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "ts_structure_unread",
+      "file": "src/entity/Post.ts",
+      "message": "1 TypeScript or JavaScript declarations or imports are outside the structural claim contract and claim nothing (undeclared_package=1)",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "unresolved_import",
+      "file": "src/entity/Post.ts",
+      "message": "relative import ./geo is unavailable",
+      "severity": "warning",
+      "type": "diagnostic"
+    },
+    {
+      "code": "ts_structure_unread",
+      "file": "src/feature.module.ts",
+      "message": "2 TypeScript or JavaScript declarations or imports are outside the structural claim contract and claim nothing (undeclared_package=2)",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "ts_structure_unread",
+      "file": "src/orm.ts",
+      "message": "1 TypeScript or JavaScript declarations or imports are outside the structural claim contract and claim nothing (undeclared_package=1)",
+      "severity": "info",
+      "type": "diagnostic"
+    }
+  ],
+  "edges": [
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/entity/Post.ts",
+          "span": {
+            "end_column": 3,
+            "end_line": 80,
+            "start_column": 2,
+            "start_line": 78
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:src/entity/Post.ts#Post",
+      "target": "method:src/entity/Post.ts#Post.constructor",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/entity/Post.ts",
+          "span": {
+            "end_column": 3,
+            "end_line": 87,
+            "start_column": 2,
+            "start_line": 85
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:src/entity/Post.ts#Post",
+      "target": "method:src/entity/Post.ts#Post.label",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/entity/Post.ts",
+          "span": {
+            "end_column": 29,
+            "end_line": 89,
+            "start_column": 2,
+            "start_line": 89
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:src/entity/Post.ts#Post",
+      "target": "method:src/entity/Post.ts#Post.label%402",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/entity/Post.ts",
+          "span": {
+            "end_column": 22,
+            "end_line": 83,
+            "start_column": 2,
+            "start_line": 82
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:src/entity/Post.ts#Post",
+      "target": "method:src/entity/Post.ts#Post.normalize",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/app.module.ts",
+          "span": {
+            "end_column": 25,
+            "end_line": 29,
+            "start_column": 0,
+            "start_line": 8
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/app.module.ts#src%2Fapp.module.ts",
+      "target": "class:src/app.module.ts#AppModule",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/barrel/Tag.ts",
+          "span": {
+            "end_column": 1,
+            "end_line": 12,
+            "start_column": 0,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/barrel/Tag.ts#src%2Fbarrel%2FTag.ts",
+      "target": "class:src/barrel/Tag.ts#Tag",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/config/database.config.ts",
+          "span": {
+            "end_column": 83,
+            "end_line": 8,
+            "start_column": 0,
+            "start_line": 8
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/config/database.config.ts#src%2Fconfig%2Fdatabase.config.ts",
+      "target": "variable:src/config/database.config.ts#DatabaseConfig",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/config/database.config.ts",
+          "span": {
+            "end_column": 33,
+            "end_line": 4,
+            "start_column": 0,
+            "start_line": 4
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/config/database.config.ts#src%2Fconfig%2Fdatabase.config.ts",
+      "target": "variable:src/config/database.config.ts#dbToken",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/constants/status.ts",
+          "span": {
+            "end_column": 1,
+            "end_line": 23,
+            "start_column": 8,
+            "start_line": 21
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/constants/status.ts#src%2Fconstants%2Fstatus.ts",
+      "target": "enum:src/constants/status.ts#Ambient",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/constants/status.ts",
+          "span": {
+            "end_column": 1,
+            "end_line": 19,
+            "start_column": 0,
+            "start_line": 15
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/constants/status.ts#src%2Fconstants%2Fstatus.ts",
+      "target": "enum:src/constants/status.ts#Mixed",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/constants/status.ts",
+          "span": {
+            "end_column": 1,
+            "end_line": 8,
+            "start_column": 0,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/constants/status.ts#src%2Fconstants%2Fstatus.ts",
+      "target": "enum:src/constants/status.ts#PostStatus",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/constants/status.ts",
+          "span": {
+            "end_column": 1,
+            "end_line": 13,
+            "start_column": 0,
+            "start_line": 10
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/constants/status.ts#src%2Fconstants%2Fstatus.ts",
+      "target": "enum:src/constants/status.ts#Shade",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/constants/status.ts",
+          "span": {
+            "end_column": 40,
+            "end_line": 25,
+            "start_column": 0,
+            "start_line": 25
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/constants/status.ts#src%2Fconstants%2Fstatus.ts",
+      "target": "variable:src/constants/status.ts#DEFAULT_SHADE",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/constants/status.ts",
+          "span": {
+            "end_column": 32,
+            "end_line": 26,
+            "start_column": 0,
+            "start_line": 26
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/constants/status.ts#src%2Fconstants%2Fstatus.ts",
+      "target": "variable:src/constants/status.ts#labels",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/data-source.ts",
+          "span": {
+            "end_column": 1,
+            "end_line": 40,
+            "start_column": 0,
+            "start_line": 34
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/data-source.ts#src%2Fdata-source.ts",
+      "target": "function:src/data-source.ts#getDataSource",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/data-source.ts",
+          "span": {
+            "end_column": 57,
+            "end_line": 42,
+            "start_column": 0,
+            "start_line": 42
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/data-source.ts#src%2Fdata-source.ts",
+      "target": "variable:src/data-source.ts#dataSource",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/entity/Author.ts",
+          "span": {
+            "end_column": 1,
+            "end_line": 26,
+            "start_column": 0,
+            "start_line": 11
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/entity/Author.ts#src%2Fentity%2FAuthor.ts",
+      "target": "class:src/entity/Author.ts#Author",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/entity/Author.ts",
+          "span": {
+            "end_column": 1,
+            "end_line": 9,
+            "start_column": 0,
+            "start_line": 6
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/entity/Author.ts#src%2Fentity%2FAuthor.ts",
+      "target": "class:src/entity/Author.ts#Stamped",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/entity/Post.ts",
+          "span": {
+            "end_column": 1,
+            "end_line": 90,
+            "start_column": 0,
+            "start_line": 19
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/entity/Post.ts#src%2Fentity%2FPost.ts",
+      "target": "class:src/entity/Post.ts#Post",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/feature.module.ts",
+          "span": {
+            "end_column": 29,
+            "end_line": 8,
+            "start_column": 0,
+            "start_line": 7
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/feature.module.ts#src%2Ffeature.module.ts",
+      "target": "class:src/feature.module.ts#FeatureModule",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/app.module.ts",
+          "span": {
+            "end_column": 41,
+            "end_line": 5,
+            "start_column": 0,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:src/app.module.ts#src%2Fapp.module.ts",
+      "target": "file:src/entity/Author.ts#src%2Fentity%2FAuthor.ts",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/app.module.ts",
+          "span": {
+            "end_column": 33,
+            "end_line": 6,
+            "start_column": 0,
+            "start_line": 6
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:src/app.module.ts#src%2Fapp.module.ts",
+      "target": "file:src/entity/Post.ts#src%2Fentity%2FPost.ts",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/barrel/Tag.ts",
+          "span": {
+            "end_column": 64,
+            "end_line": 3,
+            "start_column": 0,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:src/barrel/Tag.ts#src%2Fbarrel%2FTag.ts",
+      "target": "file:src/orm.ts#src%2Form.ts",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/data-source.ts",
+          "span": {
+            "end_column": 34,
+            "end_line": 1,
+            "start_column": 0,
+            "start_line": 1
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:src/data-source.ts#src%2Fdata-source.ts",
+      "target": "external:.#npm%3Apath",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/data-source.ts",
+          "span": {
+            "end_column": 41,
+            "end_line": 5,
+            "start_column": 0,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:src/data-source.ts#src%2Fdata-source.ts",
+      "target": "file:src/entity/Author.ts#src%2Fentity%2FAuthor.ts",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/data-source.ts",
+          "span": {
+            "end_column": 33,
+            "end_line": 4,
+            "start_column": 0,
+            "start_line": 4
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:src/data-source.ts#src%2Fdata-source.ts",
+      "target": "file:src/entity/Post.ts#src%2Fentity%2FPost.ts",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/entity/Author.ts",
+          "span": {
+            "end_column": 35,
+            "end_line": 4,
+            "start_column": 0,
+            "start_line": 4
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:src/entity/Author.ts#src%2Fentity%2FAuthor.ts",
+      "target": "file:src/entity/Post.ts#src%2Fentity%2FPost.ts",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/entity/Post.ts",
+          "span": {
+            "end_column": 56,
+            "end_line": 16,
+            "start_column": 0,
+            "start_line": 16
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:src/entity/Post.ts#src%2Fentity%2FPost.ts",
+      "target": "file:src/constants/status.ts#src%2Fconstants%2Fstatus.ts",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/entity/Post.ts",
+          "span": {
+            "end_column": 34,
+            "end_line": 17,
+            "start_column": 0,
+            "start_line": 17
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:src/entity/Post.ts#src%2Fentity%2FPost.ts",
+      "target": "file:src/entity/Author.ts#src%2Fentity%2FAuthor.ts",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/feature.module.ts",
+          "span": {
+            "end_column": 41,
+            "end_line": 5,
+            "start_column": 0,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:src/feature.module.ts#src%2Ffeature.module.ts",
+      "target": "file:src/entity/Author.ts#src%2Fentity%2FAuthor.ts",
+      "type": "edge"
+    }
+  ],
+  "files": null,
+  "nodes": [
+    {
+      "attributes": {
+        "decorators": [
+          "@Module({\n  imports: [\n    TypeOrmModule.forRootAsync({\n      inject: [ConfigService],\n      useFactory: (config: ConfigService) =\u003e {\n        let logging = config.get(\"DB_LOGGING\");\n        try {\n          logging = JSON.parse(logging);\n        } catch {\n          // ignore\n        }\n        return { ...config.get(\"database\"), autoLoadEntities: true, logging };\n      },\n      dataSourceFactory: async (options) =\u003e {\n        const dataSource = await new DataSource(options).initialize();\n        return dataSource;\n      },\n    }),\n    TypeOrmModule.forFeature([Post, Author], \"default\"),\n  ],\n})"
+        ],
+        "exported": true
+      },
+      "content_hash": "sha256:410874b74d5ae493080e77e1f36c3506acade90d9eaeff66d5cc3497674273d3",
+      "file": "src/app.module.ts",
+      "identity": "class:src/app.module.ts#AppModule",
+      "kind": "class",
+      "level": 4,
+      "name": "AppModule",
+      "qualified_name": "AppModule",
+      "span": {
+        "end_column": 25,
+        "end_line": 29,
+        "start_column": 0,
+        "start_line": 8
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "decorators": [
+          "@Entity()"
+        ],
+        "exported": true
+      },
+      "content_hash": "sha256:cc0a24a9d672daacf7eb0ca9a6f62589525e5d7b4b63359de428aa1b27a8a248",
+      "file": "src/barrel/Tag.ts",
+      "identity": "class:src/barrel/Tag.ts#Tag",
+      "kind": "class",
+      "level": 4,
+      "name": "Tag",
+      "qualified_name": "Tag",
+      "span": {
+        "end_column": 1,
+        "end_line": 12,
+        "start_column": 0,
+        "start_line": 5
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "decorators": [
+          "@Entity({ name: \"authors\", schema: \"blog\", synchronize: false })"
+        ],
+        "exported": true
+      },
+      "content_hash": "sha256:efcecdcab4f0ae7584b063cdb22e4155885981c3d12da16cfe50b43ba532f0f7",
+      "file": "src/entity/Author.ts",
+      "identity": "class:src/entity/Author.ts#Author",
+      "kind": "class",
+      "level": 4,
+      "name": "Author",
+      "qualified_name": "Author",
+      "span": {
+        "end_column": 1,
+        "end_line": 26,
+        "start_column": 0,
+        "start_line": 11
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "exported": true
+      },
+      "content_hash": "sha256:735e7ec4218be472c4a3618070cf15254e34441b5fea6e3f0c01b3e9bf8ffb5e",
+      "file": "src/entity/Author.ts",
+      "identity": "class:src/entity/Author.ts#Stamped",
+      "kind": "class",
+      "level": 4,
+      "name": "Stamped",
+      "qualified_name": "Stamped",
+      "span": {
+        "end_column": 1,
+        "end_line": 9,
+        "start_column": 0,
+        "start_line": 6
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "decorators": [
+          "@Entity(\"post\")",
+          "@Index([\"title\", \"status\"], { unique: true, where: \"title IS NOT NULL\" })",
+          "@Unique(\"UQ_post_slug\", [\"slug\"])",
+          "@Check(`\"rating\" \u003e= 0`)"
+        ]
+      },
+      "content_hash": "sha256:9d4be024660ecb85edf7a30a253e4ef9495350b6a036cf64a9b07baf1d75e7e9",
+      "file": "src/entity/Post.ts",
+      "identity": "class:src/entity/Post.ts#Post",
+      "kind": "class",
+      "level": 4,
+      "name": "Post",
+      "qualified_name": "Post",
+      "span": {
+        "end_column": 1,
+        "end_line": 90,
+        "start_column": 0,
+        "start_line": 19
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "decorators": [
+          "@Module({ imports: [TypeOrmModule.forFeature([Author])] })"
+        ],
+        "exported": true
+      },
+      "content_hash": "sha256:5c009cd1ccf01085e9feb1ffc0cf7467bbc10b45b9ab400362f90a1de323a7ef",
+      "file": "src/feature.module.ts",
+      "identity": "class:src/feature.module.ts#FeatureModule",
+      "kind": "class",
+      "level": 4,
+      "name": "FeatureModule",
+      "qualified_name": "FeatureModule",
+      "span": {
+        "end_column": 29,
+        "end_line": 8,
+        "start_column": 0,
+        "start_line": 7
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:4aac856f23935628376e92f54385d3f8f149624a83f9389424709927e1f72b91",
+      "file": "src/constants/status.ts",
+      "identity": "enum:src/constants/status.ts#Ambient",
+      "kind": "enum",
+      "level": 4,
+      "name": "Ambient",
+      "qualified_name": "Ambient",
+      "span": {
+        "end_column": 1,
+        "end_line": 23,
+        "start_column": 8,
+        "start_line": 21
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:9af0c0e91d6e49dbb11c5fd14e110aa44da631d7096394f64dbc7c7447bd0482",
+      "file": "src/constants/status.ts",
+      "identity": "enum:src/constants/status.ts#Mixed",
+      "kind": "enum",
+      "level": 4,
+      "name": "Mixed",
+      "qualified_name": "Mixed",
+      "span": {
+        "end_column": 1,
+        "end_line": 19,
+        "start_column": 0,
+        "start_line": 15
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "exported": true
+      },
+      "content_hash": "sha256:a2b083fa2224bc2a25bd989f01d204b368417a3d8e5090f10f6fba97ce820701",
+      "file": "src/constants/status.ts",
+      "identity": "enum:src/constants/status.ts#PostStatus",
+      "kind": "enum",
+      "level": 4,
+      "name": "PostStatus",
+      "qualified_name": "PostStatus",
+      "span": {
+        "end_column": 1,
+        "end_line": 8,
+        "start_column": 0,
+        "start_line": 3
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "exported": true
+      },
+      "content_hash": "sha256:c2803264df04766ac6d515939bd6836466bda63c39d36cdc6c6aa277131644e9",
+      "file": "src/constants/status.ts",
+      "identity": "enum:src/constants/status.ts#Shade",
+      "kind": "enum",
+      "level": 4,
+      "name": "Shade",
+      "qualified_name": "Shade",
+      "span": {
+        "end_column": 1,
+        "end_line": 13,
+        "start_column": 0,
+        "start_line": 10
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "ecosystem": "npm",
+        "name": "path"
+      },
+      "content_hash": "sha256:db05b03c86a56acef11c3c4124bf7c16ac6de2e04188163b1df8f8106baebcc3",
+      "file": ".",
+      "identity": "external:.#npm%3Apath",
+      "kind": "external",
+      "level": 1,
+      "name": "path",
+      "qualified_name": "npm:path",
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:5536a6ae4e93ae975bf524b943fadd0e3257efeb446555dc43810a7b60871184",
+      "file": "README.md",
+      "identity": "file:README.md#README.md",
+      "kind": "file",
+      "level": 3,
+      "name": "README.md",
+      "qualified_name": "README.md",
+      "span": {
+        "end_column": 0,
+        "end_line": 27,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:6deadc9b9a4b06018a66998000f2e2669916335ce32acd8d3c08b9954c855b4f",
+      "file": "src/app.module.ts",
+      "identity": "file:src/app.module.ts#src%2Fapp.module.ts",
+      "kind": "file",
+      "level": 3,
+      "name": "app.module.ts",
+      "qualified_name": "src/app.module.ts",
+      "span": {
+        "end_column": 0,
+        "end_line": 30,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:6b01d9354f193aff944c084062e722a2e95018652b9ae99715945aa8d93fb6e6",
+      "file": "src/barrel/Tag.ts",
+      "identity": "file:src/barrel/Tag.ts#src%2Fbarrel%2FTag.ts",
+      "kind": "file",
+      "level": 3,
+      "name": "Tag.ts",
+      "qualified_name": "src/barrel/Tag.ts",
+      "span": {
+        "end_column": 0,
+        "end_line": 13,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:22a783e25072eaaf7572e121d198e959a8bd203a0cbf2530ee4f487aa444449f",
+      "file": "src/config/database.config.ts",
+      "identity": "file:src/config/database.config.ts#src%2Fconfig%2Fdatabase.config.ts",
+      "kind": "file",
+      "level": 3,
+      "name": "database.config.ts",
+      "qualified_name": "src/config/database.config.ts",
+      "span": {
+        "end_column": 0,
+        "end_line": 9,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:8a844a4e86f2d7503d5c2418ea86eb514fde409af48b96adc29ea9ff127eaf1f",
+      "file": "src/constants/status.ts",
+      "identity": "file:src/constants/status.ts#src%2Fconstants%2Fstatus.ts",
+      "kind": "file",
+      "level": 3,
+      "name": "status.ts",
+      "qualified_name": "src/constants/status.ts",
+      "span": {
+        "end_column": 0,
+        "end_line": 28,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:9c0c79cfd386bc7ea00ab5d384f3d1831c7b388132b997ea61f91254287c8069",
+      "file": "src/data-source.ts",
+      "identity": "file:src/data-source.ts#src%2Fdata-source.ts",
+      "kind": "file",
+      "level": 3,
+      "name": "data-source.ts",
+      "qualified_name": "src/data-source.ts",
+      "span": {
+        "end_column": 0,
+        "end_line": 44,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:1e88dddb495a157e7e02797639edb7345883a457f1180de8781cd986e6789c1d",
+      "file": "src/entity/Author.ts",
+      "identity": "file:src/entity/Author.ts#src%2Fentity%2FAuthor.ts",
+      "kind": "file",
+      "level": 3,
+      "name": "Author.ts",
+      "qualified_name": "src/entity/Author.ts",
+      "span": {
+        "end_column": 0,
+        "end_line": 27,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:6e8adee1fff3340f149250c1464b79c0843385fc23030b08f764106f2abd5ba0",
+      "file": "src/entity/Post.ts",
+      "identity": "file:src/entity/Post.ts#src%2Fentity%2FPost.ts",
+      "kind": "file",
+      "level": 3,
+      "name": "Post.ts",
+      "qualified_name": "src/entity/Post.ts",
+      "span": {
+        "end_column": 0,
+        "end_line": 93,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:cd93fb6c38ae43d73342a88b3c82b879ac52b2bc38f52c75814e2b1b1dcb531b",
+      "file": "src/feature.module.ts",
+      "identity": "file:src/feature.module.ts#src%2Ffeature.module.ts",
+      "kind": "file",
+      "level": 3,
+      "name": "feature.module.ts",
+      "qualified_name": "src/feature.module.ts",
+      "span": {
+        "end_column": 0,
+        "end_line": 9,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:bf7b92f9f3c9fcc4afe4b77d3f71591721770457bc05840f7284d0cfc35db2fd",
+      "file": "src/orm.ts",
+      "identity": "file:src/orm.ts#src%2Form.ts",
+      "kind": "file",
+      "level": 3,
+      "name": "orm.ts",
+      "qualified_name": "src/orm.ts",
+      "span": {
+        "end_column": 0,
+        "end_line": 5,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:1a635a1bb512f89a8aeba093a92cb0ecec04d01bef7bba325170f82ccdf9cecf",
+      "file": "src/data-source.ts",
+      "identity": "function:src/data-source.ts#getDataSource",
+      "kind": "function",
+      "level": 4,
+      "name": "getDataSource",
+      "qualified_name": "getDataSource",
+      "span": {
+        "end_column": 1,
+        "end_line": 40,
+        "start_column": 0,
+        "start_line": 34
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:345d9ea465a978f23ecca5c56c09d1f6cf3f03ad793ae2eb41ed45581d87c866",
+      "file": "src/entity/Post.ts",
+      "identity": "method:src/entity/Post.ts#Post.constructor",
+      "kind": "method",
+      "level": 4,
+      "name": "constructor",
+      "qualified_name": "Post.constructor",
+      "span": {
+        "end_column": 3,
+        "end_line": 80,
+        "start_column": 2,
+        "start_line": 78
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:67a2288937c0fffd8cce1531669cc6a5ae6fd37dde8115ea4e1e5bfa6277122a",
+      "file": "src/entity/Post.ts",
+      "identity": "method:src/entity/Post.ts#Post.label",
+      "kind": "method",
+      "level": 4,
+      "name": "label",
+      "qualified_name": "Post.label",
+      "span": {
+        "end_column": 3,
+        "end_line": 87,
+        "start_column": 2,
+        "start_line": 85
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:e835d5300427178b4e90e89e8de6dc8643844aed5584961f55180b956311eb1c",
+      "file": "src/entity/Post.ts",
+      "identity": "method:src/entity/Post.ts#Post.label%402",
+      "kind": "method",
+      "level": 4,
+      "name": "label",
+      "qualified_name": "Post.label@2",
+      "span": {
+        "end_column": 29,
+        "end_line": 89,
+        "start_column": 2,
+        "start_line": 89
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "decorators": [
+          "@AfterLoad()"
+        ]
+      },
+      "content_hash": "sha256:7db4d2aee70de5bc37633caa78363af5861e53591109428f23d61e20a153412b",
+      "file": "src/entity/Post.ts",
+      "identity": "method:src/entity/Post.ts#Post.normalize",
+      "kind": "method",
+      "level": 4,
+      "name": "normalize",
+      "qualified_name": "Post.normalize",
+      "span": {
+        "end_column": 22,
+        "end_line": 83,
+        "start_column": 2,
+        "start_line": 82
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "exported": true
+      },
+      "content_hash": "sha256:c9a5e4fd0357913c3625cb0227badd2cca2371c80f5b3e4dcfb82f3383ea1fcc",
+      "file": "src/config/database.config.ts",
+      "identity": "variable:src/config/database.config.ts#DatabaseConfig",
+      "kind": "variable",
+      "level": 4,
+      "name": "DatabaseConfig",
+      "qualified_name": "DatabaseConfig",
+      "span": {
+        "end_column": 83,
+        "end_line": 8,
+        "start_column": 0,
+        "start_line": 8
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "exported": true
+      },
+      "content_hash": "sha256:8b79c4fc571338a129425daf3bd6f0c7849671aa0b76e23c1e89121e47f59c30",
+      "file": "src/config/database.config.ts",
+      "identity": "variable:src/config/database.config.ts#dbToken",
+      "kind": "variable",
+      "level": 4,
+      "name": "dbToken",
+      "qualified_name": "dbToken",
+      "span": {
+        "end_column": 33,
+        "end_line": 4,
+        "start_column": 0,
+        "start_line": 4
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "exported": true
+      },
+      "content_hash": "sha256:4708d6a90a5b711486b68a500fb7bc2d4eccb0f9625fd6d91053b72a4b85dc80",
+      "file": "src/constants/status.ts",
+      "identity": "variable:src/constants/status.ts#DEFAULT_SHADE",
+      "kind": "variable",
+      "level": 4,
+      "name": "DEFAULT_SHADE",
+      "qualified_name": "DEFAULT_SHADE",
+      "span": {
+        "end_column": 40,
+        "end_line": 25,
+        "start_column": 0,
+        "start_line": 25
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "exported": true
+      },
+      "content_hash": "sha256:1bba65151216e316388679ca6b6a681882df9cc0a5a9b9365889ca6c4faf3071",
+      "file": "src/constants/status.ts",
+      "identity": "variable:src/constants/status.ts#labels",
+      "kind": "variable",
+      "level": 4,
+      "name": "labels",
+      "qualified_name": "labels",
+      "span": {
+        "end_column": 32,
+        "end_line": 26,
+        "start_column": 0,
+        "start_line": 26
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "exported": true
+      },
+      "content_hash": "sha256:bfd637c754f38768427dbbe4a0e308295dbe281e6839fdb338b51ae0b62ae538",
+      "file": "src/data-source.ts",
+      "identity": "variable:src/data-source.ts#dataSource",
+      "kind": "variable",
+      "level": 4,
+      "name": "dataSource",
+      "qualified_name": "dataSource",
+      "span": {
+        "end_column": 57,
+        "end_line": 42,
+        "start_column": 0,
+        "start_line": 42
+      },
+      "type": "node"
+    }
+  ]
+}

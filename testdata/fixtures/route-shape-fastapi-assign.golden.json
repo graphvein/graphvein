@@ -1,0 +1,127 @@
+{
+  "models": {},
+  "routes": [
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/main.py#GET%20%2Fgo",
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/main.py:16",
+          "state": "provably_none"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/main.py:16",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/main.py:16",
+          "state": "provably_none"
+        },
+        "path": {
+          "evidence": "SH-F3 app/main.py:15",
+          "state": "provably_none"
+        },
+        "query": {
+          "evidence": "SH-F23 app/main.py:16",
+          "state": "provably_none"
+        },
+        "responses": {
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read; default_response_class is assigned (app/main.py:9): the default success status is not read; default_response_class is assigned (app/main.py:12): the default success status is not read",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/main.py#GET%20%2Fhop",
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/main.py:21",
+          "state": "provably_none"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/main.py:21",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/main.py:21",
+          "state": "provably_none"
+        },
+        "path": {
+          "evidence": "SH-F3 app/main.py:20",
+          "state": "provably_none"
+        },
+        "query": {
+          "evidence": "SH-F23 app/main.py:21",
+          "state": "provably_none"
+        },
+        "responses": {
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read; default_response_class is assigned (app/main.py:9): the default success status is not read; default_response_class is assigned (app/main.py:12): the default success status is not read",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/main.py#GET%20%2Ftarget",
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/main.py:26",
+          "state": "provably_none"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/main.py:26",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/main.py:26",
+          "state": "provably_none"
+        },
+        "path": {
+          "evidence": "SH-F3 app/main.py:25",
+          "state": "provably_none"
+        },
+        "query": {
+          "evidence": "SH-F23 app/main.py:26",
+          "state": "provably_none"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/main.py:26",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "fact",
+              "rule": "SH-F26",
+              "schema": {
+                "additional": "allowed",
+                "type": "object"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    }
+  ],
+  "security_schemes": {}
+}

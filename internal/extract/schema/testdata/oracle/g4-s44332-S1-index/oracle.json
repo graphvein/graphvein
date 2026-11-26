@@ -1,0 +1,69 @@
+{
+  "id": "g4-s44332-S1-index",
+  "signature": "index",
+  "class": "S1",
+  "owner": "H11",
+  "row": "",
+  "history": {
+    "id": "g4-s44332",
+    "tags": {
+      "1_m1.sql": [
+        "M4.expression_p5",
+        "M4.expression_p5",
+        "M4.create_unnamed"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "accepted"
+      }
+    ],
+    "tables": [
+      {
+        "table": "history.t1",
+        "columns": [
+          {
+            "name": "a",
+            "type": "text",
+            "not_null": false,
+            "has_default": false
+          },
+          {
+            "name": "ts",
+            "type": "timestamp with time zone",
+            "not_null": false,
+            "has_default": false
+          }
+        ],
+        "primary_key": null,
+        "unique_keys": [],
+        "foreign_keys": [],
+        "indexes": [
+          {
+            "name": "t1_a_idx",
+            "unique": false,
+            "columns": [
+              "a"
+            ]
+          },
+          {
+            "name": "t1_coalesce_idx",
+            "unique": false,
+            "columns": [
+              ""
+            ],
+            "partial": true
+          }
+        ]
+      }
+    ],
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

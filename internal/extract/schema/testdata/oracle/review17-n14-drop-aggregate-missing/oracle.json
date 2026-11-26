@@ -1,0 +1,28 @@
+{
+  "id": "review17-n14-drop-aggregate-missing",
+  "signature": "agreed at Revision 1.7",
+  "class": "S1",
+  "owner": "W5",
+  "row": "review17",
+  "history": {
+    "id": "n14-drop-aggregate-missing"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42883",
+        "message": "aggregate nosuch(integer) does not exist",
+        "statement": 1,
+        "statement_text": "DROP AGGREGATE nosuch(int);"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

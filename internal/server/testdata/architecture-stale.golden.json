@@ -1,0 +1,107 @@
+{
+  "api_version": 0,
+  "components": [
+    {
+      "counts": {
+        "client_calls": 0,
+        "files": 1,
+        "ipc_calls": 0,
+        "ipc_commands": 0,
+        "manifests": 0,
+        "routes": 0,
+        "tables": 0,
+        "test_files": 0,
+        "wrapper_calls": 0
+      },
+      "directory": ".",
+      "frameworks": [],
+      "hidden_by": null,
+      "id": ".",
+      "kinds": [
+        "unassigned_files"
+      ],
+      "manifests": [],
+      "markers": [],
+      "name": "unassigned",
+      "reason": "files under no package manifest",
+      "rows": [
+        "CK7"
+      ],
+      "state": "unassigned",
+      "visibility": "shown"
+    },
+    {
+      "counts": {
+        "client_calls": 0,
+        "files": 2,
+        "ipc_calls": 0,
+        "ipc_commands": 0,
+        "manifests": 1,
+        "routes": 0,
+        "tables": 0,
+        "test_files": 0,
+        "wrapper_calls": 0
+      },
+      "directory": "a",
+      "frameworks": [],
+      "hidden_by": null,
+      "id": "a",
+      "kinds": [
+        "unknown"
+      ],
+      "manifests": [
+        {
+          "ecosystem": null,
+          "file": "a/package.json",
+          "name": null,
+          "package": null,
+          "unread": "manifest not read by this index (re-index to read manifests)"
+        }
+      ],
+      "markers": [],
+      "name": "a",
+      "reason": "manifest unread: kind unknown",
+      "rows": [],
+      "state": "unread",
+      "visibility": "shown"
+    }
+  ],
+  "databases": [],
+  "documents": [],
+  "ghosts": [],
+  "hidden": {
+    "configured_components": 0,
+    "docs_components": 0,
+    "test_components": 0,
+    "test_edges": {}
+  },
+  "index": {
+    "contract_version": 1,
+    "finished_at": "2026-11-03T14:32:05.123Z",
+    "indexer": {
+      "name": "crafted",
+      "version": "old"
+    }
+  },
+  "libraries": {
+    "components": [],
+    "links_in": 0,
+    "links_out": 0
+  },
+  "links": [],
+  "manifests": "not_read",
+  "not_drawn": {},
+  "not_proven": [
+    {
+      "component": "a",
+      "count": 1,
+      "kind": "component_unread",
+      "row": "CM-U1",
+      "text": "kind unknown: manifest unread"
+    }
+  ],
+  "notice": "this index states no package manifests; re-index with a Graphvein indexer that reads them",
+  "repository": "archstale",
+  "scope": "production",
+  "stubs": []
+}

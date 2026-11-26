@@ -1,0 +1,495 @@
+{
+  "models": {
+    "HTTPValidationError": {
+      "additional": "unknown",
+      "fields": [
+        {
+          "name": "detail",
+          "presence": "optional",
+          "schema": {
+            "items": {
+              "ref": "ValidationError",
+              "type": "ref"
+            },
+            "type": "array"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "ValidationError": {
+      "additional": "unknown",
+      "fields": [
+        {
+          "name": "loc",
+          "presence": "required",
+          "schema": {
+            "items": {
+              "reason": "a string or an integer",
+              "type": "unknown"
+            },
+            "type": "array"
+          }
+        },
+        {
+          "name": "msg",
+          "presence": "required",
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "type",
+          "presence": "required",
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "input",
+          "presence": "optional",
+          "schema": {
+            "reason": "any value",
+            "type": "unknown"
+          }
+        },
+        {
+          "name": "ctx",
+          "presence": "optional",
+          "schema": {
+            "additional": "allowed",
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    }
+  },
+  "routes": [
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/main.py#GET%20%2Froot",
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/main.py:14",
+          "state": "provably_none"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/main.py:14",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/main.py:14",
+          "state": "provably_none"
+        },
+        "path": {
+          "evidence": "SH-F3 app/main.py:13",
+          "state": "provably_none"
+        },
+        "query": {
+          "evidence": "SH-F23 app/main.py:14",
+          "state": "provably_none"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/main.py:14",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "fact",
+              "rule": "SH-F26",
+              "schema": {
+                "additional": "allowed",
+                "type": "object"
+              }
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/routers/plain.py#GET%20%2Fpage",
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/routers/plain.py:29",
+          "state": "provably_none"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/routers/plain.py:29",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/routers/plain.py:29",
+          "state": "provably_none"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/plain.py:28",
+          "state": "provably_none"
+        },
+        "query": {
+          "evidence": "SH-F23 app/routers/plain.py:29",
+          "state": "provably_none"
+        },
+        "responses": {
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read; include_router default_response_class CreatedJSON (app/main.py:20): the default success status is not read",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/routers/plain.py#GET%20%2Fplain%2F%7Bitem_id%7D",
+      "models": [
+        "HTTPValidationError",
+        "ValidationError"
+      ],
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/routers/plain.py:9",
+          "state": "provably_none"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/routers/plain.py:9",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/routers/plain.py:9",
+          "state": "provably_none"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/plain.py:8",
+          "items": [
+            {
+              "access": "declared",
+              "at": "app/routers/plain.py:9",
+              "key": "item_id",
+              "kind": "fact",
+              "presence": "required",
+              "rule": "SH-F1",
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "state": "complete"
+        },
+        "query": {
+          "evidence": "SH-F23 app/routers/plain.py:9",
+          "state": "provably_none"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/routers/plain.py:9",
+              "content_type": "application/json",
+              "key": "200",
+              "kind": "fact",
+              "rule": "SH-F26",
+              "schema": {
+                "additional": "allowed",
+                "type": "object"
+              }
+            },
+            {
+              "at": "app/routers/plain.py:8",
+              "content_type": "application/json",
+              "key": "422",
+              "kind": "intended",
+              "rule": "SH-F30",
+              "schema": {
+                "ref": "HTTPValidationError",
+                "type": "ref"
+              }
+            },
+            {
+              "at": "app/routers/plain.py:11",
+              "content_type": null,
+              "key": "404",
+              "kind": "intended",
+              "rule": "SH-F29",
+              "schema": null
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read; keyword unpacking on FastAPI may pass exception_handlers (app/sub.py:7) can rewrite a raised HTTPException; keyword unpacking on FastAPI may pass exception_handlers (app/sub.py:7) can replace the 422 response",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/routers/plain.py#GET%20%2Fshared",
+      "sections": {
+        "body": {
+          "reason": "a dependencies= list is not read: dependencies may come from keyword unpacking",
+          "state": "partial"
+        },
+        "cookie": {
+          "reason": "a dependencies= list is not read: dependencies may come from keyword unpacking",
+          "state": "partial"
+        },
+        "header": {
+          "reason": "a dependencies= list is not read: dependencies may come from keyword unpacking",
+          "state": "partial"
+        },
+        "path": {
+          "evidence": "SH-F3 app/routers/plain.py:19",
+          "state": "provably_none"
+        },
+        "query": {
+          "reason": "a dependencies= list is not read: dependencies may come from keyword unpacking",
+          "state": "partial"
+        },
+        "responses": {
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read; keyword unpacking on FastAPI may set default_response_class (app/sub.py:7): the default success status is not read",
+          "state": "partial"
+        },
+        "security": {
+          "reason": "a security dependency is not read: dependencies may come from keyword unpacking; middleware is not read",
+          "state": "partial"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/routers/unpacked.py#GET%20%2Fmade",
+      "sections": {
+        "body": {
+          "reason": "a dependencies= list is not read: dependencies may come from keyword unpacking; a custom keyword unpacking may set route_class (app/routers/unpacked.py:7) can rewrite the request and the response",
+          "state": "partial"
+        },
+        "cookie": {
+          "reason": "a dependencies= list is not read: dependencies may come from keyword unpacking; a custom keyword unpacking may set route_class (app/routers/unpacked.py:7) can rewrite the request and the response",
+          "state": "partial"
+        },
+        "header": {
+          "reason": "a dependencies= list is not read: dependencies may come from keyword unpacking; a custom keyword unpacking may set route_class (app/routers/unpacked.py:7) can rewrite the request and the response",
+          "state": "partial"
+        },
+        "path": {
+          "state": "not_read"
+        },
+        "query": {
+          "reason": "a dependencies= list is not read: dependencies may come from keyword unpacking; a custom keyword unpacking may set route_class (app/routers/unpacked.py:7) can rewrite the request and the response",
+          "state": "partial"
+        },
+        "responses": {
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read; keyword unpacking on APIRouter may set default_response_class (app/routers/unpacked.py:7): the default success status is not read; a custom keyword unpacking may set route_class (app/routers/unpacked.py:7) can rewrite the request and the response",
+          "state": "partial"
+        },
+        "security": {
+          "reason": "a security dependency is not read: dependencies may come from keyword unpacking; middleware is not read",
+          "state": "partial"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/routers/unpacked.py#GET%20%2Fnested",
+      "sections": {
+        "body": {
+          "reason": "a dependencies= list is not read: dependencies may come from keyword unpacking",
+          "state": "partial"
+        },
+        "cookie": {
+          "reason": "a dependencies= list is not read: dependencies may come from keyword unpacking",
+          "state": "partial"
+        },
+        "header": {
+          "reason": "a dependencies= list is not read: dependencies may come from keyword unpacking",
+          "state": "partial"
+        },
+        "path": {
+          "state": "not_read"
+        },
+        "query": {
+          "reason": "a dependencies= list is not read: dependencies may come from keyword unpacking",
+          "state": "partial"
+        },
+        "responses": {
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read; keyword unpacking on APIRouter may set default_response_class (app/routers/unpacked.py:7): the default success status is not read",
+          "state": "partial"
+        },
+        "security": {
+          "reason": "a security dependency is not read: dependencies may come from keyword unpacking; middleware is not read",
+          "state": "partial"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/sub.py#GET%20%2Fitem%2F%7Bitem_id%7D",
+      "models": [
+        "HTTPValidationError",
+        "ValidationError"
+      ],
+      "sections": {
+        "body": {
+          "reason": "a dependencies= list is not read: dependencies may come from keyword unpacking",
+          "state": "partial"
+        },
+        "cookie": {
+          "reason": "a dependencies= list is not read: dependencies may come from keyword unpacking",
+          "state": "partial"
+        },
+        "header": {
+          "reason": "a dependencies= list is not read: dependencies may come from keyword unpacking",
+          "state": "partial"
+        },
+        "path": {
+          "evidence": "SH-F3 app/sub.py:10",
+          "items": [
+            {
+              "access": "declared",
+              "at": "app/sub.py:11",
+              "key": "item_id",
+              "kind": "fact",
+              "presence": "required",
+              "rule": "SH-F1",
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "state": "complete"
+        },
+        "query": {
+          "reason": "a dependencies= list is not read: dependencies may come from keyword unpacking",
+          "state": "partial"
+        },
+        "responses": {
+          "items": [
+            {
+              "at": "app/sub.py:10",
+              "content_type": "application/json",
+              "key": "422",
+              "kind": "intended",
+              "rule": "SH-F30",
+              "schema": {
+                "ref": "HTTPValidationError",
+                "type": "ref"
+              }
+            },
+            {
+              "at": "app/sub.py:13",
+              "content_type": null,
+              "key": "404",
+              "kind": "intended",
+              "rule": "SH-F29",
+              "schema": null
+            }
+          ],
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read; keyword unpacking on FastAPI may pass exception_handlers (app/sub.py:7) can rewrite a raised HTTPException; keyword unpacking on FastAPI may set default_response_class (app/sub.py:7): the default success status is not read; keyword unpacking on FastAPI may pass exception_handlers (app/sub.py:7) can replace the 422 response",
+          "state": "partial"
+        },
+        "security": {
+          "reason": "a security dependency is not read: dependencies may come from keyword unpacking; middleware is not read",
+          "state": "partial"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/unread.py#GET%20%2Fopt",
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/unread.py:12",
+          "state": "provably_none"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/unread.py:12",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/unread.py:12",
+          "state": "provably_none"
+        },
+        "path": {
+          "state": "not_read"
+        },
+        "query": {
+          "evidence": "SH-F23 app/unread.py:12",
+          "state": "provably_none"
+        },
+        "responses": {
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read; keyword unpacking on include_router may set default_response_class (app/unread.py:16): the default success status is not read",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    },
+    {
+      "chains": [
+        "query depth 0 ended",
+        "responses depth 0 ended"
+      ],
+      "identity": "route:app/unread.py#GET%20%2Forphan",
+      "sections": {
+        "body": {
+          "evidence": "SH-F23 app/unread.py:27",
+          "state": "provably_none"
+        },
+        "cookie": {
+          "evidence": "SH-F23 app/unread.py:27",
+          "state": "provably_none"
+        },
+        "header": {
+          "evidence": "SH-F23 app/unread.py:27",
+          "state": "provably_none"
+        },
+        "path": {
+          "state": "not_read"
+        },
+        "query": {
+          "evidence": "SH-F23 app/unread.py:27",
+          "state": "provably_none"
+        },
+        "responses": {
+          "reason": "statuses from exception handlers, middleware and calls not followed are not read; include_router default_response_class CreatedJSON (app/main.py:20): the default success status is not read; keyword unpacking on APIRouter may set default_response_class (app/routers/unpacked.py:7): the default success status is not read; keyword unpacking on FastAPI may set default_response_class (app/sub.py:7): the default success status is not read; keyword unpacking on include_router may set default_response_class (app/unread.py:16): the default success status is not read",
+          "state": "partial"
+        },
+        "security": {
+          "state": "not_read"
+        }
+      }
+    }
+  ],
+  "security_schemes": {}
+}

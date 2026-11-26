@@ -1,0 +1,28 @@
+{
+  "id": "review17-d04-alter-role-in-db-nosuch",
+  "signature": "agreed at Revision 1.7",
+  "class": "S1",
+  "owner": "W4",
+  "row": "review17",
+  "history": {
+    "id": "d04-alter-role-in-db-nosuch"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "3D000",
+        "message": "database \"nosuch_db\" does not exist",
+        "statement": 1,
+        "statement_text": "ALTER ROLE CURRENT_USER IN DATABASE nosuch_db SET work_mem = '1MB';"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

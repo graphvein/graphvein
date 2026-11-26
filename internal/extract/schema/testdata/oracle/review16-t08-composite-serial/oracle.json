@@ -1,0 +1,28 @@
+{
+  "id": "review16-t08-composite-serial",
+  "signature": "agreed at Revision 1.6",
+  "class": "S1",
+  "owner": "V13",
+  "row": "review16",
+  "history": {
+    "id": "t08-composite-serial"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42704",
+        "message": "type \"serial\" does not exist",
+        "statement": 1,
+        "statement_text": "CREATE TYPE c AS (a serial);"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

@@ -1,0 +1,28 @@
+{
+  "id": "review17-h01-axum-trigger-helper-typo",
+  "signature": "agreed at Revision 1.7",
+  "class": "S1",
+  "owner": "W2",
+  "row": "review17",
+  "history": {
+    "id": "h01-axum-trigger-helper-typo"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42P01",
+        "message": "relation \"userz\" does not exist",
+        "statement": 4,
+        "statement_text": "select trigger_updated_at('userz');"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

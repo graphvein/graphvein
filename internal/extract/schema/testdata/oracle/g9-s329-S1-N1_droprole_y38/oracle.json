@@ -1,0 +1,37 @@
+{
+  "id": "g9-s329-S1-N1_droprole_y38",
+  "signature": "applied|S1|2BP01|N1.droprole_y38",
+  "class": "S1",
+  "owner": "Y38",
+  "row": "N1.droprole_y38",
+  "history": {
+    "id": "g9-s329",
+    "tags": {
+      "1_m1.sql": [
+        "N1.droprole_y38",
+        "N1.droprole_y38",
+        "N1.droprole_y38",
+        "N1.droprole_y38"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "2BP01",
+        "message": "role \"r1\" cannot be dropped because some objects depend on it",
+        "detail": "privileges for table t2",
+        "statement": 4,
+        "statement_text": "DROP ROLE r1;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

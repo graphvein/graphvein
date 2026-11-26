@@ -1,0 +1,29 @@
+{
+  "id": "review19-r5-h01-trigger-on-table-named-as-func",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y39",
+  "row": "review19",
+  "history": {
+    "id": "h01-trigger-on-table-named-as-func"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "2BP01",
+        "message": "cannot drop function audit() because other objects depend on it",
+        "detail": "trigger audit_tg on table audit depends on function audit()",
+        "statement": 4,
+        "statement_text": "DROP FUNCTION audit();"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

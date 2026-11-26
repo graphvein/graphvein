@@ -1,0 +1,87 @@
+/* Graphvein design tokens, copied verbatim from the M5 mockup
+   (the T016 M5 mockup, an internal design record): shadcn base, brand, transports,
+   call statuses, freshness, methods, overlay, radius, fonts and sidebar
+   width. Values are HSL triplets used as hsl(var(--name)); their WCAG AA
+   text contrast was checked in M5. The dark block follows the OS setting
+   (no theme toggle yet). Tokens the shell does not use yet (transports,
+   call statuses, methods) are here so later views only consume them.
+   T016d2 changed --wrapper* (M5's blue was too close to --http) to an
+   olive family and added --other* for the further status categories
+   (ambiguous, test only, unproven, plugin, global, other). CIEDE2000
+   delta E between every pair of *-bar colours (and --brand) is at least
+   24 in both themes; --wrapper and --other text reach WCAG AA on their
+   -soft background and on --card (the T016d2 task record (internal)).
+   T016e2 added the code peek tokens in the indigo family: --code-bg (the
+   code block), --code-hl (the band of highlighted lines) and --code-sp
+   (the mark on the exact highlighted characters).
+   T016f2 added the graph tokens from the graph mockups (round 2 shell.css):
+   --edge (lines), --canvas and --dotgrid (the Flow canvas).
+   T024b added --action* for the server action transport, a teal chosen so
+   --action-bar keeps CIEDE2000 delta E of at least 24 to every other
+   *-bar colour and --brand in both themes (28.9 light, 24.3 dark). */
+:root {
+  /* shadcn base, light = stock zinc */
+  --background: 0 0% 100%; --foreground: 240 10% 3.9%;
+  --card: 0 0% 100%; --popover: 0 0% 100%;
+  --muted: 240 4.8% 95.9%; --muted-foreground: 240 3.8% 42%;
+  --accent: 240 4.8% 95.9%; --border: 240 5.9% 90%; --input: 240 5.9% 88%;
+  --sidebar: 240 5% 98%;
+  --radius: 0.5rem;
+  /* Graphvein brand */
+  --brand: 245 58% 51%; --brand-foreground: 0 0% 100%; --brand-soft: 245 85% 96.5%; --brand-text: 245 58% 46%;
+  --ring: var(--brand);
+  /* transports */
+  --http: 196 90% 30%; --http-soft: 196 85% 94.5%; --http-bar: 196 85% 42%;
+  --ipc: 322 68% 40%; --ipc-soft: 322 80% 96%; --ipc-bar: 322 65% 52%;
+  --action: 176 85% 24%; --action-soft: 176 70% 93%; --action-bar: 176 95% 56%;
+  /* call status */
+  --linked: 142 72% 26%; --linked-soft: 141 70% 93.5%; --linked-bar: 142 60% 40%;
+  --unmatched: 0 72% 43%; --unmatched-soft: 0 86% 96%; --unmatched-bar: 0 72% 51%;
+  --dynamic: 30 95% 31%; --dynamic-soft: 46 96% 92%; --dynamic-bar: 36 92% 50%;
+  --wrapper: 62 90% 22%; --wrapper-soft: 60 85% 91%; --wrapper-bar: 64 90% 46%;
+  --never: 240 4% 42%; --never-soft: 240 5% 94%; --never-bar: 240 5% 74%;
+  --other: 30 8% 30%; --other-soft: 30 12% 93%; --other-bar: 30 8% 34%;
+  /* freshness */
+  --stale: 38 95% 52%; --stale-foreground: 26 90% 11%; --fresh: var(--linked); --fresh-soft: var(--linked-soft);
+  /* methods */
+  --m-get: 221 70% 45%; --m-post: 142 72% 28%; --m-put: 262 55% 50%; --m-patch: 30 95% 33%; --m-delete: 0 72% 44%;
+  --overlay: 240 10% 4% / .45;
+  /* code peek */
+  --code-bg: 240 5% 97.5%; --code-hl: 245 85% 96.5%; --code-sp: 245 80% 89%;
+  /* graph views */
+  --edge: 240 6% 30%; --canvas: 240 5% 98.5%; --dotgrid: 240 5% 86%;
+  --sans: Inter, "Inter Variable", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --mono: "Geist Mono", ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
+  --sbw: 232px;
+  color-scheme: light;
+  /* shadcn names M5 does not define, as aliases of M5 tokens */
+  --primary: var(--brand); --primary-foreground: var(--brand-foreground);
+  --secondary: var(--muted); --secondary-foreground: var(--foreground);
+  --card-foreground: var(--foreground); --popover-foreground: var(--foreground);
+  --accent-foreground: var(--foreground); --destructive: var(--unmatched);
+}
+@media (prefers-color-scheme: dark) { :root {
+  /* Graphvein dark: indigo-tinted ink instead of neutral zinc */
+  --background: 234 24% 7%; --foreground: 232 33% 95%;
+  --card: 234 22% 9.5%; --popover: 234 22% 10.5%;
+  --muted: 234 18% 15%; --muted-foreground: 232 16% 70%;
+  --accent: 234 20% 16%; --border: 234 16% 18.5%; --input: 234 16% 22%;
+  --sidebar: 234 25% 6%;
+  --brand: 246 95% 77%; --brand-foreground: 246 50% 11%; --brand-soft: 246 45% 19%; --brand-text: 246 100% 83%;
+  --http: 192 85% 64%; --http-soft: 196 60% 15%; --http-bar: 194 80% 52%;
+  --ipc: 322 85% 77%; --ipc-soft: 322 40% 17%; --ipc-bar: 322 70% 62%;
+  --action: 176 75% 62%; --action-soft: 176 50% 14%; --action-bar: 176 95% 58%;
+  --linked: 145 60% 60%; --linked-soft: 148 45% 13%; --linked-bar: 146 55% 46%;
+  --unmatched: 2 92% 74%; --unmatched-soft: 0 50% 16%; --unmatched-bar: 2 80% 62%;
+  --dynamic: 40 95% 63%; --dynamic-soft: 34 60% 14%; --dynamic-bar: 38 92% 54%;
+  --wrapper: 60 75% 64%; --wrapper-soft: 62 45% 14%; --wrapper-bar: 62 75% 50%;
+  --never: 232 12% 66%; --never-soft: 234 16% 17%; --never-bar: 234 12% 38%;
+  --other: 30 14% 78%; --other-soft: 30 10% 17%; --other-bar: 30 10% 72%;
+  --stale: 40 96% 58%; --stale-foreground: 30 90% 9%;
+  --m-get: 216 95% 74%; --m-post: 145 60% 60%; --m-put: 262 85% 80%; --m-patch: 40 95% 63%; --m-delete: 2 92% 74%;
+  --overlay: 234 40% 3% / .66;
+  --code-bg: 234 24% 7%; --code-hl: 246 45% 19%; --code-sp: 246 55% 36%;
+  --edge: 232 14% 72%; --canvas: 234 24% 6%; --dotgrid: 234 14% 17%;
+  color-scheme: dark;
+} }
+@media (max-width: 1400px) { :root { --sbw: 204px; } }

@@ -1,0 +1,1 @@
+CREATE TABLE p (a smallint PRIMARY KEY); CREATE TABLE c (a bigint REFERENCES p);

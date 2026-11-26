@@ -1,0 +1,49 @@
+{
+  "sources": [
+    "docs/guide/",
+    "docs/known-gaps.md",
+    "docs/cli/",
+    "docs/evidence/",
+    "docs/adr/"
+  ],
+  "withheld": [
+    {
+      "path": "docs/adr/0002-held.md",
+      "reason": "fixture: names how the work was organised"
+    }
+  ],
+  "sidebar": [
+    {
+      "group": "Guide",
+      "items": [
+        {
+          "page": "docs/guide/1-start-here.md"
+        }
+      ]
+    },
+    {
+      "group": "Reference",
+      "items": [
+        {
+          "page": "docs/known-gaps.md"
+        },
+        {
+          "url": "/docs/adr/",
+          "title": "Decision records"
+        }
+      ]
+    },
+    {
+      "group": "Evidence",
+      "items": [
+        {
+          "url": "/docs/evidence/",
+          "title": "All evidence"
+        },
+        {
+          "page": "docs/evidence/link-precision.md"
+        }
+      ]
+    }
+  ]
+}

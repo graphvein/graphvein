@@ -1,0 +1,1 @@
+exports.cjsx = 1;

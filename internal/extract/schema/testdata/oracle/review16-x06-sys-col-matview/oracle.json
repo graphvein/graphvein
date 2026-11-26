@@ -1,0 +1,28 @@
+{
+  "id": "review16-x06-sys-col-matview",
+  "signature": "agreed at Revision 1.6",
+  "class": "S1",
+  "owner": "V11",
+  "row": "review16",
+  "history": {
+    "id": "x06-sys-col-matview"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42701",
+        "message": "column name \"cmax\" conflicts with a system column name",
+        "statement": 1,
+        "statement_text": "CREATE MATERIALIZED VIEW mv AS SELECT 1 AS cmax;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

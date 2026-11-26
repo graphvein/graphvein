@@ -1,0 +1,30 @@
+{
+  "id": "review19-r3-m47-createrole-in-role-self",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y13",
+  "row": "review19",
+  "history": {
+    "id": "m47-createrole-in-role-self"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42501",
+        "message": "permission denied to grant role \"rr_m47\"",
+        "detail": "Only roles with the ADMIN option on role \"rr_m47\" may grant this role.",
+        "statement": 1,
+        "statement_text": "CREATE ROLE rr_m47 IN ROLE rr_m47;",
+        "assumption": "E6"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

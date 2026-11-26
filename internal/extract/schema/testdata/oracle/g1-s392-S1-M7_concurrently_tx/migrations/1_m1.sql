@@ -1,0 +1,1 @@
+DROP INDEX CONCURRENTLY nosuch_index;

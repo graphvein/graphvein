@@ -1,0 +1,34 @@
+{
+  "id": "g7-s1201-S1-M5f_partitioned_unique_u4",
+  "signature": "applied|S1|42P17|M5f.partitioned_unique_u4",
+  "class": "S1",
+  "owner": "P4",
+  "row": "M5f.partitioned_unique_u4",
+  "history": {
+    "id": "g7-s1201",
+    "tags": {
+      "1_m1.sql": [
+        "M5f.partitioned_unique_u4",
+        "M5f.partitioned_unique_u4"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42P17",
+        "message": "cannot use \"list\" partition strategy with more than one column",
+        "statement": 1,
+        "statement_text": "CREATE TABLE pp1 (id int, k int) PARTITION BY LIST (k, id);"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

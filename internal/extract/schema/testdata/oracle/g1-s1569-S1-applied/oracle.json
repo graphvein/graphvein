@@ -1,0 +1,37 @@
+{
+  "id": "g1-s1569-S1-applied",
+  "signature": "applied|S1|42701|",
+  "class": "S1",
+  "owner": "P5",
+  "row": "",
+  "history": {
+    "id": "g1-s1569",
+    "prelude": [
+      "CREATE TABLE ext_a (id int PRIMARY KEY, code text UNIQUE)"
+    ],
+    "tags": {
+      "1_m1.sql": [
+        "N2.begin",
+        "N1.create_statistics"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42701",
+        "message": "duplicate column name in statistics definition",
+        "no_transaction": true
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history.ext_a",
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

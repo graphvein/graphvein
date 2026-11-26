@@ -1,0 +1,160 @@
+{
+  "info": {
+    "description": "Routes registered in this repository's source, as Graphvein extracted them from its index. Graphvein ran no code and read no running server. A parameter, request body, response or security requirement that is absent was not read, which is not the same as none: each operation lists what was not read in x-graphvein.not_read. Routes Graphvein could not place on a path, forms OpenAPI cannot express and conflicting registrations are listed in the root x-graphvein, never guessed.",
+    "title": "fixture routes extracted by Graphvein",
+    "version": "unversioned"
+  },
+  "openapi": "3.1.1",
+  "paths": {
+    "/form-any": {
+      "x-graphvein": {
+        "any_method": [
+          {
+            "file": "unlocked/any/src/lib.rs",
+            "framework": "axum",
+            "line": 45,
+            "route": "route:unlocked/any/src/lib.rs#ANY%20%2Fform-any"
+          },
+          {
+            "file": "workspace/inherit/src/lib.rs",
+            "framework": "axum",
+            "line": 45,
+            "route": "route:workspace/inherit/src/lib.rs#ANY%20%2Fform-any"
+          },
+          {
+            "file": "workspace/locked-old/src/lib.rs",
+            "framework": "axum",
+            "line": 45,
+            "route": "route:workspace/locked-old/src/lib.rs#ANY%20%2Fform-any"
+          },
+          {
+            "file": "workspace/unlisted/src/lib.rs",
+            "framework": "axum",
+            "line": 45,
+            "route": "route:workspace/unlisted/src/lib.rs#ANY%20%2Fform-any"
+          }
+        ],
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "ANY",
+            "resolution": "literal",
+            "route": "route:unlocked/any/src/lib.rs#ANY%20%2Fform-any"
+          },
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "ANY",
+            "resolution": "literal",
+            "route": "route:workspace/inherit/src/lib.rs#ANY%20%2Fform-any"
+          },
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "ANY",
+            "resolution": "literal",
+            "route": "route:workspace/locked-old/src/lib.rs#ANY%20%2Fform-any"
+          },
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "ANY",
+            "resolution": "literal",
+            "route": "route:workspace/unlisted/src/lib.rs#ANY%20%2Fform-any"
+          }
+        ]
+      }
+    }
+  },
+  "x-graphvein": {
+    "conflicts": [
+      {
+        "keys": [
+          "/form-head"
+        ],
+        "method": "HEAD",
+        "reason": "duplicate_operation",
+        "routes": [
+          "route:unlocked/any/src/lib.rs#HEAD%20%2Fform-head",
+          "route:workspace/inherit/src/lib.rs#HEAD%20%2Fform-head",
+          "route:workspace/locked-old/src/lib.rs#HEAD%20%2Fform-head",
+          "route:workspace/unlisted/src/lib.rs#HEAD%20%2Fform-head"
+        ]
+      },
+      {
+        "keys": [
+          "/headers-first"
+        ],
+        "method": "POST",
+        "reason": "duplicate_operation",
+        "routes": [
+          "route:unlocked/any/src/lib.rs#POST%20%2Fheaders-first",
+          "route:workspace/inherit/src/lib.rs#POST%20%2Fheaders-first",
+          "route:workspace/locked-old/src/lib.rs#POST%20%2Fheaders-first",
+          "route:workspace/unlisted/src/lib.rs#POST%20%2Fheaders-first"
+        ]
+      },
+      {
+        "keys": [
+          "/page"
+        ],
+        "method": "GET",
+        "reason": "duplicate_operation",
+        "routes": [
+          "route:unlocked/any/src/lib.rs#GET%20%2Fpage",
+          "route:workspace/inherit/src/lib.rs#GET%20%2Fpage",
+          "route:workspace/locked-old/src/lib.rs#GET%20%2Fpage",
+          "route:workspace/unlisted/src/lib.rs#GET%20%2Fpage"
+        ]
+      },
+      {
+        "keys": [
+          "/text"
+        ],
+        "method": "GET",
+        "reason": "duplicate_operation",
+        "routes": [
+          "route:unlocked/any/src/lib.rs#GET%20%2Ftext",
+          "route:workspace/inherit/src/lib.rs#GET%20%2Ftext",
+          "route:workspace/locked-old/src/lib.rs#GET%20%2Ftext",
+          "route:workspace/unlisted/src/lib.rs#GET%20%2Ftext"
+        ]
+      }
+    ],
+    "contract_version": 1,
+    "counts": {
+      "any_method": 4,
+      "conditional": 0,
+      "conflicts": 4,
+      "may_be_shadowed": 0,
+      "operations": 0,
+      "path_keys": 1,
+      "production_routes": 20,
+      "routes": 20,
+      "set_by_you": 0,
+      "settings_default": 0,
+      "unrepresentable": 0,
+      "unresolved": 0,
+      "with_shape": 0
+    },
+    "excluded_test": {
+      "path_entries": 0,
+      "routes": 0
+    },
+    "generator": "graphvein",
+    "group": "repository",
+    "imported_specs": [],
+    "index": {
+      "extractor": "graphvein EXTRACTOR",
+      "finished_at": "FINISHED",
+      "run": "RUN"
+    },
+    "repository": "fixture",
+    "scope": "production",
+    "shape_errors": 0,
+    "unrepresentable": [],
+    "unresolved": [],
+    "user_values": []
+  }
+}

@@ -1,0 +1,3 @@
+CREATE TABLE ct1 (a int);
+DO $$ BEGIN ALTER TABLE ct1 RENAME COLUMN a TO cx2; END $$;
+CREATE INDEX cx2 ON ct1 (a);

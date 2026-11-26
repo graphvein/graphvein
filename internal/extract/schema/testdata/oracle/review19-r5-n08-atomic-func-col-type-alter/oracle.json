@@ -1,0 +1,29 @@
+{
+  "id": "review19-r5-n08-atomic-func-col-type-alter",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y41",
+  "row": "review19",
+  "history": {
+    "id": "n08-atomic-func-col-type-alter"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "0A000",
+        "message": "cannot alter type of a column used by a function or procedure",
+        "detail": "function first_name() depends on column \"name\"",
+        "statement": 3,
+        "statement_text": "ALTER TABLE items ALTER COLUMN name TYPE varchar(10);"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

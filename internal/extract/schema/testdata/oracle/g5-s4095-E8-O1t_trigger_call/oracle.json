@@ -1,0 +1,61 @@
+{
+  "id": "g5-s4095-E8-O1t_trigger_call",
+  "signature": "e8-hit R 42P01 O1t.trigger_call",
+  "class": "S1",
+  "owner": "E8",
+  "row": "O1t.trigger_call",
+  "history": {
+    "id": "g5-s4095",
+    "tags": {
+      "1_m1.sql": [
+        "O1t.trigger_call",
+        "O1t.trigger_call",
+        "O1t.trigger_call"
+      ],
+      "2_m2.sql": [
+        "O1t.trigger_call"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "accepted"
+      },
+      {
+        "file": "2_m2.sql",
+        "status": "refused",
+        "sqlstate": "42P01",
+        "message": "relation \"T3\" does not exist",
+        "where": "SQL statement \"CREATE TRIGGER set_upd BEFORE UPDATE ON \"T3\" FOR EACH ROW WHEN (OLD is distinct from NEW) EXECUTE FUNCTION su2();\"\nPL/pgSQL function tu1(text) line 3 at EXECUTE",
+        "statement": 1,
+        "statement_text": "SELECT tu1('T3');"
+      }
+    ],
+    "tables": [
+      {
+        "table": "history.t3",
+        "columns": [
+          {
+            "name": "a",
+            "type": "integer",
+            "not_null": false,
+            "has_default": false
+          }
+        ],
+        "primary_key": null,
+        "unique_keys": [],
+        "foreign_keys": [],
+        "indexes": []
+      }
+    ],
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null,
+  "gate": "e8",
+  "e8_hit": "e8-hit R 42P01 g5-s4095 2_m2.sql O1t.trigger_call SELECT tu1('T3');"
+}

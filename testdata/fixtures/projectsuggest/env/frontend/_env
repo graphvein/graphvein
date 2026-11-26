@@ -1,0 +1,11 @@
+# Frontend addresses (restored as .env by the test).
+VITE_API=http://localhost:3100
+export VITE_QUOTED="http://LocalHost:3100/api"
+VITE_SHARED='http://127.0.0.1:4000'
+VITE_SELF=http://localhost:5173 # the dev server itself
+VITE_PARTNER=https://partner.example.com
+VITE_CREDENTIALS=https://user:hunter2@api.example.com
+VITE_TOKEN=http://localhost:3100/?token=abc
+VITE_INTERPOLATED=${HOST}/api
+DATABASE_URL=postgres://app:app@localhost:5432/app
+PORT=5173

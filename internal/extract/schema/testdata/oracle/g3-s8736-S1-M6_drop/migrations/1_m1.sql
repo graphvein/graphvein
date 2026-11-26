@@ -1,0 +1,3 @@
+CREATE TABLE t1 (id uuid, c3 bigserial);
+CREATE TABLE t2 (LIKE t1 INCLUDING ALL);
+DROP TABLE t1;

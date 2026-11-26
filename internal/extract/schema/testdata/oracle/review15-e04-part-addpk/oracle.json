@@ -1,0 +1,29 @@
+{
+  "id": "review15-e04-part-addpk",
+  "signature": "agreed at Revision 1.5",
+  "class": "S1",
+  "owner": "U4",
+  "row": "review15",
+  "history": {
+    "id": "e04-part-addpk"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "0A000",
+        "message": "unique constraint on partitioned table must include all partitioning columns",
+        "detail": "PRIMARY KEY constraint on table \"p\" lacks column \"k\" which is part of the partition key.",
+        "statement": 2,
+        "statement_text": "ALTER TABLE p ADD PRIMARY KEY (id);"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

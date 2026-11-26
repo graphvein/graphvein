@@ -1,0 +1,28 @@
+{
+  "id": "review19-r1-l02-index-hash-multi",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y25",
+  "row": "review19",
+  "history": {
+    "id": "l02-index-hash-multi"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "0A000",
+        "message": "access method \"hash\" does not support multicolumn indexes",
+        "statement": 2,
+        "statement_text": "CREATE INDEX t_ab ON t USING hash (a, b);"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

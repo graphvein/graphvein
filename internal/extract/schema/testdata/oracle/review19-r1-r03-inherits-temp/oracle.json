@@ -1,0 +1,28 @@
+{
+  "id": "review19-r1-r03-inherits-temp",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y28",
+  "row": "review19",
+  "history": {
+    "id": "r03-inherits-temp"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42809",
+        "message": "cannot inherit from temporary relation \"p\"",
+        "statement": 2,
+        "statement_text": "CREATE TABLE c () INHERITS (p);"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

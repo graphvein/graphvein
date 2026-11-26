@@ -1,0 +1,3 @@
+CREATE FUNCTION et() RETURNS event_trigger LANGUAGE plpgsql AS $$ BEGIN END $$;
+CREATE EVENT TRIGGER e ON ddl_command_end EXECUTE FUNCTION et();
+DROP FUNCTION et();

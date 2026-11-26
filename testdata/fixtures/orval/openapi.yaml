@@ -1,0 +1,69 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "T012e",
+    "version": "1"
+  },
+  "paths": {
+    "/t012e/articles/{slug}": {
+      "get": {
+        "operationId": "GetArticle",
+        "tags": [
+          "Article Data"
+        ],
+        "parameters": [
+          {
+            "name": "slug",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {}
+      }
+    },
+    "/t012e/articles": {
+      "get": {
+        "operationId": "GetList",
+        "tags": [
+          "Single"
+        ],
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query"
+          }
+        ],
+        "responses": {}
+      },
+      "post": {
+        "operationId": "CreateArticle",
+        "tags": [
+          "Article Data"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {}
+          }
+        },
+        "responses": {}
+      }
+    },
+    "/t012e/many": {
+      "post": {
+        "operationId": "Many",
+        "requestBody": {
+          "content": {
+            "application/json": {},
+            "text/plain": {}
+          }
+        },
+        "responses": {}
+      }
+    },
+    "/t012e/missing": {
+      "get": {
+        "responses": {}
+      }
+    }
+  }
+}

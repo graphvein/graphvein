@@ -1,0 +1,29 @@
+{
+  "id": "review16-r49-plpgsql-rowtype-unknown",
+  "signature": "agreed at Revision 1.6",
+  "class": "S1",
+  "owner": "V1",
+  "row": "review16",
+  "history": {
+    "id": "r49-plpgsql-rowtype-unknown"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42P01",
+        "message": "relation \"nosuch\" does not exist",
+        "where": "compilation of PL/pgSQL function \"f\" near line 1",
+        "statement": 1,
+        "statement_text": "CREATE FUNCTION f() RETURNS int LANGUAGE plpgsql AS $$ DECLARE r nosuch%ROWTYPE; BEGIN RETURN 1; END $$;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

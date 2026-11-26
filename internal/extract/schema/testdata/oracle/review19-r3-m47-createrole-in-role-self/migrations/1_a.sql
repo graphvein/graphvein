@@ -1,0 +1,1 @@
+CREATE ROLE rr_m47 IN ROLE rr_m47;

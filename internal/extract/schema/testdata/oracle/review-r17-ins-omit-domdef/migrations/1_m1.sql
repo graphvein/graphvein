@@ -1,0 +1,2 @@
+CREATE DOMAIN d AS int NOT NULL; CREATE TABLE t (a d, b int);
+INSERT INTO t (b) VALUES (1);

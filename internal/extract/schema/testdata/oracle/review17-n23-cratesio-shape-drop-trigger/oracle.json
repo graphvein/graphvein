@@ -1,0 +1,54 @@
+{
+  "id": "review17-n23-cratesio-shape-drop-trigger",
+  "signature": "agreed at Revision 1.7",
+  "class": "S1",
+  "owner": "W1",
+  "row": "review17",
+  "history": {
+    "id": "n23-cratesio-shape-drop-trigger"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "accepted"
+      },
+      {
+        "file": "2_b.sql",
+        "status": "refused",
+        "sqlstate": "42704",
+        "message": "trigger \"trigger_crate_set_updated_at\" for table \"crates\" does not exist",
+        "statement": 1,
+        "statement_text": "DROP TRIGGER trigger_crate_set_updated_at ON crates;"
+      }
+    ],
+    "tables": [
+      {
+        "table": "history.crates",
+        "columns": [
+          {
+            "name": "id",
+            "type": "integer",
+            "not_null": false,
+            "has_default": false
+          },
+          {
+            "name": "updated_at",
+            "type": "timestamp without time zone",
+            "not_null": false,
+            "has_default": false
+          }
+        ],
+        "primary_key": null,
+        "unique_keys": [],
+        "foreign_keys": [],
+        "indexes": []
+      }
+    ],
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

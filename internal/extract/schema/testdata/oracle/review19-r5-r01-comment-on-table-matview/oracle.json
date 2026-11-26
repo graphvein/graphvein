@@ -1,0 +1,28 @@
+{
+  "id": "review19-r5-r01-comment-on-table-matview",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y42",
+  "row": "review19",
+  "history": {
+    "id": "r01-comment-on-table-matview"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42809",
+        "message": "\"mv\" is not a table",
+        "statement": 2,
+        "statement_text": "COMMENT ON TABLE mv IS 'x';"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

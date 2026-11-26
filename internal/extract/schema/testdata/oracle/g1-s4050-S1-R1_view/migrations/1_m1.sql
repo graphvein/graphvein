@@ -1,0 +1,4 @@
+-- no-transaction
+CREATE TABLE t2 (c1 int4);
+ALTER INDEX t2 RENAME TO ix_4;
+CREATE VIEW v5 AS SELECT * FROM t2;

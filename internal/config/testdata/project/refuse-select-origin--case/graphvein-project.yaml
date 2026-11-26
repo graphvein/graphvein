@@ -1,0 +1,8 @@
+version: 1
+name: shop
+members:
+  - repository: web
+    consumes:
+      - repository: api
+        select: {origins: ['http://API.test']}
+  - repository: api

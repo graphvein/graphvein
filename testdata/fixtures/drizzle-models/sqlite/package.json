@@ -1,0 +1,9 @@
+{
+  "name": "sqlite",
+  "private": true,
+  "scripts": {
+    "db:generate": "drizzle-kit generate --config ./config/sqlite.config.ts"
+  },
+  "dependencies": { "drizzle-orm": "^0.45.4" },
+  "devDependencies": { "drizzle-kit": "^0.31.11" }
+}

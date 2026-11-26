@@ -1,0 +1,42 @@
+{
+  "calls": [
+    "function:conflict/pkg/use.py#run -\u003e function:collision.py#action",
+    "function:explicit/nested/preferred/use.py#run -\u003e function:explicit/preferred/__init__.py#action",
+    "function:mysite/manage.py#main -\u003e function:mysite/mysite/settings.py#configure",
+    "function:mysite/polls/views.py#view -\u003e function:mysite/polls/models.py#load",
+    "function:ns/pkg/use.py#run -\u003e function:ns/pkg/tool.py#work",
+    "function:root.py#run -\u003e function:ns/pkg/tool.py#work",
+    "function:src_consumer.py#run -\u003e function:src/src_only.py#work",
+    "function:two/levels/deep/caller.py#run -\u003e function:two/levels/deep/tools.py#work"
+  ],
+  "diagnostics": [
+    "mysite/manage.py: python_structure_unread",
+    "mysite/manage.py: unresolved_calls",
+    "mysite/polls/api.py: python_structure_unread",
+    "mysite/polls/api.py: unresolved_calls",
+    "mysite/polls/views.py: python_structure_unread",
+    "ns/pkg/use.py: python_structure_unread",
+    "root.py: python_structure_unread",
+    "scripts/a.py: python_structure_unread",
+    "scripts/a.py: unresolved_calls",
+    "two/levels/deep/caller.py: python_structure_unread"
+  ],
+  "imports": [
+    "file:conflict/pkg/use.py#conflict%2Fpkg%2Fuse.py -\u003e file:collision.py#collision.py",
+    "file:explicit/nested/preferred/use.py#explicit%2Fnested%2Fpreferred%2Fuse.py -\u003e file:explicit/preferred/__init__.py#explicit%2Fpreferred%2F__init__.py",
+    "file:mysite/manage.py#mysite%2Fmanage.py -\u003e external:.#pypi%3Afastapi",
+    "file:mysite/manage.py#mysite%2Fmanage.py -\u003e file:mysite/mysite/settings.py#mysite%2Fmysite%2Fsettings.py",
+    "file:mysite/manage.py#mysite%2Fmanage.py -\u003e file:mysite/polls/api.py#mysite%2Fpolls%2Fapi.py",
+    "file:mysite/polls/api.py#mysite%2Fpolls%2Fapi.py -\u003e external:.#pypi%3Afastapi",
+    "file:mysite/polls/api.py#mysite%2Fpolls%2Fapi.py -\u003e file:mysite/polls/models.py#mysite%2Fpolls%2Fmodels.py",
+    "file:mysite/polls/api.py#mysite%2Fpolls%2Fapi.py -\u003e file:mysite/polls/views.py#mysite%2Fpolls%2Fviews.py",
+    "file:mysite/polls/views.py#mysite%2Fpolls%2Fviews.py -\u003e file:mysite/polls/models.py#mysite%2Fpolls%2Fmodels.py",
+    "file:ns/pkg/use.py#ns%2Fpkg%2Fuse.py -\u003e file:ns/pkg/tool.py#ns%2Fpkg%2Ftool.py",
+    "file:root.py#root.py -\u003e file:ns/pkg/tool.py#ns%2Fpkg%2Ftool.py",
+    "file:src_consumer.py#src_consumer.py -\u003e file:src/src_only.py#src%2Fsrc_only.py",
+    "file:two/levels/deep/caller.py#two%2Flevels%2Fdeep%2Fcaller.py -\u003e file:two/levels/deep/tools.py#two%2Flevels%2Fdeep%2Ftools.py"
+  ],
+  "routes": [
+    "route:mysite/polls/api.py#GET%20%2Flist | function:mysite/polls/views.py#view | /polls/list"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": "review19-r5-h26-function-atomic-same-name-seq",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y39",
+  "row": "review19",
+  "history": {
+    "id": "h26-function-atomic-same-name-seq"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "2BP01",
+        "message": "cannot drop sequence next_id because other objects depend on it",
+        "detail": "function next_id() depends on sequence next_id",
+        "statement": 3,
+        "statement_text": "DROP SEQUENCE next_id;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

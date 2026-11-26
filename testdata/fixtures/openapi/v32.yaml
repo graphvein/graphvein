@@ -1,0 +1,19 @@
+openapi: 3.2.0
+$self: https://spec.example/root
+info: {title: Version 3.2, version: '1'}
+paths:
+  /query:
+    query:
+      parameters: [{in: querystring, required: false}]
+      security: []
+    additionalOperations:
+      LINK: {summary: link}
+      POST: {summary: invalid}
+      link: {summary: case sensitive}
+  /absolute:
+    $ref: https://spec.example/sibling#/paths/~1target
+  /duplicate:
+    $ref: https://spec.example/duplicate#/paths/~1target
+  /pointer:
+    $ref: https://spec.example/sibling#/components/pathItems/a~1b~0c%20d
+security: [{Bearer: []}]

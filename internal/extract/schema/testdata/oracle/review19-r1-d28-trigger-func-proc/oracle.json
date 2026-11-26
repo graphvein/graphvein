@@ -1,0 +1,28 @@
+{
+  "id": "review19-r1-d28-trigger-func-proc",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y09",
+  "row": "review19",
+  "history": {
+    "id": "d28-trigger-func-proc"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42883",
+        "message": "function p() does not exist",
+        "statement": 3,
+        "statement_text": "CREATE TRIGGER tr BEFORE INSERT ON t FOR EACH ROW EXECUTE PROCEDURE p();"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

@@ -1,0 +1,916 @@
+{
+  "base": "previous",
+  "hidden_tests": 0,
+  "impacts": [
+    {
+      "impact": {
+        "caps": [],
+        "depth": 3,
+        "paths": [],
+        "seeds": [
+          "route:src/b.ts#GET%20%2Fpets"
+        ],
+        "table_uses": [],
+        "unknowns": {
+          "blind_spots": [],
+          "gap_nodes": [],
+          "near_misses": [],
+          "not_extracted": [
+            {
+              "nodes": [],
+              "relation": "I11"
+            }
+          ],
+          "untraversed": {
+            "exposes_route": 1
+          }
+        }
+      },
+      "seed": "route:src/b.ts#GET%20%2Fpets"
+    },
+    {
+      "impact": {
+        "caps": [],
+        "depth": 3,
+        "paths": [
+          {
+            "claim": "may depend on",
+            "confidence": 0.9,
+            "distance": 1,
+            "kind": "client_call",
+            "node": "client_call:src/e.ts#load.GET%20listPets",
+            "provenance": "inferred",
+            "relation": "I6",
+            "seed": "api_operation:api/spec.yaml#GET%20%2Fpets",
+            "steps": [
+              {
+                "confidence": 0.9,
+                "evidence": [
+                  {
+                    "file": "src/e.ts",
+                    "span": {
+                      "end_column": 10,
+                      "end_line": 1,
+                      "start_column": 0,
+                      "start_line": 1
+                    }
+                  }
+                ],
+                "kind": "calls_operation",
+                "provenance": "inferred",
+                "relation": "I6",
+                "removed": false,
+                "source": "client_call:src/e.ts#load.GET%20listPets",
+                "target": "api_operation:api/spec.yaml#GET%20%2Fpets",
+                "via": null
+              }
+            ],
+            "wording": "calls this operation"
+          }
+        ],
+        "seeds": [
+          "api_operation:api/spec.yaml#GET%20%2Fpets"
+        ],
+        "table_uses": [],
+        "unknowns": {
+          "blind_spots": [],
+          "gap_nodes": [],
+          "near_misses": [],
+          "not_extracted": [
+            {
+              "nodes": [],
+              "relation": "I11"
+            }
+          ],
+          "untraversed": {}
+        }
+      },
+      "seed": "api_operation:api/spec.yaml#GET%20%2Fpets"
+    }
+  ],
+  "items": [
+    {
+      "after": {
+        "fields": {
+          "framework": "express",
+          "handler": null,
+          "method": "GET",
+          "paths": [
+            {
+              "conditional": false,
+              "resolution": "literal",
+              "template": "/owners"
+            }
+          ],
+          "pattern": "/owners",
+          "scope": null
+        },
+        "file": "src/b.ts",
+        "span": {
+          "end_column": 10,
+          "end_line": 2,
+          "start_column": 0,
+          "start_line": 2
+        }
+      },
+      "before": {
+        "fields": {
+          "framework": "express",
+          "handler": null,
+          "method": "GET",
+          "paths": [
+            {
+              "conditional": false,
+              "resolution": "literal",
+              "template": "/owners"
+            }
+          ],
+          "pattern": "/owners",
+          "scope": null
+        },
+        "file": "src/b.ts",
+        "span": {
+          "end_column": 10,
+          "end_line": 2,
+          "start_column": 0,
+          "start_line": 2
+        }
+      },
+      "cause": "extractor_or_relink",
+      "change": "changed",
+      "confidence": null,
+      "fields": [
+        {
+          "after": [
+            "function:src/b.ts#beta"
+          ],
+          "before": [],
+          "change": "changed",
+          "name": "handler_edges"
+        }
+      ],
+      "group": "routes",
+      "hints": [],
+      "id": "route:src/b.ts#GET%20%2Fowners",
+      "identity": "route:src/b.ts#GET%20%2Fowners",
+      "impact_count": null,
+      "kind": "route",
+      "labels": [
+        "handler_changed"
+      ],
+      "name": "GET /owners",
+      "provenance": null,
+      "reason": null,
+      "record": "node",
+      "row": "C3",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": {
+        "fields": {
+          "framework": "express",
+          "handler": "function:src/b.ts#beta",
+          "method": "GET",
+          "paths": [
+            {
+              "conditional": false,
+              "resolution": "literal",
+              "template": "/v2/pets"
+            }
+          ],
+          "pattern": "/pets",
+          "scope": null
+        },
+        "file": "src/b.ts",
+        "span": {
+          "end_column": 10,
+          "end_line": 1,
+          "start_column": 0,
+          "start_line": 1
+        }
+      },
+      "before": {
+        "fields": {
+          "framework": "express",
+          "handler": "function:src/b.ts#beta",
+          "method": "GET",
+          "paths": [
+            {
+              "conditional": false,
+              "resolution": "literal",
+              "template": "/pets"
+            }
+          ],
+          "pattern": "/pets",
+          "scope": null
+        },
+        "file": "src/b.ts",
+        "span": {
+          "end_column": 10,
+          "end_line": 1,
+          "start_column": 0,
+          "start_line": 1
+        }
+      },
+      "cause": "extractor_or_relink",
+      "change": "changed",
+      "confidence": null,
+      "fields": [
+        {
+          "after": [
+            {
+              "conditional": false,
+              "resolution": "literal",
+              "template": "/v2/pets"
+            }
+          ],
+          "before": [
+            {
+              "conditional": false,
+              "resolution": "literal",
+              "template": "/pets"
+            }
+          ],
+          "change": "changed",
+          "name": "paths"
+        }
+      ],
+      "group": "routes",
+      "hints": [],
+      "id": "route:src/b.ts#GET%20%2Fpets",
+      "identity": "route:src/b.ts#GET%20%2Fpets",
+      "impact_count": 0,
+      "kind": "route",
+      "labels": [],
+      "name": "GET /pets",
+      "provenance": null,
+      "reason": null,
+      "record": "node",
+      "row": "C3",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": {
+        "fields": {
+          "method": "GET",
+          "operation_id": "listPets",
+          "path": "/pets",
+          "status": "unmatched"
+        },
+        "file": "api/spec.yaml",
+        "span": {
+          "end_column": 10,
+          "end_line": 1,
+          "start_column": 0,
+          "start_line": 1
+        }
+      },
+      "before": {
+        "fields": {
+          "method": "GET",
+          "operation_id": "listPets",
+          "path": "/pets",
+          "status": "linked"
+        },
+        "file": "api/spec.yaml",
+        "span": {
+          "end_column": 10,
+          "end_line": 1,
+          "start_column": 0,
+          "start_line": 1
+        }
+      },
+      "cause": "extractor_or_relink",
+      "change": "changed",
+      "confidence": null,
+      "fields": [
+        {
+          "after": "unmatched",
+          "before": "linked",
+          "change": "changed",
+          "name": "status"
+        }
+      ],
+      "group": "api_operations",
+      "hints": [],
+      "id": "api_operation:api/spec.yaml#GET%20%2Fpets",
+      "identity": "api_operation:api/spec.yaml#GET%20%2Fpets",
+      "impact_count": 1,
+      "kind": "api_operation",
+      "labels": [],
+      "name": "GET /pets",
+      "provenance": null,
+      "reason": null,
+      "record": "node",
+      "row": "C6",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": null,
+      "before": {
+        "fields": {
+          "confidence": 0.9,
+          "provenance": "inferred"
+        },
+        "file": "api/spec.yaml",
+        "span": {
+          "end_column": 10,
+          "end_line": 1,
+          "start_column": 0,
+          "start_line": 1
+        }
+      },
+      "cause": "extractor_or_relink",
+      "change": "removed",
+      "confidence": 0.9,
+      "fields": [],
+      "group": "api_operations",
+      "hints": [],
+      "id": "edge:[\"documents_route\",\"api_operation:api/spec.yaml#GET%20%2Fpets\",\"route:src/b.ts#GET%20%2Fpets\"]",
+      "identity": "[\"documents_route\",\"api_operation:api/spec.yaml#GET%20%2Fpets\",\"route:src/b.ts#GET%20%2Fpets\"]",
+      "impact_count": null,
+      "kind": "documents_route",
+      "labels": [],
+      "name": "api_operation:api/spec.yaml#GET%20%2Fpets -\u003e route:src/b.ts#GET%20%2Fpets",
+      "provenance": "inferred",
+      "reason": null,
+      "record": "edge",
+      "row": "C6",
+      "test": false,
+      "wording": "no_longer_in_index"
+    },
+    {
+      "after": {
+        "fields": {
+          "applied": null,
+          "content_hash": "sha256:ff8abf1aa2e3564b3a7a927c388d06259fa8e6df89fbd86f1373d53798c09291",
+          "order": 1
+        },
+        "file": "db/m.sql",
+        "span": {
+          "end_column": 10,
+          "end_line": 1,
+          "start_column": 0,
+          "start_line": 1
+        }
+      },
+      "before": {
+        "fields": {
+          "applied": null,
+          "content_hash": "sha256:ff8abf1aa2e3564b3a7a927c388d06259fa8e6df89fbd86f1373d53798c09291",
+          "order": 1
+        },
+        "file": "db/m.sql",
+        "span": {
+          "end_column": 10,
+          "end_line": 1,
+          "start_column": 0,
+          "start_line": 1
+        }
+      },
+      "cause": "extractor_or_relink",
+      "change": "changed",
+      "confidence": null,
+      "fields": [
+        {
+          "after": [
+            "table:db/m.sql#owners"
+          ],
+          "before": [],
+          "change": "changed",
+          "name": "alters"
+        }
+      ],
+      "group": "migrations",
+      "hints": [],
+      "id": "migration:db/m.sql#migration",
+      "identity": "migration:db/m.sql#migration",
+      "impact_count": null,
+      "kind": "migration",
+      "labels": [
+        "alters_changed"
+      ],
+      "name": "migration",
+      "provenance": null,
+      "reason": null,
+      "record": "node",
+      "row": "C10",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": {
+        "fields": {},
+        "file": "src/a.ts",
+        "span": {
+          "end_column": 10,
+          "end_line": 1,
+          "start_column": 0,
+          "start_line": 1
+        }
+      },
+      "before": {
+        "fields": {},
+        "file": "src/a.ts",
+        "span": {
+          "end_column": 10,
+          "end_line": 1,
+          "start_column": 0,
+          "start_line": 1
+        }
+      },
+      "cause": "code",
+      "change": "body_changed",
+      "confidence": null,
+      "fields": [],
+      "group": "code",
+      "hints": [],
+      "id": "function:src/a.ts#alpha",
+      "identity": "function:src/a.ts#alpha",
+      "impact_count": null,
+      "kind": "function",
+      "labels": [],
+      "name": "alpha",
+      "provenance": null,
+      "reason": null,
+      "record": "node",
+      "row": "C2",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": null,
+      "before": {
+        "fields": {},
+        "file": "src/c.ts",
+        "span": {
+          "end_column": 10,
+          "end_line": 1,
+          "start_column": 0,
+          "start_line": 1
+        }
+      },
+      "cause": "extractor_or_relink",
+      "change": "unknown_now",
+      "confidence": null,
+      "fields": [],
+      "group": "code",
+      "hints": [],
+      "id": "function:src/c.ts#gamma",
+      "identity": "function:src/c.ts#gamma",
+      "impact_count": null,
+      "kind": "function",
+      "labels": [],
+      "name": "gamma",
+      "provenance": null,
+      "reason": "gap",
+      "record": "node",
+      "row": "C2",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": {
+        "fields": {
+          "content_hash": "sha256:228381e9232ecc158db12a3b729302d19988db400e20b7376db0d24f0cef02bf",
+          "language": "typescript",
+          "precision": "precise"
+        },
+        "file": "src/a.ts"
+      },
+      "before": {
+        "fields": {
+          "content_hash": "sha256:dd9ec871f9d443c6c13647e91313130ec7956dde042c6230eafc5f047daa48d7",
+          "language": "typescript",
+          "precision": "precise"
+        },
+        "file": "src/a.ts"
+      },
+      "cause": "code",
+      "change": "changed",
+      "confidence": null,
+      "fields": [
+        {
+          "after": "sha256:228381e9232ecc158db12a3b729302d19988db400e20b7376db0d24f0cef02bf",
+          "before": "sha256:dd9ec871f9d443c6c13647e91313130ec7956dde042c6230eafc5f047daa48d7",
+          "change": "changed",
+          "name": "content_hash"
+        }
+      ],
+      "group": "files",
+      "hints": [],
+      "id": "file:src/a.ts",
+      "identity": "src/a.ts",
+      "impact_count": null,
+      "kind": "file",
+      "labels": [],
+      "name": "src/a.ts",
+      "provenance": null,
+      "reason": null,
+      "record": "file",
+      "row": "C1",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": {
+        "fields": {
+          "codes": [
+            "parse_failed"
+          ]
+        },
+        "file": "src/c.ts"
+      },
+      "before": null,
+      "cause": null,
+      "change": "became_partial",
+      "confidence": null,
+      "fields": [],
+      "group": "gaps",
+      "hints": [],
+      "id": "gap:src/c.ts",
+      "identity": "src/c.ts",
+      "impact_count": null,
+      "kind": "gap",
+      "labels": [],
+      "name": "src/c.ts",
+      "provenance": null,
+      "reason": null,
+      "record": "gap",
+      "row": "C15",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": null,
+      "before": {
+        "fields": {
+          "confidence": 1,
+          "provenance": "fact"
+        },
+        "file": "src/c.ts",
+        "span": {
+          "end_column": 10,
+          "end_line": 1,
+          "start_column": 0,
+          "start_line": 1
+        }
+      },
+      "cause": "extractor_or_relink",
+      "change": "unknown_now",
+      "confidence": 1,
+      "fields": [],
+      "group": "other",
+      "hints": [],
+      "id": "edge:[\"calls\",\"function:src/c.ts#gamma\",\"function:src/b.ts#beta\"]",
+      "identity": "[\"calls\",\"function:src/c.ts#gamma\",\"function:src/b.ts#beta\"]",
+      "impact_count": null,
+      "kind": "calls",
+      "labels": [],
+      "name": "function:src/c.ts#gamma -\u003e function:src/b.ts#beta",
+      "provenance": "fact",
+      "reason": "gap",
+      "record": "edge",
+      "row": "C16",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": null,
+      "before": null,
+      "cause": null,
+      "change": "unclassified",
+      "confidence": null,
+      "fields": [],
+      "group": "unclassified",
+      "hints": [],
+      "id": "widget:src/b.ts#panel",
+      "identity": "widget:src/b.ts#panel",
+      "impact_count": null,
+      "kind": "widget",
+      "labels": [],
+      "name": "panel",
+      "provenance": null,
+      "raw": {
+        "after": {
+          "attributes": {
+            "color": "green"
+          },
+          "content_hash": "sha256:8ac140ceb6ca8d6e51a987a9828b9f97b95bbc3ae6bdb0558e2631cb8da232b8",
+          "file": "src/b.ts",
+          "identity": "widget:src/b.ts#panel",
+          "kind": "widget",
+          "level": 4,
+          "name": "panel",
+          "qualified_name": "panel",
+          "span": {
+            "end_column": 10,
+            "end_line": 1,
+            "start_column": 0,
+            "start_line": 1
+          },
+          "type": "node"
+        },
+        "before": {
+          "attributes": {
+            "color": "blue"
+          },
+          "content_hash": "sha256:8ac140ceb6ca8d6e51a987a9828b9f97b95bbc3ae6bdb0558e2631cb8da232b8",
+          "file": "src/b.ts",
+          "identity": "widget:src/b.ts#panel",
+          "kind": "widget",
+          "level": 4,
+          "name": "panel",
+          "qualified_name": "panel",
+          "span": {
+            "end_column": 10,
+            "end_line": 1,
+            "start_column": 0,
+            "start_line": 1
+          },
+          "type": "node"
+        }
+      },
+      "reason": null,
+      "record": "node",
+      "row": "D",
+      "test": false,
+      "wording": null
+    }
+  ],
+  "repository": "streams",
+  "summary": {
+    "base": {
+      "dirty": null,
+      "extractor": {
+        "name": "fixture-indexer",
+        "version": "1"
+      },
+      "finished_at": "\u003ctime-1\u003e",
+      "gaps": [],
+      "gaps_truncated": false,
+      "kind": "run",
+      "partial": false,
+      "partial_reasons": [],
+      "repository": "streams",
+      "run": "\u003crun-1\u003e"
+    },
+    "contract_version": "T019-r8",
+    "extractor_changed": true,
+    "extractor_recheck": null,
+    "file_metadata_only": 0,
+    "groups": [
+      {
+        "causes": {
+          "extractor_or_relink": 2
+        },
+        "changes": {
+          "changed": 2
+        },
+        "context": 0,
+        "group": "routes",
+        "hidden_tests": 0,
+        "items": 2,
+        "kinds": {
+          "route": 2
+        },
+        "moves": 0,
+        "other_changes": 0
+      },
+      {
+        "causes": {},
+        "changes": {},
+        "context": 0,
+        "group": "client_calls",
+        "hidden_tests": 0,
+        "items": 0,
+        "kinds": {},
+        "moves": 0,
+        "other_changes": 0
+      },
+      {
+        "causes": {
+          "extractor_or_relink": 2
+        },
+        "changes": {
+          "changed": 1,
+          "removed": 1
+        },
+        "context": 0,
+        "group": "api_operations",
+        "hidden_tests": 0,
+        "items": 2,
+        "kinds": {
+          "api_operation": 1,
+          "documents_route": 1
+        },
+        "moves": 0,
+        "other_changes": 0
+      },
+      {
+        "causes": {},
+        "changes": {},
+        "context": 0,
+        "group": "ipc",
+        "hidden_tests": 0,
+        "items": 0,
+        "kinds": {},
+        "moves": 0,
+        "other_changes": 0
+      },
+      {
+        "causes": {},
+        "changes": {},
+        "context": 0,
+        "group": "server_actions",
+        "hidden_tests": 0,
+        "items": 0,
+        "kinds": {},
+        "moves": 0,
+        "other_changes": 0
+      },
+      {
+        "causes": {},
+        "changes": {},
+        "context": 0,
+        "group": "migration_tables",
+        "hidden_tests": 0,
+        "items": 0,
+        "kinds": {},
+        "moves": 0,
+        "other_changes": 0
+      },
+      {
+        "causes": {},
+        "changes": {},
+        "context": 0,
+        "group": "model_tables",
+        "hidden_tests": 0,
+        "items": 0,
+        "kinds": {},
+        "moves": 0,
+        "other_changes": 0
+      },
+      {
+        "causes": {
+          "extractor_or_relink": 1
+        },
+        "changes": {
+          "changed": 1
+        },
+        "context": 0,
+        "group": "migrations",
+        "hidden_tests": 0,
+        "items": 1,
+        "kinds": {
+          "migration": 1
+        },
+        "moves": 0,
+        "other_changes": 0
+      },
+      {
+        "causes": {
+          "code": 1,
+          "extractor_or_relink": 1
+        },
+        "changes": {
+          "body_changed": 1,
+          "unknown_now": 1
+        },
+        "context": 0,
+        "group": "code",
+        "hidden_tests": 0,
+        "items": 2,
+        "kinds": {
+          "function": 2
+        },
+        "moves": 0,
+        "other_changes": 0
+      },
+      {
+        "causes": {},
+        "changes": {},
+        "context": 0,
+        "group": "angular",
+        "hidden_tests": 0,
+        "items": 0,
+        "kinds": {},
+        "moves": 0,
+        "other_changes": 0
+      },
+      {
+        "causes": {},
+        "changes": {},
+        "context": 0,
+        "group": "react",
+        "hidden_tests": 0,
+        "items": 0,
+        "kinds": {},
+        "moves": 0,
+        "other_changes": 0
+      },
+      {
+        "causes": {},
+        "changes": {},
+        "context": 0,
+        "group": "architecture",
+        "hidden_tests": 0,
+        "items": 0,
+        "kinds": {},
+        "moves": 0,
+        "other_changes": 0
+      },
+      {
+        "causes": {
+          "code": 1
+        },
+        "changes": {
+          "changed": 1
+        },
+        "context": 0,
+        "group": "files",
+        "hidden_tests": 0,
+        "items": 1,
+        "kinds": {
+          "file": 1
+        },
+        "moves": 0,
+        "other_changes": 0
+      },
+      {
+        "causes": {},
+        "changes": {
+          "became_partial": 1
+        },
+        "context": 0,
+        "group": "gaps",
+        "hidden_tests": 0,
+        "items": 1,
+        "kinds": {
+          "gap": 1
+        },
+        "moves": 0,
+        "other_changes": 0
+      },
+      {
+        "causes": {
+          "extractor_or_relink": 1
+        },
+        "changes": {
+          "unknown_now": 1
+        },
+        "context": 0,
+        "group": "other",
+        "hidden_tests": 0,
+        "items": 1,
+        "kinds": {
+          "calls": 1
+        },
+        "moves": 0,
+        "other_changes": 0
+      },
+      {
+        "causes": {},
+        "changes": {
+          "unclassified": 1
+        },
+        "context": 0,
+        "group": "unclassified",
+        "hidden_tests": 0,
+        "items": 1,
+        "kinds": {
+          "widget": 1
+        },
+        "moves": 0,
+        "other_changes": 0
+      }
+    ],
+    "head": {
+      "dirty": null,
+      "extractor": {
+        "name": "fixture-indexer",
+        "version": "2"
+      },
+      "finished_at": "\u003ctime-2\u003e",
+      "gaps": [
+        "src/c.ts"
+      ],
+      "gaps_truncated": false,
+      "kind": "current",
+      "partial": true,
+      "partial_reasons": [],
+      "repository": "streams",
+      "run": "\u003crun-2\u003e"
+    },
+    "head_commit_differs": false,
+    "locations": 1,
+    "not_extracted": [
+      "architecture"
+    ],
+    "partial": true,
+    "total": 11
+  }
+}

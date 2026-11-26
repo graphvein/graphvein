@@ -1,0 +1,2 @@
+CREATE TABLE t1 (c1 int NOT NULL DEFAULT 0);
+COMMENT ON INDEX t1_pkey IS 'index';

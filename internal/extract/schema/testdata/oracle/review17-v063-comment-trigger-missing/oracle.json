@@ -1,0 +1,28 @@
+{
+  "id": "review17-v063-comment-trigger-missing",
+  "signature": "agreed at Revision 1.7",
+  "class": "S1",
+  "owner": "W1",
+  "row": "review17",
+  "history": {
+    "id": "v063-comment-trigger-missing"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42704",
+        "message": "trigger \"nosuch\" for table \"t\" does not exist",
+        "statement": 2,
+        "statement_text": "COMMENT ON TRIGGER nosuch ON t IS 'x';"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

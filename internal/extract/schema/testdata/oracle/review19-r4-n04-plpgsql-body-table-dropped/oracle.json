@@ -1,0 +1,49 @@
+{
+  "id": "review19-r4-n04-plpgsql-body-table-dropped",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y50",
+  "row": "review19",
+  "history": {
+    "id": "n04-plpgsql-body-table-dropped"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "accepted"
+      },
+      {
+        "file": "2_d.sql",
+        "status": "refused",
+        "sqlstate": "42P01",
+        "message": "relation \"t\" does not exist",
+        "where": "PL/pgSQL function g() line 1 at RETURN",
+        "statement": 2,
+        "statement_text": "select g();"
+      }
+    ],
+    "tables": [
+      {
+        "table": "history.t",
+        "columns": [
+          {
+            "name": "a",
+            "type": "integer",
+            "not_null": false,
+            "has_default": false
+          }
+        ],
+        "primary_key": null,
+        "unique_keys": [],
+        "foreign_keys": [],
+        "indexes": []
+      }
+    ],
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

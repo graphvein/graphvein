@@ -1,0 +1,29 @@
+{
+  "id": "review18-l06-dropfunc-domain-default",
+  "signature": "agreed at Revision 1.8",
+  "class": "S1",
+  "owner": "X1",
+  "row": "review18",
+  "history": {
+    "id": "l06-dropfunc-domain-default"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "2BP01",
+        "message": "cannot drop function f() because other objects depend on it",
+        "detail": "type d depends on function f()",
+        "statement": 3,
+        "statement_text": "drop function f();"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

@@ -1,0 +1,19 @@
+--- src/patched.rs.orig
++++ src/patched.rs
+@@ -2,7 +2,7 @@
+ 
+ pub mod sql_types {
+     #[derive(diesel::query_builder::QueryId, Clone, diesel::sql_types::SqlType)]
+-    #[diesel(postgres_type(name = "user_kind"))]
++    #[diesel(postgres_type(name = "my_kind"))]
+     pub struct UserKind;
+ }
+ 
+@@ -12,6 +12,7 @@
+ 
+     patched_users (id) {
+         id -> Int4,
++        #[max_length = 10]
+         name -> Varchar,
+         kind -> UserKind,
+         note -> Nullable<Text>,

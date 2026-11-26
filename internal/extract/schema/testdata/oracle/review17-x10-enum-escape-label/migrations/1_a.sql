@@ -1,0 +1,2 @@
+CREATE TYPE e AS ENUM (E'a\x62');
+ALTER TYPE e ADD VALUE 'ab';

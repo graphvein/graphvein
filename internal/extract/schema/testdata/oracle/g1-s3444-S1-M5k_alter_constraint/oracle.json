@@ -1,0 +1,34 @@
+{
+  "id": "g1-s3444-S1-M5k_alter_constraint",
+  "signature": "applied|S1|42809|M5k.alter_constraint",
+  "class": "S1",
+  "owner": "P4",
+  "row": "M5k.alter_constraint",
+  "history": {
+    "id": "g1-s3444",
+    "tags": {
+      "1_m1.sql": [
+        "M1.create",
+        "M5k.alter_constraint"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42809",
+        "message": "constraint \"t1_pk\" of relation \"t1\" is not a foreign key constraint",
+        "statement": 2,
+        "statement_text": "ALTER TABLE t1 ALTER CONSTRAINT t1_pk DEFERRABLE;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

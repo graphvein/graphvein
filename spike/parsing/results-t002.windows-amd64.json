@@ -1,0 +1,1954 @@
+{
+  "go_version": "go1.27.1",
+  "os": "windows",
+  "arch": "amd64",
+  "logical_cpus": 16,
+  "cpu": "AMD64 Family 25 Model 80 Stepping 0, AuthenticAMD",
+  "gomaxprocs": 16,
+  "cold_start": [
+    {
+      "language": "javascript",
+      "process_to_first_parse_ns": 153325500
+    },
+    {
+      "language": "typescript",
+      "process_to_first_parse_ns": 147019400
+    },
+    {
+      "language": "tsx",
+      "process_to_first_parse_ns": 159168700
+    },
+    {
+      "language": "rust",
+      "process_to_first_parse_ns": 151883800
+    },
+    {
+      "language": "go",
+      "process_to_first_parse_ns": 136238100
+    },
+    {
+      "language": "python",
+      "process_to_first_parse_ns": 133862300
+    },
+    {
+      "language": "java",
+      "process_to_first_parse_ns": 136728200
+    }
+  ],
+  "runs": [
+    {
+      "workers": 1,
+      "wall_ns": 1200358900,
+      "peak_working_set_bytes": 102027264,
+      "peak_commit_bytes": 295727104,
+      "memory_method": "Windows GetProcessMemoryInfo: PeakWorkingSetSize / PeakPagefileUsage",
+      "parse_clock": "Windows QueryPerformanceCounter / QueryPerformanceFrequency (four host calls per parse)",
+      "stats": [
+        {
+          "corpus": "angular",
+          "language": "typescript",
+          "files": 50,
+          "bytes": 139487,
+          "parsed": 50,
+          "sum_parse_ns": 56749900,
+          "median_parse_ns": 434550,
+          "syntax_error_files": 0,
+          "failures": 0,
+          "panics": 0,
+          "slowest_five": [
+            {
+              "path": "src/app/features/article/services/comments.service.spec.ts",
+              "parse_ns": 7245500,
+              "error_nodes": 0
+            },
+            {
+              "path": "src/app/features/article/services/tags.service.spec.ts",
+              "parse_ns": 6696400,
+              "error_nodes": 0
+            },
+            {
+              "path": "src/app/features/profile/services/profile.service.spec.ts",
+              "parse_ns": 6184400,
+              "error_nodes": 0
+            },
+            {
+              "path": "src/app/core/auth/services/user.service.spec.ts",
+              "parse_ns": 5655400,
+              "error_nodes": 0
+            },
+            {
+              "path": "src/app/core/auth/services/jwt.service.spec.ts",
+              "parse_ns": 4150500,
+              "error_nodes": 0
+            }
+          ],
+          "worst_five": []
+        },
+        {
+          "corpus": "axum-ddd",
+          "language": "rust",
+          "files": 46,
+          "bytes": 168028,
+          "parsed": 46,
+          "sum_parse_ns": 69447100,
+          "median_parse_ns": 1028950,
+          "syntax_error_files": 0,
+          "failures": 0,
+          "panics": 0,
+          "slowest_five": [
+            {
+              "path": "tests/articles.rs",
+              "parse_ns": 7946600,
+              "error_nodes": 0
+            },
+            {
+              "path": "tests/auth.rs",
+              "parse_ns": 7833300,
+              "error_nodes": 0
+            },
+            {
+              "path": "src/infrastructure/db/repositories/article_repository.rs",
+              "parse_ns": 3859200,
+              "error_nodes": 0
+            },
+            {
+              "path": "tests/errors_auth.rs",
+              "parse_ns": 3843500,
+              "error_nodes": 0
+            },
+            {
+              "path": "tests/common.rs",
+              "parse_ns": 3687500,
+              "error_nodes": 0
+            }
+          ],
+          "worst_five": []
+        },
+        {
+          "corpus": "express",
+          "language": "javascript",
+          "files": 23,
+          "bytes": 3049,
+          "parsed": 23,
+          "sum_parse_ns": 1859300,
+          "median_parse_ns": 57400,
+          "syntax_error_files": 0,
+          "failures": 0,
+          "panics": 0,
+          "slowest_five": [
+            {
+              "path": "apps/local/.eslintrc.js",
+              "parse_ns": 180000,
+              "error_nodes": 0
+            },
+            {
+              "path": "apps/app/.eslintrc.js",
+              "parse_ns": 161200,
+              "error_nodes": 0
+            },
+            {
+              "path": "packages/middleware/.eslintrc.js",
+              "parse_ns": 151000,
+              "error_nodes": 0
+            },
+            {
+              "path": "apps/article/.eslintrc.js",
+              "parse_ns": 143100,
+              "error_nodes": 0
+            },
+            {
+              "path": "packages/config/jest.config.js",
+              "parse_ns": 134600,
+              "error_nodes": 0
+            }
+          ],
+          "worst_five": []
+        },
+        {
+          "corpus": "express",
+          "language": "typescript",
+          "files": 334,
+          "bytes": 314180,
+          "parsed": 334,
+          "sum_parse_ns": 123935600,
+          "median_parse_ns": 166550,
+          "syntax_error_files": 0,
+          "failures": 0,
+          "panics": 0,
+          "slowest_five": [
+            {
+              "path": "packages/core/database/DbArticle/DbArticle.ts",
+              "parse_ns": 5349700,
+              "error_nodes": 0
+            },
+            {
+              "path": "packages/core/tests/article/list.spec.ts",
+              "parse_ns": 3278800,
+              "error_nodes": 0
+            },
+            {
+              "path": "apps/article/tests/basic/list-articles.spec.ts",
+              "parse_ns": 2692500,
+              "error_nodes": 0
+            },
+            {
+              "path": "infra/stacks/ApiGatewayStack/ApiGatewayStack.ts",
+              "parse_ns": 2592900,
+              "error_nodes": 0
+            },
+            {
+              "path": "apps/user/tests/basic/get-profile.spec.ts",
+              "parse_ns": 2341500,
+              "error_nodes": 0
+            }
+          ],
+          "worst_five": []
+        },
+        {
+          "corpus": "fastapi",
+          "language": "python",
+          "files": 43,
+          "bytes": 94064,
+          "parsed": 43,
+          "sum_parse_ns": 38749000,
+          "median_parse_ns": 435700,
+          "syntax_error_files": 0,
+          "failures": 0,
+          "panics": 0,
+          "slowest_five": [
+            {
+              "path": "backend/tests/api/routes/test_users.py",
+              "parse_ns": 7236000,
+              "error_nodes": 0
+            },
+            {
+              "path": "backend/app/api/routes/users.py",
+              "parse_ns": 2629000,
+              "error_nodes": 0
+            },
+            {
+              "path": "scripts/prepare_release.py",
+              "parse_ns": 2598200,
+              "error_nodes": 0
+            },
+            {
+              "path": "backend/tests/api/routes/test_login.py",
+              "parse_ns": 2418900,
+              "error_nodes": 0
+            },
+            {
+              "path": "backend/tests/api/routes/test_items.py",
+              "parse_ns": 2273200,
+              "error_nodes": 0
+            }
+          ],
+          "worst_five": []
+        },
+        {
+          "corpus": "fastapi",
+          "language": "tsx",
+          "files": 70,
+          "bytes": 191552,
+          "parsed": 70,
+          "sum_parse_ns": 59492300,
+          "median_parse_ns": 646400,
+          "syntax_error_files": 0,
+          "failures": 0,
+          "panics": 0,
+          "slowest_five": [
+            {
+              "path": "frontend/src/components/ui/sidebar.tsx",
+              "parse_ns": 6197400,
+              "error_nodes": 0
+            },
+            {
+              "path": "frontend/src/components/Admin/EditUser.tsx",
+              "parse_ns": 2264500,
+              "error_nodes": 0
+            },
+            {
+              "path": "frontend/src/components/Admin/AddUser.tsx",
+              "parse_ns": 2243800,
+              "error_nodes": 0
+            },
+            {
+              "path": "frontend/src/components/ui/dropdown-menu.tsx",
+              "parse_ns": 1894700,
+              "error_nodes": 0
+            },
+            {
+              "path": "frontend/src/components/Common/DataTable.tsx",
+              "parse_ns": 1876400,
+              "error_nodes": 0
+            }
+          ],
+          "worst_five": []
+        },
+        {
+          "corpus": "fastapi",
+          "language": "typescript",
+          "files": 39,
+          "bytes": 137476,
+          "parsed": 39,
+          "sum_parse_ns": 51871100,
+          "median_parse_ns": 849900,
+          "syntax_error_files": 0,
+          "failures": 0,
+          "panics": 0,
+          "slowest_five": [
+            {
+              "path": "frontend/src/client/sdk.gen.ts",
+              "parse_ns": 4691100,
+              "error_nodes": 0
+            },
+            {
+              "path": "frontend/tests/user-settings.spec.ts",
+              "parse_ns": 4370600,
+              "error_nodes": 0
+            },
+            {
+              "path": "frontend/src/client/types.gen.ts",
+              "parse_ns": 4291800,
+              "error_nodes": 0
+            },
+            {
+              "path": "frontend/tests/admin.spec.ts",
+              "parse_ns": 3684000,
+              "error_nodes": 0
+            },
+            {
+              "path": "frontend/src/routeTree.gen.ts",
+              "parse_ns": 2668700,
+              "error_nodes": 0
+            }
+          ],
+          "worst_five": []
+        },
+        {
+          "corpus": "react",
+          "language": "javascript",
+          "files": 6,
+          "bytes": 22617,
+          "parsed": 6,
+          "sum_parse_ns": 7698200,
+          "median_parse_ns": 950850,
+          "syntax_error_files": 0,
+          "failures": 0,
+          "panics": 0,
+          "slowest_five": [
+            {
+              "path": "public/mockServiceWorker.js",
+              "parse_ns": 3124200,
+              "error_nodes": 0
+            },
+            {
+              "path": "webpack.config.js",
+              "parse_ns": 2170000,
+              "error_nodes": 0
+            },
+            {
+              "path": ".dependency-cruiser.js",
+              "parse_ns": 1278200,
+              "error_nodes": 0
+            },
+            {
+              "path": ".eslintrc.js",
+              "parse_ns": 623500,
+              "error_nodes": 0
+            },
+            {
+              "path": "jest.config.js",
+              "parse_ns": 400200,
+              "error_nodes": 0
+            }
+          ],
+          "worst_five": []
+        },
+        {
+          "corpus": "react",
+          "language": "tsx",
+          "files": 15,
+          "bytes": 51378,
+          "parsed": 15,
+          "sum_parse_ns": 16367700,
+          "median_parse_ns": 553100,
+          "syntax_error_files": 0,
+          "failures": 0,
+          "panics": 0,
+          "slowest_five": [
+            {
+              "path": "src/pages/article/article.ui.tsx",
+              "parse_ns": 4045700,
+              "error_nodes": 0
+            },
+            {
+              "path": "src/pages/profile/profile.ui.tsx",
+              "parse_ns": 3194100,
+              "error_nodes": 0
+            },
+            {
+              "path": "src/pages/home/home.ui.tsx",
+              "parse_ns": 2804000,
+              "error_nodes": 0
+            },
+            {
+              "path": "src/pages/editor/editor.ui.tsx",
+              "parse_ns": 1046300,
+              "error_nodes": 0
+            },
+            {
+              "path": "src/pages/settings/settings.ui.tsx",
+              "parse_ns": 922900,
+              "error_nodes": 0
+            }
+          ],
+          "worst_five": []
+        },
+        {
+          "corpus": "react",
+          "language": "typescript",
+          "files": 52,
+          "bytes": 50099,
+          "parsed": 52,
+          "sum_parse_ns": 20857900,
+          "median_parse_ns": 395050,
+          "syntax_error_files": 0,
+          "failures": 0,
+          "panics": 0,
+          "slowest_five": [
+            {
+              "path": "src/pages/home/home.state.ts",
+              "parse_ns": 1428900,
+              "error_nodes": 0
+            },
+            {
+              "path": "src/pages/profile/profile.state.ts",
+              "parse_ns": 1276300,
+              "error_nodes": 0
+            },
+            {
+              "path": "src/pages/article/article.route.ts",
+              "parse_ns": 886400,
+              "error_nodes": 0
+            },
+            {
+              "path": "src/shared/ui/global-progress-bar/use-fake-progress.ts",
+              "parse_ns": 843600,
+              "error_nodes": 0
+            },
+            {
+              "path": "src/shared/api/auth-fetch.ts",
+              "parse_ns": 799100,
+              "error_nodes": 0
+            }
+          ],
+          "worst_five": []
+        }
+      ],
+      "languages": [
+        {
+          "corpus": "all",
+          "language": "javascript",
+          "files": 29,
+          "bytes": 25666,
+          "parsed": 29,
+          "sum_parse_ns": 9557500,
+          "median_parse_ns": 88400,
+          "syntax_error_files": 0,
+          "failures": 0,
+          "panics": 0,
+          "slowest_five": [
+            {
+              "path": "react/public/mockServiceWorker.js",
+              "parse_ns": 3124200,
+              "error_nodes": 0
+            },
+            {
+              "path": "react/webpack.config.js",
+              "parse_ns": 2170000,
+              "error_nodes": 0
+            },
+            {
+              "path": "react/.dependency-cruiser.js",
+              "parse_ns": 1278200,
+              "error_nodes": 0
+            },
+            {
+              "path": "react/.eslintrc.js",
+              "parse_ns": 623500,
+              "error_nodes": 0
+            },
+            {
+              "path": "react/jest.config.js",
+              "parse_ns": 400200,
+              "error_nodes": 0
+            }
+          ],
+          "worst_five": []
+        },
+        {
+          "corpus": "all",
+          "language": "python",
+          "files": 43,
+          "bytes": 94064,
+          "parsed": 43,
+          "sum_parse_ns": 38749000,
+          "median_parse_ns": 435700,
+          "syntax_error_files": 0,
+          "failures": 0,
+          "panics": 0,
+          "slowest_five": [
+            {
+              "path": "fastapi/backend/tests/api/routes/test_users.py",
+              "parse_ns": 7236000,
+              "error_nodes": 0
+            },
+            {
+              "path": "fastapi/backend/app/api/routes/users.py",
+              "parse_ns": 2629000,
+              "error_nodes": 0
+            },
+            {
+              "path": "fastapi/scripts/prepare_release.py",
+              "parse_ns": 2598200,
+              "error_nodes": 0
+            },
+            {
+              "path": "fastapi/backend/tests/api/routes/test_login.py",
+              "parse_ns": 2418900,
+              "error_nodes": 0
+            },
+            {
+              "path": "fastapi/backend/tests/api/routes/test_items.py",
+              "parse_ns": 2273200,
+              "error_nodes": 0
+            }
+          ],
+          "worst_five": []
+        },
+        {
+          "corpus": "all",
+          "language": "rust",
+          "files": 46,
+          "bytes": 168028,
+          "parsed": 46,
+          "sum_parse_ns": 69447100,
+          "median_parse_ns": 1028950,
+          "syntax_error_files": 0,
+          "failures": 0,
+          "panics": 0,
+          "slowest_five": [
+            {
+              "path": "axum-ddd/tests/articles.rs",
+              "parse_ns": 7946600,
+              "error_nodes": 0
+            },
+            {
+              "path": "axum-ddd/tests/auth.rs",
+              "parse_ns": 7833300,
+              "error_nodes": 0
+            },
+            {
+              "path": "axum-ddd/src/infrastructure/db/repositories/article_repository.rs",
+              "parse_ns": 3859200,
+              "error_nodes": 0
+            },
+            {
+              "path": "axum-ddd/tests/errors_auth.rs",
+              "parse_ns": 3843500,
+              "error_nodes": 0
+            },
+            {
+              "path": "axum-ddd/tests/common.rs",
+              "parse_ns": 3687500,
+              "error_nodes": 0
+            }
+          ],
+          "worst_five": []
+        },
+        {
+          "corpus": "all",
+          "language": "tsx",
+          "files": 85,
+          "bytes": 242930,
+          "parsed": 85,
+          "sum_parse_ns": 75860000,
+          "median_parse_ns": 643800,
+          "syntax_error_files": 0,
+          "failures": 0,
+          "panics": 0,
+          "slowest_five": [
+            {
+              "path": "fastapi/frontend/src/components/ui/sidebar.tsx",
+              "parse_ns": 6197400,
+              "error_nodes": 0
+            },
+            {
+              "path": "react/src/pages/article/article.ui.tsx",
+              "parse_ns": 4045700,
+              "error_nodes": 0
+            },
+            {
+              "path": "react/src/pages/profile/profile.ui.tsx",
+              "parse_ns": 3194100,
+              "error_nodes": 0
+            },
+            {
+              "path": "react/src/pages/home/home.ui.tsx",
+              "parse_ns": 2804000,
+              "error_nodes": 0
+            },
+            {
+              "path": "fastapi/frontend/src/components/Admin/EditUser.tsx",
+              "parse_ns": 2264500,
+              "error_nodes": 0
+            }
+          ],
+          "worst_five": []
+        },
+        {
+          "corpus": "all",
+          "language": "typescript",
+          "files": 475,
+          "bytes": 641242,
+          "parsed": 475,
+          "sum_parse_ns": 253414500,
+          "median_parse_ns": 257000,
+          "syntax_error_files": 0,
+          "failures": 0,
+          "panics": 0,
+          "slowest_five": [
+            {
+              "path": "angular/src/app/features/article/services/comments.service.spec.ts",
+              "parse_ns": 7245500,
+              "error_nodes": 0
+            },
+            {
+              "path": "angular/src/app/features/article/services/tags.service.spec.ts",
+              "parse_ns": 6696400,
+              "error_nodes": 0
+            },
+            {
+              "path": "angular/src/app/features/profile/services/profile.service.spec.ts",
+              "parse_ns": 6184400,
+              "error_nodes": 0
+            },
+            {
+              "path": "angular/src/app/core/auth/services/user.service.spec.ts",
+              "parse_ns": 5655400,
+              "error_nodes": 0
+            },
+            {
+              "path": "express/packages/core/database/DbArticle/DbArticle.ts",
+              "parse_ns": 5349700,
+              "error_nodes": 0
+            }
+          ],
+          "worst_five": []
+        }
+      ],
+      "skipped": [
+        {
+          "corpus": "react",
+          "language": "html/angular",
+          "files": 1,
+          "bytes": 514
+        },
+        {
+          "corpus": "express",
+          "language": "html/angular",
+          "files": 1,
+          "bytes": 212
+        },
+        {
+          "corpus": "angular",
+          "language": "html/angular",
+          "files": 11,
+          "bytes": 19313
+        },
+        {
+          "corpus": "fastapi",
+          "language": "html/angular",
+          "files": 4,
+          "bytes": 21300
+        }
+      ]
+    },
+    {
+      "workers": 4,
+      "wall_ns": 955172000,
+      "peak_working_set_bytes": 367431680,
+      "peak_commit_bytes": 1048412160,
+      "memory_method": "Windows GetProcessMemoryInfo: PeakWorkingSetSize / PeakPagefileUsage",
+      "parse_clock": "Windows QueryPerformanceCounter / QueryPerformanceFrequency (four host calls per parse)",
+      "stats": [
+        {
+          "corpus": "angular",
+          "language": "typescript",
+          "files": 50,
+          "bytes": 139487,
+          "parsed": 50,
+          "sum_parse_ns": 59324500,
+          "median_parse_ns": 473100,
+          "syntax_error_files": 0,
+          "failures": 0,
+          "panics": 0,
+          "slowest_five": [
+            {
+              "path": "src/app/features/article/services/comments.service.spec.ts",
+              "parse_ns": 7240000,
+              "error_nodes": 0
+            },
+            {
+              "path": "src/app/features/article/services/tags.service.spec.ts",
+              "parse_ns": 6809300,
+              "error_nodes": 0
+            },
+            {
+              "path": "src/app/features/profile/services/profile.service.spec.ts",
+              "parse_ns": 6382400,
+              "error_nodes": 0
+            },
+            {
+              "path": "src/app/core/auth/services/user.service.spec.ts",
+              "parse_ns": 5993500,
+              "error_nodes": 0
+            },
+            {
+              "path": "src/app/core/auth/services/jwt.service.spec.ts",
+              "parse_ns": 4558900,
+              "error_nodes": 0
+            }
+          ],
+          "worst_five": []
+        },
+        {
+          "corpus": "axum-ddd",
+          "language": "rust",
+          "files": 46,
+          "bytes": 168028,
+          "parsed": 46,
+          "sum_parse_ns": 71969500,
+          "median_parse_ns": 1009350,
+          "syntax_error_files": 0,
+          "failures": 0,
+          "panics": 0,
+          "slowest_five": [
+            {
+              "path": "tests/articles.rs",
+              "parse_ns": 8352600,
+              "error_nodes": 0
+            },
+            {
+              "path": "tests/auth.rs",
+              "parse_ns": 8106900,
+              "error_nodes": 0
+            },
+            {
+              "path": "src/infrastructure/db/repositories/article_repository.rs",
+              "parse_ns": 3983100,
+              "error_nodes": 0
+            },
+            {
+              "path": "tests/errors_auth.rs",
+              "parse_ns": 3816600,
+              "error_nodes": 0
+            },
+            {
+              "path": "tests/common.rs",
+              "parse_ns": 3688500,
+              "error_nodes": 0
+            }
+          ],
+          "worst_five": []
+        },
+        {
+          "corpus": "express",
+          "language": "javascript",
+          "files": 23,
+          "bytes": 3049,
+          "parsed": 23,
+          "sum_parse_ns": 2276900,
+          "median_parse_ns": 77800,
+          "syntax_error_files": 0,
+          "failures": 0,
+          "panics": 0,
+          "slowest_five": [
+            {
+              "path": "apps/app/.eslintrc.js",
+              "parse_ns": 195400,
+              "error_nodes": 0
+            },
+            {
+              "path": "packages/core/.eslintrc.js",
+              "parse_ns": 181200,
+              "error_nodes": 0
+            },
+            {
+              "path": "apps/article/.eslintrc.js",
+              "parse_ns": 171400,
+              "error_nodes": 0
+            },
+            {
+              "path": "apps/local/.eslintrc.js",
+              "parse_ns": 168100,
+              "error_nodes": 0
+            },
+            {
+              "path": "apps/user/.eslintrc.js",
+              "parse_ns": 152400,
+              "error_nodes": 0
+            }
+          ],
+          "worst_five": []
+        },
+        {
+          "corpus": "express",
+          "language": "typescript",
+          "files": 334,
+          "bytes": 314180,
+          "parsed": 334,
+          "sum_parse_ns": 135555000,
+          "median_parse_ns": 200450,
+          "syntax_error_files": 0,
+          "failures": 0,
+          "panics": 0,
+          "slowest_five": [
+            {
+              "path": "packages/core/database/DbArticle/DbArticle.ts",
+              "parse_ns": 5132500,
+              "error_nodes": 0
+            },
+            {
+              "path": "apps/user/tests/basic/get-profile.spec.ts",
+              "parse_ns": 3777300,
+              "error_nodes": 0
+            },
+            {
+              "path": "packages/core/tests/article/list.spec.ts",
+              "parse_ns": 3408500,
+              "error_nodes": 0
+            },
+            {
+              "path": "apps/article/tests/basic/list-articles.spec.ts",
+              "parse_ns": 2704700,
+              "error_nodes": 0
+            },
+            {
+              "path": "apps/article/tests/basic/feed-articles.spec.ts",
+              "parse_ns": 2583900,
+              "error_nodes": 0
+            }
+          ],
+          "worst_five": []
+        },
+        {
+          "corpus": "fastapi",
+          "language": "python",
+          "files": 43,
+          "bytes": 94064,
+          "parsed": 43,
+          "sum_parse_ns": 43566500,
+          "median_parse_ns": 505400,
+          "syntax_error_files": 0,
+          "failures": 0,
+          "panics": 0,
+          "slowest_five": [
+            {
+              "path": "backend/tests/api/routes/test_users.py",
+              "parse_ns": 7909100,
+              "error_nodes": 0
+            },
+            {
+              "path": "backend/app/api/routes/users.py",
+              "parse_ns": 3040100,
+              "error_nodes": 0
+            },
+            {
+              "path": "backend/app/api/routes/items.py",
+              "parse_ns": 2766700,
+              "error_nodes": 0
+            },
+            {
+              "path": "backend/tests/api/routes/test_login.py",
+              "parse_ns": 2606600,
+              "error_nodes": 0
+            },
+            {
+              "path": "scripts/prepare_release.py",
+              "parse_ns": 2494400,
+              "error_nodes": 0
+            }
+          ],
+          "worst_five": []
+        },
+        {
+          "corpus": "fastapi",
+          "language": "tsx",
+          "files": 70,
+          "bytes": 191552,
+          "parsed": 70,
+          "sum_parse_ns": 65592900,
+          "median_parse_ns": 621800,
+          "syntax_error_files": 0,
+          "failures": 0,
+          "panics": 0,
+          "slowest_five": [
+            {
+              "path": "frontend/src/components/ui/sidebar.tsx",
+              "parse_ns": 7687500,
+              "error_nodes": 0
+            },
+            {
+              "path": "frontend/src/components/Admin/EditUser.tsx",
+              "parse_ns": 2519700,
+              "error_nodes": 0
+            },
+            {
+              "path": "frontend/src/components/Admin/AddUser.tsx",
+              "parse_ns": 2361000,
+              "error_nodes": 0
+            },
+            {
+              "path": "frontend/src/components/ui/dropdown-menu.tsx",
+              "parse_ns": 2240500,
+              "error_nodes": 0
+            },
+            {
+              "path": "frontend/src/components/Common/DataTable.tsx",
+              "parse_ns": 2026100,
+              "error_nodes": 0
+            }
+          ],
+          "worst_five": []
+        },
+        {
+          "corpus": "fastapi",
+          "language": "typescript",
+          "files": 39,
+          "bytes": 137476,
+          "parsed": 39,
+          "sum_parse_ns": 56386300,
+          "median_parse_ns": 1052200,
+          "syntax_error_files": 0,
+          "failures": 0,
+          "panics": 0,
+          "slowest_five": [
+            {
+              "path": "frontend/src/client/sdk.gen.ts",
+              "parse_ns": 4881200,
+              "error_nodes": 0
+            },
+            {
+              "path": "frontend/tests/user-settings.spec.ts",
+              "parse_ns": 4827100,
+              "error_nodes": 0
+            },
+            {
+              "path": "frontend/src/client/types.gen.ts",
+              "parse_ns": 4291100,
+              "error_nodes": 0
+            },
+            {
+              "path": "frontend/tests/admin.spec.ts",
+              "parse_ns": 3998900,
+              "error_nodes": 0
+            },
+            {
+              "path": "frontend/src/client/core/serverSentEvents.gen.ts",
+              "parse_ns": 3051700,
+              "error_nodes": 0
+            }
+          ],
+          "worst_five": []
+        },
+        {
+          "corpus": "react",
+          "language": "javascript",
+          "files": 6,
+          "bytes": 22617,
+          "parsed": 6,
+          "sum_parse_ns": 8093900,
+          "median_parse_ns": 1047450,
+          "syntax_error_files": 0,
+          "failures": 0,
+          "panics": 0,
+          "slowest_five": [
+            {
+              "path": "public/mockServiceWorker.js",
+              "parse_ns": 3041700,
+              "error_nodes": 0
+            },
+            {
+              "path": "webpack.config.js",
+              "parse_ns": 2240900,
+              "error_nodes": 0
+            },
+            {
+              "path": ".dependency-cruiser.js",
+              "parse_ns": 1355400,
+              "error_nodes": 0
+            },
+            {
+              "path": ".eslintrc.js",
+              "parse_ns": 739500,
+              "error_nodes": 0
+            },
+            {
+              "path": "jest.config.js",
+              "parse_ns": 428000,
+              "error_nodes": 0
+            }
+          ],
+          "worst_five": []
+        },
+        {
+          "corpus": "react",
+          "language": "tsx",
+          "files": 15,
+          "bytes": 51378,
+          "parsed": 15,
+          "sum_parse_ns": 19064300,
+          "median_parse_ns": 818800,
+          "syntax_error_files": 0,
+          "failures": 0,
+          "panics": 0,
+          "slowest_five": [
+            {
+              "path": "src/pages/article/article.ui.tsx",
+              "parse_ns": 4118100,
+              "error_nodes": 0
+            },
+            {
+              "path": "src/pages/home/home.ui.tsx",
+              "parse_ns": 3746700,
+              "error_nodes": 0
+            },
+            {
+              "path": "src/pages/profile/profile.ui.tsx",
+              "parse_ns": 3592400,
+              "error_nodes": 0
+            },
+            {
+              "path": "src/pages/editor/editor.ui.tsx",
+              "parse_ns": 1402800,
+              "error_nodes": 0
+            },
+            {
+              "path": "src/pages/settings/settings.ui.tsx",
+              "parse_ns": 1015800,
+              "error_nodes": 0
+            }
+          ],
+          "worst_five": []
+        },
+        {
+          "corpus": "react",
+          "language": "typescript",
+          "files": 52,
+          "bytes": 50099,
+          "parsed": 52,
+          "sum_parse_ns": 29196500,
+          "median_parse_ns": 431600,
+          "syntax_error_files": 0,
+          "failures": 0,
+          "panics": 0,
+          "slowest_five": [
+            {
+              "path": "src/pages/profile/profile.loader.ts",
+              "parse_ns": 2852800,
+              "error_nodes": 0
+            },
+            {
+              "path": "src/pages/home/home.state.ts",
+              "parse_ns": 2255100,
+              "error_nodes": 0
+            },
+            {
+              "path": "src/pages/profile/profile.state.ts",
+              "parse_ns": 1870200,
+              "error_nodes": 0
+            },
+            {
+              "path": "src/pages/home/home.loader.ts",
+              "parse_ns": 1415400,
+              "error_nodes": 0
+            },
+            {
+              "path": "src/pages/editor/actions/article-create.action.ts",
+              "parse_ns": 1047400,
+              "error_nodes": 0
+            }
+          ],
+          "worst_five": []
+        }
+      ],
+      "languages": [
+        {
+          "corpus": "all",
+          "language": "javascript",
+          "files": 29,
+          "bytes": 25666,
+          "parsed": 29,
+          "sum_parse_ns": 10370800,
+          "median_parse_ns": 100200,
+          "syntax_error_files": 0,
+          "failures": 0,
+          "panics": 0,
+          "slowest_five": [
+            {
+              "path": "react/public/mockServiceWorker.js",
+              "parse_ns": 3041700,
+              "error_nodes": 0
+            },
+            {
+              "path": "react/webpack.config.js",
+              "parse_ns": 2240900,
+              "error_nodes": 0
+            },
+            {
+              "path": "react/.dependency-cruiser.js",
+              "parse_ns": 1355400,
+              "error_nodes": 0
+            },
+            {
+              "path": "react/.eslintrc.js",
+              "parse_ns": 739500,
+              "error_nodes": 0
+            },
+            {
+              "path": "react/jest.config.js",
+              "parse_ns": 428000,
+              "error_nodes": 0
+            }
+          ],
+          "worst_five": []
+        },
+        {
+          "corpus": "all",
+          "language": "python",
+          "files": 43,
+          "bytes": 94064,
+          "parsed": 43,
+          "sum_parse_ns": 43566500,
+          "median_parse_ns": 505400,
+          "syntax_error_files": 0,
+          "failures": 0,
+          "panics": 0,
+          "slowest_five": [
+            {
+              "path": "fastapi/backend/tests/api/routes/test_users.py",
+              "parse_ns": 7909100,
+              "error_nodes": 0
+            },
+            {
+              "path": "fastapi/backend/app/api/routes/users.py",
+              "parse_ns": 3040100,
+              "error_nodes": 0
+            },
+            {
+              "path": "fastapi/backend/app/api/routes/items.py",
+              "parse_ns": 2766700,
+              "error_nodes": 0
+            },
+            {
+              "path": "fastapi/backend/tests/api/routes/test_login.py",
+              "parse_ns": 2606600,
+              "error_nodes": 0
+            },
+            {
+              "path": "fastapi/scripts/prepare_release.py",
+              "parse_ns": 2494400,
+              "error_nodes": 0
+            }
+          ],
+          "worst_five": []
+        },
+        {
+          "corpus": "all",
+          "language": "rust",
+          "files": 46,
+          "bytes": 168028,
+          "parsed": 46,
+          "sum_parse_ns": 71969500,
+          "median_parse_ns": 1009350,
+          "syntax_error_files": 0,
+          "failures": 0,
+          "panics": 0,
+          "slowest_five": [
+            {
+              "path": "axum-ddd/tests/articles.rs",
+              "parse_ns": 8352600,
+              "error_nodes": 0
+            },
+            {
+              "path": "axum-ddd/tests/auth.rs",
+              "parse_ns": 8106900,
+              "error_nodes": 0
+            },
+            {
+              "path": "axum-ddd/src/infrastructure/db/repositories/article_repository.rs",
+              "parse_ns": 3983100,
+              "error_nodes": 0
+            },
+            {
+              "path": "axum-ddd/tests/errors_auth.rs",
+              "parse_ns": 3816600,
+              "error_nodes": 0
+            },
+            {
+              "path": "axum-ddd/tests/common.rs",
+              "parse_ns": 3688500,
+              "error_nodes": 0
+            }
+          ],
+          "worst_five": []
+        },
+        {
+          "corpus": "all",
+          "language": "tsx",
+          "files": 85,
+          "bytes": 242930,
+          "parsed": 85,
+          "sum_parse_ns": 84657200,
+          "median_parse_ns": 680300,
+          "syntax_error_files": 0,
+          "failures": 0,
+          "panics": 0,
+          "slowest_five": [
+            {
+              "path": "fastapi/frontend/src/components/ui/sidebar.tsx",
+              "parse_ns": 7687500,
+              "error_nodes": 0
+            },
+            {
+              "path": "react/src/pages/article/article.ui.tsx",
+              "parse_ns": 4118100,
+              "error_nodes": 0
+            },
+            {
+              "path": "react/src/pages/home/home.ui.tsx",
+              "parse_ns": 3746700,
+              "error_nodes": 0
+            },
+            {
+              "path": "react/src/pages/profile/profile.ui.tsx",
+              "parse_ns": 3592400,
+              "error_nodes": 0
+            },
+            {
+              "path": "fastapi/frontend/src/components/Admin/EditUser.tsx",
+              "parse_ns": 2519700,
+              "error_nodes": 0
+            }
+          ],
+          "worst_five": []
+        },
+        {
+          "corpus": "all",
+          "language": "typescript",
+          "files": 475,
+          "bytes": 641242,
+          "parsed": 475,
+          "sum_parse_ns": 280462300,
+          "median_parse_ns": 285800,
+          "syntax_error_files": 0,
+          "failures": 0,
+          "panics": 0,
+          "slowest_five": [
+            {
+              "path": "angular/src/app/features/article/services/comments.service.spec.ts",
+              "parse_ns": 7240000,
+              "error_nodes": 0
+            },
+            {
+              "path": "angular/src/app/features/article/services/tags.service.spec.ts",
+              "parse_ns": 6809300,
+              "error_nodes": 0
+            },
+            {
+              "path": "angular/src/app/features/profile/services/profile.service.spec.ts",
+              "parse_ns": 6382400,
+              "error_nodes": 0
+            },
+            {
+              "path": "angular/src/app/core/auth/services/user.service.spec.ts",
+              "parse_ns": 5993500,
+              "error_nodes": 0
+            },
+            {
+              "path": "express/packages/core/database/DbArticle/DbArticle.ts",
+              "parse_ns": 5132500,
+              "error_nodes": 0
+            }
+          ],
+          "worst_five": []
+        }
+      ],
+      "skipped": [
+        {
+          "corpus": "react",
+          "language": "html/angular",
+          "files": 1,
+          "bytes": 514
+        },
+        {
+          "corpus": "express",
+          "language": "html/angular",
+          "files": 1,
+          "bytes": 212
+        },
+        {
+          "corpus": "angular",
+          "language": "html/angular",
+          "files": 11,
+          "bytes": 19313
+        },
+        {
+          "corpus": "fastapi",
+          "language": "html/angular",
+          "files": 4,
+          "bytes": 21300
+        }
+      ]
+    },
+    {
+      "workers": 8,
+      "wall_ns": 1281260100,
+      "peak_working_set_bytes": 625545216,
+      "peak_commit_bytes": 1959510016,
+      "memory_method": "Windows GetProcessMemoryInfo: PeakWorkingSetSize / PeakPagefileUsage",
+      "parse_clock": "Windows QueryPerformanceCounter / QueryPerformanceFrequency (four host calls per parse)",
+      "stats": [
+        {
+          "corpus": "angular",
+          "language": "typescript",
+          "files": 50,
+          "bytes": 139487,
+          "parsed": 50,
+          "sum_parse_ns": 81787100,
+          "median_parse_ns": 685850,
+          "syntax_error_files": 0,
+          "failures": 0,
+          "panics": 0,
+          "slowest_five": [
+            {
+              "path": "src/app/features/article/services/articles.service.spec.ts",
+              "parse_ns": 10123600,
+              "error_nodes": 0
+            },
+            {
+              "path": "src/app/features/article/services/comments.service.spec.ts",
+              "parse_ns": 8320900,
+              "error_nodes": 0
+            },
+            {
+              "path": "src/app/features/article/services/tags.service.spec.ts",
+              "parse_ns": 8024600,
+              "error_nodes": 0
+            },
+            {
+              "path": "src/app/features/profile/services/profile.service.spec.ts",
+              "parse_ns": 7506600,
+              "error_nodes": 0
+            },
+            {
+              "path": "src/app/core/auth/services/user.service.spec.ts",
+              "parse_ns": 7361500,
+              "error_nodes": 0
+            }
+          ],
+          "worst_five": []
+        },
+        {
+          "corpus": "axum-ddd",
+          "language": "rust",
+          "files": 46,
+          "bytes": 168028,
+          "parsed": 46,
+          "sum_parse_ns": 121241800,
+          "median_parse_ns": 1923950,
+          "syntax_error_files": 0,
+          "failures": 0,
+          "panics": 0,
+          "slowest_five": [
+            {
+              "path": "tests/auth.rs",
+              "parse_ns": 16476500,
+              "error_nodes": 0
+            },
+            {
+              "path": "tests/articles.rs",
+              "parse_ns": 16414600,
+              "error_nodes": 0
+            },
+            {
+              "path": "src/api/handlers/articles.rs",
+              "parse_ns": 6750900,
+              "error_nodes": 0
+            },
+            {
+              "path": "src/infrastructure/db/repositories/article_repository.rs",
+              "parse_ns": 6664200,
+              "error_nodes": 0
+            },
+            {
+              "path": "tests/common.rs",
+              "parse_ns": 6011600,
+              "error_nodes": 0
+            }
+          ],
+          "worst_five": []
+        },
+        {
+          "corpus": "express",
+          "language": "javascript",
+          "files": 23,
+          "bytes": 3049,
+          "parsed": 23,
+          "sum_parse_ns": 3241000,
+          "median_parse_ns": 133100,
+          "syntax_error_files": 0,
+          "failures": 0,
+          "panics": 0,
+          "slowest_five": [
+            {
+              "path": "apps/article/.eslintrc.js",
+              "parse_ns": 279700,
+              "error_nodes": 0
+            },
+            {
+              "path": "packages/core/.eslintrc.js",
+              "parse_ns": 277100,
+              "error_nodes": 0
+            },
+            {
+              "path": "apps/local/.eslintrc.js",
+              "parse_ns": 234000,
+              "error_nodes": 0
+            },
+            {
+              "path": "apps/app/.eslintrc.js",
+              "parse_ns": 194400,
+              "error_nodes": 0
+            },
+            {
+              "path": "packages/middleware/.eslintrc.js",
+              "parse_ns": 182900,
+              "error_nodes": 0
+            }
+          ],
+          "worst_five": []
+        },
+        {
+          "corpus": "express",
+          "language": "typescript",
+          "files": 334,
+          "bytes": 314180,
+          "parsed": 334,
+          "sum_parse_ns": 194385100,
+          "median_parse_ns": 262400,
+          "syntax_error_files": 0,
+          "failures": 0,
+          "panics": 0,
+          "slowest_five": [
+            {
+              "path": "packages/core/database/DbArticle/DbArticle.ts",
+              "parse_ns": 8729700,
+              "error_nodes": 0
+            },
+            {
+              "path": "apps/article/tests/basic/list-articles.spec.ts",
+              "parse_ns": 7446500,
+              "error_nodes": 0
+            },
+            {
+              "path": "packages/core/tests/article/list.spec.ts",
+              "parse_ns": 6435700,
+              "error_nodes": 0
+            },
+            {
+              "path": "apps/article/tests/favorite/unfavorite-article.spec.ts",
+              "parse_ns": 3685500,
+              "error_nodes": 0
+            },
+            {
+              "path": "infra/stacks/ApiGatewayStack/ApiGatewayStack.ts",
+              "parse_ns": 3515100,
+              "error_nodes": 0
+            }
+          ],
+          "worst_five": []
+        },
+        {
+          "corpus": "fastapi",
+          "language": "python",
+          "files": 43,
+          "bytes": 94064,
+          "parsed": 43,
+          "sum_parse_ns": 67521100,
+          "median_parse_ns": 734600,
+          "syntax_error_files": 0,
+          "failures": 0,
+          "panics": 0,
+          "slowest_five": [
+            {
+              "path": "backend/tests/api/routes/test_users.py",
+              "parse_ns": 18059800,
+              "error_nodes": 0
+            },
+            {
+              "path": "backend/app/api/routes/users.py",
+              "parse_ns": 4564000,
+              "error_nodes": 0
+            },
+            {
+              "path": "backend/tests/api/routes/test_login.py",
+              "parse_ns": 4470900,
+              "error_nodes": 0
+            },
+            {
+              "path": "backend/tests/api/routes/test_items.py",
+              "parse_ns": 4420000,
+              "error_nodes": 0
+            },
+            {
+              "path": "backend/tests/crud/test_user.py",
+              "parse_ns": 3266400,
+              "error_nodes": 0
+            }
+          ],
+          "worst_five": []
+        },
+        {
+          "corpus": "fastapi",
+          "language": "tsx",
+          "files": 70,
+          "bytes": 191552,
+          "parsed": 70,
+          "sum_parse_ns": 94004900,
+          "median_parse_ns": 865050,
+          "syntax_error_files": 0,
+          "failures": 0,
+          "panics": 0,
+          "slowest_five": [
+            {
+              "path": "frontend/src/components/ui/sidebar.tsx",
+              "parse_ns": 8383900,
+              "error_nodes": 0
+            },
+            {
+              "path": "frontend/src/components/Admin/EditUser.tsx",
+              "parse_ns": 6315500,
+              "error_nodes": 0
+            },
+            {
+              "path": "frontend/src/routes/signup.tsx",
+              "parse_ns": 4459400,
+              "error_nodes": 0
+            },
+            {
+              "path": "frontend/src/components/ui/select.tsx",
+              "parse_ns": 3963100,
+              "error_nodes": 0
+            },
+            {
+              "path": "frontend/src/components/theme-provider.tsx",
+              "parse_ns": 3465000,
+              "error_nodes": 0
+            }
+          ],
+          "worst_five": []
+        },
+        {
+          "corpus": "fastapi",
+          "language": "typescript",
+          "files": 39,
+          "bytes": 137476,
+          "parsed": 39,
+          "sum_parse_ns": 78570100,
+          "median_parse_ns": 1467800,
+          "syntax_error_files": 0,
+          "failures": 0,
+          "panics": 0,
+          "slowest_five": [
+            {
+              "path": "frontend/src/client/types.gen.ts",
+              "parse_ns": 6768300,
+              "error_nodes": 0
+            },
+            {
+              "path": "frontend/src/client/sdk.gen.ts",
+              "parse_ns": 5719300,
+              "error_nodes": 0
+            },
+            {
+              "path": "frontend/tests/user-settings.spec.ts",
+              "parse_ns": 5552200,
+              "error_nodes": 0
+            },
+            {
+              "path": "frontend/tests/admin.spec.ts",
+              "parse_ns": 4901400,
+              "error_nodes": 0
+            },
+            {
+              "path": "frontend/src/client/core/params.gen.ts",
+              "parse_ns": 4805800,
+              "error_nodes": 0
+            }
+          ],
+          "worst_five": []
+        },
+        {
+          "corpus": "react",
+          "language": "javascript",
+          "files": 6,
+          "bytes": 22617,
+          "parsed": 6,
+          "sum_parse_ns": 15670200,
+          "median_parse_ns": 2759350,
+          "syntax_error_files": 0,
+          "failures": 0,
+          "panics": 0,
+          "slowest_five": [
+            {
+              "path": "webpack.config.js",
+              "parse_ns": 5234800,
+              "error_nodes": 0
+            },
+            {
+              "path": ".dependency-cruiser.js",
+              "parse_ns": 4281800,
+              "error_nodes": 0
+            },
+            {
+              "path": "public/mockServiceWorker.js",
+              "parse_ns": 3958600,
+              "error_nodes": 0
+            },
+            {
+              "path": ".eslintrc.js",
+              "parse_ns": 1560100,
+              "error_nodes": 0
+            },
+            {
+              "path": "jest.config.js",
+              "parse_ns": 491000,
+              "error_nodes": 0
+            }
+          ],
+          "worst_five": []
+        },
+        {
+          "corpus": "react",
+          "language": "tsx",
+          "files": 15,
+          "bytes": 51378,
+          "parsed": 15,
+          "sum_parse_ns": 25785600,
+          "median_parse_ns": 1004200,
+          "syntax_error_files": 0,
+          "failures": 0,
+          "panics": 0,
+          "slowest_five": [
+            {
+              "path": "src/pages/article/article.ui.tsx",
+              "parse_ns": 4720000,
+              "error_nodes": 0
+            },
+            {
+              "path": "src/pages/profile/profile.ui.tsx",
+              "parse_ns": 4552300,
+              "error_nodes": 0
+            },
+            {
+              "path": "src/pages/home/home.ui.tsx",
+              "parse_ns": 3362100,
+              "error_nodes": 0
+            },
+            {
+              "path": "src/pages/settings/settings.ui.tsx",
+              "parse_ns": 2753600,
+              "error_nodes": 0
+            },
+            {
+              "path": "src/pages/editor/editor.ui.tsx",
+              "parse_ns": 2600500,
+              "error_nodes": 0
+            }
+          ],
+          "worst_five": []
+        },
+        {
+          "corpus": "react",
+          "language": "typescript",
+          "files": 52,
+          "bytes": 50099,
+          "parsed": 52,
+          "sum_parse_ns": 35242900,
+          "median_parse_ns": 534000,
+          "syntax_error_files": 0,
+          "failures": 0,
+          "panics": 0,
+          "slowest_five": [
+            {
+              "path": "src/pages/article/article.route.ts",
+              "parse_ns": 2126600,
+              "error_nodes": 0
+            },
+            {
+              "path": "src/shared/ui/global-progress-bar/use-fake-progress.ts",
+              "parse_ns": 2034000,
+              "error_nodes": 0
+            },
+            {
+              "path": "src/pages/home/home.state.ts",
+              "parse_ns": 1616100,
+              "error_nodes": 0
+            },
+            {
+              "path": "src/pages/profile/profile.state.ts",
+              "parse_ns": 1443700,
+              "error_nodes": 0
+            },
+            {
+              "path": "src/pages/editor/actions/article-update.action.ts",
+              "parse_ns": 1335100,
+              "error_nodes": 0
+            }
+          ],
+          "worst_five": []
+        }
+      ],
+      "languages": [
+        {
+          "corpus": "all",
+          "language": "javascript",
+          "files": 29,
+          "bytes": 25666,
+          "parsed": 29,
+          "sum_parse_ns": 18911200,
+          "median_parse_ns": 148800,
+          "syntax_error_files": 0,
+          "failures": 0,
+          "panics": 0,
+          "slowest_five": [
+            {
+              "path": "react/webpack.config.js",
+              "parse_ns": 5234800,
+              "error_nodes": 0
+            },
+            {
+              "path": "react/.dependency-cruiser.js",
+              "parse_ns": 4281800,
+              "error_nodes": 0
+            },
+            {
+              "path": "react/public/mockServiceWorker.js",
+              "parse_ns": 3958600,
+              "error_nodes": 0
+            },
+            {
+              "path": "react/.eslintrc.js",
+              "parse_ns": 1560100,
+              "error_nodes": 0
+            },
+            {
+              "path": "react/jest.config.js",
+              "parse_ns": 491000,
+              "error_nodes": 0
+            }
+          ],
+          "worst_five": []
+        },
+        {
+          "corpus": "all",
+          "language": "python",
+          "files": 43,
+          "bytes": 94064,
+          "parsed": 43,
+          "sum_parse_ns": 67521100,
+          "median_parse_ns": 734600,
+          "syntax_error_files": 0,
+          "failures": 0,
+          "panics": 0,
+          "slowest_five": [
+            {
+              "path": "fastapi/backend/tests/api/routes/test_users.py",
+              "parse_ns": 18059800,
+              "error_nodes": 0
+            },
+            {
+              "path": "fastapi/backend/app/api/routes/users.py",
+              "parse_ns": 4564000,
+              "error_nodes": 0
+            },
+            {
+              "path": "fastapi/backend/tests/api/routes/test_login.py",
+              "parse_ns": 4470900,
+              "error_nodes": 0
+            },
+            {
+              "path": "fastapi/backend/tests/api/routes/test_items.py",
+              "parse_ns": 4420000,
+              "error_nodes": 0
+            },
+            {
+              "path": "fastapi/backend/tests/crud/test_user.py",
+              "parse_ns": 3266400,
+              "error_nodes": 0
+            }
+          ],
+          "worst_five": []
+        },
+        {
+          "corpus": "all",
+          "language": "rust",
+          "files": 46,
+          "bytes": 168028,
+          "parsed": 46,
+          "sum_parse_ns": 121241800,
+          "median_parse_ns": 1923950,
+          "syntax_error_files": 0,
+          "failures": 0,
+          "panics": 0,
+          "slowest_five": [
+            {
+              "path": "axum-ddd/tests/auth.rs",
+              "parse_ns": 16476500,
+              "error_nodes": 0
+            },
+            {
+              "path": "axum-ddd/tests/articles.rs",
+              "parse_ns": 16414600,
+              "error_nodes": 0
+            },
+            {
+              "path": "axum-ddd/src/api/handlers/articles.rs",
+              "parse_ns": 6750900,
+              "error_nodes": 0
+            },
+            {
+              "path": "axum-ddd/src/infrastructure/db/repositories/article_repository.rs",
+              "parse_ns": 6664200,
+              "error_nodes": 0
+            },
+            {
+              "path": "axum-ddd/tests/common.rs",
+              "parse_ns": 6011600,
+              "error_nodes": 0
+            }
+          ],
+          "worst_five": []
+        },
+        {
+          "corpus": "all",
+          "language": "tsx",
+          "files": 85,
+          "bytes": 242930,
+          "parsed": 85,
+          "sum_parse_ns": 119790500,
+          "median_parse_ns": 887300,
+          "syntax_error_files": 0,
+          "failures": 0,
+          "panics": 0,
+          "slowest_five": [
+            {
+              "path": "fastapi/frontend/src/components/ui/sidebar.tsx",
+              "parse_ns": 8383900,
+              "error_nodes": 0
+            },
+            {
+              "path": "fastapi/frontend/src/components/Admin/EditUser.tsx",
+              "parse_ns": 6315500,
+              "error_nodes": 0
+            },
+            {
+              "path": "react/src/pages/article/article.ui.tsx",
+              "parse_ns": 4720000,
+              "error_nodes": 0
+            },
+            {
+              "path": "react/src/pages/profile/profile.ui.tsx",
+              "parse_ns": 4552300,
+              "error_nodes": 0
+            },
+            {
+              "path": "fastapi/frontend/src/routes/signup.tsx",
+              "parse_ns": 4459400,
+              "error_nodes": 0
+            }
+          ],
+          "worst_five": []
+        },
+        {
+          "corpus": "all",
+          "language": "typescript",
+          "files": 475,
+          "bytes": 641242,
+          "parsed": 475,
+          "sum_parse_ns": 389985200,
+          "median_parse_ns": 369700,
+          "syntax_error_files": 0,
+          "failures": 0,
+          "panics": 0,
+          "slowest_five": [
+            {
+              "path": "angular/src/app/features/article/services/articles.service.spec.ts",
+              "parse_ns": 10123600,
+              "error_nodes": 0
+            },
+            {
+              "path": "express/packages/core/database/DbArticle/DbArticle.ts",
+              "parse_ns": 8729700,
+              "error_nodes": 0
+            },
+            {
+              "path": "angular/src/app/features/article/services/comments.service.spec.ts",
+              "parse_ns": 8320900,
+              "error_nodes": 0
+            },
+            {
+              "path": "angular/src/app/features/article/services/tags.service.spec.ts",
+              "parse_ns": 8024600,
+              "error_nodes": 0
+            },
+            {
+              "path": "angular/src/app/features/profile/services/profile.service.spec.ts",
+              "parse_ns": 7506600,
+              "error_nodes": 0
+            }
+          ],
+          "worst_five": []
+        }
+      ],
+      "skipped": [
+        {
+          "corpus": "react",
+          "language": "html/angular",
+          "files": 1,
+          "bytes": 514
+        },
+        {
+          "corpus": "express",
+          "language": "html/angular",
+          "files": 1,
+          "bytes": 212
+        },
+        {
+          "corpus": "angular",
+          "language": "html/angular",
+          "files": 11,
+          "bytes": 19313
+        },
+        {
+          "corpus": "fastapi",
+          "language": "html/angular",
+          "files": 4,
+          "bytes": 21300
+        }
+      ]
+    }
+  ]
+}

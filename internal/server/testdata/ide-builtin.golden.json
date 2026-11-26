@@ -1,0 +1,55 @@
+{
+  "api_version": 0,
+  "presets": [
+    {
+      "editor": "vscode",
+      "label": "Open in VS Code",
+      "note": "Verified from VS Code's documentation and its URL handler.",
+      "short_note": "",
+      "status": "verified"
+    },
+    {
+      "editor": "vscode-insiders",
+      "label": "Open in VS Code Insiders",
+      "note": "Verified from VS Code's handler, and a link was clicked on Windows.",
+      "short_note": "",
+      "status": "verified"
+    },
+    {
+      "editor": "cursor",
+      "label": "Open in Cursor",
+      "note": "cursor://file is confirmed; line, column and the Windows path form are assumed from VS Code, so the column is marked as not exact.",
+      "short_note": "column assumed",
+      "status": "partly_verified"
+    },
+    {
+      "editor": "vscodium",
+      "label": "Open in VSCodium",
+      "note": "Verified from VSCodium's build script, which keeps VS Code's handler; not documented or clicked.",
+      "short_note": "",
+      "status": "verified"
+    },
+    {
+      "editor": "jetbrains",
+      "label": "Open in IntelliJ IDEA",
+      "note": "macOS only, IntelliJ IDEA only; where a tab precedes the node on its line or the file changed since indexing, the link opens the line only (the IDE's tab size is not known).",
+      "short_note": "macOS only",
+      "status": "limited"
+    },
+    {
+      "editor": "zed",
+      "label": "Open in Zed",
+      "note": "Verified from Zed's source, including Windows; not yet clicked on Windows.",
+      "short_note": "",
+      "status": "verified"
+    }
+  ],
+  "repository": {
+    "available": true,
+    "custom": false,
+    "editor": "vscode",
+    "error": null,
+    "label": "Open in VS Code",
+    "source": "builtin"
+  }
+}

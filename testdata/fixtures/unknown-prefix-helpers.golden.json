@@ -1,0 +1,1335 @@
+[
+  "route:server/api.go#GET%20%2Fupc%2Fapi%2Fversion paths=[] entries=[{\"conditional\":false,\"hop\":\"mount:server/api.go#API%20r.Route%28base%29\",\"prefix\":\"unresolved\",\"prefix_reason\":\"route_prefix_unresolved\",\"resolution\":\"literal\",\"template\":\"/upc/api/version\"}]",
+  "route:server/api.go#GET%20%2Fupc%2Fhosts%2F%7Bhost%7D%2Flogs paths=[] entries=[{\"conditional\":false,\"hop\":\"mount:server/api.go#API%20r.Route%28base%29\",\"prefix\":\"unresolved\",\"prefix_reason\":\"route_prefix_unresolved\",\"resolution\":\"literal\",\"template\":\"/upc/hosts/{host}/logs\"}]",
+  "route:server/api.go#GET%20%2Fupc%2Finner%2F%7Bname%7D paths=[] entries=[{\"above\":\"/outer\",\"conditional\":false,\"hop\":\"mount:server/api.go#API%20r.Route%28base%29%402\",\"prefix\":\"unresolved\",\"prefix_reason\":\"route_prefix_unresolved\",\"resolution\":\"literal\",\"template\":\"/upc/inner/{name}\"}]",
+  "route:server/api.go#GET%20%2Fupc%2Fknown%2Fitems paths=[{\"conditional\":false,\"resolution\":\"literal\",\"template\":\"/k/upc/known/items\"}] entries=null",
+  "route:server/api.go#GET%20%2Fupc%2Fshared%2Flist paths=[] entries=[{\"conditional\":false,\"hop\":\"mount:server/api.go#API%20r.Route%28base%29\",\"prefix\":\"unresolved\",\"prefix_reason\":\"route_prefix_unresolved\",\"resolution\":\"literal\",\"template\":\"/upc/shared/list\"}]",
+  "route:server/api.go#GET%20%2Fupc%2Fshared%2Flist%402 paths=[] entries=[{\"conditional\":false,\"hop\":\"mount:server/api.go#API%20r.Route%28other%29\",\"prefix\":\"unresolved\",\"prefix_reason\":\"route_prefix_unresolved\",\"resolution\":\"literal\",\"template\":\"/upc/shared/list\"}]",
+  "route:server/api.go#GET%20%2Fupchealth paths=[] entries=[{\"conditional\":false,\"hop\":\"mount:server/api.go#API%20r.Route%28base%29\",\"prefix\":\"unresolved\",\"prefix_reason\":\"route_prefix_unresolved\",\"resolution\":\"literal\",\"template\":\"/upchealth\"}]",
+  "route:server/api.go#PATCH%20%2Fupc%2Fapi%2Fprofile paths=[] entries=[{\"conditional\":false,\"hop\":\"mount:server/api.go#API%20r.Route%28base%29\",\"prefix\":\"unresolved\",\"prefix_reason\":\"route_prefix_unresolved\",\"resolution\":\"literal\",\"template\":\"/upc/api/profile\"}]",
+  {
+    "confidence": 0.6,
+    "evidence": [
+      {
+        "file": "web/auto.ts",
+        "span": {
+          "end_column": 37,
+          "end_line": 2,
+          "start_column": 2,
+          "start_line": 2
+        }
+      },
+      {
+        "file": "web/config.ts",
+        "span": {
+          "end_column": 65,
+          "end_line": 7,
+          "start_column": 42,
+          "start_line": 7
+        }
+      }
+    ],
+    "kind": "calls_route",
+    "provenance": "inferred",
+    "source": "client_call:web/auto.ts#auto.GET%20withBase%28%22%2Fupc%2Fapi%2Fversion%22%29",
+    "target": "route:server/api.go#GET%20%2Fupc%2Fapi%2Fversion",
+    "type": "edge"
+  },
+  {
+    "confidence": 0.6,
+    "evidence": [
+      {
+        "file": "web/auto.ts",
+        "span": {
+          "end_column": 42,
+          "end_line": 3,
+          "start_column": 2,
+          "start_line": 3
+        }
+      },
+      {
+        "file": "web/config.ts",
+        "span": {
+          "end_column": 65,
+          "end_line": 7,
+          "start_column": 42,
+          "start_line": 7
+        }
+      }
+    ],
+    "kind": "calls_route",
+    "provenance": "inferred",
+    "source": "client_call:web/auto.ts#auto.GET%20withBase%28%60%2Fupc%2Fhosts%2F%24%7Bid%7D%2Flogs%60%29",
+    "target": "route:server/api.go#GET%20%2Fupc%2Fhosts%2F%7Bhost%7D%2Flogs",
+    "type": "edge"
+  },
+  {
+    "confidence": 0.6,
+    "evidence": [
+      {
+        "file": "web/calls.ts",
+        "span": {
+          "end_column": 35,
+          "end_line": 7,
+          "start_column": 2,
+          "start_line": 7
+        }
+      },
+      {
+        "file": "web/config.ts",
+        "span": {
+          "end_column": 33,
+          "end_line": 10,
+          "start_column": 2,
+          "start_line": 10
+        }
+      }
+    ],
+    "kind": "calls_route",
+    "provenance": "inferred",
+    "source": "client_call:web/calls.ts#calls.GET%20fnBase%28%22%2Fupc%2Fapi%2Fversion%22%29",
+    "target": "route:server/api.go#GET%20%2Fupc%2Fapi%2Fversion",
+    "type": "edge"
+  },
+  {
+    "confidence": 0.9,
+    "evidence": [
+      {
+        "file": "web/calls.ts",
+        "span": {
+          "end_column": 38,
+          "end_line": 19,
+          "start_column": 2,
+          "start_line": 19
+        }
+      },
+      {
+        "file": "web/config.ts",
+        "span": {
+          "end_column": 26,
+          "end_line": 22,
+          "start_column": 16,
+          "start_line": 22
+        }
+      },
+      {
+        "file": "web/config.ts",
+        "span": {
+          "end_column": 65,
+          "end_line": 23,
+          "start_column": 43,
+          "start_line": 23
+        }
+      }
+    ],
+    "kind": "calls_route",
+    "provenance": "inferred",
+    "source": "client_call:web/calls.ts#calls.GET%20knownBase%28%22%2Fupc%2Fknown%2Fitems%22%29",
+    "target": "route:server/api.go#GET%20%2Fupc%2Fknown%2Fitems",
+    "type": "edge"
+  },
+  {
+    "confidence": 0.6,
+    "evidence": [
+      {
+        "file": "web/calls.ts",
+        "span": {
+          "end_column": 42,
+          "end_line": 6,
+          "start_column": 2,
+          "start_line": 6
+        }
+      },
+      {
+        "file": "web/config.ts",
+        "span": {
+          "end_column": 60,
+          "end_line": 8,
+          "start_column": 42,
+          "start_line": 8
+        }
+      }
+    ],
+    "kind": "calls_route",
+    "provenance": "inferred",
+    "source": "client_call:web/calls.ts#calls.GET%20plusBase%28%60%2Fupc%2Fhosts%2F%24%7Bid%7D%2Flogs%60%29",
+    "target": "route:server/api.go#GET%20%2Fupc%2Fhosts%2F%7Bhost%7D%2Flogs",
+    "type": "edge"
+  },
+  {
+    "confidence": 0.6,
+    "evidence": [
+      {
+        "file": "web/calls.ts",
+        "span": {
+          "end_column": 37,
+          "end_line": 8,
+          "start_column": 2,
+          "start_line": 8
+        }
+      },
+      {
+        "file": "web/config.ts",
+        "span": {
+          "end_column": 53,
+          "end_line": 13,
+          "start_column": 42,
+          "start_line": 13
+        }
+      }
+    ],
+    "kind": "calls_route",
+    "provenance": "inferred",
+    "source": "client_call:web/calls.ts#calls.GET%20rootBase%28%22%2Fupc%2Fapi%2Fversion%22%29",
+    "target": "route:server/api.go#GET%20%2Fupc%2Fapi%2Fversion",
+    "type": "edge"
+  },
+  {
+    "confidence": 0.6,
+    "evidence": [
+      {
+        "file": "web/calls.ts",
+        "span": {
+          "end_column": 37,
+          "end_line": 4,
+          "start_column": 2,
+          "start_line": 4
+        }
+      },
+      {
+        "file": "web/config.ts",
+        "span": {
+          "end_column": 65,
+          "end_line": 7,
+          "start_column": 42,
+          "start_line": 7
+        }
+      }
+    ],
+    "kind": "calls_route",
+    "provenance": "inferred",
+    "source": "client_call:web/calls.ts#calls.GET%20withBase%28%22%2Fupc%2Fapi%2Fversion%22%29",
+    "target": "route:server/api.go#GET%20%2Fupc%2Fapi%2Fversion",
+    "type": "edge"
+  },
+  {
+    "confidence": 0.6,
+    "evidence": [
+      {
+        "file": "web/calls.ts",
+        "span": {
+          "end_column": 37,
+          "end_line": 12,
+          "start_column": 2,
+          "start_line": 12
+        }
+      },
+      {
+        "file": "web/config.ts",
+        "span": {
+          "end_column": 65,
+          "end_line": 7,
+          "start_column": 42,
+          "start_line": 7
+        }
+      }
+    ],
+    "kind": "calls_route",
+    "provenance": "inferred",
+    "source": "client_call:web/calls.ts#calls.GET%20withBase%28%22%2Fupc%2Fknown%2Fitems%22%29",
+    "target": "route:server/api.go#GET%20%2Fupc%2Fknown%2Fitems",
+    "type": "edge"
+  },
+  {
+    "confidence": 0.6,
+    "evidence": [
+      {
+        "file": "web/calls.ts",
+        "span": {
+          "end_column": 58,
+          "end_line": 5,
+          "start_column": 2,
+          "start_line": 5
+        }
+      },
+      {
+        "file": "web/config.ts",
+        "span": {
+          "end_column": 65,
+          "end_line": 7,
+          "start_column": 42,
+          "start_line": 7
+        }
+      }
+    ],
+    "kind": "calls_route",
+    "provenance": "inferred",
+    "source": "client_call:web/calls.ts#calls.PATCH%20withBase%28%22%2Fupc%2Fapi%2Fprofile%22%29",
+    "target": "route:server/api.go#PATCH%20%2Fupc%2Fapi%2Fprofile",
+    "type": "edge"
+  },
+  {
+    "attributes": {
+      "base": "unresolved",
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "candidate_count": 0,
+          "candidates": [],
+          "conditional": false,
+          "match": null,
+          "origin": null,
+          "resolution": "literal",
+          "status": "dynamic",
+          "template": null
+        }
+      ],
+      "status": "dynamic",
+      "url_expression": "letBase(\"/upc/api/version\")",
+      "wrapper": null
+    },
+    "content_hash": "sha256:b3995a03a2f62137419d90b5ed42da680343a110e217d82c1086e78e549133d2",
+    "file": "web/auto.ts",
+    "identity": "client_call:web/auto.ts#auto.GET%20letBase%28%22%2Fupc%2Fapi%2Fversion%22%29",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET letBase(\"/upc/api/version\")",
+    "qualified_name": "auto.GET letBase(\"/upc/api/version\")",
+    "span": {
+      "end_column": 36,
+      "end_line": 4,
+      "start_column": 2,
+      "start_line": 4
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "assumes": [
+        "UP-V1",
+        "UP-V2"
+      ],
+      "base": "unresolved",
+      "base_expression": "config.base",
+      "helpers": [
+        "function:web/config.ts#withBase"
+      ],
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "assumes": [
+            "UP-V1",
+            "UP-V2"
+          ],
+          "candidate_count": 0,
+          "candidates": [
+            "route:server/api.go#GET%20%2Fupc%2Fapi%2Fversion"
+          ],
+          "conditional": false,
+          "match": "suffix",
+          "origin": null,
+          "resolution": "evaluated",
+          "route_prefix": "unresolved",
+          "status": "linked",
+          "template": "/upc/api/version"
+        }
+      ],
+      "status": "linked",
+      "url_expression": "withBase(\"/upc/api/version\")",
+      "wrapper": null
+    },
+    "content_hash": "sha256:74e85ccdb67f30b9bd9869459dd8a8032a8fc85a3a0d16ac1fc7f236a990663a",
+    "file": "web/auto.ts",
+    "identity": "client_call:web/auto.ts#auto.GET%20withBase%28%22%2Fupc%2Fapi%2Fversion%22%29",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET withBase(\"/upc/api/version\")",
+    "qualified_name": "auto.GET withBase(\"/upc/api/version\")",
+    "span": {
+      "end_column": 37,
+      "end_line": 2,
+      "start_column": 2,
+      "start_line": 2
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "assumes": [
+        "UP-V1",
+        "UP-V2"
+      ],
+      "base": "unresolved",
+      "base_expression": "config.base",
+      "helpers": [
+        "function:web/config.ts#withBase"
+      ],
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "assumes": [
+            "UP-V1",
+            "UP-V2"
+          ],
+          "candidate_count": 0,
+          "candidates": [
+            "route:server/api.go#GET%20%2Fupc%2Fhosts%2F%7Bhost%7D%2Flogs"
+          ],
+          "conditional": false,
+          "match": "suffix",
+          "origin": null,
+          "resolution": "evaluated",
+          "route_prefix": "unresolved",
+          "status": "linked",
+          "template": "/upc/hosts/{id}/logs"
+        }
+      ],
+      "status": "linked",
+      "url_expression": "withBase(`/upc/hosts/${id}/logs`)",
+      "wrapper": null
+    },
+    "content_hash": "sha256:9be5d781da5b60b0821d3c7e4d4f57ca4b51c6850b0cfb41fbd7e5637a3801d3",
+    "file": "web/auto.ts",
+    "identity": "client_call:web/auto.ts#auto.GET%20withBase%28%60%2Fupc%2Fhosts%2F%24%7Bid%7D%2Flogs%60%29",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET withBase(`/upc/hosts/${id}/logs`)",
+    "qualified_name": "auto.GET withBase(`/upc/hosts/${id}/logs`)",
+    "span": {
+      "end_column": 42,
+      "end_line": 3,
+      "start_column": 2,
+      "start_line": 3
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "base": "unresolved",
+      "helpers": [
+        "function:web/config.ts#callBase"
+      ],
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "candidate_count": 0,
+          "candidates": [],
+          "conditional": false,
+          "match": null,
+          "origin": null,
+          "resolution": "evaluated",
+          "status": "dynamic",
+          "template": null
+        }
+      ],
+      "status": "dynamic",
+      "url_expression": "callBase(\"/upc/api/version\")",
+      "wrapper": null
+    },
+    "content_hash": "sha256:5242a0cec0320d647852dc6a30d8f9c8367bf5fd72dc2321918ccbfb440dc10a",
+    "file": "web/calls.ts",
+    "identity": "client_call:web/calls.ts#calls.GET%20callBase%28%22%2Fupc%2Fapi%2Fversion%22%29",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET callBase(\"/upc/api/version\")",
+    "qualified_name": "calls.GET callBase(\"/upc/api/version\")",
+    "span": {
+      "end_column": 37,
+      "end_line": 17,
+      "start_column": 2,
+      "start_line": 17
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "assumes": [
+        "UP-V1",
+        "UP-V2"
+      ],
+      "base": "unresolved",
+      "base_expression": "config.base",
+      "helpers": [
+        "function:web/config.ts#fnBase"
+      ],
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "assumes": [
+            "UP-V1",
+            "UP-V2"
+          ],
+          "candidate_count": 0,
+          "candidates": [
+            "route:server/api.go#GET%20%2Fupc%2Fapi%2Fversion"
+          ],
+          "conditional": false,
+          "match": "suffix",
+          "origin": null,
+          "resolution": "evaluated",
+          "route_prefix": "unresolved",
+          "status": "linked",
+          "template": "/upc/api/version"
+        }
+      ],
+      "status": "linked",
+      "url_expression": "fnBase(\"/upc/api/version\")",
+      "wrapper": null
+    },
+    "content_hash": "sha256:499a1ba47987cad5247ccb5f8f90f0a13e73d69435630c1e00667a3001e64f21",
+    "file": "web/calls.ts",
+    "identity": "client_call:web/calls.ts#calls.GET%20fnBase%28%22%2Fupc%2Fapi%2Fversion%22%29",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET fnBase(\"/upc/api/version\")",
+    "qualified_name": "calls.GET fnBase(\"/upc/api/version\")",
+    "span": {
+      "end_column": 35,
+      "end_line": 7,
+      "start_column": 2,
+      "start_line": 7
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "base": "none",
+      "helpers": [
+        "function:web/config.ts#knownBase"
+      ],
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "candidate_count": 0,
+          "candidates": [
+            "route:server/api.go#GET%20%2Fupc%2Fknown%2Fitems"
+          ],
+          "conditional": false,
+          "match": "exact",
+          "origin": null,
+          "resolution": "evaluated",
+          "status": "linked",
+          "template": "/k/upc/known/items"
+        }
+      ],
+      "status": "linked",
+      "url_expression": "knownBase(\"/upc/known/items\")",
+      "wrapper": null
+    },
+    "content_hash": "sha256:c510be6617ca8e43a624029a820c81a7be9c8fb8320303b2100ae3abc1aa072e",
+    "file": "web/calls.ts",
+    "identity": "client_call:web/calls.ts#calls.GET%20knownBase%28%22%2Fupc%2Fknown%2Fitems%22%29",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET knownBase(\"/upc/known/items\")",
+    "qualified_name": "calls.GET knownBase(\"/upc/known/items\")",
+    "span": {
+      "end_column": 38,
+      "end_line": 19,
+      "start_column": 2,
+      "start_line": 19
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "base": "unresolved",
+      "helpers": [
+        "function:web/config.ts#letBase"
+      ],
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "candidate_count": 0,
+          "candidates": [],
+          "conditional": false,
+          "match": null,
+          "origin": null,
+          "resolution": "evaluated",
+          "status": "dynamic",
+          "template": null
+        }
+      ],
+      "status": "dynamic",
+      "url_expression": "letBase(\"/upc/api/version\")",
+      "wrapper": null
+    },
+    "content_hash": "sha256:b3995a03a2f62137419d90b5ed42da680343a110e217d82c1086e78e549133d2",
+    "file": "web/calls.ts",
+    "identity": "client_call:web/calls.ts#calls.GET%20letBase%28%22%2Fupc%2Fapi%2Fversion%22%29",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET letBase(\"/upc/api/version\")",
+    "qualified_name": "calls.GET letBase(\"/upc/api/version\")",
+    "span": {
+      "end_column": 36,
+      "end_line": 16,
+      "start_column": 2,
+      "start_line": 16
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "base": "unresolved",
+      "helpers": [
+        "function:web/calls.ts#calls.local"
+      ],
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "candidate_count": 0,
+          "candidates": [],
+          "conditional": false,
+          "match": null,
+          "origin": null,
+          "resolution": "evaluated",
+          "status": "dynamic",
+          "template": null
+        }
+      ],
+      "status": "dynamic",
+      "url_expression": "local(\"/upc/api/version\")",
+      "wrapper": null
+    },
+    "content_hash": "sha256:6031fdf87010d7ce45cefed18bf1eb253de4eb1525ae0ad2126b364dc3b30933",
+    "file": "web/calls.ts",
+    "identity": "client_call:web/calls.ts#calls.GET%20local%28%22%2Fupc%2Fapi%2Fversion%22%29",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET local(\"/upc/api/version\")",
+    "qualified_name": "calls.GET local(\"/upc/api/version\")",
+    "span": {
+      "end_column": 34,
+      "end_line": 25,
+      "start_column": 2,
+      "start_line": 25
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "base": "unresolved",
+      "helpers": [
+        "function:web/config.ts#missingBase"
+      ],
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "candidate_count": 0,
+          "candidates": [],
+          "conditional": false,
+          "match": null,
+          "origin": null,
+          "resolution": "evaluated",
+          "status": "dynamic",
+          "template": null
+        }
+      ],
+      "status": "dynamic",
+      "url_expression": "missingBase(\"/upc/api/version\")",
+      "wrapper": null
+    },
+    "content_hash": "sha256:79323927ee702d4526a3d9510bbb8ef5f78a04eb8e16aa7a59979b2ec7d4c767",
+    "file": "web/calls.ts",
+    "identity": "client_call:web/calls.ts#calls.GET%20missingBase%28%22%2Fupc%2Fapi%2Fversion%22%29",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET missingBase(\"/upc/api/version\")",
+    "qualified_name": "calls.GET missingBase(\"/upc/api/version\")",
+    "span": {
+      "end_column": 40,
+      "end_line": 20,
+      "start_column": 2,
+      "start_line": 20
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "assumes": [
+        "UP-V1",
+        "UP-V2"
+      ],
+      "base": "unresolved",
+      "base_expression": "config.base",
+      "helpers": [
+        "function:web/config.ts#plusBase"
+      ],
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "assumes": [
+            "UP-V1",
+            "UP-V2"
+          ],
+          "candidate_count": 0,
+          "candidates": [
+            "route:server/api.go#GET%20%2Fupc%2Fhosts%2F%7Bhost%7D%2Flogs"
+          ],
+          "conditional": false,
+          "match": "suffix",
+          "origin": null,
+          "resolution": "evaluated",
+          "route_prefix": "unresolved",
+          "status": "linked",
+          "template": "/upc/hosts/{id}/logs"
+        }
+      ],
+      "status": "linked",
+      "url_expression": "plusBase(`/upc/hosts/${id}/logs`)",
+      "wrapper": null
+    },
+    "content_hash": "sha256:caea21933d3625d258a7bc096b13dfd0293a9d20fd1075ca43c31842596e7f80",
+    "file": "web/calls.ts",
+    "identity": "client_call:web/calls.ts#calls.GET%20plusBase%28%60%2Fupc%2Fhosts%2F%24%7Bid%7D%2Flogs%60%29",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET plusBase(`/upc/hosts/${id}/logs`)",
+    "qualified_name": "calls.GET plusBase(`/upc/hosts/${id}/logs`)",
+    "span": {
+      "end_column": 42,
+      "end_line": 6,
+      "start_column": 2,
+      "start_line": 6
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "base": "none",
+      "helpers": [
+        "function:web/config.ts#prefixed"
+      ],
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "candidate_count": 0,
+          "candidates": [],
+          "conditional": false,
+          "match": null,
+          "origin": null,
+          "resolution": "evaluated",
+          "status": "unmatched",
+          "template": "/{base}/upc/api/version"
+        }
+      ],
+      "status": "unmatched",
+      "url_expression": "prefixed(\"/upc/api/version\")",
+      "wrapper": null
+    },
+    "content_hash": "sha256:ff971ab16248244dad81b94fc13d365cd306bf5bd26a59213282410fa6af2806",
+    "file": "web/calls.ts",
+    "identity": "client_call:web/calls.ts#calls.GET%20prefixed%28%22%2Fupc%2Fapi%2Fversion%22%29",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET prefixed(\"/upc/api/version\")",
+    "qualified_name": "calls.GET prefixed(\"/upc/api/version\")",
+    "span": {
+      "end_column": 37,
+      "end_line": 23,
+      "start_column": 2,
+      "start_line": 23
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "assumes": [
+        "UP-V1",
+        "UP-V2"
+      ],
+      "base": "unresolved",
+      "base_expression": "BASE",
+      "helpers": [
+        "function:web/config.ts#rootBase"
+      ],
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "assumes": [
+            "UP-V1",
+            "UP-V2"
+          ],
+          "candidate_count": 0,
+          "candidates": [
+            "route:server/api.go#GET%20%2Fupc%2Fapi%2Fversion"
+          ],
+          "conditional": false,
+          "match": "suffix",
+          "origin": null,
+          "resolution": "evaluated",
+          "route_prefix": "unresolved",
+          "status": "linked",
+          "template": "/upc/api/version"
+        }
+      ],
+      "status": "linked",
+      "url_expression": "rootBase(\"/upc/api/version\")",
+      "wrapper": null
+    },
+    "content_hash": "sha256:46300b022a83f4fb7a185f492ec631fc7e60b6739b59c7da66d8174592e74060",
+    "file": "web/calls.ts",
+    "identity": "client_call:web/calls.ts#calls.GET%20rootBase%28%22%2Fupc%2Fapi%2Fversion%22%29",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET rootBase(\"/upc/api/version\")",
+    "qualified_name": "calls.GET rootBase(\"/upc/api/version\")",
+    "span": {
+      "end_column": 37,
+      "end_line": 8,
+      "start_column": 2,
+      "start_line": 8
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "base": "unresolved",
+      "helpers": [
+        "function:web/config.ts#suffixed"
+      ],
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "candidate_count": 0,
+          "candidates": [],
+          "conditional": false,
+          "match": null,
+          "origin": null,
+          "resolution": "evaluated",
+          "status": "dynamic",
+          "template": null
+        }
+      ],
+      "status": "dynamic",
+      "url_expression": "suffixed(\"/upc/api/version\")",
+      "wrapper": null
+    },
+    "content_hash": "sha256:bf3d49c8183f242edf0eacb56f67cbd88c2b76689cb3e1b361a987e89425455b",
+    "file": "web/calls.ts",
+    "identity": "client_call:web/calls.ts#calls.GET%20suffixed%28%22%2Fupc%2Fapi%2Fversion%22%29",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET suffixed(\"/upc/api/version\")",
+    "qualified_name": "calls.GET suffixed(\"/upc/api/version\")",
+    "span": {
+      "end_column": 37,
+      "end_line": 22,
+      "start_column": 2,
+      "start_line": 22
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "base": "unresolved",
+      "helpers": [
+        "function:web/config.ts#twoParams"
+      ],
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "candidate_count": 0,
+          "candidates": [],
+          "conditional": false,
+          "match": null,
+          "origin": null,
+          "resolution": "evaluated",
+          "status": "dynamic",
+          "template": null
+        }
+      ],
+      "status": "dynamic",
+      "url_expression": "twoParams(\"/upc/api/version\",\"\")",
+      "wrapper": null
+    },
+    "content_hash": "sha256:1b90504c41ebff6db07b5f1d24730d3bfd66320aa581681bb1aa4e1fd8c36f65",
+    "file": "web/calls.ts",
+    "identity": "client_call:web/calls.ts#calls.GET%20twoParams%28%22%2Fupc%2Fapi%2Fversion%22%2C%22%22%29",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET twoParams(\"/upc/api/version\",\"\")",
+    "qualified_name": "calls.GET twoParams(\"/upc/api/version\",\"\")",
+    "span": {
+      "end_column": 42,
+      "end_line": 21,
+      "start_column": 2,
+      "start_line": 21
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "assumes": [
+        "UP-V1",
+        "UP-V2"
+      ],
+      "base": "unresolved",
+      "base_expression": "config.base",
+      "helpers": [
+        "function:web/config.ts#withBase"
+      ],
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "assumes": [
+            "UP-V1",
+            "UP-V2"
+          ],
+          "candidate_count": 0,
+          "candidates": [
+            "route:server/api.go#GET%20%2Fupc%2Fapi%2Fversion"
+          ],
+          "conditional": false,
+          "match": "suffix",
+          "origin": null,
+          "resolution": "evaluated",
+          "route_prefix": "unresolved",
+          "status": "linked",
+          "template": "/upc/api/version"
+        }
+      ],
+      "status": "linked",
+      "url_expression": "withBase(\"/upc/api/version\")",
+      "wrapper": null
+    },
+    "content_hash": "sha256:74e85ccdb67f30b9bd9869459dd8a8032a8fc85a3a0d16ac1fc7f236a990663a",
+    "file": "web/calls.ts",
+    "identity": "client_call:web/calls.ts#calls.GET%20withBase%28%22%2Fupc%2Fapi%2Fversion%22%29",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET withBase(\"/upc/api/version\")",
+    "qualified_name": "calls.GET withBase(\"/upc/api/version\")",
+    "span": {
+      "end_column": 37,
+      "end_line": 4,
+      "start_column": 2,
+      "start_line": 4
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "base": "unresolved",
+      "base_expression": "config.base",
+      "helpers": [
+        "function:web/config.ts#withBase"
+      ],
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "candidate_count": 0,
+          "candidates": [],
+          "conditional": false,
+          "match": null,
+          "origin": null,
+          "resolution": "evaluated",
+          "status": "unmatched",
+          "template": "/upc/inner/x"
+        }
+      ],
+      "status": "unmatched",
+      "url_expression": "withBase(\"/upc/inner/x\")",
+      "wrapper": null
+    },
+    "content_hash": "sha256:e66e138737f1816c43dc164c055205ae87d9e1cb2e2d6e1812914a163554d640",
+    "file": "web/calls.ts",
+    "identity": "client_call:web/calls.ts#calls.GET%20withBase%28%22%2Fupc%2Finner%2Fx%22%29",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET withBase(\"/upc/inner/x\")",
+    "qualified_name": "calls.GET withBase(\"/upc/inner/x\")",
+    "span": {
+      "end_column": 33,
+      "end_line": 11,
+      "start_column": 2,
+      "start_line": 11
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "base": "unresolved",
+      "base_expression": "config.base",
+      "helpers": [
+        "function:web/config.ts#withBase"
+      ],
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "candidate_count": 0,
+          "candidates": [
+            "route:server/api.go#GET%20%2Fupc%2Fknown%2Fitems"
+          ],
+          "conditional": false,
+          "match": "suffix",
+          "origin": null,
+          "resolution": "evaluated",
+          "status": "linked",
+          "template": "/upc/known/items"
+        }
+      ],
+      "status": "linked",
+      "url_expression": "withBase(\"/upc/known/items\")",
+      "wrapper": null
+    },
+    "content_hash": "sha256:7ac0af2faa0dc45cfb8b807cb357b5639717c617ba6c4c413760aa72edeca528",
+    "file": "web/calls.ts",
+    "identity": "client_call:web/calls.ts#calls.GET%20withBase%28%22%2Fupc%2Fknown%2Fitems%22%29",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET withBase(\"/upc/known/items\")",
+    "qualified_name": "calls.GET withBase(\"/upc/known/items\")",
+    "span": {
+      "end_column": 37,
+      "end_line": 12,
+      "start_column": 2,
+      "start_line": 12
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "base": "unresolved",
+      "base_expression": "config.base",
+      "helpers": [
+        "function:web/config.ts#withBase"
+      ],
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "candidate_count": 2,
+          "candidates": [
+            "route:server/api.go#GET%20%2Fupc%2Fshared%2Flist",
+            "route:server/api.go#GET%20%2Fupc%2Fshared%2Flist%402"
+          ],
+          "conditional": false,
+          "match": null,
+          "origin": null,
+          "resolution": "evaluated",
+          "status": "ambiguous",
+          "template": "/upc/shared/list"
+        }
+      ],
+      "status": "ambiguous",
+      "url_expression": "withBase(\"/upc/shared/list\")",
+      "wrapper": null
+    },
+    "content_hash": "sha256:7dee220e5bf368661731a4e6ea1471e75b05690c1f51adb730eaf29f94b91397",
+    "file": "web/calls.ts",
+    "identity": "client_call:web/calls.ts#calls.GET%20withBase%28%22%2Fupc%2Fshared%2Flist%22%29",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET withBase(\"/upc/shared/list\")",
+    "qualified_name": "calls.GET withBase(\"/upc/shared/list\")",
+    "span": {
+      "end_column": 37,
+      "end_line": 10,
+      "start_column": 2,
+      "start_line": 10
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "base": "unresolved",
+      "base_expression": "config.base",
+      "helpers": [
+        "function:web/config.ts#withBase"
+      ],
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "candidate_count": 0,
+          "candidates": [],
+          "conditional": false,
+          "match": null,
+          "origin": null,
+          "resolution": "evaluated",
+          "status": "unmatched",
+          "template": "/upchealth"
+        }
+      ],
+      "status": "unmatched",
+      "url_expression": "withBase(\"/upchealth\")",
+      "wrapper": null
+    },
+    "content_hash": "sha256:cc9bdf079ef8345d0b64a767a83d48c20ba2e9ef3daa1653b52fac9068eab31d",
+    "file": "web/calls.ts",
+    "identity": "client_call:web/calls.ts#calls.GET%20withBase%28%22%2Fupchealth%22%29",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET withBase(\"/upchealth\")",
+    "qualified_name": "calls.GET withBase(\"/upchealth\")",
+    "span": {
+      "end_column": 31,
+      "end_line": 9,
+      "start_column": 2,
+      "start_line": 9
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "base": "unresolved",
+      "helpers": [
+        "function:web/config.ts#withBase"
+      ],
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "candidate_count": 0,
+          "candidates": [],
+          "conditional": false,
+          "match": null,
+          "origin": null,
+          "resolution": "evaluated",
+          "status": "dynamic",
+          "template": null
+        }
+      ],
+      "status": "dynamic",
+      "url_expression": "withBase(\"upc/api/version\")",
+      "wrapper": null
+    },
+    "content_hash": "sha256:72e21cfc4342e2f02f2d2c35f9d24e379a932a5264822d39e45125afd767c931",
+    "file": "web/calls.ts",
+    "identity": "client_call:web/calls.ts#calls.GET%20withBase%28%22upc%2Fapi%2Fversion%22%29",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET withBase(\"upc/api/version\")",
+    "qualified_name": "calls.GET withBase(\"upc/api/version\")",
+    "span": {
+      "end_column": 36,
+      "end_line": 14,
+      "start_column": 2,
+      "start_line": 14
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "base": "unresolved",
+      "helpers": [
+        "function:web/config.ts#withBase"
+      ],
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "candidate_count": 0,
+          "candidates": [],
+          "conditional": false,
+          "match": null,
+          "origin": null,
+          "resolution": "evaluated",
+          "status": "dynamic",
+          "template": null
+        }
+      ],
+      "status": "dynamic",
+      "url_expression": "withBase(`${source}?window=1`)",
+      "wrapper": null
+    },
+    "content_hash": "sha256:189b95d10359876d182496630281e67e32fad6507cc691e9c2a937a04b252fb4",
+    "file": "web/calls.ts",
+    "identity": "client_call:web/calls.ts#calls.GET%20withBase%28%60%24%7Bsource%7D%3Fwindow%3D1%60%29",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET withBase(`${source}?window=1`)",
+    "qualified_name": "calls.GET withBase(`${source}?window=1`)",
+    "span": {
+      "end_column": 39,
+      "end_line": 15,
+      "start_column": 2,
+      "start_line": 15
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "base": "unresolved",
+      "helpers": [
+        "function:web/config.ts#withBase"
+      ],
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "candidate_count": 0,
+          "candidates": [],
+          "conditional": false,
+          "match": null,
+          "origin": null,
+          "resolution": "evaluated",
+          "status": "dynamic",
+          "template": null
+        }
+      ],
+      "status": "dynamic",
+      "url_expression": "withBase(source)",
+      "wrapper": null
+    },
+    "content_hash": "sha256:b8ec8e0c5fbbde229c0245329da1ffbfa3a56b69341c1dfb4351c2eb89afcfac",
+    "file": "web/calls.ts",
+    "identity": "client_call:web/calls.ts#calls.GET%20withBase%28source%29",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET withBase(source)",
+    "qualified_name": "calls.GET withBase(source)",
+    "span": {
+      "end_column": 25,
+      "end_line": 13,
+      "start_column": 2,
+      "start_line": 13
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "base": "unresolved",
+      "helpers": [
+        "function:web/config.ts#writtenBase"
+      ],
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "candidate_count": 0,
+          "candidates": [],
+          "conditional": false,
+          "match": null,
+          "origin": null,
+          "resolution": "evaluated",
+          "status": "dynamic",
+          "template": null
+        }
+      ],
+      "status": "dynamic",
+      "url_expression": "writtenBase(\"/upc/api/version\")",
+      "wrapper": null
+    },
+    "content_hash": "sha256:8ceecd1446e86a90cdb3642c311be51d60d303715fdf0c15e984bb10af42c0d5",
+    "file": "web/calls.ts",
+    "identity": "client_call:web/calls.ts#calls.GET%20writtenBase%28%22%2Fupc%2Fapi%2Fversion%22%29",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET writtenBase(\"/upc/api/version\")",
+    "qualified_name": "calls.GET writtenBase(\"/upc/api/version\")",
+    "span": {
+      "end_column": 40,
+      "end_line": 18,
+      "start_column": 2,
+      "start_line": 18
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "assumes": [
+        "UP-V1",
+        "UP-V2"
+      ],
+      "base": "unresolved",
+      "base_expression": "config.base",
+      "helpers": [
+        "function:web/config.ts#withBase"
+      ],
+      "library": "fetch",
+      "method": "PATCH",
+      "paths": [
+        {
+          "assumes": [
+            "UP-V1",
+            "UP-V2"
+          ],
+          "candidate_count": 0,
+          "candidates": [
+            "route:server/api.go#PATCH%20%2Fupc%2Fapi%2Fprofile"
+          ],
+          "conditional": false,
+          "match": "suffix",
+          "origin": null,
+          "resolution": "evaluated",
+          "route_prefix": "unresolved",
+          "status": "linked",
+          "template": "/upc/api/profile"
+        }
+      ],
+      "status": "linked",
+      "url_expression": "withBase(\"/upc/api/profile\")",
+      "wrapper": null
+    },
+    "content_hash": "sha256:8401f3e9f6759ad43f7d77064776fd24792edfc5eca902287707f3ed6bd60bab",
+    "file": "web/calls.ts",
+    "identity": "client_call:web/calls.ts#calls.PATCH%20withBase%28%22%2Fupc%2Fapi%2Fprofile%22%29",
+    "kind": "client_call",
+    "level": 4,
+    "name": "PATCH withBase(\"/upc/api/profile\")",
+    "qualified_name": "calls.PATCH withBase(\"/upc/api/profile\")",
+    "span": {
+      "end_column": 58,
+      "end_line": 5,
+      "start_column": 2,
+      "start_line": 5
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "base": "unresolved",
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "candidate_count": 0,
+          "candidates": [],
+          "conditional": false,
+          "match": null,
+          "origin": null,
+          "resolution": "literal",
+          "status": "dynamic",
+          "template": null
+        }
+      ],
+      "status": "dynamic",
+      "url_expression": "plusBase(\"/upc/api/version\")",
+      "wrapper": null
+    },
+    "content_hash": "sha256:28085525941b63a07693e155075d5b5cea3f00c3572f9bdebed60302189d1e9e",
+    "file": "web/plain/calls.ts",
+    "identity": "client_call:web/plain/calls.ts#plain.GET%20plusBase%28%22%2Fupc%2Fapi%2Fversion%22%29",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET plusBase(\"/upc/api/version\")",
+    "qualified_name": "plain.GET plusBase(\"/upc/api/version\")",
+    "span": {
+      "end_column": 37,
+      "end_line": 2,
+      "start_column": 2,
+      "start_line": 2
+    },
+    "type": "node"
+  }
+]

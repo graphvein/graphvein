@@ -1,0 +1,1120 @@
+[
+  {
+    "blind_spot_data": false,
+    "bounds": [],
+    "candidates": [],
+    "caps": [],
+    "command": "query",
+    "ends": [],
+    "freshness": {
+      "changed_files": [],
+      "indexed": true
+    },
+    "nodes": [
+      {
+        "attributes": {
+          "exported": true
+        },
+        "content_hash": "sha256:3cfce521c808de927d68877d34bdd9386330ea76380136b1fce912ce740e4717",
+        "file": "src/lib.ts",
+        "ide": {
+          "column": 1,
+          "exact": true,
+          "line": 1,
+          "link": "vscode://file/{ROOT}/src/lib.ts:1:1"
+        },
+        "identity": "function:src/lib.ts#greet",
+        "kind": "function",
+        "level": 4,
+        "name": "greet",
+        "qualified_name": "greet",
+        "span": {
+          "end_column": 52,
+          "end_line": 1,
+          "start_column": 0,
+          "start_line": 1
+        },
+        "type": "node"
+      }
+    ],
+    "possibly_missing_call_sites": [],
+    "possibly_missing_callers": 0,
+    "results": [],
+    "total": 1,
+    "unknown_calls_in_result_files": 0
+  },
+  {
+    "blind_spot_data": false,
+    "bounds": [],
+    "candidates": [],
+    "caps": [],
+    "command": "callers",
+    "ends": [
+      {
+        "node": "function:src/app.tsx#App",
+        "text": "? not modelled: no stored caller; dependency injection, framework callbacks, JSX renders, passed callbacks and dynamic calls are not followed by callers"
+      },
+      {
+        "node": "method:src/app.tsx#View.render",
+        "text": "? not modelled: no stored caller; dependency injection, framework callbacks, JSX renders, passed callbacks and dynamic calls are not followed by callers"
+      }
+    ],
+    "freshness": {
+      "changed_files": [],
+      "indexed": true
+    },
+    "nodes": [],
+    "possibly_missing_call_sites": [],
+    "possibly_missing_callers": 0,
+    "results": [
+      {
+        "distance": 1,
+        "node": {
+          "attributes": {
+            "exported": true
+          },
+          "content_hash": "sha256:c3c7feb9a64580448506a129d70ce60b220f108be59b7a36c5c8d32dac205ade",
+          "file": "src/app.tsx",
+          "ide": {
+            "column": 1,
+            "exact": true,
+            "line": 8,
+            "link": "vscode://file/{ROOT}/src/app.tsx:8:1"
+          },
+          "identity": "function:src/app.tsx#App",
+          "kind": "function",
+          "level": 4,
+          "name": "App",
+          "qualified_name": "App",
+          "span": {
+            "end_column": 95,
+            "end_line": 8,
+            "start_column": 0,
+            "start_line": 8
+          },
+          "type": "node"
+        },
+        "path": [
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "src/app.tsx",
+                "span": {
+                  "end_column": 37,
+                  "end_line": 8,
+                  "start_column": 27,
+                  "start_line": 8
+                }
+              },
+              {
+                "file": "src/app.tsx",
+                "span": {
+                  "end_column": 64,
+                  "end_line": 8,
+                  "start_column": 50,
+                  "start_line": 8
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "function:src/app.tsx#App",
+            "target": "function:src/lib.ts#greet",
+            "type": "edge"
+          }
+        ]
+      },
+      {
+        "distance": 1,
+        "node": {
+          "attributes": {
+            "default_export": true,
+            "exported": true
+          },
+          "content_hash": "sha256:af16cf12676dee0f1d8360992ebca3160c407cc78ff8ae503f4b75c8a2b91402",
+          "file": "src/lib.ts",
+          "ide": {
+            "column": 1,
+            "exact": true,
+            "line": 6,
+            "link": "vscode://file/{ROOT}/src/lib.ts:6:1"
+          },
+          "identity": "function:src/lib.ts#main",
+          "kind": "function",
+          "level": 4,
+          "name": "main",
+          "qualified_name": "main",
+          "span": {
+            "end_column": 57,
+            "end_line": 6,
+            "start_column": 0,
+            "start_line": 6
+          },
+          "type": "node"
+        },
+        "path": [
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "src/lib.ts",
+                "span": {
+                  "end_column": 54,
+                  "end_line": 6,
+                  "start_column": 40,
+                  "start_line": 6
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "function:src/lib.ts#main",
+            "target": "function:src/lib.ts#greet",
+            "type": "edge"
+          }
+        ]
+      },
+      {
+        "distance": 1,
+        "node": {
+          "attributes": {},
+          "content_hash": "sha256:a1c5ec0c2b748a13d4ac41371914327e1573954f460944824059030af6f3e73e",
+          "file": "src/app.tsx",
+          "ide": {
+            "column": 3,
+            "exact": true,
+            "line": 13,
+            "link": "vscode://file/{ROOT}/src/app.tsx:13:3"
+          },
+          "identity": "method:src/app.tsx#View.label",
+          "kind": "method",
+          "level": 4,
+          "name": "label",
+          "qualified_name": "View.label",
+          "span": {
+            "end_column": 35,
+            "end_line": 13,
+            "start_column": 2,
+            "start_line": 13
+          },
+          "type": "node"
+        },
+        "path": [
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "src/app.tsx",
+                "span": {
+                  "end_column": 32,
+                  "end_line": 13,
+                  "start_column": 19,
+                  "start_line": 13
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "method:src/app.tsx#View.label",
+            "target": "function:src/lib.ts#greet",
+            "type": "edge"
+          }
+        ]
+      },
+      {
+        "distance": 2,
+        "node": {
+          "attributes": {
+            "decorators": [
+              "@Injectable()"
+            ]
+          },
+          "content_hash": "sha256:3a345a03ea6464bbcac1e6a686eea363bed6d6faefbe54a9ee6742b3512ac194",
+          "file": "src/app.tsx",
+          "ide": {
+            "column": 3,
+            "exact": true,
+            "line": 11,
+            "link": "vscode://file/{ROOT}/src/app.tsx:11:3"
+          },
+          "identity": "method:src/app.tsx#View.render",
+          "kind": "method",
+          "level": 4,
+          "name": "render",
+          "qualified_name": "View.render",
+          "span": {
+            "end_column": 35,
+            "end_line": 12,
+            "start_column": 2,
+            "start_line": 11
+          },
+          "type": "node"
+        },
+        "path": [
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "src/app.tsx",
+                "span": {
+                  "end_column": 32,
+                  "end_line": 13,
+                  "start_column": 19,
+                  "start_line": 13
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "method:src/app.tsx#View.label",
+            "target": "function:src/lib.ts#greet",
+            "type": "edge"
+          },
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "src/app.tsx",
+                "span": {
+                  "end_column": 32,
+                  "end_line": 12,
+                  "start_column": 20,
+                  "start_line": 12
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "method:src/app.tsx#View.render",
+            "target": "method:src/app.tsx#View.label",
+            "type": "edge"
+          }
+        ]
+      }
+    ],
+    "target": {
+      "attributes": {
+        "exported": true
+      },
+      "content_hash": "sha256:3cfce521c808de927d68877d34bdd9386330ea76380136b1fce912ce740e4717",
+      "file": "src/lib.ts",
+      "ide": {
+        "column": 1,
+        "exact": true,
+        "line": 1,
+        "link": "vscode://file/{ROOT}/src/lib.ts:1:1"
+      },
+      "identity": "function:src/lib.ts#greet",
+      "kind": "function",
+      "level": 4,
+      "name": "greet",
+      "qualified_name": "greet",
+      "span": {
+        "end_column": 52,
+        "end_line": 1,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    "unknown_calls_in_result_files": 0
+  },
+  {
+    "blind_spot_data": true,
+    "bounds": [],
+    "candidates": [],
+    "caps": [],
+    "command": "impact",
+    "ends": [
+      {
+        "node": "function:src/app.tsx#App",
+        "text": "? not modelled: no stored caller, import, reference or route; dependency injection, framework callbacks, JSX renders, passed callbacks and dynamic calls are not followed by impact"
+      },
+      {
+        "node": "method:src/app.tsx#View.render",
+        "text": "? not modelled: no stored caller, import, reference or route; dependency injection, framework callbacks, JSX renders, passed callbacks and dynamic calls are not followed by impact"
+      }
+    ],
+    "freshness": {
+      "changed_files": [],
+      "indexed": true
+    },
+    "nodes": [],
+    "possibly_missing_call_sites": [
+      {
+        "caller": "function:src/blind.ts#blind",
+        "file": "src/blind.ts",
+        "matches": [
+          "function:src/lib.ts#greet"
+        ],
+        "name": "greet",
+        "span": {
+          "end_column": 15,
+          "end_line": 2,
+          "start_column": 4,
+          "start_line": 2
+        }
+      }
+    ],
+    "possibly_missing_callers": 1,
+    "results": [
+      {
+        "distance": 1,
+        "node": {
+          "attributes": {
+            "exported": true
+          },
+          "content_hash": "sha256:c3c7feb9a64580448506a129d70ce60b220f108be59b7a36c5c8d32dac205ade",
+          "file": "src/app.tsx",
+          "ide": {
+            "column": 1,
+            "exact": true,
+            "line": 8,
+            "link": "vscode://file/{ROOT}/src/app.tsx:8:1"
+          },
+          "identity": "function:src/app.tsx#App",
+          "kind": "function",
+          "level": 4,
+          "name": "App",
+          "qualified_name": "App",
+          "span": {
+            "end_column": 95,
+            "end_line": 8,
+            "start_column": 0,
+            "start_line": 8
+          },
+          "type": "node"
+        },
+        "path": [
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "src/app.tsx",
+                "span": {
+                  "end_column": 37,
+                  "end_line": 8,
+                  "start_column": 27,
+                  "start_line": 8
+                }
+              },
+              {
+                "file": "src/app.tsx",
+                "span": {
+                  "end_column": 64,
+                  "end_line": 8,
+                  "start_column": 50,
+                  "start_line": 8
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "function:src/app.tsx#App",
+            "target": "function:src/lib.ts#greet",
+            "type": "edge"
+          }
+        ]
+      },
+      {
+        "distance": 1,
+        "node": {
+          "attributes": {
+            "default_export": true,
+            "exported": true
+          },
+          "content_hash": "sha256:af16cf12676dee0f1d8360992ebca3160c407cc78ff8ae503f4b75c8a2b91402",
+          "file": "src/lib.ts",
+          "ide": {
+            "column": 1,
+            "exact": true,
+            "line": 6,
+            "link": "vscode://file/{ROOT}/src/lib.ts:6:1"
+          },
+          "identity": "function:src/lib.ts#main",
+          "kind": "function",
+          "level": 4,
+          "name": "main",
+          "qualified_name": "main",
+          "span": {
+            "end_column": 57,
+            "end_line": 6,
+            "start_column": 0,
+            "start_line": 6
+          },
+          "type": "node"
+        },
+        "path": [
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "src/lib.ts",
+                "span": {
+                  "end_column": 54,
+                  "end_line": 6,
+                  "start_column": 40,
+                  "start_line": 6
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "function:src/lib.ts#main",
+            "target": "function:src/lib.ts#greet",
+            "type": "edge"
+          }
+        ]
+      },
+      {
+        "distance": 1,
+        "node": {
+          "attributes": {},
+          "content_hash": "sha256:a1c5ec0c2b748a13d4ac41371914327e1573954f460944824059030af6f3e73e",
+          "file": "src/app.tsx",
+          "ide": {
+            "column": 3,
+            "exact": true,
+            "line": 13,
+            "link": "vscode://file/{ROOT}/src/app.tsx:13:3"
+          },
+          "identity": "method:src/app.tsx#View.label",
+          "kind": "method",
+          "level": 4,
+          "name": "label",
+          "qualified_name": "View.label",
+          "span": {
+            "end_column": 35,
+            "end_line": 13,
+            "start_column": 2,
+            "start_line": 13
+          },
+          "type": "node"
+        },
+        "path": [
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "src/app.tsx",
+                "span": {
+                  "end_column": 32,
+                  "end_line": 13,
+                  "start_column": 19,
+                  "start_line": 13
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "method:src/app.tsx#View.label",
+            "target": "function:src/lib.ts#greet",
+            "type": "edge"
+          }
+        ]
+      },
+      {
+        "distance": 2,
+        "node": {
+          "attributes": {
+            "decorators": [
+              "@Injectable()"
+            ]
+          },
+          "content_hash": "sha256:3a345a03ea6464bbcac1e6a686eea363bed6d6faefbe54a9ee6742b3512ac194",
+          "file": "src/app.tsx",
+          "ide": {
+            "column": 3,
+            "exact": true,
+            "line": 11,
+            "link": "vscode://file/{ROOT}/src/app.tsx:11:3"
+          },
+          "identity": "method:src/app.tsx#View.render",
+          "kind": "method",
+          "level": 4,
+          "name": "render",
+          "qualified_name": "View.render",
+          "span": {
+            "end_column": 35,
+            "end_line": 12,
+            "start_column": 2,
+            "start_line": 11
+          },
+          "type": "node"
+        },
+        "path": [
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "src/app.tsx",
+                "span": {
+                  "end_column": 32,
+                  "end_line": 13,
+                  "start_column": 19,
+                  "start_line": 13
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "method:src/app.tsx#View.label",
+            "target": "function:src/lib.ts#greet",
+            "type": "edge"
+          },
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "src/app.tsx",
+                "span": {
+                  "end_column": 32,
+                  "end_line": 12,
+                  "start_column": 20,
+                  "start_line": 12
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "method:src/app.tsx#View.render",
+            "target": "method:src/app.tsx#View.label",
+            "type": "edge"
+          }
+        ]
+      }
+    ],
+    "target": {
+      "attributes": {
+        "exported": true
+      },
+      "content_hash": "sha256:3cfce521c808de927d68877d34bdd9386330ea76380136b1fce912ce740e4717",
+      "file": "src/lib.ts",
+      "ide": {
+        "column": 1,
+        "exact": true,
+        "line": 1,
+        "link": "vscode://file/{ROOT}/src/lib.ts:1:1"
+      },
+      "identity": "function:src/lib.ts#greet",
+      "kind": "function",
+      "level": 4,
+      "name": "greet",
+      "qualified_name": "greet",
+      "span": {
+        "end_column": 52,
+        "end_line": 1,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    "unknown_calls_in_result_files": 1
+  },
+  {
+    "blind_spot_data": false,
+    "bounds": [],
+    "candidates": [
+      "function:src/lib.ts#convert",
+      "function:src/lib.ts#convert%40overload%28n%3Anumber%29%3Anumber",
+      "function:src/lib.ts#convert%40overload%28n%3Astring%29%3Astring"
+    ],
+    "caps": [],
+    "command": "impact",
+    "ends": [],
+    "error": "ambiguous target",
+    "freshness": {
+      "changed_files": [],
+      "indexed": true
+    },
+    "nodes": [],
+    "possibly_missing_call_sites": [],
+    "possibly_missing_callers": 0,
+    "results": [],
+    "unknown_calls_in_result_files": 0
+  },
+  {
+    "blind_spot_data": true,
+    "bounds": [],
+    "candidates": [],
+    "caps": [],
+    "command": "impact",
+    "ends": [
+      {
+        "node": "function:src/app.tsx#App",
+        "text": "? not modelled: no stored caller, import, reference or route; dependency injection, framework callbacks, JSX renders, passed callbacks and dynamic calls are not followed by impact"
+      },
+      {
+        "node": "function:src/app.tsx#expression",
+        "text": "? not modelled: no stored caller, import, reference or route; dependency injection, framework callbacks, JSX renders, passed callbacks and dynamic calls are not followed by impact"
+      },
+      {
+        "node": "function:src/app.tsx#outer",
+        "text": "? not modelled: no stored caller, import, reference or route; dependency injection, framework callbacks, JSX renders, passed callbacks and dynamic calls are not followed by impact"
+      },
+      {
+        "node": "method:src/app.tsx#View.render",
+        "text": "? not modelled: no stored caller, import, reference or route; dependency injection, framework callbacks, JSX renders, passed callbacks and dynamic calls are not followed by impact"
+      }
+    ],
+    "freshness": {
+      "changed_files": [],
+      "indexed": true
+    },
+    "nodes": [],
+    "possibly_missing_call_sites": [],
+    "possibly_missing_callers": 0,
+    "results": [
+      {
+        "distance": 1,
+        "node": {
+          "attributes": {
+            "precision": "precise",
+            "unresolved_calls_external": 0,
+            "unresolved_calls_unknown": 1,
+            "unresolved_unknown_call_sites": [
+              {
+                "caller": "function:src/app.tsx#shadow",
+                "name": "double",
+                "span": {
+                  "end_column": 62,
+                  "end_line": 20,
+                  "start_column": 54,
+                  "start_line": 20
+                }
+              }
+            ]
+          },
+          "content_hash": "sha256:ee4c714888f49e3c0b03bc74112820d60b40d01c88e3e178811de274abba48e0",
+          "file": "src/app.tsx",
+          "ide": {
+            "column": 1,
+            "exact": true,
+            "line": 1,
+            "link": "vscode://file/{ROOT}/src/app.tsx:1:1"
+          },
+          "identity": "file:src/app.tsx#src%2Fapp.tsx",
+          "kind": "file",
+          "level": 3,
+          "name": "app.tsx",
+          "qualified_name": "src/app.tsx",
+          "span": {
+            "end_column": 0,
+            "end_line": 21,
+            "start_column": 0,
+            "start_line": 1
+          },
+          "type": "node"
+        },
+        "path": [
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "src/app.tsx",
+                "span": {
+                  "end_column": 53,
+                  "end_line": 2,
+                  "start_column": 0,
+                  "start_line": 2
+                }
+              },
+              {
+                "file": "src/app.tsx",
+                "span": {
+                  "end_column": 29,
+                  "end_line": 3,
+                  "start_column": 0,
+                  "start_line": 3
+                }
+              }
+            ],
+            "kind": "imports",
+            "provenance": "fact",
+            "source": "file:src/app.tsx#src%2Fapp.tsx",
+            "target": "file:src/lib.ts#src%2Flib.ts",
+            "type": "edge"
+          }
+        ]
+      },
+      {
+        "distance": 1,
+        "node": {
+          "attributes": {
+            "exported": true
+          },
+          "content_hash": "sha256:c3c7feb9a64580448506a129d70ce60b220f108be59b7a36c5c8d32dac205ade",
+          "file": "src/app.tsx",
+          "ide": {
+            "column": 1,
+            "exact": true,
+            "line": 8,
+            "link": "vscode://file/{ROOT}/src/app.tsx:8:1"
+          },
+          "identity": "function:src/app.tsx#App",
+          "kind": "function",
+          "level": 4,
+          "name": "App",
+          "qualified_name": "App",
+          "span": {
+            "end_column": 95,
+            "end_line": 8,
+            "start_column": 0,
+            "start_line": 8
+          },
+          "type": "node"
+        },
+        "path": [
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "src/app.tsx",
+                "span": {
+                  "end_column": 48,
+                  "end_line": 8,
+                  "start_column": 39,
+                  "start_line": 8
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "function:src/app.tsx#App",
+            "target": "function:src/lib.ts#double",
+            "type": "edge"
+          }
+        ]
+      },
+      {
+        "distance": 1,
+        "node": {
+          "attributes": {
+            "exported": true
+          },
+          "content_hash": "sha256:b3fe4ebe3029d17a6790ef50963f64d25e8b23bf013b717373f221eb4a8545ee",
+          "file": "src/app.tsx",
+          "ide": {
+            "column": 1,
+            "exact": true,
+            "line": 15,
+            "link": "vscode://file/{ROOT}/src/app.tsx:15:1"
+          },
+          "identity": "function:src/app.tsx#expression",
+          "kind": "function",
+          "level": 4,
+          "name": "expression",
+          "qualified_name": "expression",
+          "span": {
+            "end_column": 59,
+            "end_line": 15,
+            "start_column": 0,
+            "start_line": 15
+          },
+          "type": "node"
+        },
+        "path": [
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "src/app.tsx",
+                "span": {
+                  "end_column": 56,
+                  "end_line": 15,
+                  "start_column": 47,
+                  "start_line": 15
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "function:src/app.tsx#expression",
+            "target": "function:src/lib.ts#double",
+            "type": "edge"
+          }
+        ]
+      },
+      {
+        "distance": 1,
+        "node": {
+          "attributes": {},
+          "content_hash": "sha256:ae7e669b92b650d8925c055dfdbdd171d9c19c0d2cc0beed96a0f6a5d29c0e03",
+          "file": "src/app.tsx",
+          "ide": {
+            "column": 3,
+            "exact": true,
+            "line": 17,
+            "link": "vscode://file/{ROOT}/src/app.tsx:17:3"
+          },
+          "identity": "function:src/app.tsx#outer.inner",
+          "kind": "function",
+          "level": 4,
+          "name": "inner",
+          "qualified_name": "outer.inner",
+          "span": {
+            "end_column": 40,
+            "end_line": 17,
+            "start_column": 2,
+            "start_line": 17
+          },
+          "type": "node"
+        },
+        "path": [
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "src/app.tsx",
+                "span": {
+                  "end_column": 37,
+                  "end_line": 17,
+                  "start_column": 28,
+                  "start_line": 17
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "function:src/app.tsx#outer.inner",
+            "target": "function:src/lib.ts#double",
+            "type": "edge"
+          }
+        ]
+      },
+      {
+        "distance": 1,
+        "node": {
+          "attributes": {},
+          "content_hash": "sha256:a1c5ec0c2b748a13d4ac41371914327e1573954f460944824059030af6f3e73e",
+          "file": "src/app.tsx",
+          "ide": {
+            "column": 3,
+            "exact": true,
+            "line": 13,
+            "link": "vscode://file/{ROOT}/src/app.tsx:13:3"
+          },
+          "identity": "method:src/app.tsx#View.label",
+          "kind": "method",
+          "level": 4,
+          "name": "label",
+          "qualified_name": "View.label",
+          "span": {
+            "end_column": 35,
+            "end_line": 13,
+            "start_column": 2,
+            "start_line": 13
+          },
+          "type": "node"
+        },
+        "path": [
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "src/app.tsx",
+                "span": {
+                  "end_column": 32,
+                  "end_line": 13,
+                  "start_column": 19,
+                  "start_line": 13
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "method:src/app.tsx#View.label",
+            "target": "function:src/lib.ts#greet",
+            "type": "edge"
+          }
+        ]
+      },
+      {
+        "distance": 2,
+        "node": {
+          "attributes": {
+            "exported": true
+          },
+          "content_hash": "sha256:be8a9c81b92572ad12d494f4d65339745e7a6ebec1d88eaeb0692fc58da18db4",
+          "file": "src/app.tsx",
+          "ide": {
+            "column": 1,
+            "exact": true,
+            "line": 16,
+            "link": "vscode://file/{ROOT}/src/app.tsx:16:1"
+          },
+          "identity": "function:src/app.tsx#outer",
+          "kind": "function",
+          "level": 4,
+          "name": "outer",
+          "qualified_name": "outer",
+          "span": {
+            "end_column": 1,
+            "end_line": 19,
+            "start_column": 0,
+            "start_line": 16
+          },
+          "type": "node"
+        },
+        "path": [
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "src/app.tsx",
+                "span": {
+                  "end_column": 37,
+                  "end_line": 17,
+                  "start_column": 28,
+                  "start_line": 17
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "function:src/app.tsx#outer.inner",
+            "target": "function:src/lib.ts#double",
+            "type": "edge"
+          },
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "src/app.tsx",
+                "span": {
+                  "end_column": 16,
+                  "end_line": 18,
+                  "start_column": 9,
+                  "start_line": 18
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "function:src/app.tsx#outer",
+            "target": "function:src/app.tsx#outer.inner",
+            "type": "edge"
+          }
+        ]
+      },
+      {
+        "distance": 2,
+        "node": {
+          "attributes": {
+            "decorators": [
+              "@Injectable()"
+            ]
+          },
+          "content_hash": "sha256:3a345a03ea6464bbcac1e6a686eea363bed6d6faefbe54a9ee6742b3512ac194",
+          "file": "src/app.tsx",
+          "ide": {
+            "column": 3,
+            "exact": true,
+            "line": 11,
+            "link": "vscode://file/{ROOT}/src/app.tsx:11:3"
+          },
+          "identity": "method:src/app.tsx#View.render",
+          "kind": "method",
+          "level": 4,
+          "name": "render",
+          "qualified_name": "View.render",
+          "span": {
+            "end_column": 35,
+            "end_line": 12,
+            "start_column": 2,
+            "start_line": 11
+          },
+          "type": "node"
+        },
+        "path": [
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "src/app.tsx",
+                "span": {
+                  "end_column": 32,
+                  "end_line": 13,
+                  "start_column": 19,
+                  "start_line": 13
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "method:src/app.tsx#View.label",
+            "target": "function:src/lib.ts#greet",
+            "type": "edge"
+          },
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "src/app.tsx",
+                "span": {
+                  "end_column": 32,
+                  "end_line": 12,
+                  "start_column": 20,
+                  "start_line": 12
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "method:src/app.tsx#View.render",
+            "target": "method:src/app.tsx#View.label",
+            "type": "edge"
+          }
+        ]
+      }
+    ],
+    "target": {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:185c074ca8ad58d6266e5bd57c4074fde1d38a48c1f02f23df25174cb9ead351",
+      "file": "src/lib.ts",
+      "ide": {
+        "column": 1,
+        "exact": true,
+        "line": 1,
+        "link": "vscode://file/{ROOT}/src/lib.ts:1:1"
+      },
+      "identity": "file:src/lib.ts#src%2Flib.ts",
+      "kind": "file",
+      "level": 3,
+      "name": "lib.ts",
+      "qualified_name": "src/lib.ts",
+      "span": {
+        "end_column": 0,
+        "end_line": 7,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    "unknown_calls_in_result_files": 1
+  },
+  {
+    "blind_spot_data": false,
+    "bounds": [],
+    "candidates": [],
+    "caps": [],
+    "command": "callers",
+    "ends": [],
+    "error": "no matching target",
+    "freshness": {
+      "changed_files": [],
+      "indexed": true
+    },
+    "nodes": [],
+    "possibly_missing_call_sites": [],
+    "possibly_missing_callers": 0,
+    "results": [],
+    "unknown_calls_in_result_files": 0
+  }
+]

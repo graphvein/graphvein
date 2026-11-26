@@ -1,0 +1,476 @@
+[
+  {
+    "confidence": 0.9,
+    "evidence": [
+      {
+        "file": "src/api.ts",
+        "span": {
+          "end_column": 32,
+          "end_line": 2,
+          "start_column": 9,
+          "start_line": 2
+        }
+      }
+    ],
+    "kind": "calls_route",
+    "provenance": "inferred",
+    "source": "client_call:src/api.ts#items.GET%20%27%2Ft035-gb%2Fitems%27",
+    "target": "route:server.ts#GET%20%2Ft035-gb%2Fitems",
+    "type": "edge"
+  },
+  {
+    "confidence": 0.9,
+    "evidence": [
+      {
+        "file": "src/assets/api-requests.mjs",
+        "span": {
+          "end_column": 32,
+          "end_line": 4,
+          "start_column": 9,
+          "start_line": 4
+        }
+      }
+    ],
+    "kind": "calls_route",
+    "provenance": "inferred",
+    "source": "client_call:src/assets/api-requests.mjs#load.GET%20%27%2Ft035-gb%2Fitems%27",
+    "target": "route:server.ts#GET%20%2Ft035-gb%2Fitems",
+    "type": "edge"
+  },
+  {
+    "confidence": 0.9,
+    "evidence": [
+      {
+        "file": "src/assets/helper-abcdefgh.js",
+        "span": {
+          "end_column": 32,
+          "end_line": 2,
+          "start_column": 9,
+          "start_line": 2
+        }
+      }
+    ],
+    "kind": "calls_route",
+    "provenance": "inferred",
+    "source": "client_call:src/assets/helper-abcdefgh.js#helper.GET%20%27%2Ft035-gb%2Fitems%27",
+    "target": "route:server.ts#GET%20%2Ft035-gb%2Fitems",
+    "type": "edge"
+  },
+  {
+    "confidence": 0.9,
+    "evidence": [
+      {
+        "file": "src/assets/icon-Ab12Cd34.js",
+        "span": {
+          "end_column": 32,
+          "end_line": 4,
+          "start_column": 9,
+          "start_line": 4
+        }
+      }
+    ],
+    "kind": "calls_route",
+    "provenance": "inferred",
+    "source": "client_call:src/assets/icon-Ab12Cd34.js#load.GET%20%27%2Ft035-gb%2Fitems%27",
+    "target": "route:server.ts#GET%20%2Ft035-gb%2Fitems",
+    "type": "edge"
+  },
+  {
+    "confidence": 0.9,
+    "evidence": [
+      {
+        "file": "src/assets/user-settings.js",
+        "span": {
+          "end_column": 32,
+          "end_line": 4,
+          "start_column": 9,
+          "start_line": 4
+        }
+      }
+    ],
+    "kind": "calls_route",
+    "provenance": "inferred",
+    "source": "client_call:src/assets/user-settings.js#load.GET%20%27%2Ft035-gb%2Fitems%27",
+    "target": "route:server.ts#GET%20%2Ft035-gb%2Fitems",
+    "type": "edge"
+  },
+  {
+    "confidence": 0.9,
+    "evidence": [
+      {
+        "file": "static/web/_next/static/chunks/t035-loader.js",
+        "span": {
+          "end_column": 32,
+          "end_line": 2,
+          "start_column": 9,
+          "start_line": 2
+        }
+      }
+    ],
+    "kind": "calls_route",
+    "provenance": "inferred",
+    "source": "client_call:static/web/_next/static/chunks/t035-loader.js#preload.GET%20%27%2Ft035-gb%2Fitems%27",
+    "target": "route:server.ts#GET%20%2Ft035-gb%2Fitems",
+    "type": "edge"
+  },
+  {
+    "attributes": {
+      "base": "none",
+      "generated_output": "GB-2",
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "candidate_count": 0,
+          "candidates": [],
+          "conditional": false,
+          "match": null,
+          "origin": null,
+          "resolution": "literal",
+          "status": "generated",
+          "template": "/t035-gb/items"
+        }
+      ],
+      "status": "generated",
+      "url_expression": "\"/t035-gb/items\"",
+      "wrapper": null
+    },
+    "content_hash": "sha256:551d537cd08d3980ac825ad5fd236273bc9c2f00ea60e2d218fcb1e538cd5953",
+    "file": "public/assets/index-Bx7k_2Qa.js",
+    "identity": "client_call:public/assets/index-Bx7k_2Qa.js#a.GET%20%22%2Ft035-gb%2Fitems%22",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET \"/t035-gb/items\"",
+    "qualified_name": "a.GET \"/t035-gb/items\"",
+    "span": {
+      "end_column": 1630,
+      "end_line": 1,
+      "start_column": 1607,
+      "start_line": 1
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "base": "none",
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "candidate_count": 0,
+          "candidates": [
+            "route:server.ts#GET%20%2Ft035-gb%2Fitems"
+          ],
+          "conditional": false,
+          "match": "exact",
+          "origin": null,
+          "resolution": "literal",
+          "status": "linked",
+          "template": "/t035-gb/items"
+        }
+      ],
+      "status": "linked",
+      "url_expression": "'/t035-gb/items'",
+      "wrapper": null
+    },
+    "content_hash": "sha256:9728a6a8aec780edf357f7ff0c23c2f5001fae9107cf73b0df7ebd94fad540bd",
+    "file": "src/api.ts",
+    "identity": "client_call:src/api.ts#items.GET%20%27%2Ft035-gb%2Fitems%27",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET '/t035-gb/items'",
+    "qualified_name": "items.GET '/t035-gb/items'",
+    "span": {
+      "end_column": 32,
+      "end_line": 2,
+      "start_column": 9,
+      "start_line": 2
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "base": "none",
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "candidate_count": 0,
+          "candidates": [
+            "route:server.ts#GET%20%2Ft035-gb%2Fitems"
+          ],
+          "conditional": false,
+          "match": "exact",
+          "origin": null,
+          "resolution": "literal",
+          "status": "linked",
+          "template": "/t035-gb/items"
+        }
+      ],
+      "status": "linked",
+      "url_expression": "'/t035-gb/items'",
+      "wrapper": null
+    },
+    "content_hash": "sha256:9728a6a8aec780edf357f7ff0c23c2f5001fae9107cf73b0df7ebd94fad540bd",
+    "file": "src/assets/api-requests.mjs",
+    "identity": "client_call:src/assets/api-requests.mjs#load.GET%20%27%2Ft035-gb%2Fitems%27",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET '/t035-gb/items'",
+    "qualified_name": "load.GET '/t035-gb/items'",
+    "span": {
+      "end_column": 32,
+      "end_line": 4,
+      "start_column": 9,
+      "start_line": 4
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "base": "none",
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "candidate_count": 0,
+          "candidates": [
+            "route:server.ts#GET%20%2Ft035-gb%2Fitems"
+          ],
+          "conditional": false,
+          "match": "exact",
+          "origin": null,
+          "resolution": "literal",
+          "status": "linked",
+          "template": "/t035-gb/items"
+        }
+      ],
+      "status": "linked",
+      "url_expression": "'/t035-gb/items'",
+      "wrapper": null
+    },
+    "content_hash": "sha256:9728a6a8aec780edf357f7ff0c23c2f5001fae9107cf73b0df7ebd94fad540bd",
+    "file": "src/assets/helper-abcdefgh.js",
+    "identity": "client_call:src/assets/helper-abcdefgh.js#helper.GET%20%27%2Ft035-gb%2Fitems%27",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET '/t035-gb/items'",
+    "qualified_name": "helper.GET '/t035-gb/items'",
+    "span": {
+      "end_column": 32,
+      "end_line": 2,
+      "start_column": 9,
+      "start_line": 2
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "base": "none",
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "candidate_count": 0,
+          "candidates": [
+            "route:server.ts#GET%20%2Ft035-gb%2Fitems"
+          ],
+          "conditional": false,
+          "match": "exact",
+          "origin": null,
+          "resolution": "literal",
+          "status": "linked",
+          "template": "/t035-gb/items"
+        }
+      ],
+      "status": "linked",
+      "url_expression": "'/t035-gb/items'",
+      "wrapper": null
+    },
+    "content_hash": "sha256:9728a6a8aec780edf357f7ff0c23c2f5001fae9107cf73b0df7ebd94fad540bd",
+    "file": "src/assets/icon-Ab12Cd34.js",
+    "identity": "client_call:src/assets/icon-Ab12Cd34.js#load.GET%20%27%2Ft035-gb%2Fitems%27",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET '/t035-gb/items'",
+    "qualified_name": "load.GET '/t035-gb/items'",
+    "span": {
+      "end_column": 32,
+      "end_line": 4,
+      "start_column": 9,
+      "start_line": 4
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "base": "none",
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "candidate_count": 0,
+          "candidates": [
+            "route:server.ts#GET%20%2Ft035-gb%2Fitems"
+          ],
+          "conditional": false,
+          "match": "exact",
+          "origin": null,
+          "resolution": "literal",
+          "status": "linked",
+          "template": "/t035-gb/items"
+        }
+      ],
+      "status": "linked",
+      "url_expression": "'/t035-gb/items'",
+      "wrapper": null
+    },
+    "content_hash": "sha256:9728a6a8aec780edf357f7ff0c23c2f5001fae9107cf73b0df7ebd94fad540bd",
+    "file": "src/assets/user-settings.js",
+    "identity": "client_call:src/assets/user-settings.js#load.GET%20%27%2Ft035-gb%2Fitems%27",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET '/t035-gb/items'",
+    "qualified_name": "load.GET '/t035-gb/items'",
+    "span": {
+      "end_column": 32,
+      "end_line": 4,
+      "start_column": 9,
+      "start_line": 4
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "base": "none",
+      "generated_output": "GB-1",
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "candidate_count": 0,
+          "candidates": [],
+          "conditional": false,
+          "match": null,
+          "origin": null,
+          "resolution": "literal",
+          "status": "generated",
+          "template": "/t035-gb/items"
+        }
+      ],
+      "status": "generated",
+      "url_expression": "\"/t035-gb/items\"",
+      "wrapper": null
+    },
+    "content_hash": "sha256:551d537cd08d3980ac825ad5fd236273bc9c2f00ea60e2d218fcb1e538cd5953",
+    "file": "static/web/_next/static/chunks/0t035gbxq9z1.js",
+    "identity": "client_call:static/web/_next/static/chunks/0t035gbxq9z1.js#o.GET%20%22%2Ft035-gb%2Fitems%22",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET \"/t035-gb/items\"",
+    "qualified_name": "o.GET \"/t035-gb/items\"",
+    "span": {
+      "end_column": 1741,
+      "end_line": 1,
+      "start_column": 1718,
+      "start_line": 1
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "base": "none",
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "candidate_count": 0,
+          "candidates": [
+            "route:server.ts#GET%20%2Ft035-gb%2Fitems"
+          ],
+          "conditional": false,
+          "match": "exact",
+          "origin": null,
+          "resolution": "literal",
+          "status": "linked",
+          "template": "/t035-gb/items"
+        }
+      ],
+      "status": "linked",
+      "url_expression": "'/t035-gb/items'",
+      "wrapper": null
+    },
+    "content_hash": "sha256:9728a6a8aec780edf357f7ff0c23c2f5001fae9107cf73b0df7ebd94fad540bd",
+    "file": "static/web/_next/static/chunks/t035-loader.js",
+    "identity": "client_call:static/web/_next/static/chunks/t035-loader.js#preload.GET%20%27%2Ft035-gb%2Fitems%27",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET '/t035-gb/items'",
+    "qualified_name": "preload.GET '/t035-gb/items'",
+    "span": {
+      "end_column": 32,
+      "end_line": 2,
+      "start_column": 9,
+      "start_line": 2
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "base": "none",
+      "generated_output": "GB-3",
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "candidate_count": 0,
+          "candidates": [],
+          "conditional": false,
+          "match": null,
+          "origin": null,
+          "resolution": "literal",
+          "status": "generated",
+          "template": "/t035-gb/items"
+        }
+      ],
+      "status": "generated",
+      "url_expression": "\"/t035-gb/items\"",
+      "wrapper": null
+    },
+    "content_hash": "sha256:551d537cd08d3980ac825ad5fd236273bc9c2f00ea60e2d218fcb1e538cd5953",
+    "file": "www/static/js/main.1a2b3c4d.chunk.js",
+    "identity": "client_call:www/static/js/main.1a2b3c4d.chunk.js#GET%20%22%2Ft035-gb%2Fitems%22",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET \"/t035-gb/items\"",
+    "qualified_name": "GET \"/t035-gb/items\"",
+    "span": {
+      "end_column": 1712,
+      "end_line": 1,
+      "start_column": 1689,
+      "start_line": 1
+    },
+    "type": "node"
+  },
+  {
+    "code": "client_calls_generated_output",
+    "file": "public/assets/index-Bx7k_2Qa.js",
+    "message": "committed Vite build output (GB-2: path assets/\u003cname\u003e-\u003chash\u003e.js, minified: most bytes in lines of at least 1000 bytes dense with ; or }): its 1 client call is not linked to routes; set clients.link_generated_output: true in graphvein.yaml to link them",
+    "severity": "info",
+    "type": "diagnostic"
+  },
+  {
+    "code": "client_calls_generated_output",
+    "file": "static/web/_next/static/chunks/0t035gbxq9z1.js",
+    "message": "committed Next.js build output (GB-1: path _next/static/, minified: most bytes in lines of at least 1000 bytes dense with ; or }): its 1 client call is not linked to routes; set clients.link_generated_output: true in graphvein.yaml to link them",
+    "severity": "info",
+    "type": "diagnostic"
+  },
+  {
+    "code": "client_calls_generated_output",
+    "file": "www/static/js/main.1a2b3c4d.chunk.js",
+    "message": "committed webpack (Create React App) build output (GB-3: path static/js/\u003cname\u003e.\u003chash\u003e[.chunk].js, minified: most bytes in lines of at least 1000 bytes dense with ; or }): its 1 client call is not linked to routes; set clients.link_generated_output: true in graphvein.yaml to link them",
+    "severity": "info",
+    "type": "diagnostic"
+  }
+]

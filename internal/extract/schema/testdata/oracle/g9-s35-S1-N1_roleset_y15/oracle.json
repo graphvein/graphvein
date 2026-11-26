@@ -1,0 +1,34 @@
+{
+  "id": "g9-s35-S1-N1_roleset_y15",
+  "signature": "applied|S1|42501|N1.roleset_y15",
+  "class": "S1",
+  "owner": "Y51",
+  "row": "N1.roleset_y15",
+  "history": {
+    "id": "g9-s35",
+    "tags": {
+      "1_m1.sql": [
+        "N1.roleset_y15",
+        "N1.roleset_y15"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42501",
+        "message": "permission denied to set parameter \"gv9.x\"",
+        "statement": 2,
+        "statement_text": "ALTER ROLE r1 SET gv9.x = 'y';"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

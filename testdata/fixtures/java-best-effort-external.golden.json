@@ -1,0 +1,264 @@
+{
+  "diagnostics": [],
+  "edges": [
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/com/example/app/App.java",
+          "span": {
+            "end_column": 1,
+            "end_line": 11,
+            "start_column": 0,
+            "start_line": 8
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/com/example/app/App.java#src%2Fcom%2Fexample%2Fapp%2FApp.java",
+      "target": "class:src/com/example/app/App.java#App",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/com/example/app/model/Item.java",
+          "span": {
+            "end_column": 34,
+            "end_line": 3,
+            "start_column": 0,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/com/example/app/model/Item.java#src%2Fcom%2Fexample%2Fapp%2Fmodel%2FItem.java",
+      "target": "record:src/com/example/app/model/Item.java#Item",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/com/example/app/App.java",
+          "span": {
+            "end_column": 22,
+            "end_line": 4,
+            "start_column": 0,
+            "start_line": 4
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:src/com/example/app/App.java#src%2Fcom%2Fexample%2Fapp%2FApp.java",
+      "target": "external:.#java%3Ajava.util.List",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/com/example/app/App.java",
+          "span": {
+            "end_column": 33,
+            "end_line": 6,
+            "start_column": 0,
+            "start_line": 6
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:src/com/example/app/App.java#src%2Fcom%2Fexample%2Fapp%2FApp.java",
+      "target": "external:.#java%3Ajava.util.Map",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/com/example/app/App.java",
+          "span": {
+            "end_column": 33,
+            "end_line": 5,
+            "start_column": 0,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:src/com/example/app/App.java#src%2Fcom%2Fexample%2Fapp%2FApp.java",
+      "target": "external:.#java%3Aorg.junit.Assert.%2A",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/com/example/app/App.java",
+          "span": {
+            "end_column": 34,
+            "end_line": 3,
+            "start_column": 0,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:src/com/example/app/App.java#src%2Fcom%2Fexample%2Fapp%2FApp.java",
+      "target": "file:src/com/example/app/model/Item.java#src%2Fcom%2Fexample%2Fapp%2Fmodel%2FItem.java",
+      "type": "edge"
+    }
+  ],
+  "files": null,
+  "nodes": [
+    {
+      "attributes": {},
+      "content_hash": "sha256:373216a7376555a441adf7c1391a00f9755bd95145e7b6d23c246b40c057765b",
+      "file": "src/com/example/app/App.java",
+      "identity": "class:src/com/example/app/App.java#App",
+      "kind": "class",
+      "level": 4,
+      "name": "App",
+      "qualified_name": "App",
+      "span": {
+        "end_column": 1,
+        "end_line": 11,
+        "start_column": 0,
+        "start_line": 8
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "ecosystem": "java",
+        "name": "java.util.List"
+      },
+      "content_hash": "sha256:4ca860c4e11c85e2850beb64162bfb78565503632cebd0ba7e87559bd3a00a3f",
+      "file": ".",
+      "identity": "external:.#java%3Ajava.util.List",
+      "kind": "external",
+      "level": 1,
+      "name": "java.util.List",
+      "qualified_name": "java:java.util.List",
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "ecosystem": "java",
+        "name": "java.util.Map"
+      },
+      "content_hash": "sha256:79b71dbbe7290d011d6ff1476beccd7ed4f5371104a8e8e71bf30f18e0b87786",
+      "file": ".",
+      "identity": "external:.#java%3Ajava.util.Map",
+      "kind": "external",
+      "level": 1,
+      "name": "java.util.Map",
+      "qualified_name": "java:java.util.Map",
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "ecosystem": "java",
+        "name": "org.junit.Assert.*"
+      },
+      "content_hash": "sha256:3473583e20f01db7284c4203e1b5c7b747bdd36d0305fa34cee6b75a6a2ff974",
+      "file": ".",
+      "identity": "external:.#java%3Aorg.junit.Assert.%2A",
+      "kind": "external",
+      "level": 1,
+      "name": "org.junit.Assert.*",
+      "qualified_name": "java:org.junit.Assert.*",
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:66563572f09f23bd937f2be58d5b33b2c1b69d944abf8162c7986f985fbc4fda",
+      "file": "README.md",
+      "identity": "file:README.md#README.md",
+      "kind": "file",
+      "level": 3,
+      "name": "README.md",
+      "qualified_name": "README.md",
+      "span": {
+        "end_column": 0,
+        "end_line": 17,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:d56a33460e469056acebe083a67e0369d7eaa3c58dc833e0791dbed7905ed744",
+      "file": "src/com/example/app/App.java",
+      "identity": "file:src/com/example/app/App.java#src%2Fcom%2Fexample%2Fapp%2FApp.java",
+      "kind": "file",
+      "level": 3,
+      "name": "App.java",
+      "qualified_name": "src/com/example/app/App.java",
+      "span": {
+        "end_column": 0,
+        "end_line": 12,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:b7b4cf4eae7c1a8675a1779fb005e677f46813f53a0d90abd82cae5ad3cf0171",
+      "file": "src/com/example/app/model/Item.java",
+      "identity": "file:src/com/example/app/model/Item.java#src%2Fcom%2Fexample%2Fapp%2Fmodel%2FItem.java",
+      "kind": "file",
+      "level": 3,
+      "name": "Item.java",
+      "qualified_name": "src/com/example/app/model/Item.java",
+      "span": {
+        "end_column": 0,
+        "end_line": 4,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:0b3f6aaf20ca2e5a059f7867fdcd8f8ee65d660bc7884c40f707c773c01765d8",
+      "file": "src/com/example/app/model/Item.java",
+      "identity": "record:src/com/example/app/model/Item.java#Item",
+      "kind": "record",
+      "level": 4,
+      "name": "Item",
+      "qualified_name": "Item",
+      "span": {
+        "end_column": 34,
+        "end_line": 3,
+        "start_column": 0,
+        "start_line": 3
+      },
+      "type": "node"
+    }
+  ]
+}

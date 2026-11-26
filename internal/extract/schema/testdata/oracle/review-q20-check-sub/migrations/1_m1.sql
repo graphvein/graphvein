@@ -1,0 +1,1 @@
+CREATE TABLE t (a int CHECK (a IN (SELECT 1)));

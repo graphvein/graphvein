@@ -1,0 +1,14 @@
+[package]
+name = "rust-structure-oracle"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+# Oracle for Graphvein's Rust structure contract (T020 S4). Not part of
+# Graphvein's build or default tests; see main.rs for how to run it.
+[dependencies]
+syn = { version = "=2.0.106", default-features = false, features = ["full", "parsing", "printing", "extra-traits", "clone-impls", "visit"] }
+proc-macro2 = { version = "=1.0.101", default-features = false, features = ["span-locations"] }
+quote = { version = "=1.0.47", default-features = false }
+
+[workspace]

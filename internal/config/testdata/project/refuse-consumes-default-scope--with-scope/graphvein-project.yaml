@@ -1,0 +1,12 @@
+version: 1
+name: shop
+members:
+  - repository: web
+    consumes:
+      - repository: api
+        scope: admin
+        default_scope: true
+  - repository: api
+    scopes:
+      - name: admin
+        path: apps/admin

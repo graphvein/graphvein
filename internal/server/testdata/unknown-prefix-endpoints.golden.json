@@ -1,0 +1,977 @@
+{
+  "api_version": 0,
+  "index": {
+    "contract_version": 1,
+    "finished_at": "2026-11-03T14:32:05.123Z",
+    "indexer": {
+      "name": "graphvein",
+      "version": "extractors-62"
+    }
+  },
+  "repository": "up",
+  "root": null,
+  "scope": "all",
+  "transports": [
+    {
+      "callers_precision": {
+        "label": "best_effort",
+        "reason": "default_branch",
+        "row": "D"
+      },
+      "calls": {
+        "by_status": {
+          "ambiguous": 4,
+          "linked": 10,
+          "test_only": 1,
+          "unmatched": 9
+        },
+        "edges_from_unlinked": 0,
+        "linked_without_edge": 0,
+        "total": 24,
+        "unknown_scope": 0
+      },
+      "endpoint_count": 16,
+      "endpoints": [
+        {
+          "caller_count": 1,
+          "documented": false,
+          "file": "server/api.go",
+          "flags": [],
+          "framework": "chi",
+          "id": "route:server/api.go#GET%20%2Fapp%2F%2A",
+          "line": 76,
+          "method": "GET",
+          "name": "GET /app/*",
+          "path": "/k/app/{*}",
+          "path_count": 1,
+          "pattern": "/app/*",
+          "scope": null,
+          "shape": {
+            "depth_cap": 0,
+            "depth_limit": 6,
+            "sections": {
+              "body": {
+                "items": 0,
+                "state": "partial"
+              },
+              "cookie": {
+                "items": 0,
+                "state": "partial"
+              },
+              "header": {
+                "items": 0,
+                "state": "partial"
+              },
+              "path": {
+                "items": 0,
+                "state": "partial"
+              },
+              "query": {
+                "items": 0,
+                "state": "partial"
+              },
+              "responses": {
+                "items": 0,
+                "state": "partial"
+              },
+              "security": {
+                "items": 0,
+                "state": "not_read"
+              }
+            }
+          }
+        },
+        {
+          "caller_count": 1,
+          "documented": false,
+          "file": "server/api.go",
+          "flags": [],
+          "framework": "chi",
+          "id": "route:server/api.go#GET%20%2Fupb%2Fknown%2Fitems%402",
+          "line": 40,
+          "method": "GET",
+          "name": "GET /upb/known/items@2",
+          "path": "/k/upb/known/items",
+          "path_count": 1,
+          "pattern": "/upb/known/items",
+          "scope": null,
+          "shape": {
+            "depth_cap": 0,
+            "depth_limit": 6,
+            "sections": {
+              "body": {
+                "items": 0,
+                "state": "partial"
+              },
+              "cookie": {
+                "items": 0,
+                "state": "partial"
+              },
+              "header": {
+                "items": 0,
+                "state": "partial"
+              },
+              "path": {
+                "items": 0,
+                "state": "partial"
+              },
+              "query": {
+                "items": 0,
+                "state": "partial"
+              },
+              "responses": {
+                "items": 0,
+                "state": "partial"
+              },
+              "security": {
+                "items": 0,
+                "state": "not_read"
+              }
+            }
+          }
+        },
+        {
+          "caller_count": 0,
+          "documented": false,
+          "file": "server/api.go",
+          "flags": [
+            "prefix_unresolved"
+          ],
+          "framework": "chi",
+          "id": "route:server/api.go#GET%20%2Fdaily",
+          "line": 21,
+          "method": "GET",
+          "name": "GET /daily",
+          "path": null,
+          "path_count": 0,
+          "pattern": "/daily",
+          "prefix_unknown": {
+            "count": 1,
+            "hop": "mount:server/api.go#API%20r.Route%28base%29",
+            "path": "…/daily",
+            "reason": "route_prefix_unresolved",
+            "reason_text": "prefix unknown: a prefix on the way to the route is not a constant (for example read from configuration)"
+          },
+          "scope": null,
+          "shape": {
+            "depth_cap": 0,
+            "depth_limit": 6,
+            "sections": {
+              "body": {
+                "items": 0,
+                "state": "partial"
+              },
+              "cookie": {
+                "items": 0,
+                "state": "partial"
+              },
+              "header": {
+                "items": 0,
+                "state": "partial"
+              },
+              "path": {
+                "items": 0,
+                "state": "partial"
+              },
+              "query": {
+                "items": 0,
+                "state": "partial"
+              },
+              "responses": {
+                "items": 0,
+                "state": "partial"
+              },
+              "security": {
+                "items": 0,
+                "state": "not_read"
+              }
+            }
+          }
+        },
+        {
+          "caller_count": 1,
+          "documented": false,
+          "file": "server/api.go",
+          "flags": [
+            "prefix_unresolved"
+          ],
+          "framework": "chi",
+          "id": "route:server/api.go#GET%20%2Fupb%2Finner%2F%7Bname%7D",
+          "line": 31,
+          "method": "GET",
+          "name": "GET /upb/inner/{name}",
+          "path": null,
+          "path_count": 0,
+          "pattern": "/upb/inner/{name}",
+          "prefix_unknown": {
+            "count": 1,
+            "hop": "mount:server/api.go#API%20r.Route%28base%29%402",
+            "path": "/outer/…/upb/inner/{name}",
+            "reason": "route_prefix_unresolved",
+            "reason_text": "prefix unknown: a prefix on the way to the route is not a constant (for example read from configuration)"
+          },
+          "scope": null,
+          "shape": {
+            "depth_cap": 0,
+            "depth_limit": 6,
+            "sections": {
+              "body": {
+                "items": 0,
+                "state": "partial"
+              },
+              "cookie": {
+                "items": 0,
+                "state": "partial"
+              },
+              "header": {
+                "items": 0,
+                "state": "partial"
+              },
+              "path": {
+                "items": 0,
+                "state": "partial"
+              },
+              "query": {
+                "items": 0,
+                "state": "partial"
+              },
+              "responses": {
+                "items": 0,
+                "state": "partial"
+              },
+              "security": {
+                "items": 0,
+                "state": "not_read"
+              }
+            }
+          }
+        },
+        {
+          "caller_count": 1,
+          "documented": false,
+          "file": "server/api.go",
+          "flags": [
+            "prefix_unresolved"
+          ],
+          "framework": "chi",
+          "id": "route:server/api.go#GET%20%2Fupb%2Ffiles%2F",
+          "line": 23,
+          "method": "GET",
+          "name": "GET /upb/files/",
+          "path": null,
+          "path_count": 0,
+          "pattern": "/upb/files/",
+          "prefix_unknown": {
+            "count": 1,
+            "hop": "mount:server/api.go#API%20r.Route%28base%29",
+            "path": "…/upb/files/",
+            "reason": "route_prefix_unresolved",
+            "reason_text": "prefix unknown: a prefix on the way to the route is not a constant (for example read from configuration)"
+          },
+          "scope": null,
+          "shape": {
+            "depth_cap": 0,
+            "depth_limit": 6,
+            "sections": {
+              "body": {
+                "items": 0,
+                "state": "partial"
+              },
+              "cookie": {
+                "items": 0,
+                "state": "partial"
+              },
+              "header": {
+                "items": 0,
+                "state": "partial"
+              },
+              "path": {
+                "items": 0,
+                "state": "partial"
+              },
+              "query": {
+                "items": 0,
+                "state": "partial"
+              },
+              "responses": {
+                "items": 0,
+                "state": "partial"
+              },
+              "security": {
+                "items": 0,
+                "state": "not_read"
+              }
+            }
+          }
+        },
+        {
+          "caller_count": 1,
+          "documented": false,
+          "file": "server/api.go",
+          "flags": [
+            "prefix_unresolved"
+          ],
+          "framework": "chi",
+          "id": "route:server/api.go#GET%20%2Fupb%2Fknown%2Fitems",
+          "line": 24,
+          "method": "GET",
+          "name": "GET /upb/known/items",
+          "path": null,
+          "path_count": 0,
+          "pattern": "/upb/known/items",
+          "prefix_unknown": {
+            "count": 1,
+            "hop": "mount:server/api.go#API%20r.Route%28base%29",
+            "path": "…/upb/known/items",
+            "reason": "route_prefix_unresolved",
+            "reason_text": "prefix unknown: a prefix on the way to the route is not a constant (for example read from configuration)"
+          },
+          "scope": null,
+          "shape": {
+            "depth_cap": 0,
+            "depth_limit": 6,
+            "sections": {
+              "body": {
+                "items": 0,
+                "state": "partial"
+              },
+              "cookie": {
+                "items": 0,
+                "state": "partial"
+              },
+              "header": {
+                "items": 0,
+                "state": "partial"
+              },
+              "path": {
+                "items": 0,
+                "state": "partial"
+              },
+              "query": {
+                "items": 0,
+                "state": "partial"
+              },
+              "responses": {
+                "items": 0,
+                "state": "partial"
+              },
+              "security": {
+                "items": 0,
+                "state": "not_read"
+              }
+            }
+          }
+        },
+        {
+          "caller_count": 1,
+          "documented": false,
+          "file": "server/api.go",
+          "flags": [
+            "prefix_unresolved"
+          ],
+          "framework": "chi",
+          "id": "route:server/api.go#POST%20%2Fupb%2Forders",
+          "line": 17,
+          "method": "POST",
+          "name": "POST /upb/orders",
+          "path": null,
+          "path_count": 0,
+          "pattern": "/upb/orders",
+          "prefix_unknown": {
+            "count": 1,
+            "hop": "mount:server/api.go#API%20r.Route%28base%29",
+            "path": "…/upb/orders",
+            "reason": "route_prefix_unresolved",
+            "reason_text": "prefix unknown: a prefix on the way to the route is not a constant (for example read from configuration)"
+          },
+          "scope": null,
+          "shape": {
+            "depth_cap": 0,
+            "depth_limit": 6,
+            "sections": {
+              "body": {
+                "items": 0,
+                "state": "partial"
+              },
+              "cookie": {
+                "items": 0,
+                "state": "partial"
+              },
+              "header": {
+                "items": 0,
+                "state": "partial"
+              },
+              "path": {
+                "items": 0,
+                "state": "partial"
+              },
+              "query": {
+                "items": 0,
+                "state": "partial"
+              },
+              "responses": {
+                "items": 0,
+                "state": "partial"
+              },
+              "security": {
+                "items": 0,
+                "state": "not_read"
+              }
+            }
+          }
+        },
+        {
+          "caller_count": 2,
+          "documented": false,
+          "file": "server/api.go",
+          "flags": [
+            "prefix_unresolved"
+          ],
+          "framework": "chi",
+          "id": "route:server/api.go#GET%20%2Fupb%2Forders%2F%7Bid%7D",
+          "line": 16,
+          "method": "GET",
+          "name": "GET /upb/orders/{id}",
+          "path": null,
+          "path_count": 0,
+          "pattern": "/upb/orders/{id}",
+          "prefix_unknown": {
+            "count": 1,
+            "hop": "mount:server/api.go#API%20r.Route%28base%29",
+            "path": "…/upb/orders/{id}",
+            "reason": "route_prefix_unresolved",
+            "reason_text": "prefix unknown: a prefix on the way to the route is not a constant (for example read from configuration)"
+          },
+          "scope": null,
+          "shape": {
+            "depth_cap": 0,
+            "depth_limit": 6,
+            "sections": {
+              "body": {
+                "items": 0,
+                "state": "partial"
+              },
+              "cookie": {
+                "items": 0,
+                "state": "partial"
+              },
+              "header": {
+                "items": 0,
+                "state": "partial"
+              },
+              "path": {
+                "items": 0,
+                "state": "partial"
+              },
+              "query": {
+                "items": 0,
+                "state": "partial"
+              },
+              "responses": {
+                "items": 0,
+                "state": "partial"
+              },
+              "security": {
+                "items": 0,
+                "state": "not_read"
+              }
+            }
+          }
+        },
+        {
+          "caller_count": 1,
+          "documented": false,
+          "file": "server/api.go",
+          "flags": [
+            "prefix_unresolved"
+          ],
+          "framework": "net/http",
+          "id": "route:server/api.go#GET%20%2Fupb%2Freports%2F%7Bid%7D",
+          "line": 50,
+          "method": "GET",
+          "name": "GET /upb/reports/{id}",
+          "path": null,
+          "path_count": 0,
+          "pattern": "GET /upb/reports/{id}",
+          "prefix_unknown": {
+            "count": 1,
+            "hop": "mount:server/api.go#Reports%20root.Handle%28prefix%2B%22%2F%22%29",
+            "path": "…/upb/reports/{id}",
+            "reason": "route_prefix_unresolved",
+            "reason_text": "prefix unknown: a prefix on the way to the route is not a constant (for example read from configuration)"
+          },
+          "scope": null,
+          "shape": {
+            "depth_cap": 0,
+            "depth_limit": 6,
+            "sections": {
+              "body": {
+                "items": 0,
+                "state": "partial"
+              },
+              "cookie": {
+                "items": 0,
+                "state": "partial"
+              },
+              "header": {
+                "items": 0,
+                "state": "partial"
+              },
+              "path": {
+                "items": 0,
+                "state": "partial"
+              },
+              "query": {
+                "items": 0,
+                "state": "partial"
+              },
+              "responses": {
+                "items": 0,
+                "state": "partial"
+              },
+              "security": {
+                "items": 0,
+                "state": "not_read"
+              }
+            }
+          }
+        },
+        {
+          "caller_count": 0,
+          "documented": false,
+          "file": "server/api.go",
+          "flags": [
+            "prefix_unresolved"
+          ],
+          "framework": "chi",
+          "id": "route:server/api.go#GET%20%2Fupb%2Fshared%2Flist",
+          "line": 19,
+          "method": "GET",
+          "name": "GET /upb/shared/list",
+          "path": null,
+          "path_count": 0,
+          "pattern": "/upb/shared/list",
+          "prefix_unknown": {
+            "count": 1,
+            "hop": "mount:server/api.go#API%20r.Route%28base%29",
+            "path": "…/upb/shared/list",
+            "reason": "route_prefix_unresolved",
+            "reason_text": "prefix unknown: a prefix on the way to the route is not a constant (for example read from configuration)"
+          },
+          "scope": null,
+          "shape": {
+            "depth_cap": 0,
+            "depth_limit": 6,
+            "sections": {
+              "body": {
+                "items": 0,
+                "state": "partial"
+              },
+              "cookie": {
+                "items": 0,
+                "state": "partial"
+              },
+              "header": {
+                "items": 0,
+                "state": "partial"
+              },
+              "path": {
+                "items": 0,
+                "state": "partial"
+              },
+              "query": {
+                "items": 0,
+                "state": "partial"
+              },
+              "responses": {
+                "items": 0,
+                "state": "partial"
+              },
+              "security": {
+                "items": 0,
+                "state": "not_read"
+              }
+            }
+          }
+        },
+        {
+          "caller_count": 0,
+          "documented": false,
+          "file": "server/api.go",
+          "flags": [
+            "prefix_unresolved"
+          ],
+          "framework": "chi",
+          "id": "route:server/api.go#GET%20%2Fupb%2Fshared%2Flist%402",
+          "line": 27,
+          "method": "GET",
+          "name": "GET /upb/shared/list@2",
+          "path": null,
+          "path_count": 0,
+          "pattern": "/upb/shared/list",
+          "prefix_unknown": {
+            "count": 1,
+            "hop": "mount:server/api.go#API%20r.Route%28other%29",
+            "path": "…/upb/shared/list",
+            "reason": "route_prefix_unresolved",
+            "reason_text": "prefix unknown: a prefix on the way to the route is not a constant (for example read from configuration)"
+          },
+          "scope": null,
+          "shape": {
+            "depth_cap": 0,
+            "depth_limit": 6,
+            "sections": {
+              "body": {
+                "items": 0,
+                "state": "partial"
+              },
+              "cookie": {
+                "items": 0,
+                "state": "partial"
+              },
+              "header": {
+                "items": 0,
+                "state": "partial"
+              },
+              "path": {
+                "items": 0,
+                "state": "partial"
+              },
+              "query": {
+                "items": 0,
+                "state": "partial"
+              },
+              "responses": {
+                "items": 0,
+                "state": "partial"
+              },
+              "security": {
+                "items": 0,
+                "state": "not_read"
+              }
+            }
+          }
+        },
+        {
+          "caller_count": 0,
+          "documented": false,
+          "file": "server/api.go",
+          "flags": [
+            "prefix_unresolved"
+          ],
+          "framework": "chi",
+          "id": "route:server/api.go#GET%20%2Fupb%2Fstats%2Fdaily",
+          "line": 20,
+          "method": "GET",
+          "name": "GET /upb/stats/daily",
+          "path": null,
+          "path_count": 0,
+          "pattern": "/upb/stats/daily",
+          "prefix_unknown": {
+            "count": 1,
+            "hop": "mount:server/api.go#API%20r.Route%28base%29",
+            "path": "…/upb/stats/daily",
+            "reason": "route_prefix_unresolved",
+            "reason_text": "prefix unknown: a prefix on the way to the route is not a constant (for example read from configuration)"
+          },
+          "scope": null,
+          "shape": {
+            "depth_cap": 0,
+            "depth_limit": 6,
+            "sections": {
+              "body": {
+                "items": 0,
+                "state": "partial"
+              },
+              "cookie": {
+                "items": 0,
+                "state": "partial"
+              },
+              "header": {
+                "items": 0,
+                "state": "partial"
+              },
+              "path": {
+                "items": 0,
+                "state": "partial"
+              },
+              "query": {
+                "items": 0,
+                "state": "partial"
+              },
+              "responses": {
+                "items": 0,
+                "state": "partial"
+              },
+              "security": {
+                "items": 0,
+                "state": "not_read"
+              }
+            }
+          }
+        },
+        {
+          "caller_count": 0,
+          "documented": false,
+          "file": "server/api_test.go",
+          "flags": [
+            "prefix_unresolved",
+            "test_paths"
+          ],
+          "framework": "chi",
+          "id": "route:server/api_test.go#GET%20%2Fupb%2Ftestonly%2Fitems",
+          "line": 15,
+          "method": "GET",
+          "name": "GET /upb/testonly/items",
+          "path": null,
+          "path_count": 0,
+          "pattern": "/upb/testonly/items",
+          "prefix_unknown": {
+            "count": 1,
+            "hop": "mount:server/api_test.go#TestBase%20r.Route%28t.Name%28%29%29",
+            "path": "…/upb/testonly/items",
+            "reason": "route_prefix_unresolved",
+            "reason_text": "prefix unknown: a prefix on the way to the route is not a constant (for example read from configuration)"
+          },
+          "scope": "test",
+          "shape": {
+            "depth_cap": 0,
+            "depth_limit": 6,
+            "sections": {
+              "body": {
+                "items": 0,
+                "state": "partial"
+              },
+              "cookie": {
+                "items": 0,
+                "state": "partial"
+              },
+              "header": {
+                "items": 0,
+                "state": "partial"
+              },
+              "path": {
+                "items": 0,
+                "state": "partial"
+              },
+              "query": {
+                "items": 0,
+                "state": "partial"
+              },
+              "responses": {
+                "items": 0,
+                "state": "partial"
+              },
+              "security": {
+                "items": 0,
+                "state": "not_read"
+              }
+            }
+          }
+        },
+        {
+          "caller_count": 0,
+          "documented": false,
+          "file": "server/api.go",
+          "flags": [
+            "prefix_unresolved"
+          ],
+          "framework": "chi",
+          "id": "route:server/api.go#GET%20%2Fupb%2Fwidgets%2Flist",
+          "line": 69,
+          "method": "GET",
+          "name": "GET /upb/widgets/list",
+          "path": null,
+          "path_count": 0,
+          "pattern": "/upb/widgets/list",
+          "prefix_unknown": {
+            "count": 1,
+            "hop": "mount:server/api.go#Widgets%20r.Route%28base%29",
+            "path": "…/upb/widgets/list",
+            "reason": "route_prefix_unresolved",
+            "reason_text": "prefix unknown: a prefix on the way to the route is not a constant (for example read from configuration)"
+          },
+          "scope": null,
+          "shape": {
+            "depth_cap": 0,
+            "depth_limit": 6,
+            "sections": {
+              "body": {
+                "items": 0,
+                "state": "partial"
+              },
+              "cookie": {
+                "items": 0,
+                "state": "partial"
+              },
+              "header": {
+                "items": 0,
+                "state": "partial"
+              },
+              "path": {
+                "items": 0,
+                "state": "partial"
+              },
+              "query": {
+                "items": 0,
+                "state": "partial"
+              },
+              "responses": {
+                "items": 0,
+                "state": "partial"
+              },
+              "security": {
+                "items": 0,
+                "state": "not_read"
+              }
+            }
+          }
+        },
+        {
+          "caller_count": 0,
+          "documented": false,
+          "file": "server/api.go",
+          "flags": [
+            "prefix_unresolved"
+          ],
+          "framework": "chi",
+          "id": "route:server/api.go#GET%20%2Fupbping",
+          "line": 18,
+          "method": "GET",
+          "name": "GET /upbping",
+          "path": null,
+          "path_count": 0,
+          "pattern": "/upbping",
+          "prefix_unknown": {
+            "count": 1,
+            "hop": "mount:server/api.go#API%20r.Route%28base%29",
+            "path": "…/upbping",
+            "reason": "route_prefix_unresolved",
+            "reason_text": "prefix unknown: a prefix on the way to the route is not a constant (for example read from configuration)"
+          },
+          "scope": null,
+          "shape": {
+            "depth_cap": 0,
+            "depth_limit": 6,
+            "sections": {
+              "body": {
+                "items": 0,
+                "state": "partial"
+              },
+              "cookie": {
+                "items": 0,
+                "state": "partial"
+              },
+              "header": {
+                "items": 0,
+                "state": "partial"
+              },
+              "path": {
+                "items": 0,
+                "state": "partial"
+              },
+              "query": {
+                "items": 0,
+                "state": "partial"
+              },
+              "responses": {
+                "items": 0,
+                "state": "partial"
+              },
+              "security": {
+                "items": 0,
+                "state": "not_read"
+              }
+            }
+          }
+        },
+        {
+          "caller_count": 1,
+          "documented": false,
+          "file": "server/api.go",
+          "flags": [
+            "prefix_unresolved"
+          ],
+          "framework": "chi",
+          "id": "route:server/api.go#GET%20%2F%7Borg%7D%2Fupb%2Fsettings",
+          "line": 22,
+          "method": "GET",
+          "name": "GET /{org}/upb/settings",
+          "path": null,
+          "path_count": 0,
+          "pattern": "/{org}/upb/settings",
+          "prefix_unknown": {
+            "count": 1,
+            "hop": "mount:server/api.go#API%20r.Route%28base%29",
+            "path": "…/{org}/upb/settings",
+            "reason": "route_prefix_unresolved",
+            "reason_text": "prefix unknown: a prefix on the way to the route is not a constant (for example read from configuration)"
+          },
+          "scope": null,
+          "shape": {
+            "depth_cap": 0,
+            "depth_limit": 6,
+            "sections": {
+              "body": {
+                "items": 0,
+                "state": "partial"
+              },
+              "cookie": {
+                "items": 0,
+                "state": "partial"
+              },
+              "header": {
+                "items": 0,
+                "state": "partial"
+              },
+              "path": {
+                "items": 0,
+                "state": "partial"
+              },
+              "query": {
+                "items": 0,
+                "state": "partial"
+              },
+              "responses": {
+                "items": 0,
+                "state": "partial"
+              },
+              "security": {
+                "items": 0,
+                "state": "not_read"
+              }
+            }
+          }
+        }
+      ],
+      "frameworks": [
+        "chi",
+        "net/http"
+      ],
+      "never_called": 7,
+      "openapi": {
+        "documented_endpoints": 0,
+        "specs": 0
+      },
+      "precision": {
+        "label": "best_effort",
+        "reason": "marker_conflict",
+        "row": "D"
+      },
+      "roots": [
+        {
+          "by_status": {
+            "ambiguous": 4,
+            "linked": 10,
+            "test_only": 1,
+            "unmatched": 9
+          },
+          "manifest": "go.mod",
+          "root": ".",
+          "total": 24
+        }
+      ],
+      "transport": "http"
+    }
+  ]
+}

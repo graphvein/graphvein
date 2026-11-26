@@ -1,0 +1,29 @@
+{
+  "id": "review19-r3-k03-reindex-ptable",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y30",
+  "row": "review19",
+  "history": {
+    "id": "k03-reindex-ptable"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "25001",
+        "message": "REINDEX TABLE cannot run inside a transaction block",
+        "where": "while reindexing partitioned table \"history.p\"",
+        "statement": 2,
+        "statement_text": "REINDEX TABLE p;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

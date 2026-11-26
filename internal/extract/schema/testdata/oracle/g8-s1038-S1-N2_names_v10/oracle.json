@@ -1,0 +1,33 @@
+{
+  "id": "g8-s1038-S1-N2_names_v10",
+  "signature": "applied|S1|42601|N2.names_v10",
+  "class": "S1",
+  "owner": "V10",
+  "row": "N2.names_v10",
+  "history": {
+    "id": "g8-s1038",
+    "tags": {
+      "2_m2.sql": [
+        "N2.names_v10"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "2_m2.sql",
+        "status": "refused",
+        "sqlstate": "42601",
+        "message": "syntax error at or near \"UTF8\"",
+        "statement": 1,
+        "statement_text": "SET NAMES UTF8;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

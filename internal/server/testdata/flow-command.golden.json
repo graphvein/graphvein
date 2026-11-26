@@ -1,0 +1,635 @@
+{
+  "api_version": 0,
+  "callers_precision": {
+    "label": "best_effort",
+    "reason": "default_branch",
+    "row": "D"
+  },
+  "candidates": [],
+  "code_calls_precision": {
+    "label": "best_effort",
+    "reason": "default_branch",
+    "row": "D"
+  },
+  "counts": {
+    "callers": 3,
+    "near_misses": 0,
+    "near_misses_incomplete": 0
+  },
+  "edges": [
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "web/src/ipc.ts",
+          "span": {
+            "end_column": 53,
+            "end_line": 18,
+            "start_column": 9,
+            "start_line": 18
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "function:web/src/ipc.ts#conditional",
+      "target": "ipc_call:web/src/ipc.ts#conditional.INVOKE%20flag%3F%27t016d_greet%27%3A%27t016d_items%27"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "web/src/ipc.ts",
+          "span": {
+            "end_column": 40,
+            "end_line": 10,
+            "start_column": 9,
+            "start_line": 10
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "function:web/src/ipc.ts#namespaced",
+      "target": "ipc_call:web/src/ipc.ts#namespaced.INVOKE%20%27t016d_items%27"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "web/src/ipc.ts",
+          "span": {
+            "end_column": 36,
+            "end_line": 14,
+            "start_column": 9,
+            "start_line": 14
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "function:web/src/ipc.ts#viaWrapper",
+      "target": "ipc_call:web/src/ipc.ts#viaWrapper.INVOKE%20%27t016d_items%27"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/src/main.rs",
+          "span": {
+            "end_column": 33,
+            "end_line": 7,
+            "start_column": 12,
+            "start_line": 7
+          }
+        }
+      ],
+      "kind": "exposes_command",
+      "provenance": "fact",
+      "source": "function:app/src/commands.rs#t016d_items",
+      "target": "ipc_command:app/src/main.rs#main.COMMAND%20t016d_items"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "web/src/ipc.ts",
+          "span": {
+            "end_column": 53,
+            "end_line": 18,
+            "start_column": 9,
+            "start_line": 18
+          }
+        }
+      ],
+      "kind": "invokes_command",
+      "provenance": "fact",
+      "source": "ipc_call:web/src/ipc.ts#conditional.INVOKE%20flag%3F%27t016d_greet%27%3A%27t016d_items%27",
+      "target": "ipc_command:app/src/main.rs#main.COMMAND%20t016d_greet"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "web/src/ipc.ts",
+          "span": {
+            "end_column": 53,
+            "end_line": 18,
+            "start_column": 9,
+            "start_line": 18
+          }
+        }
+      ],
+      "kind": "invokes_command",
+      "provenance": "fact",
+      "source": "ipc_call:web/src/ipc.ts#conditional.INVOKE%20flag%3F%27t016d_greet%27%3A%27t016d_items%27",
+      "target": "ipc_command:app/src/main.rs#main.COMMAND%20t016d_items"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "web/src/ipc.ts",
+          "span": {
+            "end_column": 40,
+            "end_line": 10,
+            "start_column": 9,
+            "start_line": 10
+          }
+        }
+      ],
+      "kind": "invokes_command",
+      "provenance": "fact",
+      "source": "ipc_call:web/src/ipc.ts#namespaced.INVOKE%20%27t016d_items%27",
+      "target": "ipc_command:app/src/main.rs#main.COMMAND%20t016d_items"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "web/src/ipc.ts",
+          "span": {
+            "end_column": 36,
+            "end_line": 14,
+            "start_column": 9,
+            "start_line": 14
+          }
+        }
+      ],
+      "kind": "invokes_command",
+      "provenance": "fact",
+      "source": "ipc_call:web/src/ipc.ts#viaWrapper.INVOKE%20%27t016d_items%27",
+      "target": "ipc_command:app/src/main.rs#main.COMMAND%20t016d_items"
+    }
+  ],
+  "endpoint": {
+    "attributes": {
+      "cfg_gated": false,
+      "command": "t016d_items",
+      "framework": "tauri",
+      "handler": "function:app/src/commands.rs#t016d_items",
+      "registry": "app",
+      "transport": "tauri_ipc"
+    },
+    "content_hash": "sha256:9f28ba7668fca8e549191461d218dbff6a644eb24881a22152c0322fa37e1402",
+    "file": "app/src/main.rs",
+    "file_state": "unchanged",
+    "ide": {
+      "column": 13,
+      "exact": true,
+      "line": 7,
+      "link": "vscode://file/{ROOT}/app/src/main.rs:7:13"
+    },
+    "identity": "ipc_command:app/src/main.rs#main.COMMAND%20t016d_items",
+    "kind": "ipc_command",
+    "level": 4,
+    "name": "COMMAND t016d_items",
+    "qualified_name": "main.COMMAND t016d_items",
+    "span": {
+      "end_column": 33,
+      "end_line": 7,
+      "start_column": 12,
+      "start_line": 7
+    },
+    "type": "node"
+  },
+  "handler": {
+    "edge": {
+      "confidence": 1,
+      "kind": "exposes_command",
+      "provenance": "fact"
+    },
+    "expression": null,
+    "node": {
+      "attributes": {
+        "module": ""
+      },
+      "content_hash": "sha256:2dc0cb62d682d37cff0c7ab6cdd2d6e18e13dfec7ac481c0d493364c5ddc3e97",
+      "file": "app/src/commands.rs",
+      "file_state": "unchanged",
+      "ide": {
+        "column": 1,
+        "exact": true,
+        "line": 7,
+        "link": "vscode://file/{ROOT}/app/src/commands.rs:7:1"
+      },
+      "identity": "function:app/src/commands.rs#t016d_items",
+      "kind": "function",
+      "level": 4,
+      "name": "t016d_items",
+      "qualified_name": "t016d_items",
+      "span": {
+        "end_column": 1,
+        "end_line": 9,
+        "start_column": 0,
+        "start_line": 7
+      },
+      "type": "node"
+    },
+    "state": "resolved"
+  },
+  "ide": {
+    "available": true,
+    "editor": "vscode",
+    "error": null,
+    "label": "Open in VS Code",
+    "source": "builtin"
+  },
+  "index": {
+    "contract_version": 1,
+    "finished_at": "2026-11-03T14:32:05.123Z",
+    "indexer": {
+      "name": "graphvein",
+      "version": "extractors-62"
+    }
+  },
+  "may_also_use": [],
+  "nodes": [
+    {
+      "hop": 0,
+      "node": {
+        "attributes": {
+          "cfg_gated": false,
+          "command": "t016d_items",
+          "framework": "tauri",
+          "handler": "function:app/src/commands.rs#t016d_items",
+          "registry": "app",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:9f28ba7668fca8e549191461d218dbff6a644eb24881a22152c0322fa37e1402",
+        "file": "app/src/main.rs",
+        "file_state": "unchanged",
+        "ide": {
+          "column": 13,
+          "exact": true,
+          "line": 7,
+          "link": "vscode://file/{ROOT}/app/src/main.rs:7:13"
+        },
+        "identity": "ipc_command:app/src/main.rs#main.COMMAND%20t016d_items",
+        "kind": "ipc_command",
+        "level": 4,
+        "name": "COMMAND t016d_items",
+        "qualified_name": "main.COMMAND t016d_items",
+        "span": {
+          "end_column": 33,
+          "end_line": 7,
+          "start_column": 12,
+          "start_line": 7
+        },
+        "type": "node"
+      },
+      "omitted": {
+        "callees": 0,
+        "callers": 0
+      },
+      "roles": [
+        "endpoint"
+      ]
+    },
+    {
+      "hop": 0,
+      "node": {
+        "attributes": {
+          "module": ""
+        },
+        "content_hash": "sha256:2dc0cb62d682d37cff0c7ab6cdd2d6e18e13dfec7ac481c0d493364c5ddc3e97",
+        "file": "app/src/commands.rs",
+        "file_state": "unchanged",
+        "ide": {
+          "column": 1,
+          "exact": true,
+          "line": 7,
+          "link": "vscode://file/{ROOT}/app/src/commands.rs:7:1"
+        },
+        "identity": "function:app/src/commands.rs#t016d_items",
+        "kind": "function",
+        "level": 4,
+        "name": "t016d_items",
+        "qualified_name": "t016d_items",
+        "span": {
+          "end_column": 1,
+          "end_line": 9,
+          "start_column": 0,
+          "start_line": 7
+        },
+        "type": "node"
+      },
+      "omitted": {
+        "callees": 0,
+        "callers": 0
+      },
+      "roles": [
+        "handler"
+      ]
+    },
+    {
+      "hop": 1,
+      "node": {
+        "attributes": {
+          "command": "t016d_items",
+          "conditional": false,
+          "form": "namespace",
+          "framework": "tauri",
+          "status": "linked",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:39f5cea556a9bfcb92dcfe95d7ecfbd801c906966cae4231b4e31c742b942560",
+        "file": "web/src/ipc.ts",
+        "file_state": "unchanged",
+        "ide": {
+          "column": 10,
+          "exact": true,
+          "line": 10,
+          "link": "vscode://file/{ROOT}/web/src/ipc.ts:10:10"
+        },
+        "identity": "ipc_call:web/src/ipc.ts#namespaced.INVOKE%20%27t016d_items%27",
+        "kind": "ipc_call",
+        "level": 4,
+        "name": "INVOKE 't016d_items'",
+        "qualified_name": "namespaced.INVOKE 't016d_items'",
+        "source_root": "web",
+        "span": {
+          "end_column": 40,
+          "end_line": 10,
+          "start_column": 9,
+          "start_line": 10
+        },
+        "type": "node"
+      },
+      "omitted": {
+        "callees": 0,
+        "callers": 0
+      },
+      "roles": [
+        "call"
+      ]
+    },
+    {
+      "hop": 1,
+      "node": {
+        "attributes": {
+          "command": "t016d_items",
+          "conditional": false,
+          "form": "wrapper",
+          "framework": "tauri",
+          "status": "linked",
+          "transport": "tauri_ipc",
+          "wrapper_identity": "function:web/src/ipcwrap.ts#call"
+        },
+        "content_hash": "sha256:e452b6ea425bd6955846a4fdc76862b8f8e79428af802fefb61a97b77f543b18",
+        "file": "web/src/ipc.ts",
+        "file_state": "unchanged",
+        "ide": {
+          "column": 10,
+          "exact": true,
+          "line": 14,
+          "link": "vscode://file/{ROOT}/web/src/ipc.ts:14:10"
+        },
+        "identity": "ipc_call:web/src/ipc.ts#viaWrapper.INVOKE%20%27t016d_items%27",
+        "kind": "ipc_call",
+        "level": 4,
+        "name": "INVOKE 't016d_items'",
+        "qualified_name": "viaWrapper.INVOKE 't016d_items'",
+        "source_root": "web",
+        "span": {
+          "end_column": 36,
+          "end_line": 14,
+          "start_column": 9,
+          "start_line": 14
+        },
+        "type": "node"
+      },
+      "omitted": {
+        "callees": 0,
+        "callers": 0
+      },
+      "roles": [
+        "call"
+      ]
+    },
+    {
+      "hop": 1,
+      "node": {
+        "attributes": {
+          "alternatives": [
+            {
+              "cfg_gated": false,
+              "command": "t016d_greet",
+              "conditional": true,
+              "status": "linked",
+              "target": "ipc_command:app/src/main.rs#main.COMMAND%20t016d_greet"
+            },
+            {
+              "cfg_gated": false,
+              "command": "t016d_items",
+              "conditional": true,
+              "status": "linked",
+              "target": "ipc_command:app/src/main.rs#main.COMMAND%20t016d_items"
+            }
+          ],
+          "command": null,
+          "conditional": true,
+          "form": "direct",
+          "framework": "tauri",
+          "status": "linked",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:1dda1a217f6b4b1ea9a220cb0b8971dd7e04eabc886b57d3caffb8302b1806a2",
+        "file": "web/src/ipc.ts",
+        "file_state": "unchanged",
+        "ide": {
+          "column": 10,
+          "exact": true,
+          "line": 18,
+          "link": "vscode://file/{ROOT}/web/src/ipc.ts:18:10"
+        },
+        "identity": "ipc_call:web/src/ipc.ts#conditional.INVOKE%20flag%3F%27t016d_greet%27%3A%27t016d_items%27",
+        "kind": "ipc_call",
+        "level": 4,
+        "name": "INVOKE flag?'t016d_greet':'t016d_items'",
+        "qualified_name": "conditional.INVOKE flag?'t016d_greet':'t016d_items'",
+        "source_root": "web",
+        "span": {
+          "end_column": 53,
+          "end_line": 18,
+          "start_column": 9,
+          "start_line": 18
+        },
+        "type": "node"
+      },
+      "omitted": {
+        "callees": 0,
+        "callers": 0
+      },
+      "roles": [
+        "call"
+      ]
+    },
+    {
+      "hop": 1,
+      "node": {
+        "attributes": {
+          "exported": true
+        },
+        "content_hash": "sha256:a97e808ff12f7aa696eae5cf27edc31e6992a25228be280f44e46977c66786c8",
+        "file": "web/src/ipc.ts",
+        "file_state": "unchanged",
+        "ide": {
+          "column": 1,
+          "exact": true,
+          "line": 9,
+          "link": "vscode://file/{ROOT}/web/src/ipc.ts:9:1"
+        },
+        "identity": "function:web/src/ipc.ts#namespaced",
+        "kind": "function",
+        "level": 4,
+        "name": "namespaced",
+        "qualified_name": "namespaced",
+        "span": {
+          "end_column": 1,
+          "end_line": 11,
+          "start_column": 0,
+          "start_line": 9
+        },
+        "type": "node"
+      },
+      "omitted": {
+        "callees": 0,
+        "callers": 0
+      },
+      "roles": [
+        "owner"
+      ]
+    },
+    {
+      "hop": 1,
+      "node": {
+        "attributes": {
+          "exported": true
+        },
+        "content_hash": "sha256:17c1a0eab76a71627582ea516e66b613d4565c2495ee52d9700921357ad2fdf2",
+        "file": "web/src/ipc.ts",
+        "file_state": "unchanged",
+        "ide": {
+          "column": 1,
+          "exact": true,
+          "line": 13,
+          "link": "vscode://file/{ROOT}/web/src/ipc.ts:13:1"
+        },
+        "identity": "function:web/src/ipc.ts#viaWrapper",
+        "kind": "function",
+        "level": 4,
+        "name": "viaWrapper",
+        "qualified_name": "viaWrapper",
+        "span": {
+          "end_column": 1,
+          "end_line": 15,
+          "start_column": 0,
+          "start_line": 13
+        },
+        "type": "node"
+      },
+      "omitted": {
+        "callees": 0,
+        "callers": 0
+      },
+      "roles": [
+        "owner"
+      ]
+    },
+    {
+      "hop": 1,
+      "node": {
+        "attributes": {
+          "exported": true
+        },
+        "content_hash": "sha256:806ae2175c9384ab49cd17fac15f1fcbd3f187be4c8d29f26baa32374d9889f8",
+        "file": "web/src/ipc.ts",
+        "file_state": "unchanged",
+        "ide": {
+          "column": 1,
+          "exact": true,
+          "line": 17,
+          "link": "vscode://file/{ROOT}/web/src/ipc.ts:17:1"
+        },
+        "identity": "function:web/src/ipc.ts#conditional",
+        "kind": "function",
+        "level": 4,
+        "name": "conditional",
+        "qualified_name": "conditional",
+        "span": {
+          "end_column": 1,
+          "end_line": 19,
+          "start_column": 0,
+          "start_line": 17
+        },
+        "type": "node"
+      },
+      "omitted": {
+        "callees": 0,
+        "callers": 0
+      },
+      "roles": [
+        "owner"
+      ]
+    },
+    {
+      "hop": 1,
+      "node": {
+        "attributes": {
+          "cfg_gated": false,
+          "command": "t016d_greet",
+          "framework": "tauri",
+          "handler": "function:app/src/commands.rs#t016d_greet",
+          "registry": "app",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:cac0a757d331a4c0548df4b77ee2b7590125f08dbb9f17d9ac856ae40cec8bca",
+        "file": "app/src/main.rs",
+        "file_state": "unchanged",
+        "ide": {
+          "column": 13,
+          "exact": true,
+          "line": 6,
+          "link": "vscode://file/{ROOT}/app/src/main.rs:6:13"
+        },
+        "identity": "ipc_command:app/src/main.rs#main.COMMAND%20t016d_greet",
+        "kind": "ipc_command",
+        "level": 4,
+        "name": "COMMAND t016d_greet",
+        "qualified_name": "main.COMMAND t016d_greet",
+        "span": {
+          "end_column": 33,
+          "end_line": 6,
+          "start_column": 12,
+          "start_line": 6
+        },
+        "type": "node"
+      },
+      "omitted": {
+        "callees": 0,
+        "callers": 0
+      },
+      "roles": [
+        "other_target"
+      ]
+    }
+  ],
+  "precision": {
+    "label": "best_effort",
+    "reason": "default_branch",
+    "row": "D"
+  },
+  "repository": "fixture",
+  "root": null,
+  "scope": "all",
+  "skipped_edges": 0,
+  "tables_beyond": {
+    "functions": 0,
+    "hop": 3,
+    "may_also_use": 0,
+    "tables": 0
+  },
+  "transport": "tauri_ipc",
+  "truncated": null
+}

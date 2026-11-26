@@ -1,0 +1,72 @@
+/* The Flow tab's canvas styles: React Flow's own variables mapped to the
+   Graphvein tokens (both themes follow tokens.css), the dot grid, and the
+   pieces Tailwind classes cannot reach (React Flow's wrappers). Colours
+   only through tokens. */
+.gv-flow .react-flow {
+  --xy-background-color: transparent;
+  --xy-edge-stroke: hsl(var(--edge));
+  --xy-minimap-background-color: hsl(var(--card));
+  --xy-minimap-mask-background-color: hsl(var(--foreground) / 0.07);
+  --xy-minimap-mask-stroke-color: hsl(var(--brand));
+  --xy-minimap-mask-stroke-width: 2;
+  --xy-minimap-node-background-color: hsl(var(--muted-foreground) / 0.45);
+  --xy-node-boxshadow-selected: none;
+  background: transparent;
+}
+.gv-flow-canvas {
+  background-color: hsl(var(--canvas));
+  background-image: radial-gradient(hsl(var(--dotgrid)) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+.gv-flow .react-flow__attribution {
+  background: hsl(var(--card) / 0.8);
+}
+.gv-flow .react-flow__attribution a {
+  color: hsl(var(--muted-foreground));
+}
+.gv-flow .react-flow__minimap {
+  border: 1px solid hsl(var(--border));
+  border-radius: 8px;
+  overflow: hidden;
+}
+.gv-flow .react-flow__minimap svg {
+  display: block;
+}
+.gv-flow .react-flow__minimap .gv-mm-focus {
+  fill: hsl(var(--brand));
+}
+/* Cards are buttons inside React Flow's node wrapper; the wrapper itself
+   is not focusable (nodesFocusable is off), so the button's ring shows. */
+.gv-flow .react-flow__node {
+  cursor: default;
+}
+.gv-flow .react-flow__edge {
+  cursor: pointer;
+}
+.gv-flow .react-flow__edge-interaction {
+  stroke-width: 14;
+}
+.gv-flow .react-flow__handle {
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  min-width: 0;
+  min-height: 0;
+  border: 0;
+  pointer-events: none;
+}
+.gv-flow .react-flow__node-toolbar {
+  z-index: 10;
+}
+/* Cards are not React Flow selectables (the tab keeps its own selection),
+   so React Flow turns their pointer events off; the card buttons need
+   them. */
+.gv-flow .react-flow__node-card {
+  pointer-events: all !important;
+}
+/* The pinned caption row (T016i2 D1): the canvas colour, opaque, so a
+   card panned under it never shows through a caption. */
+.gv-flow-caption-row {
+  background-color: hsl(var(--canvas));
+  border-bottom: 1px solid hsl(var(--border));
+}

@@ -1,0 +1,253 @@
+{
+  "lead": "Trace any route, call or table across your stack.",
+  "sublead": "Frontend calls behind a route, its handler, the tables it may read or write, and what a change reaches.",
+  "eyebrow": "Pre-release · Runs locally · No LLM · Apache {apache-version}",
+  "cards_title": "Measured on real repositories",
+  "cards": [
+    {
+      "number": "links-correct",
+      "label": "caller links correct in three repos",
+      "text": "",
+      "source": "docs/evidence/link-precision.md",
+      "source_label": "How we measured"
+    },
+    {
+      "number": "wrong-edges",
+      "label": "TS/JS call edges in {corpora} codebases",
+      "text": "",
+      "source": "docs/evidence/call-binding.md",
+      "source_label": "How we measured"
+    },
+    {
+      "number": "claude-mcp-of",
+      "label": "Claude Code runs correct with MCP",
+      "text": "",
+      "source": "docs/evidence/benchmark/results-2026-11-24.md",
+      "source_label": "How we measured",
+      "baseline": "{claude-base} without"
+    }
+  ],
+  "reads": {
+    "title": "What it reads",
+    "note": "Structure is Precise in Go, Python, Rust and TypeScript/JavaScript; calls are Best effort in every language.",
+    "link": "Full status →",
+    "page": "/status/",
+    "languages": [
+      {
+        "name": "TypeScript / JavaScript",
+        "detail": "Express, Next.js, Angular, fetch, axios, Prisma, Drizzle, Sequelize, TypeORM"
+      },
+      {
+        "name": "Python",
+        "detail": "FastAPI, SQLModel"
+      },
+      {
+        "name": "Go",
+        "detail": "net/http, chi, gin, GORM"
+      },
+      {
+        "name": "Rust",
+        "detail": "Axum, Tauri commands, Diesel"
+      },
+      {
+        "name": "SQL",
+        "detail": "migrations, judged under Postgres rules"
+      },
+      {
+        "name": "Java, C#, Dart",
+        "detail": "structure only, Best effort"
+      }
+    ]
+  },
+  "features_title": "What it does",
+  "features_intro": "Every view links down to the exact line.",
+  "features": [
+    {
+      "title": "API",
+      "text": "List every route found and the calls matched to it.",
+      "page": "docs/guide/2-sections.md",
+      "shot": "api-owncast-callers-light.png"
+    },
+    {
+      "title": "Flow",
+      "text": "Draw a route’s callers, its handler and the tables it may read or write.",
+      "page": "docs/guide/2-sections.md",
+      "shot": "flow-axum-downstream-light.png"
+    },
+    {
+      "title": "Changes",
+      "text": "See what a change reaches across the stack.",
+      "page": "docs/guide/2-sections.md",
+      "shot": "changes-langflow-impact-light.png"
+    },
+    {
+      "title": "Architecture",
+      "text": "Map the components and the links between them.",
+      "page": "docs/guide/2-sections.md",
+      "shot": "architecture-axum-link-light.png"
+    },
+    {
+      "title": "Schema",
+      "text": "Read tables from SQL migrations and ORM models, with their assumptions.",
+      "page": "docs/guide/2-sections.md",
+      "shot": "schema-axum-article-light.png"
+    },
+    {
+      "title": "Explorer",
+      "text": "Generate OpenAPI docs with a guarded Try it out.",
+      "page": "docs/guide/2-sections.md",
+      "shot": "explorer-axum-try-it-light.png"
+    },
+    {
+      "title": "Project",
+      "text": "Link calls in one repository to routes in another.",
+      "page": "docs/guide/2-sections.md",
+      "shot": "project-axum-cross-repo-callers-light.png"
+    },
+    {
+      "title": "MCP server",
+      "text": "Serve the same facts to coding agents, read-only.",
+      "page": "docs/guide/3-beyond.md",
+      "shot": ""
+    },
+    {
+      "title": "Couldn’t read",
+      "text": "List the routes, calls and files it could not read or resolve.",
+      "page": "docs/guide/2-sections.md",
+      "shot": "unread-langflow-light.png"
+    },
+    {
+      "title": "Precision labels",
+      "text": "Label each area Precise or Best effort, with the reason.",
+      "page": "docs/known-gaps.md",
+      "shot": ""
+    },
+    {
+      "title": "Jump to",
+      "text": "Find any route, table, symbol or file by name.",
+      "page": "docs/guide/2-sections.md",
+      "shot": ""
+    }
+  ],
+  "install": {
+    "note": "Build from source with Go {go-version} (an installed Go {go-minimum} or newer downloads it) and Bash (Git Bash on Windows).",
+    "no_source": "The source is published with the first preview.",
+    "clone": [
+      "cd graphvein"
+    ],
+    "build": [
+      "bash scripts/build.sh"
+    ],
+    "build_comment": "bin/graphvein, or bin/graphvein.exe on Windows",
+    "then": "With bin/ on your PATH, from the repository you want to read:",
+    "run": [
+      "graphvein index",
+      "graphvein serve"
+    ],
+    "serve_comment": "web UI at http://{serve-address}/",
+    "more": "Building and testing need only Go; Node is needed only to change the web UI."
+  },
+  "terminal_note": "",
+  "status_short": "Pre-release; contributions welcome. Index and serve one repository or several, in a local web UI and over MCP.",
+  "decides_short": [
+    {
+      "text": "Fact {rank-fact}: read straight from the code.",
+      "page": "/how-graphvein-decides/"
+    },
+    {
+      "text": "Inferred {rank-exact}, {rank-assumed} or {rank-suffix}: a fixed rank per match rule, not a probability.",
+      "page": "/how-graphvein-decides/"
+    },
+    {
+      "text": "Unknown: listed, never guessed, never counted as zero.",
+      "page": "docs/known-gaps.md"
+    },
+    {
+      "text": "Precise or Best effort: labelled per area, with the reason.",
+      "page": "/how-graphvein-decides/"
+    }
+  ],
+  "decides_intro": "Everything Graphvein shows carries a label that says how it was found. The number next to a link is a fixed rank per match rule, not a probability.",
+  "decides": [
+    {
+      "kind": "fact",
+      "title": "Fact",
+      "rank": "{rank-fact}",
+      "body": "Read straight from the code, for example a route registration. A fact always has the number {rank-fact}."
+    },
+    {
+      "kind": "inferred",
+      "title": "Inferred, with a fixed rank",
+      "rank": "{rank-exact} · {rank-assumed} · {rank-suffix}",
+      "body": "Two things matched by a rule, for example a frontend call to a route by its URL. The number is a fixed rank per match rule, not a probability: an exact path match is {rank-exact}, or {rank-assumed} when the call’s base URL is assumed rather than proven, and a path suffix match is {rank-suffix}."
+    },
+    {
+      "kind": "unknown",
+      "title": "Unknown",
+      "rank": "—",
+      "body": "The code does not say, for example a URL built at runtime. Graphvein lists these instead of guessing, and never counts an unknown as zero or as “no change”."
+    },
+    {
+      "kind": "precise",
+      "title": "Precision labels",
+      "rank": "Precise · Best effort",
+      "body": "Each area is labelled Precise or Best effort. Precise never means complete. Precise structure covers four languages (Go, Python, Rust and TypeScript/JavaScript); calls are Best effort in every language."
+    }
+  ],
+  "verified_short": [
+    {
+      "text": "Claim contract tables: one row per modelled form.",
+      "page": "docs/contract/claims/README.md"
+    },
+    {
+      "text": "Design decisions recorded as ADRs.",
+      "page": "docs/adr/"
+    },
+    {
+      "text": "Benchmark method and every run published.",
+      "page": "docs/evidence/benchmark/README.md"
+    },
+    {
+      "text": "Golden fixtures and tests, CI on Windows, macOS and Linux.",
+      "page": "/how-it-is-verified/"
+    }
+  ],
+  "verified_intro": "Every claim the site makes points to public material you can check.",
+  "verified": [
+    {
+      "title": "Claim contract tables",
+      "body": "Where an extractor covers a large language or framework surface, every form it models has exactly one row, and every other form falls to a single unknown default branch. Tests keep the code and the tables {claims-one-to-one}.",
+      "page": "docs/contract/claims/README.md"
+    },
+    {
+      "title": "Decision records",
+      "body": "Design decisions are recorded as ADRs: context, options considered, decision, consequences and known gaps.",
+      "page": "docs/adr/"
+    },
+    {
+      "title": "Golden fixtures and tests",
+      "body": "Extractors and linkers are tested against committed fixtures with golden output.",
+      "repo": "testdata/"
+    },
+    {
+      "title": "CI on Windows, macOS and Linux",
+      "body": "CI runs the main module on all three, with cgo disabled.",
+      "repo": ".github/workflows/"
+    },
+    {
+      "title": "Benchmark method and raw results",
+      "body": "Questions, method, every run’s row and final answer are published. Answers are graded by a script against facts verified from the source code; no language model judges an answer.",
+      "page": "docs/evidence/benchmark/README.md"
+    },
+    {
+      "title": "Release checksums and provenance",
+      "body": "Planned with the first release.",
+      "planned": true
+    }
+  ],
+  "gallery_title": "More screenshots",
+  "coming": [
+    "Release binaries for Windows, macOS and Linux, with checksums and build provenance."
+  ],
+  "footer": "No cookies, no tracking, no third-party scripts or fonts."
+}

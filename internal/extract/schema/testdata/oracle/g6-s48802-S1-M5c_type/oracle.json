@@ -1,0 +1,37 @@
+{
+  "id": "g6-s48802-S1-M5c_type",
+  "signature": "applied|S1|0A000|M5c.type",
+  "class": "S1",
+  "owner": "P8",
+  "row": "M5c.type",
+  "history": {
+    "id": "g6-s48802",
+    "tags": {
+      "1_m1.sql": [
+        "N1.columns_p5",
+        "N1.columns_p5",
+        "N1.columns_p5",
+        "M5c.type"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "0A000",
+        "message": "cannot alter type of a column used in a trigger definition",
+        "detail": "trigger tg4 on table t2 depends on column \"b\"",
+        "statement": 4,
+        "statement_text": "ALTER TABLE t2 ALTER COLUMN b TYPE text;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

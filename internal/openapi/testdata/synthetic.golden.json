@@ -1,0 +1,3266 @@
+{
+  "components": {
+    "schemas": {
+      "Item": {
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "note": {
+            "x-graphvein": {
+              "presence": "unknown",
+              "unknown": "a custom validator"
+            }
+          },
+          "parent": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Item"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "x-graphvein": {
+          "additional": "unknown",
+          "model": "Item",
+          "provenance": {
+            "chain": [],
+            "confidence": 1,
+            "file": "app/items.py",
+            "kind": "fact",
+            "line": 10,
+            "rule": "SH-T1"
+          }
+        }
+      },
+      "Item_2": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "kind": {
+            "enum": [
+              "a",
+              null
+            ]
+          },
+          "tags": {
+            "items": {
+              "x-graphvein": {
+                "unknown": "generic"
+              }
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "x-graphvein": {
+          "model": "Item",
+          "provenance": {
+            "chain": [],
+            "confidence": 1,
+            "file": "app.py",
+            "kind": "fact",
+            "line": 3,
+            "rule": "SH-T1"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "ApiKey": {
+        "in": "header",
+        "name": "X-API-Key",
+        "type": "apiKey",
+        "x-graphvein": {
+          "provenance": {
+            "chain": [],
+            "confidence": 1,
+            "file": "app/items.py",
+            "kind": "fact",
+            "line": 10,
+            "rule": "SH-T1"
+          }
+        }
+      },
+      "HTTPBearer": {
+        "scheme": "bearer",
+        "type": "http",
+        "x-graphvein": {
+          "provenance": {
+            "chain": [],
+            "confidence": 1,
+            "file": "app.py",
+            "kind": "fact",
+            "line": 3,
+            "rule": "SH-T1"
+          }
+        }
+      },
+      "HTTPDigest": {
+        "scheme": "digest",
+        "type": "http",
+        "x-graphvein": {
+          "class": "HTTPDigest",
+          "rule": "OG-31"
+        }
+      }
+    }
+  },
+  "info": {
+    "description": "Routes registered in this repository's source, as Graphvein extracted them from its index. Graphvein ran no code and read no running server. A parameter, request body, response or security requirement that is absent was not read, which is not the same as none: each operation lists what was not read in x-graphvein.not_read. Routes Graphvein could not place on a path, forms OpenAPI cannot express and conflicting registrations are listed in the root x-graphvein, never guessed.",
+    "title": "synthetic routes extracted by Graphvein",
+    "version": "unversioned"
+  },
+  "openapi": "3.1.1",
+  "paths": {
+    "/Users": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": [
+              "auth"
+            ]
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "src/a.js",
+          "framework": "express",
+          "handler": null,
+          "handler_expression": null,
+          "line": 7,
+          "may_be_shadowed": [
+            {
+              "key": "/users",
+              "method": "GET",
+              "order": "not_checked",
+              "route": "route:src/a.js#GET%20%2Fusers"
+            }
+          ],
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "responses",
+            "operationId",
+            "summary",
+            "tags",
+            "security",
+            "path_parameter_types"
+          ],
+          "resolution": "literal",
+          "route": "route:src/a.js#GET%20%2FUsers",
+          "rule": "Express routes (ADR 0013, docs/extract/routes.md)",
+          "template": "/Users"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:src/a.js#GET%20%2FUsers"
+          }
+        ]
+      }
+    },
+    "/a": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": [
+              "auth"
+            ]
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "src/a.js",
+          "framework": "express",
+          "handler": null,
+          "handler_expression": null,
+          "line": 6,
+          "may_be_shadowed": [
+            {
+              "key": "/a/{*}",
+              "method": "GET",
+              "order": "not_checked",
+              "route": "route:src/a.js#GET%20%2Fa%2F*"
+            }
+          ],
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "responses",
+            "operationId",
+            "summary",
+            "tags",
+            "security",
+            "path_parameter_types"
+          ],
+          "resolution": "literal",
+          "route": "route:src/a.js#GET%20%2Fa%2F",
+          "rule": "Express routes (ADR 0013, docs/extract/routes.md)",
+          "template": "/a"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:src/a.js#GET%20%2Fa%2F"
+          }
+        ]
+      }
+    },
+    "/any": {
+      "x-graphvein": {
+        "any_method": [
+          {
+            "file": "src/files.js",
+            "framework": "express",
+            "line": 5,
+            "route": "route:src/files.js#ALL%20%2Fany"
+          }
+        ],
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "ANY",
+            "resolution": "literal",
+            "route": "route:src/files.js#ALL%20%2Fany"
+          }
+        ]
+      }
+    },
+    "/api/items/": {
+      "post": {
+        "parameters": [
+          {
+            "in": "query",
+            "name": "q",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-graphvein": {
+              "provenance": {
+                "chain": [],
+                "confidence": 1,
+                "file": "app/items.py",
+                "kind": "fact",
+                "line": 10,
+                "rule": "SH-T1"
+              }
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "x-graphvein": {
+              "provenance": {
+                "chain": [],
+                "confidence": 1,
+                "file": "app/items.py",
+                "kind": "fact",
+                "line": 10,
+                "rule": "SH-T1"
+              }
+            }
+          },
+          {
+            "in": "header",
+            "name": "X-Trace",
+            "required": false,
+            "schema": {},
+            "x-graphvein": {
+              "provenance": {
+                "chain": [],
+                "confidence": 1,
+                "file": "app/items.py",
+                "kind": "fact",
+                "line": 10,
+                "rule": "SH-T1"
+              },
+              "type": "not_read"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Item"
+              },
+              "x-graphvein": {
+                "provenance": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "app/items.py",
+                  "kind": "fact",
+                  "line": 10,
+                  "rule": "SH-T1"
+                }
+              }
+            },
+            "text/plain": {
+              "x-graphvein": {
+                "provenance": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "app/items.py",
+                  "kind": "fact",
+                  "line": 10,
+                  "rule": "SH-T1"
+                },
+                "schema": "not_read"
+              }
+            }
+          },
+          "x-graphvein": {
+            "required": "not_read"
+          }
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "enum": [
+                      "a",
+                      1,
+                      true,
+                      null
+                    ]
+                  },
+                  "type": "array"
+                },
+                "x-graphvein": {
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "app/items.py",
+                    "kind": "fact",
+                    "line": 10,
+                    "rule": "SH-T1"
+                  }
+                }
+              }
+            },
+            "description": "Not read by Graphvein",
+            "x-graphvein": {
+              "description": "not_read"
+            }
+          },
+          "204": {
+            "description": "Not read by Graphvein",
+            "x-graphvein": {
+              "body": "none",
+              "description": "not_read",
+              "provenance": {
+                "chain": [],
+                "confidence": 1,
+                "file": "app/items.py",
+                "kind": "fact",
+                "line": 10,
+                "rule": "SH-T1"
+              }
+            }
+          },
+          "default": {
+            "content": {
+              "application/json": {
+                "x-graphvein": {
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "app/items.py",
+                    "kind": "fact",
+                    "line": 10,
+                    "rule": "SH-T1"
+                  },
+                  "schema": "not_read"
+                }
+              }
+            },
+            "description": "Not read by Graphvein",
+            "x-graphvein": {
+              "description": "not_read"
+            }
+          }
+        },
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": true,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "app/items.py",
+          "framework": "fastapi",
+          "handler": "function:app/items.py#h",
+          "handler_expression": null,
+          "line": 9,
+          "not_read": [
+            "operationId",
+            "summary",
+            "tags"
+          ],
+          "resolution": "literal",
+          "route": "route:app/items.py#POST%20%2F",
+          "rule": "FastAPI routes (ADR 0015, ADR 0019)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 3,
+            "models": [
+              {
+                "name": "Item",
+                "provenance": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "app/items.py",
+                  "kind": "fact",
+                  "line": 10,
+                  "rule": "SH-T1"
+                },
+                "schema": {
+                  "additional": "unknown",
+                  "fields": [
+                    {
+                      "name": "name",
+                      "presence": "required",
+                      "schema": {
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "name": "note",
+                      "presence": "unknown",
+                      "schema": {
+                        "reason": "a custom validator",
+                        "type": "unknown"
+                      }
+                    },
+                    {
+                      "name": "parent",
+                      "presence": "optional",
+                      "schema": {
+                        "nullable": true,
+                        "ref": "Item",
+                        "type": "ref"
+                      }
+                    }
+                  ],
+                  "type": "object"
+                }
+              },
+              {
+                "name": "Draft[T]",
+                "provenance": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "app/items.py",
+                  "kind": "intended",
+                  "line": 13,
+                  "rule": "SH-T3"
+                },
+                "schema": {
+                  "additional": "allowed",
+                  "type": "object"
+                }
+              }
+            ],
+            "not_standard": [
+              {
+                "item": {
+                  "access": "declared",
+                  "name": "ghost",
+                  "presence": "required",
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "app/items.py",
+                    "kind": "fact",
+                    "line": 10,
+                    "rule": "SH-T1"
+                  },
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "row": "OG-73",
+                "section": "path",
+                "why": "a path parameter the path key does not hold"
+              },
+              {
+                "item": {
+                  "access": "declared",
+                  "name": "maybe",
+                  "presence": "unknown",
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "app/items.py",
+                    "kind": "fact",
+                    "line": 10,
+                    "rule": "SH-T1"
+                  },
+                  "schema": null
+                },
+                "row": "OG-75",
+                "section": "query",
+                "why": "whether it must be sent is not read; OpenAPI would read a missing required as optional"
+              },
+              {
+                "item": {
+                  "access": "read_by_handler",
+                  "name": "page",
+                  "presence": "unknown",
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "app/items.py",
+                    "kind": "read_in_handler",
+                    "line": 12,
+                    "rule": "SH-T2"
+                  },
+                  "schema": null
+                },
+                "row": "OG-76",
+                "section": "query",
+                "why": "a name read in code: its type and whether it must be sent are not read"
+              },
+              {
+                "item": {
+                  "access": "declared",
+                  "name": "Authorization",
+                  "presence": "required",
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "app/items.py",
+                    "kind": "fact",
+                    "line": 10,
+                    "rule": "SH-T1"
+                  },
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "row": "OG-75",
+                "section": "header",
+                "why": "OpenAPI ignores a header parameter named Authorization"
+              },
+              {
+                "item": {
+                  "content_type": "application/json",
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "app/items.py",
+                    "kind": "intended",
+                    "line": 13,
+                    "rule": "SH-T3"
+                  },
+                  "schema": {
+                    "ref": "Draft[T]",
+                    "type": "ref"
+                  }
+                },
+                "row": "OG-77",
+                "section": "body",
+                "why": "an intended type: a static type nothing checks at runtime"
+              },
+              {
+                "item": {
+                  "content_type": null,
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "app/items.py",
+                    "kind": "fact",
+                    "line": 10,
+                    "rule": "SH-T1"
+                  },
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "row": "OG-79",
+                "section": "body",
+                "why": "its content type is not read; OpenAPI needs one"
+              },
+              {
+                "item": {
+                  "content_type": "application/json",
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "app/items.py",
+                    "kind": "returned",
+                    "line": 14,
+                    "rule": "SH-T4"
+                  },
+                  "schema": {
+                    "ref": "Item",
+                    "type": "ref"
+                  },
+                  "status": "201"
+                },
+                "row": "OG-77",
+                "section": "responses",
+                "why": "the declared type of a returned value, not validated by the framework"
+              },
+              {
+                "item": {
+                  "content_type": null,
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "app/items.py",
+                    "kind": "fact",
+                    "line": 10,
+                    "rule": "SH-T1"
+                  },
+                  "schema": {
+                    "type": "boolean"
+                  },
+                  "status": "4XX"
+                },
+                "row": "OG-82",
+                "section": "responses",
+                "why": "its content type is not read; OpenAPI needs one for a body"
+              },
+              {
+                "item": {
+                  "content_type": null,
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 0.9,
+                    "file": "openapi.yaml",
+                    "kind": "mapped",
+                    "line": 20,
+                    "rule": "SH-T5"
+                  },
+                  "schema": null,
+                  "status": "404"
+                },
+                "row": "OG-77",
+                "section": "responses",
+                "why": "from a committed spec or typed client linked to the route: shown beside the code, never merged"
+              },
+              {
+                "item": {
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "app/items.py",
+                    "kind": "fact",
+                    "line": 10,
+                    "rule": "SH-T1"
+                  },
+                  "schemes": [
+                    {
+                      "name": "HTTPBearer",
+                      "scopes": []
+                    }
+                  ]
+                },
+                "row": "OG-87",
+                "section": "security",
+                "why": "the security section is partial: a requirement is written only when every alternative is known"
+              }
+            ],
+            "sections": {
+              "body": {
+                "reason": "form fields not read",
+                "standard": 2,
+                "state": "partial"
+              },
+              "cookie": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "app/items.py",
+                  "kind": "fact",
+                  "line": 10,
+                  "rule": "SH-T1"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "header": {
+                "reason": "middleware not read",
+                "standard": 1,
+                "state": "partial"
+              },
+              "path": {
+                "reason": "x",
+                "standard": 0,
+                "state": "partial"
+              },
+              "query": {
+                "reason": "a callee was not resolved",
+                "standard": 2,
+                "state": "partial"
+              },
+              "responses": {
+                "reason": "error statuses not read",
+                "standard": 3,
+                "state": "partial"
+              },
+              "security": {
+                "reason": "a dependency was not read",
+                "standard": 0,
+                "state": "partial"
+              }
+            },
+            "stops": {
+              "ended": 1,
+              "unresolved": 1
+            },
+            "version": 1
+          },
+          "template": "/api/items"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": true,
+            "method": "POST",
+            "resolution": "literal",
+            "route": "route:app/items.py#POST%20%2F"
+          }
+        ]
+      }
+    },
+    "/api/items/{id}": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "x-graphvein": {
+              "provenance": {
+                "chain": [],
+                "confidence": 1,
+                "file": "app.py",
+                "kind": "fact",
+                "line": 3,
+                "rule": "SH-T1"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Item_2"
+                },
+                "x-graphvein": {
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "app.py",
+                    "kind": "fact",
+                    "line": 3,
+                    "rule": "SH-T1"
+                  }
+                }
+              }
+            },
+            "description": "Not read by Graphvein",
+            "x-graphvein": {
+              "description": "not_read"
+            }
+          }
+        },
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": [],
+            "security_dependencies": [
+              {
+                "auto_error": true,
+                "chain": [],
+                "class": "HTTPBearer",
+                "instance": "app/security.py#x",
+                "scheme_name": "HTTPBearer"
+              }
+            ],
+            "security_dependencies_unknown": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [
+            {
+              "confidence": 0.9,
+              "file": "openapi.yaml",
+              "operation": "api_operation:openapi.yaml#GET%20%2Fitems%2F%7Bid%7D"
+            }
+          ],
+          "file": "app/items.py",
+          "framework": "fastapi",
+          "handler": "function:app/items.py#h",
+          "handler_expression": null,
+          "line": 3,
+          "not_read": [
+            "cookie",
+            "requestBody",
+            "operationId",
+            "summary",
+            "tags"
+          ],
+          "resolution": "settings_default",
+          "route": "route:app/items.py#GET%20%2F%7Bid%7D",
+          "rule": "FastAPI routes (ADR 0015, ADR 0019)",
+          "shape": {
+            "depth_cap": [
+              {
+                "at": {
+                  "file": "d.py",
+                  "function": "e",
+                  "line": 2
+                },
+                "depth": 4,
+                "detail": "depth cap reached (4)",
+                "section": "query",
+                "start": {
+                  "file": "app.py",
+                  "function": "get_item",
+                  "line": 2
+                },
+                "steps": [
+                  {
+                    "file": "app.py",
+                    "function": "a",
+                    "line": 4
+                  },
+                  {
+                    "file": "a.py",
+                    "function": "b",
+                    "line": 2
+                  },
+                  {
+                    "file": "b.py",
+                    "function": "c",
+                    "line": 2
+                  },
+                  {
+                    "file": "c.py",
+                    "function": "d",
+                    "line": 2
+                  }
+                ],
+                "stop": "depth_cap"
+              }
+            ],
+            "depth_limit": 4,
+            "models": [
+              {
+                "name": "Item",
+                "provenance": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "app.py",
+                  "kind": "fact",
+                  "line": 3,
+                  "rule": "SH-T1"
+                },
+                "schema": {
+                  "additional": "forbidden",
+                  "fields": [
+                    {
+                      "name": "id",
+                      "presence": "required",
+                      "schema": {
+                        "type": "integer"
+                      }
+                    },
+                    {
+                      "name": "kind",
+                      "presence": "optional",
+                      "schema": {
+                        "enum": [
+                          "a",
+                          null
+                        ],
+                        "type": "enum"
+                      }
+                    },
+                    {
+                      "name": "tags",
+                      "presence": "optional",
+                      "schema": {
+                        "items": {
+                          "reason": "generic",
+                          "type": "unknown"
+                        },
+                        "type": "array"
+                      }
+                    }
+                  ],
+                  "type": "object"
+                }
+              }
+            ],
+            "not_standard": [
+              {
+                "item": {
+                  "access": "read_by_dependency",
+                  "name": "X-Token",
+                  "presence": "unknown",
+                  "provenance": {
+                    "chain": [
+                      {
+                        "file": "app.py",
+                        "function": "token",
+                        "line": 3
+                      }
+                    ],
+                    "confidence": 1,
+                    "file": "deps.py",
+                    "kind": "read_in_handler",
+                    "line": 7,
+                    "rule": "SH-T2"
+                  },
+                  "schema": null
+                },
+                "row": "OG-76",
+                "section": "header",
+                "why": "a name read in code: its type and whether it must be sent are not read"
+              },
+              {
+                "item": {
+                  "content_type": null,
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 0.9,
+                    "file": "openapi.yaml",
+                    "kind": "mapped",
+                    "line": 9,
+                    "rule": "SH-T3"
+                  },
+                  "schema": null,
+                  "status": "404"
+                },
+                "row": "OG-77",
+                "section": "responses",
+                "why": "from a committed spec or typed client linked to the route: shown beside the code, never merged"
+              }
+            ],
+            "sections": {
+              "body": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "reason": "dependencies may read more headers",
+                "standard": 0,
+                "state": "partial"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "app.py",
+                  "kind": "fact",
+                  "line": 3,
+                  "rule": "SH-T1"
+                },
+                "standard": 1,
+                "state": "complete"
+              },
+              "query": {
+                "reason": "depth cap reached (4)",
+                "standard": 0,
+                "state": "partial"
+              },
+              "responses": {
+                "reason": "error statuses not read",
+                "standard": 1,
+                "state": "partial"
+              },
+              "security": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "app.py",
+                  "kind": "fact",
+                  "line": 3,
+                  "rule": "SH-T1"
+                },
+                "standard": 1,
+                "state": "complete"
+              }
+            },
+            "stops": {
+              "depth_cap": 1
+            },
+            "version": 1
+          },
+          "template": "/api/items/{id}"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "settings_default",
+            "route": "route:app/items.py#GET%20%2F%7Bid%7D"
+          }
+        ]
+      }
+    },
+    "/basic": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": [],
+            "security_dependencies": [
+              {
+                "auto_error": true,
+                "chain": [],
+                "class": "HTTPBearer",
+                "instance": "app/security.py#x",
+                "scheme_name": "Shared"
+              }
+            ]
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "app/auth.py",
+          "framework": "fastapi",
+          "handler": "function:app/items.py#h",
+          "handler_expression": null,
+          "line": 4,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "responses",
+            "operationId",
+            "summary",
+            "tags",
+            "security",
+            "path_parameter_types"
+          ],
+          "resolution": "literal",
+          "route": "route:app/auth.py#GET%20%2Fbasic",
+          "rule": "FastAPI routes (ADR 0015, ADR 0019)",
+          "template": "/basic"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:app/auth.py#GET%20%2Fbasic"
+          }
+        ]
+      }
+    },
+    "/bearer": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": [],
+            "security_dependencies": [
+              {
+                "auto_error": true,
+                "chain": [],
+                "class": "HTTPBasic",
+                "instance": "app/security.py#x",
+                "scheme_name": "Shared"
+              }
+            ]
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "app/auth.py",
+          "framework": "fastapi",
+          "handler": "function:app/items.py#h",
+          "handler_expression": null,
+          "line": 3,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "responses",
+            "operationId",
+            "summary",
+            "tags",
+            "security",
+            "path_parameter_types"
+          ],
+          "resolution": "literal",
+          "route": "route:app/auth.py#GET%20%2Fbearer",
+          "rule": "FastAPI routes (ADR 0015, ADR 0019)",
+          "template": "/bearer"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:app/auth.py#GET%20%2Fbearer"
+          }
+        ]
+      }
+    },
+    "/broken": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "app/keys.py",
+          "framework": "fastapi",
+          "handler": "function:app/items.py#h",
+          "handler_expression": null,
+          "line": 5,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "responses",
+            "operationId",
+            "summary",
+            "tags",
+            "security",
+            "path_parameter_types"
+          ],
+          "resolution": "literal",
+          "route": "route:app/keys.py#GET%20%2Fbroken",
+          "rule": "FastAPI routes (ADR 0015, ADR 0019)",
+          "shape_error": "route shape version 2 is not 1",
+          "template": "/broken"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:app/keys.py#GET%20%2Fbroken"
+          }
+        ]
+      }
+    },
+    "/capped": {
+      "post": {
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": [
+              "auth"
+            ]
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "src/app.ts",
+          "framework": "express",
+          "handler": null,
+          "handler_expression": null,
+          "line": 3,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "responses",
+            "operationId",
+            "summary",
+            "tags",
+            "security",
+            "path_parameter_types"
+          ],
+          "resolution": "literal",
+          "route": "route:src/app.ts#POST%20%2Fcapped",
+          "rule": "Express routes (ADR 0013, docs/extract/routes.md)",
+          "shape": {
+            "depth_cap": [
+              {
+                "at": {
+                  "file": "src/b.ts",
+                  "function": "c",
+                  "line": 2
+                },
+                "depth": 2,
+                "detail": "depth cap reached (2)",
+                "section": "body",
+                "start": {
+                  "file": "src/app.ts",
+                  "function": "handler",
+                  "line": 3
+                },
+                "steps": [
+                  {
+                    "file": "src/app.ts",
+                    "function": "a",
+                    "line": 4
+                  },
+                  {
+                    "file": "src/a.ts",
+                    "function": "b",
+                    "line": 2
+                  }
+                ],
+                "stop": "depth_cap"
+              }
+            ],
+            "depth_limit": 2,
+            "models": [],
+            "not_standard": [],
+            "sections": {
+              "body": {
+                "reason": "depth cap reached (2)",
+                "standard": 0,
+                "state": "partial"
+              },
+              "cookie": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "query": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "depth_cap": 1
+            },
+            "version": 1
+          },
+          "template": "/capped"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "POST",
+            "resolution": "literal",
+            "route": "route:src/app.ts#POST%20%2Fcapped"
+          }
+        ]
+      }
+    },
+    "/digest": {
+      "get": {
+        "security": [
+          {
+            "HTTPDigest": []
+          }
+        ],
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": [],
+            "security_dependencies": [
+              {
+                "auto_error": true,
+                "chain": [],
+                "class": "HTTPDigest",
+                "instance": "app/security.py#x",
+                "scheme_name": "HTTPDigest"
+              }
+            ]
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "app/auth.py",
+          "framework": "fastapi",
+          "handler": "function:app/items.py#h",
+          "handler_expression": null,
+          "line": 7,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "responses",
+            "operationId",
+            "summary",
+            "tags",
+            "path_parameter_types"
+          ],
+          "resolution": "literal",
+          "route": "route:app/auth.py#GET%20%2Fdigest",
+          "rule": "FastAPI routes (ADR 0015, ADR 0019)",
+          "template": "/digest"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:app/auth.py#GET%20%2Fdigest"
+          }
+        ]
+      }
+    },
+    "/docs": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [
+            {
+              "from": "graphvein.yaml explorer.path_values",
+              "id": "set_by_you",
+              "key": "nextjs_base_path:docs",
+              "text": "the Next.js basePath is set by you; Graphvein read it as not literal",
+              "value": "/docs"
+            }
+          ],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "docs/app/api/x/route.ts",
+          "framework": "nextjs",
+          "handler": "function:web/app/api/x/route.ts#GET",
+          "handler_expression": null,
+          "line": 1,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "responses",
+            "operationId",
+            "summary",
+            "tags",
+            "security",
+            "path_parameter_types"
+          ],
+          "resolution": "set_by_you",
+          "route": "route:docs/app/api/x/route.ts#GET%20%2Fapi%2Fx",
+          "rule": "Next.js routes, NX rows (ADR 0077)",
+          "template": "/docs"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [
+              {
+                "from": "graphvein.yaml explorer.path_values",
+                "id": "set_by_you",
+                "key": "nextjs_base_path:docs",
+                "text": "the Next.js basePath is set by you; Graphvein read it as not literal",
+                "value": "/docs"
+              }
+            ],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "set_by_you",
+            "route": "route:docs/app/api/x/route.ts#GET%20%2Fapi%2Fx"
+          }
+        ]
+      }
+    },
+    "/docs/api/x": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [
+            {
+              "from": "graphvein.yaml explorer.path_values",
+              "id": "set_by_you",
+              "key": "nextjs_base_path:docs",
+              "text": "the Next.js basePath is set by you; Graphvein read it as not literal",
+              "value": "/docs"
+            }
+          ],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "docs/app/api/x/route.ts",
+          "framework": "nextjs",
+          "handler": "function:web/app/api/x/route.ts#GET",
+          "handler_expression": null,
+          "line": 1,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "responses",
+            "operationId",
+            "summary",
+            "tags",
+            "security",
+            "path_parameter_types"
+          ],
+          "resolution": "set_by_you",
+          "route": "route:docs/app/api/x/route.ts#GET%20%2Fapi%2Fx",
+          "rule": "Next.js routes, NX rows (ADR 0077)",
+          "template": "/docs/api/x"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [
+              {
+                "from": "graphvein.yaml explorer.path_values",
+                "id": "set_by_you",
+                "key": "nextjs_base_path:docs",
+                "text": "the Next.js basePath is set by you; Graphvein read it as not literal",
+                "value": "/docs"
+              }
+            ],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "set_by_you",
+            "route": "route:docs/app/api/x/route.ts#GET%20%2Fapi%2Fx"
+          }
+        ]
+      }
+    },
+    "/f/": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "app/f.py",
+          "framework": "fastapi",
+          "handler": "function:app/items.py#h",
+          "handler_expression": null,
+          "line": 4,
+          "may_be_shadowed": [
+            {
+              "key": "/f/{p}",
+              "method": "GET",
+              "order": "not_checked",
+              "route": "route:app/f.py#GET%20%2Ff%2F%7Bp%3Apath%7D"
+            }
+          ],
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "responses",
+            "operationId",
+            "summary",
+            "tags",
+            "security",
+            "path_parameter_types"
+          ],
+          "resolution": "literal",
+          "route": "route:app/f.py#GET%20%2Ff%2F",
+          "rule": "FastAPI routes (ADR 0015, ADR 0019)",
+          "template": "/f"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:app/f.py#GET%20%2Ff%2F"
+          }
+        ]
+      }
+    },
+    "/f/{p}": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "p",
+            "required": true,
+            "schema": {},
+            "x-graphvein": {
+              "matches": "any text, including an empty value and /: Starlette's path convertor ({name:path}); an OpenAPI path parameter matches one segment",
+              "type": "not_read"
+            }
+          }
+        ],
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "app/f.py",
+          "framework": "fastapi",
+          "handler": "function:app/items.py#h",
+          "handler_expression": null,
+          "line": 3,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "responses",
+            "operationId",
+            "summary",
+            "tags",
+            "security",
+            "path_parameter_types"
+          ],
+          "resolution": "literal",
+          "route": "route:app/f.py#GET%20%2Ff%2F%7Bp%3Apath%7D",
+          "rule": "FastAPI routes (ADR 0015, ADR 0019)",
+          "template": "/f/{p}"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:app/f.py#GET%20%2Ff%2F%7Bp%3Apath%7D"
+          }
+        ]
+      }
+    },
+    "/files/me": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "app/items.py",
+          "framework": "fastapi",
+          "handler": "function:app/items.py#h",
+          "handler_expression": null,
+          "line": 21,
+          "may_be_shadowed": [
+            {
+              "key": "/files/{p}",
+              "method": "GET",
+              "order": "not_checked",
+              "route": "route:app/items.py#GET%20%2Ffiles%2F%7Bp%3Apath%7D"
+            }
+          ],
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "responses",
+            "operationId",
+            "summary",
+            "tags",
+            "security",
+            "path_parameter_types"
+          ],
+          "resolution": "constant",
+          "route": "route:app/items.py#GET%20%2Ffiles%2Fme",
+          "rule": "FastAPI routes (ADR 0015, ADR 0019)",
+          "template": "/files/me"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "constant",
+            "route": "route:app/items.py#GET%20%2Ffiles%2Fme"
+          }
+        ]
+      }
+    },
+    "/files/{p}": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "p",
+            "required": true,
+            "schema": {},
+            "x-graphvein": {
+              "matches": "any text, including an empty value and /: Starlette's path convertor ({name:path}); an OpenAPI path parameter matches one segment",
+              "type": "not_read"
+            }
+          }
+        ],
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "app/items.py",
+          "framework": "fastapi",
+          "handler": "function:app/items.py#h",
+          "handler_expression": null,
+          "line": 20,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "responses",
+            "operationId",
+            "summary",
+            "tags",
+            "security",
+            "path_parameter_types"
+          ],
+          "resolution": "constant",
+          "route": "route:app/items.py#GET%20%2Ffiles%2F%7Bp%3Apath%7D",
+          "rule": "FastAPI routes (ADR 0015, ADR 0019)",
+          "template": "/files/{p}"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "constant",
+            "route": "route:app/items.py#GET%20%2Ffiles%2F%7Bp%3Apath%7D"
+          }
+        ]
+      }
+    },
+    "/flows": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "app/keys.py",
+          "framework": "fastapi",
+          "handler": "function:app/items.py#h",
+          "handler_expression": null,
+          "line": 3,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "responses",
+            "operationId",
+            "summary",
+            "tags",
+            "path_parameter_types"
+          ],
+          "resolution": "literal",
+          "route": "route:app/keys.py#GET%20%2Fflows",
+          "rule": "FastAPI routes (ADR 0015, ADR 0019)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [
+              {
+                "item": {
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "app/items.py",
+                    "kind": "fact",
+                    "line": 10,
+                    "rule": "SH-T1"
+                  },
+                  "schemes": [
+                    {
+                      "name": "OAuth2PasswordBearer",
+                      "scopes": [
+                        "read"
+                      ]
+                    }
+                  ]
+                },
+                "row": "OG-87",
+                "section": "security",
+                "why": "scheme OAuth2PasswordBearer: OAuth2 needs its flows; the stored token URL does not say which flow"
+              }
+            ],
+            "sections": {
+              "body": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "query": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "security": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "app/items.py",
+                  "kind": "fact",
+                  "line": 10,
+                  "rule": "SH-T1"
+                },
+                "standard": 0,
+                "state": "complete"
+              }
+            },
+            "stops": {},
+            "version": 1
+          },
+          "template": "/flows"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:app/keys.py#GET%20%2Fflows"
+          }
+        ]
+      }
+    },
+    "/key": {
+      "get": {
+        "security": [
+          {
+            "ApiKey": []
+          },
+          {}
+        ],
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "app/keys.py",
+          "framework": "fastapi",
+          "handler": "function:app/items.py#h",
+          "handler_expression": null,
+          "line": 2,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "responses",
+            "operationId",
+            "summary",
+            "tags",
+            "path_parameter_types"
+          ],
+          "resolution": "literal",
+          "route": "route:app/keys.py#GET%20%2Fkey",
+          "rule": "FastAPI routes (ADR 0015, ADR 0019)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [],
+            "sections": {
+              "body": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "query": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "security": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "app/items.py",
+                  "kind": "fact",
+                  "line": 10,
+                  "rule": "SH-T1"
+                },
+                "standard": 2,
+                "state": "complete"
+              }
+            },
+            "stops": {},
+            "version": 1
+          },
+          "template": "/key"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:app/keys.py#GET%20%2Fkey"
+          }
+        ]
+      }
+    },
+    "/lax": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": [],
+            "security_dependencies": [
+              {
+                "auto_error": true,
+                "chain": [],
+                "class": "HTTPBearer",
+                "instance": "app/security.py#lax",
+                "scheme_name": "LaxBearer",
+                "subclass": "LaxBearer"
+              }
+            ]
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "app/auth.py",
+          "framework": "fastapi",
+          "handler": "function:app/items.py#h",
+          "handler_expression": null,
+          "line": 10,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "responses",
+            "operationId",
+            "summary",
+            "tags",
+            "security",
+            "path_parameter_types"
+          ],
+          "resolution": "literal",
+          "route": "route:app/auth.py#GET%20%2Flax",
+          "rule": "FastAPI routes (ADR 0015, ADR 0019)",
+          "template": "/lax"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:app/auth.py#GET%20%2Flax"
+          }
+        ]
+      }
+    },
+    "/oauth": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": [],
+            "security_dependencies": [
+              {
+                "auto_error": true,
+                "chain": [],
+                "class": "OAuth2PasswordBearer",
+                "instance": "app/security.py#x",
+                "scheme_name": "OAuth2PasswordBearer"
+              }
+            ]
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "app/auth.py",
+          "framework": "fastapi",
+          "handler": "function:app/items.py#h",
+          "handler_expression": null,
+          "line": 5,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "responses",
+            "operationId",
+            "summary",
+            "tags",
+            "security",
+            "path_parameter_types"
+          ],
+          "resolution": "literal",
+          "route": "route:app/auth.py#GET%20%2Foauth",
+          "rule": "FastAPI routes (ADR 0015, ADR 0019)",
+          "template": "/oauth"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:app/auth.py#GET%20%2Foauth"
+          }
+        ]
+      }
+    },
+    "/optional": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": [],
+            "security_dependencies": [
+              {
+                "auto_error": false,
+                "chain": [],
+                "class": "HTTPDigest",
+                "instance": "app/security.py#x",
+                "scheme_name": "HTTPDigest"
+              }
+            ]
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "app/auth.py",
+          "framework": "fastapi",
+          "handler": "function:app/items.py#h",
+          "handler_expression": null,
+          "line": 6,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "responses",
+            "operationId",
+            "summary",
+            "tags",
+            "security",
+            "path_parameter_types"
+          ],
+          "resolution": "literal",
+          "route": "route:app/auth.py#GET%20%2Foptional",
+          "rule": "FastAPI routes (ADR 0015, ADR 0019)",
+          "template": "/optional"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:app/auth.py#GET%20%2Foptional"
+          }
+        ]
+      }
+    },
+    "/orders/me/": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": [
+              "auth"
+            ]
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "src/orders.js",
+          "framework": "express",
+          "handler": null,
+          "handler_expression": null,
+          "line": 4,
+          "may_be_shadowed": [
+            {
+              "key": "/orders/{id}",
+              "method": "GET",
+              "order": "not_checked",
+              "route": "route:src/orders.js#GET%20%2F%3Aid"
+            }
+          ],
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "responses",
+            "operationId",
+            "summary",
+            "tags",
+            "security",
+            "path_parameter_types"
+          ],
+          "resolution": "literal",
+          "route": "route:src/orders.js#GET%20%2Fme",
+          "rule": "Express routes (ADR 0013, docs/extract/routes.md)",
+          "template": "/orders/me/"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:src/orders.js#GET%20%2Fme"
+          }
+        ]
+      }
+    },
+    "/orders/{id}": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {},
+            "x-graphvein": {
+              "type": "not_read"
+            }
+          }
+        ],
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": [
+              "auth"
+            ]
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "src/orders.js",
+          "framework": "express",
+          "handler": null,
+          "handler_expression": null,
+          "line": 3,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "responses",
+            "operationId",
+            "summary",
+            "tags",
+            "security",
+            "path_parameter_types"
+          ],
+          "resolution": "literal",
+          "route": "route:src/orders.js#GET%20%2F%3Aid",
+          "rule": "Express routes (ADR 0013, docs/extract/routes.md)",
+          "template": "/orders/{id}"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:src/orders.js#GET%20%2F%3Aid"
+          }
+        ]
+      }
+    },
+    "/partial": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": [],
+            "security_dependencies": [
+              {
+                "auto_error": true,
+                "chain": [],
+                "class": "HTTPDigest",
+                "instance": "app/security.py#x",
+                "scheme_name": "HTTPDigest"
+              }
+            ],
+            "security_dependencies_unknown": [
+              {
+                "chain": [],
+                "expression": "x",
+                "reason": "not read"
+              }
+            ]
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "app/auth.py",
+          "framework": "fastapi",
+          "handler": "function:app/items.py#h",
+          "handler_expression": null,
+          "line": 8,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "responses",
+            "operationId",
+            "summary",
+            "tags",
+            "security",
+            "path_parameter_types"
+          ],
+          "resolution": "literal",
+          "route": "route:app/auth.py#GET%20%2Fpartial",
+          "rule": "FastAPI routes (ADR 0015, ADR 0019)",
+          "template": "/partial"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:app/auth.py#GET%20%2Fpartial"
+          }
+        ]
+      }
+    },
+    "/public": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "app/keys.py",
+          "framework": "fastapi",
+          "handler": "function:app/items.py#h",
+          "handler_expression": null,
+          "line": 4,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "responses",
+            "operationId",
+            "summary",
+            "tags",
+            "path_parameter_types"
+          ],
+          "resolution": "literal",
+          "route": "route:app/keys.py#GET%20%2Fpublic",
+          "rule": "FastAPI routes (ADR 0015, ADR 0019)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [],
+            "sections": {
+              "body": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "query": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "standard": 0,
+                "state": "not_read"
+              },
+              "security": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "app/items.py",
+                  "kind": "fact",
+                  "line": 10,
+                  "rule": "SH-T1"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              }
+            },
+            "stops": {},
+            "version": 1
+          },
+          "template": "/public"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:app/keys.py#GET%20%2Fpublic"
+          }
+        ]
+      }
+    },
+    "/same": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": [
+              "auth"
+            ]
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "equivalent_registrations": [
+            "route:src/router.js#GET%20%2Fsame",
+            "route:src/router.js#GET%20%2Fsame%402"
+          ],
+          "file": "src/router.js",
+          "framework": "express",
+          "handler": null,
+          "handler_expression": null,
+          "line": 3,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "responses",
+            "operationId",
+            "summary",
+            "tags",
+            "security",
+            "path_parameter_types"
+          ],
+          "resolution": "literal",
+          "route": "route:src/router.js#GET%20%2Fsame",
+          "rule": "Express routes (ADR 0013, docs/extract/routes.md)",
+          "template": "/same"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:src/router.js#GET%20%2Fsame"
+          },
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:src/router.js#GET%20%2Fsame%402"
+          }
+        ]
+      }
+    },
+    "/same-scheme": {
+      "get": {
+        "security": [
+          {
+            "HTTPBearer": []
+          }
+        ],
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": [],
+            "security_dependencies": [
+              {
+                "auto_error": true,
+                "chain": [],
+                "class": "HTTPBearer",
+                "instance": "app/security.py#x",
+                "scheme_name": "HTTPBearer"
+              }
+            ]
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "app/auth.py",
+          "framework": "fastapi",
+          "handler": "function:app/items.py#h",
+          "handler_expression": null,
+          "line": 9,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "responses",
+            "operationId",
+            "summary",
+            "tags",
+            "path_parameter_types"
+          ],
+          "resolution": "literal",
+          "route": "route:app/auth.py#GET%20%2Fsame-scheme",
+          "rule": "FastAPI routes (ADR 0015, ADR 0019)",
+          "template": "/same-scheme"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:app/auth.py#GET%20%2Fsame-scheme"
+          }
+        ]
+      }
+    },
+    "/shops/{shop}/{item}": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "shop",
+            "required": true,
+            "schema": {},
+            "x-graphvein": {
+              "matches": "not read: the parameter comes from a router prefix, whose convertor Graphvein does not store (a path convertor there would match any text, / included)",
+              "type": "not_read"
+            }
+          },
+          {
+            "in": "path",
+            "name": "item",
+            "required": true,
+            "schema": {},
+            "x-graphvein": {
+              "type": "not_read"
+            }
+          }
+        ],
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "app/shops.py",
+          "framework": "fastapi",
+          "handler": "function:app/items.py#h",
+          "handler_expression": null,
+          "line": 3,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "responses",
+            "operationId",
+            "summary",
+            "tags",
+            "security",
+            "path_parameter_types"
+          ],
+          "resolution": "literal",
+          "route": "route:app/shops.py#GET%20%2F%7Bitem%7D",
+          "rule": "FastAPI routes (ADR 0015, ADR 0019)",
+          "template": "/shops/{shop}/{item}"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:app/shops.py#GET%20%2F%7Bitem%7D"
+          }
+        ]
+      }
+    },
+    "/static/a/b": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": [
+              "auth"
+            ]
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "src/orders.js",
+          "framework": "express",
+          "handler": null,
+          "handler_expression": null,
+          "line": 6,
+          "may_be_shadowed": [
+            {
+              "key": "/static/{*}",
+              "method": "ANY",
+              "order": "not_checked",
+              "route": "route:src/orders.js#ALL%20%2Fstatic%2F*"
+            }
+          ],
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "responses",
+            "operationId",
+            "summary",
+            "tags",
+            "security",
+            "path_parameter_types"
+          ],
+          "resolution": "literal",
+          "route": "route:src/orders.js#GET%20%2Fstatic%2Fa%2Fb",
+          "rule": "Express routes (ADR 0013, docs/extract/routes.md)",
+          "template": "/static/a/b"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:src/orders.js#GET%20%2Fstatic%2Fa%2Fb"
+          }
+        ]
+      }
+    },
+    "/u": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [
+            {
+              "from": "graphvein.yaml explorer.path_values",
+              "id": "set_by_you",
+              "key": "route:src/orphan.js#GET%20%2Fu%402",
+              "text": "the whole path of this route is set by you; Graphvein did not read it",
+              "value": "/u"
+            }
+          ],
+          "auth": {
+            "middleware": [
+              "auth"
+            ]
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "src/orphan.js",
+          "framework": "express",
+          "handler": null,
+          "handler_expression": null,
+          "line": 11,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "responses",
+            "operationId",
+            "summary",
+            "tags",
+            "security",
+            "path_parameter_types"
+          ],
+          "resolution": "set_by_you",
+          "route": "route:src/orphan.js#GET%20%2Fu%402",
+          "rule": "Express routes (ADR 0013, docs/extract/routes.md)",
+          "template": "/u"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [
+              {
+                "from": "graphvein.yaml explorer.path_values",
+                "id": "set_by_you",
+                "key": "route:src/orphan.js#GET%20%2Fu%402",
+                "text": "the whole path of this route is set by you; Graphvein did not read it",
+                "value": "/u"
+              }
+            ],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "set_by_you",
+            "route": "route:src/orphan.js#GET%20%2Fu%402"
+          }
+        ]
+      }
+    },
+    "/users": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": [
+              "auth"
+            ]
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "src/a.js",
+          "framework": "express",
+          "handler": null,
+          "handler_expression": null,
+          "line": 8,
+          "may_be_shadowed": [
+            {
+              "key": "/Users",
+              "method": "GET",
+              "order": "not_checked",
+              "route": "route:src/a.js#GET%20%2FUsers"
+            }
+          ],
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "responses",
+            "operationId",
+            "summary",
+            "tags",
+            "security",
+            "path_parameter_types"
+          ],
+          "resolution": "literal",
+          "route": "route:src/a.js#GET%20%2Fusers",
+          "rule": "Express routes (ADR 0013, docs/extract/routes.md)",
+          "template": "/users"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:src/a.js#GET%20%2Fusers"
+          }
+        ]
+      }
+    },
+    "/v2/workflows/{id}": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {},
+            "x-graphvein": {
+              "type": "not_read"
+            }
+          }
+        ],
+        "x-graphvein": {
+          "assumptions": [
+            {
+              "from": "graphvein.yaml explorer.path_values",
+              "id": "set_by_you",
+              "key": "route:src/orphan.js#GET%20%2Fworkflows%2F%3Aid",
+              "text": "the whole path of this route is set by you; Graphvein did not read it",
+              "value": "/v2/workflows/{id}"
+            }
+          ],
+          "auth": {
+            "middleware": [
+              "auth"
+            ]
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "src/orphan.js",
+          "framework": "express",
+          "handler": null,
+          "handler_expression": null,
+          "line": 6,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "responses",
+            "operationId",
+            "summary",
+            "tags",
+            "security",
+            "path_parameter_types"
+          ],
+          "resolution": "set_by_you",
+          "route": "route:src/orphan.js#GET%20%2Fworkflows%2F%3Aid",
+          "rule": "Express routes (ADR 0013, docs/extract/routes.md)",
+          "template": "/v2/workflows/{id}"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [
+              {
+                "from": "graphvein.yaml explorer.path_values",
+                "id": "set_by_you",
+                "key": "route:src/orphan.js#GET%20%2Fworkflows%2F%3Aid",
+                "text": "the whole path of this route is set by you; Graphvein did not read it",
+                "value": "/v2/workflows/{id}"
+              }
+            ],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "set_by_you",
+            "route": "route:src/orphan.js#GET%20%2Fworkflows%2F%3Aid"
+          }
+        ]
+      }
+    },
+    "/w": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [
+            {
+              "from": "graphvein.yaml explorer.path_values",
+              "id": "set_by_you",
+              "key": "route:src/orphan.js#GET%20%2Fw%402",
+              "text": "the whole path of this route is set by you; Graphvein did not read it",
+              "value": "/w"
+            }
+          ],
+          "auth": {
+            "middleware": [
+              "auth"
+            ]
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "src/orphan.js",
+          "framework": "express",
+          "handler": null,
+          "handler_expression": null,
+          "line": 9,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "responses",
+            "operationId",
+            "summary",
+            "tags",
+            "security",
+            "path_parameter_types"
+          ],
+          "resolution": "set_by_you",
+          "route": "route:src/orphan.js#GET%20%2Fw%402",
+          "rule": "Express routes (ADR 0013, docs/extract/routes.md)",
+          "template": "/w"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [
+              {
+                "from": "graphvein.yaml explorer.path_values",
+                "id": "set_by_you",
+                "key": "route:src/orphan.js#GET%20%2Fw%402",
+                "text": "the whole path of this route is set by you; Graphvein did not read it",
+                "value": "/w"
+              }
+            ],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "set_by_you",
+            "route": "route:src/orphan.js#GET%20%2Fw%402"
+          }
+        ]
+      }
+    },
+    "/wrapped": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [
+            {
+              "from": "route",
+              "id": "GR-V2"
+            },
+            {
+              "from": "path_entry",
+              "id": "GR-V5"
+            }
+          ],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "cmd/web/main.go",
+          "framework": "net/http",
+          "handler": null,
+          "handler_expression": null,
+          "line": 8,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "responses",
+            "operationId",
+            "summary",
+            "tags",
+            "security",
+            "path_parameter_types"
+          ],
+          "resolution": "literal",
+          "route": "route:cmd/web/main.go#GET%20%2Fwrapped",
+          "rule": "Go routes, GR rows (ADR 0076)",
+          "template": "/wrapped"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [
+              {
+                "from": "route",
+                "id": "GR-V2"
+              },
+              {
+                "from": "path_entry",
+                "id": "GR-V5"
+              }
+            ],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:cmd/web/main.go#GET%20%2Fwrapped"
+          }
+        ]
+      }
+    }
+  },
+  "servers": [
+    {
+      "description": "configured try-it environment shared (staging)",
+      "url": "https://staging.example.com/api",
+      "x-graphvein": {
+        "environment": "shared",
+        "file": "graphvein-project.yaml",
+        "label": "staging",
+        "line": 4
+      }
+    },
+    {
+      "description": "configured try-it environment local (local)",
+      "url": "http://127.0.0.1:8000",
+      "x-graphvein": {
+        "environment": "local",
+        "file": "graphvein.yaml",
+        "label": "local",
+        "line": 3
+      }
+    }
+  ],
+  "x-graphvein": {
+    "conflicts": [
+      {
+        "keys": [
+          "/health"
+        ],
+        "method": "GET",
+        "reason": "duplicate_operation",
+        "routes": [
+          "route:src/a.js#GET%20%2Fhealth",
+          "route:src/b.js#GET%20%2Fhealth"
+        ]
+      },
+      {
+        "keys": [
+          "/users/{id}",
+          "/users/{userId}"
+        ],
+        "reason": "equivalent_templates",
+        "routes": [
+          "route:src/users.js#DELETE%20%2F%3AuserId",
+          "route:src/users.js#GET%20%2F%3Aid"
+        ]
+      },
+      {
+        "keys": [
+          "Shared"
+        ],
+        "reason": "scheme_name_conflict",
+        "routes": [
+          "route:app/auth.py#GET%20%2Fbasic",
+          "route:app/auth.py#GET%20%2Fbearer"
+        ]
+      }
+    ],
+    "contract_version": 1,
+    "counts": {
+      "any_method": 1,
+      "conditional": 1,
+      "conflicts": 3,
+      "may_be_shadowed": 7,
+      "operations": 33,
+      "path_keys": 34,
+      "production_routes": 54,
+      "routes": 55,
+      "set_by_you": 5,
+      "settings_default": 1,
+      "unrepresentable": 8,
+      "unresolved": 6,
+      "with_shape": 6
+    },
+    "excluded_test": {
+      "path_entries": 1,
+      "routes": 1
+    },
+    "generator": "graphvein",
+    "group": "repository",
+    "imported_specs": [
+      {
+        "file": "openapi.yaml",
+        "operations": 2,
+        "scope": "production",
+        "spec": "api_spec:openapi.yaml#spec",
+        "spec_version": "3.1.0",
+        "statuses": {
+          "linked": 1,
+          "unmatched": 1
+        },
+        "title": "Items"
+      }
+    ],
+    "index": {
+      "commit": "abc123",
+      "extractor": "graphvein extractors-50",
+      "finished_at": "2026-11-20T00:00:00Z",
+      "run": "RUN1"
+    },
+    "repository": "synthetic",
+    "scope": "production",
+    "shape_errors": 1,
+    "unrepresentable": [
+      {
+        "key": "/host",
+        "method": "GET",
+        "reason": "host_pattern",
+        "route": "route:cmd/web/main.go#GET%20example.com%2Fhost"
+      },
+      {
+        "key": "/a/{*}",
+        "method": "GET",
+        "reason": "wildcard",
+        "route": "route:src/a.js#GET%20%2Fa%2F*"
+      },
+      {
+        "key": "/names/{name}",
+        "method": "GET",
+        "reason": "optional_parameter",
+        "route": "route:src/files.js#GET%20%2F%3Aname%3F"
+      },
+      {
+        "key": "/files/{*}",
+        "method": "GET",
+        "reason": "wildcard",
+        "route": "route:src/files.js#GET%20%2F*"
+      },
+      {
+        "key": "/a/{x}/b/{x}",
+        "method": "GET",
+        "reason": "duplicate_parameter_name",
+        "route": "route:src/files.js#GET%20%2Fdouble"
+      },
+      {
+        "key": "/future",
+        "method": "GET",
+        "reason": "unknown_resolution",
+        "route": "route:src/files.js#GET%20%2Ffuture"
+      },
+      {
+        "key": "/tunnel",
+        "method": "CONNECT",
+        "reason": "method_not_in_openapi_3_1",
+        "route": "route:src/main.rs#CONNECT%20%2Ftunnel"
+      },
+      {
+        "key": "/static/{*}",
+        "method": "ANY",
+        "reason": "wildcard",
+        "route": "route:src/orders.js#ALL%20%2Fstatic%2F*"
+      }
+    ],
+    "unresolved": [
+      {
+        "file": "src/orphan.js",
+        "keys": [
+          "route:src/orphan.js#GET%20%2Florn"
+        ],
+        "line": 5,
+        "method": "GET",
+        "pattern": "/lorn",
+        "reason": "no_path",
+        "route": "route:src/orphan.js#GET%20%2Florn",
+        "unknown": {
+          "diagnostic": "route_unmounted",
+          "expression": "orphanRouter",
+          "part": "mount_or_prefix",
+          "text": "the router or app this route is registered on is not mounted on any app Graphvein can prove"
+        }
+      },
+      {
+        "file": "src/orphan.js",
+        "keys": [
+          "route:src/orphan.js#GET%20%2Fs"
+        ],
+        "line": 12,
+        "method": "GET",
+        "pattern": "/s",
+        "reason": "no_path",
+        "route": "route:src/orphan.js#GET%20%2Fs",
+        "unknown": {
+          "part": "mount_or_prefix",
+          "text": "no chain from an app to this registration is proven: a mount, prefix or router argument on the way is not read as a constant"
+        }
+      },
+      {
+        "file": "src/orphan.js",
+        "keys": [
+          "route:src/orphan.js#GET%20%2Fv%402"
+        ],
+        "line": 10,
+        "method": "GET",
+        "pattern": "/v",
+        "reason": "no_path",
+        "route": "route:src/orphan.js#GET%20%2Fv%402",
+        "unknown": {
+          "part": "mount_or_prefix",
+          "text": "no chain from an app to this registration is proven: a mount, prefix or router argument on the way is not read as a constant"
+        }
+      },
+      {
+        "file": "src/twins.js",
+        "keys": [
+          "route:src/twins.js#GET%20%2Ft"
+        ],
+        "line": 3,
+        "method": "GET",
+        "pattern": "/t",
+        "reason": "no_path",
+        "route": "route:src/twins.js#GET%20%2Ft",
+        "unknown": {
+          "part": "mount_or_prefix",
+          "text": "no chain from an app to this registration is proven: a mount, prefix or router argument on the way is not read as a constant"
+        }
+      },
+      {
+        "file": "src/twins.js",
+        "keys": [
+          "route:src/twins.js#GET%20%2Ft%402"
+        ],
+        "line": 4,
+        "method": "GET",
+        "pattern": "/t",
+        "reason": "no_path",
+        "route": "route:src/twins.js#GET%20%2Ft%402",
+        "unknown": {
+          "part": "mount_or_prefix",
+          "text": "no chain from an app to this registration is proven: a mount, prefix or router argument on the way is not read as a constant"
+        }
+      },
+      {
+        "file": "web/app/api/x/route.ts",
+        "keys": [
+          "route:web/app/api/x/route.ts#GET%20%2Fapi%2Fx",
+          "nextjs_base_path:web"
+        ],
+        "line": 1,
+        "method": "GET",
+        "pattern": "/api/x",
+        "reason": "unresolved_base",
+        "route": "route:web/app/api/x/route.ts#GET%20%2Fapi%2Fx",
+        "templates_after_base": [
+          "/api/x"
+        ],
+        "unknown": {
+          "part": "base_path",
+          "project": "web",
+          "text": "the basePath of the Next.js project in web is not a literal (read from the environment or a condition)"
+        }
+      }
+    ],
+    "user_values": [
+      {
+        "key": "nextjs_base_path:docs",
+        "operations": 2,
+        "status": "used",
+        "value": "/docs"
+      },
+      {
+        "key": "route:src/orphan.js#GET%20%2Fworkflows%2F%3Aid",
+        "operations": 1,
+        "status": "used",
+        "value": "/v2/workflows/{id}",
+        "warning": "no registration hash is recorded: if a registration with the same method and pattern is added or removed above it in the file, the value moves to another route; set it again from the explorer to record the hash"
+      },
+      {
+        "key": "route:src/a.js#GET%20%2Fhealth",
+        "operations": 0,
+        "status": "unused",
+        "value": "/elsewhere",
+        "warning": "no registration hash is recorded: if a registration with the same method and pattern is added or removed above it in the file, the value moves to another route; set it again from the explorer to record the hash",
+        "why": "the route has a path read from code; a value set by you never replaces it"
+      },
+      {
+        "key": "route:gone.js#GET%20%2Fx",
+        "operations": 0,
+        "status": "unused",
+        "value": "/x",
+        "warning": "no registration hash is recorded: if a registration with the same method and pattern is added or removed above it in the file, the value moves to another route; set it again from the explorer to record the hash",
+        "why": "no route without a usable path has this key"
+      },
+      {
+        "key": "route:src/orphan.js#GET%20%2Fdup",
+        "operations": 0,
+        "status": "unused",
+        "value": "/bearer",
+        "warning": "no registration hash is recorded: if a registration with the same method and pattern is added or removed above it in the file, the value moves to another route; set it again from the explorer to record the hash",
+        "why": "its path /bearer is already an operation read from code; the operation read from code is kept"
+      },
+      {
+        "key": "route:src/orphan.js#GET%20%2Fequiv",
+        "operations": 0,
+        "status": "unused",
+        "value": "/api/items/{other}",
+        "warning": "no registration hash is recorded: if a registration with the same method and pattern is added or removed above it in the file, the value moves to another route; set it again from the explorer to record the hash",
+        "why": "its path /api/items/{other} equals the path /api/items/{id} read from code up to parameter names; the operation read from code is kept"
+      },
+      {
+        "key": "route:src/orphan.js#GET%20%2Fw%402",
+        "operations": 1,
+        "registration": "sha256:ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb",
+        "status": "used",
+        "value": "/w"
+      },
+      {
+        "key": "route:src/orphan.js#GET%20%2Fv%402",
+        "operations": 0,
+        "registration": "sha256:d9298a10d1b0735837dc4bd85dac641b0f3cef27a47e5d53a54f2f3f5b2fcffa",
+        "status": "unused",
+        "value": "/v",
+        "why": "registration changed: the route with this identity is no longer the registration the value was set for (a registration added or removed in the file can move an identity); set it again"
+      },
+      {
+        "key": "route:src/orphan.js#GET%20%2Fu%402",
+        "operations": 1,
+        "status": "used",
+        "value": "/u",
+        "warning": "no registration hash is recorded: if a registration with the same method and pattern is added or removed above it in the file, the value moves to another route; set it again from the explorer to record the hash"
+      },
+      {
+        "key": "route:src/twins.js#GET%20%2Ft",
+        "operations": 0,
+        "registration": "sha256:72b33a1cb0bfc9cdd3db0102962414c7a0d85aad94eba64cd8c33265242f7f9f",
+        "status": "unused",
+        "value": "/twin",
+        "why": "ambiguous registration: another registration in the same file has the same text, so a recorded hash cannot tell which one the value was set for"
+      },
+      {
+        "key": "route:src/orphan.js#GET%20%2Fs",
+        "operations": 0,
+        "registration": "sha256:ca076ef0fdd52d0ee0cd714451ccb583809645c21ee09345628cd714b034244e",
+        "status": "unused",
+        "value": "/s",
+        "why": "registration changed: the route with this identity is no longer the registration the value was set for (a registration added or removed in the file can move an identity); set it again"
+      }
+    ]
+  }
+}

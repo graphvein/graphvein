@@ -1,0 +1,50 @@
+{
+  "id": "g1-s1615-S1-M1_enum_default",
+  "signature": "applied|S1|55P04|M1.enum_default",
+  "class": "S1",
+  "owner": "K2",
+  "row": "M1.enum_default",
+  "history": {
+    "id": "g1-s1615",
+    "tags": {
+      "1_m1.sql": [
+        "R2.create_enum"
+      ],
+      "2_m2.sql": [
+        "R3.add_value",
+        "R4.rename_type",
+        "M1.enum_default"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "accepted"
+      },
+      {
+        "file": "2_m2.sql",
+        "status": "refused",
+        "sqlstate": "55P04",
+        "message": "unsafe use of new value \"v3\" of enum type e6",
+        "statement": 3,
+        "statement_text": "CREATE TABLE t8 (status e6 DEFAULT 'v3');"
+      }
+    ],
+    "tables": null,
+    "enums": [
+      {
+        "type": "history.e2",
+        "labels": [
+          "b"
+        ]
+      }
+    ],
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

@@ -1,0 +1,28 @@
+{
+  "id": "review17-d17-comment-policy-missing",
+  "signature": "agreed at Revision 1.7",
+  "class": "S1",
+  "owner": "W1",
+  "row": "review17",
+  "history": {
+    "id": "d17-comment-policy-missing"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42704",
+        "message": "policy \"nosuch\" for table \"t\" does not exist",
+        "statement": 2,
+        "statement_text": "COMMENT ON POLICY nosuch ON t IS 'x';"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

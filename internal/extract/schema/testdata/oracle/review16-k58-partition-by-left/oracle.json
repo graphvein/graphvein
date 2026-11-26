@@ -1,0 +1,28 @@
+{
+  "id": "review16-k58-partition-by-left",
+  "signature": "agreed at Revision 1.6",
+  "class": "S1",
+  "owner": "V3",
+  "row": "review16",
+  "history": {
+    "id": "k58-partition-by-left"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42601",
+        "message": "syntax error at or near \")\"",
+        "statement": 1,
+        "statement_text": "CREATE TABLE t (\"left\" int) PARTITION BY RANGE (left);"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

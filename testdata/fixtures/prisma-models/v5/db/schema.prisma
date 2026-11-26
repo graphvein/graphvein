@@ -1,0 +1,29 @@
+// Prisma 5.22.0: the schema named by package.json "prisma.schema", @@schema
+// with the multiSchema preview feature, a join table with a unique index
+// (key unknown), and ulid(), which is a client default only from 6.2.0.
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["multiSchema"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  schemas  = ["public", "billing"]
+}
+
+model Invoice {
+  id    Int    @id @default(autoincrement())
+  code  String @default(ulid())
+  total Int    @default(0)
+  lines Line[]
+
+  @@schema("billing")
+}
+
+model Line {
+  id       Int       @id
+  invoices Invoice[]
+
+  @@schema("billing")
+}

@@ -1,0 +1,39 @@
+{
+  "id": "g8-s113-S1-N1_object_kinds_v4",
+  "signature": "applied|S1|0A000|N1.object_kinds_v4",
+  "class": "S1",
+  "owner": "V7",
+  "row": "N1.object_kinds_v4",
+  "history": {
+    "id": "g8-s113",
+    "fresh_db": true,
+    "tags": {
+      "1_m1.sql": [
+        "N1.object_kinds_v4",
+        "N1.object_kinds_v4",
+        "N1.object_kinds_v4",
+        "N1.object_kinds_v4",
+        "N1.object_kinds_v4",
+        "N1.object_kinds_v4"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "public",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "0A000",
+        "message": "cannot alter statistics on non-expression column \"a\" of index \"ix2\"",
+        "statement": 6,
+        "statement_text": "ALTER INDEX ix2 ALTER COLUMN 1 SET STATISTICS 100;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "public._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

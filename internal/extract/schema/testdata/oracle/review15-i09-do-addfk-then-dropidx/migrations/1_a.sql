@@ -1,0 +1,4 @@
+CREATE TABLE p (id int NOT NULL);
+CREATE UNIQUE INDEX p_id ON p (id);
+DO $$ BEGIN CREATE TABLE c (pid int REFERENCES p (id)); END $$;
+DROP INDEX p_id;

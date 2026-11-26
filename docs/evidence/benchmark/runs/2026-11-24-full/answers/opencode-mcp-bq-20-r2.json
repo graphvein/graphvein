@@ -1,0 +1,1 @@
+{"columns":["flow_version.id","flow_version.flow_id","flow_version.user_id","flow_version.data","flow_version.version_number","flow_version.description","flow_version.created_at"],"foreign_keys":["flow_version.flow_id -> flow.id ON DELETE CASCADE","flow_version.user_id -> user.id ON DELETE SET NULL"],"referenced_by":["flow_version_deployment_attachment.flow_version_id"]}

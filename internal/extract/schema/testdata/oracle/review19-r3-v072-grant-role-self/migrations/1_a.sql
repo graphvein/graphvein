@@ -1,0 +1,2 @@
+CREATE ROLE rr_v072;
+GRANT rr_v072 TO rr_v072;

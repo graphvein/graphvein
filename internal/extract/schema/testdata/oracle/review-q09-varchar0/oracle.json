@@ -1,0 +1,28 @@
+{
+  "id": "review-q09-varchar0",
+  "signature": "applied|S1|22023|",
+  "class": "S1",
+  "owner": "P5",
+  "row": "review",
+  "history": {
+    "id": "q09-varchar0"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "22023",
+        "message": "length for type varchar must be at least 1",
+        "statement": 1,
+        "statement_text": "CREATE TABLE t (a varchar(0));"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

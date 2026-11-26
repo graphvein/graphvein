@@ -1,0 +1,32 @@
+{
+  "id": "review18-j01-selectinto-forward-insert",
+  "signature": "agreed at Revision 1.8",
+  "class": "S1",
+  "owner": "H20",
+  "row": "review18",
+  "history": {
+    "id": "j01-selectinto-forward-insert"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42P01",
+        "message": "relation \"foo\" does not exist",
+        "statement": 2,
+        "statement_text": "insert into foo values (1);"
+      },
+      {
+        "file": "2_si.sql",
+        "status": "not_run"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

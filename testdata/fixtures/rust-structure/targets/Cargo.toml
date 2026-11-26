@@ -1,0 +1,29 @@
+[package]
+name = "probe-targets"
+version = "0.1.0"
+edition = "2021"
+description = """
+A multi-line string is one value (C1): the lines below are no table.
+[lib]
+path = "nowhere.rs"
+"""
+autobins = false
+autoexamples = false
+build = "tools/gen.rs"
+
+[[bin]]
+name = "cli"
+path = "src/cli.rs"
+
+[[test]]
+name = "smoke"
+path = "checks/smoke.rs"
+
+[[example]]
+name = "demo"
+
+[dependencies]
+serde = "1"
+
+[build-dependencies]
+util = { path = "../util", package = "probe-util" }

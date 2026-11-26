@@ -1,0 +1,33 @@
+{
+  "id": "g1-s392-S1-M7_concurrently_tx",
+  "signature": "applied|S1|25001|M7.concurrently_tx",
+  "class": "S1",
+  "owner": "P6",
+  "row": "M7.concurrently_tx",
+  "history": {
+    "id": "g1-s392",
+    "tags": {
+      "1_m1.sql": [
+        "M7.concurrently_tx"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "25001",
+        "message": "DROP INDEX CONCURRENTLY cannot run inside a transaction block",
+        "statement": 1,
+        "statement_text": "DROP INDEX CONCURRENTLY nosuch_index;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

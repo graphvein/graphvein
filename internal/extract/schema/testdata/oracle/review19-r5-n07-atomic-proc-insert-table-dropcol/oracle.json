@@ -1,0 +1,29 @@
+{
+  "id": "review19-r5-n07-atomic-proc-insert-table-dropcol",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y41",
+  "row": "review19",
+  "history": {
+    "id": "n07-atomic-proc-insert-table-dropcol"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "2BP01",
+        "message": "cannot drop column name of table items because other objects depend on it",
+        "detail": "function add_item(text) depends on column name of table items",
+        "statement": 3,
+        "statement_text": "ALTER TABLE items DROP COLUMN name;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

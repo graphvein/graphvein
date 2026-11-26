@@ -1,0 +1,7 @@
+version: 1
+name: shop
+members:
+  - repository: web
+    consumes:
+      - {repository: api, base: x}
+  - repository: api

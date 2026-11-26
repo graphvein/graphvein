@@ -1,0 +1,2 @@
+CREATE TABLE t (a int);
+CREATE TABLE u (LIKE t INCLUDING ALL, a int);

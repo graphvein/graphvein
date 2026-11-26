@@ -1,0 +1,35 @@
+{
+  "id": "g1-s130-S1-N1_comment_column",
+  "signature": "applied|S1|42703|N1.comment_column",
+  "class": "S1",
+  "owner": "P5",
+  "row": "N1.comment_column",
+  "history": {
+    "id": "g1-s130",
+    "fresh_db": true,
+    "tags": {
+      "1_m1.sql": [
+        "M1.create",
+        "N1.comment_column"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "public",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42703",
+        "message": "column \"nosuch\" of relation \"t1\" does not exist",
+        "statement": 2,
+        "statement_text": "COMMENT ON COLUMN t1.nosuch IS 'column';"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "public._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

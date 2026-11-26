@@ -1,0 +1,3 @@
+CREATE TABLE t4 (id bigint PRIMARY KEY);
+ALTER INDEX t4 RENAME TO ix_5;
+CREATE INDEX IF NOT EXISTS t4_nosuch_idx ON t4 (nosuch);

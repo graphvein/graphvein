@@ -1,0 +1,29 @@
+{
+  "id": "review18-h14-droptable-composite-attr-rowtype",
+  "signature": "agreed at Revision 1.8",
+  "class": "S1",
+  "owner": "X1",
+  "row": "review18",
+  "history": {
+    "id": "h14-droptable-composite-attr-rowtype"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "2BP01",
+        "message": "cannot drop table t because other objects depend on it",
+        "detail": "column x of composite type pair depends on type t",
+        "statement": 3,
+        "statement_text": "drop table t;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

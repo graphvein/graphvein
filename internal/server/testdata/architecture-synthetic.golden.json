@@ -1,0 +1,936 @@
+{
+  "api_version": 0,
+  "components": [
+    {
+      "counts": {
+        "client_calls": 0,
+        "files": 10,
+        "ipc_calls": 0,
+        "ipc_commands": 0,
+        "manifests": 0,
+        "routes": 0,
+        "tables": 5,
+        "test_files": 0,
+        "wrapper_calls": 0
+      },
+      "directory": ".",
+      "frameworks": [],
+      "hidden_by": null,
+      "id": ".",
+      "kinds": [
+        "schema_source"
+      ],
+      "manifests": [],
+      "markers": [],
+      "name": "unassigned",
+      "reason": "files under no package manifest",
+      "rows": [
+        "CK4"
+      ],
+      "state": "unassigned",
+      "visibility": "shown"
+    },
+    {
+      "counts": {
+        "client_calls": 0,
+        "files": 2,
+        "ipc_calls": 0,
+        "ipc_commands": 1,
+        "manifests": 1,
+        "routes": 0,
+        "tables": 0,
+        "test_files": 0,
+        "wrapper_calls": 0
+      },
+      "directory": "app",
+      "frameworks": [],
+      "hidden_by": null,
+      "id": "app",
+      "kinds": [
+        "tauri_core",
+        "binary"
+      ],
+      "manifests": [
+        {
+          "ecosystem": "cargo",
+          "file": "app/Cargo.toml",
+          "name": "app",
+          "package": "package:app/Cargo.toml#app",
+          "unread": null
+        }
+      ],
+      "markers": [
+        {
+          "file": "deploy/compose.yml",
+          "kind": "compose_service",
+          "label": "compose service core (deploy/compose.yml)",
+          "row": "CD3"
+        }
+      ],
+      "name": "app",
+      "reason": null,
+      "rows": [
+        "CK2",
+        "CK5"
+      ],
+      "state": "read",
+      "visibility": "shown"
+    },
+    {
+      "counts": {
+        "client_calls": 0,
+        "files": 6,
+        "ipc_calls": 0,
+        "ipc_commands": 0,
+        "manifests": 1,
+        "routes": 5,
+        "tables": 0,
+        "test_files": 1,
+        "wrapper_calls": 0
+      },
+      "directory": "svc",
+      "frameworks": [
+        "axum",
+        "express",
+        "fastapi"
+      ],
+      "hidden_by": null,
+      "id": "svc",
+      "ingress": [
+        {
+          "as_written": {
+            "cert_resolver": "le",
+            "entrypoints": "websecure",
+            "rule": "Host(`example.test`)"
+          },
+          "basis": "assumption: deploy/compose.deploy.yml is combined with deploy/compose.yml",
+          "file": "deploy/compose.deploy.yml",
+          "router": "svc-deploy-https",
+          "row": "AT2",
+          "service": "svc",
+          "text": "ingress TLS at router svc-deploy-https as configured in deploy/compose.deploy.yml (service svc), assumption: deploy/compose.deploy.yml is combined with deploy/compose.yml"
+        },
+        {
+          "as_written": {
+            "cert_resolver": "le",
+            "entrypoints": "websecure",
+            "rule": "Host(`example.test`)"
+          },
+          "file": "deploy/compose.yml",
+          "router": "svc-https",
+          "row": "AT2",
+          "service": "svc",
+          "text": "ingress TLS at router svc-https as configured in deploy/compose.yml (service svc)"
+        }
+      ],
+      "kinds": [
+        "server"
+      ],
+      "manifests": [
+        {
+          "ecosystem": "npm",
+          "file": "svc/package.json",
+          "name": "svc",
+          "package": "package:svc/package.json#svc",
+          "unread": null
+        }
+      ],
+      "markers": [
+        {
+          "file": "svc/Dockerfile",
+          "kind": "dockerfile",
+          "label": "Dockerfile svc/Dockerfile",
+          "row": "CD1"
+        },
+        {
+          "basis": "assumption: deploy/compose.deploy.yml is combined with deploy/compose.yml",
+          "file": "deploy/compose.deploy.yml",
+          "kind": "compose_service",
+          "label": "compose service svc (deploy/compose.deploy.yml), assumption: deploy/compose.deploy.yml is combined with deploy/compose.yml",
+          "row": "CD4"
+        },
+        {
+          "file": "deploy/compose.yml",
+          "kind": "compose_service",
+          "label": "compose service multi (deploy/compose.yml)",
+          "row": "CD3"
+        },
+        {
+          "file": "deploy/compose.yml",
+          "kind": "compose_service",
+          "label": "compose service svc (deploy/compose.yml)",
+          "row": "CD3"
+        }
+      ],
+      "name": "svc",
+      "reason": null,
+      "rows": [
+        "CK1"
+      ],
+      "state": "read",
+      "visibility": "shown"
+    },
+    {
+      "counts": {
+        "client_calls": 5,
+        "files": 2,
+        "ipc_calls": 2,
+        "ipc_commands": 0,
+        "manifests": 1,
+        "routes": 0,
+        "tables": 0,
+        "test_files": 0,
+        "wrapper_calls": 0
+      },
+      "directory": "ui",
+      "frameworks": [],
+      "hidden_by": null,
+      "id": "ui",
+      "kinds": [
+        "client"
+      ],
+      "manifests": [
+        {
+          "ecosystem": "npm",
+          "file": "ui/package.json",
+          "name": "ui",
+          "package": "package:ui/package.json#ui",
+          "unread": null
+        }
+      ],
+      "markers": [
+        {
+          "file": "deploy/compose.override.yml",
+          "kind": "compose_service",
+          "label": "compose service multi (deploy/compose.override.yml)",
+          "row": "CD3"
+        },
+        {
+          "basis": "merged with service web of deploy/compose.yml by Compose's default file discovery",
+          "file": "deploy/compose.override.yml",
+          "kind": "compose_service",
+          "label": "compose service web (deploy/compose.override.yml), merged with service web of deploy/compose.yml by Compose's default file discovery",
+          "row": "CD4"
+        },
+        {
+          "file": "deploy/compose.yml",
+          "kind": "compose_service",
+          "label": "compose service gated (deploy/compose.yml)",
+          "row": "CD3"
+        },
+        {
+          "file": "deploy/compose.yml",
+          "kind": "compose_service",
+          "label": "compose service web (deploy/compose.yml)",
+          "row": "CD3"
+        },
+        {
+          "basis": "assumption: env/compose.override.yml is combined with env/compose.yml (env/.env sets COMPOSE_FILE, which replaces Compose's default file discovery)",
+          "file": "env/compose.override.yml",
+          "kind": "compose_service",
+          "label": "compose service envweb (env/compose.override.yml), assumption: env/compose.override.yml is combined with env/compose.yml (env/.env sets COMPOSE_FILE, which replaces Compose's default file discovery)",
+          "row": "CD4"
+        },
+        {
+          "file": "env/compose.yml",
+          "kind": "compose_service",
+          "label": "compose service envweb (env/compose.yml)",
+          "row": "CD3"
+        }
+      ],
+      "name": "ui",
+      "reason": null,
+      "rows": [
+        "CK3"
+      ],
+      "state": "read",
+      "visibility": "shown"
+    }
+  ],
+  "databases": [
+    {
+      "accessors": [
+        {
+          "builds": 0,
+          "component": "svc",
+          "link": "sql:svc-\u003edatabase:db",
+          "may_also_use": 1,
+          "reads": 1,
+          "writes": 0
+        }
+      ],
+      "engine": {
+        "rows": [
+          "AED"
+        ],
+        "source": "unknown: stored dialects disagree (postgres, sqlite)",
+        "state": "unknown",
+        "value": "engine ?"
+      },
+      "evidence": [
+        "driver mysql2 declared in svc/package.json",
+        "deploy config names docker.io/library/mysql:8.0 (deploy/compose.yml, service cache), not tied to this card",
+        "deploy config names mongo (deploy/compose.yml, service docs), not tied to this card",
+        "deploy config: postgres 17 as configured in deploy/compose.yml (service db)"
+      ],
+      "id": "database:db",
+      "set": "db",
+      "tables": 2,
+      "tool": "sql"
+    },
+    {
+      "accessors": [],
+      "engine": {
+        "rows": [
+          "AE1"
+        ],
+        "source": "proven: ORM model dialect (drizzle)",
+        "state": "proven",
+        "value": "PostgreSQL"
+      },
+      "evidence": [
+        "deploy config names docker.io/library/mysql:8.0 (deploy/compose.yml, service cache), not tied to this card",
+        "deploy config names mongo (deploy/compose.yml, service docs), not tied to this card",
+        "deploy config names postgres:17 (deploy/compose.yml, service db), not tied to this card"
+      ],
+      "id": "database:db/models.ts",
+      "set": "db/models.ts",
+      "tables": 1,
+      "tool": "drizzle"
+    },
+    {
+      "accessors": [
+        {
+          "builds": 0,
+          "component": "app",
+          "link": "sql:app-\u003edatabase:ledger",
+          "may_also_use": 0,
+          "reads": 0,
+          "writes": 1
+        },
+        {
+          "builds": 0,
+          "component": "svc",
+          "link": "sql:svc-\u003edatabase:ledger",
+          "may_also_use": 1,
+          "reads": 0,
+          "writes": 0
+        }
+      ],
+      "engine": {
+        "rows": [
+          "AED"
+        ],
+        "source": "unknown: deploy config facts conflict (mysql 8.0 as configured in deploy/compose.yml (service cache); postgres 17 as configured in deploy/compose.yml (service db))",
+        "state": "unknown",
+        "value": "engine ?"
+      },
+      "evidence": [
+        "driver mysql2 declared in svc/package.json",
+        "driver tokio-postgres declared in app/Cargo.toml",
+        "deploy config names mongo (deploy/compose.yml, service docs), not tied to this card",
+        "mysql 8.0 as configured in deploy/compose.yml (service cache)",
+        "postgres 17 as configured in deploy/compose.yml (service db)"
+      ],
+      "id": "database:ledger",
+      "set": "ledger",
+      "tables": 1,
+      "tool": "sql"
+    },
+    {
+      "accessors": [
+        {
+          "builds": 1,
+          "component": "svc",
+          "link": "sql:svc-\u003edatabase:store",
+          "may_also_use": 1,
+          "reads": 0,
+          "writes": 0
+        }
+      ],
+      "engine": {
+        "rows": [
+          "AE2"
+        ],
+        "source": "as configured in deploy/compose.yml (service db)",
+        "state": "as_configured",
+        "value": "postgres 17"
+      },
+      "evidence": [
+        "driver mysql2 declared in svc/package.json",
+        "deploy config names docker.io/library/mysql:8.0 (deploy/compose.yml, service cache), not tied to this card",
+        "deploy config names mongo (deploy/compose.yml, service docs), not tied to this card"
+      ],
+      "id": "database:store",
+      "set": "store",
+      "tables": 1,
+      "tool": "sql"
+    }
+  ],
+  "documents": [
+    {
+      "by_kind": {
+        "documents_route": 2
+      },
+      "row": "CE5",
+      "source": "svc",
+      "target": "svc"
+    }
+  ],
+  "ghosts": [
+    {
+      "by_status": {
+        "dynamic": 1
+      },
+      "component": "ui",
+      "family": "tauri_ipc",
+      "row": "CE2",
+      "total": 1
+    }
+  ],
+  "hidden": {
+    "configured_components": 0,
+    "docs_components": 0,
+    "test_components": 0,
+    "test_edges": {
+      "in_process": 1
+    }
+  },
+  "index": {
+    "contract_version": 1,
+    "finished_at": "2026-11-03T14:32:05.123Z",
+    "indexer": {
+      "name": "crafted",
+      "version": "t026"
+    }
+  },
+  "libraries": {
+    "components": [],
+    "links_in": 0,
+    "links_out": 0
+  },
+  "links": [
+    {
+      "back_count": 0,
+      "by_kind": {
+        "calls_route": 5
+      },
+      "cells": {
+        "auth": {
+          "counts": {
+            "auth ?": 1,
+            "declares APIKeyHeader (Header key), optional (auto_error=False); declares OAuth2PasswordBearer (OAuth2PasswordBearer); generated client documents http bearer or apiKey key in query": 1,
+            "middleware checks.required (as written), declares express-jwt (expressjwt); middleware logger, mounted at /; middleware passport.authenticate('jwt'), mounted at /m, declares passport (jwt) (as written); mounted middleware ? (1 unread form); earlier route handlers ? (1 route layer may run first)": 1,
+            "no route middleware (as written); documented: mixed (documented: apiKey; documented: none)": 1,
+            "route_layer ValidateRequestHeaderLayer::bearer(\"token\"), declares tower-http (ValidateRequestHeaderLayer::bearer); layer axum::middleware::from_fn(check), middleware function check; layer ServiceBuilder::new().layer(TraceLayer::new_for_http()).laye… (as written); layers ? (1 unread form)": 1
+          },
+          "rows": [
+            "AA1",
+            "AA2",
+            "AA3",
+            "AA4",
+            "AA5",
+            "AA6",
+            "AAD"
+          ],
+          "source": "members differ; counts per value",
+          "state": "mixed",
+          "value": "mixed"
+        },
+        "protocol": {
+          "rows": [
+            "AP1"
+          ],
+          "source": "proven: route and client-call facts",
+          "state": "proven",
+          "value": "HTTP"
+        },
+        "tls": {
+          "rows": [
+            "ATD",
+            "AT2"
+          ],
+          "source": "unknown: transport security comes from deployment; no deploy config proves this hop; svc has ingress TLS as configured in deploy/compose.deploy.yml, deploy/compose.yml (see the component), not proven for this hop",
+          "state": "unknown",
+          "value": "TLS ?"
+        }
+      },
+      "count": 5,
+      "family": "http",
+      "id": "http:ui-\u003esvc",
+      "members": [
+        {
+          "auth": "route_layer ValidateRequestHeaderLayer::bearer(\"token\"), declares tower-http (ValidateRequestHeaderLayer::bearer); layer axum::middleware::from_fn(check), middleware function check; layer ServiceBuilder::new().layer(TraceLayer::new_for_http()).laye… (as written); layers ? (1 unread form)",
+          "method": "GET",
+          "path": "/l",
+          "source": "client_call:ui/src/main.ts#run.GET%20%2Fl",
+          "target": "route:svc/src/server.ts#GET%20%2Fl",
+          "tier": "inferred 0.9"
+        },
+        {
+          "auth": "middleware checks.required (as written), declares express-jwt (expressjwt); middleware logger, mounted at /; middleware passport.authenticate('jwt'), mounted at /m, declares passport (jwt) (as written); mounted middleware ? (1 unread form); earlier route handlers ? (1 route layer may run first)",
+          "method": "GET",
+          "path": "/m",
+          "source": "client_call:ui/src/main.ts#run.GET%20%2Fm",
+          "target": "route:svc/src/server.ts#GET%20%2Fm",
+          "tier": "inferred 0.9"
+        },
+        {
+          "auth": "auth ?",
+          "method": "GET",
+          "path": "/x",
+          "source": "client_call:ui/src/main.ts#run.GET%20%2Fx",
+          "target": "route:svc/src/server.ts#GET%20%2Fx",
+          "tier": "inferred 0.9"
+        },
+        {
+          "auth": "no route middleware (as written); documented: mixed (documented: apiKey; documented: none)",
+          "method": "GET",
+          "path": "/y",
+          "source": "client_call:ui/src/main.ts#run.GET%20%2Fy",
+          "target": "route:svc/src/server.ts#GET%20%2Fy",
+          "tier": "inferred 0.9"
+        },
+        {
+          "auth": "declares APIKeyHeader (Header key), optional (auto_error=False); declares OAuth2PasswordBearer (OAuth2PasswordBearer); generated client documents http bearer or apiKey key in query",
+          "method": "GET",
+          "path": "/z",
+          "source": "client_call:ui/src/main.ts#run.GET%20%2Fz",
+          "target": "route:svc/src/server.ts#GET%20%2Fz",
+          "tier": "inferred 0.9"
+        }
+      ],
+      "methods": [
+        "GET"
+      ],
+      "origins": [],
+      "row": "CE1",
+      "source": "ui",
+      "target": "svc",
+      "tiers": {
+        "inferred 0.9": 5
+      },
+      "weakest": "inferred 0.9"
+    },
+    {
+      "back_count": 0,
+      "by_kind": {
+        "calls": 1
+      },
+      "cells": {
+        "auth": {
+          "rows": [
+            "AAD"
+          ],
+          "source": "unknown: no auth model for in-process calls",
+          "state": "unknown",
+          "value": "auth ?"
+        },
+        "protocol": {
+          "rows": [
+            "AP4"
+          ],
+          "source": "proven: calls and imports",
+          "state": "proven",
+          "value": "in-process"
+        },
+        "tls": {
+          "rows": [
+            "AT1"
+          ],
+          "source": "in-process",
+          "state": "not_applicable",
+          "value": "n/a, in-app"
+        }
+      },
+      "count": 1,
+      "family": "in_process",
+      "id": "in_process:svc-\u003eui",
+      "members": [],
+      "methods": [],
+      "origins": [],
+      "row": "CE4",
+      "source": "svc",
+      "target": "ui",
+      "tiers": {
+        "fact": 1
+      },
+      "weakest": "fact"
+    },
+    {
+      "back_count": 0,
+      "by_kind": {
+        "calls_action": 1
+      },
+      "cells": {
+        "auth": {
+          "rows": [
+            "AAD"
+          ],
+          "source": "unknown: a server action is reachable by a POST to its page; checks inside the action are not read",
+          "state": "unknown",
+          "value": "auth ?"
+        },
+        "protocol": {
+          "rows": [
+            "AP5"
+          ],
+          "source": "proven: calls_action (a POST to the page that renders the action)",
+          "state": "proven",
+          "value": "server action"
+        },
+        "tls": {
+          "rows": [
+            "ATD"
+          ],
+          "source": "unknown: transport security comes from deployment; no deploy config proves this hop",
+          "state": "unknown",
+          "value": "TLS ?"
+        }
+      },
+      "count": 1,
+      "family": "server_action",
+      "id": "server_action:ui-\u003esvc",
+      "members": [
+        {
+          "method": null,
+          "path": "saveDraft",
+          "source": "action_call:ui/src/main.ts#run.ACTION%20saveDraft",
+          "target": "server_action:svc/src/server.ts#saveDraft",
+          "tier": "fact"
+        }
+      ],
+      "methods": [],
+      "origins": [],
+      "row": "CE7",
+      "source": "ui",
+      "target": "svc",
+      "tiers": {
+        "fact": 1
+      },
+      "weakest": "fact"
+    },
+    {
+      "back_count": 0,
+      "by_kind": {
+        "writes_table": 1
+      },
+      "cells": {
+        "auth": {
+          "rows": [
+            "AAD"
+          ],
+          "source": "unknown: database credentials are not read",
+          "state": "unknown",
+          "value": "auth ?"
+        },
+        "protocol": {
+          "rows": [
+            "AP3"
+          ],
+          "source": "proven: schema set tool",
+          "state": "proven",
+          "value": "SQL via sql"
+        },
+        "tls": {
+          "rows": [
+            "ATD"
+          ],
+          "source": "unknown: transport security comes from deployment; no deploy config proves this hop",
+          "state": "unknown",
+          "value": "TLS ?"
+        }
+      },
+      "count": 1,
+      "family": "sql",
+      "id": "sql:app-\u003edatabase:ledger",
+      "members": [],
+      "methods": [],
+      "origins": [],
+      "row": "CE3",
+      "source": "app",
+      "target": "database:ledger",
+      "tiers": {
+        "fact": 1
+      },
+      "weakest": "fact"
+    },
+    {
+      "back_count": 0,
+      "by_kind": {
+        "reads_table": 1
+      },
+      "cells": {
+        "auth": {
+          "rows": [
+            "AAD"
+          ],
+          "source": "unknown: database credentials are not read",
+          "state": "unknown",
+          "value": "auth ?"
+        },
+        "protocol": {
+          "rows": [
+            "AP3"
+          ],
+          "source": "proven: schema set tool",
+          "state": "proven",
+          "value": "SQL via sql"
+        },
+        "tls": {
+          "rows": [
+            "ATD"
+          ],
+          "source": "unknown: transport security comes from deployment; no deploy config proves this hop",
+          "state": "unknown",
+          "value": "TLS ?"
+        }
+      },
+      "count": 1,
+      "family": "sql",
+      "id": "sql:svc-\u003edatabase:db",
+      "members": [],
+      "methods": [],
+      "origins": [],
+      "row": "CE3",
+      "source": "svc",
+      "target": "database:db",
+      "tiers": {
+        "inferred 0.9": 1
+      },
+      "weakest": "inferred 0.9"
+    },
+    {
+      "back_count": 0,
+      "by_kind": {
+        "reads_table": 1
+      },
+      "cells": {
+        "auth": {
+          "rows": [
+            "AAD"
+          ],
+          "source": "unknown: database credentials are not read",
+          "state": "unknown",
+          "value": "auth ?"
+        },
+        "protocol": {
+          "rows": [
+            "AP3"
+          ],
+          "source": "proven: schema set tool",
+          "state": "proven",
+          "value": "SQL via sql"
+        },
+        "tls": {
+          "rows": [
+            "ATD"
+          ],
+          "source": "unknown: transport security comes from deployment; no deploy config proves this hop",
+          "state": "unknown",
+          "value": "TLS ?"
+        }
+      },
+      "count": 1,
+      "family": "sql",
+      "id": "sql:svc-\u003edatabase:store",
+      "members": [],
+      "methods": [],
+      "origins": [],
+      "row": "CE3",
+      "source": "svc",
+      "target": "database:store",
+      "tiers": {
+        "fact": 1
+      },
+      "weakest": "fact"
+    },
+    {
+      "back_count": 0,
+      "by_kind": {
+        "invokes_command": 1
+      },
+      "cells": {
+        "auth": {
+          "rows": [
+            "AAD"
+          ],
+          "source": "unknown: capabilities not read",
+          "state": "unknown",
+          "value": "auth ?"
+        },
+        "protocol": {
+          "rows": [
+            "AP2"
+          ],
+          "source": "proven: invokes_command",
+          "state": "proven",
+          "value": "Tauri IPC"
+        },
+        "tls": {
+          "rows": [
+            "AT1"
+          ],
+          "source": "in-app IPC",
+          "state": "not_applicable",
+          "value": "n/a, in-app"
+        }
+      },
+      "count": 1,
+      "family": "tauri_ipc",
+      "id": "tauri_ipc:ui-\u003eapp",
+      "members": [
+        {
+          "method": null,
+          "path": "greet",
+          "source": "ipc_call:ui/src/main.ts#run.INVOKE%20%27greet%27",
+          "target": "ipc_command:app/src/main.rs#main.COMMAND%20greet",
+          "tier": "fact"
+        }
+      ],
+      "methods": [],
+      "origins": [],
+      "row": "CE2",
+      "source": "ui",
+      "target": "app",
+      "tiers": {
+        "fact": 1
+      },
+      "weakest": "fact"
+    }
+  ],
+  "manifests": "read",
+  "not_drawn": {
+    "calls_action": 1,
+    "renders": 1
+  },
+  "not_proven": [
+    {
+      "component": "ui",
+      "count": 1,
+      "kind": "calls_not_linked",
+      "row": "CE2",
+      "text": "not linked (1): tauri_ipc calls without a stored link"
+    },
+    {
+      "component": "svc",
+      "count": 1,
+      "database": "database:db",
+      "kind": "may_also_use",
+      "row": "CE3",
+      "text": "may also use database:db: 1 site not bound to a table"
+    },
+    {
+      "component": "svc",
+      "count": 1,
+      "database": "database:ledger",
+      "kind": "may_also_use",
+      "row": "CE3",
+      "text": "may also use database:ledger: 1 site not bound to a table"
+    },
+    {
+      "component": "svc",
+      "count": 1,
+      "database": "database:store",
+      "kind": "may_also_use",
+      "row": "CE3",
+      "text": "may also use database:store: 1 site not bound to a table"
+    },
+    {
+      "count": 1,
+      "file": "deploy/compose.deploy.yml",
+      "kind": "service_not_mapped",
+      "reason": "no build or image of its own, and no same-name service of another compose file in its directory maps",
+      "row": "CD3",
+      "service": "lonely",
+      "text": "? not mapped: compose service lonely (deploy/compose.deploy.yml): no build or image of its own, and no same-name service of another compose file in its directory maps"
+    },
+    {
+      "count": 1,
+      "file": "deploy/compose.deploy.yml",
+      "kind": "service_not_mapped",
+      "reason": "same-name services of other compose files (deploy/compose.override.yml, deploy/compose.yml) map to different components",
+      "row": "CD3",
+      "service": "multi",
+      "text": "? not mapped: compose service multi (deploy/compose.deploy.yml): same-name services of other compose files (deploy/compose.override.yml, deploy/compose.yml) map to different components"
+    },
+    {
+      "count": 1,
+      "database": "database:ledger",
+      "file": "deploy/compose.yml",
+      "kind": "service_not_mapped",
+      "reason": "image only, no build",
+      "row": "CD3",
+      "service": "cache",
+      "text": "? not mapped: compose service cache (deploy/compose.yml): image only, no build"
+    },
+    {
+      "count": 1,
+      "database": "database:db",
+      "file": "deploy/compose.yml",
+      "kind": "service_not_mapped",
+      "reason": "image only, no build",
+      "row": "CD3",
+      "service": "db",
+      "text": "? not mapped: compose service db (deploy/compose.yml): image only, no build"
+    },
+    {
+      "count": 1,
+      "file": "deploy/compose.yml",
+      "kind": "service_not_mapped",
+      "reason": "image only, no build",
+      "row": "CD3",
+      "service": "docs",
+      "text": "? not mapped: compose service docs (deploy/compose.yml): image only, no build"
+    },
+    {
+      "count": 1,
+      "file": "deploy/compose.yml",
+      "kind": "service_not_mapped",
+      "reason": "image only, no build",
+      "row": "CD3",
+      "service": "edge",
+      "text": "? not mapped: compose service edge (deploy/compose.yml): image only, no build"
+    },
+    {
+      "count": 1,
+      "file": "deploy/compose.yml",
+      "kind": "service_not_mapped",
+      "reason": "Dockerfile db/migrate/Dockerfile is in no component directory",
+      "row": "CD3",
+      "service": "mig",
+      "text": "? not mapped: compose service mig (deploy/compose.yml): Dockerfile db/migrate/Dockerfile is in no component directory"
+    },
+    {
+      "count": 1,
+      "file": "env/compose.yml",
+      "kind": "service_not_mapped",
+      "reason": "image only, no build",
+      "row": "CD3",
+      "service": "proxy",
+      "text": "? not mapped: compose service proxy (env/compose.yml): image only, no build"
+    },
+    {
+      "count": 1,
+      "kind": "ingress_not_mapped",
+      "row": "AT2",
+      "text": "ingress TLS at router edge-https as configured in deploy/compose.yml (service edge), service not mapped to a component"
+    },
+    {
+      "count": 1,
+      "kind": "ingress_ignored",
+      "row": "AT2",
+      "text": "TLS router gated-https in deploy/compose.yml (service gated) not stated: traefik.enable=false (Traefik ignores the container)"
+    },
+    {
+      "count": 1,
+      "kind": "ingress_ignored",
+      "row": "AT2",
+      "text": "TLS router envweb-https in env/compose.override.yml (service envweb) not stated: --providers.docker.exposedbydefault=false in env/compose.yml (service proxy) and no traefik.enable=true"
+    }
+  ],
+  "notice": null,
+  "repository": "archsynth",
+  "scope": "production",
+  "stubs": []
+}

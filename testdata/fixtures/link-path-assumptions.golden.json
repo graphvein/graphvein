@@ -1,0 +1,568 @@
+[
+  "route:api/main.py#GET%20%2Fhealth%2Flive paths=[{\"assumptions\":[\"RO-V1\"],\"conditional\":true,\"may_answer_first\":[\"app.mount(os.environ[\\\"STATIC\\\"],FastAPI()) (api/main.py:9)\"],\"resolution\":\"literal\",\"template\":\"/health/live\"}] entries=null",
+  "route:server/main.go#GET%20%2Fgb%2Fitems%2Fall paths=[{\"conditional\":true,\"resolution\":\"literal\",\"template\":\"/direct/gb/items/all\"},{\"assumptions\":[\"GR-V5\"],\"conditional\":true,\"resolution\":\"literal\",\"served_through\":[\"rewrite\"],\"template\":\"/gb/items/all\"}] entries=null",
+  "route:server/main.go#GET%20%2Fgp%2Forders%2Flist paths=[] entries=[{\"assumptions\":[\"GR-V5\"],\"conditional\":true,\"hop\":\"mount:server/main.go#Prefixed%20root.Handle%28prefix%2B%22%2F%22%29\",\"prefix\":\"unresolved\",\"prefix_reason\":\"route_prefix_unresolved\",\"resolution\":\"literal\",\"served_through\":[\"rewrite\"],\"template\":\"/gp/orders/list\"}]",
+  "route:server/main.go#GET%20%2Fgw%2Fitems%2Fall paths=[{\"assumptions\":[\"GR-V5\"],\"conditional\":true,\"resolution\":\"literal\",\"served_through\":[\"rewrite\"],\"template\":\"/gw/items/all\"}] entries=null",
+  "route:web/app.js#GET%20%2Fa paths=[{\"conditional\":false,\"resolution\":\"literal\",\"template\":\"/z/a\"}] entries=null",
+  "route:web/app.js#GET%20%2Fc paths=[{\"assumptions\":[\"RO-V2\"],\"conditional\":true,\"may_answer_first\":[\"yCatch (web/app.js:21)\"],\"resolution\":\"literal\",\"template\":\"/w/c\"},{\"assumptions\":[\"RO-V2\"],\"conditional\":true,\"may_answer_first\":[\"yCatch (web/app.js:21)\"],\"resolution\":\"literal\",\"template\":\"/y/c\"}] entries=null",
+  "route:web/app.js#GET%20%2Fplain%2Fone paths=[{\"conditional\":false,\"resolution\":\"literal\",\"template\":\"/plain/one\"}] entries=null",
+  "route:web/app.js#GET%20%2Fz%2Fb paths=[{\"assumptions\":[\"RO-V2\"],\"conditional\":true,\"may_answer_first\":[\"catchRouter (web/app.js:14)\"],\"resolution\":\"literal\",\"template\":\"/z/b\"}] entries=null",
+  {
+    "confidence": 0.9,
+    "evidence": [
+      {
+        "file": "client/calls.ts",
+        "span": {
+          "end_column": 37,
+          "end_line": 10,
+          "start_column": 8,
+          "start_line": 10
+        }
+      }
+    ],
+    "kind": "calls_route",
+    "provenance": "inferred",
+    "source": "client_call:client/calls.ts#calls.GET%20%22%2Fdirect%2Fgb%2Fitems%2Fall%22",
+    "target": "route:server/main.go#GET%20%2Fgb%2Fitems%2Fall",
+    "type": "edge"
+  },
+  {
+    "confidence": 0.9,
+    "evidence": [
+      {
+        "file": "client/calls.ts",
+        "span": {
+          "end_column": 30,
+          "end_line": 9,
+          "start_column": 8,
+          "start_line": 9
+        }
+      }
+    ],
+    "kind": "calls_route",
+    "provenance": "inferred",
+    "source": "client_call:client/calls.ts#calls.GET%20%22%2Fgb%2Fitems%2Fall%22",
+    "target": "route:server/main.go#GET%20%2Fgb%2Fitems%2Fall",
+    "type": "edge"
+  },
+  {
+    "confidence": 0.9,
+    "evidence": [
+      {
+        "file": "client/calls.ts",
+        "span": {
+          "end_column": 30,
+          "end_line": 7,
+          "start_column": 8,
+          "start_line": 7
+        }
+      }
+    ],
+    "kind": "calls_route",
+    "provenance": "inferred",
+    "source": "client_call:client/calls.ts#calls.GET%20%22%2Fgw%2Fitems%2Fall%22",
+    "target": "route:server/main.go#GET%20%2Fgw%2Fitems%2Fall",
+    "type": "edge"
+  },
+  {
+    "confidence": 0.9,
+    "evidence": [
+      {
+        "file": "client/calls.ts",
+        "span": {
+          "end_column": 29,
+          "end_line": 6,
+          "start_column": 8,
+          "start_line": 6
+        }
+      }
+    ],
+    "kind": "calls_route",
+    "provenance": "inferred",
+    "source": "client_call:client/calls.ts#calls.GET%20%22%2Fhealth%2Flive%22",
+    "target": "route:api/main.py#GET%20%2Fhealth%2Flive",
+    "type": "edge"
+  },
+  {
+    "confidence": 0.9,
+    "evidence": [
+      {
+        "file": "client/calls.ts",
+        "span": {
+          "end_column": 27,
+          "end_line": 5,
+          "start_column": 8,
+          "start_line": 5
+        }
+      }
+    ],
+    "kind": "calls_route",
+    "provenance": "inferred",
+    "source": "client_call:client/calls.ts#calls.GET%20%22%2Fplain%2Fone%22",
+    "target": "route:web/app.js#GET%20%2Fplain%2Fone",
+    "type": "edge"
+  },
+  {
+    "confidence": 0.6,
+    "evidence": [
+      {
+        "file": "client/calls.ts",
+        "span": {
+          "end_column": 35,
+          "end_line": 8,
+          "start_column": 8,
+          "start_line": 8
+        }
+      }
+    ],
+    "kind": "calls_route",
+    "provenance": "inferred",
+    "source": "client_call:client/calls.ts#calls.GET%20%22%2Fv1%2Fgp%2Forders%2Flist%22",
+    "target": "route:server/main.go#GET%20%2Fgp%2Forders%2Flist",
+    "type": "edge"
+  },
+  {
+    "confidence": 0.9,
+    "evidence": [
+      {
+        "file": "client/calls.ts",
+        "span": {
+          "end_column": 21,
+          "end_line": 4,
+          "start_column": 8,
+          "start_line": 4
+        }
+      }
+    ],
+    "kind": "calls_route",
+    "provenance": "inferred",
+    "source": "client_call:client/calls.ts#calls.GET%20%22%2Fw%2Fc%22",
+    "target": "route:web/app.js#GET%20%2Fc",
+    "type": "edge"
+  },
+  {
+    "confidence": 0.9,
+    "evidence": [
+      {
+        "file": "client/calls.ts",
+        "span": {
+          "end_column": 21,
+          "end_line": 3,
+          "start_column": 8,
+          "start_line": 3
+        }
+      }
+    ],
+    "kind": "calls_route",
+    "provenance": "inferred",
+    "source": "client_call:client/calls.ts#calls.GET%20%22%2Fy%2Fc%22",
+    "target": "route:web/app.js#GET%20%2Fc",
+    "type": "edge"
+  },
+  {
+    "confidence": 0.9,
+    "evidence": [
+      {
+        "file": "client/calls.ts",
+        "span": {
+          "end_column": 21,
+          "end_line": 2,
+          "start_column": 8,
+          "start_line": 2
+        }
+      }
+    ],
+    "kind": "calls_route",
+    "provenance": "inferred",
+    "source": "client_call:client/calls.ts#calls.GET%20%22%2Fz%2Fb%22",
+    "target": "route:web/app.js#GET%20%2Fz%2Fb",
+    "type": "edge"
+  },
+  {
+    "attributes": {
+      "base": "none",
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "candidate_count": 0,
+          "candidates": [
+            "route:server/main.go#GET%20%2Fgb%2Fitems%2Fall"
+          ],
+          "conditional": false,
+          "match": "exact",
+          "origin": null,
+          "resolution": "literal",
+          "status": "linked",
+          "template": "/direct/gb/items/all"
+        }
+      ],
+      "status": "linked",
+      "url_expression": "\"/direct/gb/items/all\"",
+      "wrapper": null
+    },
+    "content_hash": "sha256:ff1aeb1e2a123a13671380d866045e646e549ceefc4cef526a43cf1098ee6019",
+    "file": "client/calls.ts",
+    "identity": "client_call:client/calls.ts#calls.GET%20%22%2Fdirect%2Fgb%2Fitems%2Fall%22",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET \"/direct/gb/items/all\"",
+    "qualified_name": "calls.GET \"/direct/gb/items/all\"",
+    "span": {
+      "end_column": 37,
+      "end_line": 10,
+      "start_column": 8,
+      "start_line": 10
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "assumes": [
+        "GR-V5"
+      ],
+      "base": "none",
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "assumes": [
+            "GR-V5"
+          ],
+          "candidate_count": 0,
+          "candidates": [
+            "route:server/main.go#GET%20%2Fgb%2Fitems%2Fall"
+          ],
+          "conditional": false,
+          "match": "exact",
+          "origin": null,
+          "resolution": "literal",
+          "status": "linked",
+          "template": "/gb/items/all"
+        }
+      ],
+      "status": "linked",
+      "url_expression": "\"/gb/items/all\"",
+      "wrapper": null
+    },
+    "content_hash": "sha256:f876f2bcc170e6ef3b6e4e9ac38fd39ad33a5ed9a32cb5f5e7442ec3cdec773d",
+    "file": "client/calls.ts",
+    "identity": "client_call:client/calls.ts#calls.GET%20%22%2Fgb%2Fitems%2Fall%22",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET \"/gb/items/all\"",
+    "qualified_name": "calls.GET \"/gb/items/all\"",
+    "span": {
+      "end_column": 30,
+      "end_line": 9,
+      "start_column": 8,
+      "start_line": 9
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "assumes": [
+        "GR-V5"
+      ],
+      "base": "none",
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "assumes": [
+            "GR-V5"
+          ],
+          "candidate_count": 0,
+          "candidates": [
+            "route:server/main.go#GET%20%2Fgw%2Fitems%2Fall"
+          ],
+          "conditional": false,
+          "match": "exact",
+          "origin": null,
+          "resolution": "literal",
+          "status": "linked",
+          "template": "/gw/items/all"
+        }
+      ],
+      "status": "linked",
+      "url_expression": "\"/gw/items/all\"",
+      "wrapper": null
+    },
+    "content_hash": "sha256:7b83bbb5d50d517f22609b8bcac1df232e7704e2f1a552be36b5e5d33d3ddad8",
+    "file": "client/calls.ts",
+    "identity": "client_call:client/calls.ts#calls.GET%20%22%2Fgw%2Fitems%2Fall%22",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET \"/gw/items/all\"",
+    "qualified_name": "calls.GET \"/gw/items/all\"",
+    "span": {
+      "end_column": 30,
+      "end_line": 7,
+      "start_column": 8,
+      "start_line": 7
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "assumes": [
+        "RO-V1"
+      ],
+      "base": "none",
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "assumes": [
+            "RO-V1"
+          ],
+          "candidate_count": 0,
+          "candidates": [
+            "route:api/main.py#GET%20%2Fhealth%2Flive"
+          ],
+          "conditional": false,
+          "match": "exact",
+          "origin": null,
+          "resolution": "literal",
+          "status": "linked",
+          "template": "/health/live"
+        }
+      ],
+      "status": "linked",
+      "url_expression": "\"/health/live\"",
+      "wrapper": null
+    },
+    "content_hash": "sha256:5125c1a8ba35bc47ae7020d5fbc37c458d256e5b2adaa86bb9cf0bf99a827596",
+    "file": "client/calls.ts",
+    "identity": "client_call:client/calls.ts#calls.GET%20%22%2Fhealth%2Flive%22",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET \"/health/live\"",
+    "qualified_name": "calls.GET \"/health/live\"",
+    "span": {
+      "end_column": 29,
+      "end_line": 6,
+      "start_column": 8,
+      "start_line": 6
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "base": "none",
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "candidate_count": 0,
+          "candidates": [
+            "route:web/app.js#GET%20%2Fplain%2Fone"
+          ],
+          "conditional": false,
+          "match": "exact",
+          "origin": null,
+          "resolution": "literal",
+          "status": "linked",
+          "template": "/plain/one"
+        }
+      ],
+      "status": "linked",
+      "url_expression": "\"/plain/one\"",
+      "wrapper": null
+    },
+    "content_hash": "sha256:004767b64b52d6f4427027626d9d473260e3c23ae898ff9fdeb4b88c6f229a41",
+    "file": "client/calls.ts",
+    "identity": "client_call:client/calls.ts#calls.GET%20%22%2Fplain%2Fone%22",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET \"/plain/one\"",
+    "qualified_name": "calls.GET \"/plain/one\"",
+    "span": {
+      "end_column": 27,
+      "end_line": 5,
+      "start_column": 8,
+      "start_line": 5
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "assumes": [
+        "UP-V1",
+        "GR-V5"
+      ],
+      "base": "none",
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "assumes": [
+            "UP-V1",
+            "GR-V5"
+          ],
+          "candidate_count": 0,
+          "candidates": [
+            "route:server/main.go#GET%20%2Fgp%2Forders%2Flist"
+          ],
+          "conditional": false,
+          "match": "suffix",
+          "origin": null,
+          "resolution": "literal",
+          "route_prefix": "unresolved",
+          "status": "linked",
+          "template": "/v1/gp/orders/list"
+        }
+      ],
+      "status": "linked",
+      "url_expression": "\"/v1/gp/orders/list\"",
+      "wrapper": null
+    },
+    "content_hash": "sha256:e363e179d20603f4e0a0b2fbcfe0895b058853e3819fd04763893e2e129906c1",
+    "file": "client/calls.ts",
+    "identity": "client_call:client/calls.ts#calls.GET%20%22%2Fv1%2Fgp%2Forders%2Flist%22",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET \"/v1/gp/orders/list\"",
+    "qualified_name": "calls.GET \"/v1/gp/orders/list\"",
+    "span": {
+      "end_column": 35,
+      "end_line": 8,
+      "start_column": 8,
+      "start_line": 8
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "assumes": [
+        "RO-V2"
+      ],
+      "base": "none",
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "assumes": [
+            "RO-V2"
+          ],
+          "candidate_count": 0,
+          "candidates": [
+            "route:web/app.js#GET%20%2Fc"
+          ],
+          "conditional": false,
+          "match": "exact",
+          "origin": null,
+          "resolution": "literal",
+          "status": "linked",
+          "template": "/w/c"
+        }
+      ],
+      "status": "linked",
+      "url_expression": "\"/w/c\"",
+      "wrapper": null
+    },
+    "content_hash": "sha256:d9d4a5d202a65acebb2daa13e48b8a7bf95c9f648cfde4929720da253085d243",
+    "file": "client/calls.ts",
+    "identity": "client_call:client/calls.ts#calls.GET%20%22%2Fw%2Fc%22",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET \"/w/c\"",
+    "qualified_name": "calls.GET \"/w/c\"",
+    "span": {
+      "end_column": 21,
+      "end_line": 4,
+      "start_column": 8,
+      "start_line": 4
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "assumes": [
+        "RO-V2"
+      ],
+      "base": "none",
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "assumes": [
+            "RO-V2"
+          ],
+          "candidate_count": 0,
+          "candidates": [
+            "route:web/app.js#GET%20%2Fc"
+          ],
+          "conditional": false,
+          "match": "exact",
+          "origin": null,
+          "resolution": "literal",
+          "status": "linked",
+          "template": "/y/c"
+        }
+      ],
+      "status": "linked",
+      "url_expression": "\"/y/c\"",
+      "wrapper": null
+    },
+    "content_hash": "sha256:1291f7fe34a3c082b91229215a6e4d0d32893b5afef5c57ff07d0235b7248674",
+    "file": "client/calls.ts",
+    "identity": "client_call:client/calls.ts#calls.GET%20%22%2Fy%2Fc%22",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET \"/y/c\"",
+    "qualified_name": "calls.GET \"/y/c\"",
+    "span": {
+      "end_column": 21,
+      "end_line": 3,
+      "start_column": 8,
+      "start_line": 3
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "assumes": [
+        "RO-V2"
+      ],
+      "base": "none",
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "assumes": [
+            "RO-V2"
+          ],
+          "candidate_count": 0,
+          "candidates": [
+            "route:web/app.js#GET%20%2Fz%2Fb"
+          ],
+          "conditional": false,
+          "match": "exact",
+          "origin": null,
+          "resolution": "literal",
+          "status": "linked",
+          "template": "/z/b"
+        }
+      ],
+      "status": "linked",
+      "url_expression": "\"/z/b\"",
+      "wrapper": null
+    },
+    "content_hash": "sha256:d3904b5d3d9c6c4be9ee7cd65c3542cbfc76810f694642a20f43d2afab57dfe3",
+    "file": "client/calls.ts",
+    "identity": "client_call:client/calls.ts#calls.GET%20%22%2Fz%2Fb%22",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET \"/z/b\"",
+    "qualified_name": "calls.GET \"/z/b\"",
+    "span": {
+      "end_column": 21,
+      "end_line": 2,
+      "start_column": 8,
+      "start_line": 2
+    },
+    "type": "node"
+  }
+]

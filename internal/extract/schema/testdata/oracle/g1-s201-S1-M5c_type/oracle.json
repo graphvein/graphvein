@@ -1,0 +1,34 @@
+{
+  "id": "g1-s201-S1-M5c_type",
+  "signature": "applied|S1|42804|M5c.type",
+  "class": "S1",
+  "owner": "P5",
+  "row": "M5c.type",
+  "history": {
+    "id": "g1-s201",
+    "tags": {
+      "1_m1.sql": [
+        "M1.create",
+        "M5c.type"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42804",
+        "message": "column \"c1\" cannot be cast automatically to type integer",
+        "statement": 2,
+        "statement_text": "ALTER TABLE t1 ALTER COLUMN c1 TYPE int;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

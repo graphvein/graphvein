@@ -1,0 +1,79 @@
+{
+  "id": "review21-a1-merge1",
+  "signature": "agreed at Revision 2.1",
+  "class": "S1",
+  "owner": "E8",
+  "row": "review21",
+  "history": {
+    "id": "merge1",
+    "fresh_db": true
+  },
+  "verdict": {
+    "default_schema": "public",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "accepted"
+      },
+      {
+        "file": "2_m2.sql",
+        "status": "accepted"
+      },
+      {
+        "file": "3_m3.sql",
+        "status": "accepted"
+      }
+    ],
+    "tables": [
+      {
+        "table": "public.s",
+        "columns": [
+          {
+            "name": "id",
+            "type": "integer",
+            "not_null": false,
+            "has_default": false
+          },
+          {
+            "name": "v",
+            "type": "integer",
+            "not_null": false,
+            "has_default": false
+          }
+        ],
+        "primary_key": null,
+        "unique_keys": [],
+        "foreign_keys": [],
+        "indexes": []
+      },
+      {
+        "table": "public.t",
+        "columns": [
+          {
+            "name": "id",
+            "type": "integer",
+            "not_null": true,
+            "has_default": false
+          },
+          {
+            "name": "v",
+            "type": "integer",
+            "not_null": true,
+            "has_default": false
+          }
+        ],
+        "primary_key": [
+          "id"
+        ],
+        "unique_keys": [],
+        "foreign_keys": [],
+        "indexes": []
+      }
+    ],
+    "prelude_tables": [
+      "public._sqlx_migrations"
+    ]
+  },
+  "disagreements": null,
+  "gate": "strict"
+}

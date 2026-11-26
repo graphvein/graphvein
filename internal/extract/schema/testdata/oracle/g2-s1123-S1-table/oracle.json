@@ -1,0 +1,48 @@
+{
+  "id": "g2-s1123-S1-table",
+  "signature": "table",
+  "class": "S1",
+  "owner": "P3",
+  "row": "",
+  "history": {
+    "id": "g2-s1123",
+    "tags": {
+      "1_m1.sql": [
+        "M1.create",
+        "M1.if_not_exists_p3"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "accepted"
+      }
+    ],
+    "tables": [
+      {
+        "table": "history.t1",
+        "columns": [
+          {
+            "name": "id",
+            "type": "text",
+            "not_null": true,
+            "has_default": false
+          }
+        ],
+        "primary_key": [
+          "id"
+        ],
+        "unique_keys": [],
+        "foreign_keys": [],
+        "indexes": []
+      }
+    ],
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

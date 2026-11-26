@@ -1,0 +1,2 @@
+CREATE TYPE e AS ENUM ('a');
+CREATE TABLE t OF e;

@@ -1,0 +1,35 @@
+{
+  "id": "g1-s3211-S1-N1_grant",
+  "signature": "applied|S1|42P01|N1.grant",
+  "class": "S1",
+  "owner": "P1",
+  "row": "N1.grant",
+  "history": {
+    "id": "g1-s3211",
+    "tags": {
+      "1_m1.sql": [
+        "M1.create",
+        "M6.drop",
+        "N1.grant"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42P01",
+        "message": "relation \"t1\" does not exist",
+        "statement": 3,
+        "statement_text": "GRANT SELECT ON t1 TO gv_oracle_role;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

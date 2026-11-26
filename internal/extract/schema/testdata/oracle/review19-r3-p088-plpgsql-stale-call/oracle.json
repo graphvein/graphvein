@@ -1,0 +1,29 @@
+{
+  "id": "review19-r3-p088-plpgsql-stale-call",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y50",
+  "row": "review19",
+  "history": {
+    "id": "p088-plpgsql-stale-call"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42703",
+        "message": "column \"a\" does not exist",
+        "where": "PL/pgSQL function f() line 1 at RETURN",
+        "statement": 4,
+        "statement_text": "SELECT f();"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

@@ -1,0 +1,1378 @@
+{
+  "1-callers-of-backend-route": {
+    "blind_spot_data": false,
+    "bounds": [
+      {
+        "beyond": 1,
+        "cap": "depth",
+        "step": 3
+      }
+    ],
+    "candidates": [],
+    "caps": [
+      "depth"
+    ],
+    "command": "callers",
+    "ends": [],
+    "link_pass": {
+      "links": 3,
+      "pass": 1,
+      "stale_reasons": [],
+      "stored": true
+    },
+    "members": [
+      {
+        "changed_files": [],
+        "checkout": true,
+        "indexed": true,
+        "repository": "frontend"
+      },
+      {
+        "changed_files": [],
+        "checkout": true,
+        "indexed": true,
+        "repository": "backend"
+      }
+    ],
+    "possible_callers": [],
+    "possibly_missing_call_sites": [],
+    "possibly_missing_callers": 0,
+    "project": "users",
+    "results": [
+      {
+        "assumptions": [
+          "matched across project repositories; base URL not proven"
+        ],
+        "confidence": 0.9,
+        "distance": 1,
+        "node": {
+          "attributes": {
+            "base": "unresolved",
+            "base_expression": "import.meta.env.VITE_API",
+            "library": "fetch",
+            "method": "GET",
+            "paths": [
+              {
+                "candidate_count": 0,
+                "candidates": [],
+                "conditional": false,
+                "match": null,
+                "origin": null,
+                "resolution": "literal",
+                "status": "unmatched",
+                "template": "/t022b7/users"
+              }
+            ],
+            "status": "unmatched",
+            "url_expression": "`${import.meta.env.VITE_API}/t022b7/users`",
+            "wrapper": null
+          },
+          "content_hash": "sha256:8889ef584333b1f2e159ca6693dfbb9b1287ce616da7917fe5495e4f0c99afe9",
+          "file": "src/api.ts",
+          "ide": {
+            "column": 10,
+            "exact": true,
+            "line": 4,
+            "link": "vscode://file/{ROOT}/frontend/src/api.ts:4:10"
+          },
+          "identity": "client_call:src/api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+          "kind": "client_call",
+          "level": 4,
+          "name": "GET `${import.meta.env.VITE_API}/t022b7/users`",
+          "qualified_name": "listUsers.GET `${import.meta.env.VITE_API}/t022b7/users`",
+          "repository": "frontend",
+          "span": {
+            "end_column": 58,
+            "end_line": 4,
+            "start_column": 9,
+            "start_line": 4
+          },
+          "type": "node"
+        },
+        "path": [
+          {
+            "assumption": "matched across project repositories; base URL not proven",
+            "confidence": 0.9,
+            "evidence": [
+              {
+                "file": "src/api.ts",
+                "span": {
+                  "end_column": 58,
+                  "end_line": 4,
+                  "start_column": 9,
+                  "start_line": 4
+                }
+              }
+            ],
+            "kind": "calls_route",
+            "project_link": true,
+            "provenance": "inferred",
+            "source": "client_call:src/api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+            "source_repository": "frontend",
+            "target": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+            "target_repository": "backend",
+            "type": ""
+          }
+        ],
+        "provenance": "inferred"
+      },
+      {
+        "assumptions": [
+          "matched across project repositories; base URL not proven"
+        ],
+        "confidence": 0.9,
+        "distance": 2,
+        "node": {
+          "attributes": {
+            "exported": true
+          },
+          "content_hash": "sha256:03000668476ba276d681cd933e9b938fc04b5c2163a3cf08d470ad985a41b34e",
+          "file": "src/api.ts",
+          "ide": {
+            "column": 1,
+            "exact": true,
+            "line": 3,
+            "link": "vscode://file/{ROOT}/frontend/src/api.ts:3:1"
+          },
+          "identity": "function:src/api.ts#listUsers",
+          "kind": "function",
+          "level": 4,
+          "name": "listUsers",
+          "qualified_name": "listUsers",
+          "repository": "frontend",
+          "span": {
+            "end_column": 1,
+            "end_line": 5,
+            "start_column": 0,
+            "start_line": 3
+          },
+          "type": "node"
+        },
+        "path": [
+          {
+            "assumption": "matched across project repositories; base URL not proven",
+            "confidence": 0.9,
+            "evidence": [
+              {
+                "file": "src/api.ts",
+                "span": {
+                  "end_column": 58,
+                  "end_line": 4,
+                  "start_column": 9,
+                  "start_line": 4
+                }
+              }
+            ],
+            "kind": "calls_route",
+            "project_link": true,
+            "provenance": "inferred",
+            "source": "client_call:src/api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+            "source_repository": "frontend",
+            "target": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+            "target_repository": "backend",
+            "type": ""
+          },
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "src/api.ts",
+                "span": {
+                  "end_column": 58,
+                  "end_line": 4,
+                  "start_column": 9,
+                  "start_line": 4
+                }
+              }
+            ],
+            "kind": "contains",
+            "provenance": "fact",
+            "source": "function:src/api.ts#listUsers",
+            "source_repository": "frontend",
+            "target": "client_call:src/api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+            "target_repository": "frontend",
+            "type": "edge"
+          }
+        ],
+        "provenance": "inferred"
+      }
+    ],
+    "target": {
+      "attributes": {
+        "framework": "express",
+        "handler": "function:src/server.ts#listUsers",
+        "handler_inline": false,
+        "method": "GET",
+        "middleware": [],
+        "paths": [
+          {
+            "conditional": false,
+            "resolution": "literal",
+            "template": "/t022b7/users"
+          }
+        ],
+        "pattern": "/t022b7/users",
+        "shape": {
+          "body": {
+            "items": [],
+            "reason": "no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+            "state": "not_read"
+          },
+          "cookie": {
+            "items": [],
+            "reason": "nothing read in the handler or the functions it passes the value to",
+            "state": "not_read"
+          },
+          "follow": {
+            "chains": [
+              {
+                "at": null,
+                "depth": 0,
+                "section": "query",
+                "start": {
+                  "file": "src/server.ts",
+                  "function": "listUsers",
+                  "line": 5
+                },
+                "steps": [],
+                "stop": "ended"
+              },
+              {
+                "at": null,
+                "depth": 0,
+                "section": "header",
+                "start": {
+                  "file": "src/server.ts",
+                  "function": "listUsers",
+                  "line": 5
+                },
+                "steps": [],
+                "stop": "ended"
+              },
+              {
+                "at": null,
+                "depth": 0,
+                "section": "cookie",
+                "start": {
+                  "file": "src/server.ts",
+                  "function": "listUsers",
+                  "line": 5
+                },
+                "steps": [],
+                "stop": "ended"
+              },
+              {
+                "at": null,
+                "depth": 0,
+                "section": "body",
+                "start": {
+                  "file": "src/server.ts",
+                  "function": "listUsers",
+                  "line": 5
+                },
+                "steps": [],
+                "stop": "ended"
+              },
+              {
+                "at": null,
+                "depth": 0,
+                "section": "responses",
+                "start": {
+                  "file": "src/server.ts",
+                  "function": "listUsers",
+                  "line": 5
+                },
+                "steps": [],
+                "stop": "ended"
+              }
+            ],
+            "depth_limit": 6
+          },
+          "header": {
+            "items": [],
+            "reason": "nothing read in the handler or the functions it passes the value to",
+            "state": "not_read"
+          },
+          "models": [],
+          "path": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/server.ts",
+              "kind": "fact",
+              "line": 13,
+              "rule": "SH-E2"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "query": {
+            "items": [],
+            "reason": "nothing read in the handler or the functions it passes the value to",
+            "state": "not_read"
+          },
+          "responses": {
+            "items": [
+              {
+                "content_type": "application/json",
+                "provenance": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "src/server.ts",
+                  "kind": "read_in_handler",
+                  "line": 6,
+                  "rule": "SH-E25"
+                },
+                "schema": null,
+                "status": "200"
+              }
+            ],
+            "reason": "statuses read from code; errors thrown by called functions, error middleware and unread calls may add others",
+            "state": "partial"
+          },
+          "security": {
+            "items": [],
+            "state": "not_read"
+          },
+          "security_schemes": [],
+          "version": 1
+        }
+      },
+      "content_hash": "sha256:089e84383ba9a9de228136f14faeba403c402d6b42483c2899d43d0a324f55e1",
+      "file": "src/server.ts",
+      "ide": {
+        "column": 1,
+        "exact": true,
+        "line": 13,
+        "link": "vscode://file/{ROOT}/backend/src/server.ts:13:1"
+      },
+      "identity": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+      "kind": "route",
+      "level": 4,
+      "name": "GET /t022b7/users",
+      "qualified_name": "GET /t022b7/users",
+      "repository": "backend",
+      "span": {
+        "end_column": 35,
+        "end_line": 13,
+        "start_column": 0,
+        "start_line": 13
+      },
+      "type": "node"
+    },
+    "unknown_calls_in_result_files": 0
+  },
+  "2-impact-of-backend-handler": {
+    "blind_spot_data": true,
+    "bounds": [],
+    "candidates": [],
+    "caps": [],
+    "command": "impact",
+    "ends": [
+      {
+        "node": "function:src/page.ts#UsersPage",
+        "repository": "frontend",
+        "text": "? not modelled: no stored caller, import, reference or route; dependency injection, framework callbacks, JSX renders, passed callbacks and dynamic calls are not followed by impact"
+      }
+    ],
+    "link_pass": {
+      "links": 3,
+      "pass": 1,
+      "stale_reasons": [],
+      "stored": true
+    },
+    "members": [
+      {
+        "changed_files": [],
+        "checkout": true,
+        "indexed": true,
+        "repository": "frontend"
+      },
+      {
+        "changed_files": [],
+        "checkout": true,
+        "indexed": true,
+        "repository": "backend"
+      }
+    ],
+    "possible_callers": [],
+    "possibly_missing_call_sites": [],
+    "possibly_missing_callers": 0,
+    "project": "users",
+    "results": [
+      {
+        "distance": 1,
+        "node": {
+          "attributes": {
+            "framework": "express",
+            "handler": "function:src/server.ts#listUsers",
+            "handler_inline": false,
+            "method": "GET",
+            "middleware": [],
+            "paths": [
+              {
+                "conditional": false,
+                "resolution": "literal",
+                "template": "/t022b7/users"
+              }
+            ],
+            "pattern": "/t022b7/users",
+            "shape": {
+              "body": {
+                "items": [],
+                "reason": "no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+                "state": "not_read"
+              },
+              "cookie": {
+                "items": [],
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "state": "not_read"
+              },
+              "follow": {
+                "chains": [
+                  {
+                    "at": null,
+                    "depth": 0,
+                    "section": "query",
+                    "start": {
+                      "file": "src/server.ts",
+                      "function": "listUsers",
+                      "line": 5
+                    },
+                    "steps": [],
+                    "stop": "ended"
+                  },
+                  {
+                    "at": null,
+                    "depth": 0,
+                    "section": "header",
+                    "start": {
+                      "file": "src/server.ts",
+                      "function": "listUsers",
+                      "line": 5
+                    },
+                    "steps": [],
+                    "stop": "ended"
+                  },
+                  {
+                    "at": null,
+                    "depth": 0,
+                    "section": "cookie",
+                    "start": {
+                      "file": "src/server.ts",
+                      "function": "listUsers",
+                      "line": 5
+                    },
+                    "steps": [],
+                    "stop": "ended"
+                  },
+                  {
+                    "at": null,
+                    "depth": 0,
+                    "section": "body",
+                    "start": {
+                      "file": "src/server.ts",
+                      "function": "listUsers",
+                      "line": 5
+                    },
+                    "steps": [],
+                    "stop": "ended"
+                  },
+                  {
+                    "at": null,
+                    "depth": 0,
+                    "section": "responses",
+                    "start": {
+                      "file": "src/server.ts",
+                      "function": "listUsers",
+                      "line": 5
+                    },
+                    "steps": [],
+                    "stop": "ended"
+                  }
+                ],
+                "depth_limit": 6
+              },
+              "header": {
+                "items": [],
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "state": "not_read"
+              },
+              "models": [],
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "src/server.ts",
+                  "kind": "fact",
+                  "line": 13,
+                  "rule": "SH-E2"
+                },
+                "items": [],
+                "state": "provably_none"
+              },
+              "query": {
+                "items": [],
+                "reason": "nothing read in the handler or the functions it passes the value to",
+                "state": "not_read"
+              },
+              "responses": {
+                "items": [
+                  {
+                    "content_type": "application/json",
+                    "provenance": {
+                      "chain": [],
+                      "confidence": 1,
+                      "file": "src/server.ts",
+                      "kind": "read_in_handler",
+                      "line": 6,
+                      "rule": "SH-E25"
+                    },
+                    "schema": null,
+                    "status": "200"
+                  }
+                ],
+                "reason": "statuses read from code; errors thrown by called functions, error middleware and unread calls may add others",
+                "state": "partial"
+              },
+              "security": {
+                "items": [],
+                "state": "not_read"
+              },
+              "security_schemes": [],
+              "version": 1
+            }
+          },
+          "content_hash": "sha256:089e84383ba9a9de228136f14faeba403c402d6b42483c2899d43d0a324f55e1",
+          "file": "src/server.ts",
+          "ide": {
+            "column": 1,
+            "exact": true,
+            "line": 13,
+            "link": "vscode://file/{ROOT}/backend/src/server.ts:13:1"
+          },
+          "identity": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+          "kind": "route",
+          "level": 4,
+          "name": "GET /t022b7/users",
+          "qualified_name": "GET /t022b7/users",
+          "repository": "backend",
+          "span": {
+            "end_column": 35,
+            "end_line": 13,
+            "start_column": 0,
+            "start_line": 13
+          },
+          "type": "node"
+        },
+        "path": [
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "src/server.ts",
+                "span": {
+                  "end_column": 35,
+                  "end_line": 13,
+                  "start_column": 0,
+                  "start_line": 13
+                }
+              }
+            ],
+            "kind": "exposes_route",
+            "provenance": "fact",
+            "source": "function:src/server.ts#listUsers",
+            "source_repository": "backend",
+            "target": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+            "target_repository": "backend",
+            "type": "edge"
+          }
+        ]
+      },
+      {
+        "assumptions": [
+          "matched across project repositories; base URL not proven"
+        ],
+        "confidence": 0.9,
+        "distance": 2,
+        "node": {
+          "attributes": {
+            "base": "unresolved",
+            "base_expression": "import.meta.env.VITE_API",
+            "library": "fetch",
+            "method": "GET",
+            "paths": [
+              {
+                "candidate_count": 0,
+                "candidates": [],
+                "conditional": false,
+                "match": null,
+                "origin": null,
+                "resolution": "literal",
+                "status": "unmatched",
+                "template": "/t022b7/users"
+              }
+            ],
+            "status": "unmatched",
+            "url_expression": "`${import.meta.env.VITE_API}/t022b7/users`",
+            "wrapper": null
+          },
+          "content_hash": "sha256:8889ef584333b1f2e159ca6693dfbb9b1287ce616da7917fe5495e4f0c99afe9",
+          "file": "src/api.ts",
+          "ide": {
+            "column": 10,
+            "exact": true,
+            "line": 4,
+            "link": "vscode://file/{ROOT}/frontend/src/api.ts:4:10"
+          },
+          "identity": "client_call:src/api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+          "kind": "client_call",
+          "level": 4,
+          "name": "GET `${import.meta.env.VITE_API}/t022b7/users`",
+          "qualified_name": "listUsers.GET `${import.meta.env.VITE_API}/t022b7/users`",
+          "repository": "frontend",
+          "span": {
+            "end_column": 58,
+            "end_line": 4,
+            "start_column": 9,
+            "start_line": 4
+          },
+          "type": "node"
+        },
+        "path": [
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "src/server.ts",
+                "span": {
+                  "end_column": 35,
+                  "end_line": 13,
+                  "start_column": 0,
+                  "start_line": 13
+                }
+              }
+            ],
+            "kind": "exposes_route",
+            "provenance": "fact",
+            "source": "function:src/server.ts#listUsers",
+            "source_repository": "backend",
+            "target": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+            "target_repository": "backend",
+            "type": "edge"
+          },
+          {
+            "assumption": "matched across project repositories; base URL not proven",
+            "confidence": 0.9,
+            "evidence": [
+              {
+                "file": "src/api.ts",
+                "span": {
+                  "end_column": 58,
+                  "end_line": 4,
+                  "start_column": 9,
+                  "start_line": 4
+                }
+              }
+            ],
+            "kind": "calls_route",
+            "project_link": true,
+            "provenance": "inferred",
+            "source": "client_call:src/api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+            "source_repository": "frontend",
+            "target": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+            "target_repository": "backend",
+            "type": ""
+          }
+        ],
+        "provenance": "inferred"
+      },
+      {
+        "assumptions": [
+          "matched across project repositories; base URL not proven"
+        ],
+        "confidence": 0.9,
+        "distance": 3,
+        "node": {
+          "attributes": {
+            "exported": true
+          },
+          "content_hash": "sha256:03000668476ba276d681cd933e9b938fc04b5c2163a3cf08d470ad985a41b34e",
+          "file": "src/api.ts",
+          "ide": {
+            "column": 1,
+            "exact": true,
+            "line": 3,
+            "link": "vscode://file/{ROOT}/frontend/src/api.ts:3:1"
+          },
+          "identity": "function:src/api.ts#listUsers",
+          "kind": "function",
+          "level": 4,
+          "name": "listUsers",
+          "qualified_name": "listUsers",
+          "repository": "frontend",
+          "span": {
+            "end_column": 1,
+            "end_line": 5,
+            "start_column": 0,
+            "start_line": 3
+          },
+          "type": "node"
+        },
+        "path": [
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "src/server.ts",
+                "span": {
+                  "end_column": 35,
+                  "end_line": 13,
+                  "start_column": 0,
+                  "start_line": 13
+                }
+              }
+            ],
+            "kind": "exposes_route",
+            "provenance": "fact",
+            "source": "function:src/server.ts#listUsers",
+            "source_repository": "backend",
+            "target": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+            "target_repository": "backend",
+            "type": "edge"
+          },
+          {
+            "assumption": "matched across project repositories; base URL not proven",
+            "confidence": 0.9,
+            "evidence": [
+              {
+                "file": "src/api.ts",
+                "span": {
+                  "end_column": 58,
+                  "end_line": 4,
+                  "start_column": 9,
+                  "start_line": 4
+                }
+              }
+            ],
+            "kind": "calls_route",
+            "project_link": true,
+            "provenance": "inferred",
+            "source": "client_call:src/api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+            "source_repository": "frontend",
+            "target": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+            "target_repository": "backend",
+            "type": ""
+          },
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "src/api.ts",
+                "span": {
+                  "end_column": 58,
+                  "end_line": 4,
+                  "start_column": 9,
+                  "start_line": 4
+                }
+              }
+            ],
+            "kind": "contains",
+            "provenance": "fact",
+            "source": "function:src/api.ts#listUsers",
+            "source_repository": "frontend",
+            "target": "client_call:src/api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+            "target_repository": "frontend",
+            "type": "edge"
+          }
+        ],
+        "provenance": "inferred"
+      },
+      {
+        "assumptions": [
+          "matched across project repositories; base URL not proven"
+        ],
+        "confidence": 0.9,
+        "distance": 4,
+        "node": {
+          "attributes": {
+            "exported": true
+          },
+          "content_hash": "sha256:ab4a5dae32588aa8497c3c6b9ea99c5e72621fbfd83d1dcc800c0e68cd0c1528",
+          "file": "src/page.ts",
+          "ide": {
+            "column": 1,
+            "exact": true,
+            "line": 4,
+            "link": "vscode://file/{ROOT}/frontend/src/page.ts:4:1"
+          },
+          "identity": "function:src/page.ts#UsersPage",
+          "kind": "function",
+          "level": 4,
+          "name": "UsersPage",
+          "qualified_name": "UsersPage",
+          "repository": "frontend",
+          "span": {
+            "end_column": 1,
+            "end_line": 6,
+            "start_column": 0,
+            "start_line": 4
+          },
+          "type": "node"
+        },
+        "path": [
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "src/server.ts",
+                "span": {
+                  "end_column": 35,
+                  "end_line": 13,
+                  "start_column": 0,
+                  "start_line": 13
+                }
+              }
+            ],
+            "kind": "exposes_route",
+            "provenance": "fact",
+            "source": "function:src/server.ts#listUsers",
+            "source_repository": "backend",
+            "target": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+            "target_repository": "backend",
+            "type": "edge"
+          },
+          {
+            "assumption": "matched across project repositories; base URL not proven",
+            "confidence": 0.9,
+            "evidence": [
+              {
+                "file": "src/api.ts",
+                "span": {
+                  "end_column": 58,
+                  "end_line": 4,
+                  "start_column": 9,
+                  "start_line": 4
+                }
+              }
+            ],
+            "kind": "calls_route",
+            "project_link": true,
+            "provenance": "inferred",
+            "source": "client_call:src/api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+            "source_repository": "frontend",
+            "target": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+            "target_repository": "backend",
+            "type": ""
+          },
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "src/api.ts",
+                "span": {
+                  "end_column": 58,
+                  "end_line": 4,
+                  "start_column": 9,
+                  "start_line": 4
+                }
+              }
+            ],
+            "kind": "contains",
+            "provenance": "fact",
+            "source": "function:src/api.ts#listUsers",
+            "source_repository": "frontend",
+            "target": "client_call:src/api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+            "target_repository": "frontend",
+            "type": "edge"
+          },
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "src/page.ts",
+                "span": {
+                  "end_column": 20,
+                  "end_line": 5,
+                  "start_column": 9,
+                  "start_line": 5
+                }
+              }
+            ],
+            "kind": "calls",
+            "provenance": "fact",
+            "source": "function:src/page.ts#UsersPage",
+            "source_repository": "frontend",
+            "target": "function:src/api.ts#listUsers",
+            "target_repository": "frontend",
+            "type": "edge"
+          }
+        ],
+        "provenance": "inferred"
+      }
+    ],
+    "target": {
+      "attributes": {
+        "table_access": [
+          {
+            "assumes": [
+              "TA-V3b"
+            ],
+            "kind": "reads_table",
+            "operations": [
+              "select"
+            ],
+            "role": "executes",
+            "rows": [
+              "CT-Z1"
+            ],
+            "target": "table:src/db/schema.ts#users",
+            "tool": "drizzle",
+            "verification": "oracle"
+          }
+        ]
+      },
+      "content_hash": "sha256:baba0c3509b34ed020f46bf5e4f0711e212790c4d4f3c9f4eb2a7a8ab84265c5",
+      "file": "src/server.ts",
+      "ide": {
+        "column": 1,
+        "exact": true,
+        "line": 5,
+        "link": "vscode://file/{ROOT}/backend/src/server.ts:5:1"
+      },
+      "identity": "function:src/server.ts#listUsers",
+      "kind": "function",
+      "level": 4,
+      "name": "listUsers",
+      "qualified_name": "listUsers",
+      "repository": "backend",
+      "span": {
+        "end_column": 1,
+        "end_line": 7,
+        "start_column": 0,
+        "start_line": 5
+      },
+      "type": "node"
+    },
+    "unknown_calls_in_result_files": 6
+  },
+  "3-ambiguous-term": {
+    "blind_spot_data": false,
+    "bounds": [],
+    "candidates": [
+      {
+        "identity": "function:src/api.ts#listUsers",
+        "repository": "frontend"
+      },
+      {
+        "identity": "function:src/server.ts#listUsers",
+        "repository": "backend"
+      }
+    ],
+    "caps": [],
+    "command": "callers",
+    "ends": [],
+    "error": "ambiguous target",
+    "link_pass": {
+      "links": 3,
+      "pass": 1,
+      "stale_reasons": [],
+      "stored": true
+    },
+    "members": [
+      {
+        "changed_files": [],
+        "checkout": true,
+        "indexed": true,
+        "repository": "frontend"
+      },
+      {
+        "changed_files": [],
+        "checkout": true,
+        "indexed": true,
+        "repository": "backend"
+      }
+    ],
+    "possible_callers": [],
+    "possibly_missing_call_sites": [],
+    "possibly_missing_callers": 0,
+    "project": "users",
+    "results": [],
+    "unknown_calls_in_result_files": 0
+  },
+  "4-callers-stale-links": {
+    "blind_spot_data": false,
+    "bounds": [
+      {
+        "beyond": 1,
+        "cap": "depth",
+        "step": 3
+      }
+    ],
+    "candidates": [],
+    "caps": [
+      "depth"
+    ],
+    "command": "callers",
+    "ends": [],
+    "link_pass": {
+      "links": 3,
+      "pass": 1,
+      "stale_reasons": [
+        "frontend indexed again"
+      ],
+      "stored": true
+    },
+    "members": [
+      {
+        "changed_files": [],
+        "checkout": true,
+        "indexed": true,
+        "repository": "frontend"
+      },
+      {
+        "changed_files": [],
+        "checkout": true,
+        "indexed": true,
+        "repository": "backend"
+      }
+    ],
+    "possible_callers": [],
+    "possibly_missing_call_sites": [],
+    "possibly_missing_callers": 0,
+    "project": "users",
+    "results": [
+      {
+        "assumptions": [
+          "matched across project repositories; base URL not proven"
+        ],
+        "confidence": 0.9,
+        "distance": 1,
+        "node": {
+          "attributes": {
+            "base": "unresolved",
+            "base_expression": "import.meta.env.VITE_API",
+            "library": "fetch",
+            "method": "GET",
+            "paths": [
+              {
+                "candidate_count": 0,
+                "candidates": [],
+                "conditional": false,
+                "match": null,
+                "origin": null,
+                "resolution": "literal",
+                "status": "unmatched",
+                "template": "/t022b7/users"
+              }
+            ],
+            "status": "unmatched",
+            "url_expression": "`${import.meta.env.VITE_API}/t022b7/users`",
+            "wrapper": null
+          },
+          "content_hash": "sha256:8889ef584333b1f2e159ca6693dfbb9b1287ce616da7917fe5495e4f0c99afe9",
+          "file": "src/api.ts",
+          "ide": {
+            "column": 10,
+            "exact": true,
+            "line": 4,
+            "link": "vscode://file/{ROOT}/frontend/src/api.ts:4:10"
+          },
+          "identity": "client_call:src/api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+          "kind": "client_call",
+          "level": 4,
+          "name": "GET `${import.meta.env.VITE_API}/t022b7/users`",
+          "qualified_name": "listUsers.GET `${import.meta.env.VITE_API}/t022b7/users`",
+          "repository": "frontend",
+          "span": {
+            "end_column": 58,
+            "end_line": 4,
+            "start_column": 9,
+            "start_line": 4
+          },
+          "type": "node"
+        },
+        "path": [
+          {
+            "assumption": "matched across project repositories; base URL not proven",
+            "confidence": 0.9,
+            "evidence": [
+              {
+                "file": "src/api.ts",
+                "span": {
+                  "end_column": 58,
+                  "end_line": 4,
+                  "start_column": 9,
+                  "start_line": 4
+                }
+              }
+            ],
+            "kind": "calls_route",
+            "project_link": true,
+            "provenance": "inferred",
+            "source": "client_call:src/api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+            "source_repository": "frontend",
+            "stale": true,
+            "stale_reasons": [
+              "frontend indexed again since the pass"
+            ],
+            "target": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+            "target_repository": "backend",
+            "type": ""
+          }
+        ],
+        "provenance": "inferred",
+        "stale": true
+      },
+      {
+        "assumptions": [
+          "matched across project repositories; base URL not proven"
+        ],
+        "confidence": 0.9,
+        "distance": 2,
+        "node": {
+          "attributes": {
+            "exported": true
+          },
+          "content_hash": "sha256:03000668476ba276d681cd933e9b938fc04b5c2163a3cf08d470ad985a41b34e",
+          "file": "src/api.ts",
+          "ide": {
+            "column": 1,
+            "exact": true,
+            "line": 3,
+            "link": "vscode://file/{ROOT}/frontend/src/api.ts:3:1"
+          },
+          "identity": "function:src/api.ts#listUsers",
+          "kind": "function",
+          "level": 4,
+          "name": "listUsers",
+          "qualified_name": "listUsers",
+          "repository": "frontend",
+          "span": {
+            "end_column": 1,
+            "end_line": 5,
+            "start_column": 0,
+            "start_line": 3
+          },
+          "type": "node"
+        },
+        "path": [
+          {
+            "assumption": "matched across project repositories; base URL not proven",
+            "confidence": 0.9,
+            "evidence": [
+              {
+                "file": "src/api.ts",
+                "span": {
+                  "end_column": 58,
+                  "end_line": 4,
+                  "start_column": 9,
+                  "start_line": 4
+                }
+              }
+            ],
+            "kind": "calls_route",
+            "project_link": true,
+            "provenance": "inferred",
+            "source": "client_call:src/api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+            "source_repository": "frontend",
+            "stale": true,
+            "stale_reasons": [
+              "frontend indexed again since the pass"
+            ],
+            "target": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+            "target_repository": "backend",
+            "type": ""
+          },
+          {
+            "confidence": 1,
+            "evidence": [
+              {
+                "file": "src/api.ts",
+                "span": {
+                  "end_column": 58,
+                  "end_line": 4,
+                  "start_column": 9,
+                  "start_line": 4
+                }
+              }
+            ],
+            "kind": "contains",
+            "provenance": "fact",
+            "source": "function:src/api.ts#listUsers",
+            "source_repository": "frontend",
+            "target": "client_call:src/api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+            "target_repository": "frontend",
+            "type": "edge"
+          }
+        ],
+        "provenance": "inferred",
+        "stale": true
+      }
+    ],
+    "target": {
+      "attributes": {
+        "framework": "express",
+        "handler": "function:src/server.ts#listUsers",
+        "handler_inline": false,
+        "method": "GET",
+        "middleware": [],
+        "paths": [
+          {
+            "conditional": false,
+            "resolution": "literal",
+            "template": "/t022b7/users"
+          }
+        ],
+        "pattern": "/t022b7/users",
+        "shape": {
+          "body": {
+            "items": [],
+            "reason": "no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+            "state": "not_read"
+          },
+          "cookie": {
+            "items": [],
+            "reason": "nothing read in the handler or the functions it passes the value to",
+            "state": "not_read"
+          },
+          "follow": {
+            "chains": [
+              {
+                "at": null,
+                "depth": 0,
+                "section": "query",
+                "start": {
+                  "file": "src/server.ts",
+                  "function": "listUsers",
+                  "line": 5
+                },
+                "steps": [],
+                "stop": "ended"
+              },
+              {
+                "at": null,
+                "depth": 0,
+                "section": "header",
+                "start": {
+                  "file": "src/server.ts",
+                  "function": "listUsers",
+                  "line": 5
+                },
+                "steps": [],
+                "stop": "ended"
+              },
+              {
+                "at": null,
+                "depth": 0,
+                "section": "cookie",
+                "start": {
+                  "file": "src/server.ts",
+                  "function": "listUsers",
+                  "line": 5
+                },
+                "steps": [],
+                "stop": "ended"
+              },
+              {
+                "at": null,
+                "depth": 0,
+                "section": "body",
+                "start": {
+                  "file": "src/server.ts",
+                  "function": "listUsers",
+                  "line": 5
+                },
+                "steps": [],
+                "stop": "ended"
+              },
+              {
+                "at": null,
+                "depth": 0,
+                "section": "responses",
+                "start": {
+                  "file": "src/server.ts",
+                  "function": "listUsers",
+                  "line": 5
+                },
+                "steps": [],
+                "stop": "ended"
+              }
+            ],
+            "depth_limit": 6
+          },
+          "header": {
+            "items": [],
+            "reason": "nothing read in the handler or the functions it passes the value to",
+            "state": "not_read"
+          },
+          "models": [],
+          "path": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "src/server.ts",
+              "kind": "fact",
+              "line": 13,
+              "rule": "SH-E2"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "query": {
+            "items": [],
+            "reason": "nothing read in the handler or the functions it passes the value to",
+            "state": "not_read"
+          },
+          "responses": {
+            "items": [
+              {
+                "content_type": "application/json",
+                "provenance": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "src/server.ts",
+                  "kind": "read_in_handler",
+                  "line": 6,
+                  "rule": "SH-E25"
+                },
+                "schema": null,
+                "status": "200"
+              }
+            ],
+            "reason": "statuses read from code; errors thrown by called functions, error middleware and unread calls may add others",
+            "state": "partial"
+          },
+          "security": {
+            "items": [],
+            "state": "not_read"
+          },
+          "security_schemes": [],
+          "version": 1
+        }
+      },
+      "content_hash": "sha256:089e84383ba9a9de228136f14faeba403c402d6b42483c2899d43d0a324f55e1",
+      "file": "src/server.ts",
+      "ide": {
+        "column": 1,
+        "exact": true,
+        "line": 13,
+        "link": "vscode://file/{ROOT}/backend/src/server.ts:13:1"
+      },
+      "identity": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+      "kind": "route",
+      "level": 4,
+      "name": "GET /t022b7/users",
+      "qualified_name": "GET /t022b7/users",
+      "repository": "backend",
+      "span": {
+        "end_column": 35,
+        "end_line": 13,
+        "start_column": 0,
+        "start_line": 13
+      },
+      "type": "node"
+    },
+    "unknown_calls_in_result_files": 0
+  }
+}

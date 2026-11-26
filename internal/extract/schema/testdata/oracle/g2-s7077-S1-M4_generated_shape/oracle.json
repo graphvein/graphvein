@@ -1,0 +1,33 @@
+{
+  "id": "g2-s7077-S1-M4_generated_shape",
+  "signature": "applied|S1|25001|M4.generated_shape",
+  "class": "S1",
+  "owner": "P6",
+  "row": "M4.generated_shape",
+  "history": {
+    "id": "g2-s7077",
+    "tags": {
+      "1_m1.sql": [
+        "M4.generated_shape"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "25001",
+        "message": "CREATE INDEX CONCURRENTLY cannot run inside a transaction block",
+        "statement": 1,
+        "statement_text": "CREATE INDEX CONCURRENTLY IF NOT EXISTS t2_id_idx ON t2 (id);"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

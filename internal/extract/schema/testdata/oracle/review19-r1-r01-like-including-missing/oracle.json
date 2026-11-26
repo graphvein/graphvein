@@ -1,0 +1,28 @@
+{
+  "id": "review19-r1-r01-like-including-missing",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y28",
+  "row": "review19",
+  "history": {
+    "id": "r01-like-including-missing"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42701",
+        "message": "column \"a\" specified more than once",
+        "statement": 2,
+        "statement_text": "CREATE TABLE u (LIKE t INCLUDING ALL, a int);"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

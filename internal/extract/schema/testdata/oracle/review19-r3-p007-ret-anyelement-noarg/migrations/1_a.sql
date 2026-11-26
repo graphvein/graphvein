@@ -1,0 +1,1 @@
+CREATE FUNCTION f() RETURNS anyelement LANGUAGE plpgsql AS $$ BEGIN RETURN 1; END $$;

@@ -1,0 +1,3 @@
+CREATE TABLE t1 (id int);
+ALTER INDEX t1 RENAME TO ix_2;
+CREATE STATISTICS st3 ON id, nosuch FROM t1;

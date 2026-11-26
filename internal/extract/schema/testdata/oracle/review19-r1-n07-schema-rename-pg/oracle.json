@@ -1,0 +1,30 @@
+{
+  "id": "review19-r1-n07-schema-rename-pg",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y06",
+  "row": "review19",
+  "history": {
+    "id": "n07-schema-rename-pg",
+    "fresh_db": true
+  },
+  "verdict": {
+    "default_schema": "public",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42939",
+        "message": "unacceptable schema name \"pg_x\"",
+        "detail": "The prefix \"pg_\" is reserved for system schemas.",
+        "statement": 2,
+        "statement_text": "ALTER SCHEMA s1 RENAME TO pg_x;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "public._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

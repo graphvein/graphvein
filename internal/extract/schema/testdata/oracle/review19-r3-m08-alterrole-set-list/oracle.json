@@ -1,0 +1,29 @@
+{
+  "id": "review19-r3-m08-alterrole-set-list",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y15",
+  "row": "review19",
+  "history": {
+    "id": "m08-alterrole-set-list"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "22023",
+        "message": "SET work_mem takes only one argument",
+        "statement": 1,
+        "statement_text": "ALTER ROLE CURRENT_USER SET work_mem = 1000, 2000;",
+        "row_free": true
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

@@ -1,0 +1,7 @@
+[workspace]
+members = ["inherit", "locked-old", "unlisted"]
+resolver = "2"
+
+[workspace.dependencies]
+axum = "0.7"
+serde = { version = "1", features = ["derive"] }

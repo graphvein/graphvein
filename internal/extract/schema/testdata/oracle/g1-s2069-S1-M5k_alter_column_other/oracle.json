@@ -1,0 +1,34 @@
+{
+  "id": "g1-s2069-S1-M5k_alter_column_other",
+  "signature": "applied|S1|0A000|M5k.alter_column_other",
+  "class": "S1",
+  "owner": "P4",
+  "row": "M5k.alter_column_other",
+  "history": {
+    "id": "g1-s2069",
+    "tags": {
+      "1_m1.sql": [
+        "M1.create",
+        "M5k.alter_column_other"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "0A000",
+        "message": "column data type bigint does not support compression",
+        "statement": 2,
+        "statement_text": "ALTER TABLE t1 ALTER COLUMN id SET COMPRESSION pglz;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

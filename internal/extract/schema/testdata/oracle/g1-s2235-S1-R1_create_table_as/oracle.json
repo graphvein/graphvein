@@ -1,0 +1,36 @@
+{
+  "id": "g1-s2235-S1-R1_create_table_as",
+  "signature": "applied|S1|42P01|R1.create_table_as",
+  "class": "S1",
+  "owner": "P1",
+  "row": "R1.create_table_as",
+  "history": {
+    "id": "g1-s2235",
+    "tags": {
+      "2_m2.sql": [
+        "M1.create",
+        "M8.rename",
+        "R1.create_table_as"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "2_m2.sql",
+        "status": "refused",
+        "sqlstate": "42P01",
+        "message": "relation \"t5\" does not exist",
+        "statement": 3,
+        "statement_text": "CREATE TABLE t7 AS SELECT * FROM t5;",
+        "no_transaction": true
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

@@ -1,0 +1,58 @@
+{
+  "id": "g3-s117-S1-M5a_order_p9",
+  "signature": "nullable",
+  "class": "S1",
+  "owner": "P9",
+  "row": "M5a.order_p9",
+  "history": {
+    "id": "g3-s117",
+    "prelude": [
+      "CREATE TABLE ext_a (id int PRIMARY KEY, code text UNIQUE)",
+      "CREATE TABLE ext_b (id bigint PRIMARY KEY)"
+    ],
+    "tags": {
+      "1_m1.sql": [
+        "M5a.order_p9",
+        "M5a.order_p9"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "accepted"
+      }
+    ],
+    "tables": [
+      {
+        "table": "history.t1",
+        "columns": [
+          {
+            "name": "c",
+            "type": "integer",
+            "not_null": false,
+            "has_default": true
+          },
+          {
+            "name": "d",
+            "type": "text",
+            "not_null": true,
+            "has_default": false
+          }
+        ],
+        "primary_key": null,
+        "unique_keys": [],
+        "foreign_keys": [],
+        "indexes": []
+      }
+    ],
+    "prelude_tables": [
+      "history.ext_a",
+      "history.ext_b",
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

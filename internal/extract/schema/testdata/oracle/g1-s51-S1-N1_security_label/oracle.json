@@ -1,0 +1,33 @@
+{
+  "id": "g1-s51-S1-N1_security_label",
+  "signature": "applied|S1|22023|N1.security_label",
+  "class": "S1",
+  "owner": "P4",
+  "row": "N1.security_label",
+  "history": {
+    "id": "g1-s51",
+    "tags": {
+      "1_m1.sql": [
+        "N1.security_label"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "22023",
+        "message": "no security label providers have been loaded",
+        "statement": 1,
+        "statement_text": "SECURITY LABEL ON TABLE ext_a IS 'x';"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

@@ -1,0 +1,2 @@
+CREATE TABLE t (a int);
+CREATE SEQUENCE s OWNED BY t.zz;

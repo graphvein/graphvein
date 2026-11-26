@@ -1,0 +1,29 @@
+{
+  "id": "review19-r5-h25-procedure-atomic-same-name-table",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y39",
+  "row": "review19",
+  "history": {
+    "id": "h25-procedure-atomic-same-name-table"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "2BP01",
+        "message": "cannot drop table cleanup because other objects depend on it",
+        "detail": "function cleanup() depends on table cleanup",
+        "statement": 3,
+        "statement_text": "DROP TABLE cleanup;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

@@ -1,0 +1,29 @@
+{
+  "id": "review-p01-ident-text",
+  "signature": "applied|S1|22023|",
+  "class": "S1",
+  "owner": "P4",
+  "row": "review",
+  "history": {
+    "id": "p01-ident-text"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "22023",
+        "message": "identity column type must be smallint, integer, or bigint",
+        "statement": 1,
+        "statement_text": "CREATE TABLE t (id text GENERATED ALWAYS AS IDENTITY, v int);",
+        "row_free": true
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

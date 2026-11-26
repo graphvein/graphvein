@@ -1,0 +1,49 @@
+{
+  "id": "fixture-pg-rev2-columns-S1-index",
+  "signature": "index",
+  "class": "S1",
+  "owner": "P3",
+  "row": "",
+  "history": {
+    "id": "fixture-pg-rev2-columns",
+    "cargo": "[package]\nname = \"pg-rev2-columns\"\nversion = \"0.1.0\"\nedition = \"2021\"\npublish = false\n\n[dependencies]\nsqlx = { version = \"0.8.6\", features = [\"runtime-tokio\", \"postgres\"] }\n",
+    "fresh_db": true,
+    "tags": {
+      "1_columns.sql": [
+        "fixture",
+        "fixture",
+        "fixture"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "public",
+    "outcomes": [
+      {
+        "file": "1_columns.sql",
+        "status": "accepted"
+      }
+    ],
+    "tables": [
+      {
+        "table": "public.ledger",
+        "columns": [
+          {
+            "name": "memo",
+            "type": "text",
+            "not_null": false,
+            "has_default": false
+          }
+        ],
+        "primary_key": null,
+        "unique_keys": [],
+        "foreign_keys": [],
+        "indexes": []
+      }
+    ],
+    "prelude_tables": [
+      "public._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

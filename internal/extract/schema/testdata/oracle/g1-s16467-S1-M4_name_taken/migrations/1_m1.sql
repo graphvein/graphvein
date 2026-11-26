@@ -1,0 +1,3 @@
+CREATE TABLE t1 (id text);
+CREATE INDEX IF NOT EXISTS ix_2 ON ext_a (code);
+CREATE UNIQUE INDEX ix_2 ON t1 (id);

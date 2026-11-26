@@ -1,0 +1,6 @@
+version: 1
+openapi:
+  include: [included.json, explicit.json]
+  exclude: [excluded-openapi.yaml]
+tests:
+  include: [scoped.yaml]

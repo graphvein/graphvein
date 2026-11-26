@@ -1,0 +1,16 @@
+version: 1
+name: shop-selector
+members:
+  - repository: frontend
+    path: frontend
+    consumes:
+      - repository: backend
+        select:
+          bases: [VITE_API]
+      - repository: backend2
+        select:
+          origins: ["https://partner.example.com"]
+  - repository: backend
+    path: backend
+  - repository: backend2
+    path: backend2

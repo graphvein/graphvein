@@ -1,0 +1,3 @@
+CREATE UNLOGGED TABLE t3 (c1 character varying(20), UNIQUE (c1));
+ROLLBACK;
+COMMENT ON INDEX t3_c1_key IS 'i';

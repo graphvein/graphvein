@@ -1,0 +1,3 @@
+package docmix
+
+func M() {}

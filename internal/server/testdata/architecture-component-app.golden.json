@@ -1,0 +1,131 @@
+{
+  "api_version": 0,
+  "calls": [],
+  "commands": [],
+  "component": {
+    "counts": {
+      "client_calls": 0,
+      "files": 5,
+      "ipc_calls": 0,
+      "ipc_commands": 0,
+      "manifests": 2,
+      "routes": 0,
+      "tables": 1,
+      "test_files": 0,
+      "wrapper_calls": 0
+    },
+    "directory": "crates/app",
+    "frameworks": [],
+    "hidden_by": null,
+    "id": "crates/app",
+    "kinds": [
+      "schema_source",
+      "binary"
+    ],
+    "manifests": [
+      {
+        "ecosystem": "cargo",
+        "file": "crates/app/Cargo.toml",
+        "name": "t026-app",
+        "package": "package:crates/app/Cargo.toml#t026-app",
+        "unread": null
+      },
+      {
+        "ecosystem": "npm",
+        "file": "crates/app/package.json",
+        "name": "t026-app-ui",
+        "package": "package:crates/app/package.json#t026-app-ui",
+        "unread": null
+      }
+    ],
+    "markers": [
+      {
+        "file": "crates/app/tauri.conf.json",
+        "kind": "tauri_app",
+        "label": "Tauri app",
+        "row": "CD2"
+      }
+    ],
+    "name": "t026-app, t026-app-ui",
+    "reason": null,
+    "rows": [
+      "CK4",
+      "CK5"
+    ],
+    "state": "read",
+    "visibility": "shown"
+  },
+  "external_packages": [],
+  "files": [
+    {
+      "path": "crates/app/Cargo.toml",
+      "test": false
+    },
+    {
+      "path": "crates/app/migrations/1_init.sql",
+      "test": false
+    },
+    {
+      "path": "crates/app/package.json",
+      "test": false
+    },
+    {
+      "path": "crates/app/src/main.rs",
+      "test": false
+    },
+    {
+      "path": "crates/app/tauri.conf.json",
+      "test": false
+    }
+  ],
+  "index": {
+    "contract_version": 1,
+    "finished_at": "2026-11-03T14:32:05.123Z",
+    "indexer": {
+      "name": "graphvein",
+      "version": "extractors-62"
+    }
+  },
+  "repository": "fixture",
+  "routes": [],
+  "tables": [
+    {
+      "attributes": {
+        "dialect": "postgres",
+        "name": "items",
+        "opaque_after": 0,
+        "previous_names": [],
+        "primary_key": [
+          "id"
+        ],
+        "reasons": [],
+        "schema": null,
+        "set": "crates/app/migrations",
+        "state": "complete",
+        "unique_keys": []
+      },
+      "content_hash": "sha256:41a4749ebe427468c958195bcab1c902b9d28dcea9f2a174cebee1d82e1ac65f",
+      "file": "crates/app/migrations/1_init.sql",
+      "file_state": "unchanged",
+      "ide": {
+        "column": 1,
+        "exact": true,
+        "line": 1,
+        "link": "vscode://file/{ROOT}/crates/app/migrations/1_init.sql:1:1"
+      },
+      "identity": "table:crates/app/migrations/1_init.sql#items",
+      "kind": "table",
+      "level": 4,
+      "name": "items",
+      "qualified_name": "items",
+      "span": {
+        "end_column": 64,
+        "end_line": 1,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    }
+  ],
+  "unlinked": {}
+}

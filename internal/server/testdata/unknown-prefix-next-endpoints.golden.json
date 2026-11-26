@@ -1,0 +1,1609 @@
+{
+  "api_version": 0,
+  "index": {
+    "contract_version": 1,
+    "finished_at": "2026-11-03T14:32:05.123Z",
+    "indexer": {
+      "name": "graphvein",
+      "version": "extractors-62"
+    }
+  },
+  "repository": "next",
+  "root": null,
+  "scope": "all",
+  "transports": [
+    {
+      "callers_precision": {
+        "label": "best_effort",
+        "reason": "default_branch",
+        "row": "D"
+      },
+      "calls": {
+        "by_status": {
+          "ambiguous": 1,
+          "dynamic": 2,
+          "linked": 26,
+          "unmatched": 11,
+          "wrapper": 4
+        },
+        "edges_from_unlinked": 0,
+        "linked_without_edge": 0,
+        "total": 44,
+        "unknown_scope": 0
+      },
+      "endpoint_count": 30,
+      "endpoints": [
+        {
+          "caller_count": 0,
+          "documented": false,
+          "file": "web/pages/api/index.ts",
+          "flags": [],
+          "framework": "nextjs_pages",
+          "id": "route:web/pages/api/index.ts#ANY%20%2Fapi",
+          "line": 3,
+          "method": "ANY",
+          "name": "ANY /api",
+          "path": "/api",
+          "path_count": 1,
+          "pattern": "/api",
+          "scope": null,
+          "shape": {
+            "depth_cap": 0,
+            "depth_limit": 6,
+            "sections": {
+              "body": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "items": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "items": 1,
+                "state": "partial"
+              },
+              "security": {
+                "items": 0,
+                "state": "not_read"
+              }
+            }
+          }
+        },
+        {
+          "caller_count": 0,
+          "documented": false,
+          "file": "web/pages/api/_helper.ts",
+          "flags": [],
+          "framework": "nextjs_pages",
+          "id": "route:web/pages/api/_helper.ts#ANY%20%2Fapi%2F_helper",
+          "line": 3,
+          "method": "ANY",
+          "name": "ANY /api/_helper",
+          "path": "/api/_helper",
+          "path_count": 1,
+          "pattern": "/api/_helper",
+          "scope": null,
+          "shape": {
+            "depth_cap": 0,
+            "depth_limit": 6,
+            "sections": {
+              "body": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "items": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "security": {
+                "items": 0,
+                "state": "not_read"
+              }
+            }
+          }
+        },
+        {
+          "caller_count": 0,
+          "documented": false,
+          "file": "web/app/(shop)/api/cart/[...slug]/route.ts",
+          "flags": [],
+          "framework": "nextjs",
+          "id": "route:web/app/%28shop%29/api/cart/%5B...slug%5D/route.ts#GET%20%2Fapi%2Fcart%2F%7B%2Aslug%7D",
+          "line": 1,
+          "method": "GET",
+          "name": "GET /api/cart/{*slug}",
+          "path": "/api/cart/{*slug}",
+          "path_count": 1,
+          "pattern": "/api/cart/{*slug}",
+          "scope": null,
+          "shape": {
+            "depth_cap": 0,
+            "depth_limit": 6,
+            "sections": {
+              "body": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "items": 1,
+                "state": "complete"
+              },
+              "query": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "items": 1,
+                "state": "partial"
+              },
+              "security": {
+                "items": 0,
+                "state": "not_read"
+              }
+            }
+          }
+        },
+        {
+          "caller_count": 1,
+          "documented": false,
+          "file": "web/app/(shop)/api/cart/[...slug]/route.ts",
+          "flags": [],
+          "framework": "nextjs",
+          "id": "route:web/app/%28shop%29/api/cart/%5B...slug%5D/route.ts#POST%20%2Fapi%2Fcart%2F%7B%2Aslug%7D",
+          "line": 1,
+          "method": "POST",
+          "name": "POST /api/cart/{*slug}",
+          "path": "/api/cart/{*slug}",
+          "path_count": 1,
+          "pattern": "/api/cart/{*slug}",
+          "scope": null,
+          "shape": {
+            "depth_cap": 0,
+            "depth_limit": 6,
+            "sections": {
+              "body": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "items": 1,
+                "state": "complete"
+              },
+              "query": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "items": 1,
+                "state": "partial"
+              },
+              "security": {
+                "items": 0,
+                "state": "not_read"
+              }
+            }
+          }
+        },
+        {
+          "caller_count": 2,
+          "documented": false,
+          "file": "web/app/api/docs/[[...path]]/route.ts",
+          "flags": [
+            "handler_unresolved"
+          ],
+          "framework": "nextjs",
+          "id": "route:web/app/api/docs/%5B%5B...path%5D%5D/route.ts#GET%20%2Fapi%2Fdocs%2F%7B%2Apath%7D",
+          "line": 5,
+          "method": "GET",
+          "name": "GET /api/docs/{*path}",
+          "path": "/api/docs/{*path}",
+          "path_count": 1,
+          "pattern": "/api/docs/{*path}",
+          "scope": null,
+          "shape": {
+            "depth_cap": 0,
+            "depth_limit": 6,
+            "sections": {
+              "body": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "items": 1,
+                "state": "partial"
+              },
+              "query": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "security": {
+                "items": 0,
+                "state": "not_read"
+              }
+            }
+          }
+        },
+        {
+          "caller_count": 1,
+          "documented": false,
+          "file": "legacy/app/api/head/route.ts",
+          "flags": [],
+          "framework": "nextjs",
+          "id": "route:legacy/app/api/head/route.ts#GET%20%2Fapi%2Fhead",
+          "line": 1,
+          "method": "GET",
+          "name": "GET /api/head",
+          "path": "/api/head",
+          "path_count": 1,
+          "pattern": "/api/head",
+          "scope": null,
+          "shape": {
+            "depth_cap": 0,
+            "depth_limit": 6,
+            "sections": {
+              "body": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "items": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "items": 1,
+                "state": "partial"
+              },
+              "security": {
+                "items": 0,
+                "state": "not_read"
+              }
+            }
+          }
+        },
+        {
+          "caller_count": 3,
+          "documented": false,
+          "file": "web/pages/api/health.ts",
+          "flags": [],
+          "framework": "nextjs_pages",
+          "id": "route:web/pages/api/health.ts#ANY%20%2Fapi%2Fhealth",
+          "line": 1,
+          "method": "ANY",
+          "name": "ANY /api/health",
+          "path": "/api/health",
+          "path_count": 1,
+          "pattern": "/api/health",
+          "scope": null,
+          "shape": {
+            "depth_cap": 0,
+            "depth_limit": 6,
+            "sections": {
+              "body": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "items": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "items": 1,
+                "state": "partial"
+              },
+              "security": {
+                "items": 0,
+                "state": "not_read"
+              }
+            }
+          }
+        },
+        {
+          "caller_count": 4,
+          "documented": false,
+          "file": "web/app/api/items/route.ts",
+          "flags": [],
+          "framework": "nextjs",
+          "id": "route:web/app/api/items/route.ts#GET%20%2Fapi%2Fitems",
+          "line": 3,
+          "method": "GET",
+          "name": "GET /api/items",
+          "path": "/api/items",
+          "path_count": 1,
+          "pattern": "/api/items",
+          "scope": null,
+          "shape": {
+            "depth_cap": 0,
+            "depth_limit": 6,
+            "sections": {
+              "body": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "items": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "items": 1,
+                "state": "partial"
+              },
+              "security": {
+                "items": 0,
+                "state": "not_read"
+              }
+            }
+          }
+        },
+        {
+          "caller_count": 0,
+          "documented": false,
+          "file": "web/app/api/items/route.ts",
+          "flags": [],
+          "framework": "nextjs",
+          "id": "route:web/app/api/items/route.ts#POST%20%2Fapi%2Fitems",
+          "line": 7,
+          "method": "POST",
+          "name": "POST /api/items",
+          "path": "/api/items",
+          "path_count": 1,
+          "pattern": "/api/items",
+          "scope": null,
+          "shape": {
+            "depth_cap": 0,
+            "depth_limit": 6,
+            "sections": {
+              "body": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "items": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "items": 1,
+                "state": "partial"
+              },
+              "security": {
+                "items": 0,
+                "state": "not_read"
+              }
+            }
+          }
+        },
+        {
+          "caller_count": 1,
+          "documented": false,
+          "file": "legacy/app/(shop)/api/items/[id]/route.ts",
+          "flags": [],
+          "framework": "nextjs",
+          "id": "route:legacy/app/%28shop%29/api/items/%5Bid%5D/route.ts#GET%20%2Fapi%2Fitems%2F%7Bid%7D",
+          "line": 1,
+          "method": "GET",
+          "name": "GET /api/items/{id}",
+          "path": "/api/items/{id}",
+          "path_count": 1,
+          "pattern": "/api/items/{id}",
+          "scope": null,
+          "shape": {
+            "depth_cap": 0,
+            "depth_limit": 6,
+            "sections": {
+              "body": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "items": 1,
+                "state": "complete"
+              },
+              "query": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "items": 1,
+                "state": "partial"
+              },
+              "security": {
+                "items": 0,
+                "state": "not_read"
+              }
+            }
+          }
+        },
+        {
+          "caller_count": 0,
+          "documented": false,
+          "file": "web/app/api/items/[id]/route.ts",
+          "flags": [],
+          "framework": "nextjs",
+          "id": "route:web/app/api/items/%5Bid%5D/route.ts#PUT%20%2Fapi%2Fitems%2F%7Bid%7D",
+          "line": 9,
+          "method": "PUT",
+          "name": "PUT /api/items/{id}",
+          "path": "/api/items/{id}",
+          "path_count": 1,
+          "pattern": "/api/items/{id}",
+          "scope": null,
+          "shape": {
+            "depth_cap": 0,
+            "depth_limit": 6,
+            "sections": {
+              "body": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "items": 1,
+                "state": "complete"
+              },
+              "query": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "items": 1,
+                "state": "partial"
+              },
+              "security": {
+                "items": 0,
+                "state": "not_read"
+              }
+            }
+          }
+        },
+        {
+          "caller_count": 0,
+          "documented": false,
+          "file": "web/app/api/items/[id]/route.ts",
+          "flags": [],
+          "framework": "nextjs",
+          "id": "route:web/app/api/items/%5Bid%5D/route.ts#PATCH%20%2Fapi%2Fitems%2F%7Bid%7D",
+          "line": 10,
+          "method": "PATCH",
+          "name": "PATCH /api/items/{id}",
+          "path": "/api/items/{id}",
+          "path_count": 1,
+          "pattern": "/api/items/{id}",
+          "scope": null,
+          "shape": {
+            "depth_cap": 0,
+            "depth_limit": 6,
+            "sections": {
+              "body": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "items": 1,
+                "state": "complete"
+              },
+              "query": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "items": 1,
+                "state": "partial"
+              },
+              "security": {
+                "items": 0,
+                "state": "not_read"
+              }
+            }
+          }
+        },
+        {
+          "caller_count": 1,
+          "documented": false,
+          "file": "web/app/api/items/[id]/route.ts",
+          "flags": [],
+          "framework": "nextjs",
+          "id": "route:web/app/api/items/%5Bid%5D/route.ts#DELETE%20%2Fapi%2Fitems%2F%7Bid%7D",
+          "line": 11,
+          "method": "DELETE",
+          "name": "DELETE /api/items/{id}",
+          "path": "/api/items/{id}",
+          "path_count": 1,
+          "pattern": "/api/items/{id}",
+          "scope": null,
+          "shape": {
+            "depth_cap": 0,
+            "depth_limit": 6,
+            "sections": {
+              "body": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "items": 1,
+                "state": "complete"
+              },
+              "query": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "items": 1,
+                "state": "partial"
+              },
+              "security": {
+                "items": 0,
+                "state": "not_read"
+              }
+            }
+          }
+        },
+        {
+          "caller_count": 0,
+          "documented": false,
+          "file": "web/app/api/legacy/[...rest]/route.ts",
+          "flags": [],
+          "framework": "nextjs",
+          "id": "route:web/app/api/legacy/%5B...rest%5D/route.ts#GET%20%2Fapi%2Flegacy%2F%7B%2Arest%7D",
+          "line": 1,
+          "method": "GET",
+          "name": "GET /api/legacy/{*rest}",
+          "path": "/api/legacy/{*rest}",
+          "path_count": 1,
+          "pattern": "/api/legacy/{*rest}",
+          "scope": null,
+          "shape": {
+            "depth_cap": 0,
+            "depth_limit": 6,
+            "sections": {
+              "body": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "items": 1,
+                "state": "complete"
+              },
+              "query": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "security": {
+                "items": 0,
+                "state": "not_read"
+              }
+            }
+          }
+        },
+        {
+          "caller_count": 1,
+          "documented": false,
+          "file": "legacy/app/api/mixed/route.ts",
+          "flags": [],
+          "framework": "nextjs",
+          "id": "route:legacy/app/api/mixed/route.ts#POST%20%2Fapi%2Fmixed",
+          "line": 1,
+          "method": "POST",
+          "name": "POST /api/mixed",
+          "path": "/api/mixed",
+          "path_count": 1,
+          "pattern": "/api/mixed",
+          "scope": null,
+          "shape": {
+            "depth_cap": 0,
+            "depth_limit": 6,
+            "sections": {
+              "body": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "items": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "items": 1,
+                "state": "partial"
+              },
+              "security": {
+                "items": 0,
+                "state": "not_read"
+              }
+            }
+          }
+        },
+        {
+          "caller_count": 0,
+          "documented": false,
+          "file": "web/app/@modal/api/slot/route.ts",
+          "flags": [],
+          "framework": "nextjs",
+          "id": "route:web/app/%40modal/api/slot/route.ts#HEAD%20%2Fapi%2Fslot",
+          "line": 1,
+          "method": "HEAD",
+          "name": "HEAD /api/slot",
+          "path": "/api/slot",
+          "path_count": 1,
+          "pattern": "/api/slot",
+          "scope": null,
+          "shape": {
+            "depth_cap": 0,
+            "depth_limit": 6,
+            "sections": {
+              "body": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "items": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "items": 1,
+                "state": "partial"
+              },
+              "security": {
+                "items": 0,
+                "state": "not_read"
+              }
+            }
+          }
+        },
+        {
+          "caller_count": 1,
+          "documented": false,
+          "file": "web/app/@modal/api/slot/route.ts",
+          "flags": [],
+          "framework": "nextjs",
+          "id": "route:web/app/%40modal/api/slot/route.ts#OPTIONS%20%2Fapi%2Fslot",
+          "line": 5,
+          "method": "OPTIONS",
+          "name": "OPTIONS /api/slot",
+          "path": "/api/slot",
+          "path_count": 1,
+          "pattern": "/api/slot",
+          "scope": null,
+          "shape": {
+            "depth_cap": 0,
+            "depth_limit": 6,
+            "sections": {
+              "body": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "items": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "items": 1,
+                "state": "partial"
+              },
+              "security": {
+                "items": 0,
+                "state": "not_read"
+              }
+            }
+          }
+        },
+        {
+          "caller_count": 1,
+          "documented": false,
+          "file": "web/app/api/star/route.ts",
+          "flags": [],
+          "framework": "nextjs",
+          "id": "route:web/app/api/star/route.ts#GET%20%2Fapi%2Fstar",
+          "line": 1,
+          "method": "GET",
+          "name": "GET /api/star",
+          "path": "/api/star",
+          "path_count": 1,
+          "pattern": "/api/star",
+          "scope": null,
+          "shape": {
+            "depth_cap": 0,
+            "depth_limit": 6,
+            "sections": {
+              "body": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "items": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "items": 1,
+                "state": "partial"
+              },
+              "security": {
+                "items": 0,
+                "state": "not_read"
+              }
+            }
+          }
+        },
+        {
+          "caller_count": 1,
+          "documented": false,
+          "file": "mono/apps/admin/app/api/stats/route.ts",
+          "flags": [],
+          "framework": "nextjs",
+          "id": "route:mono/apps/admin/app/api/stats/route.ts#GET%20%2Fapi%2Fstats",
+          "line": 1,
+          "method": "GET",
+          "name": "GET /api/stats",
+          "path": "/api/stats",
+          "path_count": 1,
+          "pattern": "/api/stats",
+          "scope": null,
+          "shape": {
+            "depth_cap": 0,
+            "depth_limit": 6,
+            "sections": {
+              "body": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "items": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "items": 1,
+                "state": "partial"
+              },
+              "security": {
+                "items": 0,
+                "state": "not_read"
+              }
+            }
+          }
+        },
+        {
+          "caller_count": 1,
+          "documented": false,
+          "file": "web/pages/api/users/[id].ts",
+          "flags": [
+            "handler_unresolved"
+          ],
+          "framework": "nextjs_pages",
+          "id": "route:web/pages/api/users/%5Bid%5D.ts#ANY%20%2Fapi%2Fusers%2F%7Bid%7D",
+          "line": 5,
+          "method": "ANY",
+          "name": "ANY /api/users/{id}",
+          "path": "/api/users/{id}",
+          "path_count": 1,
+          "pattern": "/api/users/{id}",
+          "scope": null,
+          "shape": {
+            "depth_cap": 0,
+            "depth_limit": 6,
+            "sections": {
+              "body": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "items": 1,
+                "state": "complete"
+              },
+              "query": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "security": {
+                "items": 0,
+                "state": "not_read"
+              }
+            }
+          }
+        },
+        {
+          "caller_count": 1,
+          "documented": false,
+          "file": "blog/src/app/api/posts/route.ts",
+          "flags": [],
+          "framework": "nextjs",
+          "id": "route:blog/src/app/api/posts/route.ts#GET%20%2Fapi%2Fposts",
+          "line": 1,
+          "method": "GET",
+          "name": "GET /api/posts",
+          "path": "/blog/api/posts/",
+          "path_count": 1,
+          "pattern": "/api/posts",
+          "scope": null,
+          "shape": {
+            "depth_cap": 0,
+            "depth_limit": 6,
+            "sections": {
+              "body": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "items": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "items": 1,
+                "state": "partial"
+              },
+              "security": {
+                "items": 0,
+                "state": "not_read"
+              }
+            }
+          }
+        },
+        {
+          "caller_count": 0,
+          "documented": false,
+          "file": "blog/src/app/api/tags/route.page.tsx",
+          "flags": [],
+          "framework": "nextjs",
+          "id": "route:blog/src/app/api/tags/route.page.tsx#GET%20%2Fapi%2Ftags",
+          "line": 1,
+          "method": "GET",
+          "name": "GET /api/tags",
+          "path": "/blog/api/tags/",
+          "path_count": 1,
+          "pattern": "/api/tags",
+          "scope": null,
+          "shape": {
+            "depth_cap": 0,
+            "depth_limit": 6,
+            "sections": {
+              "body": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "items": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "items": 1,
+                "state": "partial"
+              },
+              "security": {
+                "items": 0,
+                "state": "not_read"
+              }
+            }
+          }
+        },
+        {
+          "caller_count": 0,
+          "documented": false,
+          "file": "proxy/app/api/dest/route.ts",
+          "flags": [],
+          "framework": "nextjs",
+          "id": "route:proxy/app/api/dest/route.ts#GET%20%2Fapi%2Fdest",
+          "line": 1,
+          "method": "GET",
+          "name": "GET /api/dest",
+          "path": "/proxy/api/dest",
+          "path_count": 1,
+          "pattern": "/api/dest",
+          "scope": null,
+          "shape": {
+            "depth_cap": 0,
+            "depth_limit": 6,
+            "sections": {
+              "body": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "items": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "items": 1,
+                "state": "partial"
+              },
+              "security": {
+                "items": 0,
+                "state": "not_read"
+              }
+            }
+          }
+        },
+        {
+          "caller_count": 1,
+          "documented": false,
+          "file": "proxy/app/api/fallback/[...rest]/route.ts",
+          "flags": [],
+          "framework": "nextjs",
+          "id": "route:proxy/app/api/fallback/%5B...rest%5D/route.ts#GET%20%2Fapi%2Ffallback%2F%7B%2Arest%7D",
+          "line": 1,
+          "method": "GET",
+          "name": "GET /api/fallback/{*rest}",
+          "path": "/proxy/api/fallback/{*rest}",
+          "path_count": 1,
+          "pattern": "/api/fallback/{*rest}",
+          "scope": null,
+          "shape": {
+            "depth_cap": 0,
+            "depth_limit": 6,
+            "sections": {
+              "body": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "items": 1,
+                "state": "complete"
+              },
+              "query": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "items": 1,
+                "state": "partial"
+              },
+              "security": {
+                "items": 0,
+                "state": "not_read"
+              }
+            }
+          }
+        },
+        {
+          "caller_count": 0,
+          "documented": false,
+          "file": "proxy/app/api/items/[id]/route.ts",
+          "flags": [],
+          "framework": "nextjs",
+          "id": "route:proxy/app/api/items/%5Bid%5D/route.ts#GET%20%2Fapi%2Fitems%2F%7Bid%7D",
+          "line": 1,
+          "method": "GET",
+          "name": "GET /api/items/{id}",
+          "path": "/proxy/api/items/{id}",
+          "path_count": 1,
+          "pattern": "/api/items/{id}",
+          "scope": null,
+          "shape": {
+            "depth_cap": 0,
+            "depth_limit": 6,
+            "sections": {
+              "body": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "items": 1,
+                "state": "complete"
+              },
+              "query": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "security": {
+                "items": 0,
+                "state": "not_read"
+              }
+            }
+          }
+        },
+        {
+          "caller_count": 1,
+          "documented": false,
+          "file": "proxy/app/api/new/[...path]/route.ts",
+          "flags": [],
+          "framework": "nextjs",
+          "id": "route:proxy/app/api/new/%5B...path%5D/route.ts#GET%20%2Fapi%2Fnew%2F%7B%2Apath%7D",
+          "line": 1,
+          "method": "GET",
+          "name": "GET /api/new/{*path}",
+          "path": "/proxy/api/new/{*path}",
+          "path_count": 1,
+          "pattern": "/api/new/{*path}",
+          "scope": null,
+          "shape": {
+            "depth_cap": 0,
+            "depth_limit": 6,
+            "sections": {
+              "body": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "items": 1,
+                "state": "complete"
+              },
+              "query": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "items": 1,
+                "state": "partial"
+              },
+              "security": {
+                "items": 0,
+                "state": "not_read"
+              }
+            }
+          }
+        },
+        {
+          "caller_count": 1,
+          "documented": false,
+          "file": "proxy/app/api/real/route.ts",
+          "flags": [],
+          "framework": "nextjs",
+          "id": "route:proxy/app/api/real/route.ts#GET%20%2Fapi%2Freal",
+          "line": 1,
+          "method": "GET",
+          "name": "GET /api/real",
+          "path": "/proxy/api/real",
+          "path_count": 1,
+          "pattern": "/api/real",
+          "scope": null,
+          "shape": {
+            "depth_cap": 0,
+            "depth_limit": 6,
+            "sections": {
+              "body": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "items": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "items": 1,
+                "state": "partial"
+              },
+              "security": {
+                "items": 0,
+                "state": "not_read"
+              }
+            }
+          }
+        },
+        {
+          "caller_count": 1,
+          "documented": false,
+          "file": "proxy/app/api/static/route.ts",
+          "flags": [],
+          "framework": "nextjs",
+          "id": "route:proxy/app/api/static/route.ts#GET%20%2Fapi%2Fstatic",
+          "line": 1,
+          "method": "GET",
+          "name": "GET /api/static",
+          "path": "/proxy/api/static",
+          "path_count": 1,
+          "pattern": "/api/static",
+          "scope": null,
+          "shape": {
+            "depth_cap": 0,
+            "depth_limit": 6,
+            "sections": {
+              "body": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "items": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "items": 1,
+                "state": "partial"
+              },
+              "security": {
+                "items": 0,
+                "state": "not_read"
+              }
+            }
+          }
+        },
+        {
+          "caller_count": 2,
+          "documented": false,
+          "file": "proxy/app/api/things/[id]/route.ts",
+          "flags": [],
+          "framework": "nextjs",
+          "id": "route:proxy/app/api/things/%5Bid%5D/route.ts#GET%20%2Fapi%2Fthings%2F%7Bid%7D",
+          "line": 1,
+          "method": "GET",
+          "name": "GET /api/things/{id}",
+          "path": "/proxy/api/things/{id}",
+          "path_count": 1,
+          "pattern": "/api/things/{id}",
+          "scope": null,
+          "shape": {
+            "depth_cap": 0,
+            "depth_limit": 6,
+            "sections": {
+              "body": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "items": 1,
+                "state": "complete"
+              },
+              "query": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "items": 1,
+                "state": "partial"
+              },
+              "security": {
+                "items": 0,
+                "state": "not_read"
+              }
+            }
+          }
+        },
+        {
+          "caller_count": 1,
+          "documented": false,
+          "file": "docs/app/api/search/route.js",
+          "flags": [
+            "prefix_unresolved"
+          ],
+          "framework": "nextjs",
+          "id": "route:docs/app/api/search/route.js#GET%20%2Fapi%2Fsearch",
+          "line": 1,
+          "method": "GET",
+          "name": "GET /api/search",
+          "path": null,
+          "path_count": 0,
+          "pattern": "/api/search",
+          "prefix_unknown": {
+            "count": 1,
+            "hop": null,
+            "path": "…/api/search",
+            "reason": "nextjs_base_path_unresolved",
+            "reason_text": "prefix unknown: the Next.js basePath is not read as a literal"
+          },
+          "scope": null,
+          "shape": {
+            "depth_cap": 0,
+            "depth_limit": 6,
+            "sections": {
+              "body": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "items": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "items": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "items": 1,
+                "state": "partial"
+              },
+              "security": {
+                "items": 0,
+                "state": "not_read"
+              }
+            }
+          }
+        }
+      ],
+      "frameworks": [
+        "nextjs",
+        "nextjs_pages"
+      ],
+      "never_called": 11,
+      "openapi": {
+        "documented_endpoints": 0,
+        "specs": 0
+      },
+      "precision": {
+        "label": "best_effort",
+        "reason": "marker_conflict",
+        "row": "D"
+      },
+      "roots": [
+        {
+          "by_status": {
+            "linked": 1
+          },
+          "manifest": "blog/package.json",
+          "root": "blog",
+          "total": 1
+        },
+        {
+          "by_status": {
+            "linked": 1,
+            "unmatched": 1
+          },
+          "manifest": "docs/package.json",
+          "root": "docs",
+          "total": 2
+        },
+        {
+          "by_status": {
+            "linked": 3,
+            "unmatched": 1
+          },
+          "manifest": "legacy/package.json",
+          "root": "legacy",
+          "total": 4
+        },
+        {
+          "by_status": {
+            "linked": 1
+          },
+          "manifest": "mono/apps/admin/package.json",
+          "root": "mono/apps/admin",
+          "total": 1
+        },
+        {
+          "by_status": {
+            "unmatched": 1
+          },
+          "manifest": "mono/apps/web/package.json",
+          "root": "mono/apps/web",
+          "total": 1
+        },
+        {
+          "by_status": {
+            "ambiguous": 1
+          },
+          "manifest": "mono/packages/ui/package.json",
+          "root": "mono/packages/ui",
+          "total": 1
+        },
+        {
+          "by_status": {
+            "linked": 6,
+            "unmatched": 6
+          },
+          "manifest": "proxy/package.json",
+          "root": "proxy",
+          "total": 12
+        },
+        {
+          "by_status": {
+            "dynamic": 2,
+            "linked": 14,
+            "unmatched": 2,
+            "wrapper": 4
+          },
+          "manifest": "web/package.json",
+          "root": "web",
+          "total": 22
+        }
+      ],
+      "transport": "http"
+    }
+  ]
+}

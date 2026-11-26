@@ -1,0 +1,2 @@
+CREATE TABLE t1 (c1 timestamp);
+ALTER TABLE t1 ADD COLUMN c2 char(3) DEFAULT '', ALTER CONSTRAINT nosuch_constraint DEFERRABLE;

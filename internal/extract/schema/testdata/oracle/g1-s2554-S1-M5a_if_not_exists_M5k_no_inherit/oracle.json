@@ -1,0 +1,34 @@
+{
+  "id": "g1-s2554-S1-M5a_if_not_exists_M5k_no_inherit",
+  "signature": "applied|S1|42P01|M5a.if_not_exists",
+  "class": "S1",
+  "owner": "P4",
+  "row": "M5a.if_not_exists+M5k.no_inherit",
+  "history": {
+    "id": "g1-s2554",
+    "tags": {
+      "1_m1.sql": [
+        "M1.create",
+        "M5a.if_not_exists+M5k.no_inherit"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42P01",
+        "message": "relation \"t1\" is not a parent of relation \"t1\"",
+        "statement": 2,
+        "statement_text": "ALTER TABLE ONLY t1 ADD COLUMN IF NOT EXISTS c3 int, NO INHERIT t1;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

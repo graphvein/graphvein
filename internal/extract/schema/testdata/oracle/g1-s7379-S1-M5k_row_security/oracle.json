@@ -1,0 +1,35 @@
+{
+  "id": "g1-s7379-S1-M5k_row_security",
+  "signature": "applied|S1|42P01|M5k.row_security",
+  "class": "S1",
+  "owner": "P1",
+  "row": "M5k.row_security",
+  "history": {
+    "id": "g1-s7379",
+    "tags": {
+      "1_m1.sql": [
+        "M1.create",
+        "M8.rename",
+        "M5k.row_security"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42P01",
+        "message": "relation \"t1\" does not exist",
+        "statement": 3,
+        "statement_text": "ALTER TABLE t1 ENABLE ROW LEVEL SECURITY;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

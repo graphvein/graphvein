@@ -1,0 +1,28 @@
+{
+  "id": "review19-r3-v005-alterrole-conflict",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y14",
+  "row": "review19",
+  "history": {
+    "id": "v005-alterrole-conflict"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42601",
+        "message": "conflicting or redundant options",
+        "statement": 2,
+        "statement_text": "ALTER ROLE rr_v005_1 LOGIN NOLOGIN;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

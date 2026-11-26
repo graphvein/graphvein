@@ -1,0 +1,2 @@
+CREATE UNIQUE INDEX ON t5 (id);
+CREATE TABLE t5 (c2 timestamp);

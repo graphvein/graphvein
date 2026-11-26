@@ -1,0 +1,28 @@
+{
+  "id": "review19-r1-d25-role-self",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y13",
+  "row": "review19",
+  "history": {
+    "id": "d25-role-self"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "0LP01",
+        "message": "role \"rv_self_r\" is a member of role \"rv_self_r\"",
+        "statement": 2,
+        "statement_text": "GRANT rv_self_r TO rv_self_r;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

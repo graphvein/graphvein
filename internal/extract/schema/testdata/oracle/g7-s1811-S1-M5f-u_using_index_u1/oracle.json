@@ -1,0 +1,36 @@
+{
+  "id": "g7-s1811-S1-M5f-u_using_index_u1",
+  "signature": "applied|S1|42601|M5f-u.using_index_u1",
+  "class": "S1",
+  "owner": "P7",
+  "row": "M5f-u.using_index_u1",
+  "history": {
+    "id": "g7-s1811",
+    "tags": {
+      "1_m1.sql": [
+        "M5f-u.using_index_u1",
+        "M5f-u.using_index_u1",
+        "M5f-u.using_index_u1",
+        "M5f-u.using_index_u1"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42601",
+        "message": "syntax error at or near \"TO\"",
+        "statement": 4,
+        "statement_text": "ALTER INDEX  RENAME TO rn3;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

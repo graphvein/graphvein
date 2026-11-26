@@ -1,0 +1,10 @@
+// Discovered by split (Prisma 7.10.0) and by split/legacy (6.19.3, its
+// package.json "prisma.schema"): the versions do not give the same facts,
+// so nothing of it is claimed.
+datasource db {
+  provider = "postgresql"
+}
+
+model Split {
+  id Int @id
+}

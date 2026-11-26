@@ -1,0 +1,2 @@
+CREATE TABLE t1 (id uuid PRIMARY KEY);
+ALTER TABLE IF EXISTS t1 ALTER COLUMN id TYPE integer USING id::integer;

@@ -1,0 +1,86 @@
+{
+  "id": "review19-r5-h08-lemmy-shape-aggregates-trigger",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y39",
+  "row": "review19",
+  "history": {
+    "id": "h08-lemmy-shape-aggregates-trigger"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "accepted"
+      },
+      {
+        "file": "2_down.sql",
+        "status": "refused",
+        "sqlstate": "2BP01",
+        "message": "cannot drop function post_aggregates_comment_count() because other objects depend on it",
+        "detail": "trigger post_aggregates_comment_count on table comment depends on function post_aggregates_comment_count()",
+        "statement": 2,
+        "statement_text": "drop function post_aggregates_comment_count;"
+      }
+    ],
+    "tables": [
+      {
+        "table": "history.comment",
+        "columns": [
+          {
+            "name": "id",
+            "type": "integer",
+            "not_null": true,
+            "has_default": true
+          },
+          {
+            "name": "post_id",
+            "type": "integer",
+            "not_null": false,
+            "has_default": false
+          }
+        ],
+        "primary_key": [
+          "id"
+        ],
+        "unique_keys": [],
+        "foreign_keys": [],
+        "indexes": []
+      },
+      {
+        "table": "history.post_aggregates",
+        "columns": [
+          {
+            "name": "id",
+            "type": "integer",
+            "not_null": true,
+            "has_default": true
+          },
+          {
+            "name": "post_id",
+            "type": "integer",
+            "not_null": false,
+            "has_default": false
+          },
+          {
+            "name": "comments",
+            "type": "bigint",
+            "not_null": false,
+            "has_default": true
+          }
+        ],
+        "primary_key": [
+          "id"
+        ],
+        "unique_keys": [],
+        "foreign_keys": [],
+        "indexes": []
+      }
+    ],
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

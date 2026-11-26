@@ -1,0 +1,95 @@
+{
+  "openapi": "3.2.0",
+  "paths": {
+    "/t013b/relative": {
+      "get": {
+        "servers": [
+          {
+            "url": "/"
+          }
+        ]
+      }
+    },
+    "/t013b/absolute": {
+      "get": {
+        "servers": [
+          {
+            "url": "https://example.invalid/"
+          }
+        ]
+      }
+    },
+    "/t013b/param/fixed": {
+      "get": {}
+    },
+    "/t013b/literal/{id}": {
+      "get": {}
+    },
+    "/t013b/specific/fixed": {
+      "get": {}
+    },
+    "/t013b/specific/{id}": {
+      "get": {}
+    },
+    "/t013b/duplicate": {
+      "get": {}
+    },
+    "/t013b/tie": {
+      "get": {}
+    },
+    "/t013b/only-test": {
+      "get": {}
+    },
+    "/t013b/slash": {
+      "get": {}
+    },
+    "/t013b/slash/": {
+      "get": {}
+    },
+    "/t013b/wild/a/b": {
+      "get": {}
+    },
+    "/t013b/optional": {
+      "get": {}
+    },
+    "/t013b/optional/value": {
+      "get": {}
+    },
+    "/t013b/head": {
+      "head": {}
+    },
+    "/t013b/any": {
+      "query": {},
+      "additionalOperations": {
+        "query": {}
+      }
+    },
+    "/t013b/get-only": {
+      "query": {},
+      "additionalOperations": {
+        "query": {}
+      }
+    },
+    "/multi": {
+      "get": {
+        "servers": [
+          {
+            "url": "/t013b/a"
+          },
+          {
+            "url": "/t013b/b"
+          }
+        ]
+      }
+    },
+    "/t013b/unresolved": {
+      "get": {
+        "servers": [
+          {
+            "url": "relative/api"
+          }
+        ]
+      }
+    }
+  }
+}

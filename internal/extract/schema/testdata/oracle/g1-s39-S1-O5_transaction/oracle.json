@@ -1,0 +1,33 @@
+{
+  "id": "g1-s39-S1-O5_transaction",
+  "signature": "applied|S1|3B001|O5.transaction",
+  "class": "S1",
+  "owner": "P6",
+  "row": "O5.transaction",
+  "history": {
+    "id": "g1-s39",
+    "tags": {
+      "2_m2.sql": [
+        "O5.transaction"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "2_m2.sql",
+        "status": "refused",
+        "sqlstate": "3B001",
+        "message": "savepoint \"sp1\" does not exist",
+        "statement": 1,
+        "statement_text": "RELEASE SAVEPOINT sp1;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

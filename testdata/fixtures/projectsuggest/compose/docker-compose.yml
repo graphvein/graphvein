@@ -1,0 +1,39 @@
+# The project folder's Compose file builds every member.
+x-common: &common
+  environment:
+    - MERGED_URL=http://localhost:18080
+services:
+  web:
+    build: ./frontend
+    environment:
+      - API_URL=http://api:8080
+      - BROWSER_API=http://localhost:18080
+      - JOBS_URL=http://worker:9000
+      - MISSING_URL=http://api:9999
+      - NODE_ENV=production
+  api:
+    build:
+      context: ./backend
+    ports:
+      - "18080:8080"
+      - "${DEBUG_PORT}:9229"
+      - "7000-7005:7000-7005"
+  worker:
+    build: ./backend2/jobs
+    expose:
+      - "9000"
+  db:
+    image: postgres:16
+    ports:
+      - "5432:5432"
+  web-debug:
+    extends: web
+    ports:
+      - "9999:80"
+  ghost:
+    build: ./missing
+    ports:
+      - "1234:80"
+  merged:
+    <<: *common
+    build: ./frontend

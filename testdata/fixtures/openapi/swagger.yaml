@@ -1,0 +1,17 @@
+swagger: '2.0'
+host: swagger.example
+basePath: /v1
+schemes: [https, http]
+consumes: [application/xml, application/json]
+security: [{Auth: []}]
+parameters:
+  Body: {name: body, in: body, required: true}
+paths:
+  /items:
+    post:
+      parameters: [{$ref: '#/parameters/Body'}]
+      responses: {'201': {description: Created}}
+    get:
+      schemes: [https]
+      security: []
+      responses: {default: {description: OK}}

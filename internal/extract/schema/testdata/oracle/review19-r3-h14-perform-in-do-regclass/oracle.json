@@ -1,0 +1,29 @@
+{
+  "id": "review19-r3-h14-perform-in-do-regclass",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y49",
+  "row": "review19",
+  "history": {
+    "id": "h14-perform-in-do-regclass"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42P01",
+        "message": "relation \"userz\" does not exist",
+        "where": "PL/pgSQL function inline_code_block line 1 at PERFORM",
+        "statement": 3,
+        "statement_text": "do $$ begin perform g('userz'); end $$;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

@@ -1,0 +1,28 @@
+{
+  "id": "review19-r3-v026-alterfunc-parallel-bogus",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y16",
+  "row": "review19",
+  "history": {
+    "id": "v026-alterfunc-parallel-bogus"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42601",
+        "message": "parameter \"parallel\" must be SAFE, RESTRICTED, or UNSAFE",
+        "statement": 2,
+        "statement_text": "ALTER FUNCTION f() PARALLEL bogus;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

@@ -1,0 +1,151 @@
+{
+  "proposals": [
+    {
+      "declared": false,
+      "evidence": [
+        {
+          "file": "docker-compose.yml",
+          "key": "web.environment.API_URL",
+          "line": 9,
+          "member": "",
+          "row": "SG-C1",
+          "value": "http://api:8080"
+        },
+        {
+          "file": "docker-compose.yml",
+          "key": "web.environment.BROWSER_API",
+          "line": 10,
+          "member": "",
+          "row": "SG-C1",
+          "value": "http://localhost:18080"
+        },
+        {
+          "file": "docker-compose.yml",
+          "key": "api.ports",
+          "line": 18,
+          "member": "",
+          "row": "SG-C2",
+          "value": "18080:8080"
+        }
+      ],
+      "matches": [
+        "SG-M1",
+        "SG-M2"
+      ],
+      "member": "frontend",
+      "number": 1,
+      "provider": "backend",
+      "select": {
+        "bases": [
+          "API_URL"
+        ],
+        "origins": [
+          "http://localhost:18080"
+        ]
+      }
+    },
+    {
+      "declared": false,
+      "evidence": [
+        {
+          "file": "docker-compose.yml",
+          "key": "web.environment.JOBS_URL",
+          "line": 11,
+          "member": "",
+          "row": "SG-C1",
+          "value": "http://worker:9000"
+        },
+        {
+          "file": "docker-compose.yml",
+          "key": "worker.expose",
+          "line": 24,
+          "member": "",
+          "row": "SG-C3",
+          "value": "9000"
+        }
+      ],
+      "matches": [
+        "SG-M2"
+      ],
+      "member": "frontend",
+      "number": 2,
+      "provider": "backend2",
+      "provider_scope": "jobs",
+      "select": {
+        "bases": [
+          "JOBS_URL"
+        ]
+      }
+    }
+  ],
+  "unmatched": [
+    {
+      "evidence": {
+        "file": "docker-compose.yml",
+        "key": "web.environment.MISSING_URL",
+        "line": 12,
+        "member": "",
+        "row": "SG-C1",
+        "value": "http://api:9999"
+      },
+      "reason": "no other member declares Compose service api with container port 9999 in this file",
+      "row": "SG-M3"
+    },
+    {
+      "evidence": {
+        "file": ".env.local",
+        "key": "VITE_LOCAL",
+        "line": 1,
+        "member": "frontend",
+        "row": "SG-E1",
+        "value": "http://localhost:3000"
+      },
+      "reason": "no calls use this base: no stored call of frontend records base VITE_LOCAL or literal origin http://localhost:3000",
+      "row": "SG-M5"
+    }
+  ],
+  "unread": [
+    {
+      "file": "docker-compose.yml",
+      "line": 19,
+      "member": "",
+      "reason": "service api: ports entry has a published port that is not one number (interpolation, range or empty); only its container port is read",
+      "row": "SG-U"
+    },
+    {
+      "file": "docker-compose.yml",
+      "line": 20,
+      "member": "",
+      "reason": "service api: ports entry has a container port that is not one number (range or interpolation)",
+      "row": "SG-U"
+    },
+    {
+      "file": "docker-compose.yml",
+      "line": 26,
+      "member": "",
+      "reason": "service db: runs an image, not built from a member (no build context)",
+      "row": "SG-U"
+    },
+    {
+      "file": "docker-compose.yml",
+      "line": 30,
+      "member": "",
+      "reason": "service web-debug uses extends (its fields come from elsewhere)",
+      "row": "SG-U"
+    },
+    {
+      "file": "docker-compose.yml",
+      "line": 34,
+      "member": "",
+      "reason": "service ghost: build context ./missing is not a folder here (Compose resolves it from the file's folder)",
+      "row": "SG-U"
+    },
+    {
+      "file": "docker-compose.yml",
+      "line": 38,
+      "member": "",
+      "reason": "service merged uses \u003c\u003c (its fields come from elsewhere)",
+      "row": "SG-U"
+    }
+  ]
+}

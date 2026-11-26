@@ -1,0 +1,35 @@
+{
+  "id": "g1-s3580-S1-O1_function_call",
+  "signature": "applied|S1|42809|O1.function_call",
+  "class": "S1",
+  "owner": "P4",
+  "row": "O1.function_call",
+  "history": {
+    "id": "g1-s3580",
+    "tags": {
+      "1_m1.sql": [
+        "R6.procedure",
+        "O1.function_call"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42809",
+        "message": "p1() is a procedure",
+        "statement": 2,
+        "statement_text": "SELECT p1();",
+        "no_transaction": true
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

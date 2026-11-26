@@ -1,0 +1,28 @@
+{
+  "id": "review19-r1-m05-fk-initdeferred-notdeferrable",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y26",
+  "row": "review19",
+  "history": {
+    "id": "m05-fk-initdeferred-notdeferrable"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42601",
+        "message": "constraint declared INITIALLY DEFERRED must be DEFERRABLE",
+        "statement": 2,
+        "statement_text": "CREATE TABLE c (pid int REFERENCES p NOT DEFERRABLE INITIALLY DEFERRED);"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

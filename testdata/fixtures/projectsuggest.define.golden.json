@@ -1,0 +1,247 @@
+{
+  "proposals": [
+    {
+      "declared": false,
+      "evidence": [
+        {
+          "file": ".env",
+          "key": "SERVICE_URL",
+          "line": 4,
+          "member": "web",
+          "row": "SG-E1",
+          "value": "http://api:8080"
+        },
+        {
+          "file": "webpack.config.js",
+          "key": "process.env.SERVICE_URL",
+          "line": 19,
+          "member": "web",
+          "row": "SG-D1",
+          "value": "process.env.SERVICE_URL"
+        },
+        {
+          "file": "compose.yaml",
+          "key": "api.expose",
+          "line": 5,
+          "member": "web",
+          "row": "SG-C3",
+          "value": "8080"
+        }
+      ],
+      "matches": [
+        "SG-M4"
+      ],
+      "member": "web",
+      "number": 1,
+      "provider": "backend",
+      "select": {
+        "bases": [
+          "SERVICE_URL"
+        ]
+      }
+    },
+    {
+      "declared": false,
+      "evidence": [
+        {
+          "file": ".env",
+          "key": "VITE_TARGET",
+          "line": 1,
+          "member": "vite",
+          "row": "SG-E1",
+          "value": "http://localhost:3100"
+        },
+        {
+          "file": "vite.config.ts",
+          "key": "import.meta.env.VITE_API",
+          "line": 9,
+          "member": "vite",
+          "row": "SG-D1",
+          "value": "process.env.VITE_TARGET"
+        },
+        {
+          "file": "vite.config.ts",
+          "key": "import.meta.env.VITE_FIXED",
+          "line": 8,
+          "member": "vite",
+          "row": "SG-D2",
+          "value": "http://localhost:3100"
+        },
+        {
+          "file": ".env",
+          "key": "PORT",
+          "line": 1,
+          "member": "backend",
+          "row": "SG-E2",
+          "value": "3100"
+        }
+      ],
+      "matches": [
+        "SG-M1"
+      ],
+      "member": "vite",
+      "number": 2,
+      "provider": "backend",
+      "select": {
+        "bases": [
+          "VITE_API",
+          "VITE_FIXED"
+        ]
+      }
+    }
+  ],
+  "unmatched": [
+    {
+      "evidence": {
+        "file": ".env",
+        "key": "FRONTEND_URL",
+        "line": 3,
+        "member": "backend",
+        "row": "SG-E1",
+        "value": "http://localhost:5173"
+      },
+      "reason": "no calls use this base: no stored call of backend records base FRONTEND_URL or literal origin http://localhost:5173",
+      "row": "SG-M5"
+    },
+    {
+      "evidence": {
+        "file": ".env",
+        "key": "API_URL",
+        "line": 2,
+        "member": "web",
+        "row": "SG-E1",
+        "value": "http://localhost:3100"
+      },
+      "reason": "no calls use this base: no stored call of web records base API_URL or __API_URL__ or literal origin http://localhost:3100",
+      "row": "SG-M5"
+    },
+    {
+      "evidence": {
+        "file": ".env",
+        "key": "UNUSED_URL",
+        "line": 3,
+        "member": "web",
+        "row": "SG-E1",
+        "value": "http://localhost:3100"
+      },
+      "reason": "no calls use this base: no stored call of web records base UNUSED_URL or literal origin http://localhost:3100",
+      "row": "SG-M5"
+    },
+    {
+      "evidence": {
+        "file": ".env",
+        "key": "CACHE_URL",
+        "line": 5,
+        "member": "web",
+        "row": "SG-E1",
+        "value": "http://cache:6379"
+      },
+      "reason": "Compose service cache (compose.yaml:6) runs an image, not built from a member (no build context), so the name is not proven to reach a member",
+      "row": "SG-M3"
+    },
+    {
+      "evidence": {
+        "file": ".env",
+        "key": "SELF_URL",
+        "line": 6,
+        "member": "web",
+        "row": "SG-E1",
+        "value": "http://web:5173"
+      },
+      "reason": "only the member itself builds Compose service web",
+      "row": "SG-M3"
+    },
+    {
+      "evidence": {
+        "file": ".env",
+        "key": "NOPORT_URL",
+        "line": 7,
+        "member": "web",
+        "row": "SG-E1",
+        "value": "http://api:9999"
+      },
+      "reason": "Compose service api of backend declares no container port 9999",
+      "row": "SG-M3"
+    },
+    {
+      "evidence": {
+        "file": "config/.env",
+        "key": "API_URL",
+        "line": 2,
+        "member": "web",
+        "row": "SG-E1",
+        "value": "http://localhost:3100"
+      },
+      "reason": "no calls use this base: no stored call of web records base API_URL or literal origin http://localhost:3100",
+      "row": "SG-M5"
+    },
+    {
+      "evidence": {
+        "file": "webpack.config.js",
+        "key": "__STATIC__",
+        "line": 15,
+        "member": "web",
+        "row": "SG-D2",
+        "value": "http://localhost:3100"
+      },
+      "reason": "no calls use this base: no stored call of web records base __STATIC__ or literal origin http://localhost:3100",
+      "row": "SG-M5"
+    },
+    {
+      "evidence": {
+        "file": "webpack.config.js",
+        "key": "__QUOTED__",
+        "line": 16,
+        "member": "web",
+        "row": "SG-D2",
+        "value": "http://localhost:3999"
+      },
+      "reason": "no other member declares local port 3999 (published Compose port or env port)",
+      "row": "SG-M3"
+    }
+  ],
+  "unread": [
+    {
+      "file": "webpack.config.js",
+      "line": 9,
+      "member": "web",
+      "reason": "config is computed in code (not a literal exported object)",
+      "row": "SG-U"
+    },
+    {
+      "file": "webpack.config.js",
+      "line": 17,
+      "member": "web",
+      "reason": "DefinePlugin __FALLBACK__: value is computed in code (only process.env.NAME or a literal string is read)",
+      "row": "SG-U"
+    },
+    {
+      "file": "webpack.config.js",
+      "line": 18,
+      "member": "web",
+      "reason": "DefinePlugin __RAW__: value is code, not a JSON string (only JSON.stringify(...) or '\"URL\"' is read)",
+      "row": "SG-U"
+    },
+    {
+      "file": "webpack.config.js",
+      "line": 22,
+      "member": "web",
+      "reason": "DefinePlugin argument is not one literal object",
+      "row": "SG-U"
+    },
+    {
+      "file": "webpack.prod.js",
+      "line": 6,
+      "member": "web",
+      "reason": "DefinePlugin __PROD_URL__ reads process.env.PROD_URL, but the config loads no env file (no dotenv), so no env file is tied to it",
+      "row": "SG-U"
+    },
+    {
+      "file": "vite.config.ts",
+      "line": 10,
+      "member": "vite",
+      "reason": "define __VITE_COMPUTED__: value is computed in code (only process.env.NAME or a literal string is read)",
+      "row": "SG-U"
+    }
+  ]
+}

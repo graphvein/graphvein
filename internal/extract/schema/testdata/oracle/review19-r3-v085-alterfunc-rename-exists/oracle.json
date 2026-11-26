@@ -1,0 +1,28 @@
+{
+  "id": "review19-r3-v085-alterfunc-rename-exists",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y16",
+  "row": "review19",
+  "history": {
+    "id": "v085-alterfunc-rename-exists"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42723",
+        "message": "function g() already exists in schema \"history\"",
+        "statement": 3,
+        "statement_text": "ALTER FUNCTION f() RENAME TO g;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

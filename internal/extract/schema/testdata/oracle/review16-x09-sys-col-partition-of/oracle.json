@@ -1,0 +1,28 @@
+{
+  "id": "review16-x09-sys-col-partition-of",
+  "signature": "agreed at Revision 1.6",
+  "class": "S1",
+  "owner": "V11",
+  "row": "review16",
+  "history": {
+    "id": "x09-sys-col-partition-of"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42703",
+        "message": "column \"ctid\" does not exist",
+        "statement": 2,
+        "statement_text": "CREATE TABLE p1 PARTITION OF p (ctid WITH OPTIONS NOT NULL) FOR VALUES FROM (0) TO (1);"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

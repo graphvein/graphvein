@@ -1,0 +1,36 @@
+{
+  "id": "g1-s1364-S1-N3_reindex",
+  "signature": "applied|S1|42P01|N3.reindex",
+  "class": "S1",
+  "owner": "P6",
+  "row": "N3.reindex",
+  "history": {
+    "id": "g1-s1364",
+    "tags": {
+      "1_m1.sql": [
+        "M1.create",
+        "M5i.rename",
+        "O5.transaction",
+        "N3.reindex"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42P01",
+        "message": "relation \"t3\" does not exist",
+        "statement": 4,
+        "statement_text": "REINDEX TABLE t3;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

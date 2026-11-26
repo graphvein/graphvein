@@ -1,0 +1,4097 @@
+{
+  "diagnostics": [
+    {
+      "code": "openapi_coverage",
+      "file": "configured-openapi.json",
+      "message": "OpenAPI coverage: 2 operations; linked=2, ambiguous=0, unmatched=0, test_only=0, unresolved=0",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "openapi_coverage",
+      "file": "openapi.json",
+      "message": "OpenAPI coverage: 21 operations; linked=14, ambiguous=1, unmatched=4, test_only=1, unresolved=1",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "openapi_coverage",
+      "file": "tests/openapi.json",
+      "message": "OpenAPI coverage: 1 operation; linked=1, ambiguous=0, unmatched=0, test_only=0, unresolved=0",
+      "severity": "info",
+      "type": "diagnostic"
+    }
+  ],
+  "edges": [
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "configured-openapi.json",
+          "span": {
+            "end_column": 7,
+            "end_line": 19,
+            "start_column": 6,
+            "start_line": 13
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "api_spec:configured-openapi.json#spec",
+      "target": "api_operation:configured-openapi.json#GET%20%2Foverridden",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "configured-openapi.json",
+          "span": {
+            "end_column": 15,
+            "end_line": 10,
+            "start_column": 6,
+            "start_line": 10
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "api_spec:configured-openapi.json#spec",
+      "target": "api_operation:configured-openapi.json#GET%20%2Frepaired",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "openapi.json",
+          "span": {
+            "end_column": 7,
+            "end_line": 83,
+            "start_column": 6,
+            "start_line": 74
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "api_spec:openapi.json#spec",
+      "target": "api_operation:openapi.json#GET%20%2Fmulti",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "openapi.json",
+          "span": {
+            "end_column": 7,
+            "end_line": 20,
+            "start_column": 6,
+            "start_line": 14
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "api_spec:openapi.json#spec",
+      "target": "api_operation:openapi.json#GET%20%2Ft013b%2Fabsolute",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "openapi.json",
+          "span": {
+            "end_column": 15,
+            "end_line": 35,
+            "start_column": 6,
+            "start_line": 35
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "api_spec:openapi.json#spec",
+      "target": "api_operation:openapi.json#GET%20%2Ft013b%2Fduplicate",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "openapi.json",
+          "span": {
+            "end_column": 15,
+            "end_line": 26,
+            "start_column": 6,
+            "start_line": 26
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "api_spec:openapi.json#spec",
+      "target": "api_operation:openapi.json#GET%20%2Ft013b%2Fliteral%2F%7Bid%7D",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "openapi.json",
+          "span": {
+            "end_column": 15,
+            "end_line": 41,
+            "start_column": 6,
+            "start_line": 41
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "api_spec:openapi.json#spec",
+      "target": "api_operation:openapi.json#GET%20%2Ft013b%2Fonly-test",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "openapi.json",
+          "span": {
+            "end_column": 15,
+            "end_line": 53,
+            "start_column": 6,
+            "start_line": 53
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "api_spec:openapi.json#spec",
+      "target": "api_operation:openapi.json#GET%20%2Ft013b%2Foptional",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "openapi.json",
+          "span": {
+            "end_column": 15,
+            "end_line": 56,
+            "start_column": 6,
+            "start_line": 56
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "api_spec:openapi.json#spec",
+      "target": "api_operation:openapi.json#GET%20%2Ft013b%2Foptional%2Fvalue",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "openapi.json",
+          "span": {
+            "end_column": 15,
+            "end_line": 23,
+            "start_column": 6,
+            "start_line": 23
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "api_spec:openapi.json#spec",
+      "target": "api_operation:openapi.json#GET%20%2Ft013b%2Fparam%2Ffixed",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "openapi.json",
+          "span": {
+            "end_column": 7,
+            "end_line": 11,
+            "start_column": 6,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "api_spec:openapi.json#spec",
+      "target": "api_operation:openapi.json#GET%20%2Ft013b%2Frelative",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "openapi.json",
+          "span": {
+            "end_column": 15,
+            "end_line": 44,
+            "start_column": 6,
+            "start_line": 44
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "api_spec:openapi.json#spec",
+      "target": "api_operation:openapi.json#GET%20%2Ft013b%2Fslash",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "openapi.json",
+          "span": {
+            "end_column": 15,
+            "end_line": 47,
+            "start_column": 6,
+            "start_line": 47
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "api_spec:openapi.json#spec",
+      "target": "api_operation:openapi.json#GET%20%2Ft013b%2Fslash%2F",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "openapi.json",
+          "span": {
+            "end_column": 15,
+            "end_line": 32,
+            "start_column": 6,
+            "start_line": 32
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "api_spec:openapi.json#spec",
+      "target": "api_operation:openapi.json#GET%20%2Ft013b%2Fspecific%2F%7Bid%7D",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "openapi.json",
+          "span": {
+            "end_column": 15,
+            "end_line": 29,
+            "start_column": 6,
+            "start_line": 29
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "api_spec:openapi.json#spec",
+      "target": "api_operation:openapi.json#GET%20%2Ft013b%2Fspecific%2Ffixed",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "openapi.json",
+          "span": {
+            "end_column": 15,
+            "end_line": 38,
+            "start_column": 6,
+            "start_line": 38
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "api_spec:openapi.json#spec",
+      "target": "api_operation:openapi.json#GET%20%2Ft013b%2Ftie",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "openapi.json",
+          "span": {
+            "end_column": 7,
+            "end_line": 92,
+            "start_column": 6,
+            "start_line": 86
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "api_spec:openapi.json#spec",
+      "target": "api_operation:openapi.json#GET%20%2Ft013b%2Funresolved",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "openapi.json",
+          "span": {
+            "end_column": 15,
+            "end_line": 50,
+            "start_column": 6,
+            "start_line": 50
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "api_spec:openapi.json#spec",
+      "target": "api_operation:openapi.json#GET%20%2Ft013b%2Fwild%2Fa%2Fb",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "openapi.json",
+          "span": {
+            "end_column": 16,
+            "end_line": 59,
+            "start_column": 6,
+            "start_line": 59
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "api_spec:openapi.json#spec",
+      "target": "api_operation:openapi.json#HEAD%20%2Ft013b%2Fhead",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "openapi.json",
+          "span": {
+            "end_column": 17,
+            "end_line": 62,
+            "start_column": 6,
+            "start_line": 62
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "api_spec:openapi.json#spec",
+      "target": "api_operation:openapi.json#QUERY%20%2Ft013b%2Fany",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "openapi.json",
+          "span": {
+            "end_column": 17,
+            "end_line": 68,
+            "start_column": 6,
+            "start_line": 68
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "api_spec:openapi.json#spec",
+      "target": "api_operation:openapi.json#QUERY%20%2Ft013b%2Fget-only",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "openapi.json",
+          "span": {
+            "end_column": 19,
+            "end_line": 64,
+            "start_column": 8,
+            "start_line": 64
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "api_spec:openapi.json#spec",
+      "target": "api_operation:openapi.json#query%20%2Ft013b%2Fany",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "openapi.json",
+          "span": {
+            "end_column": 19,
+            "end_line": 70,
+            "start_column": 8,
+            "start_line": 70
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "api_spec:openapi.json#spec",
+      "target": "api_operation:openapi.json#query%20%2Ft013b%2Fget-only",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "tests/openapi.json",
+          "span": {
+            "end_column": 61,
+            "end_line": 1,
+            "start_column": 52,
+            "start_line": 1
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "api_spec:tests/openapi.json#spec",
+      "target": "api_operation:tests/openapi.json#GET%20%2Ft013b%2Ftest-spec",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "configured-openapi.json",
+          "span": {
+            "end_column": 0,
+            "end_line": 23,
+            "start_column": 0,
+            "start_line": 1
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:configured-openapi.json#configured-openapi.json",
+      "target": "api_spec:configured-openapi.json#spec",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "openapi.json",
+          "span": {
+            "end_column": 0,
+            "end_line": 96,
+            "start_column": 0,
+            "start_line": 1
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:openapi.json#openapi.json",
+      "target": "api_spec:openapi.json#spec",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "tests/openapi.json",
+          "span": {
+            "end_column": 0,
+            "end_line": 2,
+            "start_column": 0,
+            "start_line": 1
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:tests/openapi.json#tests%2Fopenapi.json",
+      "target": "api_spec:tests/openapi.json#spec",
+      "type": "edge"
+    },
+    {
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "file": "configured-openapi.json",
+          "span": {
+            "end_column": 7,
+            "end_line": 19,
+            "start_column": 6,
+            "start_line": 13
+          }
+        }
+      ],
+      "kind": "documents_route",
+      "provenance": "inferred",
+      "source": "api_operation:configured-openapi.json#GET%20%2Foverridden",
+      "target": "route:routes.ts#GET%20%2Ft013b%2Foverridden",
+      "type": "edge"
+    },
+    {
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "file": "configured-openapi.json",
+          "span": {
+            "end_column": 15,
+            "end_line": 10,
+            "start_column": 6,
+            "start_line": 10
+          }
+        }
+      ],
+      "kind": "documents_route",
+      "provenance": "inferred",
+      "source": "api_operation:configured-openapi.json#GET%20%2Frepaired",
+      "target": "route:routes.ts#GET%20%2Ft013b%2Frepaired",
+      "type": "edge"
+    },
+    {
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "file": "openapi.json",
+          "span": {
+            "end_column": 7,
+            "end_line": 83,
+            "start_column": 6,
+            "start_line": 74
+          }
+        }
+      ],
+      "kind": "documents_route",
+      "provenance": "inferred",
+      "source": "api_operation:openapi.json#GET%20%2Fmulti",
+      "target": "route:routes.ts#GET%20%2Ft013b%2Fa%2Fmulti",
+      "type": "edge"
+    },
+    {
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "file": "openapi.json",
+          "span": {
+            "end_column": 7,
+            "end_line": 83,
+            "start_column": 6,
+            "start_line": 74
+          }
+        }
+      ],
+      "kind": "documents_route",
+      "provenance": "inferred",
+      "source": "api_operation:openapi.json#GET%20%2Fmulti",
+      "target": "route:routes.ts#GET%20%2Ft013b%2Fb%2Fmulti",
+      "type": "edge"
+    },
+    {
+      "confidence": 0.7,
+      "evidence": [
+        {
+          "file": "openapi.json",
+          "span": {
+            "end_column": 7,
+            "end_line": 20,
+            "start_column": 6,
+            "start_line": 14
+          }
+        }
+      ],
+      "kind": "documents_route",
+      "provenance": "inferred",
+      "source": "api_operation:openapi.json#GET%20%2Ft013b%2Fabsolute",
+      "target": "route:routes.ts#GET%20%2Ft013b%2Fabsolute",
+      "type": "edge"
+    },
+    {
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "file": "openapi.json",
+          "span": {
+            "end_column": 15,
+            "end_line": 35,
+            "start_column": 6,
+            "start_line": 35
+          }
+        }
+      ],
+      "kind": "documents_route",
+      "provenance": "inferred",
+      "source": "api_operation:openapi.json#GET%20%2Ft013b%2Fduplicate",
+      "target": "route:routes.ts#GET%20%2Ft013b%2Fduplicate",
+      "type": "edge"
+    },
+    {
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "file": "openapi.json",
+          "span": {
+            "end_column": 15,
+            "end_line": 53,
+            "start_column": 6,
+            "start_line": 53
+          }
+        }
+      ],
+      "kind": "documents_route",
+      "provenance": "inferred",
+      "source": "api_operation:openapi.json#GET%20%2Ft013b%2Foptional",
+      "target": "route:routes.ts#GET%20%2Ft013b%2Foptional%2F%3Aid%3F",
+      "type": "edge"
+    },
+    {
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "file": "openapi.json",
+          "span": {
+            "end_column": 15,
+            "end_line": 56,
+            "start_column": 6,
+            "start_line": 56
+          }
+        }
+      ],
+      "kind": "documents_route",
+      "provenance": "inferred",
+      "source": "api_operation:openapi.json#GET%20%2Ft013b%2Foptional%2Fvalue",
+      "target": "route:routes.ts#GET%20%2Ft013b%2Foptional%2F%3Aid%3F",
+      "type": "edge"
+    },
+    {
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "file": "openapi.json",
+          "span": {
+            "end_column": 15,
+            "end_line": 23,
+            "start_column": 6,
+            "start_line": 23
+          }
+        }
+      ],
+      "kind": "documents_route",
+      "provenance": "inferred",
+      "source": "api_operation:openapi.json#GET%20%2Ft013b%2Fparam%2Ffixed",
+      "target": "route:routes.ts#GET%20%2Ft013b%2Fparam%2F%3Aid",
+      "type": "edge"
+    },
+    {
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "file": "openapi.json",
+          "span": {
+            "end_column": 7,
+            "end_line": 11,
+            "start_column": 6,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "documents_route",
+      "provenance": "inferred",
+      "source": "api_operation:openapi.json#GET%20%2Ft013b%2Frelative",
+      "target": "route:routes.ts#GET%20%2Ft013b%2Frelative",
+      "type": "edge"
+    },
+    {
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "file": "openapi.json",
+          "span": {
+            "end_column": 15,
+            "end_line": 44,
+            "start_column": 6,
+            "start_line": 44
+          }
+        }
+      ],
+      "kind": "documents_route",
+      "provenance": "inferred",
+      "source": "api_operation:openapi.json#GET%20%2Ft013b%2Fslash",
+      "target": "route:twins.py#GET%20%2Ft013b%2Fslash",
+      "type": "edge"
+    },
+    {
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "file": "openapi.json",
+          "span": {
+            "end_column": 15,
+            "end_line": 47,
+            "start_column": 6,
+            "start_line": 47
+          }
+        }
+      ],
+      "kind": "documents_route",
+      "provenance": "inferred",
+      "source": "api_operation:openapi.json#GET%20%2Ft013b%2Fslash%2F",
+      "target": "route:twins.py#GET%20%2Ft013b%2Fslash%2F",
+      "type": "edge"
+    },
+    {
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "file": "openapi.json",
+          "span": {
+            "end_column": 15,
+            "end_line": 32,
+            "start_column": 6,
+            "start_line": 32
+          }
+        }
+      ],
+      "kind": "documents_route",
+      "provenance": "inferred",
+      "source": "api_operation:openapi.json#GET%20%2Ft013b%2Fspecific%2F%7Bid%7D",
+      "target": "route:routes.ts#GET%20%2Ft013b%2Fspecific%2F%3Aid",
+      "type": "edge"
+    },
+    {
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "file": "openapi.json",
+          "span": {
+            "end_column": 15,
+            "end_line": 29,
+            "start_column": 6,
+            "start_line": 29
+          }
+        }
+      ],
+      "kind": "documents_route",
+      "provenance": "inferred",
+      "source": "api_operation:openapi.json#GET%20%2Ft013b%2Fspecific%2Ffixed",
+      "target": "route:routes.ts#GET%20%2Ft013b%2Fspecific%2Ffixed",
+      "type": "edge"
+    },
+    {
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "file": "openapi.json",
+          "span": {
+            "end_column": 15,
+            "end_line": 50,
+            "start_column": 6,
+            "start_line": 50
+          }
+        }
+      ],
+      "kind": "documents_route",
+      "provenance": "inferred",
+      "source": "api_operation:openapi.json#GET%20%2Ft013b%2Fwild%2Fa%2Fb",
+      "target": "route:routes.ts#GET%20%2Ft013b%2Fwild%2F%2A",
+      "type": "edge"
+    },
+    {
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "file": "openapi.json",
+          "span": {
+            "end_column": 16,
+            "end_line": 59,
+            "start_column": 6,
+            "start_line": 59
+          }
+        }
+      ],
+      "kind": "documents_route",
+      "provenance": "inferred",
+      "source": "api_operation:openapi.json#HEAD%20%2Ft013b%2Fhead",
+      "target": "route:routes.ts#GET%20%2Ft013b%2Fhead",
+      "type": "edge"
+    },
+    {
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "file": "openapi.json",
+          "span": {
+            "end_column": 17,
+            "end_line": 62,
+            "start_column": 6,
+            "start_line": 62
+          }
+        }
+      ],
+      "kind": "documents_route",
+      "provenance": "inferred",
+      "source": "api_operation:openapi.json#QUERY%20%2Ft013b%2Fany",
+      "target": "route:routes.ts#ANY%20%2Ft013b%2Fany",
+      "type": "edge"
+    },
+    {
+      "confidence": 0.9,
+      "evidence": [
+        {
+          "file": "tests/openapi.json",
+          "span": {
+            "end_column": 61,
+            "end_line": 1,
+            "start_column": 52,
+            "start_line": 1
+          }
+        }
+      ],
+      "kind": "documents_route",
+      "provenance": "inferred",
+      "source": "api_operation:tests/openapi.json#GET%20%2Ft013b%2Ftest-spec",
+      "target": "route:tests/routes.ts#GET%20%2Ft013b%2Ftest-spec",
+      "type": "edge"
+    }
+  ],
+  "files": null,
+  "nodes": [
+    {
+      "attributes": {
+        "deprecated": false,
+        "method": "GET",
+        "operation_id": null,
+        "parameters": [],
+        "path": "/overridden",
+        "path_count": 1,
+        "paths": [
+          {
+            "candidate_count": 0,
+            "candidates": [
+              "route:routes.ts#GET%20%2Ft013b%2Foverridden"
+            ],
+            "match": "exact",
+            "origins": [],
+            "resolution": "configured",
+            "status": "linked",
+            "template": "/t013b/overridden"
+          }
+        ],
+        "request_content_types": [],
+        "response_codes": [],
+        "security": [],
+        "status": "linked",
+        "summary": null,
+        "tags": []
+      },
+      "content_hash": "sha256:38eeb276512239d14324ac62651fedff11a83f04aa956f45fb26b3c9382f39dc",
+      "file": "configured-openapi.json",
+      "identity": "api_operation:configured-openapi.json#GET%20%2Foverridden",
+      "kind": "api_operation",
+      "level": 4,
+      "name": "GET /overridden",
+      "qualified_name": "GET /overridden",
+      "span": {
+        "end_column": 7,
+        "end_line": 19,
+        "start_column": 6,
+        "start_line": 13
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "deprecated": false,
+        "method": "GET",
+        "operation_id": null,
+        "parameters": [],
+        "path": "/repaired",
+        "path_count": 1,
+        "paths": [
+          {
+            "candidate_count": 0,
+            "candidates": [
+              "route:routes.ts#GET%20%2Ft013b%2Frepaired"
+            ],
+            "match": "exact",
+            "origins": [],
+            "resolution": "configured",
+            "status": "linked",
+            "template": "/t013b/repaired"
+          }
+        ],
+        "request_content_types": [],
+        "response_codes": [],
+        "security": [],
+        "status": "linked",
+        "summary": null,
+        "tags": []
+      },
+      "content_hash": "sha256:760bcb1cbd8470d870d080966a799fd3c7bda78ea709fceae6a32e14cc8588a4",
+      "file": "configured-openapi.json",
+      "identity": "api_operation:configured-openapi.json#GET%20%2Frepaired",
+      "kind": "api_operation",
+      "level": 4,
+      "name": "GET /repaired",
+      "qualified_name": "GET /repaired",
+      "span": {
+        "end_column": 15,
+        "end_line": 10,
+        "start_column": 6,
+        "start_line": 10
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "deprecated": false,
+        "method": "GET",
+        "operation_id": null,
+        "parameters": [],
+        "path": "/multi",
+        "path_count": 2,
+        "paths": [
+          {
+            "candidate_count": 0,
+            "candidates": [
+              "route:routes.ts#GET%20%2Ft013b%2Fa%2Fmulti"
+            ],
+            "match": "exact",
+            "origins": [],
+            "resolution": "literal",
+            "status": "linked",
+            "template": "/t013b/a/multi"
+          },
+          {
+            "candidate_count": 0,
+            "candidates": [
+              "route:routes.ts#GET%20%2Ft013b%2Fb%2Fmulti"
+            ],
+            "match": "exact",
+            "origins": [],
+            "resolution": "literal",
+            "status": "linked",
+            "template": "/t013b/b/multi"
+          }
+        ],
+        "request_content_types": [],
+        "response_codes": [],
+        "security": [],
+        "status": "linked",
+        "summary": null,
+        "tags": []
+      },
+      "content_hash": "sha256:774e0a0373cb4338e407f19c74a94ddfedacfe58ac9e3d51fdee8f11e8e97b93",
+      "file": "openapi.json",
+      "identity": "api_operation:openapi.json#GET%20%2Fmulti",
+      "kind": "api_operation",
+      "level": 4,
+      "name": "GET /multi",
+      "qualified_name": "GET /multi",
+      "span": {
+        "end_column": 7,
+        "end_line": 83,
+        "start_column": 6,
+        "start_line": 74
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "deprecated": false,
+        "method": "GET",
+        "operation_id": null,
+        "parameters": [],
+        "path": "/t013b/absolute",
+        "path_count": 1,
+        "paths": [
+          {
+            "candidate_count": 0,
+            "candidates": [
+              "route:routes.ts#GET%20%2Ft013b%2Fabsolute"
+            ],
+            "match": "exact",
+            "origins": [
+              "https://example.invalid"
+            ],
+            "resolution": "literal",
+            "status": "linked",
+            "template": "/t013b/absolute"
+          }
+        ],
+        "request_content_types": [],
+        "response_codes": [],
+        "security": [],
+        "status": "linked",
+        "summary": null,
+        "tags": []
+      },
+      "content_hash": "sha256:d5739a564c2d61862ee5af4002372fdf574dfd218b573db3f854666941c34b99",
+      "file": "openapi.json",
+      "identity": "api_operation:openapi.json#GET%20%2Ft013b%2Fabsolute",
+      "kind": "api_operation",
+      "level": 4,
+      "name": "GET /t013b/absolute",
+      "qualified_name": "GET /t013b/absolute",
+      "span": {
+        "end_column": 7,
+        "end_line": 20,
+        "start_column": 6,
+        "start_line": 14
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "deprecated": false,
+        "method": "GET",
+        "operation_id": null,
+        "parameters": [],
+        "path": "/t013b/duplicate",
+        "path_count": 1,
+        "paths": [
+          {
+            "candidate_count": 0,
+            "candidates": [
+              "route:routes.ts#GET%20%2Ft013b%2Fduplicate"
+            ],
+            "match": "exact",
+            "origins": [],
+            "resolution": "literal",
+            "status": "linked",
+            "template": "/t013b/duplicate"
+          }
+        ],
+        "request_content_types": [],
+        "response_codes": [],
+        "security": [],
+        "status": "linked",
+        "summary": null,
+        "tags": []
+      },
+      "content_hash": "sha256:760bcb1cbd8470d870d080966a799fd3c7bda78ea709fceae6a32e14cc8588a4",
+      "file": "openapi.json",
+      "identity": "api_operation:openapi.json#GET%20%2Ft013b%2Fduplicate",
+      "kind": "api_operation",
+      "level": 4,
+      "name": "GET /t013b/duplicate",
+      "qualified_name": "GET /t013b/duplicate",
+      "span": {
+        "end_column": 15,
+        "end_line": 35,
+        "start_column": 6,
+        "start_line": 35
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "deprecated": false,
+        "method": "GET",
+        "operation_id": null,
+        "parameters": [],
+        "path": "/t013b/literal/{id}",
+        "path_count": 1,
+        "paths": [
+          {
+            "candidate_count": 0,
+            "candidates": [],
+            "match": null,
+            "origins": [],
+            "resolution": "literal",
+            "status": "unmatched",
+            "template": "/t013b/literal/{id}"
+          }
+        ],
+        "request_content_types": [],
+        "response_codes": [],
+        "security": [],
+        "status": "unmatched",
+        "summary": null,
+        "tags": []
+      },
+      "content_hash": "sha256:760bcb1cbd8470d870d080966a799fd3c7bda78ea709fceae6a32e14cc8588a4",
+      "file": "openapi.json",
+      "identity": "api_operation:openapi.json#GET%20%2Ft013b%2Fliteral%2F%7Bid%7D",
+      "kind": "api_operation",
+      "level": 4,
+      "name": "GET /t013b/literal/{id}",
+      "qualified_name": "GET /t013b/literal/{id}",
+      "span": {
+        "end_column": 15,
+        "end_line": 26,
+        "start_column": 6,
+        "start_line": 26
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "deprecated": false,
+        "method": "GET",
+        "operation_id": null,
+        "parameters": [],
+        "path": "/t013b/only-test",
+        "path_count": 1,
+        "paths": [
+          {
+            "candidate_count": 0,
+            "candidates": [
+              "route:tests/routes.ts#GET%20%2Ft013b%2Fonly-test"
+            ],
+            "match": null,
+            "origins": [],
+            "resolution": "literal",
+            "status": "test_only",
+            "template": "/t013b/only-test"
+          }
+        ],
+        "request_content_types": [],
+        "response_codes": [],
+        "security": [],
+        "status": "test_only",
+        "summary": null,
+        "tags": []
+      },
+      "content_hash": "sha256:760bcb1cbd8470d870d080966a799fd3c7bda78ea709fceae6a32e14cc8588a4",
+      "file": "openapi.json",
+      "identity": "api_operation:openapi.json#GET%20%2Ft013b%2Fonly-test",
+      "kind": "api_operation",
+      "level": 4,
+      "name": "GET /t013b/only-test",
+      "qualified_name": "GET /t013b/only-test",
+      "span": {
+        "end_column": 15,
+        "end_line": 41,
+        "start_column": 6,
+        "start_line": 41
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "deprecated": false,
+        "method": "GET",
+        "operation_id": null,
+        "parameters": [],
+        "path": "/t013b/optional",
+        "path_count": 1,
+        "paths": [
+          {
+            "candidate_count": 0,
+            "candidates": [
+              "route:routes.ts#GET%20%2Ft013b%2Foptional%2F%3Aid%3F"
+            ],
+            "match": "exact",
+            "origins": [],
+            "resolution": "literal",
+            "status": "linked",
+            "template": "/t013b/optional"
+          }
+        ],
+        "request_content_types": [],
+        "response_codes": [],
+        "security": [],
+        "status": "linked",
+        "summary": null,
+        "tags": []
+      },
+      "content_hash": "sha256:760bcb1cbd8470d870d080966a799fd3c7bda78ea709fceae6a32e14cc8588a4",
+      "file": "openapi.json",
+      "identity": "api_operation:openapi.json#GET%20%2Ft013b%2Foptional",
+      "kind": "api_operation",
+      "level": 4,
+      "name": "GET /t013b/optional",
+      "qualified_name": "GET /t013b/optional",
+      "span": {
+        "end_column": 15,
+        "end_line": 53,
+        "start_column": 6,
+        "start_line": 53
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "deprecated": false,
+        "method": "GET",
+        "operation_id": null,
+        "parameters": [],
+        "path": "/t013b/optional/value",
+        "path_count": 1,
+        "paths": [
+          {
+            "candidate_count": 0,
+            "candidates": [
+              "route:routes.ts#GET%20%2Ft013b%2Foptional%2F%3Aid%3F"
+            ],
+            "match": "exact",
+            "origins": [],
+            "resolution": "literal",
+            "status": "linked",
+            "template": "/t013b/optional/value"
+          }
+        ],
+        "request_content_types": [],
+        "response_codes": [],
+        "security": [],
+        "status": "linked",
+        "summary": null,
+        "tags": []
+      },
+      "content_hash": "sha256:760bcb1cbd8470d870d080966a799fd3c7bda78ea709fceae6a32e14cc8588a4",
+      "file": "openapi.json",
+      "identity": "api_operation:openapi.json#GET%20%2Ft013b%2Foptional%2Fvalue",
+      "kind": "api_operation",
+      "level": 4,
+      "name": "GET /t013b/optional/value",
+      "qualified_name": "GET /t013b/optional/value",
+      "span": {
+        "end_column": 15,
+        "end_line": 56,
+        "start_column": 6,
+        "start_line": 56
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "deprecated": false,
+        "method": "GET",
+        "operation_id": null,
+        "parameters": [],
+        "path": "/t013b/param/fixed",
+        "path_count": 1,
+        "paths": [
+          {
+            "candidate_count": 0,
+            "candidates": [
+              "route:routes.ts#GET%20%2Ft013b%2Fparam%2F%3Aid"
+            ],
+            "match": "exact",
+            "origins": [],
+            "resolution": "literal",
+            "status": "linked",
+            "template": "/t013b/param/fixed"
+          }
+        ],
+        "request_content_types": [],
+        "response_codes": [],
+        "security": [],
+        "status": "linked",
+        "summary": null,
+        "tags": []
+      },
+      "content_hash": "sha256:760bcb1cbd8470d870d080966a799fd3c7bda78ea709fceae6a32e14cc8588a4",
+      "file": "openapi.json",
+      "identity": "api_operation:openapi.json#GET%20%2Ft013b%2Fparam%2Ffixed",
+      "kind": "api_operation",
+      "level": 4,
+      "name": "GET /t013b/param/fixed",
+      "qualified_name": "GET /t013b/param/fixed",
+      "span": {
+        "end_column": 15,
+        "end_line": 23,
+        "start_column": 6,
+        "start_line": 23
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "deprecated": false,
+        "method": "GET",
+        "operation_id": null,
+        "parameters": [],
+        "path": "/t013b/relative",
+        "path_count": 1,
+        "paths": [
+          {
+            "candidate_count": 0,
+            "candidates": [
+              "route:routes.ts#GET%20%2Ft013b%2Frelative"
+            ],
+            "match": "exact",
+            "origins": [],
+            "resolution": "literal",
+            "status": "linked",
+            "template": "/t013b/relative"
+          }
+        ],
+        "request_content_types": [],
+        "response_codes": [],
+        "security": [],
+        "status": "linked",
+        "summary": null,
+        "tags": []
+      },
+      "content_hash": "sha256:278d80bdc52c53c8c85bd233db10aacacb7013657b0f27aaf56548003c21cd01",
+      "file": "openapi.json",
+      "identity": "api_operation:openapi.json#GET%20%2Ft013b%2Frelative",
+      "kind": "api_operation",
+      "level": 4,
+      "name": "GET /t013b/relative",
+      "qualified_name": "GET /t013b/relative",
+      "span": {
+        "end_column": 7,
+        "end_line": 11,
+        "start_column": 6,
+        "start_line": 5
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "deprecated": false,
+        "method": "GET",
+        "operation_id": null,
+        "parameters": [],
+        "path": "/t013b/slash",
+        "path_count": 1,
+        "paths": [
+          {
+            "candidate_count": 0,
+            "candidates": [
+              "route:twins.py#GET%20%2Ft013b%2Fslash"
+            ],
+            "match": "exact",
+            "origins": [],
+            "resolution": "literal",
+            "status": "linked",
+            "template": "/t013b/slash"
+          }
+        ],
+        "request_content_types": [],
+        "response_codes": [],
+        "security": [],
+        "status": "linked",
+        "summary": null,
+        "tags": []
+      },
+      "content_hash": "sha256:760bcb1cbd8470d870d080966a799fd3c7bda78ea709fceae6a32e14cc8588a4",
+      "file": "openapi.json",
+      "identity": "api_operation:openapi.json#GET%20%2Ft013b%2Fslash",
+      "kind": "api_operation",
+      "level": 4,
+      "name": "GET /t013b/slash",
+      "qualified_name": "GET /t013b/slash",
+      "span": {
+        "end_column": 15,
+        "end_line": 44,
+        "start_column": 6,
+        "start_line": 44
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "deprecated": false,
+        "method": "GET",
+        "operation_id": null,
+        "parameters": [],
+        "path": "/t013b/slash/",
+        "path_count": 1,
+        "paths": [
+          {
+            "candidate_count": 0,
+            "candidates": [
+              "route:twins.py#GET%20%2Ft013b%2Fslash%2F"
+            ],
+            "match": "exact",
+            "origins": [],
+            "resolution": "literal",
+            "status": "linked",
+            "template": "/t013b/slash",
+            "trailing_slash": true
+          }
+        ],
+        "request_content_types": [],
+        "response_codes": [],
+        "security": [],
+        "status": "linked",
+        "summary": null,
+        "tags": []
+      },
+      "content_hash": "sha256:760bcb1cbd8470d870d080966a799fd3c7bda78ea709fceae6a32e14cc8588a4",
+      "file": "openapi.json",
+      "identity": "api_operation:openapi.json#GET%20%2Ft013b%2Fslash%2F",
+      "kind": "api_operation",
+      "level": 4,
+      "name": "GET /t013b/slash/",
+      "qualified_name": "GET /t013b/slash/",
+      "span": {
+        "end_column": 15,
+        "end_line": 47,
+        "start_column": 6,
+        "start_line": 47
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "deprecated": false,
+        "method": "GET",
+        "operation_id": null,
+        "parameters": [],
+        "path": "/t013b/specific/{id}",
+        "path_count": 1,
+        "paths": [
+          {
+            "candidate_count": 0,
+            "candidates": [
+              "route:routes.ts#GET%20%2Ft013b%2Fspecific%2F%3Aid"
+            ],
+            "match": "exact",
+            "origins": [],
+            "resolution": "literal",
+            "status": "linked",
+            "template": "/t013b/specific/{id}"
+          }
+        ],
+        "request_content_types": [],
+        "response_codes": [],
+        "security": [],
+        "status": "linked",
+        "summary": null,
+        "tags": []
+      },
+      "content_hash": "sha256:760bcb1cbd8470d870d080966a799fd3c7bda78ea709fceae6a32e14cc8588a4",
+      "file": "openapi.json",
+      "identity": "api_operation:openapi.json#GET%20%2Ft013b%2Fspecific%2F%7Bid%7D",
+      "kind": "api_operation",
+      "level": 4,
+      "name": "GET /t013b/specific/{id}",
+      "qualified_name": "GET /t013b/specific/{id}",
+      "span": {
+        "end_column": 15,
+        "end_line": 32,
+        "start_column": 6,
+        "start_line": 32
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "deprecated": false,
+        "method": "GET",
+        "operation_id": null,
+        "parameters": [],
+        "path": "/t013b/specific/fixed",
+        "path_count": 1,
+        "paths": [
+          {
+            "candidate_count": 0,
+            "candidates": [
+              "route:routes.ts#GET%20%2Ft013b%2Fspecific%2Ffixed"
+            ],
+            "match": "exact",
+            "origins": [],
+            "resolution": "literal",
+            "status": "linked",
+            "template": "/t013b/specific/fixed"
+          }
+        ],
+        "request_content_types": [],
+        "response_codes": [],
+        "security": [],
+        "status": "linked",
+        "summary": null,
+        "tags": []
+      },
+      "content_hash": "sha256:760bcb1cbd8470d870d080966a799fd3c7bda78ea709fceae6a32e14cc8588a4",
+      "file": "openapi.json",
+      "identity": "api_operation:openapi.json#GET%20%2Ft013b%2Fspecific%2Ffixed",
+      "kind": "api_operation",
+      "level": 4,
+      "name": "GET /t013b/specific/fixed",
+      "qualified_name": "GET /t013b/specific/fixed",
+      "span": {
+        "end_column": 15,
+        "end_line": 29,
+        "start_column": 6,
+        "start_line": 29
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "deprecated": false,
+        "method": "GET",
+        "operation_id": null,
+        "parameters": [],
+        "path": "/t013b/tie",
+        "path_count": 1,
+        "paths": [
+          {
+            "candidate_count": 2,
+            "candidates": [
+              "route:routes.ts#GET%20%2Ft013b%2Ftie",
+              "route:routes.ts#GET%20%2Ft013b%2Ftie%402"
+            ],
+            "match": null,
+            "origins": [],
+            "resolution": "literal",
+            "status": "ambiguous",
+            "template": "/t013b/tie"
+          }
+        ],
+        "request_content_types": [],
+        "response_codes": [],
+        "security": [],
+        "status": "ambiguous",
+        "summary": null,
+        "tags": []
+      },
+      "content_hash": "sha256:760bcb1cbd8470d870d080966a799fd3c7bda78ea709fceae6a32e14cc8588a4",
+      "file": "openapi.json",
+      "identity": "api_operation:openapi.json#GET%20%2Ft013b%2Ftie",
+      "kind": "api_operation",
+      "level": 4,
+      "name": "GET /t013b/tie",
+      "qualified_name": "GET /t013b/tie",
+      "span": {
+        "end_column": 15,
+        "end_line": 38,
+        "start_column": 6,
+        "start_line": 38
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "deprecated": false,
+        "method": "GET",
+        "operation_id": null,
+        "parameters": [],
+        "path": "/t013b/unresolved",
+        "path_count": 1,
+        "paths": [
+          {
+            "candidate_count": 0,
+            "candidates": [],
+            "match": null,
+            "origins": [],
+            "resolution": "unresolved",
+            "status": "unresolved",
+            "template": null
+          }
+        ],
+        "request_content_types": [],
+        "response_codes": [],
+        "security": [],
+        "status": "unresolved",
+        "summary": null,
+        "tags": []
+      },
+      "content_hash": "sha256:82012915be5cb5b83352a5f5813acd977ded38f35b589da76607e1ebf01971a6",
+      "file": "openapi.json",
+      "identity": "api_operation:openapi.json#GET%20%2Ft013b%2Funresolved",
+      "kind": "api_operation",
+      "level": 4,
+      "name": "GET /t013b/unresolved",
+      "qualified_name": "GET /t013b/unresolved",
+      "span": {
+        "end_column": 7,
+        "end_line": 92,
+        "start_column": 6,
+        "start_line": 86
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "deprecated": false,
+        "method": "GET",
+        "operation_id": null,
+        "parameters": [],
+        "path": "/t013b/wild/a/b",
+        "path_count": 1,
+        "paths": [
+          {
+            "candidate_count": 0,
+            "candidates": [
+              "route:routes.ts#GET%20%2Ft013b%2Fwild%2F%2A"
+            ],
+            "match": "exact",
+            "origins": [],
+            "resolution": "literal",
+            "status": "linked",
+            "template": "/t013b/wild/a/b"
+          }
+        ],
+        "request_content_types": [],
+        "response_codes": [],
+        "security": [],
+        "status": "linked",
+        "summary": null,
+        "tags": []
+      },
+      "content_hash": "sha256:760bcb1cbd8470d870d080966a799fd3c7bda78ea709fceae6a32e14cc8588a4",
+      "file": "openapi.json",
+      "identity": "api_operation:openapi.json#GET%20%2Ft013b%2Fwild%2Fa%2Fb",
+      "kind": "api_operation",
+      "level": 4,
+      "name": "GET /t013b/wild/a/b",
+      "qualified_name": "GET /t013b/wild/a/b",
+      "span": {
+        "end_column": 15,
+        "end_line": 50,
+        "start_column": 6,
+        "start_line": 50
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "deprecated": false,
+        "method": "HEAD",
+        "operation_id": null,
+        "parameters": [],
+        "path": "/t013b/head",
+        "path_count": 1,
+        "paths": [
+          {
+            "candidate_count": 0,
+            "candidates": [
+              "route:routes.ts#GET%20%2Ft013b%2Fhead"
+            ],
+            "match": "exact",
+            "origins": [],
+            "resolution": "literal",
+            "status": "linked",
+            "template": "/t013b/head"
+          }
+        ],
+        "request_content_types": [],
+        "response_codes": [],
+        "security": [],
+        "status": "linked",
+        "summary": null,
+        "tags": []
+      },
+      "content_hash": "sha256:3338141402c7d1cee464631346ed2a50b732b074ed9e12d5749459a72c4d2e7a",
+      "file": "openapi.json",
+      "identity": "api_operation:openapi.json#HEAD%20%2Ft013b%2Fhead",
+      "kind": "api_operation",
+      "level": 4,
+      "name": "HEAD /t013b/head",
+      "qualified_name": "HEAD /t013b/head",
+      "span": {
+        "end_column": 16,
+        "end_line": 59,
+        "start_column": 6,
+        "start_line": 59
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "deprecated": false,
+        "method": "QUERY",
+        "operation_id": null,
+        "parameters": [],
+        "path": "/t013b/any",
+        "path_count": 1,
+        "paths": [
+          {
+            "candidate_count": 0,
+            "candidates": [
+              "route:routes.ts#ANY%20%2Ft013b%2Fany"
+            ],
+            "match": "exact",
+            "origins": [],
+            "resolution": "literal",
+            "status": "linked",
+            "template": "/t013b/any"
+          }
+        ],
+        "request_content_types": [],
+        "response_codes": [],
+        "security": [],
+        "status": "linked",
+        "summary": null,
+        "tags": []
+      },
+      "content_hash": "sha256:e7893b9629f28114b85eff3709617c56f702ee0d08dfc715d3707be3ce0ba150",
+      "file": "openapi.json",
+      "identity": "api_operation:openapi.json#QUERY%20%2Ft013b%2Fany",
+      "kind": "api_operation",
+      "level": 4,
+      "name": "QUERY /t013b/any",
+      "qualified_name": "QUERY /t013b/any",
+      "span": {
+        "end_column": 17,
+        "end_line": 62,
+        "start_column": 6,
+        "start_line": 62
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "deprecated": false,
+        "method": "QUERY",
+        "operation_id": null,
+        "parameters": [],
+        "path": "/t013b/get-only",
+        "path_count": 1,
+        "paths": [
+          {
+            "candidate_count": 0,
+            "candidates": [],
+            "match": null,
+            "origins": [],
+            "resolution": "literal",
+            "status": "unmatched",
+            "template": "/t013b/get-only"
+          }
+        ],
+        "request_content_types": [],
+        "response_codes": [],
+        "security": [],
+        "status": "unmatched",
+        "summary": null,
+        "tags": []
+      },
+      "content_hash": "sha256:e7893b9629f28114b85eff3709617c56f702ee0d08dfc715d3707be3ce0ba150",
+      "file": "openapi.json",
+      "identity": "api_operation:openapi.json#QUERY%20%2Ft013b%2Fget-only",
+      "kind": "api_operation",
+      "level": 4,
+      "name": "QUERY /t013b/get-only",
+      "qualified_name": "QUERY /t013b/get-only",
+      "span": {
+        "end_column": 17,
+        "end_line": 68,
+        "start_column": 6,
+        "start_line": 68
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "deprecated": false,
+        "method": "query",
+        "operation_id": null,
+        "parameters": [],
+        "path": "/t013b/any",
+        "path_count": 1,
+        "paths": [
+          {
+            "candidate_count": 0,
+            "candidates": [],
+            "match": null,
+            "origins": [],
+            "resolution": "literal",
+            "status": "unmatched",
+            "template": "/t013b/any"
+          }
+        ],
+        "request_content_types": [],
+        "response_codes": [],
+        "security": [],
+        "status": "unmatched",
+        "summary": null,
+        "tags": []
+      },
+      "content_hash": "sha256:e7893b9629f28114b85eff3709617c56f702ee0d08dfc715d3707be3ce0ba150",
+      "file": "openapi.json",
+      "identity": "api_operation:openapi.json#query%20%2Ft013b%2Fany",
+      "kind": "api_operation",
+      "level": 4,
+      "name": "query /t013b/any",
+      "qualified_name": "query /t013b/any",
+      "span": {
+        "end_column": 19,
+        "end_line": 64,
+        "start_column": 8,
+        "start_line": 64
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "deprecated": false,
+        "method": "query",
+        "operation_id": null,
+        "parameters": [],
+        "path": "/t013b/get-only",
+        "path_count": 1,
+        "paths": [
+          {
+            "candidate_count": 0,
+            "candidates": [],
+            "match": null,
+            "origins": [],
+            "resolution": "literal",
+            "status": "unmatched",
+            "template": "/t013b/get-only"
+          }
+        ],
+        "request_content_types": [],
+        "response_codes": [],
+        "security": [],
+        "status": "unmatched",
+        "summary": null,
+        "tags": []
+      },
+      "content_hash": "sha256:e7893b9629f28114b85eff3709617c56f702ee0d08dfc715d3707be3ce0ba150",
+      "file": "openapi.json",
+      "identity": "api_operation:openapi.json#query%20%2Ft013b%2Fget-only",
+      "kind": "api_operation",
+      "level": 4,
+      "name": "query /t013b/get-only",
+      "qualified_name": "query /t013b/get-only",
+      "span": {
+        "end_column": 19,
+        "end_line": 70,
+        "start_column": 8,
+        "start_line": 70
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "deprecated": false,
+        "method": "GET",
+        "operation_id": null,
+        "parameters": [],
+        "path": "/t013b/test-spec",
+        "path_count": 1,
+        "paths": [
+          {
+            "candidate_count": 0,
+            "candidates": [
+              "route:tests/routes.ts#GET%20%2Ft013b%2Ftest-spec"
+            ],
+            "match": "exact",
+            "origins": [],
+            "resolution": "literal",
+            "status": "linked",
+            "template": "/t013b/test-spec"
+          }
+        ],
+        "request_content_types": [],
+        "response_codes": [],
+        "scope": "test",
+        "security": [],
+        "status": "linked",
+        "summary": null,
+        "tags": []
+      },
+      "content_hash": "sha256:760bcb1cbd8470d870d080966a799fd3c7bda78ea709fceae6a32e14cc8588a4",
+      "file": "tests/openapi.json",
+      "identity": "api_operation:tests/openapi.json#GET%20%2Ft013b%2Ftest-spec",
+      "kind": "api_operation",
+      "level": 4,
+      "name": "GET /t013b/test-spec",
+      "qualified_name": "GET /t013b/test-spec",
+      "span": {
+        "end_column": 61,
+        "end_line": 1,
+        "start_column": 52,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "api_version": null,
+        "format": "openapi",
+        "self": null,
+        "servers": [
+          {
+            "url": "relative/api",
+            "variables": {}
+          }
+        ],
+        "spec_version": "3.2.0",
+        "title": null,
+        "version_supported": true
+      },
+      "content_hash": "sha256:828d75708872d4903b979f11034d299e3b836b4ff2041b7384ac4e486d9da27f",
+      "file": "configured-openapi.json",
+      "identity": "api_spec:configured-openapi.json#spec",
+      "kind": "api_spec",
+      "level": 2,
+      "name": "spec",
+      "qualified_name": "spec",
+      "span": {
+        "end_column": 0,
+        "end_line": 23,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "api_version": null,
+        "format": "openapi",
+        "self": null,
+        "servers": [],
+        "spec_version": "3.2.0",
+        "title": null,
+        "version_supported": true
+      },
+      "content_hash": "sha256:3269ed538238c115d24b28eac641a58aea74f867f10fcf2a41d29c41d56ca24b",
+      "file": "openapi.json",
+      "identity": "api_spec:openapi.json#spec",
+      "kind": "api_spec",
+      "level": 2,
+      "name": "spec",
+      "qualified_name": "spec",
+      "span": {
+        "end_column": 0,
+        "end_line": 96,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "api_version": null,
+        "format": "openapi",
+        "scope": "test",
+        "self": null,
+        "servers": [],
+        "spec_version": "3.2.0",
+        "title": null,
+        "version_supported": true
+      },
+      "content_hash": "sha256:ca9205f68d6b7fda77c0745a768bd8cde28a47504de659f9bee632a4b9f26931",
+      "file": "tests/openapi.json",
+      "identity": "api_spec:tests/openapi.json#spec",
+      "kind": "api_spec",
+      "level": 2,
+      "name": "spec",
+      "qualified_name": "spec",
+      "span": {
+        "end_column": 0,
+        "end_line": 2,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "framework": "express",
+        "handler": "function:routes.ts#one",
+        "handler_inline": false,
+        "method": "ANY",
+        "middleware": [],
+        "paths": [
+          {
+            "conditional": false,
+            "resolution": "literal",
+            "template": "/t013b/any"
+          }
+        ],
+        "pattern": "/t013b/any",
+        "shape": {
+          "body": {
+            "items": [],
+            "reason": "the handler reads no request property; no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+            "state": "not_read"
+          },
+          "cookie": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "follow": {
+            "chains": [],
+            "depth_limit": 6
+          },
+          "header": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "models": [],
+          "path": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "routes.ts",
+              "kind": "fact",
+              "line": 14,
+              "rule": "SH-E2"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "query": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "responses": {
+            "items": [],
+            "reason": "the handler does not use a response parameter in a read form",
+            "state": "not_read"
+          },
+          "security": {
+            "items": [],
+            "state": "not_read"
+          },
+          "security_schemes": [],
+          "version": 1
+        }
+      },
+      "content_hash": "sha256:e54ad451be1c7e13be7d4340ca40ab7d33f7c7e40fc323334526ce01e06e3a95",
+      "file": "routes.ts",
+      "identity": "route:routes.ts#ANY%20%2Ft013b%2Fany",
+      "kind": "route",
+      "level": 4,
+      "name": "ANY /t013b/any",
+      "qualified_name": "ANY /t013b/any",
+      "span": {
+        "end_column": 26,
+        "end_line": 14,
+        "start_column": 0,
+        "start_line": 14
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "framework": "express",
+        "handler": "function:routes.ts#one",
+        "handler_inline": false,
+        "method": "GET",
+        "middleware": [],
+        "paths": [
+          {
+            "conditional": false,
+            "resolution": "literal",
+            "template": "/t013b/a/multi"
+          }
+        ],
+        "pattern": "/t013b/a/multi",
+        "shape": {
+          "body": {
+            "items": [],
+            "reason": "the handler reads no request property; no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+            "state": "not_read"
+          },
+          "cookie": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "follow": {
+            "chains": [],
+            "depth_limit": 6
+          },
+          "header": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "models": [],
+          "path": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "routes.ts",
+              "kind": "fact",
+              "line": 20,
+              "rule": "SH-E2"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "query": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "responses": {
+            "items": [],
+            "reason": "the handler does not use a response parameter in a read form",
+            "state": "not_read"
+          },
+          "security": {
+            "items": [],
+            "state": "not_read"
+          },
+          "security_schemes": [],
+          "version": 1
+        }
+      },
+      "content_hash": "sha256:509a3d7dc5946d98b8a4f8c7a7677673535c5b7f223c99e154f75e3f56337be6",
+      "file": "routes.ts",
+      "identity": "route:routes.ts#GET%20%2Ft013b%2Fa%2Fmulti",
+      "kind": "route",
+      "level": 4,
+      "name": "GET /t013b/a/multi",
+      "qualified_name": "GET /t013b/a/multi",
+      "span": {
+        "end_column": 30,
+        "end_line": 20,
+        "start_column": 0,
+        "start_line": 20
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "framework": "express",
+        "handler": "function:routes.ts#one",
+        "handler_inline": false,
+        "method": "GET",
+        "middleware": [],
+        "paths": [
+          {
+            "conditional": false,
+            "resolution": "literal",
+            "template": "/t013b/absolute"
+          }
+        ],
+        "pattern": "/t013b/absolute",
+        "shape": {
+          "body": {
+            "items": [],
+            "reason": "the handler reads no request property; no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+            "state": "not_read"
+          },
+          "cookie": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "follow": {
+            "chains": [],
+            "depth_limit": 6
+          },
+          "header": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "models": [],
+          "path": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "routes.ts",
+              "kind": "fact",
+              "line": 6,
+              "rule": "SH-E2"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "query": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "responses": {
+            "items": [],
+            "reason": "the handler does not use a response parameter in a read form",
+            "state": "not_read"
+          },
+          "security": {
+            "items": [],
+            "state": "not_read"
+          },
+          "security_schemes": [],
+          "version": 1
+        }
+      },
+      "content_hash": "sha256:83f50186762a5feb3771d4047cc82dbfcf01b138ddaabff78ea8e38f10087ec7",
+      "file": "routes.ts",
+      "identity": "route:routes.ts#GET%20%2Ft013b%2Fabsolute",
+      "kind": "route",
+      "level": 4,
+      "name": "GET /t013b/absolute",
+      "qualified_name": "GET /t013b/absolute",
+      "span": {
+        "end_column": 31,
+        "end_line": 6,
+        "start_column": 0,
+        "start_line": 6
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "framework": "express",
+        "handler": "function:routes.ts#two",
+        "handler_inline": false,
+        "method": "GET",
+        "middleware": [],
+        "paths": [
+          {
+            "conditional": false,
+            "resolution": "literal",
+            "template": "/t013b/b/multi"
+          }
+        ],
+        "pattern": "/t013b/b/multi",
+        "shape": {
+          "body": {
+            "items": [],
+            "reason": "the handler reads no request property; no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+            "state": "not_read"
+          },
+          "cookie": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "follow": {
+            "chains": [],
+            "depth_limit": 6
+          },
+          "header": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "models": [],
+          "path": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "routes.ts",
+              "kind": "fact",
+              "line": 21,
+              "rule": "SH-E2"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "query": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "responses": {
+            "items": [],
+            "reason": "the handler does not use a response parameter in a read form",
+            "state": "not_read"
+          },
+          "security": {
+            "items": [],
+            "state": "not_read"
+          },
+          "security_schemes": [],
+          "version": 1
+        }
+      },
+      "content_hash": "sha256:110785b174ac39860e37aba6aed77161c9e671c9ad4c55cd1f40e6d3c442bccb",
+      "file": "routes.ts",
+      "identity": "route:routes.ts#GET%20%2Ft013b%2Fb%2Fmulti",
+      "kind": "route",
+      "level": 4,
+      "name": "GET /t013b/b/multi",
+      "qualified_name": "GET /t013b/b/multi",
+      "span": {
+        "end_column": 30,
+        "end_line": 21,
+        "start_column": 0,
+        "start_line": 21
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "equivalent_registrations": [
+          "route:routes.ts#GET%20%2Ft013b%2Fduplicate",
+          "route:routes.ts#GET%20%2Ft013b%2Fduplicate%402"
+        ],
+        "framework": "express",
+        "handler": "function:routes.ts#one",
+        "handler_inline": false,
+        "method": "GET",
+        "middleware": [],
+        "paths": [
+          {
+            "conditional": false,
+            "resolution": "literal",
+            "template": "/t013b/duplicate"
+          }
+        ],
+        "pattern": "/t013b/duplicate",
+        "shape": {
+          "body": {
+            "items": [],
+            "reason": "the handler reads no request property; no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+            "state": "not_read"
+          },
+          "cookie": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "follow": {
+            "chains": [],
+            "depth_limit": 6
+          },
+          "header": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "models": [],
+          "path": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "routes.ts",
+              "kind": "fact",
+              "line": 16,
+              "rule": "SH-E2"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "query": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "responses": {
+            "items": [],
+            "reason": "the handler does not use a response parameter in a read form",
+            "state": "not_read"
+          },
+          "security": {
+            "items": [],
+            "state": "not_read"
+          },
+          "security_schemes": [],
+          "version": 1
+        }
+      },
+      "content_hash": "sha256:c3854e5a7dd25e9dbee8ea089ce493ae675b0f8882cdcc1a870abdfa6cb680cf",
+      "file": "routes.ts",
+      "identity": "route:routes.ts#GET%20%2Ft013b%2Fduplicate",
+      "kind": "route",
+      "level": 4,
+      "name": "GET /t013b/duplicate",
+      "qualified_name": "GET /t013b/duplicate",
+      "span": {
+        "end_column": 32,
+        "end_line": 16,
+        "start_column": 0,
+        "start_line": 16
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "equivalent_registrations": [
+          "route:routes.ts#GET%20%2Ft013b%2Fduplicate",
+          "route:routes.ts#GET%20%2Ft013b%2Fduplicate%402"
+        ],
+        "framework": "express",
+        "handler": "function:routes.ts#one",
+        "handler_inline": false,
+        "method": "GET",
+        "middleware": [],
+        "mounted_middleware_unknown": [
+          {
+            "expression": "one",
+            "file": "routes.ts",
+            "reason": "earlier route handler one (GET /t013b/duplicate) may run first",
+            "span": {
+              "end_column": 32,
+              "end_line": 16,
+              "start_column": 0,
+              "start_line": 16
+            }
+          }
+        ],
+        "paths": [
+          {
+            "conditional": false,
+            "resolution": "literal",
+            "template": "/t013b/duplicate"
+          }
+        ],
+        "pattern": "/t013b/duplicate",
+        "shape": {
+          "body": {
+            "items": [],
+            "reason": "the handler reads no request property; no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+            "state": "not_read"
+          },
+          "cookie": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "follow": {
+            "chains": [],
+            "depth_limit": 6
+          },
+          "header": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "models": [],
+          "path": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "routes.ts",
+              "kind": "fact",
+              "line": 17,
+              "rule": "SH-E2"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "query": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "responses": {
+            "items": [],
+            "reason": "the handler does not use a response parameter in a read form",
+            "state": "not_read"
+          },
+          "security": {
+            "items": [],
+            "state": "not_read"
+          },
+          "security_schemes": [],
+          "version": 1
+        }
+      },
+      "content_hash": "sha256:c3854e5a7dd25e9dbee8ea089ce493ae675b0f8882cdcc1a870abdfa6cb680cf",
+      "file": "routes.ts",
+      "identity": "route:routes.ts#GET%20%2Ft013b%2Fduplicate%402",
+      "kind": "route",
+      "level": 4,
+      "name": "GET /t013b/duplicate@2",
+      "qualified_name": "GET /t013b/duplicate@2",
+      "span": {
+        "end_column": 32,
+        "end_line": 17,
+        "start_column": 0,
+        "start_line": 17
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "framework": "express",
+        "handler": "function:routes.ts#one",
+        "handler_inline": false,
+        "method": "GET",
+        "middleware": [],
+        "paths": [
+          {
+            "conditional": false,
+            "resolution": "literal",
+            "template": "/t013b/get-only"
+          }
+        ],
+        "pattern": "/t013b/get-only",
+        "shape": {
+          "body": {
+            "items": [],
+            "reason": "the handler reads no request property; no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+            "state": "not_read"
+          },
+          "cookie": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "follow": {
+            "chains": [],
+            "depth_limit": 6
+          },
+          "header": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "models": [],
+          "path": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "routes.ts",
+              "kind": "fact",
+              "line": 15,
+              "rule": "SH-E2"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "query": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "responses": {
+            "items": [],
+            "reason": "the handler does not use a response parameter in a read form",
+            "state": "not_read"
+          },
+          "security": {
+            "items": [],
+            "state": "not_read"
+          },
+          "security_schemes": [],
+          "version": 1
+        }
+      },
+      "content_hash": "sha256:8058035b0aa824c9eaab0a87196ccaffe7ba71a48da5686b4db2fd7e3633edeb",
+      "file": "routes.ts",
+      "identity": "route:routes.ts#GET%20%2Ft013b%2Fget-only",
+      "kind": "route",
+      "level": 4,
+      "name": "GET /t013b/get-only",
+      "qualified_name": "GET /t013b/get-only",
+      "span": {
+        "end_column": 31,
+        "end_line": 15,
+        "start_column": 0,
+        "start_line": 15
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "framework": "express",
+        "handler": "function:routes.ts#one",
+        "handler_inline": false,
+        "method": "GET",
+        "middleware": [],
+        "paths": [
+          {
+            "conditional": false,
+            "resolution": "literal",
+            "template": "/t013b/head"
+          }
+        ],
+        "pattern": "/t013b/head",
+        "shape": {
+          "body": {
+            "items": [],
+            "reason": "the handler reads no request property; no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+            "state": "not_read"
+          },
+          "cookie": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "follow": {
+            "chains": [],
+            "depth_limit": 6
+          },
+          "header": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "models": [],
+          "path": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "routes.ts",
+              "kind": "fact",
+              "line": 13,
+              "rule": "SH-E2"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "query": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "responses": {
+            "items": [],
+            "reason": "the handler does not use a response parameter in a read form",
+            "state": "not_read"
+          },
+          "security": {
+            "items": [],
+            "state": "not_read"
+          },
+          "security_schemes": [],
+          "version": 1
+        }
+      },
+      "content_hash": "sha256:bfd9395dfae6ad33d805fb98ac9251f5d61e351c4c5b58cf6914170a4cf4409f",
+      "file": "routes.ts",
+      "identity": "route:routes.ts#GET%20%2Ft013b%2Fhead",
+      "kind": "route",
+      "level": 4,
+      "name": "GET /t013b/head",
+      "qualified_name": "GET /t013b/head",
+      "span": {
+        "end_column": 27,
+        "end_line": 13,
+        "start_column": 0,
+        "start_line": 13
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "framework": "express",
+        "handler": "function:routes.ts#one",
+        "handler_inline": false,
+        "method": "GET",
+        "middleware": [],
+        "paths": [
+          {
+            "conditional": false,
+            "resolution": "literal",
+            "template": "/t013b/literal/fixed"
+          }
+        ],
+        "pattern": "/t013b/literal/fixed",
+        "shape": {
+          "body": {
+            "items": [],
+            "reason": "the handler reads no request property; no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+            "state": "not_read"
+          },
+          "cookie": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "follow": {
+            "chains": [],
+            "depth_limit": 6
+          },
+          "header": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "models": [],
+          "path": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "routes.ts",
+              "kind": "fact",
+              "line": 10,
+              "rule": "SH-E2"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "query": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "responses": {
+            "items": [],
+            "reason": "the handler does not use a response parameter in a read form",
+            "state": "not_read"
+          },
+          "security": {
+            "items": [],
+            "state": "not_read"
+          },
+          "security_schemes": [],
+          "version": 1
+        }
+      },
+      "content_hash": "sha256:0d712f5eb730bcd674887fd77f076884ca9b5db2a2a5ebe73bbfa2fdd804335c",
+      "file": "routes.ts",
+      "identity": "route:routes.ts#GET%20%2Ft013b%2Fliteral%2Ffixed",
+      "kind": "route",
+      "level": 4,
+      "name": "GET /t013b/literal/fixed",
+      "qualified_name": "GET /t013b/literal/fixed",
+      "span": {
+        "end_column": 36,
+        "end_line": 10,
+        "start_column": 0,
+        "start_line": 10
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "framework": "express",
+        "handler": "function:routes.ts#one",
+        "handler_inline": false,
+        "method": "GET",
+        "middleware": [],
+        "paths": [
+          {
+            "conditional": false,
+            "optional": true,
+            "resolution": "literal",
+            "template": "/t013b/optional/{id}"
+          }
+        ],
+        "pattern": "/t013b/optional/:id?",
+        "shape": {
+          "body": {
+            "items": [],
+            "reason": "the handler reads no request property; no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+            "state": "not_read"
+          },
+          "cookie": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "follow": {
+            "chains": [],
+            "depth_limit": 6
+          },
+          "header": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "models": [],
+          "path": {
+            "items": [
+              {
+                "access": "declared",
+                "name": "id",
+                "presence": "required",
+                "provenance": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "routes.ts",
+                  "kind": "fact",
+                  "line": 23,
+                  "rule": "SH-E1"
+                },
+                "schema": {
+                  "type": "string"
+                }
+              }
+            ],
+            "reason": "an optional segment: some parameters are absent on some paths",
+            "state": "partial"
+          },
+          "query": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "responses": {
+            "items": [],
+            "reason": "the handler does not use a response parameter in a read form",
+            "state": "not_read"
+          },
+          "security": {
+            "items": [],
+            "state": "not_read"
+          },
+          "security_schemes": [],
+          "version": 1
+        }
+      },
+      "content_hash": "sha256:4237fa40a6c5bb71fa01e3e7e70543f6a66589ffd744417a87191ac9d96b51c5",
+      "file": "routes.ts",
+      "identity": "route:routes.ts#GET%20%2Ft013b%2Foptional%2F%3Aid%3F",
+      "kind": "route",
+      "level": 4,
+      "name": "GET /t013b/optional/:id?",
+      "qualified_name": "GET /t013b/optional/:id?",
+      "span": {
+        "end_column": 36,
+        "end_line": 23,
+        "start_column": 0,
+        "start_line": 23
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "framework": "express",
+        "handler": "function:routes.ts#one",
+        "handler_inline": false,
+        "method": "GET",
+        "middleware": [],
+        "paths": [
+          {
+            "conditional": false,
+            "resolution": "literal",
+            "template": "/t013b/overridden"
+          }
+        ],
+        "pattern": "/t013b/overridden",
+        "shape": {
+          "body": {
+            "items": [],
+            "reason": "the handler reads no request property; no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+            "state": "not_read"
+          },
+          "cookie": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "follow": {
+            "chains": [],
+            "depth_limit": 6
+          },
+          "header": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "models": [],
+          "path": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "routes.ts",
+              "kind": "fact",
+              "line": 8,
+              "rule": "SH-E2"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "query": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "responses": {
+            "items": [],
+            "reason": "the handler does not use a response parameter in a read form",
+            "state": "not_read"
+          },
+          "security": {
+            "items": [],
+            "state": "not_read"
+          },
+          "security_schemes": [],
+          "version": 1
+        }
+      },
+      "content_hash": "sha256:430536126508ee20556eac7033e11ba3d207c5b8dc35a64f8b1027fe7e32e9f2",
+      "file": "routes.ts",
+      "identity": "route:routes.ts#GET%20%2Ft013b%2Foverridden",
+      "kind": "route",
+      "level": 4,
+      "name": "GET /t013b/overridden",
+      "qualified_name": "GET /t013b/overridden",
+      "span": {
+        "end_column": 33,
+        "end_line": 8,
+        "start_column": 0,
+        "start_line": 8
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "framework": "express",
+        "handler": "function:routes.ts#one",
+        "handler_inline": false,
+        "method": "GET",
+        "middleware": [],
+        "paths": [
+          {
+            "conditional": false,
+            "resolution": "literal",
+            "template": "/t013b/param/{id}"
+          }
+        ],
+        "pattern": "/t013b/param/:id",
+        "shape": {
+          "body": {
+            "items": [],
+            "reason": "the handler reads no request property; no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+            "state": "not_read"
+          },
+          "cookie": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "follow": {
+            "chains": [],
+            "depth_limit": 6
+          },
+          "header": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "models": [],
+          "path": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "routes.ts",
+              "kind": "fact",
+              "line": 9,
+              "rule": "SH-E1"
+            },
+            "items": [
+              {
+                "access": "declared",
+                "name": "id",
+                "presence": "required",
+                "provenance": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "routes.ts",
+                  "kind": "fact",
+                  "line": 9,
+                  "rule": "SH-E1"
+                },
+                "schema": {
+                  "type": "string"
+                }
+              }
+            ],
+            "state": "complete"
+          },
+          "query": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "responses": {
+            "items": [],
+            "reason": "the handler does not use a response parameter in a read form",
+            "state": "not_read"
+          },
+          "security": {
+            "items": [],
+            "state": "not_read"
+          },
+          "security_schemes": [],
+          "version": 1
+        }
+      },
+      "content_hash": "sha256:ea41b0a972cb92efd9d4fa87dba624f143b5f5fc92907daa6795e31bc2a5f8f1",
+      "file": "routes.ts",
+      "identity": "route:routes.ts#GET%20%2Ft013b%2Fparam%2F%3Aid",
+      "kind": "route",
+      "level": 4,
+      "name": "GET /t013b/param/:id",
+      "qualified_name": "GET /t013b/param/:id",
+      "span": {
+        "end_column": 32,
+        "end_line": 9,
+        "start_column": 0,
+        "start_line": 9
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "framework": "express",
+        "handler": "function:routes.ts#one",
+        "handler_inline": false,
+        "method": "GET",
+        "middleware": [],
+        "paths": [
+          {
+            "conditional": false,
+            "resolution": "literal",
+            "template": "/t013b/relative"
+          }
+        ],
+        "pattern": "/t013b/relative",
+        "shape": {
+          "body": {
+            "items": [],
+            "reason": "the handler reads no request property; no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+            "state": "not_read"
+          },
+          "cookie": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "follow": {
+            "chains": [],
+            "depth_limit": 6
+          },
+          "header": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "models": [],
+          "path": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "routes.ts",
+              "kind": "fact",
+              "line": 5,
+              "rule": "SH-E2"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "query": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "responses": {
+            "items": [],
+            "reason": "the handler does not use a response parameter in a read form",
+            "state": "not_read"
+          },
+          "security": {
+            "items": [],
+            "state": "not_read"
+          },
+          "security_schemes": [],
+          "version": 1
+        }
+      },
+      "content_hash": "sha256:f99990d6449c074b0a0839813ba76b416caf76f2428d051c5f1f4e8ea1184a0d",
+      "file": "routes.ts",
+      "identity": "route:routes.ts#GET%20%2Ft013b%2Frelative",
+      "kind": "route",
+      "level": 4,
+      "name": "GET /t013b/relative",
+      "qualified_name": "GET /t013b/relative",
+      "span": {
+        "end_column": 31,
+        "end_line": 5,
+        "start_column": 0,
+        "start_line": 5
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "framework": "express",
+        "handler": "function:routes.ts#one",
+        "handler_inline": false,
+        "method": "GET",
+        "middleware": [],
+        "paths": [
+          {
+            "conditional": false,
+            "resolution": "literal",
+            "template": "/t013b/repaired"
+          }
+        ],
+        "pattern": "/t013b/repaired",
+        "shape": {
+          "body": {
+            "items": [],
+            "reason": "the handler reads no request property; no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+            "state": "not_read"
+          },
+          "cookie": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "follow": {
+            "chains": [],
+            "depth_limit": 6
+          },
+          "header": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "models": [],
+          "path": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "routes.ts",
+              "kind": "fact",
+              "line": 7,
+              "rule": "SH-E2"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "query": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "responses": {
+            "items": [],
+            "reason": "the handler does not use a response parameter in a read form",
+            "state": "not_read"
+          },
+          "security": {
+            "items": [],
+            "state": "not_read"
+          },
+          "security_schemes": [],
+          "version": 1
+        }
+      },
+      "content_hash": "sha256:07a36ab08438c5f9b66349a42c88db378d4299951078cec9e5b56dca9e11e697",
+      "file": "routes.ts",
+      "identity": "route:routes.ts#GET%20%2Ft013b%2Frepaired",
+      "kind": "route",
+      "level": 4,
+      "name": "GET /t013b/repaired",
+      "qualified_name": "GET /t013b/repaired",
+      "span": {
+        "end_column": 31,
+        "end_line": 7,
+        "start_column": 0,
+        "start_line": 7
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "framework": "express",
+        "handler": "function:routes.ts#two",
+        "handler_inline": false,
+        "method": "GET",
+        "middleware": [],
+        "mounted_middleware_unknown": [
+          {
+            "expression": "one",
+            "file": "routes.ts",
+            "reason": "earlier route handler one (GET /t013b/specific/fixed) may run first",
+            "span": {
+              "end_column": 37,
+              "end_line": 11,
+              "start_column": 0,
+              "start_line": 11
+            }
+          }
+        ],
+        "paths": [
+          {
+            "conditional": false,
+            "resolution": "literal",
+            "template": "/t013b/specific/{id}"
+          }
+        ],
+        "pattern": "/t013b/specific/:id",
+        "shape": {
+          "body": {
+            "items": [],
+            "reason": "the handler reads no request property; no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+            "state": "not_read"
+          },
+          "cookie": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "follow": {
+            "chains": [],
+            "depth_limit": 6
+          },
+          "header": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "models": [],
+          "path": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "routes.ts",
+              "kind": "fact",
+              "line": 12,
+              "rule": "SH-E1"
+            },
+            "items": [
+              {
+                "access": "declared",
+                "name": "id",
+                "presence": "required",
+                "provenance": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "routes.ts",
+                  "kind": "fact",
+                  "line": 12,
+                  "rule": "SH-E1"
+                },
+                "schema": {
+                  "type": "string"
+                }
+              }
+            ],
+            "state": "complete"
+          },
+          "query": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "responses": {
+            "items": [],
+            "reason": "the handler does not use a response parameter in a read form",
+            "state": "not_read"
+          },
+          "security": {
+            "items": [],
+            "state": "not_read"
+          },
+          "security_schemes": [],
+          "version": 1
+        }
+      },
+      "content_hash": "sha256:7723d5021be3aa87e5e6375bbc5dc580ff99239e815f6695d028eb35baa995f9",
+      "file": "routes.ts",
+      "identity": "route:routes.ts#GET%20%2Ft013b%2Fspecific%2F%3Aid",
+      "kind": "route",
+      "level": 4,
+      "name": "GET /t013b/specific/:id",
+      "qualified_name": "GET /t013b/specific/:id",
+      "span": {
+        "end_column": 35,
+        "end_line": 12,
+        "start_column": 0,
+        "start_line": 12
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "framework": "express",
+        "handler": "function:routes.ts#one",
+        "handler_inline": false,
+        "method": "GET",
+        "middleware": [],
+        "paths": [
+          {
+            "conditional": false,
+            "resolution": "literal",
+            "template": "/t013b/specific/fixed"
+          }
+        ],
+        "pattern": "/t013b/specific/fixed",
+        "shape": {
+          "body": {
+            "items": [],
+            "reason": "the handler reads no request property; no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+            "state": "not_read"
+          },
+          "cookie": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "follow": {
+            "chains": [],
+            "depth_limit": 6
+          },
+          "header": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "models": [],
+          "path": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "routes.ts",
+              "kind": "fact",
+              "line": 11,
+              "rule": "SH-E2"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "query": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "responses": {
+            "items": [],
+            "reason": "the handler does not use a response parameter in a read form",
+            "state": "not_read"
+          },
+          "security": {
+            "items": [],
+            "state": "not_read"
+          },
+          "security_schemes": [],
+          "version": 1
+        }
+      },
+      "content_hash": "sha256:f3d290a627753a08f801ade9644d93e9d28b76010a2efbbbb64d4c8ef603be63",
+      "file": "routes.ts",
+      "identity": "route:routes.ts#GET%20%2Ft013b%2Fspecific%2Ffixed",
+      "kind": "route",
+      "level": 4,
+      "name": "GET /t013b/specific/fixed",
+      "qualified_name": "GET /t013b/specific/fixed",
+      "span": {
+        "end_column": 37,
+        "end_line": 11,
+        "start_column": 0,
+        "start_line": 11
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "framework": "express",
+        "handler": "function:routes.ts#one",
+        "handler_inline": false,
+        "method": "GET",
+        "middleware": [],
+        "paths": [
+          {
+            "conditional": false,
+            "resolution": "literal",
+            "template": "/t013b/tie"
+          }
+        ],
+        "pattern": "/t013b/tie",
+        "shape": {
+          "body": {
+            "items": [],
+            "reason": "the handler reads no request property; no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+            "state": "not_read"
+          },
+          "cookie": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "follow": {
+            "chains": [],
+            "depth_limit": 6
+          },
+          "header": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "models": [],
+          "path": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "routes.ts",
+              "kind": "fact",
+              "line": 18,
+              "rule": "SH-E2"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "query": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "responses": {
+            "items": [],
+            "reason": "the handler does not use a response parameter in a read form",
+            "state": "not_read"
+          },
+          "security": {
+            "items": [],
+            "state": "not_read"
+          },
+          "security_schemes": [],
+          "version": 1
+        }
+      },
+      "content_hash": "sha256:609230d4578fc3e541b9041b0d8c031ecc7c55a9b980a4eb9fbc23781bb11f50",
+      "file": "routes.ts",
+      "identity": "route:routes.ts#GET%20%2Ft013b%2Ftie",
+      "kind": "route",
+      "level": 4,
+      "name": "GET /t013b/tie",
+      "qualified_name": "GET /t013b/tie",
+      "span": {
+        "end_column": 26,
+        "end_line": 18,
+        "start_column": 0,
+        "start_line": 18
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "framework": "express",
+        "handler": "function:routes.ts#two",
+        "handler_inline": false,
+        "method": "GET",
+        "middleware": [],
+        "mounted_middleware_unknown": [
+          {
+            "expression": "one",
+            "file": "routes.ts",
+            "reason": "earlier route handler one (GET /t013b/tie) may run first",
+            "span": {
+              "end_column": 26,
+              "end_line": 18,
+              "start_column": 0,
+              "start_line": 18
+            }
+          }
+        ],
+        "paths": [
+          {
+            "conditional": false,
+            "resolution": "literal",
+            "template": "/t013b/tie"
+          }
+        ],
+        "pattern": "/t013b/tie",
+        "shape": {
+          "body": {
+            "items": [],
+            "reason": "the handler reads no request property; no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+            "state": "not_read"
+          },
+          "cookie": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "follow": {
+            "chains": [],
+            "depth_limit": 6
+          },
+          "header": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "models": [],
+          "path": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "routes.ts",
+              "kind": "fact",
+              "line": 19,
+              "rule": "SH-E2"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "query": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "responses": {
+            "items": [],
+            "reason": "the handler does not use a response parameter in a read form",
+            "state": "not_read"
+          },
+          "security": {
+            "items": [],
+            "state": "not_read"
+          },
+          "security_schemes": [],
+          "version": 1
+        }
+      },
+      "content_hash": "sha256:31fff17fac628f006c2e05d3be5205689448e8bc2795989b3c8aa28fa97c7c69",
+      "file": "routes.ts",
+      "identity": "route:routes.ts#GET%20%2Ft013b%2Ftie%402",
+      "kind": "route",
+      "level": 4,
+      "name": "GET /t013b/tie@2",
+      "qualified_name": "GET /t013b/tie@2",
+      "span": {
+        "end_column": 26,
+        "end_line": 19,
+        "start_column": 0,
+        "start_line": 19
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "framework": "express",
+        "handler": "function:routes.ts#one",
+        "handler_inline": false,
+        "method": "GET",
+        "middleware": [],
+        "paths": [
+          {
+            "conditional": false,
+            "resolution": "literal",
+            "template": "/t013b/wild/{*}"
+          }
+        ],
+        "pattern": "/t013b/wild/*",
+        "shape": {
+          "body": {
+            "items": [],
+            "reason": "the handler reads no request property; no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+            "state": "not_read"
+          },
+          "cookie": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "follow": {
+            "chains": [],
+            "depth_limit": 6
+          },
+          "header": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "models": [],
+          "path": {
+            "items": [],
+            "reason": "an unnamed wildcard (req.params[0]) is not an item",
+            "state": "not_read"
+          },
+          "query": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "responses": {
+            "items": [],
+            "reason": "the handler does not use a response parameter in a read form",
+            "state": "not_read"
+          },
+          "security": {
+            "items": [],
+            "state": "not_read"
+          },
+          "security_schemes": [],
+          "version": 1
+        }
+      },
+      "content_hash": "sha256:20df9b7fa790302014df69e9973e0f6ac6d1b0ba808d8b43e658807495690fa0",
+      "file": "routes.ts",
+      "identity": "route:routes.ts#GET%20%2Ft013b%2Fwild%2F%2A",
+      "kind": "route",
+      "level": 4,
+      "name": "GET /t013b/wild/*",
+      "qualified_name": "GET /t013b/wild/*",
+      "span": {
+        "end_column": 29,
+        "end_line": 22,
+        "start_column": 0,
+        "start_line": 22
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "framework": "express",
+        "handler": "function:tests/routes.ts#testOnly",
+        "handler_inline": false,
+        "method": "GET",
+        "middleware": [],
+        "paths": [
+          {
+            "conditional": false,
+            "resolution": "literal",
+            "scope": "test",
+            "template": "/t013b/only-test"
+          }
+        ],
+        "pattern": "/t013b/only-test",
+        "scope": "test",
+        "shape": {
+          "body": {
+            "items": [],
+            "reason": "the handler reads no request property; no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+            "state": "not_read"
+          },
+          "cookie": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "follow": {
+            "chains": [],
+            "depth_limit": 6
+          },
+          "header": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "models": [],
+          "path": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "tests/routes.ts",
+              "kind": "fact",
+              "line": 4,
+              "rule": "SH-E2"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "query": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "responses": {
+            "items": [],
+            "reason": "the handler does not use a response parameter in a read form",
+            "state": "not_read"
+          },
+          "security": {
+            "items": [],
+            "state": "not_read"
+          },
+          "security_schemes": [],
+          "version": 1
+        }
+      },
+      "content_hash": "sha256:77edbc1bf4f110e9ffb5d0220bde9ad0517c9025d90581af0efe5d934f165ce4",
+      "file": "tests/routes.ts",
+      "identity": "route:tests/routes.ts#GET%20%2Ft013b%2Fonly-test",
+      "kind": "route",
+      "level": 4,
+      "name": "GET /t013b/only-test",
+      "qualified_name": "GET /t013b/only-test",
+      "span": {
+        "end_column": 37,
+        "end_line": 4,
+        "start_column": 0,
+        "start_line": 4
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "framework": "express",
+        "handler": "function:tests/routes.ts#testOnly",
+        "handler_inline": false,
+        "method": "GET",
+        "middleware": [],
+        "paths": [
+          {
+            "conditional": false,
+            "resolution": "literal",
+            "scope": "test",
+            "template": "/t013b/test-spec"
+          }
+        ],
+        "pattern": "/t013b/test-spec",
+        "scope": "test",
+        "shape": {
+          "body": {
+            "items": [],
+            "reason": "the handler reads no request property; no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+            "state": "not_read"
+          },
+          "cookie": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "follow": {
+            "chains": [],
+            "depth_limit": 6
+          },
+          "header": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "models": [],
+          "path": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "tests/routes.ts",
+              "kind": "fact",
+              "line": 5,
+              "rule": "SH-E2"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "query": {
+            "items": [],
+            "reason": "the handler reads no request property",
+            "state": "not_read"
+          },
+          "responses": {
+            "items": [],
+            "reason": "the handler does not use a response parameter in a read form",
+            "state": "not_read"
+          },
+          "security": {
+            "items": [],
+            "state": "not_read"
+          },
+          "security_schemes": [],
+          "version": 1
+        }
+      },
+      "content_hash": "sha256:350b54aa9b908245d1ba42909ac41f6842285e830796a95a34469760e1a2d986",
+      "file": "tests/routes.ts",
+      "identity": "route:tests/routes.ts#GET%20%2Ft013b%2Ftest-spec",
+      "kind": "route",
+      "level": 4,
+      "name": "GET /t013b/test-spec",
+      "qualified_name": "GET /t013b/test-spec",
+      "span": {
+        "end_column": 37,
+        "end_line": 5,
+        "start_column": 0,
+        "start_line": 5
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "framework": "fastapi",
+        "handler": "function:twins.py#plain",
+        "handler_inline": false,
+        "method": "GET",
+        "middleware": [],
+        "paths": [
+          {
+            "conditional": false,
+            "resolution": "literal",
+            "template": "/t013b/slash"
+          }
+        ],
+        "pattern": "/t013b/slash",
+        "shape": {
+          "body": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "twins.py",
+              "kind": "fact",
+              "line": 4,
+              "rule": "SH-F23"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "cookie": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "twins.py",
+              "kind": "fact",
+              "line": 4,
+              "rule": "SH-F23"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "follow": {
+            "chains": [
+              {
+                "at": null,
+                "depth": 0,
+                "section": "query",
+                "start": {
+                  "file": "twins.py",
+                  "function": "plain",
+                  "line": 4
+                },
+                "steps": [],
+                "stop": "ended"
+              },
+              {
+                "at": null,
+                "depth": 0,
+                "section": "responses",
+                "start": {
+                  "file": "twins.py",
+                  "function": "plain",
+                  "line": 4
+                },
+                "steps": [],
+                "stop": "ended"
+              }
+            ],
+            "depth_limit": 6
+          },
+          "header": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "twins.py",
+              "kind": "fact",
+              "line": 4,
+              "rule": "SH-F23"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "models": [],
+          "path": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "twins.py",
+              "kind": "fact",
+              "line": 3,
+              "rule": "SH-F3"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "query": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "twins.py",
+              "kind": "fact",
+              "line": 4,
+              "rule": "SH-F23"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "responses": {
+            "items": [
+              {
+                "content_type": "application/json",
+                "provenance": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "twins.py",
+                  "kind": "fact",
+                  "line": 3,
+                  "rule": "SH-F27"
+                },
+                "schema": {
+                  "reason": "no response model is declared",
+                  "type": "unknown"
+                },
+                "status": "200"
+              }
+            ],
+            "reason": "statuses from exception handlers, middleware and calls not followed are not read",
+            "state": "partial"
+          },
+          "security": {
+            "items": [],
+            "state": "not_read"
+          },
+          "security_schemes": [],
+          "version": 1
+        }
+      },
+      "content_hash": "sha256:8d0b58c76d0b09a46104f5acf12893d5d93b74c625596b46e757ae3a1f94db3c",
+      "file": "twins.py",
+      "identity": "route:twins.py#GET%20%2Ft013b%2Fslash",
+      "kind": "route",
+      "level": 4,
+      "name": "GET /t013b/slash",
+      "qualified_name": "GET /t013b/slash",
+      "span": {
+        "end_column": 24,
+        "end_line": 3,
+        "start_column": 1,
+        "start_line": 3
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "framework": "fastapi",
+        "handler": "function:twins.py#slash",
+        "handler_inline": false,
+        "method": "GET",
+        "middleware": [],
+        "paths": [
+          {
+            "conditional": false,
+            "resolution": "literal",
+            "template": "/t013b/slash",
+            "trailing_slash": true
+          }
+        ],
+        "pattern": "/t013b/slash/",
+        "shape": {
+          "body": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "twins.py",
+              "kind": "fact",
+              "line": 6,
+              "rule": "SH-F23"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "cookie": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "twins.py",
+              "kind": "fact",
+              "line": 6,
+              "rule": "SH-F23"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "follow": {
+            "chains": [
+              {
+                "at": null,
+                "depth": 0,
+                "section": "query",
+                "start": {
+                  "file": "twins.py",
+                  "function": "slash",
+                  "line": 6
+                },
+                "steps": [],
+                "stop": "ended"
+              },
+              {
+                "at": null,
+                "depth": 0,
+                "section": "responses",
+                "start": {
+                  "file": "twins.py",
+                  "function": "slash",
+                  "line": 6
+                },
+                "steps": [],
+                "stop": "ended"
+              }
+            ],
+            "depth_limit": 6
+          },
+          "header": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "twins.py",
+              "kind": "fact",
+              "line": 6,
+              "rule": "SH-F23"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "models": [],
+          "path": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "twins.py",
+              "kind": "fact",
+              "line": 5,
+              "rule": "SH-F3"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "query": {
+            "evidence": {
+              "chain": [],
+              "confidence": 1,
+              "file": "twins.py",
+              "kind": "fact",
+              "line": 6,
+              "rule": "SH-F23"
+            },
+            "items": [],
+            "state": "provably_none"
+          },
+          "responses": {
+            "items": [
+              {
+                "content_type": "application/json",
+                "provenance": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "twins.py",
+                  "kind": "fact",
+                  "line": 5,
+                  "rule": "SH-F27"
+                },
+                "schema": {
+                  "reason": "no response model is declared",
+                  "type": "unknown"
+                },
+                "status": "200"
+              }
+            ],
+            "reason": "statuses from exception handlers, middleware and calls not followed are not read",
+            "state": "partial"
+          },
+          "security": {
+            "items": [],
+            "state": "not_read"
+          },
+          "security_schemes": [],
+          "version": 1
+        }
+      },
+      "content_hash": "sha256:67ced441bf1240e5929e9fa3e7efff02b59d3a7cd62f7fdd6dbf923f1df7c500",
+      "file": "twins.py",
+      "identity": "route:twins.py#GET%20%2Ft013b%2Fslash%2F",
+      "kind": "route",
+      "level": 4,
+      "name": "GET /t013b/slash/",
+      "qualified_name": "GET /t013b/slash/",
+      "span": {
+        "end_column": 25,
+        "end_line": 5,
+        "start_column": 1,
+        "start_line": 5
+      },
+      "type": "node"
+    }
+  ]
+}

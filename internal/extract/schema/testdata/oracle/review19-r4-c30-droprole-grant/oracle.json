@@ -1,0 +1,29 @@
+{
+  "id": "review19-r4-c30-droprole-grant",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y38",
+  "row": "review19",
+  "history": {
+    "id": "c30-droprole-grant"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "2BP01",
+        "message": "role \"r4_grant_x\" cannot be dropped because some objects depend on it",
+        "detail": "privileges for table t",
+        "statement": 4,
+        "statement_text": "DROP ROLE r4_grant_x;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

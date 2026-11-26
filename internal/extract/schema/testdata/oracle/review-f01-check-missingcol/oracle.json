@@ -1,0 +1,28 @@
+{
+  "id": "review-f01-check-missingcol",
+  "signature": "applied|S1|42703|",
+  "class": "S1",
+  "owner": "P5",
+  "row": "review",
+  "history": {
+    "id": "f01-check-missingcol"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42703",
+        "message": "column \"zz\" does not exist",
+        "statement": 1,
+        "statement_text": "CREATE TABLE t (a int, CHECK (zz \u003e 0));"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

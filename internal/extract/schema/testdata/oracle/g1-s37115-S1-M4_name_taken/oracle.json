@@ -1,0 +1,58 @@
+{
+  "id": "g1-s37115-S1-M4_name_taken",
+  "signature": "applied|S1|42703|M4.name_taken",
+  "class": "S1",
+  "owner": "P1",
+  "row": "M4.name_taken",
+  "history": {
+    "id": "g1-s37115",
+    "tags": {
+      "1_m1.sql": [
+        "M1.create"
+      ],
+      "2_m2.sql": [
+        "M4.create",
+        "M4.name_taken"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "accepted",
+        "no_transaction": true
+      },
+      {
+        "file": "2_m2.sql",
+        "status": "refused",
+        "sqlstate": "42703",
+        "message": "column \"nosuch\" does not exist",
+        "statement": 2,
+        "statement_text": "CREATE INDEX IF NOT EXISTS ix_2 ON t1 (nosuch);"
+      }
+    ],
+    "tables": [
+      {
+        "table": "history.t1",
+        "columns": [
+          {
+            "name": "id",
+            "type": "uuid",
+            "not_null": false,
+            "has_default": false
+          }
+        ],
+        "primary_key": null,
+        "unique_keys": [],
+        "foreign_keys": [],
+        "indexes": []
+      }
+    ],
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

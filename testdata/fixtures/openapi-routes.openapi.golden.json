@@ -1,0 +1,1810 @@
+{
+  "info": {
+    "description": "Routes registered in this repository's source, as Graphvein extracted them from its index. Graphvein ran no code and read no running server. A parameter, request body, response or security requirement that is absent was not read, which is not the same as none: each operation lists what was not read in x-graphvein.not_read. Routes Graphvein could not place on a path, forms OpenAPI cannot express and conflicting registrations are listed in the root x-graphvein, never guessed.",
+    "title": "fixture routes extracted by Graphvein",
+    "version": "unversioned"
+  },
+  "openapi": "3.1.1",
+  "paths": {
+    "/t013b/a/multi": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [
+            {
+              "confidence": 0.9,
+              "file": "openapi.json",
+              "operation": "api_operation:openapi.json#GET%20%2Fmulti"
+            }
+          ],
+          "file": "routes.ts",
+          "framework": "express",
+          "handler": "function:routes.ts#one",
+          "handler_expression": null,
+          "line": 20,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "responses",
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:routes.ts#GET%20%2Ft013b%2Fa%2Fmulti",
+          "rule": "Express routes (ADR 0013, docs/extract/routes.md)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [],
+            "sections": {
+              "body": {
+                "reason": "the handler reads no request property; no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "reason": "the handler reads no request property",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "reason": "the handler reads no request property",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "routes.ts",
+                  "kind": "fact",
+                  "line": 20,
+                  "rule": "SH-E2"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "reason": "the handler reads no request property",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "reason": "the handler does not use a response parameter in a read form",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {},
+            "version": 1
+          },
+          "template": "/t013b/a/multi"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:routes.ts#GET%20%2Ft013b%2Fa%2Fmulti"
+          }
+        ]
+      }
+    },
+    "/t013b/absolute": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [
+            {
+              "confidence": 0.7,
+              "file": "openapi.json",
+              "operation": "api_operation:openapi.json#GET%20%2Ft013b%2Fabsolute"
+            }
+          ],
+          "file": "routes.ts",
+          "framework": "express",
+          "handler": "function:routes.ts#one",
+          "handler_expression": null,
+          "line": 6,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "responses",
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:routes.ts#GET%20%2Ft013b%2Fabsolute",
+          "rule": "Express routes (ADR 0013, docs/extract/routes.md)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [],
+            "sections": {
+              "body": {
+                "reason": "the handler reads no request property; no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "reason": "the handler reads no request property",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "reason": "the handler reads no request property",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "routes.ts",
+                  "kind": "fact",
+                  "line": 6,
+                  "rule": "SH-E2"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "reason": "the handler reads no request property",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "reason": "the handler does not use a response parameter in a read form",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {},
+            "version": 1
+          },
+          "template": "/t013b/absolute"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:routes.ts#GET%20%2Ft013b%2Fabsolute"
+          }
+        ]
+      }
+    },
+    "/t013b/any": {
+      "x-graphvein": {
+        "any_method": [
+          {
+            "file": "routes.ts",
+            "framework": "express",
+            "line": 14,
+            "route": "route:routes.ts#ANY%20%2Ft013b%2Fany"
+          }
+        ],
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "ANY",
+            "resolution": "literal",
+            "route": "route:routes.ts#ANY%20%2Ft013b%2Fany"
+          }
+        ]
+      }
+    },
+    "/t013b/b/multi": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [
+            {
+              "confidence": 0.9,
+              "file": "openapi.json",
+              "operation": "api_operation:openapi.json#GET%20%2Fmulti"
+            }
+          ],
+          "file": "routes.ts",
+          "framework": "express",
+          "handler": "function:routes.ts#two",
+          "handler_expression": null,
+          "line": 21,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "responses",
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:routes.ts#GET%20%2Ft013b%2Fb%2Fmulti",
+          "rule": "Express routes (ADR 0013, docs/extract/routes.md)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [],
+            "sections": {
+              "body": {
+                "reason": "the handler reads no request property; no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "reason": "the handler reads no request property",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "reason": "the handler reads no request property",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "routes.ts",
+                  "kind": "fact",
+                  "line": 21,
+                  "rule": "SH-E2"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "reason": "the handler reads no request property",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "reason": "the handler does not use a response parameter in a read form",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {},
+            "version": 1
+          },
+          "template": "/t013b/b/multi"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:routes.ts#GET%20%2Ft013b%2Fb%2Fmulti"
+          }
+        ]
+      }
+    },
+    "/t013b/duplicate": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [
+            {
+              "confidence": 0.9,
+              "file": "openapi.json",
+              "operation": "api_operation:openapi.json#GET%20%2Ft013b%2Fduplicate"
+            }
+          ],
+          "equivalent_registrations": [
+            "route:routes.ts#GET%20%2Ft013b%2Fduplicate",
+            "route:routes.ts#GET%20%2Ft013b%2Fduplicate%402"
+          ],
+          "file": "routes.ts",
+          "framework": "express",
+          "handler": "function:routes.ts#one",
+          "handler_expression": null,
+          "line": 16,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "responses",
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:routes.ts#GET%20%2Ft013b%2Fduplicate",
+          "rule": "Express routes (ADR 0013, docs/extract/routes.md)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [],
+            "sections": {
+              "body": {
+                "reason": "the handler reads no request property; no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "reason": "the handler reads no request property",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "reason": "the handler reads no request property",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "routes.ts",
+                  "kind": "fact",
+                  "line": 16,
+                  "rule": "SH-E2"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "reason": "the handler reads no request property",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "reason": "the handler does not use a response parameter in a read form",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {},
+            "version": 1
+          },
+          "template": "/t013b/duplicate"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:routes.ts#GET%20%2Ft013b%2Fduplicate"
+          },
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:routes.ts#GET%20%2Ft013b%2Fduplicate%402"
+          }
+        ]
+      }
+    },
+    "/t013b/get-only": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "routes.ts",
+          "framework": "express",
+          "handler": "function:routes.ts#one",
+          "handler_expression": null,
+          "line": 15,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "responses",
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:routes.ts#GET%20%2Ft013b%2Fget-only",
+          "rule": "Express routes (ADR 0013, docs/extract/routes.md)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [],
+            "sections": {
+              "body": {
+                "reason": "the handler reads no request property; no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "reason": "the handler reads no request property",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "reason": "the handler reads no request property",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "routes.ts",
+                  "kind": "fact",
+                  "line": 15,
+                  "rule": "SH-E2"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "reason": "the handler reads no request property",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "reason": "the handler does not use a response parameter in a read form",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {},
+            "version": 1
+          },
+          "template": "/t013b/get-only"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:routes.ts#GET%20%2Ft013b%2Fget-only"
+          }
+        ]
+      }
+    },
+    "/t013b/head": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [
+            {
+              "confidence": 0.9,
+              "file": "openapi.json",
+              "operation": "api_operation:openapi.json#HEAD%20%2Ft013b%2Fhead"
+            }
+          ],
+          "file": "routes.ts",
+          "framework": "express",
+          "handler": "function:routes.ts#one",
+          "handler_expression": null,
+          "line": 13,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "responses",
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:routes.ts#GET%20%2Ft013b%2Fhead",
+          "rule": "Express routes (ADR 0013, docs/extract/routes.md)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [],
+            "sections": {
+              "body": {
+                "reason": "the handler reads no request property; no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "reason": "the handler reads no request property",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "reason": "the handler reads no request property",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "routes.ts",
+                  "kind": "fact",
+                  "line": 13,
+                  "rule": "SH-E2"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "reason": "the handler reads no request property",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "reason": "the handler does not use a response parameter in a read form",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {},
+            "version": 1
+          },
+          "template": "/t013b/head"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:routes.ts#GET%20%2Ft013b%2Fhead"
+          }
+        ]
+      }
+    },
+    "/t013b/literal/fixed": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "routes.ts",
+          "framework": "express",
+          "handler": "function:routes.ts#one",
+          "handler_expression": null,
+          "line": 10,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "responses",
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:routes.ts#GET%20%2Ft013b%2Fliteral%2Ffixed",
+          "rule": "Express routes (ADR 0013, docs/extract/routes.md)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [],
+            "sections": {
+              "body": {
+                "reason": "the handler reads no request property; no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "reason": "the handler reads no request property",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "reason": "the handler reads no request property",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "routes.ts",
+                  "kind": "fact",
+                  "line": 10,
+                  "rule": "SH-E2"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "reason": "the handler reads no request property",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "reason": "the handler does not use a response parameter in a read form",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {},
+            "version": 1
+          },
+          "template": "/t013b/literal/fixed"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:routes.ts#GET%20%2Ft013b%2Fliteral%2Ffixed"
+          }
+        ]
+      }
+    },
+    "/t013b/overridden": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [
+            {
+              "confidence": 0.9,
+              "file": "configured-openapi.json",
+              "operation": "api_operation:configured-openapi.json#GET%20%2Foverridden"
+            }
+          ],
+          "file": "routes.ts",
+          "framework": "express",
+          "handler": "function:routes.ts#one",
+          "handler_expression": null,
+          "line": 8,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "responses",
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:routes.ts#GET%20%2Ft013b%2Foverridden",
+          "rule": "Express routes (ADR 0013, docs/extract/routes.md)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [],
+            "sections": {
+              "body": {
+                "reason": "the handler reads no request property; no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "reason": "the handler reads no request property",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "reason": "the handler reads no request property",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "routes.ts",
+                  "kind": "fact",
+                  "line": 8,
+                  "rule": "SH-E2"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "reason": "the handler reads no request property",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "reason": "the handler does not use a response parameter in a read form",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {},
+            "version": 1
+          },
+          "template": "/t013b/overridden"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:routes.ts#GET%20%2Ft013b%2Foverridden"
+          }
+        ]
+      }
+    },
+    "/t013b/param/{id}": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-graphvein": {
+              "provenance": {
+                "chain": [],
+                "confidence": 1,
+                "file": "routes.ts",
+                "kind": "fact",
+                "line": 9,
+                "rule": "SH-E1"
+              }
+            }
+          }
+        ],
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [
+            {
+              "confidence": 0.9,
+              "file": "openapi.json",
+              "operation": "api_operation:openapi.json#GET%20%2Ft013b%2Fparam%2Ffixed"
+            }
+          ],
+          "file": "routes.ts",
+          "framework": "express",
+          "handler": "function:routes.ts#one",
+          "handler_expression": null,
+          "line": 9,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "responses",
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:routes.ts#GET%20%2Ft013b%2Fparam%2F%3Aid",
+          "rule": "Express routes (ADR 0013, docs/extract/routes.md)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [],
+            "sections": {
+              "body": {
+                "reason": "the handler reads no request property; no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "reason": "the handler reads no request property",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "reason": "the handler reads no request property",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "routes.ts",
+                  "kind": "fact",
+                  "line": 9,
+                  "rule": "SH-E1"
+                },
+                "standard": 1,
+                "state": "complete"
+              },
+              "query": {
+                "reason": "the handler reads no request property",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "reason": "the handler does not use a response parameter in a read form",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {},
+            "version": 1
+          },
+          "template": "/t013b/param/{id}"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:routes.ts#GET%20%2Ft013b%2Fparam%2F%3Aid"
+          }
+        ]
+      }
+    },
+    "/t013b/relative": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [
+            {
+              "confidence": 0.9,
+              "file": "openapi.json",
+              "operation": "api_operation:openapi.json#GET%20%2Ft013b%2Frelative"
+            }
+          ],
+          "file": "routes.ts",
+          "framework": "express",
+          "handler": "function:routes.ts#one",
+          "handler_expression": null,
+          "line": 5,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "responses",
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:routes.ts#GET%20%2Ft013b%2Frelative",
+          "rule": "Express routes (ADR 0013, docs/extract/routes.md)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [],
+            "sections": {
+              "body": {
+                "reason": "the handler reads no request property; no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "reason": "the handler reads no request property",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "reason": "the handler reads no request property",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "routes.ts",
+                  "kind": "fact",
+                  "line": 5,
+                  "rule": "SH-E2"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "reason": "the handler reads no request property",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "reason": "the handler does not use a response parameter in a read form",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {},
+            "version": 1
+          },
+          "template": "/t013b/relative"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:routes.ts#GET%20%2Ft013b%2Frelative"
+          }
+        ]
+      }
+    },
+    "/t013b/repaired": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [
+            {
+              "confidence": 0.9,
+              "file": "configured-openapi.json",
+              "operation": "api_operation:configured-openapi.json#GET%20%2Frepaired"
+            }
+          ],
+          "file": "routes.ts",
+          "framework": "express",
+          "handler": "function:routes.ts#one",
+          "handler_expression": null,
+          "line": 7,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "responses",
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:routes.ts#GET%20%2Ft013b%2Frepaired",
+          "rule": "Express routes (ADR 0013, docs/extract/routes.md)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [],
+            "sections": {
+              "body": {
+                "reason": "the handler reads no request property; no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "reason": "the handler reads no request property",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "reason": "the handler reads no request property",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "routes.ts",
+                  "kind": "fact",
+                  "line": 7,
+                  "rule": "SH-E2"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "reason": "the handler reads no request property",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "reason": "the handler does not use a response parameter in a read form",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {},
+            "version": 1
+          },
+          "template": "/t013b/repaired"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:routes.ts#GET%20%2Ft013b%2Frepaired"
+          }
+        ]
+      }
+    },
+    "/t013b/slash": {
+      "get": {
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "x-graphvein": {
+                    "unknown": "no response model is declared"
+                  }
+                },
+                "x-graphvein": {
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "twins.py",
+                    "kind": "fact",
+                    "line": 3,
+                    "rule": "SH-F27"
+                  }
+                }
+              }
+            },
+            "description": "Not read by Graphvein",
+            "x-graphvein": {
+              "description": "not_read"
+            }
+          }
+        },
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [
+            {
+              "confidence": 0.9,
+              "file": "openapi.json",
+              "operation": "api_operation:openapi.json#GET%20%2Ft013b%2Fslash"
+            }
+          ],
+          "file": "twins.py",
+          "framework": "fastapi",
+          "handler": "function:twins.py#plain",
+          "handler_expression": null,
+          "line": 3,
+          "not_read": [
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:twins.py#GET%20%2Ft013b%2Fslash",
+          "rule": "FastAPI routes (ADR 0015, ADR 0019)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [],
+            "sections": {
+              "body": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "twins.py",
+                  "kind": "fact",
+                  "line": 4,
+                  "rule": "SH-F23"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "cookie": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "twins.py",
+                  "kind": "fact",
+                  "line": 4,
+                  "rule": "SH-F23"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "header": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "twins.py",
+                  "kind": "fact",
+                  "line": 4,
+                  "rule": "SH-F23"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "twins.py",
+                  "kind": "fact",
+                  "line": 3,
+                  "rule": "SH-F3"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "twins.py",
+                  "kind": "fact",
+                  "line": 4,
+                  "rule": "SH-F23"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "responses": {
+                "reason": "statuses from exception handlers, middleware and calls not followed are not read",
+                "standard": 1,
+                "state": "partial"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 2
+            },
+            "version": 1
+          },
+          "template": "/t013b/slash"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:twins.py#GET%20%2Ft013b%2Fslash"
+          }
+        ]
+      }
+    },
+    "/t013b/slash/": {
+      "get": {
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "x-graphvein": {
+                    "unknown": "no response model is declared"
+                  }
+                },
+                "x-graphvein": {
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "twins.py",
+                    "kind": "fact",
+                    "line": 5,
+                    "rule": "SH-F27"
+                  }
+                }
+              }
+            },
+            "description": "Not read by Graphvein",
+            "x-graphvein": {
+              "description": "not_read"
+            }
+          }
+        },
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [
+            {
+              "confidence": 0.9,
+              "file": "openapi.json",
+              "operation": "api_operation:openapi.json#GET%20%2Ft013b%2Fslash%2F"
+            }
+          ],
+          "file": "twins.py",
+          "framework": "fastapi",
+          "handler": "function:twins.py#slash",
+          "handler_expression": null,
+          "line": 5,
+          "not_read": [
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:twins.py#GET%20%2Ft013b%2Fslash%2F",
+          "rule": "FastAPI routes (ADR 0015, ADR 0019)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [],
+            "sections": {
+              "body": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "twins.py",
+                  "kind": "fact",
+                  "line": 6,
+                  "rule": "SH-F23"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "cookie": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "twins.py",
+                  "kind": "fact",
+                  "line": 6,
+                  "rule": "SH-F23"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "header": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "twins.py",
+                  "kind": "fact",
+                  "line": 6,
+                  "rule": "SH-F23"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "twins.py",
+                  "kind": "fact",
+                  "line": 5,
+                  "rule": "SH-F3"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "twins.py",
+                  "kind": "fact",
+                  "line": 6,
+                  "rule": "SH-F23"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "responses": {
+                "reason": "statuses from exception handlers, middleware and calls not followed are not read",
+                "standard": 1,
+                "state": "partial"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 2
+            },
+            "version": 1
+          },
+          "template": "/t013b/slash"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:twins.py#GET%20%2Ft013b%2Fslash%2F"
+          }
+        ]
+      }
+    },
+    "/t013b/specific/fixed": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [
+            {
+              "confidence": 0.9,
+              "file": "openapi.json",
+              "operation": "api_operation:openapi.json#GET%20%2Ft013b%2Fspecific%2Ffixed"
+            }
+          ],
+          "file": "routes.ts",
+          "framework": "express",
+          "handler": "function:routes.ts#one",
+          "handler_expression": null,
+          "line": 11,
+          "may_be_shadowed": [
+            {
+              "key": "/t013b/specific/{id}",
+              "method": "GET",
+              "order": "not_checked",
+              "route": "route:routes.ts#GET%20%2Ft013b%2Fspecific%2F%3Aid"
+            }
+          ],
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "responses",
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:routes.ts#GET%20%2Ft013b%2Fspecific%2Ffixed",
+          "rule": "Express routes (ADR 0013, docs/extract/routes.md)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [],
+            "sections": {
+              "body": {
+                "reason": "the handler reads no request property; no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "reason": "the handler reads no request property",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "reason": "the handler reads no request property",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "routes.ts",
+                  "kind": "fact",
+                  "line": 11,
+                  "rule": "SH-E2"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "reason": "the handler reads no request property",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "reason": "the handler does not use a response parameter in a read form",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {},
+            "version": 1
+          },
+          "template": "/t013b/specific/fixed"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:routes.ts#GET%20%2Ft013b%2Fspecific%2Ffixed"
+          }
+        ]
+      }
+    },
+    "/t013b/specific/{id}": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-graphvein": {
+              "provenance": {
+                "chain": [],
+                "confidence": 1,
+                "file": "routes.ts",
+                "kind": "fact",
+                "line": 12,
+                "rule": "SH-E1"
+              }
+            }
+          }
+        ],
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": [],
+            "mounted_middleware_unknown": [
+              {
+                "expression": "one",
+                "file": "routes.ts",
+                "reason": "earlier route handler one (GET /t013b/specific/fixed) may run first",
+                "span": {
+                  "end_column": 37,
+                  "end_line": 11,
+                  "start_column": 0,
+                  "start_line": 11
+                }
+              }
+            ]
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [
+            {
+              "confidence": 0.9,
+              "file": "openapi.json",
+              "operation": "api_operation:openapi.json#GET%20%2Ft013b%2Fspecific%2F%7Bid%7D"
+            }
+          ],
+          "file": "routes.ts",
+          "framework": "express",
+          "handler": "function:routes.ts#two",
+          "handler_expression": null,
+          "line": 12,
+          "not_read": [
+            "query",
+            "header",
+            "cookie",
+            "requestBody",
+            "responses",
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:routes.ts#GET%20%2Ft013b%2Fspecific%2F%3Aid",
+          "rule": "Express routes (ADR 0013, docs/extract/routes.md)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [],
+            "sections": {
+              "body": {
+                "reason": "the handler reads no request property; no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "cookie": {
+                "reason": "the handler reads no request property",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "header": {
+                "reason": "the handler reads no request property",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "routes.ts",
+                  "kind": "fact",
+                  "line": 12,
+                  "rule": "SH-E1"
+                },
+                "standard": 1,
+                "state": "complete"
+              },
+              "query": {
+                "reason": "the handler reads no request property",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "responses": {
+                "reason": "the handler does not use a response parameter in a read form",
+                "standard": 0,
+                "state": "not_read"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {},
+            "version": 1
+          },
+          "template": "/t013b/specific/{id}"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:routes.ts#GET%20%2Ft013b%2Fspecific%2F%3Aid"
+          }
+        ]
+      }
+    }
+  },
+  "x-graphvein": {
+    "conflicts": [
+      {
+        "keys": [
+          "/t013b/tie"
+        ],
+        "method": "GET",
+        "reason": "duplicate_operation",
+        "routes": [
+          "route:routes.ts#GET%20%2Ft013b%2Ftie",
+          "route:routes.ts#GET%20%2Ft013b%2Ftie%402"
+        ]
+      }
+    ],
+    "contract_version": 1,
+    "counts": {
+      "any_method": 1,
+      "conditional": 0,
+      "conflicts": 1,
+      "may_be_shadowed": 1,
+      "operations": 15,
+      "path_keys": 16,
+      "production_routes": 21,
+      "routes": 23,
+      "set_by_you": 0,
+      "settings_default": 0,
+      "unrepresentable": 2,
+      "unresolved": 0,
+      "with_shape": 15
+    },
+    "excluded_test": {
+      "path_entries": 0,
+      "routes": 2
+    },
+    "generator": "graphvein",
+    "group": "repository",
+    "imported_specs": [
+      {
+        "file": "configured-openapi.json",
+        "operations": 2,
+        "scope": "production",
+        "spec": "api_spec:configured-openapi.json#spec",
+        "spec_version": "3.2.0",
+        "statuses": {
+          "linked": 2
+        },
+        "title": null
+      },
+      {
+        "file": "openapi.json",
+        "operations": 21,
+        "scope": "production",
+        "spec": "api_spec:openapi.json#spec",
+        "spec_version": "3.2.0",
+        "statuses": {
+          "ambiguous": 1,
+          "linked": 14,
+          "test_only": 1,
+          "unmatched": 4,
+          "unresolved": 1
+        },
+        "title": null
+      },
+      {
+        "file": "tests/openapi.json",
+        "operations": 1,
+        "scope": "test",
+        "spec": "api_spec:tests/openapi.json#spec",
+        "spec_version": "3.2.0",
+        "statuses": {
+          "linked": 1
+        },
+        "title": null
+      }
+    ],
+    "index": {
+      "extractor": "graphvein EXTRACTOR",
+      "finished_at": "FINISHED",
+      "run": "RUN"
+    },
+    "repository": "fixture",
+    "scope": "production",
+    "shape_errors": 0,
+    "unrepresentable": [
+      {
+        "key": "/t013b/optional/{id}",
+        "method": "GET",
+        "reason": "optional_parameter",
+        "route": "route:routes.ts#GET%20%2Ft013b%2Foptional%2F%3Aid%3F"
+      },
+      {
+        "key": "/t013b/wild/{*}",
+        "method": "GET",
+        "reason": "wildcard",
+        "route": "route:routes.ts#GET%20%2Ft013b%2Fwild%2F%2A"
+      }
+    ],
+    "unresolved": [],
+    "user_values": []
+  }
+}

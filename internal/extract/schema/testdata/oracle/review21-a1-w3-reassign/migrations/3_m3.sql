@@ -1,0 +1,1 @@
+REVOKE CREATE ON SCHEMA public FROM gv_r2; DROP ROLE gv_r2;

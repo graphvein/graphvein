@@ -1,0 +1,36 @@
+{
+  "id": "g3-s1613-S1-N2_commit",
+  "signature": "applied|S1|42703|N2.commit",
+  "class": "S1",
+  "owner": "P1",
+  "row": "N2.commit",
+  "history": {
+    "id": "g3-s1613",
+    "fresh_db": true,
+    "tags": {
+      "1_m1.sql": [
+        "M5k.add_identity_p4",
+        "N3.update",
+        "N2.commit"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "public",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42703",
+        "message": "column \"id\" does not exist",
+        "statement": 3,
+        "statement_text": "UPDATE t1 SET id = id;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "public._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

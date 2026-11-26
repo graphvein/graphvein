@@ -1,0 +1,2 @@
+DO $$ BEGIN CREATE TYPE e AS ENUM ('a'); END $$;
+CREATE TYPE e AS ENUM ('a');

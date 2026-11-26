@@ -1,0 +1,1 @@
+CREATE ROLE gv_r1; CREATE TABLE t (a int); CREATE TABLE u (b int); GRANT CREATE ON SCHEMA public TO gv_r1; ALTER TABLE t OWNER TO gv_r1;

@@ -1,0 +1,29 @@
+{
+  "id": "review-f08-exclude-gist",
+  "signature": "agreed at af6a883",
+  "class": "S1",
+  "owner": "P5",
+  "row": "review",
+  "history": {
+    "id": "f08-exclude-gist"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42704",
+        "message": "data type integer has no default operator class for access method \"gist\"",
+        "statement": 1,
+        "statement_text": "CREATE TABLE t (a int, EXCLUDE USING gist (a WITH =));",
+        "assumption": "E1"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

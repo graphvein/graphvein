@@ -1,0 +1,12 @@
+version: 1
+name: shop-monorepo-default
+members:
+  - repository: frontend
+    path: frontend
+  - repository: monorepo
+    path: monorepo
+    scopes:
+      - name: users
+        path: apps/users
+      - name: orders
+        path: apps/orders

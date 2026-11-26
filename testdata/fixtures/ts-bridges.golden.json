@@ -1,0 +1,1663 @@
+{
+  "Edges": [
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/App.tsx",
+          "span": {
+            "end_column": 50,
+            "end_line": 8,
+            "start_column": 15,
+            "start_line": 8
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:src/App.tsx#src%2FApp.tsx",
+      "target": "ui_route:src/App.tsx#ROUTE%20shared",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/App.tsx",
+          "span": {
+            "end_column": 55,
+            "end_line": 22,
+            "start_column": 4,
+            "start_line": 22
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "function:src/App.tsx#browserRouter",
+      "target": "ui_route:src/App.tsx#browserRouter.ROUTE%20%2A",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/App.tsx",
+          "span": {
+            "end_column": 5,
+            "end_line": 19,
+            "start_column": 4,
+            "start_line": 13
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "function:src/App.tsx#browserRouter",
+      "target": "ui_route:src/App.tsx#browserRouter.ROUTE%20%2F",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/App.tsx",
+          "span": {
+            "end_column": 58,
+            "end_line": 21,
+            "start_column": 4,
+            "start_line": 21
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "function:src/App.tsx#browserRouter",
+      "target": "ui_route:src/App.tsx#browserRouter.ROUTE%20both",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/App.tsx",
+          "span": {
+            "end_column": 61,
+            "end_line": 20,
+            "start_column": 4,
+            "start_line": 20
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "function:src/App.tsx#browserRouter",
+      "target": "ui_route:src/App.tsx#browserRouter.ROUTE%20lazy",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/App.tsx",
+          "span": {
+            "end_column": 31,
+            "end_line": 23,
+            "start_column": 4,
+            "start_line": 23
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "function:src/App.tsx#browserRouter",
+      "target": "ui_route:src/App.tsx#browserRouter.ROUTE%20open",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/App.tsx",
+          "span": {
+            "end_column": 51,
+            "end_line": 18,
+            "start_column": 17,
+            "start_line": 18
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "ui_route:src/App.tsx#browserRouter.ROUTE%20%2F",
+      "target": "ui_route:src/App.tsx#browserRouter.ROUTE%20%2F.ROUTE%20%28index%29",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/legacy-routes.tsx",
+          "span": {
+            "end_column": 65,
+            "end_line": 23,
+            "start_column": 13,
+            "start_line": 23
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "ui_route:src/legacy-routes.tsx#legacy.ROUTE%20%2F",
+      "target": "ui_route:src/legacy-routes.tsx#legacy.ROUTE%20%2F.ROUTE%20%28dynamic%29",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/legacy-routes.tsx",
+          "span": {
+            "end_column": 39,
+            "end_line": 22,
+            "start_column": 4,
+            "start_line": 22
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "ui_route:src/legacy-routes.tsx#legacy.ROUTE%20%2F",
+      "target": "ui_route:src/legacy-routes.tsx#legacy.ROUTE%20%2F.ROUTE%20%28index%29",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/legacy-routes.tsx",
+          "span": {
+            "end_column": 48,
+            "end_line": 21,
+            "start_column": 4,
+            "start_line": 21
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "ui_route:src/legacy-routes.tsx#legacy.ROUTE%20%2F",
+      "target": "ui_route:src/legacy-routes.tsx#legacy.ROUTE%20%2F.ROUTE%20a",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/legacy-routes.tsx",
+          "span": {
+            "end_column": 45,
+            "end_line": 24,
+            "start_column": 4,
+            "start_line": 24
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "ui_route:src/legacy-routes.tsx#legacy.ROUTE%20%2F",
+      "target": "ui_route:src/legacy-routes.tsx#legacy.ROUTE%20%2F.ROUTE%20c",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/legacy-routes.tsx",
+          "span": {
+            "end_column": 45,
+            "end_line": 25,
+            "start_column": 4,
+            "start_line": 25
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "ui_route:src/legacy-routes.tsx#legacy.ROUTE%20%2F",
+      "target": "ui_route:src/legacy-routes.tsx#legacy.ROUTE%20%2F.ROUTE%20d",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/pages/article/article.route.ts",
+          "span": {
+            "end_column": 5,
+            "end_line": 19,
+            "start_column": 4,
+            "start_line": 13
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "ui_route:src/pages/article/article.route.ts#articleRoute.ROUTE%20article%2F%3Aslug",
+      "target": "ui_route:src/pages/article/article.route.ts#articleRoute.ROUTE%20article%2F%3Aslug.ROUTE%20delete",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/pages/article/article.route.ts",
+          "span": {
+            "end_column": 5,
+            "end_line": 24,
+            "start_column": 4,
+            "start_line": 20
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "ui_route:src/pages/article/article.route.ts#articleRoute.ROUTE%20article%2F%3Aslug",
+      "target": "ui_route:src/pages/article/article.route.ts#articleRoute.ROUTE%20article%2F%3Aslug.ROUTE%20static",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/extra-routes.tsx",
+          "span": {
+            "end_column": 53,
+            "end_line": 5,
+            "start_column": 2,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "variable:src/extra-routes.tsx#extraRoutes",
+      "target": "ui_route:src/extra-routes.tsx#extraRoutes.ROUTE%20shell",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/extra-routes.tsx",
+          "span": {
+            "end_column": 35,
+            "end_line": 6,
+            "start_column": 2,
+            "start_line": 6
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "variable:src/extra-routes.tsx#extraRoutes",
+      "target": "ui_route:src/extra-routes.tsx#extraRoutes.ROUTE%20tpl",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/legacy-routes.tsx",
+          "span": {
+            "end_column": 10,
+            "end_line": 26,
+            "start_column": 2,
+            "start_line": 20
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "variable:src/legacy-routes.tsx#legacy",
+      "target": "ui_route:src/legacy-routes.tsx#legacy.ROUTE%20%2F",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/pages/article/article.route.ts",
+          "span": {
+            "end_column": 1,
+            "end_line": 26,
+            "start_column": 28,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "variable:src/pages/article/article.route.ts#articleRoute",
+      "target": "ui_route:src/pages/article/article.route.ts#articleRoute.ROUTE%20article%2F%3Aslug",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/components/card.tsx",
+          "span": {
+            "end_column": 28,
+            "end_line": 9,
+            "start_column": 20,
+            "start_line": 9
+          }
+        }
+      ],
+      "kind": "passes_function",
+      "provenance": "fact",
+      "source": "file:src/components/card.tsx#src%2Fcomponents%2Fcard.tsx",
+      "target": "function:src/components/card.tsx#CardImpl",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/items.tsx",
+          "span": {
+            "end_column": 65,
+            "end_line": 31,
+            "start_column": 60,
+            "start_line": 31
+          }
+        }
+      ],
+      "kind": "passes_function",
+      "provenance": "fact",
+      "source": "file:src/items.tsx#src%2Fitems.tsx",
+      "target": "function:src/items.tsx#Items",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/legacy-routes.tsx",
+          "span": {
+            "end_column": 35,
+            "end_line": 22,
+            "start_column": 25,
+            "start_line": 22
+          }
+        }
+      ],
+      "kind": "passes_function",
+      "provenance": "fact",
+      "source": "file:src/legacy-routes.tsx#src%2Flegacy-routes.tsx",
+      "target": "function:src/lib/loaders.ts#rootLoader",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/App.tsx",
+          "span": {
+            "end_column": 23,
+            "end_line": 15,
+            "start_column": 17,
+            "start_line": 15
+          }
+        },
+        {
+          "file": "src/App.tsx",
+          "span": {
+            "end_column": 37,
+            "end_line": 21,
+            "start_column": 31,
+            "start_line": 21
+          }
+        }
+      ],
+      "kind": "passes_function",
+      "provenance": "fact",
+      "source": "function:src/App.tsx#browserRouter",
+      "target": "function:src/components/layout.tsx#Layout",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/App.tsx",
+          "span": {
+            "end_column": 24,
+            "end_line": 16,
+            "start_column": 14,
+            "start_line": 16
+          }
+        }
+      ],
+      "kind": "passes_function",
+      "provenance": "fact",
+      "source": "function:src/App.tsx#browserRouter",
+      "target": "function:src/lib/loaders.ts#rootLoader",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/App.tsx",
+          "span": {
+            "end_column": 24,
+            "end_line": 17,
+            "start_column": 14,
+            "start_line": 17
+          }
+        }
+      ],
+      "kind": "passes_function",
+      "provenance": "fact",
+      "source": "function:src/App.tsx#browserRouter",
+      "target": "function:src/lib/loaders.ts#saveAction",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/items.tsx",
+          "span": {
+            "end_column": 99,
+            "end_line": 40,
+            "start_column": 93,
+            "start_line": 40
+          }
+        }
+      ],
+      "kind": "passes_function",
+      "provenance": "fact",
+      "source": "function:src/items.tsx#Callbacks",
+      "target": "function:src/items.tsx#render",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/items.tsx",
+          "span": {
+            "end_column": 29,
+            "end_line": 24,
+            "start_column": 18,
+            "start_line": 24
+          }
+        }
+      ],
+      "kind": "passes_function",
+      "provenance": "fact",
+      "source": "function:src/items.tsx#Items",
+      "target": "function:src/items.tsx#Items.handleClick",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/items.tsx",
+          "span": {
+            "end_column": 55,
+            "end_line": 19,
+            "start_column": 45,
+            "start_line": 19
+          }
+        }
+      ],
+      "kind": "passes_function",
+      "provenance": "fact",
+      "source": "function:src/items.tsx#Items",
+      "target": "function:src/items.tsx#createItem",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/items.tsx",
+          "span": {
+            "end_column": 19,
+            "end_line": 22,
+            "start_column": 13,
+            "start_line": 22
+          }
+        }
+      ],
+      "kind": "passes_function",
+      "provenance": "fact",
+      "source": "function:src/items.tsx#Items",
+      "target": "function:src/items.tsx#render",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/items.tsx",
+          "span": {
+            "end_column": 17,
+            "end_line": 21,
+            "start_column": 13,
+            "start_line": 21
+          }
+        }
+      ],
+      "kind": "passes_function",
+      "provenance": "fact",
+      "source": "function:src/items.tsx#Items",
+      "target": "function:src/items.tsx#tick",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/App.tsx",
+          "span": {
+            "end_column": 24,
+            "end_line": 16,
+            "start_column": 14,
+            "start_line": 16
+          }
+        }
+      ],
+      "kind": "passes_function",
+      "provenance": "fact",
+      "source": "ui_route:src/App.tsx#browserRouter.ROUTE%20%2F",
+      "target": "function:src/lib/loaders.ts#rootLoader",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/App.tsx",
+          "span": {
+            "end_column": 24,
+            "end_line": 17,
+            "start_column": 14,
+            "start_line": 17
+          }
+        }
+      ],
+      "kind": "passes_function",
+      "provenance": "fact",
+      "source": "ui_route:src/App.tsx#browserRouter.ROUTE%20%2F",
+      "target": "function:src/lib/loaders.ts#saveAction",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/App.tsx",
+          "span": {
+            "end_column": 59,
+            "end_line": 20,
+            "start_column": 20,
+            "start_line": 20
+          }
+        }
+      ],
+      "kind": "passes_function",
+      "provenance": "fact",
+      "source": "ui_route:src/App.tsx#browserRouter.ROUTE%20lazy",
+      "target": "function:src/pages/lazy-page.tsx#loader",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/legacy-routes.tsx",
+          "span": {
+            "end_column": 35,
+            "end_line": 22,
+            "start_column": 25,
+            "start_line": 22
+          }
+        }
+      ],
+      "kind": "passes_function",
+      "provenance": "fact",
+      "source": "ui_route:src/legacy-routes.tsx#legacy.ROUTE%20%2F.ROUTE%20%28index%29",
+      "target": "function:src/lib/loaders.ts#rootLoader",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/pages/article/article.route.ts",
+          "span": {
+            "end_column": 3,
+            "end_line": 11,
+            "start_column": 2,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "passes_function",
+      "provenance": "fact",
+      "source": "ui_route:src/pages/article/article.route.ts#articleRoute.ROUTE%20article%2F%3Aslug",
+      "target": "function:src/pages/article/article.loader.ts#articleLoader",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/pages/article/article.route.ts",
+          "span": {
+            "end_column": 7,
+            "end_line": 18,
+            "start_column": 6,
+            "start_line": 15
+          }
+        }
+      ],
+      "kind": "passes_function",
+      "provenance": "fact",
+      "source": "ui_route:src/pages/article/article.route.ts#articleRoute.ROUTE%20article%2F%3Aslug.ROUTE%20delete",
+      "target": "function:src/pages/article/article.actions.ts#deleteAction",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/pages/article/article.route.ts",
+          "span": {
+            "end_column": 7,
+            "end_line": 18,
+            "start_column": 6,
+            "start_line": 15
+          }
+        }
+      ],
+      "kind": "passes_function",
+      "provenance": "fact",
+      "source": "ui_route:src/pages/article/article.route.ts#articleRoute.ROUTE%20article%2F%3Aslug.ROUTE%20delete",
+      "target": "function:src/pages/article/article.loader.ts#articleLoader",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/pages/article/article.route.ts",
+          "span": {
+            "end_column": 45,
+            "end_line": 23,
+            "start_column": 6,
+            "start_line": 23
+          }
+        }
+      ],
+      "kind": "passes_function",
+      "provenance": "fact",
+      "source": "ui_route:src/pages/article/article.route.ts#articleRoute.ROUTE%20article%2F%3Aslug.ROUTE%20static",
+      "target": "function:src/pages/article/article.actions.ts#action",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/extra-routes.tsx",
+          "span": {
+            "end_column": 35,
+            "end_line": 5,
+            "start_column": 28,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "renders",
+      "provenance": "fact",
+      "source": "file:src/extra-routes.tsx#src%2Fextra-routes.tsx",
+      "target": "class:src/components/shell.tsx#Shell",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/extra-routes.tsx",
+          "span": {
+            "end_column": 43,
+            "end_line": 5,
+            "start_column": 35,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "renders",
+      "provenance": "fact",
+      "source": "file:src/extra-routes.tsx#src%2Fextra-routes.tsx",
+      "target": "function:src/components/home.tsx#Home",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/legacy-routes.tsx",
+          "span": {
+            "end_column": 34,
+            "end_line": 20,
+            "start_column": 27,
+            "start_line": 20
+          }
+        }
+      ],
+      "kind": "renders",
+      "provenance": "fact",
+      "source": "file:src/legacy-routes.tsx#src%2Flegacy-routes.tsx",
+      "target": "class:src/components/shell.tsx#Shell",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/legacy-routes.tsx",
+          "span": {
+            "end_column": 42,
+            "end_line": 20,
+            "start_column": 34,
+            "start_line": 20
+          }
+        },
+        {
+          "file": "src/legacy-routes.tsx",
+          "span": {
+            "end_column": 57,
+            "end_line": 30,
+            "start_column": 49,
+            "start_line": 30
+          }
+        }
+      ],
+      "kind": "renders",
+      "provenance": "fact",
+      "source": "file:src/legacy-routes.tsx#src%2Flegacy-routes.tsx",
+      "target": "function:src/components/home.tsx#Home",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/legacy-routes.tsx",
+          "span": {
+            "end_column": 61,
+            "end_line": 30,
+            "start_column": 20,
+            "start_line": 30
+          }
+        }
+      ],
+      "kind": "renders",
+      "provenance": "fact",
+      "source": "file:src/legacy-routes.tsx#src%2Flegacy-routes.tsx",
+      "target": "function:src/fake-route.tsx#Route",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/legacy-routes.tsx",
+          "span": {
+            "end_column": 44,
+            "end_line": 21,
+            "start_column": 29,
+            "start_line": 21
+          }
+        },
+        {
+          "file": "src/legacy-routes.tsx",
+          "span": {
+            "end_column": 61,
+            "end_line": 23,
+            "start_column": 44,
+            "start_line": 23
+          }
+        }
+      ],
+      "kind": "renders",
+      "provenance": "fact",
+      "source": "file:src/legacy-routes.tsx#src%2Flegacy-routes.tsx",
+      "target": "function:src/pages/lazy-default.tsx#LazyDefault",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/main.tsx",
+          "span": {
+            "end_column": 59,
+            "end_line": 5,
+            "start_column": 52,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "renders",
+      "provenance": "fact",
+      "source": "file:src/main.tsx#src%2Fmain.tsx",
+      "target": "function:src/App.tsx#App",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/App.tsx",
+          "span": {
+            "end_column": 49,
+            "end_line": 18,
+            "start_column": 41,
+            "start_line": 18
+          }
+        },
+        {
+          "file": "src/App.tsx",
+          "span": {
+            "end_column": 56,
+            "end_line": 21,
+            "start_column": 48,
+            "start_line": 21
+          }
+        }
+      ],
+      "kind": "renders",
+      "provenance": "fact",
+      "source": "function:src/App.tsx#browserRouter",
+      "target": "function:src/components/home.tsx#Home",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/components/card.tsx",
+          "span": {
+            "end_column": 35,
+            "end_line": 12,
+            "start_column": 9,
+            "start_line": 12
+          }
+        }
+      ],
+      "kind": "renders",
+      "provenance": "fact",
+      "source": "function:src/components/card.tsx#Card",
+      "target": "function:src/components/card.tsx#CardImpl",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/components/layout.tsx",
+          "span": {
+            "end_column": 19,
+            "end_line": 10,
+            "start_column": 6,
+            "start_line": 10
+          }
+        }
+      ],
+      "kind": "renders",
+      "provenance": "fact",
+      "source": "function:src/components/layout.tsx#Layout",
+      "target": "function:src/components/ui.tsx#Button",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/items.tsx",
+          "span": {
+            "end_column": 27,
+            "end_line": 25,
+            "start_column": 6,
+            "start_line": 25
+          }
+        }
+      ],
+      "kind": "renders",
+      "provenance": "fact",
+      "source": "function:src/items.tsx#Items",
+      "target": "function:src/items.tsx#ItemsTableContent",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/pages/article/article.ui.tsx",
+          "span": {
+            "end_column": 24,
+            "end_line": 7,
+            "start_column": 6,
+            "start_line": 7
+          }
+        }
+      ],
+      "kind": "renders",
+      "provenance": "fact",
+      "source": "function:src/pages/article/article.ui.tsx#ArticlePage",
+      "target": "function:src/components/card.tsx#Card",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/pages/article/article.ui.tsx",
+          "span": {
+            "end_column": 21,
+            "end_line": 6,
+            "start_column": 6,
+            "start_line": 6
+          }
+        }
+      ],
+      "kind": "renders",
+      "provenance": "fact",
+      "source": "function:src/pages/article/article.ui.tsx#ArticlePage",
+      "target": "function:src/pages/article/article.ui.tsx#ArticleBody",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/App.tsx",
+          "span": {
+            "end_column": 48,
+            "end_line": 8,
+            "start_column": 44,
+            "start_line": 8
+          }
+        }
+      ],
+      "kind": "routes_to",
+      "provenance": "fact",
+      "source": "ui_route:src/App.tsx#ROUTE%20shared",
+      "target": "function:src/components/home.tsx#Home",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/App.tsx",
+          "span": {
+            "end_column": 23,
+            "end_line": 15,
+            "start_column": 17,
+            "start_line": 15
+          }
+        }
+      ],
+      "kind": "routes_to",
+      "provenance": "fact",
+      "source": "ui_route:src/App.tsx#browserRouter.ROUTE%20%2F",
+      "target": "function:src/components/layout.tsx#Layout",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/App.tsx",
+          "span": {
+            "end_column": 49,
+            "end_line": 18,
+            "start_column": 41,
+            "start_line": 18
+          }
+        }
+      ],
+      "kind": "routes_to",
+      "provenance": "fact",
+      "source": "ui_route:src/App.tsx#browserRouter.ROUTE%20%2F.ROUTE%20%28index%29",
+      "target": "function:src/components/home.tsx#Home",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/App.tsx",
+          "span": {
+            "end_column": 37,
+            "end_line": 21,
+            "start_column": 31,
+            "start_line": 21
+          }
+        }
+      ],
+      "kind": "routes_to",
+      "provenance": "fact",
+      "source": "ui_route:src/App.tsx#browserRouter.ROUTE%20both",
+      "target": "function:src/components/layout.tsx#Layout",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/App.tsx",
+          "span": {
+            "end_column": 59,
+            "end_line": 20,
+            "start_column": 20,
+            "start_line": 20
+          }
+        }
+      ],
+      "kind": "routes_to",
+      "provenance": "fact",
+      "source": "ui_route:src/App.tsx#browserRouter.ROUTE%20lazy",
+      "target": "function:src/pages/lazy-page.tsx#Component",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/extra-routes.tsx",
+          "span": {
+            "end_column": 35,
+            "end_line": 5,
+            "start_column": 28,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "routes_to",
+      "provenance": "fact",
+      "source": "ui_route:src/extra-routes.tsx#extraRoutes.ROUTE%20shell",
+      "target": "class:src/components/shell.tsx#Shell",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/extra-routes.tsx",
+          "span": {
+            "end_column": 43,
+            "end_line": 5,
+            "start_column": 35,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "routes_to",
+      "provenance": "fact",
+      "source": "ui_route:src/extra-routes.tsx#extraRoutes.ROUTE%20shell",
+      "target": "function:src/components/home.tsx#Home",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/extra-routes.tsx",
+          "span": {
+            "end_column": 33,
+            "end_line": 6,
+            "start_column": 28,
+            "start_line": 6
+          }
+        }
+      ],
+      "kind": "routes_to",
+      "provenance": "fact",
+      "source": "ui_route:src/extra-routes.tsx#extraRoutes.ROUTE%20tpl",
+      "target": "class:src/components/shell.tsx#Shell",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/legacy-routes.tsx",
+          "span": {
+            "end_column": 34,
+            "end_line": 20,
+            "start_column": 27,
+            "start_line": 20
+          }
+        }
+      ],
+      "kind": "routes_to",
+      "provenance": "fact",
+      "source": "ui_route:src/legacy-routes.tsx#legacy.ROUTE%20%2F",
+      "target": "class:src/components/shell.tsx#Shell",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/legacy-routes.tsx",
+          "span": {
+            "end_column": 42,
+            "end_line": 20,
+            "start_column": 34,
+            "start_line": 20
+          }
+        }
+      ],
+      "kind": "routes_to",
+      "provenance": "fact",
+      "source": "ui_route:src/legacy-routes.tsx#legacy.ROUTE%20%2F",
+      "target": "function:src/components/home.tsx#Home",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/legacy-routes.tsx",
+          "span": {
+            "end_column": 61,
+            "end_line": 23,
+            "start_column": 44,
+            "start_line": 23
+          }
+        }
+      ],
+      "kind": "routes_to",
+      "provenance": "fact",
+      "source": "ui_route:src/legacy-routes.tsx#legacy.ROUTE%20%2F.ROUTE%20%28dynamic%29",
+      "target": "function:src/pages/lazy-default.tsx#LazyDefault",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/legacy-routes.tsx",
+          "span": {
+            "end_column": 44,
+            "end_line": 21,
+            "start_column": 29,
+            "start_line": 21
+          }
+        }
+      ],
+      "kind": "routes_to",
+      "provenance": "fact",
+      "source": "ui_route:src/legacy-routes.tsx#legacy.ROUTE%20%2F.ROUTE%20a",
+      "target": "function:src/pages/lazy-default.tsx#LazyDefault",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "src/pages/article/article.route.ts",
+          "span": {
+            "end_column": 3,
+            "end_line": 11,
+            "start_column": 2,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "routes_to",
+      "provenance": "fact",
+      "source": "ui_route:src/pages/article/article.route.ts#articleRoute.ROUTE%20article%2F%3Aslug",
+      "target": "function:src/pages/article/article.ui.tsx#ArticlePage",
+      "type": "edge"
+    }
+  ],
+  "Nodes": [
+    {
+      "attributes": {
+        "component": [
+          "function:src/components/home.tsx#Home"
+        ],
+        "framework": "react-router",
+        "path": "shared"
+      },
+      "content_hash": "sha256:e0d2548409891ef6c6e191575ada78ea231f9b9b5eb054c01911f28649efbe64",
+      "file": "src/App.tsx",
+      "identity": "ui_route:src/App.tsx#ROUTE%20shared",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE shared",
+      "qualified_name": "ROUTE shared",
+      "span": {
+        "end_column": 50,
+        "end_line": 8,
+        "start_column": 15,
+        "start_line": 8
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "framework": "react-router",
+        "path": "*"
+      },
+      "content_hash": "sha256:6f46b0e28472a5b8e1e4c47c4675532b3e8024d7a04995b6a341dcd9d97bd29a",
+      "file": "src/App.tsx",
+      "identity": "ui_route:src/App.tsx#browserRouter.ROUTE%20%2A",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE *",
+      "qualified_name": "browserRouter.ROUTE *",
+      "span": {
+        "end_column": 55,
+        "end_line": 22,
+        "start_column": 4,
+        "start_line": 22
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "action": [
+          "function:src/lib/loaders.ts#saveAction"
+        ],
+        "component": [
+          "function:src/components/layout.tsx#Layout"
+        ],
+        "framework": "react-router",
+        "loader": [
+          "function:src/lib/loaders.ts#rootLoader"
+        ],
+        "path": "/"
+      },
+      "content_hash": "sha256:4b93e365c0bb756e3960fb512370c35a0124448691c2cd3b673f9ace63dd1fb3",
+      "file": "src/App.tsx",
+      "identity": "ui_route:src/App.tsx#browserRouter.ROUTE%20%2F",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE /",
+      "qualified_name": "browserRouter.ROUTE /",
+      "span": {
+        "end_column": 5,
+        "end_line": 19,
+        "start_column": 4,
+        "start_line": 13
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "element": [
+          "function:src/components/home.tsx#Home"
+        ],
+        "framework": "react-router",
+        "index": true
+      },
+      "content_hash": "sha256:11c93a7fd221ac506bfa4d76ebc20f6224ce476655934b0301ef4951b1d2527b",
+      "file": "src/App.tsx",
+      "identity": "ui_route:src/App.tsx#browserRouter.ROUTE%20%2F.ROUTE%20%28index%29",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE (index)",
+      "qualified_name": "browserRouter.ROUTE /.ROUTE (index)",
+      "span": {
+        "end_column": 51,
+        "end_line": 18,
+        "start_column": 17,
+        "start_line": 18
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "component": [
+          "function:src/components/layout.tsx#Layout"
+        ],
+        "framework": "react-router",
+        "path": "both"
+      },
+      "content_hash": "sha256:acfec677499389cafa6bddc1e816e0a1507322053d0c05f4ae38316c8fbaf4be",
+      "file": "src/App.tsx",
+      "identity": "ui_route:src/App.tsx#browserRouter.ROUTE%20both",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE both",
+      "qualified_name": "browserRouter.ROUTE both",
+      "span": {
+        "end_column": 58,
+        "end_line": 21,
+        "start_column": 4,
+        "start_line": 21
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "component": [
+          "function:src/pages/lazy-page.tsx#Component"
+        ],
+        "framework": "react-router",
+        "lazy": "module",
+        "loader": [
+          "function:src/pages/lazy-page.tsx#loader"
+        ],
+        "path": "lazy"
+      },
+      "content_hash": "sha256:fa8ee1e5db16e3ce0f0fb92dedfe046b1e10c3af0c01d6bd18028b406ce7dc86",
+      "file": "src/App.tsx",
+      "identity": "ui_route:src/App.tsx#browserRouter.ROUTE%20lazy",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE lazy",
+      "qualified_name": "browserRouter.ROUTE lazy",
+      "span": {
+        "end_column": 61,
+        "end_line": 20,
+        "start_column": 4,
+        "start_line": 20
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "framework": "react-router",
+        "open": true,
+        "path": "open"
+      },
+      "content_hash": "sha256:4c29bfa0164348a4d6c741e7c166085a5ba3a965dad32adde2e706d2abe152e2",
+      "file": "src/App.tsx",
+      "identity": "ui_route:src/App.tsx#browserRouter.ROUTE%20open",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE open",
+      "qualified_name": "browserRouter.ROUTE open",
+      "span": {
+        "end_column": 31,
+        "end_line": 23,
+        "start_column": 4,
+        "start_line": 23
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "element": [
+          "class:src/components/shell.tsx#Shell",
+          "function:src/components/home.tsx#Home"
+        ],
+        "framework": "react-router",
+        "path": "shell"
+      },
+      "content_hash": "sha256:f01357d55329e5fc3ac0683d233e4bedac6b475022ce62df8a62b84d75eb7c56",
+      "file": "src/extra-routes.tsx",
+      "identity": "ui_route:src/extra-routes.tsx#extraRoutes.ROUTE%20shell",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE shell",
+      "qualified_name": "extraRoutes.ROUTE shell",
+      "span": {
+        "end_column": 53,
+        "end_line": 5,
+        "start_column": 2,
+        "start_line": 5
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "component": [
+          "class:src/components/shell.tsx#Shell"
+        ],
+        "framework": "react-router",
+        "path": "tpl"
+      },
+      "content_hash": "sha256:c873d51a7e94cb07eff407d9dd00162e17c6c7cb287cc09503083897ac032c29",
+      "file": "src/extra-routes.tsx",
+      "identity": "ui_route:src/extra-routes.tsx#extraRoutes.ROUTE%20tpl",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE tpl",
+      "qualified_name": "extraRoutes.ROUTE tpl",
+      "span": {
+        "end_column": 35,
+        "end_line": 6,
+        "start_column": 2,
+        "start_line": 6
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "element": [
+          "class:src/components/shell.tsx#Shell",
+          "function:src/components/home.tsx#Home"
+        ],
+        "framework": "react-router",
+        "path": "/"
+      },
+      "content_hash": "sha256:b9db26438513569b34728ce9df9ae7067ed5a5b9acca4fb2a6ca51b93a9b486c",
+      "file": "src/legacy-routes.tsx",
+      "identity": "ui_route:src/legacy-routes.tsx#legacy.ROUTE%20%2F",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE /",
+      "qualified_name": "legacy.ROUTE /",
+      "span": {
+        "end_column": 10,
+        "end_line": 26,
+        "start_column": 2,
+        "start_line": 20
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "element": [
+          "function:src/pages/lazy-default.tsx#LazyDefault"
+        ],
+        "framework": "react-router",
+        "path": null
+      },
+      "content_hash": "sha256:62ade3856cc66c0e07178780abcb3fdf970794026e4a7f479e215d5d206b1dce",
+      "file": "src/legacy-routes.tsx",
+      "identity": "ui_route:src/legacy-routes.tsx#legacy.ROUTE%20%2F.ROUTE%20%28dynamic%29",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE (dynamic)",
+      "qualified_name": "legacy.ROUTE /.ROUTE (dynamic)",
+      "span": {
+        "end_column": 65,
+        "end_line": 23,
+        "start_column": 13,
+        "start_line": 23
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "framework": "react-router",
+        "index": true,
+        "loader": [
+          "function:src/lib/loaders.ts#rootLoader"
+        ]
+      },
+      "content_hash": "sha256:364243ebbee84761f107e110b04e235eb3dfc93196f916bfd1a411da2956990e",
+      "file": "src/legacy-routes.tsx",
+      "identity": "ui_route:src/legacy-routes.tsx#legacy.ROUTE%20%2F.ROUTE%20%28index%29",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE (index)",
+      "qualified_name": "legacy.ROUTE /.ROUTE (index)",
+      "span": {
+        "end_column": 39,
+        "end_line": 22,
+        "start_column": 4,
+        "start_line": 22
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "element": [
+          "function:src/pages/lazy-default.tsx#LazyDefault"
+        ],
+        "framework": "react-router",
+        "path": "a"
+      },
+      "content_hash": "sha256:21b516f23bc08f4923736363d6a824899088d648eb5c350595274b9cdfe61ea1",
+      "file": "src/legacy-routes.tsx",
+      "identity": "ui_route:src/legacy-routes.tsx#legacy.ROUTE%20%2F.ROUTE%20a",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE a",
+      "qualified_name": "legacy.ROUTE /.ROUTE a",
+      "span": {
+        "end_column": 48,
+        "end_line": 21,
+        "start_column": 4,
+        "start_line": 21
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "framework": "react-router",
+        "path": "c"
+      },
+      "content_hash": "sha256:8a4e5ee9d1ffdd575ff515691880dc13302f72944ae2f08464001f63c29590a0",
+      "file": "src/legacy-routes.tsx",
+      "identity": "ui_route:src/legacy-routes.tsx#legacy.ROUTE%20%2F.ROUTE%20c",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE c",
+      "qualified_name": "legacy.ROUTE /.ROUTE c",
+      "span": {
+        "end_column": 45,
+        "end_line": 24,
+        "start_column": 4,
+        "start_line": 24
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "framework": "react-router",
+        "path": "d"
+      },
+      "content_hash": "sha256:d9a27f8ff49700899edc6a7ff3a34b91973d5012340435fbfab61261a21e822d",
+      "file": "src/legacy-routes.tsx",
+      "identity": "ui_route:src/legacy-routes.tsx#legacy.ROUTE%20%2F.ROUTE%20d",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE d",
+      "qualified_name": "legacy.ROUTE /.ROUTE d",
+      "span": {
+        "end_column": 45,
+        "end_line": 25,
+        "start_column": 4,
+        "start_line": 25
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "component": [
+          "function:src/pages/article/article.ui.tsx#ArticlePage"
+        ],
+        "framework": "react-router",
+        "lazy": "object",
+        "loader": [
+          "function:src/pages/article/article.loader.ts#articleLoader"
+        ],
+        "path": "article/:slug"
+      },
+      "content_hash": "sha256:fb2767b782ccef4ee9d9f5b6ec5c2f45fc1faf86d6c3344eb300eef8a28e8fe9",
+      "file": "src/pages/article/article.route.ts",
+      "identity": "ui_route:src/pages/article/article.route.ts#articleRoute.ROUTE%20article%2F%3Aslug",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE article/:slug",
+      "qualified_name": "articleRoute.ROUTE article/:slug",
+      "span": {
+        "end_column": 1,
+        "end_line": 26,
+        "start_column": 28,
+        "start_line": 3
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "action": [
+          "function:src/pages/article/article.actions.ts#deleteAction"
+        ],
+        "framework": "react-router",
+        "lazy": "object",
+        "loader": [
+          "function:src/pages/article/article.loader.ts#articleLoader"
+        ],
+        "path": "delete"
+      },
+      "content_hash": "sha256:bae9d860bc29428534e5307e1815f8e6e76f9932e1eee6fb25fcdba1e1b3c356",
+      "file": "src/pages/article/article.route.ts",
+      "identity": "ui_route:src/pages/article/article.route.ts#articleRoute.ROUTE%20article%2F%3Aslug.ROUTE%20delete",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE delete",
+      "qualified_name": "articleRoute.ROUTE article/:slug.ROUTE delete",
+      "span": {
+        "end_column": 5,
+        "end_line": 19,
+        "start_column": 4,
+        "start_line": 13
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "action": [
+          "function:src/pages/article/article.actions.ts#action"
+        ],
+        "framework": "react-router",
+        "lazy": "module",
+        "path": "static"
+      },
+      "content_hash": "sha256:c512be9aaec5c4c499db164b427de34fe2022cc50bb188bedf9c2dff291882c9",
+      "file": "src/pages/article/article.route.ts",
+      "identity": "ui_route:src/pages/article/article.route.ts#articleRoute.ROUTE%20article%2F%3Aslug.ROUTE%20static",
+      "kind": "ui_route",
+      "level": 4,
+      "name": "ROUTE static",
+      "qualified_name": "articleRoute.ROUTE article/:slug.ROUTE static",
+      "span": {
+        "end_column": 5,
+        "end_line": 24,
+        "start_column": 4,
+        "start_line": 20
+      },
+      "type": "node"
+    }
+  ]
+}

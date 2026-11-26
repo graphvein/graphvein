@@ -1,0 +1,271 @@
+{
+  "links": [
+    {
+      "assumes": [
+        "UP-V1",
+        "UP-V2",
+        "UP-V3"
+      ],
+      "assumption": "declared in graphvein-project.yaml: `web` consumes `api`; route prefix not read from code: assumes UP-V1, UP-V2, UP-V3",
+      "attributes": {
+        "declaration": "`web` consumes `api`",
+        "match": "suffix",
+        "route_prefix": "unresolved",
+        "row": "PL-L7",
+        "template": "/upd/order/{id}"
+      },
+      "confidence": 0.6,
+      "evidence": [
+        {
+          "file": "api.ts",
+          "span": {
+            "end_column": 54,
+            "end_line": 10,
+            "start_column": 2,
+            "start_line": 10
+          }
+        }
+      ],
+      "kind": "calls_route",
+      "provenance": "inferred",
+      "source": {
+        "content_hash": "sha256:ec5efacbdd2c47b8f09cd110d531d133a0e3c95f245df1e5bfae254169805564",
+        "identity": "client_call:api.ts#calls.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Fupd%2Forder%2F%24%7Bid%7D%60",
+        "repository": "web",
+        "run": "\u003crun of web\u003e"
+      },
+      "target": {
+        "content_hash": "sha256:64acfadb3edbbd344e4b5b56cf2cafa0a307f3ffbda87d01205aaa1e3d027afa",
+        "identity": "route:server.go#GET%20%2Fupd%2Forder%2F%7Bid%7D",
+        "repository": "api",
+        "run": "\u003crun of api\u003e"
+      }
+    },
+    {
+      "assumes": [
+        "UP-V1",
+        "UP-V3"
+      ],
+      "assumption": "declared in graphvein-project.yaml: `web` consumes `api`; route prefix not read from code: assumes UP-V1, UP-V3",
+      "attributes": {
+        "declaration": "`web` consumes `api`",
+        "match": "suffix",
+        "route_prefix": "unresolved",
+        "row": "PL-L7",
+        "template": "/v1/upd/order/{id}"
+      },
+      "confidence": 0.6,
+      "evidence": [
+        {
+          "file": "api.ts",
+          "span": {
+            "end_column": 30,
+            "end_line": 5,
+            "start_column": 2,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "calls_route",
+      "provenance": "inferred",
+      "source": {
+        "content_hash": "sha256:a5aa1df7ab6ce6510097a5d5268a74b57600cc16505b032ed57cde9936e2ea45",
+        "identity": "client_call:api.ts#calls.GET%20%60%2Fv1%2Fupd%2Forder%2F%24%7Bid%7D%60",
+        "repository": "web",
+        "run": "\u003crun of web\u003e"
+      },
+      "target": {
+        "content_hash": "sha256:64acfadb3edbbd344e4b5b56cf2cafa0a307f3ffbda87d01205aaa1e3d027afa",
+        "identity": "route:server.go#GET%20%2Fupd%2Forder%2F%7Bid%7D",
+        "repository": "api",
+        "run": "\u003crun of api\u003e"
+      }
+    },
+    {
+      "assumes": [
+        "UP-V1",
+        "UP-V2",
+        "UP-V3"
+      ],
+      "assumption": "declared in graphvein-project.yaml: `web` consumes `api`; route prefix not read from code: assumes UP-V1, UP-V2, UP-V3",
+      "attributes": {
+        "declaration": "`web` consumes `api`",
+        "match": "suffix",
+        "route_prefix": "unresolved",
+        "row": "PL-L7",
+        "template": "/upd/orders/list"
+      },
+      "confidence": 0.6,
+      "evidence": [
+        {
+          "file": "api.ts",
+          "span": {
+            "end_column": 37,
+            "end_line": 4,
+            "start_column": 2,
+            "start_line": 4
+          }
+        }
+      ],
+      "kind": "calls_route",
+      "provenance": "inferred",
+      "source": {
+        "content_hash": "sha256:6a2470b64be04ac3c6be7749b53da450ef116e99ac6b11791b59bb0ff2729d7b",
+        "identity": "client_call:api.ts#calls.GET%20withBase%28%22%2Fupd%2Forders%2Flist%22%29",
+        "repository": "web",
+        "run": "\u003crun of web\u003e"
+      },
+      "target": {
+        "content_hash": "sha256:9d7e4173eaa7c7e870e87370e28671482467e444ca62c27369398f3e4e6d8978",
+        "identity": "route:server.go#GET%20%2Fupd%2Forders%2Flist",
+        "repository": "api",
+        "run": "\u003crun of api\u003e"
+      }
+    }
+  ],
+  "members": [
+    {
+      "repository": "web",
+      "run": "\u003crun of web\u003e"
+    },
+    {
+      "repository": "api",
+      "run": "\u003crun of api\u003e"
+    },
+    {
+      "repository": "api2",
+      "run": "\u003crun of api2\u003e"
+    }
+  ],
+  "outcomes": [
+    {
+      "candidate_count": 0,
+      "candidates": [],
+      "kind": "calls_route",
+      "row": "PL-R5",
+      "source": {
+        "identity": "client_call:api.ts#calls.GET%20%22https%3A%2F%2Fapi.example.com%2Fupd%2Forders%2Flist%22",
+        "repository": "web"
+      },
+      "status": "unmatched",
+      "template": "/upd/orders/list"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [
+        {
+          "identity": "route:server.go#GET%20%2Fupd%2Forder%2F%7Bid%7D",
+          "repository": "api"
+        }
+      ],
+      "kind": "calls_route",
+      "row": "PL-L7",
+      "source": {
+        "identity": "client_call:api.ts#calls.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Fupd%2Forder%2F%24%7Bid%7D%60",
+        "repository": "web"
+      },
+      "status": "linked",
+      "target": {
+        "identity": "route:server.go#GET%20%2Fupd%2Forder%2F%7Bid%7D",
+        "repository": "api"
+      },
+      "template": "/upd/order/{id}"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [
+        {
+          "identity": "route:server.go#GET%20%2Fupd%2Forder%2F%7Bid%7D",
+          "repository": "api"
+        }
+      ],
+      "kind": "calls_route",
+      "row": "PL-L7",
+      "source": {
+        "identity": "client_call:api.ts#calls.GET%20%60%2Fv1%2Fupd%2Forder%2F%24%7Bid%7D%60",
+        "repository": "web"
+      },
+      "status": "linked",
+      "target": {
+        "identity": "route:server.go#GET%20%2Fupd%2Forder%2F%7Bid%7D",
+        "repository": "api"
+      },
+      "template": "/v1/upd/order/{id}"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [
+        {
+          "identity": "route:server.go#GET%20%2Fupd%2Forders%2Flist",
+          "repository": "api"
+        }
+      ],
+      "kind": "calls_route",
+      "row": "PL-L7",
+      "source": {
+        "identity": "client_call:api.ts#calls.GET%20withBase%28%22%2Fupd%2Forders%2Flist%22%29",
+        "repository": "web"
+      },
+      "status": "linked",
+      "target": {
+        "identity": "route:server.go#GET%20%2Fupd%2Forders%2Flist",
+        "repository": "api"
+      },
+      "template": "/upd/orders/list"
+    },
+    {
+      "candidate_count": 2,
+      "candidates": [
+        {
+          "identity": "route:server.go#GET%20%2Fupd%2Fshared%2Fitems",
+          "repository": "api"
+        },
+        {
+          "identity": "route:server.go#GET%20%2Fupd%2Fshared%2Fitems",
+          "repository": "api2"
+        }
+      ],
+      "kind": "calls_route",
+      "row": "PL-R11",
+      "source": {
+        "identity": "client_call:api.ts#calls.GET%20withBase%28%22%2Fupd%2Fshared%2Fitems%22%29",
+        "repository": "web"
+      },
+      "status": "ambiguous",
+      "template": "/upd/shared/items"
+    },
+    {
+      "candidate_count": 2,
+      "candidates": [
+        {
+          "identity": "route:server.go#GET%20%2Fupd%2Ftie%2Fitems",
+          "repository": "api"
+        },
+        {
+          "identity": "route:server.go#GET%20%2Fupd%2Ftie%2Fitems%402",
+          "repository": "api"
+        }
+      ],
+      "kind": "calls_route",
+      "row": "PL-R10",
+      "source": {
+        "identity": "client_call:api.ts#calls.GET%20withBase%28%22%2Fupd%2Ftie%2Fitems%22%29",
+        "repository": "web"
+      },
+      "status": "ambiguous",
+      "template": "/upd/tie/items"
+    },
+    {
+      "candidate_count": 0,
+      "candidates": [],
+      "kind": "calls_route",
+      "row": "PL-R8",
+      "source": {
+        "identity": "client_call:api.ts#calls.GET%20withBase%28%22%2Fupdping%22%29",
+        "repository": "web"
+      },
+      "status": "unmatched",
+      "template": "/updping"
+    }
+  ]
+}

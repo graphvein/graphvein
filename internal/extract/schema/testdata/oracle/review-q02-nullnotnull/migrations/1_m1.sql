@@ -1,0 +1,1 @@
+CREATE TABLE t (c int NULL NOT NULL);

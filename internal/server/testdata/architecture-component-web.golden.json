@@ -1,0 +1,301 @@
+{
+  "api_version": 0,
+  "calls": [
+    {
+      "attributes": {
+        "base": "none",
+        "library": "axios",
+        "method": "GET",
+        "paths": [
+          {
+            "candidate_count": 0,
+            "candidates": [
+              "route:api/server.ts#GET%20%2Ft026%2Fitems"
+            ],
+            "conditional": false,
+            "match": "exact",
+            "origin": null,
+            "resolution": "literal",
+            "status": "linked",
+            "template": "/t026/items"
+          }
+        ],
+        "status": "linked",
+        "url_expression": "'/t026/items'",
+        "wrapper": null
+      },
+      "content_hash": "sha256:39938aafd0bfb956fc3513690c7c2a79173ac212dc07d4c303a99972002c17fe",
+      "file": "web/src/api.ts",
+      "file_state": "unchanged",
+      "ide": {
+        "column": 10,
+        "exact": true,
+        "line": 5,
+        "link": "vscode://file/{ROOT}/web/src/api.ts:5:10"
+      },
+      "identity": "client_call:web/src/api.ts#loadItems.GET%20%27%2Ft026%2Fitems%27",
+      "kind": "client_call",
+      "level": 4,
+      "name": "GET '/t026/items'",
+      "qualified_name": "loadItems.GET '/t026/items'",
+      "span": {
+        "end_column": 33,
+        "end_line": 5,
+        "start_column": 9,
+        "start_line": 5
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "base": "none",
+        "library": "axios",
+        "method": "GET",
+        "paths": [
+          {
+            "candidate_count": 0,
+            "candidates": [
+              "route:api/server.ts#GET%20%2Ft026%2Fhealth"
+            ],
+            "conditional": false,
+            "match": "exact",
+            "origin": null,
+            "resolution": "literal",
+            "status": "linked",
+            "template": "/t026/health"
+          }
+        ],
+        "status": "linked",
+        "url_expression": "'/t026/health'",
+        "wrapper": null
+      },
+      "content_hash": "sha256:4c5951f3a0806c2ff3fd5f0a7d508371e04d80c12a0c6cf2705273845a17a6cc",
+      "file": "web/src/api.ts",
+      "file_state": "unchanged",
+      "ide": {
+        "column": 10,
+        "exact": true,
+        "line": 9,
+        "link": "vscode://file/{ROOT}/web/src/api.ts:9:10"
+      },
+      "identity": "client_call:web/src/api.ts#health.GET%20%27%2Ft026%2Fhealth%27",
+      "kind": "client_call",
+      "level": 4,
+      "name": "GET '/t026/health'",
+      "qualified_name": "health.GET '/t026/health'",
+      "span": {
+        "end_column": 34,
+        "end_line": 9,
+        "start_column": 9,
+        "start_line": 9
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "base": "none",
+        "library": "axios",
+        "method": "GET",
+        "origin_assumptions": [
+          "origin https://api.example.test assumed to be this repository's server"
+        ],
+        "paths": [
+          {
+            "candidate_count": 0,
+            "candidates": [
+              "route:api/server.ts#GET%20%2Ft026%2Fhealth"
+            ],
+            "conditional": false,
+            "match": "exact",
+            "origin": "https://api.example.test",
+            "origin_assumption": "origin https://api.example.test assumed to be this repository's server",
+            "resolution": "literal",
+            "status": "linked",
+            "template": "/t026/health"
+          }
+        ],
+        "status": "linked",
+        "url_expression": "'https://api.example.test/t026/health'",
+        "wrapper": null
+      },
+      "content_hash": "sha256:e630f2e09fad4423704a0b7d8623dbdfe085b87c26b25ebbf6d52fc5a2abebf6",
+      "file": "web/src/api.ts",
+      "file_state": "unchanged",
+      "ide": {
+        "column": 10,
+        "exact": true,
+        "line": 13,
+        "link": "vscode://file/{ROOT}/web/src/api.ts:13:10"
+      },
+      "identity": "client_call:web/src/api.ts#remote.GET%20%27https%3A%2F%2Fapi.example.test%2Ft026%2Fhealth%27",
+      "kind": "client_call",
+      "level": 4,
+      "name": "GET 'https://api.example.test/t026/health'",
+      "qualified_name": "remote.GET 'https://api.example.test/t026/health'",
+      "span": {
+        "end_column": 58,
+        "end_line": 13,
+        "start_column": 9,
+        "start_line": 13
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "base": "none",
+        "library": "axios",
+        "method": "GET",
+        "paths": [
+          {
+            "candidate_count": 0,
+            "candidates": [],
+            "conditional": false,
+            "match": null,
+            "origin": null,
+            "resolution": "literal",
+            "status": "unmatched",
+            "template": "/t026/missing"
+          }
+        ],
+        "status": "unmatched",
+        "url_expression": "'/t026/missing'",
+        "wrapper": null
+      },
+      "content_hash": "sha256:794462f8649bd26c7e54946367e40780108908ecee75b911fe0bb8e41513f313",
+      "file": "web/src/api.ts",
+      "file_state": "unchanged",
+      "ide": {
+        "column": 10,
+        "exact": true,
+        "line": 17,
+        "link": "vscode://file/{ROOT}/web/src/api.ts:17:10"
+      },
+      "identity": "client_call:web/src/api.ts#missing.GET%20%27%2Ft026%2Fmissing%27",
+      "kind": "client_call",
+      "level": 4,
+      "name": "GET '/t026/missing'",
+      "qualified_name": "missing.GET '/t026/missing'",
+      "span": {
+        "end_column": 35,
+        "end_line": 17,
+        "start_column": 9,
+        "start_line": 17
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "base": "unresolved",
+        "library": "axios",
+        "method": "GET",
+        "paths": [
+          {
+            "candidate_count": 0,
+            "candidates": [],
+            "conditional": false,
+            "match": null,
+            "origin": null,
+            "resolution": "literal",
+            "status": "dynamic",
+            "template": null
+          }
+        ],
+        "status": "dynamic",
+        "url_expression": "currentPath()",
+        "wrapper": null
+      },
+      "content_hash": "sha256:3c7cbbd096128eb52b4e7917c1357d8d5ef7e0948235917fee45f986faafe6f3",
+      "file": "web/src/api.ts",
+      "file_state": "unchanged",
+      "ide": {
+        "column": 10,
+        "exact": true,
+        "line": 23,
+        "link": "vscode://file/{ROOT}/web/src/api.ts:23:10"
+      },
+      "identity": "client_call:web/src/api.ts#dynamic.GET%20currentPath%28%29",
+      "kind": "client_call",
+      "level": 4,
+      "name": "GET currentPath()",
+      "qualified_name": "dynamic.GET currentPath()",
+      "span": {
+        "end_column": 33,
+        "end_line": 23,
+        "start_column": 9,
+        "start_line": 23
+      },
+      "type": "node"
+    }
+  ],
+  "commands": [],
+  "component": {
+    "counts": {
+      "client_calls": 5,
+      "files": 2,
+      "ipc_calls": 0,
+      "ipc_commands": 0,
+      "manifests": 1,
+      "routes": 0,
+      "tables": 0,
+      "test_files": 0,
+      "wrapper_calls": 0
+    },
+    "directory": "web",
+    "frameworks": [],
+    "hidden_by": null,
+    "id": "web",
+    "kinds": [
+      "client"
+    ],
+    "manifests": [
+      {
+        "ecosystem": "npm",
+        "file": "web/package.json",
+        "name": "web",
+        "package": "package:web/package.json#web",
+        "unread": null
+      }
+    ],
+    "markers": [],
+    "name": "web",
+    "reason": null,
+    "rows": [
+      "CK3"
+    ],
+    "state": "read",
+    "visibility": "shown"
+  },
+  "external_packages": [
+    {
+      "ecosystem": "npm",
+      "identity": "external:.#npm%3Aaxios",
+      "imports": 1,
+      "name": "axios"
+    }
+  ],
+  "files": [
+    {
+      "path": "web/package.json",
+      "test": false
+    },
+    {
+      "path": "web/src/api.ts",
+      "test": false
+    }
+  ],
+  "index": {
+    "contract_version": 1,
+    "finished_at": "2026-11-03T14:32:05.123Z",
+    "indexer": {
+      "name": "graphvein",
+      "version": "extractors-62"
+    }
+  },
+  "repository": "fixture",
+  "routes": [],
+  "tables": [],
+  "unlinked": {
+    "dynamic": 1,
+    "unmatched": 1
+  }
+}

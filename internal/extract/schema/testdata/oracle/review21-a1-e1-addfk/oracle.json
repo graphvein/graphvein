@@ -1,0 +1,63 @@
+{
+  "id": "review21-a1-e1-addfk",
+  "signature": "agreed at Revision 2.1",
+  "class": "S1",
+  "owner": "E8",
+  "row": "review21",
+  "history": {
+    "id": "e1-addfk",
+    "prelude": [
+      "CREATE TABLE ext_a (id int PRIMARY KEY, code text UNIQUE)"
+    ],
+    "fresh_db": true
+  },
+  "verdict": {
+    "default_schema": "public",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "accepted"
+      },
+      {
+        "file": "2_m2.sql",
+        "status": "accepted"
+      }
+    ],
+    "tables": [
+      {
+        "table": "public.t1",
+        "columns": [
+          {
+            "name": "id",
+            "type": "text",
+            "not_null": true,
+            "has_default": false
+          }
+        ],
+        "primary_key": [
+          "id"
+        ],
+        "unique_keys": [],
+        "foreign_keys": [
+          {
+            "name": "t1_id_fkey",
+            "columns": [
+              "id"
+            ],
+            "ref_table": "public.ext_a",
+            "ref_columns": [
+              "code"
+            ]
+          }
+        ],
+        "indexes": []
+      }
+    ],
+    "prelude_tables": [
+      "public.ext_a",
+      "public._sqlx_migrations"
+    ]
+  },
+  "disagreements": null,
+  "gate": "strict"
+}

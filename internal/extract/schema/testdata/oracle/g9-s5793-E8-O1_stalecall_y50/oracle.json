@@ -1,0 +1,61 @@
+{
+  "id": "g9-s5793-E8-O1_stalecall_y50",
+  "signature": "e8-hit R 42703 O1.stalecall_y50",
+  "class": "S1",
+  "owner": "E8",
+  "row": "O1.stalecall_y50",
+  "history": {
+    "id": "g9-s5793",
+    "tags": {
+      "1_m1.sql": [
+        "O1.stalecall_y50",
+        "O1.stalecall_y50"
+      ],
+      "2_m2.sql": [
+        "O1.stalecall_y50",
+        "O1.stalecall_y50"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "accepted"
+      },
+      {
+        "file": "2_m2.sql",
+        "status": "refused",
+        "sqlstate": "42703",
+        "message": "column \"a\" does not exist",
+        "where": "PL/pgSQL function sf3() line 1 at RETURN",
+        "statement": 2,
+        "statement_text": "SELECT sf3();"
+      }
+    ],
+    "tables": [
+      {
+        "table": "history.t2",
+        "columns": [
+          {
+            "name": "c",
+            "type": "integer",
+            "not_null": false,
+            "has_default": false
+          }
+        ],
+        "primary_key": null,
+        "unique_keys": [],
+        "foreign_keys": [],
+        "indexes": []
+      }
+    ],
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null,
+  "gate": "e8",
+  "e8_hit": "e8-hit R 42703 g9-s5793 2_m2.sql O1.stalecall_y50 SELECT sf3();"
+}

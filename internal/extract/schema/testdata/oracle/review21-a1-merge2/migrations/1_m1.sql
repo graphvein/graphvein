@@ -1,0 +1,1 @@
+CREATE TABLE t (id int PRIMARY KEY, v int); INSERT INTO t VALUES (1, NULL);

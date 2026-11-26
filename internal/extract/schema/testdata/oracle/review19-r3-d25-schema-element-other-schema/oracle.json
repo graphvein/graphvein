@@ -1,0 +1,29 @@
+{
+  "id": "review19-r3-d25-schema-element-other-schema",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y32",
+  "row": "review19",
+  "history": {
+    "id": "d25-schema-element-other-schema",
+    "fresh_db": true
+  },
+  "verdict": {
+    "default_schema": "public",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42P15",
+        "message": "CREATE specifies a schema (other) different from the one being created (s)",
+        "statement": 1,
+        "statement_text": "CREATE SCHEMA s CREATE TABLE other.t (a int);"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "public._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

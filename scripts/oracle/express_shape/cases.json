@@ -1,0 +1,1002 @@
+{
+ "requests": [
+  {
+   "server": "express4",
+   "route": "src/routes.ts#GET /health",
+   "method": "GET",
+   "url": "/api/health"
+  },
+  {
+   "server": "express4",
+   "route": "src/routes.ts#POST /users",
+   "method": "POST",
+   "url": "/api/users",
+   "body": {
+    "name": "a",
+    "age": 1,
+    "email": "a@example.com",
+    "tags": [
+     "x"
+    ]
+   },
+   "valid": true
+  },
+  {
+   "server": "express4",
+   "route": "src/routes.ts#POST /sessions",
+   "method": "POST",
+   "url": "/api/sessions",
+   "body": {
+    "user": "u",
+    "password": "12345678"
+   },
+   "valid": true
+  },
+  {
+   "server": "express4",
+   "route": "src/routes.ts#POST /sessions/loose",
+   "method": "POST",
+   "url": "/api/sessions/loose",
+   "body": {}
+  },
+  {
+   "server": "express4",
+   "route": "src/routes.ts#POST /articles",
+   "method": "POST",
+   "url": "/api/articles",
+   "body": {
+    "article": {
+     "title": "t",
+     "tags": [
+      "a"
+     ],
+     "draft": true
+    }
+   },
+   "valid": true
+  },
+  {
+   "server": "express4",
+   "route": "src/routes.ts#GET /articles",
+   "method": "GET",
+   "url": "/api/articles?limit=5&author=x",
+   "valid": true
+  },
+  {
+   "server": "express4",
+   "route": "src/routes.ts#GET /articles",
+   "method": "GET",
+   "url": "/api/articles?limit=x"
+  },
+  {
+   "server": "express4",
+   "route": "src/routes.ts#POST /articles/:slug/comments",
+   "method": "POST",
+   "url": "/api/articles/s/comments",
+   "body": {
+    "body": "b"
+   }
+  },
+  {
+   "server": "express4",
+   "route": "src/routes.ts#POST /reviews",
+   "method": "POST",
+   "url": "/api/reviews",
+   "body": {
+    "article": {
+     "title": "t"
+    },
+    "body": "x"
+   },
+   "valid": true
+  },
+  {
+   "server": "express4",
+   "route": "src/routes.ts#POST /reviews",
+   "method": "POST",
+   "url": "/api/reviews",
+   "body": {}
+  },
+  {
+   "server": "express4",
+   "route": "src/routes.ts#PUT /articles/:slug",
+   "method": "PUT",
+   "url": "/api/articles/s",
+   "body": {
+    "title": "t",
+    "body": "b"
+   },
+   "valid": true
+  },
+  {
+   "server": "express4",
+   "route": "src/routes.ts#POST /signup",
+   "method": "POST",
+   "url": "/api/signup",
+   "body": {
+    "email": "a@b.c",
+    "password": "12345678"
+   }
+  },
+  {
+   "server": "express4",
+   "route": "src/routes.ts#POST /orders",
+   "method": "POST",
+   "url": "/api/orders",
+   "body": {
+    "items": [],
+    "total": 1,
+    "customer": "c"
+   }
+  },
+  {
+   "server": "express4",
+   "route": "src/routes.ts#POST /deep",
+   "method": "POST",
+   "url": "/api/deep",
+   "body": {
+    "h": 1
+   }
+  },
+  {
+   "server": "express4",
+   "route": "src/routes.ts#POST /merge",
+   "method": "POST",
+   "url": "/api/merge",
+   "body": {
+    "article": {}
+   }
+  },
+  {
+   "server": "express4",
+   "route": "src/routes.ts#GET /fail",
+   "method": "GET",
+   "url": "/api/fail"
+  },
+  {
+   "server": "express4",
+   "route": "src/routes.ts#GET /old",
+   "method": "GET",
+   "url": "/api/old"
+  },
+  {
+   "server": "express4",
+   "route": "src/routes.ts#GET /moved",
+   "method": "GET",
+   "url": "/api/moved"
+  },
+  {
+   "server": "express4",
+   "route": "src/routes.ts#GET /computed",
+   "method": "GET",
+   "url": "/api/computed?code=418"
+  },
+  {
+   "server": "express4",
+   "route": "src/routes.ts#GET /accepted",
+   "method": "GET",
+   "url": "/api/accepted"
+  },
+  {
+   "server": "express4",
+   "route": "src/routes.ts#GET /missing/:name",
+   "method": "GET",
+   "url": "/api/missing/x"
+  },
+  {
+   "server": "express4",
+   "route": "src/routes.ts#GET /users/:id",
+   "method": "GET",
+   "url": "/api/users/abc"
+  },
+  {
+   "server": "express4",
+   "route": "src/routes.ts#GET /users/:id",
+   "method": "GET",
+   "url": "/api/users/none"
+  },
+  {
+   "server": "express4",
+   "route": "src/routes.ts#POST /profiles",
+   "method": "POST",
+   "url": "/api/profiles",
+   "body": {
+    "bio": 1
+   }
+  },
+  {
+   "server": "express4",
+   "route": "src/routes.ts#POST /tries",
+   "method": "POST",
+   "url": "/api/tries",
+   "body": {}
+  },
+  {
+   "server": "express4",
+   "route": "src/routes.ts#POST /replaced",
+   "method": "POST",
+   "url": "/api/replaced",
+   "body": {
+    "fixed": 9
+   }
+  },
+  {
+   "server": "express4",
+   "route": "src/routes.ts#GET /custom",
+   "method": "GET",
+   "url": "/api/custom"
+  },
+  {
+   "server": "express4",
+   "route": "src/routes.ts#GET /late",
+   "method": "GET",
+   "url": "/api/late"
+  },
+  {
+   "server": "express4",
+   "route": "src/routes.ts#GET /file",
+   "method": "GET",
+   "url": "/api/file"
+  },
+  {
+   "server": "express4",
+   "route": "src/plain.ts#POST /echo",
+   "method": "POST",
+   "url": "/raw/echo",
+   "body": {
+    "note": 1
+   }
+  },
+  {
+   "server": "express4",
+   "route": "src/plain.ts#GET /cookie",
+   "method": "GET",
+   "url": "/raw/cookie"
+  },
+  {
+   "server": "express4",
+   "route": "src/plain.ts#POST /joi",
+   "method": "POST",
+   "url": "/raw/joi",
+   "body": {
+    "a": 5
+   }
+  },
+  {
+   "server": "express4",
+   "route": "src/plain.ts#POST /joi",
+   "method": "POST",
+   "url": "/raw/joi",
+   "body": {
+    "a": "x"
+   },
+   "valid": true
+  },
+  {
+   "server": "express4",
+   "route": "src/legacy.js#POST /pick",
+   "method": "POST",
+   "url": "/legacy/pick",
+   "body": {
+    "first": 1
+   }
+  },
+  {
+   "server": "express4",
+   "route": "src/probes.ts#POST /p1",
+   "method": "POST",
+   "url": "/rv/p1",
+   "body": {
+    "bogus": 1
+   }
+  },
+  {
+   "server": "express4",
+   "route": "src/probes.ts#POST /p1",
+   "method": "POST",
+   "url": "/rv/p1",
+   "body": {
+    "name": "n",
+    "qty": 1
+   },
+   "valid": true
+  },
+  {
+   "server": "express4",
+   "route": "src/probes.ts#POST /p2",
+   "method": "POST",
+   "url": "/rv/p2",
+   "body": {
+    "bogus": 1
+   }
+  },
+  {
+   "server": "express4",
+   "route": "src/probes.ts#POST /p2",
+   "method": "POST",
+   "url": "/rv/p2",
+   "body": {
+    "name": "n",
+    "qty": 1
+   },
+   "valid": true
+  },
+  {
+   "server": "express4",
+   "route": "src/probes.ts#POST /p2c",
+   "method": "POST",
+   "url": "/rv/p2c",
+   "body": {
+    "bogus": 1
+   }
+  },
+  {
+   "server": "express4",
+   "route": "src/probes.ts#POST /p2c",
+   "method": "POST",
+   "url": "/rv/p2c",
+   "body": {
+    "name": "n",
+    "qty": 1
+   },
+   "valid": true
+  },
+  {
+   "server": "express4",
+   "route": "src/probes.ts#POST /p2b",
+   "method": "POST",
+   "url": "/rv/p2b",
+   "body": {
+    "bogus": 1
+   }
+  },
+  {
+   "server": "express4",
+   "route": "src/probes.ts#POST /p2b",
+   "method": "POST",
+   "url": "/rv/p2b",
+   "body": {
+    "name": "n",
+    "qty": 1
+   },
+   "valid": true
+  },
+  {
+   "server": "express4",
+   "route": "src/probes.ts#POST /p4",
+   "method": "POST",
+   "url": "/rv/p4",
+   "body": {
+    "bogus": 1
+   }
+  },
+  {
+   "server": "express4",
+   "route": "src/probes.ts#POST /p4",
+   "method": "POST",
+   "url": "/rv/p4",
+   "body": {
+    "name": "n",
+    "qty": 1
+   },
+   "valid": true
+  },
+  {
+   "server": "express4",
+   "route": "src/probes.ts#POST /p17",
+   "method": "POST",
+   "url": "/rv/p17",
+   "body": {
+    "bogus": 1
+   }
+  },
+  {
+   "server": "express4",
+   "route": "src/probes.ts#POST /p17",
+   "method": "POST",
+   "url": "/rv/p17",
+   "body": {
+    "name": "n",
+    "qty": 1
+   },
+   "valid": true
+  },
+  {
+   "server": "express4",
+   "route": "src/probes.ts#POST /p18",
+   "method": "POST",
+   "url": "/rv/p18",
+   "body": {
+    "bogus": 1
+   }
+  },
+  {
+   "server": "express4",
+   "route": "src/probes.ts#POST /p18",
+   "method": "POST",
+   "url": "/rv/p18?skip=1",
+   "body": {
+    "name": "n",
+    "qty": 1
+   },
+   "valid": true
+  },
+  {
+   "server": "express4",
+   "route": "src/probes.ts#POST /p3",
+   "method": "POST",
+   "url": "/rv/p3",
+   "body": {
+    "bogus": 1
+   }
+  },
+  {
+   "server": "express4",
+   "route": "src/probes.ts#POST /p3",
+   "method": "POST",
+   "url": "/rv/p3",
+   "body": {
+    "name": "n",
+    "qty": 1
+   },
+   "valid": true
+  },
+  {
+   "server": "express4",
+   "route": "src/probes.ts#POST /p3b",
+   "method": "POST",
+   "url": "/rv/p3b",
+   "body": {
+    "bogus": 1
+   }
+  },
+  {
+   "server": "express4",
+   "route": "src/probes.ts#POST /p3b",
+   "method": "POST",
+   "url": "/rv/p3b",
+   "body": {
+    "name": "n",
+    "qty": 1
+   },
+   "valid": true
+  },
+  {
+   "server": "express4",
+   "route": "src/probes.ts#POST /p3c",
+   "method": "POST",
+   "url": "/rv/p3c",
+   "body": {
+    "bogus": 1
+   }
+  },
+  {
+   "server": "express4",
+   "route": "src/probes.ts#POST /p3c",
+   "method": "POST",
+   "url": "/rv/p3c",
+   "body": {
+    "name": "n",
+    "qty": 1
+   },
+   "valid": true
+  },
+  {
+   "server": "express4",
+   "route": "src/probes.ts#POST /p19",
+   "method": "POST",
+   "url": "/rv/p19",
+   "body": {
+    "name": "n",
+    "qty": 1
+   },
+   "valid": true
+  },
+  {
+   "server": "express4",
+   "route": "src/probes.ts#POST /p2d",
+   "method": "POST",
+   "url": "/rv/p2d",
+   "body": {
+    "name": "n",
+    "qty": 1
+   },
+   "valid": true
+  },
+  {
+   "server": "express4",
+   "route": "src/probes.ts#POST /p3d",
+   "method": "POST",
+   "url": "/rv/p3d",
+   "body": {
+    "name": "n",
+    "qty": 1
+   },
+   "valid": true
+  },
+  {
+   "server": "express4",
+   "route": "src/probes.ts#POST /p3e",
+   "method": "POST",
+   "url": "/rv/p3e",
+   "body": {
+    "a": "x"
+   },
+   "valid": true
+  },
+  {
+   "server": "express4",
+   "route": "src/probes.ts#POST /p3e",
+   "method": "POST",
+   "url": "/rv/p3e",
+   "body": {
+    "a": 1
+   }
+  },
+  {
+   "server": "express4",
+   "route": "src/probes.ts#POST /p5",
+   "method": "POST",
+   "url": "/rv/p5",
+   "body": {
+    "n": 1,
+    "b": true,
+    "s": "s"
+   },
+   "valid": true
+  },
+  {
+   "server": "express4",
+   "route": "src/probes.ts#POST /p5",
+   "method": "POST",
+   "url": "/rv/p5",
+   "body": {
+    "n": "5",
+    "b": "true",
+    "s": "s"
+   }
+  },
+  {
+   "server": "express4",
+   "route": "src/probes.ts#POST /p5s",
+   "method": "POST",
+   "url": "/rv/p5s",
+   "body": {
+    "n": 1,
+    "b": true
+   },
+   "valid": true
+  },
+  {
+   "server": "express4",
+   "route": "src/probes.ts#POST /p5a",
+   "method": "POST",
+   "url": "/rv/p5a",
+   "body": {
+    "n": 1,
+    "b": true
+   },
+   "valid": true
+  },
+  {
+   "server": "express4",
+   "route": "src/probes.ts#POST /p6",
+   "method": "POST",
+   "url": "/rv/p6",
+   "body": {
+    "a": "x",
+    "c": "y",
+    "d": "z"
+   },
+   "valid": true
+  },
+  {
+   "server": "express4",
+   "route": "src/probes.ts#POST /p7",
+   "method": "POST",
+   "url": "/rv/p7",
+   "body": {
+    "s": "s",
+    "t": "t"
+   },
+   "valid": true
+  },
+  {
+   "server": "express4",
+   "route": "src/probes.ts#POST /p8",
+   "method": "POST",
+   "url": "/rv/p8",
+   "body": {
+    "k": "a",
+    "m": "b"
+   },
+   "valid": true
+  },
+  {
+   "server": "express4",
+   "route": "src/probes.ts#POST /p8",
+   "method": "POST",
+   "url": "/rv/p8",
+   "body": {
+    "k": "A",
+    "m": "b"
+   }
+  },
+  {
+   "server": "express4",
+   "route": "src/probes.ts#POST /p9",
+   "method": "POST",
+   "url": "/rv/p9",
+   "body": {
+    "a": "x",
+    "b": "y"
+   },
+   "valid": true
+  },
+  {
+   "server": "express4",
+   "route": "src/probes.ts#POST /p9",
+   "method": "POST",
+   "url": "/rv/p9",
+   "body": {}
+  },
+  {
+   "server": "express4",
+   "route": "src/probes.ts#POST /q1",
+   "method": "POST",
+   "url": "/rv/q1",
+   "body": {
+    "a": "x"
+   },
+   "valid": true
+  },
+  {
+   "server": "express4",
+   "route": "src/probes.ts#GET /p10",
+   "method": "GET",
+   "url": "/rv/p10"
+  },
+  {
+   "server": "express4",
+   "route": "src/probes.ts#GET /p11",
+   "method": "GET",
+   "url": "/rv/p11"
+  },
+  {
+   "server": "express4",
+   "route": "src/probes.ts#GET /p12",
+   "method": "GET",
+   "url": "/rv/p12"
+  },
+  {
+   "server": "express4",
+   "route": "src/probes.ts#GET /p16",
+   "method": "GET",
+   "url": "/rv/p16"
+  },
+  {
+   "server": "express4",
+   "route": "src/probes.ts#POST /p13",
+   "method": "POST",
+   "url": "/rv/p13",
+   "body": {
+    "b": "x"
+   }
+  },
+  {
+   "server": "express4",
+   "route": "src/probes.ts#GET /p14",
+   "method": "GET",
+   "url": "/rv/p14",
+   "headers": {
+    "X-Token": "abc"
+   },
+   "expectBody": {
+    "t": null,
+    "u": "abc"
+   }
+  },
+  {
+   "server": "express4",
+   "route": "src/probes.ts#POST /p20",
+   "method": "POST",
+   "url": "/rv/p20",
+   "body": {
+    "name": "n",
+    "qty": 1
+   },
+   "valid": true
+  },
+  {
+   "server": "express4",
+   "route": "src/probes.ts#POST /p20",
+   "method": "POST",
+   "url": "/rv/p20?off=1",
+   "body": {
+    "name": "n",
+    "qty": 1
+   }
+  },
+  {
+   "server": "express4",
+   "route": "src/probes.ts#POST /a1",
+   "method": "POST",
+   "url": "/rv/a1?cached=1",
+   "body": {
+    "name": "n",
+    "qty": 1
+   },
+   "valid": true
+  },
+  {
+   "server": "express4",
+   "route": "src/probes.ts#POST /a1",
+   "method": "POST",
+   "url": "/rv/a1",
+   "body": {
+    "name": "n",
+    "qty": 1
+   }
+  },
+  {
+   "server": "express4",
+   "route": "src/probes.ts#GET /b1",
+   "method": "GET",
+   "url": "/rv/b1"
+  },
+  {
+   "server": "express4",
+   "route": "src/probes.ts#GET /b2",
+   "method": "GET",
+   "url": "/rv/b2"
+  },
+  {
+   "server": "express4",
+   "route": "src/probes.ts#GET /b3",
+   "method": "GET",
+   "url": "/rv/b3",
+   "headers": {
+    "authorization": "x"
+   }
+  },
+  {
+   "server": "express4",
+   "route": "src/probes.ts#GET /b3",
+   "method": "GET",
+   "url": "/rv/b3"
+  },
+  {
+   "server": "express4",
+   "route": "src/probes.ts#GET /b4",
+   "method": "GET",
+   "url": "/rv/b4",
+   "headers": {
+    "x-role": "admin"
+   }
+  },
+  {
+   "server": "express4",
+   "route": "src/probes.ts#GET /b4",
+   "method": "GET",
+   "url": "/rv/b4"
+  },
+  {
+   "server": "express4",
+   "route": "src/probes.ts#GET /b5",
+   "method": "GET",
+   "url": "/rv/b5"
+  },
+  {
+   "server": "express5",
+   "route": "v5/src/server.ts#POST /q1",
+   "method": "POST",
+   "url": "/q1",
+   "body": {
+    "a": "x"
+   },
+   "valid": true
+  },
+  {
+   "server": "express5",
+   "route": "v5/src/server.ts#POST /q1",
+   "method": "POST",
+   "url": "/q1"
+  },
+  {
+   "server": "express5",
+   "route": "v5/src/server.ts#POST /q2",
+   "method": "POST",
+   "url": "/q2",
+   "body": {
+    "a": "x"
+   },
+   "valid": true
+  },
+  {
+   "server": "express5",
+   "route": "v5/src/server.ts#POST /q3",
+   "method": "POST",
+   "url": "/q3",
+   "body": {
+    "name": "n"
+   },
+   "valid": true
+  },
+  {
+   "server": "validated",
+   "route": "src/validated.ts#POST /pets",
+   "method": "POST",
+   "url": "/pets",
+   "body": {
+    "name": "n"
+   }
+  },
+  {
+   "server": "pages",
+   "route": "web/pages/api/items/[id].ts#ANY /api/items/{id}",
+   "method": "GET",
+   "url": "/api/items/7?expand=1",
+   "page": {
+    "file": "web/pages/api/items/[id].ts",
+    "params": {
+     "id": "7"
+    }
+   }
+  },
+  {
+   "server": "pages",
+   "route": "web/pages/api/items/[id].ts#ANY /api/items/{id}",
+   "method": "PUT",
+   "url": "/api/items/7",
+   "page": {
+    "file": "web/pages/api/items/[id].ts",
+    "params": {
+     "id": "7"
+    }
+   },
+   "body": {
+    "title": "t"
+   }
+  },
+  {
+   "server": "pages",
+   "route": "web/pages/api/items/[id].ts#ANY /api/items/{id}",
+   "method": "DELETE",
+   "url": "/api/items/7",
+   "page": {
+    "file": "web/pages/api/items/[id].ts",
+    "params": {
+     "id": "7"
+    }
+   }
+  },
+  {
+   "server": "pages",
+   "route": "web/pages/api/docs/[...slug].ts#ANY /api/docs/{*slug}",
+   "method": "GET",
+   "url": "/api/docs/a/b",
+   "page": {
+    "file": "web/pages/api/docs/[...slug].ts",
+    "params": {
+     "slug": [
+      "a",
+      "b"
+     ]
+    }
+   }
+  },
+  {
+   "server": "pages",
+   "route": "web/pages/api/gone.ts#ANY /api/gone",
+   "method": "GET",
+   "url": "/api/gone",
+   "page": {
+    "file": "web/pages/api/gone.ts",
+    "params": {}
+   }
+  }
+ ],
+ "schemas": [
+  {
+   "route": "src/routes.ts#POST /users",
+   "lib": "zod",
+   "schema": "CreateUser"
+  },
+  {
+   "route": "src/routes.ts#POST /sessions",
+   "lib": "zod",
+   "schema": "Login"
+  },
+  {
+   "route": "src/probes.ts#POST /p19",
+   "lib": "zod",
+   "schema": "Item"
+  },
+  {
+   "route": "src/probes.ts#POST /p2d",
+   "lib": "zod",
+   "schema": "Item"
+  },
+  {
+   "route": "src/probes.ts#POST /p3d",
+   "lib": "zod",
+   "schema": "Item"
+  },
+  {
+   "route": "src/probes.ts#POST /p1",
+   "lib": "zod",
+   "schema": "Item",
+   "kind": "intended"
+  },
+  {
+   "route": "src/routes.ts#POST /articles",
+   "lib": "joi",
+   "schema": "articleSchema"
+  },
+  {
+   "route": "src/routes.ts#POST /reviews",
+   "lib": "joi",
+   "schema": "articleSchema"
+  },
+  {
+   "route": "src/routes.ts#GET /articles",
+   "lib": "joi",
+   "schema": "listQuery",
+   "section": "query"
+  },
+  {
+   "route": "src/routes.ts#PUT /articles/:slug",
+   "lib": "joi",
+   "expr": "Joi.object({ title: Joi.string().required(), body: Joi.string() })"
+  },
+  {
+   "route": "src/probes.ts#POST /p5",
+   "lib": "joi",
+   "schema": "JNum"
+  },
+  {
+   "route": "src/probes.ts#POST /p5s",
+   "lib": "joi",
+   "schema": "JStrict"
+  },
+  {
+   "route": "src/probes.ts#POST /p5a",
+   "lib": "joi",
+   "schema": "JStrictAll"
+  },
+  {
+   "route": "src/probes.ts#POST /p6",
+   "lib": "joi",
+   "schema": "JOrder"
+  },
+  {
+   "route": "src/probes.ts#POST /p7",
+   "lib": "joi",
+   "schema": "JEmpty"
+  },
+  {
+   "route": "src/probes.ts#POST /p8",
+   "lib": "joi",
+   "schema": "JIns"
+  },
+  {
+   "route": "src/probes.ts#POST /p9",
+   "lib": "joi",
+   "expr": "Joi.object({ a: Joi.string(), b: Joi.string() })"
+  },
+  {
+   "route": "src/probes.ts#POST /q1",
+   "lib": "joi",
+   "schema": "JPlain"
+  },
+  {
+   "route": "src/probes.ts#POST /p20",
+   "lib": "zod",
+   "schema": "Item"
+  }
+ ],
+ "unobservable": {
+  "src/plain.ts#POST /joi 400": "no body parser runs before the plain router: req.body is undefined, which the Joi schema accepts, so the 400 branch is never taken",
+  "src/probes.ts#POST /p3 400": "taken only with STRICT=1 in the environment (r.error && strictMode)"
+ }
+}

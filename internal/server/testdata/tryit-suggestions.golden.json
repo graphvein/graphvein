@@ -1,0 +1,111 @@
+{
+  "api_version": 0,
+  "notice": "suggested, not used until you pick one; picking writes an environment to a file you review first",
+  "repository": "fixture",
+  "suggestions": [
+    {
+      "file": "docker-compose.yml",
+      "line": 2,
+      "reason": "Compose service api publishes container port 8000 on port 8002 of this machine",
+      "row": "TI-31",
+      "source_kind": "compose_published_port",
+      "url": "http://127.0.0.1:8002"
+    },
+    {
+      "file": "docker-compose.yml",
+      "line": 2,
+      "reason": "Compose service api publishes container port 8000 on port 8003 of this machine",
+      "row": "TI-31",
+      "source_kind": "compose_published_port",
+      "url": "http://127.0.0.1:8003"
+    },
+    {
+      "file": "docker-compose.yml",
+      "line": 2,
+      "reason": "Compose service api publishes container port 8000 on port 8004 of this machine",
+      "row": "TI-31",
+      "source_kind": "compose_published_port",
+      "url": "http://127.0.0.1:8004"
+    },
+    {
+      "file": "docker-compose.yml",
+      "line": 2,
+      "reason": "Traefik router api of Compose service api matches Host(`api.example.test`)",
+      "row": "TI-32",
+      "source_kind": "traefik_router",
+      "url": "https://api.example.test"
+    },
+    {
+      "file": "openapi.yaml",
+      "line": 1,
+      "reason": "a server URL of the committed API spec openapi.yaml",
+      "row": "TI-33",
+      "source_kind": "openapi_server",
+      "url": "https://api.example.test/v1"
+    },
+    {
+      "file": "server.ts",
+      "line": 11,
+      "reason": "listen(3000) in server.ts",
+      "row": "TI-36",
+      "source_kind": "listen_call",
+      "url": "http://127.0.0.1:3000"
+    },
+    {
+      "file": "api/main.py",
+      "line": 13,
+      "reason": "uvicorn.run(..., port=8001) in main.py",
+      "row": "TI-37",
+      "source_kind": "uvicorn_run",
+      "url": "http://127.0.0.1:8001"
+    },
+    {
+      "file": "main.go",
+      "line": 6,
+      "reason": "ListenAndServe(\":8080\") in main.go",
+      "row": "TI-38",
+      "source_kind": "go_listen",
+      "url": "http://127.0.0.1:8080"
+    },
+    {
+      "file": "package.json",
+      "line": 4,
+      "reason": "package.json script \"dev\" passes port 4000",
+      "row": "TI-39",
+      "source_kind": "package_json_script",
+      "url": "http://127.0.0.1:4000"
+    },
+    {
+      "file": "Procfile",
+      "line": 1,
+      "reason": "a Procfile process listens on port 5000",
+      "row": "TI-40",
+      "source_kind": "procfile",
+      "url": "http://127.0.0.1:5000"
+    },
+    {
+      "file": "Dockerfile",
+      "line": 1,
+      "reason": "EXPOSE 8000 in the stage starting at this line: a container port, reachable from this machine only when it is published",
+      "row": "TI-34",
+      "source_kind": "dockerfile_expose",
+      "url": "http://127.0.0.1:8000"
+    },
+    {
+      "file": null,
+      "line": null,
+      "reason": "framework default, not read from your code: Express apps conventionally listen on 3000 (Express itself has no default)",
+      "row": "TI-41",
+      "source_kind": "framework_default",
+      "url": "http://127.0.0.1:3000"
+    },
+    {
+      "file": null,
+      "line": null,
+      "reason": "framework default, not read from your code: uvicorn and fastapi dev listen on 8000",
+      "row": "TI-41",
+      "source_kind": "framework_default",
+      "url": "http://127.0.0.1:8000"
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+CREATE FUNCTION f(a text(10)) RETURNS int LANGUAGE plpgsql AS $$ BEGIN RETURN 1; END $$;

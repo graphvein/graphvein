@@ -1,0 +1,29 @@
+{
+  "id": "review15-a41-seq-astext",
+  "signature": "agreed at Revision 1.5",
+  "class": "S1",
+  "owner": "U5",
+  "row": "review15",
+  "history": {
+    "id": "a41-seq-astext"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "22023",
+        "message": "sequence type must be smallint, integer, or bigint",
+        "statement": 1,
+        "statement_text": "CREATE SEQUENCE s AS text;",
+        "row_free": true
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

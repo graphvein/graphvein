@@ -1,0 +1,29 @@
+{
+  "id": "review15-a39-seq-start0",
+  "signature": "agreed at Revision 1.5",
+  "class": "S1",
+  "owner": "U5",
+  "row": "review15",
+  "history": {
+    "id": "a39-seq-start0"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "22023",
+        "message": "START value (0) cannot be less than MINVALUE (1)",
+        "statement": 1,
+        "statement_text": "CREATE SEQUENCE s START 0;",
+        "row_free": true
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

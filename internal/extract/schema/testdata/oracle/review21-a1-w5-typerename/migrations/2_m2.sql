@@ -1,0 +1,1 @@
+ALTER TYPE ct RENAME TO ct2;

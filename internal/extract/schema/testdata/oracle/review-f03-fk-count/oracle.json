@@ -1,0 +1,28 @@
+{
+  "id": "review-f03-fk-count",
+  "signature": "agreed at af6a883",
+  "class": "S1",
+  "owner": "P4",
+  "row": "review",
+  "history": {
+    "id": "f03-fk-count"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42830",
+        "message": "number of referencing and referenced columns for foreign key disagree",
+        "statement": 2,
+        "statement_text": "CREATE TABLE c (x int REFERENCES p (a, b));"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

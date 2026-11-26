@@ -1,0 +1,2 @@
+DO $$ BEGIN CREATE TABLE x (id int PRIMARY KEY); END $$;
+CREATE INDEX x_pkey ON t0 (a);

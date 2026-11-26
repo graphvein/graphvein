@@ -1,0 +1,901 @@
+{
+  "backend-chain-route": {
+    "api_version": 0,
+    "caps": {
+      "depth": 10,
+      "fan_out": 200,
+      "members": 2000
+    },
+    "depth": 6,
+    "direction": "up",
+    "down": null,
+    "index": {
+      "contract_version": 1,
+      "finished_at": "2026-11-03T14:32:05.123Z",
+      "indexer": {
+        "name": "graphvein",
+        "version": "extractors-62"
+      }
+    },
+    "map": {
+      "folded": 0,
+      "open_in_flow": false,
+      "per_step": 5,
+      "shown": 2,
+      "steps": 3,
+      "total": 40
+    },
+    "repository": "backend",
+    "scope": "production",
+    "start": {
+      "id": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+      "kind": "route",
+      "level": "node"
+    },
+    "up": {
+      "caps": [],
+      "edges": [
+        {
+          "dashed": false,
+          "evidence": [
+            {
+              "file": "src/api.ts",
+              "span": {
+                "end_column": 58,
+                "end_line": 4,
+                "start_column": 9,
+                "start_line": 4
+              }
+            }
+          ],
+          "from": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+          "kind": "calls_route",
+          "row": "CH13",
+          "tier": "inferred 0.9",
+          "to": "repository:frontend/client_call:src/api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+          "wording": "called by client call in frontend (project link)"
+        }
+      ],
+      "ends": [
+        {
+          "member": "repository:frontend/client_call:src/api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+          "row": "CH13",
+          "text": "continues in frontend: the chain stops at the stored project link; frontend is not walked from here (matched across project repositories; base URL not proven)"
+        }
+      ],
+      "hidden_test": 0,
+      "members": 1,
+      "not_followed": {
+        "contains": 1
+      },
+      "steps": [
+        {
+          "bounds": [],
+          "hidden_test": 0,
+          "map": {
+            "folded": 0,
+            "shown": [
+              "route:src/server.ts#GET%20%2Ft022b7%2Fusers"
+            ]
+          },
+          "members": [
+            {
+              "component": ".",
+              "file": "src/server.ts",
+              "full_path": "/t022b7/users",
+              "id": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+              "kind": "route",
+              "line": 13,
+              "method": "GET",
+              "name": "GET /t022b7/users",
+              "parents": [],
+              "path": "/t022b7/users",
+              "qualified_name": "GET /t022b7/users",
+              "row": "",
+              "tier": "fact",
+              "tier_step": 0
+            }
+          ],
+          "step": 0
+        },
+        {
+          "bounds": [],
+          "hidden_test": 0,
+          "map": {
+            "folded": 0,
+            "shown": [
+              "repository:frontend/client_call:src/api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60"
+            ]
+          },
+          "members": [
+            {
+              "component": null,
+              "file": "src/api.ts",
+              "id": "repository:frontend/client_call:src/api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+              "kind": "client_call",
+              "line": 4,
+              "method": "GET",
+              "name": "GET `${import.meta.env.VITE_API}/t022b7/users`",
+              "parents": [
+                "route:src/server.ts#GET%20%2Ft022b7%2Fusers"
+              ],
+              "qualified_name": "listUsers.GET `${import.meta.env.VITE_API}/t022b7/users`",
+              "repository": "frontend",
+              "row": "CH13",
+              "status": "unmatched",
+              "tier": "inferred 0.9",
+              "tier_step": 1
+            }
+          ],
+          "step": 1
+        }
+      ]
+    }
+  },
+  "backend-overview": {
+    "api_version": 0,
+    "components": [
+      {
+        "counts": {
+          "client_calls": 0,
+          "files": 6,
+          "ipc_calls": 0,
+          "ipc_commands": 0,
+          "manifests": 1,
+          "routes": 2,
+          "tables": 1,
+          "test_files": 0,
+          "wrapper_calls": 0
+        },
+        "directory": ".",
+        "frameworks": [
+          "express"
+        ],
+        "hidden_by": null,
+        "id": ".",
+        "kinds": [
+          "server",
+          "schema_source"
+        ],
+        "manifests": [
+          {
+            "ecosystem": "npm",
+            "file": "package.json",
+            "name": "projectimpact-backend",
+            "package": "package:package.json#projectimpact-backend",
+            "unread": null
+          }
+        ],
+        "markers": [],
+        "name": "projectimpact-backend",
+        "reason": null,
+        "rows": [
+          "CK1",
+          "CK4"
+        ],
+        "state": "read",
+        "visibility": "shown"
+      }
+    ],
+    "databases": [
+      {
+        "accessors": [
+          {
+            "builds": 0,
+            "component": ".",
+            "link": "sql:.-\u003edatabase:models/drizzle/drizzle.config.ts",
+            "may_also_use": 0,
+            "reads": 1,
+            "writes": 1
+          }
+        ],
+        "engine": {
+          "rows": [
+            "AED"
+          ],
+          "source": "unknown: no stored fact names the engine",
+          "state": "unknown",
+          "value": "engine ?"
+        },
+        "evidence": [],
+        "id": "database:models/drizzle/drizzle.config.ts",
+        "set": "models/drizzle/drizzle.config.ts",
+        "tables": 1,
+        "tool": "drizzle"
+      }
+    ],
+    "documents": [
+      {
+        "by_kind": {
+          "documents_route": 1
+        },
+        "row": "CE8",
+        "source": "repository:frontend",
+        "target": "."
+      }
+    ],
+    "ghosts": [],
+    "hidden": {
+      "configured_components": 0,
+      "docs_components": 0,
+      "test_components": 0,
+      "test_edges": {}
+    },
+    "index": {
+      "contract_version": 1,
+      "finished_at": "2026-11-03T14:32:05.123Z",
+      "indexer": {
+        "name": "graphvein",
+        "version": "extractors-62"
+      }
+    },
+    "libraries": {
+      "components": [],
+      "links_in": 0,
+      "links_out": 0
+    },
+    "links": [
+      {
+        "assumptions": [
+          "matched across project repositories; base URL not proven"
+        ],
+        "back_count": 0,
+        "by_kind": {
+          "calls_route": 2
+        },
+        "cells": {
+          "auth": {
+            "rows": [
+              "AA1"
+            ],
+            "source": "as written",
+            "state": "as_written",
+            "value": "no route middleware (as written)"
+          },
+          "protocol": {
+            "rows": [
+              "AP1"
+            ],
+            "source": "proven: route and client-call facts",
+            "state": "proven",
+            "value": "HTTP"
+          },
+          "tls": {
+            "rows": [
+              "ATD"
+            ],
+            "source": "unknown: transport security comes from deployment; no deploy config proves this hop",
+            "state": "unknown",
+            "value": "TLS ?"
+          }
+        },
+        "count": 2,
+        "family": "http",
+        "id": "http:repository:frontend-\u003e.",
+        "members": [
+          {
+            "auth": "no route middleware (as written)",
+            "full_path": "/t022b7/users",
+            "method": "POST",
+            "path": "/t022b7/users",
+            "source": "client_call:src/api.ts#createUser.POST%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+            "source_repository": "frontend",
+            "target": "route:src/server.ts#POST%20%2Ft022b7%2Fusers",
+            "tier": "inferred 0.9"
+          },
+          {
+            "auth": "no route middleware (as written)",
+            "full_path": "/t022b7/users",
+            "method": "GET",
+            "path": "/t022b7/users",
+            "source": "client_call:src/api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+            "source_repository": "frontend",
+            "target": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+            "tier": "inferred 0.9"
+          }
+        ],
+        "methods": [
+          "GET",
+          "POST"
+        ],
+        "origins": [],
+        "repository": "frontend",
+        "row": "CE8",
+        "source": "repository:frontend",
+        "target": ".",
+        "tiers": {
+          "inferred 0.9": 2
+        },
+        "weakest": "inferred 0.9"
+      },
+      {
+        "back_count": 0,
+        "by_kind": {
+          "reads_table": 1,
+          "writes_table": 1
+        },
+        "cells": {
+          "auth": {
+            "rows": [
+              "AAD"
+            ],
+            "source": "unknown: database credentials are not read",
+            "state": "unknown",
+            "value": "auth ?"
+          },
+          "protocol": {
+            "rows": [
+              "AP3"
+            ],
+            "source": "proven: schema set tool",
+            "state": "proven",
+            "value": "SQL via drizzle"
+          },
+          "tls": {
+            "rows": [
+              "ATD"
+            ],
+            "source": "unknown: transport security comes from deployment; no deploy config proves this hop",
+            "state": "unknown",
+            "value": "TLS ?"
+          }
+        },
+        "count": 2,
+        "family": "sql",
+        "id": "sql:.-\u003edatabase:models/drizzle/drizzle.config.ts",
+        "members": [],
+        "methods": [],
+        "origins": [],
+        "row": "CE3",
+        "source": ".",
+        "target": "database:models/drizzle/drizzle.config.ts",
+        "tiers": {
+          "inferred 0.9": 2
+        },
+        "weakest": "inferred 0.9"
+      }
+    ],
+    "manifests": "read",
+    "not_drawn": {
+      "imports": 3,
+      "passes_function": 2
+    },
+    "not_proven": [],
+    "notice": null,
+    "project": {
+      "across": [],
+      "assumptions": [
+        "matched across project repositories; base URL not proven"
+      ],
+      "link_pass": {
+        "pass": 1,
+        "stale_reasons": [],
+        "state": "fresh"
+      },
+      "links_precision": {
+        "label": "best_effort",
+        "reason": "default_branch",
+        "row": "D"
+      },
+      "members": [
+        {
+          "calls_in": 2,
+          "calls_out": 0,
+          "id": "repository:frontend",
+          "name": "frontend (other repository)",
+          "operations_in": 1,
+          "operations_out": 0,
+          "repository": "frontend",
+          "row": "CE8"
+        }
+      ],
+      "project": "users"
+    },
+    "repository": "backend",
+    "scope": "production",
+    "stubs": [
+      {
+        "component": ".",
+        "packages": 3,
+        "protocol": {
+          "rows": [
+            "APD"
+          ],
+          "source": "unknown: not modelled",
+          "state": "unknown",
+          "value": "protocol ?"
+        },
+        "row": "CE6",
+        "text": "imports 3 external packages"
+      }
+    ]
+  },
+  "frontend-chain-call": {
+    "api_version": 0,
+    "caps": {
+      "depth": 10,
+      "fan_out": 200,
+      "members": 2000
+    },
+    "depth": 6,
+    "direction": "down",
+    "down": {
+      "caps": [],
+      "edges": [
+        {
+          "dashed": false,
+          "evidence": [
+            {
+              "file": "src/api.ts",
+              "span": {
+                "end_column": 58,
+                "end_line": 4,
+                "start_column": 9,
+                "start_line": 4
+              }
+            }
+          ],
+          "from": "client_call:src/api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+          "kind": "calls_route",
+          "row": "CH13",
+          "tier": "inferred 0.9",
+          "to": "repository:backend/route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+          "wording": "calls route in backend (project link)"
+        }
+      ],
+      "ends": [
+        {
+          "member": "repository:backend/route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+          "row": "CH13",
+          "text": "continues in backend: the chain stops at the stored project link; backend is not walked from here (matched across project repositories; base URL not proven)"
+        }
+      ],
+      "hidden_test": 0,
+      "members": 1,
+      "not_followed": {},
+      "steps": [
+        {
+          "bounds": [],
+          "hidden_test": 0,
+          "map": {
+            "folded": 0,
+            "shown": [
+              "client_call:src/api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60"
+            ]
+          },
+          "members": [
+            {
+              "component": ".",
+              "file": "src/api.ts",
+              "id": "client_call:src/api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+              "kind": "client_call",
+              "line": 4,
+              "method": "GET",
+              "name": "GET `${import.meta.env.VITE_API}/t022b7/users`",
+              "parents": [],
+              "qualified_name": "listUsers.GET `${import.meta.env.VITE_API}/t022b7/users`",
+              "row": "",
+              "status": "unmatched",
+              "tier": "fact",
+              "tier_step": 0
+            }
+          ],
+          "step": 0
+        },
+        {
+          "bounds": [],
+          "hidden_test": 0,
+          "map": {
+            "folded": 0,
+            "shown": [
+              "repository:backend/route:src/server.ts#GET%20%2Ft022b7%2Fusers"
+            ]
+          },
+          "members": [
+            {
+              "component": null,
+              "file": "src/server.ts",
+              "full_path": "/t022b7/users",
+              "id": "repository:backend/route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+              "kind": "route",
+              "line": 13,
+              "method": "GET",
+              "name": "GET /t022b7/users",
+              "parents": [
+                "client_call:src/api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60"
+              ],
+              "path": "/t022b7/users",
+              "qualified_name": "GET /t022b7/users",
+              "repository": "backend",
+              "row": "CH13",
+              "tier": "inferred 0.9",
+              "tier_step": 1
+            }
+          ],
+          "step": 1
+        }
+      ]
+    },
+    "index": {
+      "contract_version": 1,
+      "finished_at": "2026-11-03T14:32:05.123Z",
+      "indexer": {
+        "name": "graphvein",
+        "version": "extractors-62"
+      }
+    },
+    "map": {
+      "folded": 0,
+      "open_in_flow": false,
+      "per_step": 5,
+      "shown": 2,
+      "steps": 3,
+      "total": 40
+    },
+    "repository": "frontend",
+    "scope": "production",
+    "start": {
+      "id": "client_call:src/api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+      "kind": "client_call",
+      "level": "node"
+    },
+    "up": null
+  },
+  "frontend-chain-component": {
+    "api_version": 0,
+    "caps": {
+      "depth": 10,
+      "fan_out": 200,
+      "members": 2000
+    },
+    "depth": 6,
+    "direction": "both",
+    "down": {
+      "caps": [],
+      "edges": [
+        {
+          "count": 2,
+          "dashed": false,
+          "evidence": [],
+          "from": ".",
+          "kind": "http",
+          "row": "CH9",
+          "tier": "inferred 0.9",
+          "to": "repository:backend",
+          "wording": "http link across repositories (CE8, project link)"
+        }
+      ],
+      "ends": [
+        {
+          "member": "repository:backend",
+          "row": "CH13",
+          "text": "continues in backend: the chain stops at the stored project link; backend is not walked from here"
+        }
+      ],
+      "hidden_test": 0,
+      "members": 1,
+      "not_followed": {},
+      "steps": [
+        {
+          "bounds": [],
+          "hidden_test": 0,
+          "map": {
+            "folded": 0,
+            "shown": [
+              "."
+            ]
+          },
+          "members": [
+            {
+              "component": ".",
+              "file": null,
+              "id": ".",
+              "kind": "component",
+              "line": null,
+              "name": ".",
+              "parents": [],
+              "qualified_name": ".",
+              "row": "",
+              "tier": "fact",
+              "tier_step": 0
+            }
+          ],
+          "step": 0
+        },
+        {
+          "bounds": [],
+          "hidden_test": 0,
+          "map": {
+            "folded": 0,
+            "shown": [
+              "repository:backend"
+            ]
+          },
+          "members": [
+            {
+              "component": null,
+              "file": null,
+              "id": "repository:backend",
+              "kind": "repository",
+              "line": null,
+              "name": "backend (other repository)",
+              "parents": [
+                "."
+              ],
+              "qualified_name": "repository:backend",
+              "repository": "backend",
+              "row": "CH13",
+              "tier": "inferred 0.9",
+              "tier_step": 1
+            }
+          ],
+          "step": 1
+        }
+      ]
+    },
+    "index": {
+      "contract_version": 1,
+      "finished_at": "2026-11-03T14:32:05.123Z",
+      "indexer": {
+        "name": "graphvein",
+        "version": "extractors-62"
+      }
+    },
+    "map": {
+      "folded": 0,
+      "open_in_flow": false,
+      "per_step": 5,
+      "shown": 2,
+      "steps": 3,
+      "total": 40
+    },
+    "repository": "frontend",
+    "scope": "production",
+    "start": {
+      "id": ".",
+      "kind": "component",
+      "level": "component",
+      "row": "CH9"
+    },
+    "up": {
+      "caps": [],
+      "edges": [],
+      "ends": [],
+      "hidden_test": 0,
+      "members": 0,
+      "not_followed": {},
+      "steps": [
+        {
+          "bounds": [],
+          "hidden_test": 0,
+          "map": {
+            "folded": 0,
+            "shown": [
+              "."
+            ]
+          },
+          "members": [
+            {
+              "component": ".",
+              "file": null,
+              "id": ".",
+              "kind": "component",
+              "line": null,
+              "name": ".",
+              "parents": [],
+              "qualified_name": ".",
+              "row": "",
+              "tier": "fact",
+              "tier_step": 0
+            }
+          ],
+          "step": 0
+        }
+      ]
+    }
+  },
+  "frontend-overview": {
+    "api_version": 0,
+    "components": [
+      {
+        "counts": {
+          "client_calls": 2,
+          "files": 4,
+          "ipc_calls": 0,
+          "ipc_commands": 0,
+          "manifests": 1,
+          "routes": 0,
+          "tables": 0,
+          "test_files": 0,
+          "wrapper_calls": 0
+        },
+        "directory": ".",
+        "frameworks": [],
+        "hidden_by": null,
+        "id": ".",
+        "kinds": [
+          "unknown"
+        ],
+        "manifests": [
+          {
+            "ecosystem": null,
+            "file": "package.json",
+            "name": null,
+            "package": null,
+            "unread": "manifest not read by this index (re-index to read manifests)"
+          }
+        ],
+        "markers": [],
+        "name": ".",
+        "reason": "manifest unread: kind unknown",
+        "rows": [],
+        "state": "unread",
+        "visibility": "shown"
+      }
+    ],
+    "databases": [],
+    "documents": [
+      {
+        "by_kind": {
+          "documents_route": 1
+        },
+        "row": "CE8",
+        "source": ".",
+        "target": "repository:backend"
+      }
+    ],
+    "ghosts": [],
+    "hidden": {
+      "configured_components": 0,
+      "docs_components": 0,
+      "test_components": 0,
+      "test_edges": {}
+    },
+    "index": {
+      "contract_version": 1,
+      "finished_at": "2026-11-03T14:32:05.123Z",
+      "indexer": {
+        "name": "graphvein",
+        "version": "extractors-62"
+      }
+    },
+    "libraries": {
+      "components": [],
+      "links_in": 0,
+      "links_out": 0
+    },
+    "links": [
+      {
+        "assumptions": [
+          "matched across project repositories; base URL not proven"
+        ],
+        "back_count": 0,
+        "by_kind": {
+          "calls_route": 2
+        },
+        "cells": {
+          "auth": {
+            "rows": [
+              "AA1"
+            ],
+            "source": "as written",
+            "state": "as_written",
+            "value": "no route middleware (as written)"
+          },
+          "protocol": {
+            "rows": [
+              "AP1"
+            ],
+            "source": "proven: route and client-call facts",
+            "state": "proven",
+            "value": "HTTP"
+          },
+          "tls": {
+            "rows": [
+              "ATD"
+            ],
+            "source": "unknown: transport security comes from deployment; no deploy config proves this hop",
+            "state": "unknown",
+            "value": "TLS ?"
+          }
+        },
+        "count": 2,
+        "family": "http",
+        "id": "http:.-\u003erepository:backend",
+        "members": [
+          {
+            "auth": "no route middleware (as written)",
+            "full_path": "/t022b7/users",
+            "method": "POST",
+            "path": "/t022b7/users",
+            "source": "client_call:src/api.ts#createUser.POST%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+            "target": "route:src/server.ts#POST%20%2Ft022b7%2Fusers",
+            "target_repository": "backend",
+            "tier": "inferred 0.9"
+          },
+          {
+            "auth": "no route middleware (as written)",
+            "full_path": "/t022b7/users",
+            "method": "GET",
+            "path": "/t022b7/users",
+            "source": "client_call:src/api.ts#listUsers.GET%20%60%24%7Bimport.meta.env.VITE_API%7D%2Ft022b7%2Fusers%60",
+            "target": "route:src/server.ts#GET%20%2Ft022b7%2Fusers",
+            "target_repository": "backend",
+            "tier": "inferred 0.9"
+          }
+        ],
+        "methods": [
+          "GET",
+          "POST"
+        ],
+        "origins": [],
+        "repository": "backend",
+        "row": "CE8",
+        "source": ".",
+        "target": "repository:backend",
+        "tiers": {
+          "inferred 0.9": 2
+        },
+        "weakest": "inferred 0.9"
+      }
+    ],
+    "manifests": "not_read",
+    "not_drawn": {
+      "calls": 2,
+      "imports": 1
+    },
+    "not_proven": [
+      {
+        "component": ".",
+        "count": 1,
+        "kind": "component_unread",
+        "row": "CM-U1",
+        "text": "kind unknown: manifest unread"
+      }
+    ],
+    "notice": "this index states no package manifests; re-index with a Graphvein indexer that reads them",
+    "project": {
+      "across": [
+        {
+          "component": ".",
+          "linked_across": 2,
+          "operations_across": 1,
+          "repositories": [
+            "backend"
+          ],
+          "repository_no_route": 1,
+          "repository_not_linked": 2
+        }
+      ],
+      "assumptions": [
+        "matched across project repositories; base URL not proven"
+      ],
+      "link_pass": {
+        "pass": 1,
+        "stale_reasons": [],
+        "state": "fresh"
+      },
+      "links_precision": {
+        "label": "best_effort",
+        "reason": "default_branch",
+        "row": "D"
+      },
+      "members": [
+        {
+          "calls_in": 0,
+          "calls_out": 2,
+          "id": "repository:backend",
+          "name": "backend (other repository)",
+          "operations_in": 0,
+          "operations_out": 1,
+          "repository": "backend",
+          "row": "CE8"
+        }
+      ],
+      "project": "users"
+    },
+    "repository": "frontend",
+    "scope": "production",
+    "stubs": []
+  }
+}

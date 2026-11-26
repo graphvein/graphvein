@@ -1,0 +1,58 @@
+{
+  "id": "g1-s2104-S1-R5_drop_view",
+  "signature": "applied|S1|42809|R5.drop_view",
+  "class": "S1",
+  "owner": "P4",
+  "row": "R5.drop_view",
+  "history": {
+    "id": "g1-s2104",
+    "tags": {
+      "1_m1.sql": [
+        "M1.create"
+      ],
+      "2_m2.sql": [
+        "R1.create_table_as",
+        "R5.drop_view"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "accepted",
+        "no_transaction": true
+      },
+      {
+        "file": "2_m2.sql",
+        "status": "refused",
+        "sqlstate": "42809",
+        "message": "\"t2\" is not a view",
+        "statement": 2,
+        "statement_text": "DROP VIEW t2 CASCADE;"
+      }
+    ],
+    "tables": [
+      {
+        "table": "history.t1",
+        "columns": [
+          {
+            "name": "c2",
+            "type": "jsonb",
+            "not_null": false,
+            "has_default": false
+          }
+        ],
+        "primary_key": null,
+        "unique_keys": [],
+        "foreign_keys": [],
+        "indexes": []
+      }
+    ],
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

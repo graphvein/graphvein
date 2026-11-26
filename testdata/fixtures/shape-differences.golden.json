@@ -1,0 +1,831 @@
+{
+  "endpoints": {
+    "route:backend-v1/peoplev1/main.py#POST%20%2Fw4%2Fv1%2Fpeople": {
+      "client_call:web/api.ts#addPersonV1.POST%20%27%2Fw4%2Fv1%2Fpeople%27": {
+        "compared": [
+          "body"
+        ],
+        "differences": []
+      }
+    },
+    "route:backend-v2/peoplev2/main.py#POST%20%2Fw4%2Fv2%2Fpeople": {
+      "client_call:web/api.ts#addPersonV2.POST%20%27%2Fw4%2Fv2%2Fpeople%27": {
+        "call_links": {
+          "web/api.ts:106": {
+            "column": 1,
+            "exact": true,
+            "line": 106,
+            "link": "vscode://file/{ROOT}/web/api.ts:106:1"
+          }
+        },
+        "compared": [
+          "body"
+        ],
+        "differences": [
+          {
+            "call": {
+              "file": "web/api.ts",
+              "kind": "literal",
+              "line": 106,
+              "rule": "SD-2"
+            },
+            "direction": "read_not_sent",
+            "field": "nick",
+            "route": {
+              "file": "backend-v2/peoplev2/main.py",
+              "kind": "fact",
+              "line": 9,
+              "rule": "SH-F22"
+            },
+            "row": "SD-9",
+            "section": "body",
+            "text": "read by the handler, not sent by this call"
+          }
+        ],
+        "route_links": {
+          "backend-v2/peoplev2/main.py:9": {
+            "column": 1,
+            "exact": true,
+            "line": 9,
+            "link": "vscode://file/{ROOT}/backend-v2/peoplev2/main.py:9:1"
+          }
+        }
+      }
+    },
+    "route:backend/app/main.py#GET%20%2Fw4%2Fitems%2F": {
+      "client_call:frontend/src/client/sdk.gen.ts#listItems.GET%20%27%2Fw4%2Fitems%2F%27": {
+        "call_links": {
+          "frontend/src/client/types.gen.ts:32": {
+            "column": 1,
+            "exact": true,
+            "line": 32,
+            "link": "vscode://file/{ROOT}/frontend/src/client/types.gen.ts:32:1"
+          }
+        },
+        "compared": [
+          "query"
+        ],
+        "differences": [
+          {
+            "call": {
+              "file": "frontend/src/client/types.gen.ts",
+              "kind": "typed",
+              "line": 32,
+              "rule": "SD-5"
+            },
+            "direction": "sent_not_read",
+            "field": "search",
+            "route": {
+              "file": "backend/app/main.py",
+              "kind": "fact",
+              "line": 36,
+              "rule": "SH-F23"
+            },
+            "row": "SD-8",
+            "section": "query",
+            "text": "sent by the frontend, not read by the handler"
+          }
+        ],
+        "route_links": {
+          "backend/app/main.py:36": {
+            "column": 1,
+            "exact": true,
+            "line": 36,
+            "link": "vscode://file/{ROOT}/backend/app/main.py:36:1"
+          }
+        }
+      },
+      "client_call:web/api.ts#searchItems.GET%20%60%2Fw4%2Fitems%2F%3F%24%7BnewURLSearchParams%28%7Bskip%3A%270%27%2Climit%3A%2710%27%2Cq%7D%29%7D%60": {
+        "call_links": {
+          "web/api.ts:82": {
+            "column": 1,
+            "exact": true,
+            "line": 82,
+            "link": "vscode://file/{ROOT}/web/api.ts:82:1"
+          }
+        },
+        "compared": [
+          "query"
+        ],
+        "differences": [
+          {
+            "call": {
+              "file": "web/api.ts",
+              "kind": "literal",
+              "line": 82,
+              "rule": "SD-3"
+            },
+            "direction": "sent_not_read",
+            "field": "q",
+            "route": {
+              "file": "backend/app/main.py",
+              "kind": "fact",
+              "line": 36,
+              "rule": "SH-F23"
+            },
+            "row": "SD-8",
+            "section": "query",
+            "text": "sent by the frontend, not read by the handler"
+          }
+        ],
+        "route_links": {
+          "backend/app/main.py:36": {
+            "column": 1,
+            "exact": true,
+            "line": 36,
+            "link": "vscode://file/{ROOT}/backend/app/main.py:36:1"
+          }
+        }
+      }
+    },
+    "route:backend/app/main.py#POST%20%2Fw4%2Fitems%2F": {
+      "client_call:frontend/src/client/sdk.gen.ts#createItem.POST%20%27%2Fw4%2Fitems%2F%27": {
+        "compared": [
+          "body"
+        ],
+        "differences": []
+      },
+      "client_call:web/api.ts#addDynamic.POST%20%27%2Fw4%2Fitems%2F%27": null,
+      "client_call:web/api.ts#addItem.POST%20%27%2Fw4%2Fitems%2F%27": {
+        "call_links": {
+          "web/api.ts:8": {
+            "column": 1,
+            "exact": true,
+            "line": 8,
+            "link": "vscode://file/{ROOT}/web/api.ts:8:1"
+          }
+        },
+        "compared": [
+          "body"
+        ],
+        "differences": [
+          {
+            "call": {
+              "file": "web/api.ts",
+              "kind": "literal",
+              "line": 8,
+              "rule": "SD-2"
+            },
+            "direction": "sent_not_read",
+            "field": "color",
+            "route": {
+              "file": "backend/app/main.py",
+              "kind": "fact",
+              "line": 7,
+              "rule": "SH-F22"
+            },
+            "row": "SD-8",
+            "section": "body",
+            "text": "sent by the frontend, not read by the handler"
+          }
+        ],
+        "route_links": {
+          "backend/app/main.py:7": {
+            "column": 1,
+            "exact": true,
+            "line": 7,
+            "link": "vscode://file/{ROOT}/backend/app/main.py:7:1"
+          }
+        }
+      },
+      "client_call:web/api.ts#addItemExact.POST%20%27%2Fw4%2Fitems%2F%27": {
+        "compared": [
+          "body"
+        ],
+        "differences": []
+      },
+      "client_call:web/api.ts#addPlain.POST%20%27%2Fw4%2Fitems%2F%27": null,
+      "client_call:web/api.ts#addShared.POST%20%27%2Fw4%2Fitems%2F%27": null,
+      "client_call:web/api.ts#addUntitled.POST%20%27%2Fw4%2Fitems%2F%27": {
+        "call_links": {
+          "web/api.ts:14": {
+            "column": 1,
+            "exact": true,
+            "line": 14,
+            "link": "vscode://file/{ROOT}/web/api.ts:14:1"
+          }
+        },
+        "compared": [
+          "body"
+        ],
+        "differences": [
+          {
+            "call": {
+              "file": "web/api.ts",
+              "kind": "literal",
+              "line": 14,
+              "rule": "SD-2"
+            },
+            "direction": "read_not_sent",
+            "field": "title",
+            "route": {
+              "file": "backend/app/main.py",
+              "kind": "fact",
+              "line": 7,
+              "rule": "SH-F22"
+            },
+            "row": "SD-9",
+            "section": "body",
+            "text": "read by the handler, not sent by this call"
+          }
+        ],
+        "route_links": {
+          "backend/app/main.py:7": {
+            "column": 1,
+            "exact": true,
+            "line": 7,
+            "link": "vscode://file/{ROOT}/backend/app/main.py:7:1"
+          }
+        }
+      }
+    },
+    "route:backend/app/main.py#POST%20%2Fw4%2Fnotes": {
+      "client_call:frontend/src/client/sdk.gen.ts#createNote.POST%20%27%2Fw4%2Fnotes%27": null,
+      "client_call:web/api.ts#addNote.POST%20%27%2Fw4%2Fnotes%27": null
+    },
+    "route:backend/app/main.py#PUT%20%2Fw4%2Fprofile": {
+      "client_call:frontend/src/client/sdk.gen.ts#updateProfile.PUT%20%27%2Fw4%2Fprofile%27": {
+        "call_links": {
+          "frontend/src/client/types.gen.ts:8": {
+            "column": 1,
+            "exact": true,
+            "line": 8,
+            "link": "vscode://file/{ROOT}/frontend/src/client/types.gen.ts:8:1"
+          }
+        },
+        "compared": [
+          "body"
+        ],
+        "differences": [
+          {
+            "call": {
+              "file": "frontend/src/client/types.gen.ts",
+              "kind": "typed",
+              "line": 8,
+              "rule": "SD-4"
+            },
+            "direction": "sent_not_read",
+            "field": "nickname",
+            "route": {
+              "file": "backend/app/main.py",
+              "kind": "fact",
+              "line": 16,
+              "rule": "SH-F22"
+            },
+            "row": "SD-8",
+            "section": "body",
+            "text": "sent by the frontend, not read by the handler"
+          }
+        ],
+        "route_links": {
+          "backend/app/main.py:16": {
+            "column": 1,
+            "exact": true,
+            "line": 16,
+            "link": "vscode://file/{ROOT}/backend/app/main.py:16:1"
+          }
+        }
+      },
+      "client_call:web/api.ts#moveTo.PUT%20%27%2Fw4%2Fprofile%27": {
+        "call_links": {
+          "web/api.ts:35": {
+            "column": 1,
+            "exact": true,
+            "line": 35,
+            "link": "vscode://file/{ROOT}/web/api.ts:35:1"
+          }
+        },
+        "compared": [
+          "body"
+        ],
+        "differences": [
+          {
+            "call": {
+              "file": "web/api.ts",
+              "kind": "literal",
+              "line": 35,
+              "rule": "SD-2"
+            },
+            "direction": "sent_not_read",
+            "field": "address.zip",
+            "route": {
+              "file": "backend/app/main.py",
+              "kind": "fact",
+              "line": 12,
+              "rule": "SH-F22"
+            },
+            "row": "SD-8",
+            "section": "body",
+            "text": "sent by the frontend, not read by the handler"
+          }
+        ],
+        "route_links": {
+          "backend/app/main.py:12": {
+            "column": 1,
+            "exact": true,
+            "line": 12,
+            "link": "vscode://file/{ROOT}/backend/app/main.py:12:1"
+          }
+        }
+      },
+      "client_call:web/api.ts#profileWithQuery.PUT%20%60%2Fw4%2Fprofile%3F%24%7BnewURLSearchParams%28%7Bfull%3A%271%27%7D%29%7D%60": {
+        "call_links": {
+          "web/api.ts:87": {
+            "column": 1,
+            "exact": true,
+            "line": 87,
+            "link": "vscode://file/{ROOT}/web/api.ts:87:1"
+          }
+        },
+        "compared": [
+          "body",
+          "query"
+        ],
+        "differences": [
+          {
+            "call": {
+              "file": "web/api.ts",
+              "kind": "literal",
+              "line": 87,
+              "rule": "SD-3"
+            },
+            "direction": "sent_not_read",
+            "field": "full",
+            "route": {
+              "file": "backend/app/main.py",
+              "kind": "fact",
+              "line": 30,
+              "rule": "SH-F23"
+            },
+            "row": "SD-8",
+            "section": "query",
+            "text": "sent by the frontend, not read by the handler"
+          }
+        ],
+        "route_links": {
+          "backend/app/main.py:30": {
+            "column": 1,
+            "exact": true,
+            "line": 30,
+            "link": "vscode://file/{ROOT}/backend/app/main.py:30:1"
+          }
+        }
+      }
+    },
+    "route:rust/src/lib.rs#POST%20%2Fw4%2Fx%2Fteams": {
+      "client_call:web/api.ts#addTeam.POST%20%27%2Fw4%2Fx%2Fteams%27": {
+        "call_links": {
+          "web/api.ts:128": {
+            "column": 1,
+            "exact": true,
+            "line": 128,
+            "link": "vscode://file/{ROOT}/web/api.ts:128:1"
+          }
+        },
+        "compared": [
+          "body"
+        ],
+        "differences": [
+          {
+            "call": {
+              "file": "web/api.ts",
+              "kind": "literal",
+              "line": 128,
+              "rule": "SD-2"
+            },
+            "direction": "sent_not_read",
+            "field": "color",
+            "route": {
+              "file": "rust/src/lib.rs",
+              "kind": "fact",
+              "line": 25,
+              "rule": "SH-X6"
+            },
+            "row": "SD-8",
+            "section": "body",
+            "text": "sent by the frontend, not read by the handler"
+          }
+        ],
+        "route_links": {
+          "rust/src/lib.rs:25": {
+            "column": 1,
+            "exact": true,
+            "line": 25,
+            "link": "vscode://file/{ROOT}/rust/src/lib.rs:25:1"
+          }
+        }
+      }
+    },
+    "route:rust/src/lib.rs#POST%20%2Fw4%2Fx%2Fusers": {
+      "client_call:web/api.ts#addUser.POST%20%27%2Fw4%2Fx%2Fusers%27": {
+        "compared": [
+          "body"
+        ],
+        "differences": []
+      }
+    },
+    "route:server/app.ts#POST%20%2Fw4%2Farticles": {
+      "client_call:web/api.ts#publishArticle.POST%20%27%2Fw4%2Farticles%27": null
+    },
+    "route:server/app.ts#POST%20%2Fw4%2Fcomments": {}
+  },
+  "sends": {
+    "client_call:frontend/src/client/sdk.gen.ts#createItem.POST%20%27%2Fw4%2Fitems%2F%27": {
+      "body": {
+        "complete": false,
+        "content_type": "application/json",
+        "fields": [
+          {
+            "file": "frontend/src/client/types.gen.ts",
+            "line": 3,
+            "name": "title"
+          }
+        ],
+        "file": "frontend/src/client/types.gen.ts",
+        "form": "typed",
+        "line": 3,
+        "rule": "SD-4",
+        "type": "ItemCreate"
+      },
+      "version": 1
+    },
+    "client_call:frontend/src/client/sdk.gen.ts#createNote.POST%20%27%2Fw4%2Fnotes%27": {
+      "body": {
+        "complete": false,
+        "content_type": "application/json",
+        "fields": [
+          {
+            "file": "frontend/src/client/types.gen.ts",
+            "line": 14,
+            "name": "text"
+          }
+        ],
+        "file": "frontend/src/client/types.gen.ts",
+        "form": "typed",
+        "line": 14,
+        "rule": "SD-4",
+        "type": "NoteCreate"
+      },
+      "version": 1
+    },
+    "client_call:frontend/src/client/sdk.gen.ts#listItems.GET%20%27%2Fw4%2Fitems%2F%27": {
+      "query": {
+        "complete": false,
+        "fields": [
+          {
+            "file": "frontend/src/client/types.gen.ts",
+            "line": 32,
+            "name": "skip"
+          },
+          {
+            "file": "frontend/src/client/types.gen.ts",
+            "line": 32,
+            "name": "limit"
+          },
+          {
+            "file": "frontend/src/client/types.gen.ts",
+            "line": 32,
+            "name": "search"
+          }
+        ],
+        "file": "frontend/src/client/types.gen.ts",
+        "form": "typed",
+        "line": 32,
+        "rule": "SD-5",
+        "type": "ListItemsData.query"
+      },
+      "version": 1
+    },
+    "client_call:frontend/src/client/sdk.gen.ts#updateProfile.PUT%20%27%2Fw4%2Fprofile%27": {
+      "body": {
+        "complete": false,
+        "content_type": "application/json",
+        "fields": [
+          {
+            "file": "frontend/src/client/types.gen.ts",
+            "line": 8,
+            "name": "name"
+          },
+          {
+            "file": "frontend/src/client/types.gen.ts",
+            "line": 8,
+            "name": "nickname"
+          }
+        ],
+        "file": "frontend/src/client/types.gen.ts",
+        "form": "typed",
+        "line": 8,
+        "rule": "SD-4",
+        "type": "ProfileUpdate"
+      },
+      "version": 1
+    },
+    "client_call:web/api.ts#addDynamic.POST%20%27%2Fw4%2Fitems%2F%27": null,
+    "client_call:web/api.ts#addItem.POST%20%27%2Fw4%2Fitems%2F%27": {
+      "body": {
+        "complete": true,
+        "content_type": "application/json",
+        "fields": [
+          {
+            "file": "web/api.ts",
+            "line": 8,
+            "name": "title"
+          },
+          {
+            "file": "web/api.ts",
+            "line": 8,
+            "name": "color"
+          }
+        ],
+        "file": "web/api.ts",
+        "form": "literal",
+        "line": 5,
+        "rule": "SD-2"
+      },
+      "version": 1
+    },
+    "client_call:web/api.ts#addItemExact.POST%20%27%2Fw4%2Fitems%2F%27": {
+      "body": {
+        "complete": true,
+        "content_type": "application/json",
+        "fields": [
+          {
+            "file": "web/api.ts",
+            "line": 26,
+            "name": "title"
+          },
+          {
+            "file": "web/api.ts",
+            "line": 26,
+            "name": "description"
+          }
+        ],
+        "file": "web/api.ts",
+        "form": "literal",
+        "line": 23,
+        "rule": "SD-2"
+      },
+      "version": 1
+    },
+    "client_call:web/api.ts#addNote.POST%20%27%2Fw4%2Fnotes%27": {
+      "body": {
+        "complete": true,
+        "content_type": "application/json",
+        "fields": [
+          {
+            "file": "web/api.ts",
+            "line": 67,
+            "name": "text"
+          },
+          {
+            "file": "web/api.ts",
+            "line": 67,
+            "name": "extra"
+          }
+        ],
+        "file": "web/api.ts",
+        "form": "literal",
+        "line": 64,
+        "rule": "SD-2"
+      },
+      "version": 1
+    },
+    "client_call:web/api.ts#addPersonV1.POST%20%27%2Fw4%2Fv1%2Fpeople%27": {
+      "body": {
+        "complete": true,
+        "content_type": "application/json",
+        "fields": [
+          {
+            "file": "web/api.ts",
+            "line": 100,
+            "name": "fullName"
+          }
+        ],
+        "file": "web/api.ts",
+        "form": "literal",
+        "line": 97,
+        "rule": "SD-2"
+      },
+      "version": 1
+    },
+    "client_call:web/api.ts#addPersonV2.POST%20%27%2Fw4%2Fv2%2Fpeople%27": {
+      "body": {
+        "complete": true,
+        "content_type": "application/json",
+        "fields": [
+          {
+            "file": "web/api.ts",
+            "line": 109,
+            "name": "fullName"
+          }
+        ],
+        "file": "web/api.ts",
+        "form": "literal",
+        "line": 106,
+        "rule": "SD-2"
+      },
+      "version": 1
+    },
+    "client_call:web/api.ts#addPlain.POST%20%27%2Fw4%2Fitems%2F%27": null,
+    "client_call:web/api.ts#addShared.POST%20%27%2Fw4%2Fitems%2F%27": null,
+    "client_call:web/api.ts#addTeam.POST%20%27%2Fw4%2Fx%2Fteams%27": {
+      "body": {
+        "complete": true,
+        "content_type": "application/json",
+        "fields": [
+          {
+            "file": "web/api.ts",
+            "line": 128,
+            "name": "title"
+          },
+          {
+            "file": "web/api.ts",
+            "line": 128,
+            "name": "color"
+          }
+        ],
+        "file": "web/api.ts",
+        "form": "literal",
+        "line": 125,
+        "rule": "SD-2"
+      },
+      "version": 1
+    },
+    "client_call:web/api.ts#addUntitled.POST%20%27%2Fw4%2Fitems%2F%27": {
+      "body": {
+        "complete": true,
+        "content_type": "application/json",
+        "fields": [
+          {
+            "file": "web/api.ts",
+            "line": 17,
+            "name": "description"
+          }
+        ],
+        "file": "web/api.ts",
+        "form": "literal",
+        "line": 14,
+        "rule": "SD-2"
+      },
+      "version": 1
+    },
+    "client_call:web/api.ts#addUser.POST%20%27%2Fw4%2Fx%2Fusers%27": {
+      "body": {
+        "complete": true,
+        "content_type": "application/json",
+        "fields": [
+          {
+            "file": "web/api.ts",
+            "line": 119,
+            "name": "userName"
+          },
+          {
+            "file": "web/api.ts",
+            "line": 119,
+            "name": "age"
+          }
+        ],
+        "file": "web/api.ts",
+        "form": "literal",
+        "line": 116,
+        "rule": "SD-2"
+      },
+      "version": 1
+    },
+    "client_call:web/api.ts#moveTo.PUT%20%27%2Fw4%2Fprofile%27": {
+      "body": {
+        "complete": true,
+        "content_type": "application/json",
+        "fields": [
+          {
+            "file": "web/api.ts",
+            "line": 35,
+            "name": "name"
+          },
+          {
+            "file": "web/api.ts",
+            "line": 35,
+            "name": "address",
+            "nested": {
+              "complete": true,
+              "fields": [
+                {
+                  "file": "web/api.ts",
+                  "line": 35,
+                  "name": "city"
+                },
+                {
+                  "file": "web/api.ts",
+                  "line": 35,
+                  "name": "zip"
+                }
+              ]
+            }
+          }
+        ],
+        "file": "web/api.ts",
+        "form": "literal",
+        "line": 32,
+        "rule": "SD-2"
+      },
+      "version": 1
+    },
+    "client_call:web/api.ts#profileWithQuery.PUT%20%60%2Fw4%2Fprofile%3F%24%7BnewURLSearchParams%28%7Bfull%3A%271%27%7D%29%7D%60": {
+      "body": {
+        "complete": true,
+        "content_type": "application/json",
+        "fields": [
+          {
+            "file": "web/api.ts",
+            "line": 90,
+            "name": "name"
+          }
+        ],
+        "file": "web/api.ts",
+        "form": "literal",
+        "line": 87,
+        "rule": "SD-2"
+      },
+      "query": {
+        "complete": true,
+        "fields": [
+          {
+            "file": "web/api.ts",
+            "line": 87,
+            "name": "full"
+          }
+        ],
+        "file": "web/api.ts",
+        "form": "literal",
+        "line": 87,
+        "rule": "SD-3"
+      },
+      "version": 1
+    },
+    "client_call:web/api.ts#publishArticle.POST%20%27%2Fw4%2Farticles%27": {
+      "body": {
+        "complete": true,
+        "content_type": "application/json",
+        "fields": [
+          {
+            "file": "web/api.ts",
+            "line": 76,
+            "name": "article",
+            "nested": {
+              "complete": true,
+              "fields": [
+                {
+                  "file": "web/api.ts",
+                  "line": 76,
+                  "name": "title"
+                },
+                {
+                  "file": "web/api.ts",
+                  "line": 76,
+                  "name": "body"
+                },
+                {
+                  "file": "web/api.ts",
+                  "line": 76,
+                  "name": "draft"
+                }
+              ]
+            }
+          }
+        ],
+        "file": "web/api.ts",
+        "form": "literal",
+        "line": 73,
+        "rule": "SD-2"
+      },
+      "version": 1
+    },
+    "client_call:web/api.ts#searchItems.GET%20%60%2Fw4%2Fitems%2F%3F%24%7BnewURLSearchParams%28%7Bskip%3A%270%27%2Climit%3A%2710%27%2Cq%7D%29%7D%60": {
+      "query": {
+        "complete": true,
+        "fields": [
+          {
+            "file": "web/api.ts",
+            "line": 82,
+            "name": "skip"
+          },
+          {
+            "file": "web/api.ts",
+            "line": 82,
+            "name": "limit"
+          },
+          {
+            "file": "web/api.ts",
+            "line": 82,
+            "name": "q"
+          }
+        ],
+        "file": "web/api.ts",
+        "form": "literal",
+        "line": 82,
+        "rule": "SD-3"
+      },
+      "version": 1
+    }
+  }
+}

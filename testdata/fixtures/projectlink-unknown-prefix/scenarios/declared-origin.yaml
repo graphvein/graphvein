@@ -1,0 +1,13 @@
+version: 1
+name: unknown-prefix-declared-origin
+members:
+  - repository: web
+    path: web
+    consumes:
+      - repository: api
+        select:
+          origins: ["https://api.example.com"]
+  - repository: api
+    path: api
+  - repository: api2
+    path: api2

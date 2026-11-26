@@ -1,0 +1,2 @@
+CREATE TABLE t1 (c1 text[]);
+ALTER TABLE t1 ALTER COLUMN c1 TYPE int;

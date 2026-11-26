@@ -1,0 +1,35 @@
+{
+  "id": "g1-s635-S1-applied",
+  "signature": "applied|S1|25P01|O5.transaction",
+  "class": "S1",
+  "owner": "P6",
+  "row": "",
+  "history": {
+    "id": "g1-s635",
+    "tags": {
+      "1_m1.sql": [
+        "O5.transaction",
+        "M1.create"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "25P01",
+        "message": "RELEASE SAVEPOINT can only be used in transaction blocks",
+        "statement": 1,
+        "statement_text": "RELEASE SAVEPOINT sp1;",
+        "no_transaction": true
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

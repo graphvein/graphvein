@@ -1,0 +1,28 @@
+{
+  "id": "review18-c10-dropfunc-eventtrigger",
+  "signature": "agreed at Revision 1.8",
+  "class": "S1",
+  "owner": "X1",
+  "row": "review18",
+  "history": {
+    "id": "c10-dropfunc-eventtrigger"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42501",
+        "message": "permission denied to create event trigger \"e\"",
+        "statement": 2,
+        "statement_text": "CREATE EVENT TRIGGER e ON ddl_command_end EXECUTE FUNCTION et();"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

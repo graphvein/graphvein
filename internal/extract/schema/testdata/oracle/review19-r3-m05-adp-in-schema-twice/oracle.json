@@ -1,0 +1,28 @@
+{
+  "id": "review19-r3-m05-adp-in-schema-twice",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y36",
+  "row": "review19",
+  "history": {
+    "id": "m05-adp-in-schema-twice"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42601",
+        "message": "conflicting or redundant options",
+        "statement": 1,
+        "statement_text": "ALTER DEFAULT PRIVILEGES IN SCHEMA public IN SCHEMA public GRANT ALL ON TABLES TO PUBLIC;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

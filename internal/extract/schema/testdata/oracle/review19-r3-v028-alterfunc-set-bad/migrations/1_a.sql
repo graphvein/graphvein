@@ -1,0 +1,2 @@
+CREATE FUNCTION f() RETURNS int LANGUAGE sql AS 'SELECT 1';
+ALTER FUNCTION f() SET work_mem = 'lots';

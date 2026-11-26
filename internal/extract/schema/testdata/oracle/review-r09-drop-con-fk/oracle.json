@@ -1,0 +1,29 @@
+{
+  "id": "review-r09-drop-con-fk",
+  "signature": "agreed at af6a883",
+  "class": "S1",
+  "owner": "P2",
+  "row": "review",
+  "history": {
+    "id": "r09-drop-con-fk"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "2BP01",
+        "message": "cannot drop constraint pk on table p because other objects depend on it",
+        "detail": "constraint c_a_fkey on table c depends on index pk",
+        "statement": 3,
+        "statement_text": "ALTER TABLE p DROP CONSTRAINT pk;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

@@ -1,0 +1,28 @@
+{
+  "id": "review19-r1-d17-policy-select-check",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y12",
+  "row": "review19",
+  "history": {
+    "id": "d17-policy-select-check"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42601",
+        "message": "WITH CHECK cannot be applied to SELECT or DELETE",
+        "statement": 2,
+        "statement_text": "CREATE POLICY p ON t FOR SELECT WITH CHECK (true);"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

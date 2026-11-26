@@ -1,0 +1,29 @@
+{
+  "id": "review19-r1-c11-schema-pg",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y06",
+  "row": "review19",
+  "history": {
+    "id": "c11-schema-pg"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42939",
+        "message": "unacceptable schema name \"pg_foo\"",
+        "detail": "The prefix \"pg_\" is reserved for system schemas.",
+        "statement": 1,
+        "statement_text": "CREATE SCHEMA pg_foo;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

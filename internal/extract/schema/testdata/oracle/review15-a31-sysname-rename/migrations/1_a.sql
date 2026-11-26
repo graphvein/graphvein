@@ -1,0 +1,2 @@
+CREATE TABLE t (a int);
+ALTER TABLE t RENAME COLUMN a TO ctid;

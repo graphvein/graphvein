@@ -1,0 +1,26 @@
+# Team settings for Graphvein.
+version: 1
+repository: shop   # shared ID
+
+# Labels: the team reads ids.
+ui:
+    labels: technical   # decided 2026-10
+
+ide: cursor
+
+index:
+    shape_depth: 6
+
+tests:
+    include: ['checks/**']   # scenario tests
+    exclude:
+        - a.ts
+        - b.ts
+
+changes:
+    journal_runs: 30   # kept, not in the form
+
+explorer:
+    path_values:
+        - key: nextjs_base_path:web
+          value: /dashboard

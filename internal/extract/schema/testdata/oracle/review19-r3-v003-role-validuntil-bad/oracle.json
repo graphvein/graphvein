@@ -1,0 +1,29 @@
+{
+  "id": "review19-r3-v003-role-validuntil-bad",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y14",
+  "row": "review19",
+  "history": {
+    "id": "v003-role-validuntil-bad"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "22007",
+        "message": "invalid input syntax for type timestamp with time zone: \"not a date\"",
+        "statement": 1,
+        "statement_text": "CREATE ROLE rr_v003_1 VALID UNTIL 'not a date';",
+        "row_free": true
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

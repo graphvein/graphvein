@@ -1,0 +1,29 @@
+{
+  "id": "review19-r1-n06-schema-rename-to-existing",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y08",
+  "row": "review19",
+  "history": {
+    "id": "n06-schema-rename-to-existing",
+    "fresh_db": true
+  },
+  "verdict": {
+    "default_schema": "public",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42P06",
+        "message": "schema \"s2\" already exists",
+        "statement": 3,
+        "statement_text": "ALTER SCHEMA s1 RENAME TO s2;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "public._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

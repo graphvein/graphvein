@@ -1,0 +1,11 @@
+version: 1
+name: shop
+members:
+  - repository: web
+    consumes:
+      - {repository: api, default_scope: true}
+      - {repository: api, default_scope: true, select: {bases: [VITE_API]}}
+  - repository: api
+    scopes:
+      - name: admin
+        path: apps/admin

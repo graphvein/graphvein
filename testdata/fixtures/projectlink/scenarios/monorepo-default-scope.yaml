@@ -1,0 +1,18 @@
+version: 1
+name: shop-monorepo-default-scope
+members:
+  - repository: frontend
+    path: frontend
+    consumes:
+      - repository: monorepo
+        default_scope: true
+  - repository: monorepo
+    path: monorepo
+    scopes:
+      - name: users
+        path: apps/users
+      - name: ops
+        path: ops
+        consumes:
+          - repository: monorepo
+            default_scope: true

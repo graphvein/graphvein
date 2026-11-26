@@ -1,0 +1,28 @@
+{
+  "id": "review-q22-bitvar",
+  "signature": "applied|S1|22023|",
+  "class": "S1",
+  "owner": "P5",
+  "row": "review",
+  "history": {
+    "id": "q22-bitvar"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "22023",
+        "message": "length for type bit must be at least 1",
+        "statement": 1,
+        "statement_text": "CREATE TABLE t (a bit(0));"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

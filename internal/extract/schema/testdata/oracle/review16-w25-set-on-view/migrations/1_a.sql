@@ -1,0 +1,3 @@
+CREATE TABLE t (a int);
+CREATE VIEW v AS SELECT a FROM t;
+ALTER TABLE v SET (fillfactor = 50);

@@ -1,0 +1,66 @@
+// The Prisma group of the table-access-prisma fixture (T018h rows
+// CT-R1..CT-R3): one-to-one, one-to-many and implicit many-to-many
+// relations, an @@map'd model and an @@ignore'd model.
+generator client {
+  provider = "prisma-client"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id       Int       @id @default(autoincrement())
+  email    String    @unique
+  posts    Post[]
+  profile  Profile?
+  comments Comment[]
+  groups   Group[]
+}
+
+model Profile {
+  id     Int    @id @default(autoincrement())
+  bio    String
+  user   User   @relation(fields: [userId], references: [id])
+  userId Int    @unique
+}
+
+model Post {
+  id       Int       @id @default(autoincrement())
+  title    String
+  author   User      @relation(fields: [authorId], references: [id])
+  authorId Int
+  comments Comment[]
+  tags     Tag[]
+}
+
+model Comment {
+  id       Int    @id @default(autoincrement())
+  body     String
+  post     Post   @relation(fields: [postId], references: [id])
+  postId   Int
+  author   User   @relation(fields: [authorId], references: [id])
+  authorId Int
+
+  @@map("comments")
+}
+
+model Tag {
+  id    Int    @id @default(autoincrement())
+  name  String @unique
+  posts Post[]
+}
+
+model Group {
+  id      Int    @id @default(autoincrement())
+  name    String
+  members User[]
+
+  @@map("user_groups")
+}
+
+model Legacy {
+  id Int @id
+
+  @@ignore
+}

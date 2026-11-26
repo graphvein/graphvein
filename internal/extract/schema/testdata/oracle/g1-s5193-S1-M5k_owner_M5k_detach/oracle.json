@@ -1,0 +1,33 @@
+{
+  "id": "g1-s5193-S1-M5k_owner_M5k_detach",
+  "signature": "applied|S1|42601|M5k.owner",
+  "class": "S1",
+  "owner": "P7",
+  "row": "M5k.owner+M5k.detach",
+  "history": {
+    "id": "g1-s5193",
+    "tags": {
+      "3_m3.sql": [
+        "M5k.owner+M5k.detach"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "3_m3.sql",
+        "status": "refused",
+        "sqlstate": "42601",
+        "message": "syntax error at or near \"DETACH\"",
+        "statement": 1,
+        "statement_text": "ALTER TABLE t2 OWNER TO gv_oracle_role, DETACH PARTITION t1;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

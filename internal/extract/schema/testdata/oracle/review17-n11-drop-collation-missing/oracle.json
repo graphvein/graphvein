@@ -1,0 +1,28 @@
+{
+  "id": "review17-n11-drop-collation-missing",
+  "signature": "agreed at Revision 1.7",
+  "class": "S1",
+  "owner": "W5",
+  "row": "review17",
+  "history": {
+    "id": "n11-drop-collation-missing"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42704",
+        "message": "collation \"nosuch\" for encoding \"UTF8\" does not exist",
+        "statement": 1,
+        "statement_text": "DROP COLLATION nosuch;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

@@ -1,0 +1,15 @@
+#[tauri::command]
+pub fn t016d_greet(name: String) -> String {
+    format!("hello {name}")
+}
+
+#[tauri::command]
+pub fn t016d_items() -> Vec<String> {
+    Vec::new()
+}
+
+#[tauri::command]
+pub fn t016d_never() {}
+
+#[tauri::command]
+pub fn t016d_debug() {}

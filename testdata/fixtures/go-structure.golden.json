@@ -1,0 +1,5418 @@
+{
+  "diagnostics": [
+    {
+      "code": "component_manifest_unread",
+      "file": "blockmod/go.mod",
+      "message": "blockmod/go.mod: no module directive; its directory is an unread component of unknown kind (row CM-U1)",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "go_structure_unread",
+      "file": "cgotest/x_test.go",
+      "message": "1 Go declarations or imports are outside the structural claim contract and claim nothing (undecided_package_import=1)",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "go_structure_unread",
+      "file": "gen/broken1.go",
+      "message": "3 Go declarations or imports are outside the structural claim contract and claim nothing (syntax_error=3)",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "syntax_error",
+      "file": "gen/broken1.go",
+      "message": "tree-sitter recovered from invalid syntax",
+      "severity": "warning",
+      "type": "diagnostic"
+    },
+    {
+      "code": "go_structure_unread",
+      "file": "gen/broken2.go",
+      "message": "1 Go declarations or imports are outside the structural claim contract and claim nothing (syntax_error=1)",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "syntax_error",
+      "file": "gen/broken2.go",
+      "message": "tree-sitter recovered from invalid syntax",
+      "severity": "warning",
+      "type": "diagnostic"
+    },
+    {
+      "code": "go_structure_unread",
+      "file": "gen/dup.go",
+      "message": "4 Go declarations or imports are outside the structural claim contract and claim nothing (redeclaration=4)",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "go_structure_unread",
+      "file": "gen/recv.go",
+      "message": "3 Go declarations or imports are outside the structural claim contract and claim nothing (receiver=3)",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "go_structure_unread",
+      "file": "imports/i.go",
+      "message": "5 Go declarations or imports are outside the structural claim contract and claim nothing (undecided_package_import=5)",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "unresolved_import",
+      "file": "imports/i.go",
+      "message": "in-module import example.test/structure/doconly is unavailable",
+      "severity": "warning",
+      "type": "diagnostic"
+    },
+    {
+      "code": "go_structure_unread",
+      "file": "lib/lib.go",
+      "message": "2 Go declarations or imports are outside the structural claim contract and claim nothing (receiver=2)",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "unresolved_calls",
+      "file": "lib/lib.go",
+      "message": "3 calls could not be resolved without a type checker (external=2, unknown=1)",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "go_structure_unread",
+      "file": "malformed/m.go",
+      "message": "5 Go declarations or imports are outside the structural claim contract and claim nothing (malformed_import_path=5)",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "go_structure_unread",
+      "file": "selfimp/s.go",
+      "message": "1 Go declarations or imports are outside the structural claim contract and claim nothing (self_import=1)",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "go_structure_unread",
+      "file": "util/cr.go",
+      "message": "2 Go declarations or imports are outside the structural claim contract and claim nothing (lone_cr=2)",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "go_structure_unread",
+      "file": "util/hidden.go",
+      "message": "2 Go declarations or imports are outside the structural claim contract and claim nothing (lone_cr=2)",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "go_structure_unread",
+      "file": "util/u.go",
+      "message": "4 Go declarations or imports are outside the structural claim contract and claim nothing (nested_module_import=1, undecided_package_import=3)",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "unresolved_import",
+      "file": "util/u.go",
+      "message": "in-module import example.test/structure/missing is unavailable",
+      "severity": "warning",
+      "type": "diagnostic"
+    },
+    {
+      "code": "unresolved_import",
+      "file": "util/u_test.go",
+      "message": "in-module import example.test/structure/testonly is unavailable",
+      "severity": "warning",
+      "type": "diagnostic"
+    }
+  ],
+  "edges": [
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "bind/a_gen.go",
+          "span": {
+            "end_column": 17,
+            "end_line": 7,
+            "start_column": 14,
+            "start_line": 7
+          }
+        }
+      ],
+      "kind": "calls",
+      "provenance": "fact",
+      "source": "function:bind/a_gen.go#main",
+      "target": "function:bind/a_gen.go#F",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "binduse/u.go",
+          "span": {
+            "end_column": 9,
+            "end_line": 9,
+            "start_column": 1,
+            "start_line": 9
+          }
+        },
+        {
+          "file": "binduse/u.go",
+          "span": {
+            "end_column": 6,
+            "end_line": 10,
+            "start_column": 1,
+            "start_line": 10
+          }
+        }
+      ],
+      "kind": "calls",
+      "provenance": "fact",
+      "source": "function:binduse/u.go#U",
+      "target": "function:bind/lib.go#F",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "_hidden/h.go",
+          "span": {
+            "end_column": 11,
+            "end_line": 3,
+            "start_column": 0,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:_hidden/h.go#_hidden%2Fh.go",
+      "target": "function:_hidden/h.go#H",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "badbuild/x.go",
+          "span": {
+            "end_column": 11,
+            "end_line": 5,
+            "start_column": 0,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:badbuild/x.go#badbuild%2Fx.go",
+      "target": "function:badbuild/x.go#X",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "badbuild/y.go",
+          "span": {
+            "end_column": 11,
+            "end_line": 3,
+            "start_column": 0,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:badbuild/y.go#badbuild%2Fy.go",
+      "target": "function:badbuild/y.go#Y",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "badtest/a.go",
+          "span": {
+            "end_column": 11,
+            "end_line": 3,
+            "start_column": 0,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:badtest/a.go#badtest%2Fa.go",
+      "target": "function:badtest/a.go#A",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "bind/a_gen.go",
+          "span": {
+            "end_column": 11,
+            "end_line": 5,
+            "start_column": 0,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:bind/a_gen.go#bind%2Fa_gen.go",
+      "target": "function:bind/a_gen.go#F",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "bind/a_gen.go",
+          "span": {
+            "end_column": 19,
+            "end_line": 7,
+            "start_column": 0,
+            "start_line": 7
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:bind/a_gen.go#bind%2Fa_gen.go",
+      "target": "function:bind/a_gen.go#main",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "bind/lib.go",
+          "span": {
+            "end_column": 11,
+            "end_line": 3,
+            "start_column": 0,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:bind/lib.go#bind%2Flib.go",
+      "target": "function:bind/lib.go#F",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "binduse/u.go",
+          "span": {
+            "end_column": 1,
+            "end_line": 11,
+            "start_column": 0,
+            "start_line": 8
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:binduse/u.go#binduse%2Fu.go",
+      "target": "function:binduse/u.go#U",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "cgotest/a.go",
+          "span": {
+            "end_column": 11,
+            "end_line": 3,
+            "start_column": 0,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:cgotest/a.go#cgotest%2Fa.go",
+      "target": "function:cgotest/a.go#A",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "docmix/m.go",
+          "span": {
+            "end_column": 11,
+            "end_line": 3,
+            "start_column": 0,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:docmix/m.go#docmix%2Fm.go",
+      "target": "function:docmix/m.go#M",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "ext/ext.go",
+          "span": {
+            "end_column": 13,
+            "end_line": 3,
+            "start_column": 0,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:ext/ext.go#ext%2Fext.go",
+      "target": "function:ext/ext.go#Ext",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "gen/dup.go",
+          "span": {
+            "end_column": 15,
+            "end_line": 3,
+            "start_column": 5,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:gen/dup.go#gen%2Fdup.go",
+      "target": "struct:gen/dup.go#D",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "gen/recv.go",
+          "span": {
+            "end_column": 39,
+            "end_line": 9,
+            "start_column": 0,
+            "start_line": 9
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:gen/recv.go#gen%2Frecv.go",
+      "target": "method:gen/recv.go#R.Plain",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "gen/recv.go",
+          "span": {
+            "end_column": 15,
+            "end_line": 5,
+            "start_column": 5,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:gen/recv.go#gen%2Frecv.go",
+      "target": "struct:gen/recv.go#R",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/_skip.go",
+          "span": {
+            "end_column": 17,
+            "end_line": 3,
+            "start_column": 0,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/_skip.go#lib%2F_skip.go",
+      "target": "function:lib/_skip.go#Skipped",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/after.go",
+          "span": {
+            "end_column": 15,
+            "end_line": 5,
+            "start_column": 0,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/after.go#lib%2Fafter.go",
+      "target": "function:lib/after.go#After",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/bom_ignore.go",
+          "span": {
+            "end_column": 20,
+            "end_line": 5,
+            "start_column": 0,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/bom_ignore.go#lib%2Fbom_ignore.go",
+      "target": "function:lib/bom_ignore.go#BOMIgnored",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/cgo_only.go",
+          "span": {
+            "end_column": 17,
+            "end_line": 5,
+            "start_column": 0,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/cgo_only.go#lib%2Fcgo_only.go",
+      "target": "function:lib/cgo_only.go#WithCgo",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/crlf_ignore.go",
+          "span": {
+            "end_column": 21,
+            "end_line": 5,
+            "start_column": 0,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/crlf_ignore.go#lib%2Fcrlf_ignore.go",
+      "target": "function:lib/crlf_ignore.go#CRLFIgnored",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/ext2_test.go",
+          "span": {
+            "end_column": 42,
+            "end_line": 9,
+            "start_column": 0,
+            "start_line": 9
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/ext2_test.go#lib%2Fext2_test.go",
+      "target": "function:lib/ext2_test.go#TestExt",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/gccgo.go",
+          "span": {
+            "end_column": 15,
+            "end_line": 5,
+            "start_column": 0,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/gccgo.go#lib%2Fgccgo.go",
+      "target": "function:lib/gccgo.go#Gccgo",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/gen.go",
+          "span": {
+            "end_column": 14,
+            "end_line": 5,
+            "start_column": 0,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/gen.go#lib%2Fgen.go",
+      "target": "function:lib/gen.go#main",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/late.go",
+          "span": {
+            "end_column": 14,
+            "end_line": 6,
+            "start_column": 0,
+            "start_line": 6
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/late.go#lib%2Flate.go",
+      "target": "function:lib/late.go#Late",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/legacy.go",
+          "span": {
+            "end_column": 16,
+            "end_line": 5,
+            "start_column": 0,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/legacy.go#lib%2Flegacy.go",
+      "target": "function:lib/legacy.go#Legacy",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/legacy_noblank.go",
+          "span": {
+            "end_column": 23,
+            "end_line": 4,
+            "start_column": 0,
+            "start_line": 4
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/legacy_noblank.go#lib%2Flegacy_noblank.go",
+      "target": "function:lib/legacy_noblank.go#LegacyNoBlank",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/legacy_off.go",
+          "span": {
+            "end_column": 19,
+            "end_line": 5,
+            "start_column": 0,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/legacy_off.go#lib%2Flegacy_off.go",
+      "target": "function:lib/legacy_off.go#LegacyOff",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/lib.go",
+          "span": {
+            "end_column": 9,
+            "end_line": 47,
+            "start_column": 1,
+            "start_line": 47
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/lib.go#lib%2Flib.go",
+      "target": "constant:lib/lib.go#X",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/lib.go",
+          "span": {
+            "end_column": 2,
+            "end_line": 48,
+            "start_column": 1,
+            "start_line": 48
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/lib.go#lib%2Flib.go",
+      "target": "constant:lib/lib.go#Y",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/lib.go",
+          "span": {
+            "end_column": 11,
+            "end_line": 52,
+            "start_column": 0,
+            "start_line": 52
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/lib.go#lib%2Flib.go",
+      "target": "function:lib/lib.go#Body",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/lib.go",
+          "span": {
+            "end_column": 1,
+            "end_line": 59,
+            "start_column": 0,
+            "start_line": 54
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/lib.go#lib%2Flib.go",
+      "target": "function:lib/lib.go#Local",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/lib.go",
+          "span": {
+            "end_column": 11,
+            "end_line": 36,
+            "start_column": 0,
+            "start_line": 36
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/lib.go#lib%2Flib.go",
+      "target": "function:lib/lib.go#_",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/lib.go",
+          "span": {
+            "end_column": 11,
+            "end_line": 37,
+            "start_column": 0,
+            "start_line": 37
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/lib.go#lib%2Flib.go",
+      "target": "function:lib/lib.go#_%402",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/lib.go",
+          "span": {
+            "end_column": 14,
+            "end_line": 34,
+            "start_column": 0,
+            "start_line": 34
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/lib.go#lib%2Flib.go",
+      "target": "function:lib/lib.go#init",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/lib.go",
+          "span": {
+            "end_column": 14,
+            "end_line": 35,
+            "start_column": 0,
+            "start_line": 35
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/lib.go#lib%2Flib.go",
+      "target": "function:lib/lib.go#init%402",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/lib.go",
+          "span": {
+            "end_column": 30,
+            "end_line": 20,
+            "start_column": 1,
+            "start_line": 20
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/lib.go#lib%2Flib.go",
+      "target": "interface:lib/lib.go#I",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/lib.go",
+          "span": {
+            "end_column": 46,
+            "end_line": 29,
+            "start_column": 0,
+            "start_line": 29
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/lib.go#lib%2Flib.go",
+      "target": "method:lib/lib.go#G.Get",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/lib.go",
+          "span": {
+            "end_column": 46,
+            "end_line": 30,
+            "start_column": 0,
+            "start_line": 30
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/lib.go#lib%2Flib.go",
+      "target": "method:lib/lib.go#G.Len",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/lib.go",
+          "span": {
+            "end_column": 20,
+            "end_line": 28,
+            "start_column": 0,
+            "start_line": 28
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/lib.go#lib%2Flib.go",
+      "target": "method:lib/lib.go#T.Ptr",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/lib.go",
+          "span": {
+            "end_column": 37,
+            "end_line": 27,
+            "start_column": 0,
+            "start_line": 27
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/lib.go#lib%2Flib.go",
+      "target": "method:lib/lib.go#T.Value",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/lib.go",
+          "span": {
+            "end_column": 43,
+            "end_line": 19,
+            "start_column": 1,
+            "start_line": 19
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/lib.go#lib%2Flib.go",
+      "target": "struct:lib/lib.go#G",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/lib.go",
+          "span": {
+            "end_column": 33,
+            "end_line": 16,
+            "start_column": 5,
+            "start_line": 16
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/lib.go#lib%2Flib.go",
+      "target": "struct:lib/lib.go#T",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/lib.go",
+          "span": {
+            "end_column": 6,
+            "end_line": 22,
+            "start_column": 1,
+            "start_line": 22
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/lib.go#lib%2Flib.go",
+      "target": "type:lib/lib.go#N",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/lib.go",
+          "span": {
+            "end_column": 10,
+            "end_line": 21,
+            "start_column": 1,
+            "start_line": 21
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/lib.go#lib%2Flib.go",
+      "target": "type_alias:lib/lib.go#Alias",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/lib.go",
+          "span": {
+            "end_column": 20,
+            "end_line": 25,
+            "start_column": 5,
+            "start_line": 25
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/lib.go#lib%2Flib.go",
+      "target": "type_alias:lib/lib.go#GA",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/lib.go",
+          "span": {
+            "end_column": 13,
+            "end_line": 61,
+            "start_column": 4,
+            "start_line": 61
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/lib.go#lib%2Flib.go",
+      "target": "variable:lib/lib.go#%C3%9Cn%C3%AF",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/lib.go",
+          "span": {
+            "end_column": 15,
+            "end_line": 39,
+            "start_column": 4,
+            "start_line": 39
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/lib.go#lib%2Flib.go",
+      "target": "variable:lib/lib.go#A",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/lib.go",
+          "span": {
+            "end_column": 15,
+            "end_line": 39,
+            "start_column": 4,
+            "start_line": 39
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/lib.go#lib%2Flib.go",
+      "target": "variable:lib/lib.go#B",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/lib.go",
+          "span": {
+            "end_column": 6,
+            "end_line": 41,
+            "start_column": 1,
+            "start_line": 41
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/lib.go#lib%2Flib.go",
+      "target": "variable:lib/lib.go#C",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/lib_test.go",
+          "span": {
+            "end_column": 24,
+            "end_line": 3,
+            "start_column": 0,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/lib_test.go#lib%2Flib_test.go",
+      "target": "function:lib/lib_test.go#helperInternal",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/never.go",
+          "span": {
+            "end_column": 15,
+            "end_line": 5,
+            "start_column": 0,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/never.go#lib%2Fnever.go",
+      "target": "function:lib/never.go#Never",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/os_linux_386.go",
+          "span": {
+            "end_column": 17,
+            "end_line": 3,
+            "start_column": 0,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/os_linux_386.go#lib%2Fos_linux_386.go",
+      "target": "function:lib/os_linux_386.go#Android",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/os_plan9_wasm.go",
+          "span": {
+            "end_column": 20,
+            "end_line": 3,
+            "start_column": 0,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/os_plan9_wasm.go#lib%2Fos_plan9_wasm.go",
+      "target": "function:lib/os_plan9_wasm.go#Impossible",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/os_windows.go",
+          "span": {
+            "end_column": 13,
+            "end_line": 3,
+            "start_column": 0,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/os_windows.go#lib%2Fos_windows.go",
+      "target": "function:lib/os_windows.go#Win",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/tagged.go",
+          "span": {
+            "end_column": 16,
+            "end_line": 5,
+            "start_column": 0,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/tagged.go#lib%2Ftagged.go",
+      "target": "function:lib/tagged.go#Tagged",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lonecr/a.go",
+          "span": {
+            "end_column": 11,
+            "end_line": 3,
+            "start_column": 0,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lonecr/a.go#lonecr%2Fa.go",
+      "target": "function:lonecr/a.go#A",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "multi/a.go",
+          "span": {
+            "end_column": 11,
+            "end_line": 3,
+            "start_column": 0,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:multi/a.go#multi%2Fa.go",
+      "target": "function:multi/a.go#A",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "multi/b.go",
+          "span": {
+            "end_column": 11,
+            "end_line": 3,
+            "start_column": 0,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:multi/b.go#multi%2Fb.go",
+      "target": "function:multi/b.go#B",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "nested/n.go",
+          "span": {
+            "end_column": 11,
+            "end_line": 3,
+            "start_column": 0,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:nested/n.go#nested%2Fn.go",
+      "target": "function:nested/n.go#N",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "nocgo/a.go",
+          "span": {
+            "end_column": 11,
+            "end_line": 3,
+            "start_column": 0,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:nocgo/a.go#nocgo%2Fa.go",
+      "target": "function:nocgo/a.go#A",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "nocgo/b.go",
+          "span": {
+            "end_column": 11,
+            "end_line": 7,
+            "start_column": 0,
+            "start_line": 7
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:nocgo/b.go#nocgo%2Fb.go",
+      "target": "function:nocgo/b.go#B",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "prog/main.go",
+          "span": {
+            "end_column": 14,
+            "end_line": 3,
+            "start_column": 0,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:prog/main.go#prog%2Fmain.go",
+      "target": "function:prog/main.go#main",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "selfimp/s.go",
+          "span": {
+            "end_column": 11,
+            "end_line": 7,
+            "start_column": 0,
+            "start_line": 7
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:selfimp/s.go#selfimp%2Fs.go",
+      "target": "function:selfimp/s.go#S",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "testdata/pkg/p.go",
+          "span": {
+            "end_column": 11,
+            "end_line": 3,
+            "start_column": 0,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:testdata/pkg/p.go#testdata%2Fpkg%2Fp.go",
+      "target": "function:testdata/pkg/p.go#P",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "testonly/only_test.go",
+          "span": {
+            "end_column": 14,
+            "end_line": 3,
+            "start_column": 0,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:testonly/only_test.go#testonly%2Fonly_test.go",
+      "target": "function:testonly/only_test.go#Only",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "twobuild/z.go",
+          "span": {
+            "end_column": 11,
+            "end_line": 6,
+            "start_column": 0,
+            "start_line": 6
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:twobuild/z.go#twobuild%2Fz.go",
+      "target": "function:twobuild/z.go#Z",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "util/bom.go",
+          "span": {
+            "end_column": 13,
+            "end_line": 3,
+            "start_column": 0,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:util/bom.go#util%2Fbom.go",
+      "target": "function:util/bom.go#BOM",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "util/crlf.go",
+          "span": {
+            "end_column": 1,
+            "end_line": 5,
+            "start_column": 0,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:util/crlf.go#util%2Fcrlf.go",
+      "target": "function:util/crlf.go#CRLF",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "util/crlf.go",
+          "span": {
+            "end_column": 1,
+            "end_line": 9,
+            "start_column": 5,
+            "start_line": 7
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:util/crlf.go#util%2Fcrlf.go",
+      "target": "struct:util/crlf.go#W",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "util/lined.go",
+          "span": {
+            "end_column": 1,
+            "end_line": 5,
+            "start_column": 0,
+            "start_line": 4
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:util/lined.go#util%2Flined.go",
+      "target": "function:util/lined.go#Lined",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "binduse/u.go",
+          "span": {
+            "end_column": 30,
+            "end_line": 4,
+            "start_column": 1,
+            "start_line": 4
+          }
+        },
+        {
+          "file": "binduse/u.go",
+          "span": {
+            "end_column": 32,
+            "end_line": 5,
+            "start_column": 1,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:binduse/u.go#binduse%2Fu.go",
+      "target": "file:bind/lib.go#bind%2Flib.go",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "blockmod/b.go",
+          "span": {
+            "end_column": 27,
+            "end_line": 4,
+            "start_column": 1,
+            "start_line": 4
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:blockmod/b.go#blockmod%2Fb.go",
+      "target": "external:.#go%3Aexample.test%2Fblock%2Fsub",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "blockmod/b.go",
+          "span": {
+            "end_column": 31,
+            "end_line": 5,
+            "start_column": 1,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:blockmod/b.go#blockmod%2Fb.go",
+      "target": "external:.#go%3Aexample.test%2Fstructure%2Flib",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "cgotest/c_test.go",
+          "span": {
+            "end_column": 10,
+            "end_line": 3,
+            "start_column": 7,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:cgotest/c_test.go#cgotest%2Fc_test.go",
+      "target": "external:.#go%3AC",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "gen/recv.go",
+          "span": {
+            "end_column": 16,
+            "end_line": 3,
+            "start_column": 7,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:gen/recv.go#gen%2Frecv.go",
+      "target": "external:.#go%3Astrings",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "imports/i.go",
+          "span": {
+            "end_column": 34,
+            "end_line": 6,
+            "start_column": 1,
+            "start_line": 6
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:imports/i.go#imports%2Fi.go",
+      "target": "file:docmix/m.go#docmix%2Fm.go",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "imports/i.go",
+          "span": {
+            "end_column": 33,
+            "end_line": 10,
+            "start_column": 1,
+            "start_line": 10
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:imports/i.go#imports%2Fi.go",
+      "target": "file:nocgo/a.go#nocgo%2Fa.go",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/ext2_test.go",
+          "span": {
+            "end_column": 10,
+            "end_line": 4,
+            "start_column": 1,
+            "start_line": 4
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:lib/ext2_test.go#lib%2Fext2_test.go",
+      "target": "external:.#go%3Atesting",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/ext2_test.go",
+          "span": {
+            "end_column": 29,
+            "end_line": 6,
+            "start_column": 1,
+            "start_line": 6
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:lib/ext2_test.go#lib%2Fext2_test.go",
+      "target": "file:lib/after.go#lib%2Fafter.go",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/ext2_test.go",
+          "span": {
+            "end_column": 29,
+            "end_line": 6,
+            "start_column": 1,
+            "start_line": 6
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:lib/ext2_test.go#lib%2Fext2_test.go",
+      "target": "file:lib/cgo_only.go#lib%2Fcgo_only.go",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/ext2_test.go",
+          "span": {
+            "end_column": 29,
+            "end_line": 6,
+            "start_column": 1,
+            "start_line": 6
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:lib/ext2_test.go#lib%2Fext2_test.go",
+      "target": "file:lib/legacy.go#lib%2Flegacy.go",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/ext2_test.go",
+          "span": {
+            "end_column": 29,
+            "end_line": 6,
+            "start_column": 1,
+            "start_line": 6
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:lib/ext2_test.go#lib%2Fext2_test.go",
+      "target": "file:lib/legacy_noblank.go#lib%2Flegacy_noblank.go",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/ext2_test.go",
+          "span": {
+            "end_column": 29,
+            "end_line": 6,
+            "start_column": 1,
+            "start_line": 6
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:lib/ext2_test.go#lib%2Fext2_test.go",
+      "target": "file:lib/lib.go#lib%2Flib.go",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/ext2_test.go",
+          "span": {
+            "end_column": 29,
+            "end_line": 6,
+            "start_column": 1,
+            "start_line": 6
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:lib/ext2_test.go#lib%2Fext2_test.go",
+      "target": "file:lib/lib_test.go#lib%2Flib_test.go",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/ext2_test.go",
+          "span": {
+            "end_column": 29,
+            "end_line": 6,
+            "start_column": 1,
+            "start_line": 6
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:lib/ext2_test.go#lib%2Fext2_test.go",
+      "target": "file:lib/os_linux_386.go#lib%2Fos_linux_386.go",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/ext2_test.go",
+          "span": {
+            "end_column": 29,
+            "end_line": 6,
+            "start_column": 1,
+            "start_line": 6
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:lib/ext2_test.go#lib%2Fext2_test.go",
+      "target": "file:lib/os_windows.go#lib%2Fos_windows.go",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/ext2_test.go",
+          "span": {
+            "end_column": 29,
+            "end_line": 6,
+            "start_column": 1,
+            "start_line": 6
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:lib/ext2_test.go#lib%2Fext2_test.go",
+      "target": "file:lib/tagged.go#lib%2Ftagged.go",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/ext_test.go",
+          "span": {
+            "end_column": 35,
+            "end_line": 3,
+            "start_column": 7,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:lib/ext_test.go#lib%2Fext_test.go",
+      "target": "file:lib/after.go#lib%2Fafter.go",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/ext_test.go",
+          "span": {
+            "end_column": 35,
+            "end_line": 3,
+            "start_column": 7,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:lib/ext_test.go#lib%2Fext_test.go",
+      "target": "file:lib/cgo_only.go#lib%2Fcgo_only.go",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/ext_test.go",
+          "span": {
+            "end_column": 35,
+            "end_line": 3,
+            "start_column": 7,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:lib/ext_test.go#lib%2Fext_test.go",
+      "target": "file:lib/legacy.go#lib%2Flegacy.go",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/ext_test.go",
+          "span": {
+            "end_column": 35,
+            "end_line": 3,
+            "start_column": 7,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:lib/ext_test.go#lib%2Fext_test.go",
+      "target": "file:lib/legacy_noblank.go#lib%2Flegacy_noblank.go",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/ext_test.go",
+          "span": {
+            "end_column": 35,
+            "end_line": 3,
+            "start_column": 7,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:lib/ext_test.go#lib%2Fext_test.go",
+      "target": "file:lib/lib.go#lib%2Flib.go",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/ext_test.go",
+          "span": {
+            "end_column": 35,
+            "end_line": 3,
+            "start_column": 7,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:lib/ext_test.go#lib%2Fext_test.go",
+      "target": "file:lib/lib_test.go#lib%2Flib_test.go",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/ext_test.go",
+          "span": {
+            "end_column": 35,
+            "end_line": 3,
+            "start_column": 7,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:lib/ext_test.go#lib%2Fext_test.go",
+      "target": "file:lib/os_linux_386.go#lib%2Fos_linux_386.go",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/ext_test.go",
+          "span": {
+            "end_column": 35,
+            "end_line": 3,
+            "start_column": 7,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:lib/ext_test.go#lib%2Fext_test.go",
+      "target": "file:lib/os_windows.go#lib%2Fos_windows.go",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/ext_test.go",
+          "span": {
+            "end_column": 35,
+            "end_line": 3,
+            "start_column": 7,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:lib/ext_test.go#lib%2Fext_test.go",
+      "target": "file:lib/tagged.go#lib%2Ftagged.go",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/lib.go",
+          "span": {
+            "end_column": 10,
+            "end_line": 13,
+            "start_column": 7,
+            "start_line": 13
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:lib/lib.go#lib%2Flib.go",
+      "target": "external:.#go%3AC",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/lib.go",
+          "span": {
+            "end_column": 10,
+            "end_line": 6,
+            "start_column": 1,
+            "start_line": 6
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:lib/lib.go#lib%2Flib.go",
+      "target": "external:.#go%3Aembed",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/lib.go",
+          "span": {
+            "end_column": 6,
+            "end_line": 4,
+            "start_column": 1,
+            "start_line": 4
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:lib/lib.go#lib%2Flib.go",
+      "target": "external:.#go%3Afmt",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/lib.go",
+          "span": {
+            "end_column": 14,
+            "end_line": 7,
+            "start_column": 1,
+            "start_line": 7
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:lib/lib.go#lib%2Flib.go",
+      "target": "external:.#go%3Astrconv",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/lib.go",
+          "span": {
+            "end_column": 12,
+            "end_line": 5,
+            "start_column": 1,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:lib/lib.go#lib%2Flib.go",
+      "target": "external:.#go%3Astrings",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "nocgo/b.go",
+          "span": {
+            "end_column": 10,
+            "end_line": 5,
+            "start_column": 7,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:nocgo/b.go#nocgo%2Fb.go",
+      "target": "external:.#go%3AC",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "prog/x_test.go",
+          "span": {
+            "end_column": 38,
+            "end_line": 3,
+            "start_column": 7,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:prog/x_test.go#prog%2Fx_test.go",
+      "target": "file:prog/main.go#prog%2Fmain.go",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "util/u.go",
+          "span": {
+            "end_column": 19,
+            "end_line": 4,
+            "start_column": 1,
+            "start_line": 4
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:util/u.go#util%2Fu.go",
+      "target": "external:.#go%3Aexample.test%2Fext",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "util/u.go",
+          "span": {
+            "end_column": 32,
+            "end_line": 10,
+            "start_column": 1,
+            "start_line": 10
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:util/u.go#util%2Fu.go",
+      "target": "external:.#go%3Aexample.test%2Fstructure%2Fnested",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "util/u.go",
+          "span": {
+            "end_column": 33,
+            "end_line": 5,
+            "start_column": 1,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:util/u.go#util%2Fu.go",
+      "target": "file:_hidden/h.go#_hidden%2Fh.go",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "util/u.go",
+          "span": {
+            "end_column": 29,
+            "end_line": 7,
+            "start_column": 1,
+            "start_line": 7
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:util/u.go#util%2Fu.go",
+      "target": "file:lib/after.go#lib%2Fafter.go",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "util/u.go",
+          "span": {
+            "end_column": 29,
+            "end_line": 7,
+            "start_column": 1,
+            "start_line": 7
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:util/u.go#util%2Fu.go",
+      "target": "file:lib/cgo_only.go#lib%2Fcgo_only.go",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "util/u.go",
+          "span": {
+            "end_column": 29,
+            "end_line": 7,
+            "start_column": 1,
+            "start_line": 7
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:util/u.go#util%2Fu.go",
+      "target": "file:lib/legacy.go#lib%2Flegacy.go",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "util/u.go",
+          "span": {
+            "end_column": 29,
+            "end_line": 7,
+            "start_column": 1,
+            "start_line": 7
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:util/u.go#util%2Fu.go",
+      "target": "file:lib/legacy_noblank.go#lib%2Flegacy_noblank.go",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "util/u.go",
+          "span": {
+            "end_column": 29,
+            "end_line": 7,
+            "start_column": 1,
+            "start_line": 7
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:util/u.go#util%2Fu.go",
+      "target": "file:lib/lib.go#lib%2Flib.go",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "util/u.go",
+          "span": {
+            "end_column": 29,
+            "end_line": 7,
+            "start_column": 1,
+            "start_line": 7
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:util/u.go#util%2Fu.go",
+      "target": "file:lib/os_linux_386.go#lib%2Fos_linux_386.go",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "util/u.go",
+          "span": {
+            "end_column": 29,
+            "end_line": 7,
+            "start_column": 1,
+            "start_line": 7
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:util/u.go#util%2Fu.go",
+      "target": "file:lib/os_windows.go#lib%2Fos_windows.go",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "util/u.go",
+          "span": {
+            "end_column": 29,
+            "end_line": 7,
+            "start_column": 1,
+            "start_line": 7
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:util/u.go#util%2Fu.go",
+      "target": "file:lib/tagged.go#lib%2Ftagged.go",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "util/u.go",
+          "span": {
+            "end_column": 38,
+            "end_line": 11,
+            "start_column": 1,
+            "start_line": 11
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:util/u.go#util%2Fu.go",
+      "target": "file:testdata/pkg/p.go#testdata%2Fpkg%2Fp.go",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "util/u_test.go",
+          "span": {
+            "end_column": 29,
+            "end_line": 4,
+            "start_column": 1,
+            "start_line": 4
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:util/u_test.go#util%2Fu_test.go",
+      "target": "file:lib/after.go#lib%2Fafter.go",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "util/u_test.go",
+          "span": {
+            "end_column": 29,
+            "end_line": 4,
+            "start_column": 1,
+            "start_line": 4
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:util/u_test.go#util%2Fu_test.go",
+      "target": "file:lib/cgo_only.go#lib%2Fcgo_only.go",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "util/u_test.go",
+          "span": {
+            "end_column": 29,
+            "end_line": 4,
+            "start_column": 1,
+            "start_line": 4
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:util/u_test.go#util%2Fu_test.go",
+      "target": "file:lib/legacy.go#lib%2Flegacy.go",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "util/u_test.go",
+          "span": {
+            "end_column": 29,
+            "end_line": 4,
+            "start_column": 1,
+            "start_line": 4
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:util/u_test.go#util%2Fu_test.go",
+      "target": "file:lib/legacy_noblank.go#lib%2Flegacy_noblank.go",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "util/u_test.go",
+          "span": {
+            "end_column": 29,
+            "end_line": 4,
+            "start_column": 1,
+            "start_line": 4
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:util/u_test.go#util%2Fu_test.go",
+      "target": "file:lib/lib.go#lib%2Flib.go",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "util/u_test.go",
+          "span": {
+            "end_column": 29,
+            "end_line": 4,
+            "start_column": 1,
+            "start_line": 4
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:util/u_test.go#util%2Fu_test.go",
+      "target": "file:lib/os_linux_386.go#lib%2Fos_linux_386.go",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "util/u_test.go",
+          "span": {
+            "end_column": 29,
+            "end_line": 4,
+            "start_column": 1,
+            "start_line": 4
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:util/u_test.go#util%2Fu_test.go",
+      "target": "file:lib/os_windows.go#lib%2Fos_windows.go",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "util/u_test.go",
+          "span": {
+            "end_column": 29,
+            "end_line": 4,
+            "start_column": 1,
+            "start_line": 4
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:util/u_test.go#util%2Fu_test.go",
+      "target": "file:lib/tagged.go#lib%2Ftagged.go",
+      "type": "edge"
+    }
+  ],
+  "files": null,
+  "nodes": [
+    {
+      "attributes": {
+        "exported": true
+      },
+      "content_hash": "sha256:b64205283a2f2118bd1911811e309d86530523eb37713db1d5d54c00c2b3f1b1",
+      "file": "lib/lib.go",
+      "identity": "constant:lib/lib.go#X",
+      "kind": "constant",
+      "level": 4,
+      "name": "X",
+      "qualified_name": "X",
+      "span": {
+        "end_column": 9,
+        "end_line": 47,
+        "start_column": 1,
+        "start_line": 47
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "exported": true
+      },
+      "content_hash": "sha256:18f5384d58bcb1bba0bcd9e6a6781d1a6ac2cc280c330ecbab6cb7931b721552",
+      "file": "lib/lib.go",
+      "identity": "constant:lib/lib.go#Y",
+      "kind": "constant",
+      "level": 4,
+      "name": "Y",
+      "qualified_name": "Y",
+      "span": {
+        "end_column": 2,
+        "end_line": 48,
+        "start_column": 1,
+        "start_line": 48
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "ecosystem": "go",
+        "name": "C"
+      },
+      "content_hash": "sha256:468dc96eabcf6ebcc674a600d3a2959a7a184a748e34500f2befd691239c502d",
+      "file": ".",
+      "identity": "external:.#go%3AC",
+      "kind": "external",
+      "level": 1,
+      "name": "C",
+      "qualified_name": "go:C",
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "ecosystem": "go",
+        "name": "embed"
+      },
+      "content_hash": "sha256:e808c574b2ba3e1a1f54f284ce68b5adeb1df50532c38cfc452dc20c538470f3",
+      "file": ".",
+      "identity": "external:.#go%3Aembed",
+      "kind": "external",
+      "level": 1,
+      "name": "embed",
+      "qualified_name": "go:embed",
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "ecosystem": "go",
+        "name": "example.test/block/sub"
+      },
+      "content_hash": "sha256:cfc6af4f844c58e9484202566e5861b9c6581ba05ccffaebffbf35c0e3fae0b7",
+      "file": ".",
+      "identity": "external:.#go%3Aexample.test%2Fblock%2Fsub",
+      "kind": "external",
+      "level": 1,
+      "name": "example.test/block/sub",
+      "qualified_name": "go:example.test/block/sub",
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "ecosystem": "go",
+        "name": "example.test/ext"
+      },
+      "content_hash": "sha256:003b5e278956f47266282dfa1b0e0b6e9d78c6319ae570aac6fb62a8ec7d711e",
+      "file": ".",
+      "identity": "external:.#go%3Aexample.test%2Fext",
+      "kind": "external",
+      "level": 1,
+      "name": "example.test/ext",
+      "qualified_name": "go:example.test/ext",
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "ecosystem": "go",
+        "name": "example.test/structure/lib"
+      },
+      "content_hash": "sha256:fb3c38ea568805aefcfeb8f1dd483ea3e7622e00e9ebf43d8ea395eff1e5f026",
+      "file": ".",
+      "identity": "external:.#go%3Aexample.test%2Fstructure%2Flib",
+      "kind": "external",
+      "level": 1,
+      "name": "example.test/structure/lib",
+      "qualified_name": "go:example.test/structure/lib",
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "ecosystem": "go",
+        "name": "example.test/structure/nested"
+      },
+      "content_hash": "sha256:aa54c7609085423fcf963cd7f0f42b54b517d50f94490f4b185f11b3e13119ad",
+      "file": ".",
+      "identity": "external:.#go%3Aexample.test%2Fstructure%2Fnested",
+      "kind": "external",
+      "level": 1,
+      "name": "example.test/structure/nested",
+      "qualified_name": "go:example.test/structure/nested",
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "ecosystem": "go",
+        "name": "fmt"
+      },
+      "content_hash": "sha256:c50dec6aa1b78e9b480c416a2d9eab7dd9ab6ddeb599627052c4cbab8b45e294",
+      "file": ".",
+      "identity": "external:.#go%3Afmt",
+      "kind": "external",
+      "level": 1,
+      "name": "fmt",
+      "qualified_name": "go:fmt",
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "ecosystem": "go",
+        "name": "strconv"
+      },
+      "content_hash": "sha256:6bbb03018a6b907547a6cad36d4fc8b8d88e5336eabb0f6545fe595d7ea98496",
+      "file": ".",
+      "identity": "external:.#go%3Astrconv",
+      "kind": "external",
+      "level": 1,
+      "name": "strconv",
+      "qualified_name": "go:strconv",
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "ecosystem": "go",
+        "name": "strings"
+      },
+      "content_hash": "sha256:b1e8f24e161e89f81f377a94bd1fe9e012d6251b23fb7dfed87fa3a68bc17c09",
+      "file": ".",
+      "identity": "external:.#go%3Astrings",
+      "kind": "external",
+      "level": 1,
+      "name": "strings",
+      "qualified_name": "go:strings",
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "ecosystem": "go",
+        "name": "testing"
+      },
+      "content_hash": "sha256:b43885cce63edf6858ddd3682136cd780e1d13fc703b84054aa5fe547b203e31",
+      "file": ".",
+      "identity": "external:.#go%3Atesting",
+      "kind": "external",
+      "level": 1,
+      "name": "testing",
+      "qualified_name": "go:testing",
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:427c149082daec9307a7d60d0bdf9b1ff6caf6677b3a8c9930effde55cc6763d",
+      "file": "README.md",
+      "identity": "file:README.md#README.md",
+      "kind": "file",
+      "level": 3,
+      "name": "README.md",
+      "qualified_name": "README.md",
+      "span": {
+        "end_column": 0,
+        "end_line": 78,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:ceca38dfee4c7e5a7aa0ea4016479bf562327c331dada3054ad7f1fbd97a6445",
+      "file": "_hidden/h.go",
+      "identity": "file:_hidden/h.go#_hidden%2Fh.go",
+      "kind": "file",
+      "level": 3,
+      "name": "h.go",
+      "qualified_name": "_hidden/h.go",
+      "span": {
+        "end_column": 0,
+        "end_line": 4,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:0374de084155efd76e19d683b3c5ddcaa005cdb6f2770e9811cdf6d5c8443509",
+      "file": "badbuild/x.go",
+      "identity": "file:badbuild/x.go#badbuild%2Fx.go",
+      "kind": "file",
+      "level": 3,
+      "name": "x.go",
+      "qualified_name": "badbuild/x.go",
+      "span": {
+        "end_column": 0,
+        "end_line": 6,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:9acf3ee4162aabf1cafcc0cc4209622be7d737fb26cba26f9b9ae4fba81def7a",
+      "file": "badbuild/y.go",
+      "identity": "file:badbuild/y.go#badbuild%2Fy.go",
+      "kind": "file",
+      "level": 3,
+      "name": "y.go",
+      "qualified_name": "badbuild/y.go",
+      "span": {
+        "end_column": 0,
+        "end_line": 4,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:98e34b6bdc0031b8e2b11698b2653dad0e4062cecb1ba7a38e79aa02b19148a1",
+      "file": "badtest/a.go",
+      "identity": "file:badtest/a.go#badtest%2Fa.go",
+      "kind": "file",
+      "level": 3,
+      "name": "a.go",
+      "qualified_name": "badtest/a.go",
+      "span": {
+        "end_column": 0,
+        "end_line": 4,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:a8dc1654ea9b95fc9bf25e0b1c8f67f64c0d1d5107df07769be5684bd8db09d4",
+      "file": "badtest/z_test.go",
+      "identity": "file:badtest/z_test.go#badtest%2Fz_test.go",
+      "kind": "file",
+      "level": 3,
+      "name": "z_test.go",
+      "qualified_name": "badtest/z_test.go",
+      "span": {
+        "end_column": 0,
+        "end_line": 2,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:2541b8a40f543806a38fcadf630f95ee9ef5921e067425136e6b093bfc205649",
+      "file": "bind/a_gen.go",
+      "identity": "file:bind/a_gen.go#bind%2Fa_gen.go",
+      "kind": "file",
+      "level": 3,
+      "name": "a_gen.go",
+      "qualified_name": "bind/a_gen.go",
+      "span": {
+        "end_column": 0,
+        "end_line": 8,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:98c0bcf05bbe1bdfae768d67a5ecc852f73632c230de86a830a7b1f0e682d344",
+      "file": "bind/lib.go",
+      "identity": "file:bind/lib.go#bind%2Flib.go",
+      "kind": "file",
+      "level": 3,
+      "name": "lib.go",
+      "qualified_name": "bind/lib.go",
+      "span": {
+        "end_column": 0,
+        "end_line": 4,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:909b34a846f7f97d3bda1216ce9aaf59e98d45d5a10ae157420e3bd6fe1098b8",
+      "file": "binduse/u.go",
+      "identity": "file:binduse/u.go#binduse%2Fu.go",
+      "kind": "file",
+      "level": 3,
+      "name": "u.go",
+      "qualified_name": "binduse/u.go",
+      "span": {
+        "end_column": 0,
+        "end_line": 12,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:97964d0f476c2be3824dae0e5f0098e0a528a88b2859d145da213b7751bd774d",
+      "file": "blockmod/b.go",
+      "identity": "file:blockmod/b.go#blockmod%2Fb.go",
+      "kind": "file",
+      "level": 3,
+      "name": "b.go",
+      "qualified_name": "blockmod/b.go",
+      "span": {
+        "end_column": 0,
+        "end_line": 7,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:8f64123def7c3075584aa91ad5ab965fe296e78fa56ff4426b41e4e3b8052d76",
+      "file": "blockmod/go.mod",
+      "identity": "file:blockmod/go.mod#blockmod%2Fgo.mod",
+      "kind": "file",
+      "level": 3,
+      "name": "go.mod",
+      "qualified_name": "blockmod/go.mod",
+      "span": {
+        "end_column": 0,
+        "end_line": 6,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:0f8a30f26053fb832032c5006ccc5646189b16e5f881e36170a813968226becd",
+      "file": "blockmod/sub/s.go",
+      "identity": "file:blockmod/sub/s.go#blockmod%2Fsub%2Fs.go",
+      "kind": "file",
+      "level": 3,
+      "name": "s.go",
+      "qualified_name": "blockmod/sub/s.go",
+      "span": {
+        "end_column": 0,
+        "end_line": 2,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:99ba590798821a624a614cc229ab85e42e3771d6af3f21bb44f6bce51634d97c",
+      "file": "cgotest/a.go",
+      "identity": "file:cgotest/a.go#cgotest%2Fa.go",
+      "kind": "file",
+      "level": 3,
+      "name": "a.go",
+      "qualified_name": "cgotest/a.go",
+      "span": {
+        "end_column": 0,
+        "end_line": 4,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:53a9458ba6bfa9e29bb8a64b12c21ecfed6b3929a94a93e96939da4d830167e1",
+      "file": "cgotest/c_test.go",
+      "identity": "file:cgotest/c_test.go#cgotest%2Fc_test.go",
+      "kind": "file",
+      "level": 3,
+      "name": "c_test.go",
+      "qualified_name": "cgotest/c_test.go",
+      "span": {
+        "end_column": 0,
+        "end_line": 4,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:a6e9876a464482ea226e5ce31811aedb346129b4aa4006e4492bd61b4aa6e197",
+      "file": "cgotest/x_test.go",
+      "identity": "file:cgotest/x_test.go#cgotest%2Fx_test.go",
+      "kind": "file",
+      "level": 3,
+      "name": "x_test.go",
+      "qualified_name": "cgotest/x_test.go",
+      "span": {
+        "end_column": 0,
+        "end_line": 4,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:75e9077e0599eb480b0138051b163ed369476c55419995ef5fd0cb1f94ccfd7d",
+      "file": "docmix/doc.go",
+      "identity": "file:docmix/doc.go#docmix%2Fdoc.go",
+      "kind": "file",
+      "level": 3,
+      "name": "doc.go",
+      "qualified_name": "docmix/doc.go",
+      "span": {
+        "end_column": 0,
+        "end_line": 2,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:74db6350dac42ab29892a25e6c46d92280e13b9e9f52080ef7fc913dd3dec890",
+      "file": "docmix/m.go",
+      "identity": "file:docmix/m.go#docmix%2Fm.go",
+      "kind": "file",
+      "level": 3,
+      "name": "m.go",
+      "qualified_name": "docmix/m.go",
+      "span": {
+        "end_column": 0,
+        "end_line": 4,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:c29d1158a9d81f57cad5372bfcc42ecd8c70f68292f72a1a35b90fe276cc3ed2",
+      "file": "doconly/doc.go",
+      "identity": "file:doconly/doc.go#doconly%2Fdoc.go",
+      "kind": "file",
+      "level": 3,
+      "name": "doc.go",
+      "qualified_name": "doconly/doc.go",
+      "span": {
+        "end_column": 0,
+        "end_line": 4,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:2efb7e16f5d03bbaea1464f42ad8a5c93bfafd51f05066fc690c511ab672c54a",
+      "file": "ext/ext.go",
+      "identity": "file:ext/ext.go#ext%2Fext.go",
+      "kind": "file",
+      "level": 3,
+      "name": "ext.go",
+      "qualified_name": "ext/ext.go",
+      "span": {
+        "end_column": 0,
+        "end_line": 4,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:a24886f1d5512aae47c697150eb952287369a4f274c7702ebc6d9ab805fe4e98",
+      "file": "ext/go.mod",
+      "identity": "file:ext/go.mod#ext%2Fgo.mod",
+      "kind": "file",
+      "level": 3,
+      "name": "go.mod",
+      "qualified_name": "ext/go.mod",
+      "span": {
+        "end_column": 0,
+        "end_line": 4,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:8f180f183fc185621cb87f2168be5641b4ed51071a6ed2a8240d8e77e32457d5",
+      "file": "gen/broken1.go",
+      "identity": "file:gen/broken1.go#gen%2Fbroken1.go",
+      "kind": "file",
+      "level": 3,
+      "name": "broken1.go",
+      "qualified_name": "gen/broken1.go",
+      "span": {
+        "end_column": 0,
+        "end_line": 12,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:de84426a843f3fd61a83d11b6ec8aafbb5b31962bff360e43b0d087d2c2c42ad",
+      "file": "gen/broken2.go",
+      "identity": "file:gen/broken2.go#gen%2Fbroken2.go",
+      "kind": "file",
+      "level": 3,
+      "name": "broken2.go",
+      "qualified_name": "gen/broken2.go",
+      "span": {
+        "end_column": 0,
+        "end_line": 10,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:fe4d924e6b17f0df82e9464f076a86cdb1bbd8de996fdbc560d2546c2199436a",
+      "file": "gen/dup.go",
+      "identity": "file:gen/dup.go#gen%2Fdup.go",
+      "kind": "file",
+      "level": 3,
+      "name": "dup.go",
+      "qualified_name": "gen/dup.go",
+      "span": {
+        "end_column": 0,
+        "end_line": 9,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:a4a1f8bd0cfe9b509920c223128113cc67e9d7b752186b83ba35725aceae4682",
+      "file": "gen/recv.go",
+      "identity": "file:gen/recv.go#gen%2Frecv.go",
+      "kind": "file",
+      "level": 3,
+      "name": "recv.go",
+      "qualified_name": "gen/recv.go",
+      "span": {
+        "end_column": 0,
+        "end_line": 11,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:121498d42845c898b45babe8ee601f54107078a631175342a14d258413215ec2",
+      "file": "go.mod",
+      "identity": "file:go.mod#go.mod",
+      "kind": "file",
+      "level": 3,
+      "name": "go.mod",
+      "qualified_name": "go.mod",
+      "span": {
+        "end_column": 0,
+        "end_line": 8,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:ca5c5c3dc34d43b277b81d58813d291cbb9104d3cbd030194b6bf17dca0182c2",
+      "file": "imports/i.go",
+      "identity": "file:imports/i.go#imports%2Fi.go",
+      "kind": "file",
+      "level": 3,
+      "name": "i.go",
+      "qualified_name": "imports/i.go",
+      "span": {
+        "end_column": 0,
+        "end_line": 13,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:4fdb25a38447e6aa63d9807b114150d96aadb43fb0d3e0861c3be892303136a5",
+      "file": "lib/_skip.go",
+      "identity": "file:lib/_skip.go#lib%2F_skip.go",
+      "kind": "file",
+      "level": 3,
+      "name": "_skip.go",
+      "qualified_name": "lib/_skip.go",
+      "span": {
+        "end_column": 0,
+        "end_line": 4,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:c7e71efc33fa1378d22eac0d7c89c3c661e8e92175fa4669a2a94ad90749a5c1",
+      "file": "lib/after.go",
+      "identity": "file:lib/after.go#lib%2Fafter.go",
+      "kind": "file",
+      "level": 3,
+      "name": "after.go",
+      "qualified_name": "lib/after.go",
+      "span": {
+        "end_column": 0,
+        "end_line": 6,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:2d66978cafa9360f54c0180ab5ed5ffc1e5bc40d1b5b0b90a072dc5f94d848e6",
+      "file": "lib/bom_ignore.go",
+      "identity": "file:lib/bom_ignore.go#lib%2Fbom_ignore.go",
+      "kind": "file",
+      "level": 3,
+      "name": "bom_ignore.go",
+      "qualified_name": "lib/bom_ignore.go",
+      "span": {
+        "end_column": 0,
+        "end_line": 6,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:e289eca2d617184db4e7ec1ebfa860065e2ef160a88680755e8f83e9741c74b5",
+      "file": "lib/cgo_only.go",
+      "identity": "file:lib/cgo_only.go#lib%2Fcgo_only.go",
+      "kind": "file",
+      "level": 3,
+      "name": "cgo_only.go",
+      "qualified_name": "lib/cgo_only.go",
+      "span": {
+        "end_column": 0,
+        "end_line": 6,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:1bf5660066dbe064d5ee7efd41d90fdbd615a97a365446297873465958b67c83",
+      "file": "lib/crlf_ignore.go",
+      "identity": "file:lib/crlf_ignore.go#lib%2Fcrlf_ignore.go",
+      "kind": "file",
+      "level": 3,
+      "name": "crlf_ignore.go",
+      "qualified_name": "lib/crlf_ignore.go",
+      "span": {
+        "end_column": 0,
+        "end_line": 6,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:5e4dd0b793d4a947454001b44c773048546e66dbb168c95ced09d8f0d071045b",
+      "file": "lib/ext2_test.go",
+      "identity": "file:lib/ext2_test.go#lib%2Fext2_test.go",
+      "kind": "file",
+      "level": 3,
+      "name": "ext2_test.go",
+      "qualified_name": "lib/ext2_test.go",
+      "span": {
+        "end_column": 0,
+        "end_line": 10,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:7ab035a437e8596c63ce03c8b980f17242efd40a0043b92acc15495b09015743",
+      "file": "lib/ext_test.go",
+      "identity": "file:lib/ext_test.go#lib%2Fext_test.go",
+      "kind": "file",
+      "level": 3,
+      "name": "ext_test.go",
+      "qualified_name": "lib/ext_test.go",
+      "span": {
+        "end_column": 0,
+        "end_line": 6,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:5355ecc9f412d42e66410024c9d33dba473c5e3714f21182721a9549d1e3b66c",
+      "file": "lib/gccgo.go",
+      "identity": "file:lib/gccgo.go#lib%2Fgccgo.go",
+      "kind": "file",
+      "level": 3,
+      "name": "gccgo.go",
+      "qualified_name": "lib/gccgo.go",
+      "span": {
+        "end_column": 0,
+        "end_line": 6,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:689f22758d8fe17f4fc6441de45ac3201b3360b97b9f036a6ec7db4ac05b42d6",
+      "file": "lib/gen.go",
+      "identity": "file:lib/gen.go#lib%2Fgen.go",
+      "kind": "file",
+      "level": 3,
+      "name": "gen.go",
+      "qualified_name": "lib/gen.go",
+      "span": {
+        "end_column": 0,
+        "end_line": 6,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:ee8dee644bbddad50ae0af0e84e61644c7f319716dcf2f5403c42650f39b9221",
+      "file": "lib/late.go",
+      "identity": "file:lib/late.go#lib%2Flate.go",
+      "kind": "file",
+      "level": 3,
+      "name": "late.go",
+      "qualified_name": "lib/late.go",
+      "span": {
+        "end_column": 0,
+        "end_line": 7,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:dfc4a538940e34b3b3516f0cb9fb87682ec3d5502b2b5fb609da7b481e3ed8a6",
+      "file": "lib/legacy.go",
+      "identity": "file:lib/legacy.go#lib%2Flegacy.go",
+      "kind": "file",
+      "level": 3,
+      "name": "legacy.go",
+      "qualified_name": "lib/legacy.go",
+      "span": {
+        "end_column": 0,
+        "end_line": 6,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:f1e9187931478742d485e9735bb5c75ffdade24472a5033ab26bbbf6190dd9d2",
+      "file": "lib/legacy_noblank.go",
+      "identity": "file:lib/legacy_noblank.go#lib%2Flegacy_noblank.go",
+      "kind": "file",
+      "level": 3,
+      "name": "legacy_noblank.go",
+      "qualified_name": "lib/legacy_noblank.go",
+      "span": {
+        "end_column": 0,
+        "end_line": 5,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:686ba8e67a976954301f61cb2db77403c1317e08141ac2d0e19e4639f24daeec",
+      "file": "lib/legacy_off.go",
+      "identity": "file:lib/legacy_off.go#lib%2Flegacy_off.go",
+      "kind": "file",
+      "level": 3,
+      "name": "legacy_off.go",
+      "qualified_name": "lib/legacy_off.go",
+      "span": {
+        "end_column": 0,
+        "end_line": 6,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 2,
+        "unresolved_calls_unknown": 1,
+        "unresolved_unknown_call_sites": [
+          {
+            "caller": "function:lib/lib.go#Local",
+            "name": "ToUpper",
+            "span": {
+              "end_column": 17,
+              "end_line": 57,
+              "start_column": 5,
+              "start_line": 57
+            }
+          }
+        ]
+      },
+      "content_hash": "sha256:c925ad4080b1c1ed5779be0c1508b46fe0abab10c0a6ce6200e184192a3239c4",
+      "file": "lib/lib.go",
+      "identity": "file:lib/lib.go#lib%2Flib.go",
+      "kind": "file",
+      "level": 3,
+      "name": "lib.go",
+      "qualified_name": "lib/lib.go",
+      "span": {
+        "end_column": 0,
+        "end_line": 63,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:327ee76afe3a8a2925006c594ed11eb88f69557d766c2998e5ca33419540fd78",
+      "file": "lib/lib_test.go",
+      "identity": "file:lib/lib_test.go#lib%2Flib_test.go",
+      "kind": "file",
+      "level": 3,
+      "name": "lib_test.go",
+      "qualified_name": "lib/lib_test.go",
+      "span": {
+        "end_column": 0,
+        "end_line": 4,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:b80a7c41a50a5d70ad4c03783b633640850ee7ffcb23c4416820467f322a1b1c",
+      "file": "lib/never.go",
+      "identity": "file:lib/never.go#lib%2Fnever.go",
+      "kind": "file",
+      "level": 3,
+      "name": "never.go",
+      "qualified_name": "lib/never.go",
+      "span": {
+        "end_column": 0,
+        "end_line": 6,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:fbcb9792820b62f244a959e1e2dd49f8f0d259bf4ef6757f5ccf582d859ee682",
+      "file": "lib/os_linux_386.go",
+      "identity": "file:lib/os_linux_386.go#lib%2Fos_linux_386.go",
+      "kind": "file",
+      "level": 3,
+      "name": "os_linux_386.go",
+      "qualified_name": "lib/os_linux_386.go",
+      "span": {
+        "end_column": 0,
+        "end_line": 4,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:bbf9c058e6e79684a696895961d703e2d71de5d32acaf02d7815663d5b61f2b1",
+      "file": "lib/os_plan9_wasm.go",
+      "identity": "file:lib/os_plan9_wasm.go#lib%2Fos_plan9_wasm.go",
+      "kind": "file",
+      "level": 3,
+      "name": "os_plan9_wasm.go",
+      "qualified_name": "lib/os_plan9_wasm.go",
+      "span": {
+        "end_column": 0,
+        "end_line": 4,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:8502f5d44dea4938b618aa9a36a30a6972976709c22487c94c8608aaefa0e337",
+      "file": "lib/os_windows.go",
+      "identity": "file:lib/os_windows.go#lib%2Fos_windows.go",
+      "kind": "file",
+      "level": 3,
+      "name": "os_windows.go",
+      "qualified_name": "lib/os_windows.go",
+      "span": {
+        "end_column": 0,
+        "end_line": 4,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:7773283c7afb461fc30e4fb0069709d4e4ab13c8837938a3c6ae9d49ee59c8e2",
+      "file": "lib/tagged.go",
+      "identity": "file:lib/tagged.go#lib%2Ftagged.go",
+      "kind": "file",
+      "level": 3,
+      "name": "tagged.go",
+      "qualified_name": "lib/tagged.go",
+      "span": {
+        "end_column": 0,
+        "end_line": 6,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:0180c01dde464919d19504092775be0fe138344cc8943d932c266ccbf8988433",
+      "file": "lonecr/a.go",
+      "identity": "file:lonecr/a.go#lonecr%2Fa.go",
+      "kind": "file",
+      "level": 3,
+      "name": "a.go",
+      "qualified_name": "lonecr/a.go",
+      "span": {
+        "end_column": 0,
+        "end_line": 4,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:b63eb5ba8c3b6cbf2076d38ed380b8a95db9a0b5a1ae32796b20cc28c0bb081b",
+      "file": "lonecr/hdr.go",
+      "identity": "file:lonecr/hdr.go#lonecr%2Fhdr.go",
+      "kind": "file",
+      "level": 3,
+      "name": "hdr.go",
+      "qualified_name": "lonecr/hdr.go",
+      "span": {
+        "end_column": 0,
+        "end_line": 5,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:033828a099fa77ca37801db6adfe3a9ad5aa78acf2294a248accbe5617b8fb8c",
+      "file": "malformed/m.go",
+      "identity": "file:malformed/m.go#malformed%2Fm.go",
+      "kind": "file",
+      "level": 3,
+      "name": "m.go",
+      "qualified_name": "malformed/m.go",
+      "span": {
+        "end_column": 0,
+        "end_line": 10,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:3ef3565d82db5e008e76d6fefcb29087ab7c21b390b430ef88dac992c3184da4",
+      "file": "multi/a.go",
+      "identity": "file:multi/a.go#multi%2Fa.go",
+      "kind": "file",
+      "level": 3,
+      "name": "a.go",
+      "qualified_name": "multi/a.go",
+      "span": {
+        "end_column": 0,
+        "end_line": 4,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:46ae0056a30e451218b0fa9f58ba519aac682c614db119b10efefe6bdc7f4621",
+      "file": "multi/b.go",
+      "identity": "file:multi/b.go#multi%2Fb.go",
+      "kind": "file",
+      "level": 3,
+      "name": "b.go",
+      "qualified_name": "multi/b.go",
+      "span": {
+        "end_column": 0,
+        "end_line": 4,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:182f80d7397c73008eeb2ca5ee59aa6a8e6c3553baf7fa3a26b72798cfe2736b",
+      "file": "nested/go.mod",
+      "identity": "file:nested/go.mod#nested%2Fgo.mod",
+      "kind": "file",
+      "level": 3,
+      "name": "go.mod",
+      "qualified_name": "nested/go.mod",
+      "span": {
+        "end_column": 0,
+        "end_line": 4,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:c94b38da540d06a4ce3478f5ff0b6bdd01baabb49f9442f746c2d1a21104a763",
+      "file": "nested/n.go",
+      "identity": "file:nested/n.go#nested%2Fn.go",
+      "kind": "file",
+      "level": 3,
+      "name": "n.go",
+      "qualified_name": "nested/n.go",
+      "span": {
+        "end_column": 0,
+        "end_line": 4,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:f05d90407c9061b55aa1457cb9428d3455938beea95403e14db681dfe5a44b77",
+      "file": "nocgo/a.go",
+      "identity": "file:nocgo/a.go#nocgo%2Fa.go",
+      "kind": "file",
+      "level": 3,
+      "name": "a.go",
+      "qualified_name": "nocgo/a.go",
+      "span": {
+        "end_column": 0,
+        "end_line": 4,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:82d163d3190920fe1cc78493ef6131692027fc8390c4f5edf544b8bc6c0099fa",
+      "file": "nocgo/b.go",
+      "identity": "file:nocgo/b.go#nocgo%2Fb.go",
+      "kind": "file",
+      "level": 3,
+      "name": "b.go",
+      "qualified_name": "nocgo/b.go",
+      "span": {
+        "end_column": 0,
+        "end_line": 8,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:55a60bb97151b2b4b680462447ce60ec34511b14fa10d77440c97b9777101566",
+      "file": "prog/main.go",
+      "identity": "file:prog/main.go#prog%2Fmain.go",
+      "kind": "file",
+      "level": 3,
+      "name": "main.go",
+      "qualified_name": "prog/main.go",
+      "span": {
+        "end_column": 0,
+        "end_line": 4,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:48d0b7bac71171cf7da0f9d3e6589782eb4b08949e30b6f35cc6718fe76f4ae3",
+      "file": "prog/x_test.go",
+      "identity": "file:prog/x_test.go#prog%2Fx_test.go",
+      "kind": "file",
+      "level": 3,
+      "name": "x_test.go",
+      "qualified_name": "prog/x_test.go",
+      "span": {
+        "end_column": 0,
+        "end_line": 4,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:d59d504e7844ba556782386bc206e01a2bd60d2278729ef066fcae0bcd55b2c3",
+      "file": "selfimp/s.go",
+      "identity": "file:selfimp/s.go#selfimp%2Fs.go",
+      "kind": "file",
+      "level": 3,
+      "name": "s.go",
+      "qualified_name": "selfimp/s.go",
+      "span": {
+        "end_column": 0,
+        "end_line": 8,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:3ee2a03639d365d7cc5731c1d33b907a660b9e4b7aaf4f2d6b286ca34f12c7f2",
+      "file": "testdata/pkg/p.go",
+      "identity": "file:testdata/pkg/p.go#testdata%2Fpkg%2Fp.go",
+      "kind": "file",
+      "level": 3,
+      "name": "p.go",
+      "qualified_name": "testdata/pkg/p.go",
+      "span": {
+        "end_column": 0,
+        "end_line": 4,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:5d532e48a9295faad0ca2fb2896daa14df38ff179da8fdd91a6d5085cb234c2e",
+      "file": "testonly/only_test.go",
+      "identity": "file:testonly/only_test.go#testonly%2Fonly_test.go",
+      "kind": "file",
+      "level": 3,
+      "name": "only_test.go",
+      "qualified_name": "testonly/only_test.go",
+      "span": {
+        "end_column": 0,
+        "end_line": 4,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:e22da0abd1cfe5afdee642b23bd68961ea076d431691153083179e5e1f8ba8a0",
+      "file": "twobuild/z.go",
+      "identity": "file:twobuild/z.go#twobuild%2Fz.go",
+      "kind": "file",
+      "level": 3,
+      "name": "z.go",
+      "qualified_name": "twobuild/z.go",
+      "span": {
+        "end_column": 0,
+        "end_line": 7,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:6998487c1c48b9afef22a39e26147978cc0b1580ead4e45a08798709e703015d",
+      "file": "util/bom.go",
+      "identity": "file:util/bom.go#util%2Fbom.go",
+      "kind": "file",
+      "level": 3,
+      "name": "bom.go",
+      "qualified_name": "util/bom.go",
+      "span": {
+        "end_column": 0,
+        "end_line": 4,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:a0a67a58c93c1897917f27ef76f8ed48775ac24f3b09a25e89305dfd7132b4cb",
+      "file": "util/cr.go",
+      "identity": "file:util/cr.go#util%2Fcr.go",
+      "kind": "file",
+      "level": 3,
+      "name": "cr.go",
+      "qualified_name": "util/cr.go",
+      "span": {
+        "end_column": 0,
+        "end_line": 6,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:026f907cc1a47b5307a7e55d5c4aceca098e4b30351b304806c25800ea47ae48",
+      "file": "util/crlf.go",
+      "identity": "file:util/crlf.go#util%2Fcrlf.go",
+      "kind": "file",
+      "level": 3,
+      "name": "crlf.go",
+      "qualified_name": "util/crlf.go",
+      "span": {
+        "end_column": 0,
+        "end_line": 10,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:46578a8fddbc4729e727379351740cb39186b3857419077d53a2ad81d36401ba",
+      "file": "util/hidden.go",
+      "identity": "file:util/hidden.go#util%2Fhidden.go",
+      "kind": "file",
+      "level": 3,
+      "name": "hidden.go",
+      "qualified_name": "util/hidden.go",
+      "span": {
+        "end_column": 0,
+        "end_line": 7,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:9a0784e661e270deef1f72255ff825fee86d74ae75a152e0b08c5c103cec9f36",
+      "file": "util/lined.go",
+      "identity": "file:util/lined.go#util%2Flined.go",
+      "kind": "file",
+      "level": 3,
+      "name": "lined.go",
+      "qualified_name": "util/lined.go",
+      "span": {
+        "end_column": 0,
+        "end_line": 6,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:a6ba56587820d22ad0d3996b7ebca727f6c3cc2a03af6f2d8a6384ffdc6bcc0c",
+      "file": "util/u.go",
+      "identity": "file:util/u.go#util%2Fu.go",
+      "kind": "file",
+      "level": 3,
+      "name": "u.go",
+      "qualified_name": "util/u.go",
+      "span": {
+        "end_column": 0,
+        "end_line": 24,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:53c3891e29034d165d74796eb07a7e2228900b94bf9ec8331e637bdc7e2e0bfd",
+      "file": "util/u_test.go",
+      "identity": "file:util/u_test.go#util%2Fu_test.go",
+      "kind": "file",
+      "level": 3,
+      "name": "u_test.go",
+      "qualified_name": "util/u_test.go",
+      "span": {
+        "end_column": 0,
+        "end_line": 10,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:5d09e6021ac56017128c2104327a0ba6d7edd8e4446784a86c887ef1e764cdc0",
+      "file": "_hidden/h.go",
+      "identity": "function:_hidden/h.go#H",
+      "kind": "function",
+      "level": 4,
+      "name": "H",
+      "qualified_name": "H",
+      "span": {
+        "end_column": 11,
+        "end_line": 3,
+        "start_column": 0,
+        "start_line": 3
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:2f122826c44d21b821c5cf49d6fdf12344d3fed7feb6f370cfaf4b19aee3d259",
+      "file": "badbuild/x.go",
+      "identity": "function:badbuild/x.go#X",
+      "kind": "function",
+      "level": 4,
+      "name": "X",
+      "qualified_name": "X",
+      "span": {
+        "end_column": 11,
+        "end_line": 5,
+        "start_column": 0,
+        "start_line": 5
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:5a67b69578dc404d0cbe13fe69027870c0746ccc18913b272af9d4d642f575c7",
+      "file": "badbuild/y.go",
+      "identity": "function:badbuild/y.go#Y",
+      "kind": "function",
+      "level": 4,
+      "name": "Y",
+      "qualified_name": "Y",
+      "span": {
+        "end_column": 11,
+        "end_line": 3,
+        "start_column": 0,
+        "start_line": 3
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:b6bf845ced4ee734064121fe977dc8b4e92c0f7cea2e162fba9a9f43da26e751",
+      "file": "badtest/a.go",
+      "identity": "function:badtest/a.go#A",
+      "kind": "function",
+      "level": 4,
+      "name": "A",
+      "qualified_name": "A",
+      "span": {
+        "end_column": 11,
+        "end_line": 3,
+        "start_column": 0,
+        "start_line": 3
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:9dc333cfae21e1792fb8a3e0b0c180703eee9a3b1073aa8486d2ebfaa4a61f9a",
+      "file": "bind/a_gen.go",
+      "identity": "function:bind/a_gen.go#F",
+      "kind": "function",
+      "level": 4,
+      "name": "F",
+      "qualified_name": "F",
+      "span": {
+        "end_column": 11,
+        "end_line": 5,
+        "start_column": 0,
+        "start_line": 5
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:267e1fe3e7ce367c0bb425d1dfea8d1578bff5052633359089dbabbe5f6d945d",
+      "file": "bind/a_gen.go",
+      "identity": "function:bind/a_gen.go#main",
+      "kind": "function",
+      "level": 4,
+      "name": "main",
+      "qualified_name": "main",
+      "span": {
+        "end_column": 19,
+        "end_line": 7,
+        "start_column": 0,
+        "start_line": 7
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:9dc333cfae21e1792fb8a3e0b0c180703eee9a3b1073aa8486d2ebfaa4a61f9a",
+      "file": "bind/lib.go",
+      "identity": "function:bind/lib.go#F",
+      "kind": "function",
+      "level": 4,
+      "name": "F",
+      "qualified_name": "F",
+      "span": {
+        "end_column": 11,
+        "end_line": 3,
+        "start_column": 0,
+        "start_line": 3
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:9532226b0eb68ea1660aeda58cafc7dbfa391de8e3f9be1f60e0dfa7f746876c",
+      "file": "binduse/u.go",
+      "identity": "function:binduse/u.go#U",
+      "kind": "function",
+      "level": 4,
+      "name": "U",
+      "qualified_name": "U",
+      "span": {
+        "end_column": 1,
+        "end_line": 11,
+        "start_column": 0,
+        "start_line": 8
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:b6bf845ced4ee734064121fe977dc8b4e92c0f7cea2e162fba9a9f43da26e751",
+      "file": "cgotest/a.go",
+      "identity": "function:cgotest/a.go#A",
+      "kind": "function",
+      "level": 4,
+      "name": "A",
+      "qualified_name": "A",
+      "span": {
+        "end_column": 11,
+        "end_line": 3,
+        "start_column": 0,
+        "start_line": 3
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:9e7d02121aff729639d648f47f80ef277d413d328a30c4d55a9fad427e955474",
+      "file": "docmix/m.go",
+      "identity": "function:docmix/m.go#M",
+      "kind": "function",
+      "level": 4,
+      "name": "M",
+      "qualified_name": "M",
+      "span": {
+        "end_column": 11,
+        "end_line": 3,
+        "start_column": 0,
+        "start_line": 3
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:efab2968704aec1edbb598010cea22b562f361e3eca26dc9a82dcac11e8263c1",
+      "file": "ext/ext.go",
+      "identity": "function:ext/ext.go#Ext",
+      "kind": "function",
+      "level": 4,
+      "name": "Ext",
+      "qualified_name": "Ext",
+      "span": {
+        "end_column": 13,
+        "end_line": 3,
+        "start_column": 0,
+        "start_line": 3
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:7a422229f83084ee189fcc5b93be7b0fc48937bbe8df4b3b6db9c42602084472",
+      "file": "lib/_skip.go",
+      "identity": "function:lib/_skip.go#Skipped",
+      "kind": "function",
+      "level": 4,
+      "name": "Skipped",
+      "qualified_name": "Skipped",
+      "span": {
+        "end_column": 17,
+        "end_line": 3,
+        "start_column": 0,
+        "start_line": 3
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:d9c9e1173e1647fe3449ce40d10213984c58aa40717d1293e892770d6e4342d0",
+      "file": "lib/after.go",
+      "identity": "function:lib/after.go#After",
+      "kind": "function",
+      "level": 4,
+      "name": "After",
+      "qualified_name": "After",
+      "span": {
+        "end_column": 15,
+        "end_line": 5,
+        "start_column": 0,
+        "start_line": 5
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:fafcb0e2437e2a1a5a6e4659a8565dd59d7aae0aaf89f2a450fae2ded8914f83",
+      "file": "lib/bom_ignore.go",
+      "identity": "function:lib/bom_ignore.go#BOMIgnored",
+      "kind": "function",
+      "level": 4,
+      "name": "BOMIgnored",
+      "qualified_name": "BOMIgnored",
+      "span": {
+        "end_column": 20,
+        "end_line": 5,
+        "start_column": 0,
+        "start_line": 5
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:3b2b1fbfb8858ef5b941524e5bc6b622e590175327841d4bb6fdddb417b6e4be",
+      "file": "lib/cgo_only.go",
+      "identity": "function:lib/cgo_only.go#WithCgo",
+      "kind": "function",
+      "level": 4,
+      "name": "WithCgo",
+      "qualified_name": "WithCgo",
+      "span": {
+        "end_column": 17,
+        "end_line": 5,
+        "start_column": 0,
+        "start_line": 5
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:37b2caa7eb4caedc04c990d94520d215d90dc3e7bd072317dac2a98a1e89a091",
+      "file": "lib/crlf_ignore.go",
+      "identity": "function:lib/crlf_ignore.go#CRLFIgnored",
+      "kind": "function",
+      "level": 4,
+      "name": "CRLFIgnored",
+      "qualified_name": "CRLFIgnored",
+      "span": {
+        "end_column": 21,
+        "end_line": 5,
+        "start_column": 0,
+        "start_line": 5
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:96252567298a33988f3c4d134bd45640f52dac907ab07022aeeaf4dfa21d9c93",
+      "file": "lib/ext2_test.go",
+      "identity": "function:lib/ext2_test.go#TestExt",
+      "kind": "function",
+      "level": 4,
+      "name": "TestExt",
+      "qualified_name": "TestExt",
+      "span": {
+        "end_column": 42,
+        "end_line": 9,
+        "start_column": 0,
+        "start_line": 9
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:93621b884df48b9372ec4179577596744e317d7248e91b5f93f6465c5f30a1ff",
+      "file": "lib/gccgo.go",
+      "identity": "function:lib/gccgo.go#Gccgo",
+      "kind": "function",
+      "level": 4,
+      "name": "Gccgo",
+      "qualified_name": "Gccgo",
+      "span": {
+        "end_column": 15,
+        "end_line": 5,
+        "start_column": 0,
+        "start_line": 5
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:0d21deacf3eff16f64e4ec1c5eb3694137a724bb0b9c0605d1a9658345baa4e0",
+      "file": "lib/gen.go",
+      "identity": "function:lib/gen.go#main",
+      "kind": "function",
+      "level": 4,
+      "name": "main",
+      "qualified_name": "main",
+      "span": {
+        "end_column": 14,
+        "end_line": 5,
+        "start_column": 0,
+        "start_line": 5
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:c3af29d597b93e5537a4f71bcddb1e2ab1cc9c9a3c356bc55dd0e878da787cd2",
+      "file": "lib/late.go",
+      "identity": "function:lib/late.go#Late",
+      "kind": "function",
+      "level": 4,
+      "name": "Late",
+      "qualified_name": "Late",
+      "span": {
+        "end_column": 14,
+        "end_line": 6,
+        "start_column": 0,
+        "start_line": 6
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:e1b2093ca5d5adda014dcb09cd0333311f77d77f8bb2bda9f450e478243bd383",
+      "file": "lib/legacy.go",
+      "identity": "function:lib/legacy.go#Legacy",
+      "kind": "function",
+      "level": 4,
+      "name": "Legacy",
+      "qualified_name": "Legacy",
+      "span": {
+        "end_column": 16,
+        "end_line": 5,
+        "start_column": 0,
+        "start_line": 5
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:279691d7271dcc898e582109ed13592333382e02f297219e5876d503d6f251ec",
+      "file": "lib/legacy_noblank.go",
+      "identity": "function:lib/legacy_noblank.go#LegacyNoBlank",
+      "kind": "function",
+      "level": 4,
+      "name": "LegacyNoBlank",
+      "qualified_name": "LegacyNoBlank",
+      "span": {
+        "end_column": 23,
+        "end_line": 4,
+        "start_column": 0,
+        "start_line": 4
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:3fd7e77a86f9c4e7a8e9c31bae797e2961e42bc850d36d331dc22c4307f57bf4",
+      "file": "lib/legacy_off.go",
+      "identity": "function:lib/legacy_off.go#LegacyOff",
+      "kind": "function",
+      "level": 4,
+      "name": "LegacyOff",
+      "qualified_name": "LegacyOff",
+      "span": {
+        "end_column": 19,
+        "end_line": 5,
+        "start_column": 0,
+        "start_line": 5
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:e05c5477e36e492dc36e7a92677cca409d2fd3bfc13e983c777b40918fae9ac6",
+      "file": "lib/lib.go",
+      "identity": "function:lib/lib.go#Body",
+      "kind": "function",
+      "level": 4,
+      "name": "Body",
+      "qualified_name": "Body",
+      "span": {
+        "end_column": 11,
+        "end_line": 52,
+        "start_column": 0,
+        "start_line": 52
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:af4f90fd4cce073373ce06ccab2cf58def9b2519ce1fd9fb30170922cdcfc5c7",
+      "file": "lib/lib.go",
+      "identity": "function:lib/lib.go#Local",
+      "kind": "function",
+      "level": 4,
+      "name": "Local",
+      "qualified_name": "Local",
+      "span": {
+        "end_column": 1,
+        "end_line": 59,
+        "start_column": 0,
+        "start_line": 54
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:549c521bd8f1e271c092f9c4074131b73bfa8a9590d4be1a536fec83c0bd6d56",
+      "file": "lib/lib.go",
+      "identity": "function:lib/lib.go#_",
+      "kind": "function",
+      "level": 4,
+      "name": "_",
+      "qualified_name": "_",
+      "span": {
+        "end_column": 11,
+        "end_line": 36,
+        "start_column": 0,
+        "start_line": 36
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:549c521bd8f1e271c092f9c4074131b73bfa8a9590d4be1a536fec83c0bd6d56",
+      "file": "lib/lib.go",
+      "identity": "function:lib/lib.go#_%402",
+      "kind": "function",
+      "level": 4,
+      "name": "_",
+      "qualified_name": "_@2",
+      "span": {
+        "end_column": 11,
+        "end_line": 37,
+        "start_column": 0,
+        "start_line": 37
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:09c4605760c5d384e9d83cce5f15e253570ff5fd51a714159ffaa1fdab35ce65",
+      "file": "lib/lib.go",
+      "identity": "function:lib/lib.go#init",
+      "kind": "function",
+      "level": 4,
+      "name": "init",
+      "qualified_name": "init",
+      "span": {
+        "end_column": 14,
+        "end_line": 34,
+        "start_column": 0,
+        "start_line": 34
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:09c4605760c5d384e9d83cce5f15e253570ff5fd51a714159ffaa1fdab35ce65",
+      "file": "lib/lib.go",
+      "identity": "function:lib/lib.go#init%402",
+      "kind": "function",
+      "level": 4,
+      "name": "init",
+      "qualified_name": "init@2",
+      "span": {
+        "end_column": 14,
+        "end_line": 35,
+        "start_column": 0,
+        "start_line": 35
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:33b0e9ab289c72b0550870282f92ee52a3d2ea0b6aa0defe8b8961e49cfd10b4",
+      "file": "lib/lib_test.go",
+      "identity": "function:lib/lib_test.go#helperInternal",
+      "kind": "function",
+      "level": 4,
+      "name": "helperInternal",
+      "qualified_name": "helperInternal",
+      "span": {
+        "end_column": 24,
+        "end_line": 3,
+        "start_column": 0,
+        "start_line": 3
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:e34b959679eb2d5a9f2799cb4b701d3801cbd144dfe5482869fdc789bb496255",
+      "file": "lib/never.go",
+      "identity": "function:lib/never.go#Never",
+      "kind": "function",
+      "level": 4,
+      "name": "Never",
+      "qualified_name": "Never",
+      "span": {
+        "end_column": 15,
+        "end_line": 5,
+        "start_column": 0,
+        "start_line": 5
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:23e4da651d4ec65ca05a0dde0ba01e4da44aa5d3a0b14938600ed495ebbf7902",
+      "file": "lib/os_linux_386.go",
+      "identity": "function:lib/os_linux_386.go#Android",
+      "kind": "function",
+      "level": 4,
+      "name": "Android",
+      "qualified_name": "Android",
+      "span": {
+        "end_column": 17,
+        "end_line": 3,
+        "start_column": 0,
+        "start_line": 3
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:80a1081f244969b9488bae3b719812c3db8b29e54606d806d442712a6e5ff20f",
+      "file": "lib/os_plan9_wasm.go",
+      "identity": "function:lib/os_plan9_wasm.go#Impossible",
+      "kind": "function",
+      "level": 4,
+      "name": "Impossible",
+      "qualified_name": "Impossible",
+      "span": {
+        "end_column": 20,
+        "end_line": 3,
+        "start_column": 0,
+        "start_line": 3
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:249619cdc700b01e36b1c5afe2beedf3dbf43194dc9c9d98f3e72a431fbb9b9e",
+      "file": "lib/os_windows.go",
+      "identity": "function:lib/os_windows.go#Win",
+      "kind": "function",
+      "level": 4,
+      "name": "Win",
+      "qualified_name": "Win",
+      "span": {
+        "end_column": 13,
+        "end_line": 3,
+        "start_column": 0,
+        "start_line": 3
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:9573077e8997d174c381725a0d5bf0a908527f5c8a57da2bca249a6726dbb783",
+      "file": "lib/tagged.go",
+      "identity": "function:lib/tagged.go#Tagged",
+      "kind": "function",
+      "level": 4,
+      "name": "Tagged",
+      "qualified_name": "Tagged",
+      "span": {
+        "end_column": 16,
+        "end_line": 5,
+        "start_column": 0,
+        "start_line": 5
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:b6bf845ced4ee734064121fe977dc8b4e92c0f7cea2e162fba9a9f43da26e751",
+      "file": "lonecr/a.go",
+      "identity": "function:lonecr/a.go#A",
+      "kind": "function",
+      "level": 4,
+      "name": "A",
+      "qualified_name": "A",
+      "span": {
+        "end_column": 11,
+        "end_line": 3,
+        "start_column": 0,
+        "start_line": 3
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:b6bf845ced4ee734064121fe977dc8b4e92c0f7cea2e162fba9a9f43da26e751",
+      "file": "multi/a.go",
+      "identity": "function:multi/a.go#A",
+      "kind": "function",
+      "level": 4,
+      "name": "A",
+      "qualified_name": "A",
+      "span": {
+        "end_column": 11,
+        "end_line": 3,
+        "start_column": 0,
+        "start_line": 3
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:ef9a569dfb39d6b4f9f9f891bef03d7a94e9414010d470aeb3447095826c513f",
+      "file": "multi/b.go",
+      "identity": "function:multi/b.go#B",
+      "kind": "function",
+      "level": 4,
+      "name": "B",
+      "qualified_name": "B",
+      "span": {
+        "end_column": 11,
+        "end_line": 3,
+        "start_column": 0,
+        "start_line": 3
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:da005c4ec7700c94a1397d720a30418882f1cf71e1ca621bb46572167ecc990e",
+      "file": "nested/n.go",
+      "identity": "function:nested/n.go#N",
+      "kind": "function",
+      "level": 4,
+      "name": "N",
+      "qualified_name": "N",
+      "span": {
+        "end_column": 11,
+        "end_line": 3,
+        "start_column": 0,
+        "start_line": 3
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:b6bf845ced4ee734064121fe977dc8b4e92c0f7cea2e162fba9a9f43da26e751",
+      "file": "nocgo/a.go",
+      "identity": "function:nocgo/a.go#A",
+      "kind": "function",
+      "level": 4,
+      "name": "A",
+      "qualified_name": "A",
+      "span": {
+        "end_column": 11,
+        "end_line": 3,
+        "start_column": 0,
+        "start_line": 3
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:ef9a569dfb39d6b4f9f9f891bef03d7a94e9414010d470aeb3447095826c513f",
+      "file": "nocgo/b.go",
+      "identity": "function:nocgo/b.go#B",
+      "kind": "function",
+      "level": 4,
+      "name": "B",
+      "qualified_name": "B",
+      "span": {
+        "end_column": 11,
+        "end_line": 7,
+        "start_column": 0,
+        "start_line": 7
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:0d21deacf3eff16f64e4ec1c5eb3694137a724bb0b9c0605d1a9658345baa4e0",
+      "file": "prog/main.go",
+      "identity": "function:prog/main.go#main",
+      "kind": "function",
+      "level": 4,
+      "name": "main",
+      "qualified_name": "main",
+      "span": {
+        "end_column": 14,
+        "end_line": 3,
+        "start_column": 0,
+        "start_line": 3
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:88341a5ac420a492402529c8129bb62ed504879bc51a3939a054437299c4c1ef",
+      "file": "selfimp/s.go",
+      "identity": "function:selfimp/s.go#S",
+      "kind": "function",
+      "level": 4,
+      "name": "S",
+      "qualified_name": "S",
+      "span": {
+        "end_column": 11,
+        "end_line": 7,
+        "start_column": 0,
+        "start_line": 7
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:310d60adbadf68f934062c37132dc84dfe819de202903b2cb50d331e43b862e4",
+      "file": "testdata/pkg/p.go",
+      "identity": "function:testdata/pkg/p.go#P",
+      "kind": "function",
+      "level": 4,
+      "name": "P",
+      "qualified_name": "P",
+      "span": {
+        "end_column": 11,
+        "end_line": 3,
+        "start_column": 0,
+        "start_line": 3
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:21be2120b5916d29dcbb39409ccb951b3410e4d98474e5289b5582376b796427",
+      "file": "testonly/only_test.go",
+      "identity": "function:testonly/only_test.go#Only",
+      "kind": "function",
+      "level": 4,
+      "name": "Only",
+      "qualified_name": "Only",
+      "span": {
+        "end_column": 14,
+        "end_line": 3,
+        "start_column": 0,
+        "start_line": 3
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:94848393920212068d657178b29f39c0b504108ffb043397e339f1fff249e8e5",
+      "file": "twobuild/z.go",
+      "identity": "function:twobuild/z.go#Z",
+      "kind": "function",
+      "level": 4,
+      "name": "Z",
+      "qualified_name": "Z",
+      "span": {
+        "end_column": 11,
+        "end_line": 6,
+        "start_column": 0,
+        "start_line": 6
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:a362c23f63dee3a3ecfb37d85d5edecc80111e90f062b75be0de65543135a08d",
+      "file": "util/bom.go",
+      "identity": "function:util/bom.go#BOM",
+      "kind": "function",
+      "level": 4,
+      "name": "BOM",
+      "qualified_name": "BOM",
+      "span": {
+        "end_column": 13,
+        "end_line": 3,
+        "start_column": 0,
+        "start_line": 3
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:b2544158420936e0b8cd634f34d5a526705197ba2930e94295eeb30c425f227f",
+      "file": "util/crlf.go",
+      "identity": "function:util/crlf.go#CRLF",
+      "kind": "function",
+      "level": 4,
+      "name": "CRLF",
+      "qualified_name": "CRLF",
+      "span": {
+        "end_column": 1,
+        "end_line": 5,
+        "start_column": 0,
+        "start_line": 3
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:00abeaf890f4b35ac7ec10ac067c5cd05348d4db3d03be785b7ca8228c5f12c6",
+      "file": "util/lined.go",
+      "identity": "function:util/lined.go#Lined",
+      "kind": "function",
+      "level": 4,
+      "name": "Lined",
+      "qualified_name": "Lined",
+      "span": {
+        "end_column": 1,
+        "end_line": 5,
+        "start_column": 0,
+        "start_line": 4
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:29f4107c4ef2cb3b468b6f3c3b6c848ccd170b4c83b975498abad396577a9ce5",
+      "file": "lib/lib.go",
+      "identity": "interface:lib/lib.go#I",
+      "kind": "interface",
+      "level": 4,
+      "name": "I",
+      "qualified_name": "I",
+      "span": {
+        "end_column": 30,
+        "end_line": 20,
+        "start_column": 1,
+        "start_line": 20
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:c07989f7218d3d893af8d6e28395cab4fdfcf194e4a8e95042003915aaa83f15",
+      "file": "gen/recv.go",
+      "identity": "method:gen/recv.go#R.Plain",
+      "kind": "method",
+      "level": 4,
+      "name": "Plain",
+      "qualified_name": "R.Plain",
+      "span": {
+        "end_column": 39,
+        "end_line": 9,
+        "start_column": 0,
+        "start_line": 9
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:3f1ebf7befbabec7b6d79205bb14816d4b7920637bc38b278117a959720c8704",
+      "file": "lib/lib.go",
+      "identity": "method:lib/lib.go#G.Get",
+      "kind": "method",
+      "level": 4,
+      "name": "Get",
+      "qualified_name": "G.Get",
+      "span": {
+        "end_column": 46,
+        "end_line": 29,
+        "start_column": 0,
+        "start_line": 29
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:c13cc8aa3c4b667a72e2eb9969d0732adb5397795529963a4d194bf008254ed8",
+      "file": "lib/lib.go",
+      "identity": "method:lib/lib.go#G.Len",
+      "kind": "method",
+      "level": 4,
+      "name": "Len",
+      "qualified_name": "G.Len",
+      "span": {
+        "end_column": 46,
+        "end_line": 30,
+        "start_column": 0,
+        "start_line": 30
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:2dc877212fbed441e2ec062b83077a63870dfbdb1203320cd12262b1e43aa43d",
+      "file": "lib/lib.go",
+      "identity": "method:lib/lib.go#T.Ptr",
+      "kind": "method",
+      "level": 4,
+      "name": "Ptr",
+      "qualified_name": "T.Ptr",
+      "span": {
+        "end_column": 20,
+        "end_line": 28,
+        "start_column": 0,
+        "start_line": 28
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:d0418585721d3b50b4a99545b672bf40897a8731ff5d6d11f8ee42973b352fa5",
+      "file": "lib/lib.go",
+      "identity": "method:lib/lib.go#T.Value",
+      "kind": "method",
+      "level": 4,
+      "name": "Value",
+      "qualified_name": "T.Value",
+      "span": {
+        "end_column": 37,
+        "end_line": 27,
+        "start_column": 0,
+        "start_line": 27
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "directory": "ext",
+        "ecosystem": "go",
+        "main_files": [],
+        "name": "example.test/ext"
+      },
+      "content_hash": "sha256:a24886f1d5512aae47c697150eb952287369a4f274c7702ebc6d9ab805fe4e98",
+      "file": "ext/go.mod",
+      "identity": "package:ext/go.mod#example.test%2Fext",
+      "kind": "package",
+      "level": 2,
+      "name": "example.test/ext",
+      "qualified_name": "example.test/ext",
+      "span": {
+        "end_column": 0,
+        "end_line": 4,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "directory": ".",
+        "ecosystem": "go",
+        "main_files": [
+          "bind/a_gen.go",
+          "lib/gen.go",
+          "prog/main.go"
+        ],
+        "name": "example.test/structure"
+      },
+      "content_hash": "sha256:121498d42845c898b45babe8ee601f54107078a631175342a14d258413215ec2",
+      "file": "go.mod",
+      "identity": "package:go.mod#example.test%2Fstructure",
+      "kind": "package",
+      "level": 2,
+      "name": "example.test/structure",
+      "qualified_name": "example.test/structure",
+      "span": {
+        "end_column": 0,
+        "end_line": 8,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "directory": "nested",
+        "ecosystem": "go",
+        "main_files": [],
+        "name": "example.test/structure/nested"
+      },
+      "content_hash": "sha256:182f80d7397c73008eeb2ca5ee59aa6a8e6c3553baf7fa3a26b72798cfe2736b",
+      "file": "nested/go.mod",
+      "identity": "package:nested/go.mod#example.test%2Fstructure%2Fnested",
+      "kind": "package",
+      "level": 2,
+      "name": "example.test/structure/nested",
+      "qualified_name": "example.test/structure/nested",
+      "span": {
+        "end_column": 0,
+        "end_line": 4,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:eeb2bbd6b6d47fb987f2e76b4efaba38840e465444a1659833277542fa121a65",
+      "file": "gen/dup.go",
+      "identity": "struct:gen/dup.go#D",
+      "kind": "struct",
+      "level": 4,
+      "name": "D",
+      "qualified_name": "D",
+      "span": {
+        "end_column": 15,
+        "end_line": 3,
+        "start_column": 5,
+        "start_line": 3
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:d511a2fb1c375517728b5ca1bda04cbd830c3cd7cf62754953d9bcf596229808",
+      "file": "gen/recv.go",
+      "identity": "struct:gen/recv.go#R",
+      "kind": "struct",
+      "level": 4,
+      "name": "R",
+      "qualified_name": "R",
+      "span": {
+        "end_column": 15,
+        "end_line": 5,
+        "start_column": 5,
+        "start_line": 5
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:057a28addca757eb55a78415b7ed30073039285f49d0eaf07984be22bda40033",
+      "file": "lib/lib.go",
+      "identity": "struct:lib/lib.go#G",
+      "kind": "struct",
+      "level": 4,
+      "name": "G",
+      "qualified_name": "G",
+      "span": {
+        "end_column": 43,
+        "end_line": 19,
+        "start_column": 1,
+        "start_line": 19
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:b9847756b4149d8af64e225fa6747d198e8242ae447bbe1ca0bfbb8ddc2554fc",
+      "file": "lib/lib.go",
+      "identity": "struct:lib/lib.go#T",
+      "kind": "struct",
+      "level": 4,
+      "name": "T",
+      "qualified_name": "T",
+      "span": {
+        "end_column": 33,
+        "end_line": 16,
+        "start_column": 5,
+        "start_line": 16
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:c9459ad05b9c407c2900b6b5040dcf99c418c636661311895951390e02a37346",
+      "file": "util/crlf.go",
+      "identity": "struct:util/crlf.go#W",
+      "kind": "struct",
+      "level": 4,
+      "name": "W",
+      "qualified_name": "W",
+      "span": {
+        "end_column": 1,
+        "end_line": 9,
+        "start_column": 5,
+        "start_line": 7
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:4210b188a029ba1192a769fb3a9db1cc899569bcd62b3c267417bc98158102e4",
+      "file": "lib/lib.go",
+      "identity": "type:lib/lib.go#N",
+      "kind": "type",
+      "level": 4,
+      "name": "N",
+      "qualified_name": "N",
+      "span": {
+        "end_column": 6,
+        "end_line": 22,
+        "start_column": 1,
+        "start_line": 22
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:e71a30efb0091a1521641c37d1c38de6f2cdf6d204b860a8c28efb43ef0ec313",
+      "file": "lib/lib.go",
+      "identity": "type_alias:lib/lib.go#Alias",
+      "kind": "type_alias",
+      "level": 4,
+      "name": "Alias",
+      "qualified_name": "Alias",
+      "span": {
+        "end_column": 10,
+        "end_line": 21,
+        "start_column": 1,
+        "start_line": 21
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:98e2e996f5d9011694e68792696c58b492bc77a3bf381cf98f9ea64f2c710e6e",
+      "file": "lib/lib.go",
+      "identity": "type_alias:lib/lib.go#GA",
+      "kind": "type_alias",
+      "level": 4,
+      "name": "GA",
+      "qualified_name": "GA",
+      "span": {
+        "end_column": 20,
+        "end_line": 25,
+        "start_column": 5,
+        "start_line": 25
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "exported": true
+      },
+      "content_hash": "sha256:b3d83a434c628ee917509ffee15573844b31d2d40767e74b8d379dadd8b9aeee",
+      "file": "lib/lib.go",
+      "identity": "variable:lib/lib.go#%C3%9Cn%C3%AF",
+      "kind": "variable",
+      "level": 4,
+      "name": "Ünï",
+      "qualified_name": "Ünï",
+      "span": {
+        "end_column": 13,
+        "end_line": 61,
+        "start_column": 4,
+        "start_line": 61
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "exported": true
+      },
+      "content_hash": "sha256:4f38501422bdb9ff7075904b66df427d1d9f1f7e6bf10c44bce28020babe17dd",
+      "file": "lib/lib.go",
+      "identity": "variable:lib/lib.go#A",
+      "kind": "variable",
+      "level": 4,
+      "name": "A",
+      "qualified_name": "A",
+      "span": {
+        "end_column": 15,
+        "end_line": 39,
+        "start_column": 4,
+        "start_line": 39
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "exported": true
+      },
+      "content_hash": "sha256:4f38501422bdb9ff7075904b66df427d1d9f1f7e6bf10c44bce28020babe17dd",
+      "file": "lib/lib.go",
+      "identity": "variable:lib/lib.go#B",
+      "kind": "variable",
+      "level": 4,
+      "name": "B",
+      "qualified_name": "B",
+      "span": {
+        "end_column": 15,
+        "end_line": 39,
+        "start_column": 4,
+        "start_line": 39
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "exported": true
+      },
+      "content_hash": "sha256:9bd6c7afaafc6ce111e85e990af224a2448627404d2a54f28358480a2c9433bf",
+      "file": "lib/lib.go",
+      "identity": "variable:lib/lib.go#C",
+      "kind": "variable",
+      "level": 4,
+      "name": "C",
+      "qualified_name": "C",
+      "span": {
+        "end_column": 6,
+        "end_line": 41,
+        "start_column": 1,
+        "start_line": 41
+      },
+      "type": "node"
+    }
+  ]
+}

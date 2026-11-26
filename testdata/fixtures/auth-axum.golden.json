@@ -1,0 +1,455 @@
+[
+  {
+    "identity": "route:src/lib.rs#GET%20%2Fafter-bearer",
+    "layers": [
+      {
+        "expression": "middleware::from_fn(auth)",
+        "file": "src/lib.rs",
+        "method": "route_layer",
+        "middleware_function": "auth",
+        "span": {
+          "end_column": 47,
+          "end_line": 27,
+          "start_column": 9,
+          "start_line": 27
+        }
+      },
+      {
+        "expression": "TraceLayer::new_for_http()",
+        "file": "src/lib.rs",
+        "method": "layer",
+        "span": {
+          "end_column": 42,
+          "end_line": 49,
+          "start_column": 9,
+          "start_line": 49
+        }
+      }
+    ],
+    "layers_unknown": [
+      {
+        "expression": "middleware::from_fn_with_state(state, auth)",
+        "file": "src/lib.rs",
+        "method": "layer",
+        "reason": "conditional layer",
+        "span": {
+          "end_column": 64,
+          "end_line": 52,
+          "start_column": 14,
+          "start_line": 52
+        }
+      }
+    ],
+    "middleware": [],
+    "paths": [
+      "/api/after-bearer"
+    ]
+  },
+  {
+    "identity": "route:src/lib.rs#GET%20%2Fhealth",
+    "layers": [
+      {
+        "expression": "TraceLayer::new_for_http()",
+        "file": "src/lib.rs",
+        "method": "layer",
+        "span": {
+          "end_column": 42,
+          "end_line": 49,
+          "start_column": 9,
+          "start_line": 49
+        }
+      }
+    ],
+    "layers_unknown": [
+      {
+        "expression": "middleware::from_fn_with_state(state, auth)",
+        "file": "src/lib.rs",
+        "method": "layer",
+        "reason": "conditional layer",
+        "span": {
+          "end_column": 64,
+          "end_line": 52,
+          "start_column": 14,
+          "start_line": 52
+        }
+      }
+    ],
+    "middleware": [],
+    "paths": [
+      "/health"
+    ]
+  },
+  {
+    "identity": "route:src/lib.rs#GET%20%2Flate",
+    "middleware": [],
+    "paths": [
+      "/late"
+    ]
+  },
+  {
+    "identity": "route:src/lib.rs#GET%20%2Fm",
+    "layers": [
+      {
+        "expression": "CorsLayer::permissive()",
+        "file": "src/lib.rs",
+        "method": "layer",
+        "on": "method_router",
+        "span": {
+          "end_column": 75,
+          "end_line": 64,
+          "start_column": 45,
+          "start_line": 64
+        }
+      }
+    ],
+    "middleware": [],
+    "paths": [
+      "/m"
+    ]
+  },
+  {
+    "identity": "route:src/lib.rs#GET%20%2Fmethod-layer",
+    "layers": [
+      {
+        "expression": "CorsLayer::permissive()",
+        "file": "src/lib.rs",
+        "method": "layer",
+        "on": "method_router",
+        "span": {
+          "end_column": 69,
+          "end_line": 33,
+          "start_column": 39,
+          "start_line": 33
+        }
+      },
+      {
+        "declares": {
+          "detail": "login_required!(Backend)",
+          "library": "axum-login"
+        },
+        "expression": "login_required!(Backend, login_url = \"/login\")",
+        "file": "src/lib.rs",
+        "method": "route_layer",
+        "span": {
+          "end_column": 68,
+          "end_line": 34,
+          "start_column": 9,
+          "start_line": 34
+        }
+      },
+      {
+        "declares": {
+          "detail": "ValidateRequestHeaderLayer::basic",
+          "library": "tower-http"
+        },
+        "expression": "ValidateRequestHeaderLayer::basic(\"user\", \"password\")",
+        "file": "src/lib.rs",
+        "method": "layer",
+        "span": {
+          "end_column": 69,
+          "end_line": 35,
+          "start_column": 9,
+          "start_line": 35
+        }
+      },
+      {
+        "expression": "TraceLayer::new_for_http()",
+        "file": "src/lib.rs",
+        "method": "layer",
+        "span": {
+          "end_column": 42,
+          "end_line": 49,
+          "start_column": 9,
+          "start_line": 49
+        }
+      }
+    ],
+    "layers_unknown": [
+      {
+        "expression": "middleware::from_fn_with_state(state, auth)",
+        "file": "src/lib.rs",
+        "method": "layer",
+        "reason": "conditional layer",
+        "span": {
+          "end_column": 64,
+          "end_line": 52,
+          "start_column": 14,
+          "start_line": 52
+        }
+      }
+    ],
+    "middleware": [],
+    "paths": [
+      "/method-layer"
+    ]
+  },
+  {
+    "identity": "route:src/lib.rs#GET%20%2Fopen",
+    "layers": [
+      {
+        "declares": {
+          "detail": "ValidateRequestHeaderLayer::bearer",
+          "library": "tower-http"
+        },
+        "expression": "ValidateRequestHeaderLayer::bearer(\"token\")",
+        "file": "src/lib.rs",
+        "method": "route_layer",
+        "span": {
+          "end_column": 65,
+          "end_line": 25,
+          "start_column": 9,
+          "start_line": 25
+        }
+      },
+      {
+        "expression": "middleware::from_fn(auth)",
+        "file": "src/lib.rs",
+        "method": "route_layer",
+        "middleware_function": "auth",
+        "span": {
+          "end_column": 47,
+          "end_line": 27,
+          "start_column": 9,
+          "start_line": 27
+        }
+      },
+      {
+        "expression": "TraceLayer::new_for_http()",
+        "file": "src/lib.rs",
+        "method": "layer",
+        "span": {
+          "end_column": 42,
+          "end_line": 49,
+          "start_column": 9,
+          "start_line": 49
+        }
+      }
+    ],
+    "layers_unknown": [
+      {
+        "expression": "middleware::from_fn_with_state(state, auth)",
+        "file": "src/lib.rs",
+        "method": "layer",
+        "reason": "conditional layer",
+        "span": {
+          "end_column": 64,
+          "end_line": 52,
+          "start_column": 14,
+          "start_line": 52
+        }
+      }
+    ],
+    "middleware": [],
+    "paths": [
+      "/api/open"
+    ]
+  },
+  {
+    "identity": "route:src/lib.rs#GET%20%2Fshared",
+    "layers_unknown": [
+      {
+        "expression": "middleware::from_fn_with_state(state, auth)",
+        "file": "src/lib.rs",
+        "method": "layer",
+        "reason": "conditional layer",
+        "span": {
+          "end_column": 64,
+          "end_line": 52,
+          "start_column": 14,
+          "start_line": 52
+        }
+      },
+      {
+        "expression": "CorsLayer::permissive()",
+        "file": "src/lib.rs",
+        "method": "layer",
+        "reason": "applied on some mount chains only",
+        "span": {
+          "end_column": 64,
+          "end_line": 59,
+          "start_column": 34,
+          "start_line": 59
+        }
+      }
+    ],
+    "middleware": [],
+    "paths": [
+      "/shared"
+    ]
+  },
+  {
+    "identity": "route:src/lib.rs#GET%20%2Fstacked",
+    "layers": [
+      {
+        "expression": "ServiceBuilder::new() .set_x_request_id(MakeRequestUuid) .layer(TraceLayer::new_for_http()) .layer(middleware::from_fn(auth)) .propagate_x_request_id() .into_inner()",
+        "file": "src/lib.rs",
+        "method": "layer",
+        "span": {
+          "end_column": 9,
+          "end_line": 79,
+          "start_column": 9,
+          "start_line": 72
+        },
+        "stack": [
+          {
+            "expression": "set_x_request_id(MakeRequestUuid)",
+            "method": "set_x_request_id",
+            "span": {
+              "end_column": 50,
+              "end_line": 74,
+              "start_column": 17,
+              "start_line": 74
+            }
+          },
+          {
+            "expression": "TraceLayer::new_for_http()",
+            "method": "layer",
+            "span": {
+              "end_column": 50,
+              "end_line": 75,
+              "start_column": 17,
+              "start_line": 75
+            }
+          },
+          {
+            "expression": "middleware::from_fn(auth)",
+            "method": "layer",
+            "middleware_function": "auth",
+            "span": {
+              "end_column": 49,
+              "end_line": 76,
+              "start_column": 17,
+              "start_line": 76
+            }
+          },
+          {
+            "expression": "propagate_x_request_id()",
+            "method": "propagate_x_request_id",
+            "span": {
+              "end_column": 41,
+              "end_line": 77,
+              "start_column": 17,
+              "start_line": 77
+            }
+          }
+        ]
+      }
+    ],
+    "middleware": [],
+    "paths": [
+      "/stacked"
+    ]
+  },
+  {
+    "identity": "route:src/lib.rs#GET%20%2Funlisted",
+    "layers": [
+      {
+        "expression": "ServiceBuilder::new().layer(TraceLayer::new_for_http()).custom_layer()",
+        "file": "src/lib.rs",
+        "method": "layer",
+        "span": {
+          "end_column": 86,
+          "end_line": 85,
+          "start_column": 9,
+          "start_line": 85
+        }
+      }
+    ],
+    "middleware": [],
+    "paths": [
+      "/unlisted"
+    ]
+  },
+  {
+    "identity": "route:src/lib.rs#GET%20%2Fusers",
+    "layers": [
+      {
+        "declares": {
+          "detail": "login_required!(Backend)",
+          "library": "axum-login"
+        },
+        "expression": "login_required!(Backend, login_url = \"/login\")",
+        "file": "src/lib.rs",
+        "method": "route_layer",
+        "span": {
+          "end_column": 68,
+          "end_line": 34,
+          "start_column": 9,
+          "start_line": 34
+        }
+      },
+      {
+        "declares": {
+          "detail": "ValidateRequestHeaderLayer::basic",
+          "library": "tower-http"
+        },
+        "expression": "ValidateRequestHeaderLayer::basic(\"user\", \"password\")",
+        "file": "src/lib.rs",
+        "method": "layer",
+        "span": {
+          "end_column": 69,
+          "end_line": 35,
+          "start_column": 9,
+          "start_line": 35
+        }
+      },
+      {
+        "expression": "TraceLayer::new_for_http()",
+        "file": "src/lib.rs",
+        "method": "layer",
+        "span": {
+          "end_column": 42,
+          "end_line": 49,
+          "start_column": 9,
+          "start_line": 49
+        }
+      }
+    ],
+    "layers_unknown": [
+      {
+        "expression": "middleware::from_fn_with_state(state, auth)",
+        "file": "src/lib.rs",
+        "method": "layer",
+        "reason": "conditional layer",
+        "span": {
+          "end_column": 64,
+          "end_line": 52,
+          "start_column": 14,
+          "start_line": 52
+        }
+      }
+    ],
+    "middleware": [],
+    "paths": [
+      "/users"
+    ]
+  },
+  {
+    "identity": "route:src/lib.rs#POST%20%2Fm",
+    "layers": [
+      {
+        "expression": "CorsLayer::permissive()",
+        "file": "src/lib.rs",
+        "method": "layer",
+        "on": "method_router",
+        "span": {
+          "end_column": 75,
+          "end_line": 64,
+          "start_column": 45,
+          "start_line": 64
+        }
+      }
+    ],
+    "middleware": [],
+    "paths": [
+      "/m"
+    ]
+  },
+  {
+    "identity": "route:src/lib.rs#PUT%20%2Fm",
+    "middleware": [],
+    "paths": [
+      "/m"
+    ]
+  }
+]

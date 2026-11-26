@@ -1,0 +1,1 @@
+ALTER TYPE e RENAME TO e2;

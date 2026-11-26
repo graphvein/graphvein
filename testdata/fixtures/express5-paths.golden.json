@@ -1,0 +1,576 @@
+{
+  "diagnostics": [
+    "nested/broken/app.js info route_pattern_unmodelled: Express major unknown and Express 4 and 5 read \"/broken/*splat\" differently at 8:0-8:48",
+    "peerdev/app.js info route_pattern_unmodelled: Express major unknown and Express 4 and 5 read \"/peer/*splat\" differently at 9:0-9:44",
+    "unknown/app.js info route_pattern_unmodelled: Express major unknown and Express 4 and 5 read \"/g/users{/:id}\" differently at 17:0-17:43",
+    "unknown/app.js info route_pattern_unmodelled: Express major unknown and Express 4 and 5 read \"/s/*splat\" differently at 16:0-16:38",
+    "v4/app.js info route_pattern_unmodelled: Express 4 parameter not filling its segment in \"/f4/:file.:ext\" at 27:0-27:49",
+    "v4/app.js info route_pattern_unmodelled: Express 4 regular expression syntax \"?\" in \"/q4/ab?cd\" at 26:0-26:39",
+    "v4/app.js info route_pattern_unmodelled: Express 4 wildcard `*` (any text, slashes included) not ending a registration pattern as a whole segment in \"/s4/*splat\" at 24:0-24:40",
+    "v4/app.js info route_pattern_unmodelled: Express 4 wildcard `*` (any text, slashes included) not ending a registration pattern as a whole segment in \"/x4/*\" at 31:0-31:22",
+    "v4/app.js info route_pattern_unmodelled: Express path \"/c1//dbl\" has an empty segment, which Express does not collapse at 50:0-50:45",
+    "v4/app.js info route_pattern_unmodelled: Express path \"/c1/a b\" holds \" \", which no request path carries as written at 51:0-51:37",
+    "v4/app.js info route_pattern_unmodelled: Express path \"/tp4//\" has an empty segment, which Express does not collapse at 48:0-48:27",
+    "v4/app.js info route_pattern_unmodelled: Express path \"b4api\" does not start with \"/\": no request path matches it at 43:0-43:22",
+    "v4/app.js info route_pattern_unmodelled: Express path \"b4users\" does not start with \"/\": no request path matches it at 40:0-40:40",
+    "v4/app.js info route_pattern_unmodelled: bare mounted only below the unread mount prefix(es) [\"b4api\"] at 42:0-42:43",
+    "v4/app.js info route_pattern_unmodelled: rest mounted only below the unread mount prefix(es) [\"/x4/*\"] at 30:0-30:39",
+    "v4/app.js info route_pattern_unmodelled: trailing mounted only below the unread mount prefix(es) [\"/tp4//\"] at 47:0-47:47",
+    "v5/app.js info route_pattern_unmodelled: Express 5 escape in \"/e5/a\\\\\\\\:b\" at 26:0-26:40",
+    "v5/app.js info route_pattern_unmodelled: Express 5 group alternative \"/b1a//b\" of \"/b1a/{/b}\" keeps an empty segment or a trailing slash at 39:0-39:52",
+    "v5/app.js info route_pattern_unmodelled: Express 5 group alternative \"/b1g/\" of \"/b1g/{*rest}\" keeps an empty segment or a trailing slash at 37:0-37:57",
+    "v5/app.js info route_pattern_unmodelled: Express 5 group alternative \"/b1h/\" of \"/b1h/{:id}\" keeps an empty segment or a trailing slash at 38:0-38:52",
+    "v5/app.js info route_pattern_unmodelled: Express 5 group in the mount prefix \"/y5{/:v}\" at 33:0-33:30",
+    "v5/app.js info route_pattern_unmodelled: Express 5 parameter inside a segment in \"/i5/:from-:to\" at 25:0-25:48",
+    "v5/app.js info route_pattern_unmodelled: Express 5 wildcard `*rest` not ending a registration pattern as a whole segment in \"/x5/*rest\" at 30:0-30:26",
+    "v5/app.js info route_pattern_unmodelled: Express path \"/c1v//dbl\" has an empty segment, which Express does not collapse at 50:0-50:46",
+    "v5/app.js info route_pattern_unmodelled: Express path \"/c1v/a^b\" holds \"^\", which no request path carries as written at 48:0-48:38",
+    "v5/app.js info route_pattern_unmodelled: Express path \"/c1v/é\" holds non-ASCII text, which no request path carries as written at 49:0-49:41",
+    "v5/app.js info route_pattern_unmodelled: Express path \":b4id\" does not start with \"/\": no request path matches it at 41:0-41:38",
+    "v5/app.js info route_pattern_unmodelled: rest mounted only below the unread mount prefix(es) [\"/x5/*rest\"] at 29:0-29:43",
+    "v5/app.js info route_pattern_unmodelled: versioned mounted only below the unread mount prefix(es) [\"/y5{/:v}\"] at 32:0-32:45",
+    "v5/invalid.js warning route_pattern_invalid: Express 5 refuses \"/v5/:a{:b}\": missing text before \"b\" at 11:0-11:51",
+    "v5/invalid.js warning route_pattern_invalid: Express 5 refuses \"/v5/a(b)\": unexpected \"(\" at 10:0-10:48",
+    "v5/invalid.js warning route_pattern_invalid: Express 5 refuses \"/v5/files/*\": missing parameter name after \"*\" at 9:0-9:44",
+    "v5/invalid.js warning route_pattern_invalid: Express 5 refuses \"/v5/users/:id?\": unexpected \"?\" at 8:0-8:51"
+  ],
+  "routes": [
+    {
+      "handler_expression": "reply('bom-splat')",
+      "identity": "route:bom/app.js#GET%20%2Fbom%2F%2Asplat",
+      "paths": [
+        {
+          "conditional": false,
+          "resolution": "literal",
+          "template": "/bom/{*splat}"
+        }
+      ],
+      "pattern": "/bom/*splat"
+    },
+    {
+      "handler_expression": "reply('broken-splat')",
+      "identity": "route:nested/broken/app.js#GET%20%2Fbroken%2F%2Asplat",
+      "paths": [],
+      "pattern": "/broken/*splat"
+    },
+    {
+      "handler_expression": "reply('broken-param')",
+      "identity": "route:nested/broken/app.js#GET%20%2Fbroken%2Fusers%2F%3Aid",
+      "paths": [
+        {
+          "conditional": false,
+          "resolution": "literal",
+          "template": "/broken/users/{id}"
+        }
+      ],
+      "pattern": "/broken/users/:id"
+    },
+    {
+      "handler_expression": "reply('nested-splat')",
+      "identity": "route:nested/sub/app.js#GET%20%2Fnested%2F%2Asplat",
+      "paths": [
+        {
+          "conditional": false,
+          "resolution": "literal",
+          "template": "/nested/{*splat}"
+        }
+      ],
+      "pattern": "/nested/*splat"
+    },
+    {
+      "handler_expression": "reply('peer-splat')",
+      "identity": "route:peerdev/app.js#GET%20%2Fpeer%2F%2Asplat",
+      "paths": [],
+      "pattern": "/peer/*splat"
+    },
+    {
+      "handler_expression": "reply('peer-param')",
+      "identity": "route:peerdev/app.js#GET%20%2Fpeer%2Fusers%2F%3Aid",
+      "paths": [
+        {
+          "conditional": false,
+          "resolution": "literal",
+          "template": "/peer/users/{id}"
+        }
+      ],
+      "pattern": "/peer/users/:id"
+    },
+    {
+      "handler_expression": "reply('pnpm-splat')",
+      "identity": "route:pnpm/app/app.js#GET%20%2Fpnpm%2F%2Asplat",
+      "paths": [
+        {
+          "conditional": false,
+          "resolution": "literal",
+          "template": "/pnpm/{*splat}"
+        }
+      ],
+      "pattern": "/pnpm/*splat"
+    },
+    {
+      "handler_expression": "reply('legacy-star')",
+      "identity": "route:pnpm/legacy/app.js#GET%20%2Flegacy%2F%2A",
+      "paths": [
+        {
+          "conditional": false,
+          "resolution": "literal",
+          "template": "/legacy/{*}"
+        }
+      ],
+      "pattern": "/legacy/*"
+    },
+    {
+      "handler_expression": "reply('u-group')",
+      "identity": "route:unknown/app.js#GET%20%2Fg%2Fusers%7B%2F%3Aid%7D",
+      "paths": [],
+      "pattern": "/g/users{/:id}"
+    },
+    {
+      "handler_expression": "reply('u-literal')",
+      "identity": "route:unknown/app.js#GET%20%2Fl%2Fusers",
+      "paths": [
+        {
+          "conditional": false,
+          "resolution": "literal",
+          "template": "/l/users"
+        }
+      ],
+      "pattern": "/l/users"
+    },
+    {
+      "handler_expression": "reply('u-param')",
+      "identity": "route:unknown/app.js#GET%20%2Fp%2Fusers%2F%3Aid",
+      "paths": [
+        {
+          "conditional": false,
+          "resolution": "literal",
+          "template": "/p/users/{id}"
+        }
+      ],
+      "pattern": "/p/users/:id"
+    },
+    {
+      "handler_expression": "reply('u-splat')",
+      "identity": "route:unknown/app.js#GET%20%2Fs%2F%2Asplat",
+      "paths": [],
+      "pattern": "/s/*splat"
+    },
+    {
+      "handler_expression": "reply('u-mounted')",
+      "identity": "route:unknown/app.js#GET%20%2Fx",
+      "paths": [
+        {
+          "conditional": false,
+          "resolution": "literal",
+          "template": "/m/x"
+        }
+      ],
+      "pattern": "/x"
+    },
+    {
+      "handler_expression": "reply('v4-root-star')",
+      "identity": "route:v4/app.js#GET%20%2A",
+      "paths": [
+        {
+          "conditional": false,
+          "resolution": "literal",
+          "template": "/{*}"
+        }
+      ],
+      "pattern": "*"
+    },
+    {
+      "handler_expression": "reply('v4-mounted-star')",
+      "identity": "route:v4/app.js#GET%20%2F%2A",
+      "paths": [
+        {
+          "conditional": false,
+          "resolution": "literal",
+          "template": "/m4/{org}/{*}"
+        }
+      ],
+      "pattern": "/*"
+    },
+    {
+      "handler_expression": "reply('v4-optional-inner')",
+      "identity": "route:v4/app.js#GET%20%2Fb2a%2F%3Aid%3F%2Fx%2F%3Ay",
+      "paths": [
+        {
+          "conditional": false,
+          "resolution": "literal",
+          "template": "/b2a/{id}/x/{y}"
+        }
+      ],
+      "pattern": "/b2a/:id?/x/:y"
+    },
+    {
+      "handler_expression": "reply('v4-double-slash')",
+      "identity": "route:v4/app.js#GET%20%2Fc1%2F%2Fdbl",
+      "paths": [],
+      "pattern": "/c1//dbl"
+    },
+    {
+      "handler_expression": "reply('v4-space')",
+      "identity": "route:v4/app.js#GET%20%2Fc1%2Fa%20b",
+      "paths": [],
+      "pattern": "/c1/a b"
+    },
+    {
+      "handler_expression": "reply('v4-in-segment')",
+      "identity": "route:v4/app.js#GET%20%2Ff4%2F%3Afile.%3Aext",
+      "paths": [],
+      "pattern": "/f4/:file.:ext"
+    },
+    {
+      "handler_expression": "reply('v4-literal')",
+      "identity": "route:v4/app.js#GET%20%2Fl4%2Fusers%2Flist.json",
+      "paths": [
+        {
+          "conditional": false,
+          "resolution": "literal",
+          "template": "/l4/users/list.json"
+        }
+      ],
+      "pattern": "/l4/users/list.json"
+    },
+    {
+      "handler_expression": "reply('v4-optional')",
+      "identity": "route:v4/app.js#GET%20%2Fo4%2Fusers%2F%3Aid%3F",
+      "paths": [
+        {
+          "conditional": false,
+          "optional": true,
+          "resolution": "literal",
+          "template": "/o4/users/{id}"
+        }
+      ],
+      "pattern": "/o4/users/:id?"
+    },
+    {
+      "handler_expression": "reply('v4-optional-middle')",
+      "identity": "route:v4/app.js#GET%20%2Fo4mid%2F%3Aid%3F%2Fedit",
+      "paths": [
+        {
+          "conditional": false,
+          "resolution": "literal",
+          "template": "/o4mid/{id}/edit"
+        }
+      ],
+      "pattern": "/o4mid/:id?/edit"
+    },
+    {
+      "handler_expression": "reply('v4-param')",
+      "identity": "route:v4/app.js#GET%20%2Fp4%2Fusers%2F%3Aid",
+      "paths": [
+        {
+          "conditional": false,
+          "resolution": "literal",
+          "template": "/p4/users/{id}"
+        }
+      ],
+      "pattern": "/p4/users/:id"
+    },
+    {
+      "handler_expression": "reply('v4-regex')",
+      "identity": "route:v4/app.js#GET%20%2Fq4%2Fab%3Fcd",
+      "paths": [],
+      "pattern": "/q4/ab?cd"
+    },
+    {
+      "handler_expression": "reply('v4-splat')",
+      "identity": "route:v4/app.js#GET%20%2Fs4%2F%2Asplat",
+      "paths": [],
+      "pattern": "/s4/*splat"
+    },
+    {
+      "handler_expression": "reply('v4-star')",
+      "identity": "route:v4/app.js#GET%20%2Fw4%2Ffiles%2F%2A",
+      "paths": [
+        {
+          "conditional": false,
+          "resolution": "literal",
+          "template": "/w4/files/{*}"
+        }
+      ],
+      "pattern": "/w4/files/*"
+    },
+    {
+      "handler_expression": "reply('v4-no-slash-prefix')",
+      "identity": "route:v4/app.js#GET%20%2Fx",
+      "paths": [],
+      "pattern": "/x"
+    },
+    {
+      "handler_expression": "reply('v4-optional-prefix')",
+      "identity": "route:v4/app.js#GET%20%2Fx%2F%3Aid",
+      "paths": [
+        {
+          "conditional": false,
+          "resolution": "literal",
+          "template": "/b2m/{org}/x/{id}"
+        }
+      ],
+      "pattern": "/x/:id"
+    },
+    {
+      "handler_expression": "reply('v4-trailing-prefix')",
+      "identity": "route:v4/app.js#GET%20%2Fx%402",
+      "paths": [],
+      "pattern": "/x"
+    },
+    {
+      "handler_expression": "reply('v4-prefix-star')",
+      "identity": "route:v4/app.js#GET%20%2Fz",
+      "paths": [],
+      "pattern": "/z"
+    },
+    {
+      "handler_expression": "reply('v4-no-slash')",
+      "identity": "route:v4/app.js#GET%20b4users",
+      "paths": [],
+      "pattern": "b4users"
+    },
+    {
+      "handler_expression": "reply('v5-root-splat')",
+      "identity": "route:v5/app.js#GET%20%2Asplat",
+      "paths": [
+        {
+          "conditional": false,
+          "resolution": "literal",
+          "template": "/{*splat}"
+        }
+      ],
+      "pattern": "*splat"
+    },
+    {
+      "handler_expression": "reply('v5-mounted-root-splat')",
+      "identity": "route:v5/app.js#GET%20%2Asplat%402",
+      "paths": [
+        {
+          "conditional": false,
+          "resolution": "literal",
+          "template": "/ms5/{*splat}"
+        }
+      ],
+      "pattern": "*splat"
+    },
+    {
+      "handler_expression": "reply('v5-mounted-splat')",
+      "identity": "route:v5/app.js#GET%20%2F%2Asplat",
+      "paths": [
+        {
+          "conditional": false,
+          "resolution": "literal",
+          "template": "/r5/{*splat}"
+        }
+      ],
+      "pattern": "/*splat"
+    },
+    {
+      "handler_expression": "reply('v5-group-double-slash')",
+      "identity": "route:v5/app.js#GET%20%2Fb1a%2F%7B%2Fb%7D",
+      "paths": [],
+      "pattern": "/b1a/{/b}"
+    },
+    {
+      "handler_expression": "reply('v5-group-empty-wildcard')",
+      "identity": "route:v5/app.js#GET%20%2Fb1g%2F%7B%2Arest%7D",
+      "paths": [],
+      "pattern": "/b1g/{*rest}"
+    },
+    {
+      "handler_expression": "reply('v5-group-empty-param')",
+      "identity": "route:v5/app.js#GET%20%2Fb1h%2F%7B%3Aid%7D",
+      "paths": [],
+      "pattern": "/b1h/{:id}"
+    },
+    {
+      "handler_expression": "reply('v5-double-slash')",
+      "identity": "route:v5/app.js#GET%20%2Fc1v%2F%2Fdbl",
+      "paths": [],
+      "pattern": "/c1v//dbl"
+    },
+    {
+      "handler_expression": "reply('v5-non-ascii')",
+      "identity": "route:v5/app.js#GET%20%2Fc1v%2F%C3%A9",
+      "paths": [],
+      "pattern": "/c1v/é"
+    },
+    {
+      "handler_expression": "reply('v5-caret')",
+      "identity": "route:v5/app.js#GET%20%2Fc1v%2Fa%5Eb",
+      "paths": [],
+      "pattern": "/c1v/a^b"
+    },
+    {
+      "handler_expression": "reply('v5-escape')",
+      "identity": "route:v5/app.js#GET%20%2Fe5%2Fa%5C%5C%3Ab",
+      "paths": [],
+      "pattern": "/e5/a\\\\:b"
+    },
+    {
+      "handler_expression": "reply('v5-group')",
+      "identity": "route:v5/app.js#GET%20%2Fg5%2Fusers%7B%2F%3Aid%7D",
+      "paths": [
+        {
+          "conditional": false,
+          "resolution": "literal",
+          "template": "/g5/users"
+        },
+        {
+          "conditional": false,
+          "resolution": "literal",
+          "template": "/g5/users/{id}"
+        }
+      ],
+      "pattern": "/g5/users{/:id}"
+    },
+    {
+      "handler_expression": "reply('v5-nested-group')",
+      "identity": "route:v5/app.js#GET%20%2Fg5n%2Fa%7B%2Fb%7B%2Fc%7D%7D",
+      "paths": [
+        {
+          "conditional": false,
+          "resolution": "literal",
+          "template": "/g5n/a"
+        },
+        {
+          "conditional": false,
+          "resolution": "literal",
+          "template": "/g5n/a/b"
+        },
+        {
+          "conditional": false,
+          "resolution": "literal",
+          "template": "/g5n/a/b/c"
+        }
+      ],
+      "pattern": "/g5n/a{/b{/c}}"
+    },
+    {
+      "handler_expression": "reply('v5-group-wildcard')",
+      "identity": "route:v5/app.js#GET%20%2Fg5w%2Ffiles%7B%2F%2Apath%7D",
+      "paths": [
+        {
+          "conditional": false,
+          "resolution": "literal",
+          "template": "/g5w/files"
+        },
+        {
+          "conditional": false,
+          "resolution": "literal",
+          "template": "/g5w/files/{*path}"
+        }
+      ],
+      "pattern": "/g5w/files{/*path}"
+    },
+    {
+      "handler_expression": "reply('v5-in-segment')",
+      "identity": "route:v5/app.js#GET%20%2Fi5%2F%3Afrom-%3Ato",
+      "paths": [],
+      "pattern": "/i5/:from-:to"
+    },
+    {
+      "handler_expression": "reply('v5-literal')",
+      "identity": "route:v5/app.js#GET%20%2Fl5%2Fusers%2Flist.json",
+      "paths": [
+        {
+          "conditional": false,
+          "resolution": "literal",
+          "template": "/l5/users/list.json"
+        }
+      ],
+      "pattern": "/l5/users/list.json"
+    },
+    {
+      "handler_expression": "reply('v5-param')",
+      "identity": "route:v5/app.js#GET%20%2Fp5%2Fusers%2F%3Aid",
+      "paths": [
+        {
+          "conditional": false,
+          "resolution": "literal",
+          "template": "/p5/users/{id}"
+        }
+      ],
+      "pattern": "/p5/users/:id"
+    },
+    {
+      "handler_expression": "reply('v5-splat')",
+      "identity": "route:v5/app.js#GET%20%2Fs5%2Ffiles%2F%2Asplat",
+      "paths": [
+        {
+          "conditional": false,
+          "resolution": "literal",
+          "template": "/s5/files/{*splat}"
+        }
+      ],
+      "pattern": "/s5/files/*splat"
+    },
+    {
+      "handler_expression": "reply('v5-trailing-prefix')",
+      "identity": "route:v5/app.js#GET%20%2Fx",
+      "paths": [
+        {
+          "conditional": false,
+          "resolution": "literal",
+          "template": "/tp5/x"
+        }
+      ],
+      "pattern": "/x"
+    },
+    {
+      "handler_expression": "reply('v5-prefix-wildcard')",
+      "identity": "route:v5/app.js#GET%20%2Fz",
+      "paths": [],
+      "pattern": "/z"
+    },
+    {
+      "handler_expression": "reply('v5-prefix-group')",
+      "identity": "route:v5/app.js#GET%20%2Fz%402",
+      "paths": [],
+      "pattern": "/z"
+    },
+    {
+      "handler_expression": "reply('v5-no-slash')",
+      "identity": "route:v5/app.js#GET%20%3Ab4id",
+      "paths": [],
+      "pattern": ":b4id"
+    },
+    {
+      "handler_expression": "reply('v5-missing-text')",
+      "identity": "route:v5/invalid.js#GET%20%2Fv5%2F%3Aa%7B%3Ab%7D",
+      "paths": [],
+      "pattern": "/v5/:a{:b}"
+    },
+    {
+      "handler_expression": "reply('v5-parenthesis')",
+      "identity": "route:v5/invalid.js#GET%20%2Fv5%2Fa%28b%29",
+      "paths": [],
+      "pattern": "/v5/a(b)"
+    },
+    {
+      "handler_expression": "reply('v5-star')",
+      "identity": "route:v5/invalid.js#GET%20%2Fv5%2Ffiles%2F%2A",
+      "paths": [],
+      "pattern": "/v5/files/*"
+    },
+    {
+      "handler_expression": "reply('v5-optional')",
+      "identity": "route:v5/invalid.js#GET%20%2Fv5%2Fusers%2F%3Aid%3F",
+      "paths": [],
+      "pattern": "/v5/users/:id?"
+    },
+    {
+      "handler_expression": "reply('ws-splat')",
+      "identity": "route:ws/packages/api/app.js#GET%20%2Fws%2F%2Asplat",
+      "paths": [
+        {
+          "conditional": false,
+          "resolution": "literal",
+          "template": "/ws/{*splat}"
+        }
+      ],
+      "pattern": "/ws/*splat"
+    }
+  ]
+}

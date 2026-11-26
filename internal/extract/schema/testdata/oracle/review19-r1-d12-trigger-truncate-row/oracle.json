@@ -1,0 +1,28 @@
+{
+  "id": "review19-r1-d12-trigger-truncate-row",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y11",
+  "row": "review19",
+  "history": {
+    "id": "d12-trigger-truncate-row"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "0A000",
+        "message": "TRUNCATE FOR EACH ROW triggers are not supported",
+        "statement": 3,
+        "statement_text": "CREATE TRIGGER tr AFTER TRUNCATE ON t FOR EACH ROW EXECUTE FUNCTION f();"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

@@ -1,0 +1,28 @@
+{
+  "id": "review19-r3-v043-collation-provider-bogus",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y35",
+  "row": "review19",
+  "history": {
+    "id": "v043-collation-provider-bogus"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42P17",
+        "message": "unrecognized collation provider: bogus",
+        "statement": 1,
+        "statement_text": "CREATE COLLATION c1 (provider = bogus, locale = 'und');"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

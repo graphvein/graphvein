@@ -1,0 +1,10 @@
+[package]
+name = "mock-tests"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+tauri = "2"
+
+[dev-dependencies]
+tauri = { version = "2", features = ["test"] }

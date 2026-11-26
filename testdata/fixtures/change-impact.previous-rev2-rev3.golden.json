@@ -1,0 +1,3276 @@
+{
+  "base": "previous",
+  "hidden_tests": 0,
+  "impacts": [
+    {
+      "impact": {
+        "caps": [],
+        "depth": 3,
+        "paths": [
+          {
+            "claim": "depends on",
+            "confidence": 1,
+            "distance": 1,
+            "kind": "class",
+            "node": "class:ui/parent.ts#ParentComponent",
+            "provenance": "fact",
+            "relation": "I9",
+            "seed": "class:ui/child.ts#ChildComponent",
+            "steps": [
+              {
+                "confidence": 1,
+                "evidence": [
+                  {
+                    "file": "ui/parent.ts",
+                    "span": {
+                      "end_column": 118,
+                      "end_line": 5,
+                      "start_column": 109,
+                      "start_line": 5
+                    }
+                  }
+                ],
+                "kind": "renders",
+                "provenance": "fact",
+                "relation": "I9",
+                "removed": false,
+                "source": "class:ui/parent.ts#ParentComponent",
+                "target": "class:ui/child.ts#ChildComponent",
+                "via": null
+              }
+            ],
+            "wording": "renders this"
+          }
+        ],
+        "seeds": [
+          "class:ui/child.ts#ChildComponent"
+        ],
+        "table_uses": [],
+        "unknowns": {
+          "blind_spots": [],
+          "gap_nodes": [],
+          "near_misses": [],
+          "not_extracted": [
+            {
+              "nodes": [],
+              "relation": "I11"
+            }
+          ],
+          "untraversed": {
+            "contains": 2,
+            "scope_imports": 1
+          }
+        }
+      },
+      "seed": "class:ui/child.ts#ChildComponent"
+    },
+    {
+      "impact": {
+        "caps": [],
+        "depth": 3,
+        "paths": [
+          {
+            "claim": "depends on",
+            "confidence": 1,
+            "distance": 1,
+            "kind": "function",
+            "node": "function:db/src/lib.rs#all_items",
+            "provenance": "fact",
+            "relation": "I8",
+            "seed": "table:db/migrations/0001_items.sql#items",
+            "steps": [
+              {
+                "access": {
+                  "assumes": [],
+                  "column_use": null,
+                  "operations": [
+                    "select"
+                  ],
+                  "role": "builds",
+                  "rows": [
+                    "CT-Q1",
+                    "CT-Q2",
+                    "CT-S1"
+                  ],
+                  "tool": "sqlx",
+                  "verification": "oracle",
+                  "verification_wording": "verified by an oracle"
+                },
+                "confidence": 1,
+                "evidence": [
+                  {
+                    "file": "db/src/lib.rs",
+                    "span": {
+                      "end_column": 40,
+                      "end_line": 20,
+                      "start_column": 4,
+                      "start_line": 20
+                    }
+                  }
+                ],
+                "kind": "reads_table",
+                "provenance": "fact",
+                "relation": "I8",
+                "removed": false,
+                "source": "function:db/src/lib.rs#all_items",
+                "target": "table:db/migrations/0001_items.sql#items",
+                "via": null
+              }
+            ],
+            "wording": "builds a query on this table"
+          },
+          {
+            "claim": "depends on",
+            "confidence": 1,
+            "distance": 1,
+            "kind": "function",
+            "node": "function:db/src/lib.rs#count_rows",
+            "provenance": "fact",
+            "relation": "I8",
+            "seed": "table:db/migrations/0001_items.sql#items",
+            "steps": [
+              {
+                "access": {
+                  "assumes": [],
+                  "column_use": null,
+                  "operations": [
+                    "select"
+                  ],
+                  "role": "executes",
+                  "rows": [
+                    "CT-Q1",
+                    "CT-Q2",
+                    "CT-S1"
+                  ],
+                  "tool": "sqlx",
+                  "verification": "oracle",
+                  "verification_wording": "verified by an oracle"
+                },
+                "confidence": 1,
+                "evidence": [
+                  {
+                    "file": "db/src/lib.rs",
+                    "span": {
+                      "end_column": 53,
+                      "end_line": 24,
+                      "start_column": 4,
+                      "start_line": 24
+                    }
+                  }
+                ],
+                "kind": "reads_table",
+                "provenance": "fact",
+                "relation": "I8",
+                "removed": false,
+                "source": "function:db/src/lib.rs#count_rows",
+                "target": "table:db/migrations/0001_items.sql#items",
+                "via": null
+              }
+            ],
+            "wording": "reads this table"
+          },
+          {
+            "claim": "depends on",
+            "confidence": 1,
+            "distance": 1,
+            "kind": "function",
+            "node": "function:db/src/lib.rs#item_name",
+            "provenance": "fact",
+            "relation": "I8",
+            "seed": "table:db/migrations/0001_items.sql#items",
+            "steps": [
+              {
+                "access": {
+                  "assumes": [],
+                  "column_use": null,
+                  "operations": [
+                    "select"
+                  ],
+                  "role": "executes",
+                  "rows": [
+                    "CT-Q1",
+                    "CT-Q2",
+                    "CT-S1"
+                  ],
+                  "tool": "sqlx",
+                  "verification": "oracle",
+                  "verification_wording": "verified by an oracle"
+                },
+                "confidence": 1,
+                "evidence": [
+                  {
+                    "file": "db/src/lib.rs",
+                    "span": {
+                      "end_column": 67,
+                      "end_line": 5,
+                      "start_column": 4,
+                      "start_line": 5
+                    }
+                  }
+                ],
+                "kind": "reads_table",
+                "provenance": "fact",
+                "relation": "I8",
+                "removed": false,
+                "source": "function:db/src/lib.rs#item_name",
+                "target": "table:db/migrations/0001_items.sql#items",
+                "via": null
+              }
+            ],
+            "wording": "reads this table"
+          },
+          {
+            "claim": "may depend on",
+            "confidence": 0.9,
+            "distance": 1,
+            "kind": "function",
+            "node": "function:db/src/lib.rs#rename_item",
+            "provenance": "inferred",
+            "relation": "I8",
+            "seed": "table:db/migrations/0001_items.sql#items",
+            "steps": [
+              {
+                "access": {
+                  "assumes": [
+                    "TA-V1"
+                  ],
+                  "column_use": null,
+                  "operations": [
+                    "update"
+                  ],
+                  "role": "executes",
+                  "rows": [
+                    "CT-Q1",
+                    "CT-Q2",
+                    "CT-S2"
+                  ],
+                  "tool": "sqlx",
+                  "verification": "oracle",
+                  "verification_wording": "verified by an oracle"
+                },
+                "confidence": 0.9,
+                "evidence": [
+                  {
+                    "file": "db/src/lib.rs",
+                    "span": {
+                      "end_column": 59,
+                      "end_line": 11,
+                      "start_column": 4,
+                      "start_line": 11
+                    }
+                  }
+                ],
+                "kind": "writes_table",
+                "provenance": "inferred",
+                "relation": "I8",
+                "removed": false,
+                "source": "function:db/src/lib.rs#rename_item",
+                "target": "table:db/migrations/0001_items.sql#items",
+                "via": null
+              }
+            ],
+            "wording": "may write this table"
+          },
+          {
+            "claim": "depends on",
+            "confidence": 1,
+            "distance": 1,
+            "kind": "migration",
+            "node": "migration:db/migrations/0003_item_price.sql#migration",
+            "provenance": "fact",
+            "relation": "I7",
+            "seed": "table:db/migrations/0001_items.sql#items",
+            "steps": [
+              {
+                "confidence": 1,
+                "evidence": [
+                  {
+                    "file": "db/migrations/0003_item_price.sql",
+                    "span": {
+                      "end_column": 43,
+                      "end_line": 1,
+                      "start_column": 0,
+                      "start_line": 1
+                    }
+                  }
+                ],
+                "kind": "alters",
+                "provenance": "fact",
+                "relation": "I7",
+                "removed": false,
+                "source": "migration:db/migrations/0003_item_price.sql#migration",
+                "target": "table:db/migrations/0001_items.sql#items",
+                "via": null
+              }
+            ],
+            "wording": "alters this table"
+          }
+        ],
+        "seeds": [
+          "table:db/migrations/0001_items.sql#items"
+        ],
+        "table_uses": [
+          {
+            "found": [
+              "function:db/src/lib.rs#all_items",
+              "function:db/src/lib.rs#count_rows",
+              "function:db/src/lib.rs#item_name",
+              "function:db/src/lib.rs#rename_item"
+            ],
+            "may_also_be_used_by": [],
+            "may_also_wording": "may also be used by",
+            "table": "table:db/migrations/0001_items.sql#items",
+            "wording": "uses found"
+          }
+        ],
+        "unknowns": {
+          "blind_spots": [],
+          "gap_nodes": [],
+          "near_misses": [],
+          "not_extracted": [
+            {
+              "nodes": [],
+              "relation": "I11"
+            }
+          ],
+          "untraversed": {
+            "contains": 6
+          }
+        }
+      },
+      "seed": "table:db/migrations/0001_items.sql#items"
+    },
+    {
+      "impact": {
+        "caps": [],
+        "depth": 3,
+        "paths": [
+          {
+            "claim": "may depend on",
+            "confidence": 0.9,
+            "distance": 1,
+            "kind": "function",
+            "node": "function:models/app/queries.py#hero_by_id",
+            "provenance": "inferred",
+            "relation": "I8",
+            "seed": "table:models/app/models.py#Hero",
+            "steps": [
+              {
+                "access": {
+                  "assumes": [
+                    "TA-V3c"
+                  ],
+                  "column_use": null,
+                  "operations": [
+                    "get"
+                  ],
+                  "role": "executes",
+                  "rows": [
+                    "CT-P3"
+                  ],
+                  "tool": "sqlmodel",
+                  "verification": "mapped",
+                  "verification_wording": "mapped, not verified"
+                },
+                "confidence": 0.9,
+                "evidence": [
+                  {
+                    "file": "models/app/queries.py",
+                    "span": {
+                      "end_column": 37,
+                      "end_line": 13,
+                      "start_column": 11,
+                      "start_line": 13
+                    }
+                  }
+                ],
+                "kind": "reads_table",
+                "provenance": "inferred",
+                "relation": "I8",
+                "removed": false,
+                "source": "function:models/app/queries.py#hero_by_id",
+                "target": "table:models/app/models.py#Hero",
+                "via": null
+              }
+            ],
+            "wording": "may read this table"
+          },
+          {
+            "claim": "depends on",
+            "confidence": 1,
+            "distance": 1,
+            "kind": "function",
+            "node": "function:models/app/queries.py#heroes",
+            "provenance": "fact",
+            "relation": "I8",
+            "seed": "table:models/app/models.py#Hero",
+            "steps": [
+              {
+                "access": {
+                  "assumes": [],
+                  "column_use": null,
+                  "operations": [
+                    "select"
+                  ],
+                  "role": "executes",
+                  "rows": [
+                    "CT-P1"
+                  ],
+                  "tool": "sqlmodel",
+                  "verification": "oracle",
+                  "verification_wording": "verified by an oracle"
+                },
+                "confidence": 1,
+                "evidence": [
+                  {
+                    "file": "models/app/queries.py",
+                    "span": {
+                      "end_column": 36,
+                      "end_line": 9,
+                      "start_column": 24,
+                      "start_line": 9
+                    }
+                  }
+                ],
+                "kind": "reads_table",
+                "provenance": "fact",
+                "relation": "I8",
+                "removed": false,
+                "source": "function:models/app/queries.py#heroes",
+                "target": "table:models/app/models.py#Hero",
+                "via": null
+              }
+            ],
+            "wording": "reads this table"
+          }
+        ],
+        "seeds": [
+          "table:models/app/models.py#Hero"
+        ],
+        "table_uses": [
+          {
+            "found": [
+              "function:models/app/queries.py#hero_by_id",
+              "function:models/app/queries.py#heroes"
+            ],
+            "may_also_be_used_by": [
+              {
+                "line": 17,
+                "owner": "function:models/app/queries.py#largest_team",
+                "partial": true,
+                "provenance": "inferred",
+                "reason": "site_partial: a function entity names a model the row does not claim (implicit FROM)",
+                "row": "CT-P1",
+                "tool": "sqlmodel"
+              }
+            ],
+            "may_also_wording": "may also be used by",
+            "table": "table:models/app/models.py#Hero",
+            "wording": "uses found"
+          }
+        ],
+        "unknowns": {
+          "blind_spots": [],
+          "gap_nodes": [],
+          "near_misses": [],
+          "not_extracted": [
+            {
+              "nodes": [],
+              "relation": "I11"
+            }
+          ],
+          "untraversed": {
+            "contains": 3
+          }
+        }
+      },
+      "seed": "table:models/app/models.py#Hero"
+    },
+    {
+      "impact": {
+        "caps": [],
+        "depth": 3,
+        "paths": [
+          {
+            "claim": "depends on",
+            "confidence": 1,
+            "distance": 1,
+            "kind": "function",
+            "node": "function:react/src/page.tsx#ArticlePage",
+            "provenance": "fact",
+            "relation": "I14",
+            "seed": "function:react/src/article.tsx#ArticleContent",
+            "steps": [
+              {
+                "confidence": 1,
+                "evidence": [
+                  {
+                    "file": "react/src/page.tsx",
+                    "span": {
+                      "end_column": 36,
+                      "end_line": 6,
+                      "start_column": 6,
+                      "start_line": 6
+                    }
+                  }
+                ],
+                "kind": "renders",
+                "provenance": "fact",
+                "relation": "I14",
+                "removed": false,
+                "source": "function:react/src/page.tsx#ArticlePage",
+                "target": "function:react/src/article.tsx#ArticleContent",
+                "via": null
+              }
+            ],
+            "wording": "renders this"
+          },
+          {
+            "claim": "depends on",
+            "confidence": 1,
+            "distance": 1,
+            "kind": "function",
+            "node": "function:react/src/page.tsx#PreviewPage",
+            "provenance": "fact",
+            "relation": "I14",
+            "seed": "function:react/src/article.tsx#ArticleContent",
+            "steps": [
+              {
+                "confidence": 1,
+                "evidence": [
+                  {
+                    "file": "react/src/page.tsx",
+                    "span": {
+                      "end_column": 42,
+                      "end_line": 13,
+                      "start_column": 9,
+                      "start_line": 13
+                    }
+                  }
+                ],
+                "kind": "renders",
+                "provenance": "fact",
+                "relation": "I14",
+                "removed": false,
+                "source": "function:react/src/page.tsx#PreviewPage",
+                "target": "function:react/src/article.tsx#ArticleContent",
+                "via": null
+              }
+            ],
+            "wording": "renders this"
+          },
+          {
+            "claim": "may depend on",
+            "confidence": null,
+            "distance": 2,
+            "kind": "file",
+            "node": "file:react/src/routes.tsx#react%2Fsrc%2Froutes.tsx",
+            "provenance": "inferred",
+            "relation": "I15",
+            "seed": "function:react/src/article.tsx#ArticleContent",
+            "steps": [
+              {
+                "confidence": 1,
+                "evidence": [
+                  {
+                    "file": "react/src/page.tsx",
+                    "span": {
+                      "end_column": 36,
+                      "end_line": 6,
+                      "start_column": 6,
+                      "start_line": 6
+                    }
+                  }
+                ],
+                "kind": "renders",
+                "provenance": "fact",
+                "relation": "I14",
+                "removed": false,
+                "source": "function:react/src/page.tsx#ArticlePage",
+                "target": "function:react/src/article.tsx#ArticleContent",
+                "via": null
+              },
+              {
+                "confidence": 1,
+                "evidence": [
+                  {
+                    "file": "react/src/routes.tsx",
+                    "span": {
+                      "end_column": 44,
+                      "end_line": 6,
+                      "start_column": 33,
+                      "start_line": 6
+                    }
+                  }
+                ],
+                "kind": "passes_function",
+                "provenance": "fact",
+                "relation": "I15",
+                "removed": false,
+                "source": "file:react/src/routes.tsx#react%2Fsrc%2Froutes.tsx",
+                "target": "function:react/src/page.tsx#ArticlePage",
+                "via": null
+              }
+            ],
+            "wording": "passes this as callback, call not modelled"
+          },
+          {
+            "claim": "depends on",
+            "confidence": 1,
+            "distance": 2,
+            "kind": "ui_route",
+            "node": "ui_route:react/src/routes.tsx#router.ROUTE%20%2Farticle",
+            "provenance": "fact",
+            "relation": "I14",
+            "seed": "function:react/src/article.tsx#ArticleContent",
+            "steps": [
+              {
+                "confidence": 1,
+                "evidence": [
+                  {
+                    "file": "react/src/page.tsx",
+                    "span": {
+                      "end_column": 36,
+                      "end_line": 6,
+                      "start_column": 6,
+                      "start_line": 6
+                    }
+                  }
+                ],
+                "kind": "renders",
+                "provenance": "fact",
+                "relation": "I14",
+                "removed": false,
+                "source": "function:react/src/page.tsx#ArticlePage",
+                "target": "function:react/src/article.tsx#ArticleContent",
+                "via": null
+              },
+              {
+                "confidence": 1,
+                "evidence": [
+                  {
+                    "file": "react/src/routes.tsx",
+                    "span": {
+                      "end_column": 44,
+                      "end_line": 6,
+                      "start_column": 33,
+                      "start_line": 6
+                    }
+                  }
+                ],
+                "kind": "routes_to",
+                "provenance": "fact",
+                "relation": "I14",
+                "removed": false,
+                "source": "ui_route:react/src/routes.tsx#router.ROUTE%20%2Farticle",
+                "target": "function:react/src/page.tsx#ArticlePage",
+                "via": null
+              }
+            ],
+            "wording": "routes to this"
+          },
+          {
+            "claim": "depends on",
+            "confidence": 1,
+            "distance": 2,
+            "kind": "ui_route",
+            "node": "ui_route:react/src/routes.tsx#router.ROUTE%20%2Fpreview",
+            "provenance": "fact",
+            "relation": "I14",
+            "seed": "function:react/src/article.tsx#ArticleContent",
+            "steps": [
+              {
+                "confidence": 1,
+                "evidence": [
+                  {
+                    "file": "react/src/page.tsx",
+                    "span": {
+                      "end_column": 42,
+                      "end_line": 13,
+                      "start_column": 9,
+                      "start_line": 13
+                    }
+                  }
+                ],
+                "kind": "renders",
+                "provenance": "fact",
+                "relation": "I14",
+                "removed": false,
+                "source": "function:react/src/page.tsx#PreviewPage",
+                "target": "function:react/src/article.tsx#ArticleContent",
+                "via": null
+              },
+              {
+                "confidence": 1,
+                "evidence": [
+                  {
+                    "file": "react/src/routes.tsx",
+                    "span": {
+                      "end_column": 44,
+                      "end_line": 7,
+                      "start_column": 33,
+                      "start_line": 7
+                    }
+                  }
+                ],
+                "kind": "routes_to",
+                "provenance": "fact",
+                "relation": "I14",
+                "removed": false,
+                "source": "ui_route:react/src/routes.tsx#router.ROUTE%20%2Fpreview",
+                "target": "function:react/src/page.tsx#PreviewPage",
+                "via": null
+              }
+            ],
+            "wording": "routes to this"
+          },
+          {
+            "claim": "depends on",
+            "confidence": 1,
+            "distance": 3,
+            "kind": "variable",
+            "node": "variable:react/src/routes.tsx#router",
+            "provenance": "fact",
+            "relation": "I2",
+            "seed": "function:react/src/article.tsx#ArticleContent",
+            "steps": [
+              {
+                "confidence": 1,
+                "evidence": [
+                  {
+                    "file": "react/src/page.tsx",
+                    "span": {
+                      "end_column": 36,
+                      "end_line": 6,
+                      "start_column": 6,
+                      "start_line": 6
+                    }
+                  }
+                ],
+                "kind": "renders",
+                "provenance": "fact",
+                "relation": "I14",
+                "removed": false,
+                "source": "function:react/src/page.tsx#ArticlePage",
+                "target": "function:react/src/article.tsx#ArticleContent",
+                "via": null
+              },
+              {
+                "confidence": 1,
+                "evidence": [
+                  {
+                    "file": "react/src/routes.tsx",
+                    "span": {
+                      "end_column": 44,
+                      "end_line": 6,
+                      "start_column": 33,
+                      "start_line": 6
+                    }
+                  }
+                ],
+                "kind": "routes_to",
+                "provenance": "fact",
+                "relation": "I14",
+                "removed": false,
+                "source": "ui_route:react/src/routes.tsx#router.ROUTE%20%2Farticle",
+                "target": "function:react/src/page.tsx#ArticlePage",
+                "via": null
+              },
+              {
+                "confidence": 1,
+                "evidence": [
+                  {
+                    "file": "react/src/routes.tsx",
+                    "span": {
+                      "end_column": 69,
+                      "end_line": 6,
+                      "start_column": 2,
+                      "start_line": 6
+                    }
+                  }
+                ],
+                "kind": "contains",
+                "provenance": "fact",
+                "relation": "I2",
+                "removed": false,
+                "source": "variable:react/src/routes.tsx#router",
+                "target": "ui_route:react/src/routes.tsx#router.ROUTE%20%2Farticle",
+                "via": null
+              }
+            ],
+            "wording": "makes the changed call"
+          }
+        ],
+        "seeds": [
+          "function:react/src/article.tsx#ArticleContent"
+        ],
+        "table_uses": [],
+        "unknowns": {
+          "blind_spots": [],
+          "gap_nodes": [],
+          "near_misses": [],
+          "not_extracted": [
+            {
+              "nodes": [],
+              "relation": "I11"
+            }
+          ],
+          "untraversed": {
+            "contains": 3
+          }
+        }
+      },
+      "seed": "function:react/src/article.tsx#ArticleContent"
+    },
+    {
+      "impact": {
+        "caps": [],
+        "depth": 3,
+        "paths": [
+          {
+            "claim": "may depend on",
+            "confidence": null,
+            "distance": 1,
+            "kind": "file",
+            "node": "file:react/src/routes.tsx#react%2Fsrc%2Froutes.tsx",
+            "provenance": "inferred",
+            "relation": "I15",
+            "seed": "function:react/src/loader.ts#articleLoader",
+            "steps": [
+              {
+                "confidence": 1,
+                "evidence": [
+                  {
+                    "file": "react/src/routes.tsx",
+                    "span": {
+                      "end_column": 67,
+                      "end_line": 6,
+                      "start_column": 54,
+                      "start_line": 6
+                    }
+                  }
+                ],
+                "kind": "passes_function",
+                "provenance": "fact",
+                "relation": "I15",
+                "removed": false,
+                "source": "file:react/src/routes.tsx#react%2Fsrc%2Froutes.tsx",
+                "target": "function:react/src/loader.ts#articleLoader",
+                "via": null
+              }
+            ],
+            "wording": "passes this as callback, call not modelled"
+          },
+          {
+            "claim": "may depend on",
+            "confidence": null,
+            "distance": 1,
+            "kind": "ui_route",
+            "node": "ui_route:react/src/routes.tsx#router.ROUTE%20%2Farticle",
+            "provenance": "inferred",
+            "relation": "I15",
+            "seed": "function:react/src/loader.ts#articleLoader",
+            "steps": [
+              {
+                "confidence": 1,
+                "evidence": [
+                  {
+                    "file": "react/src/routes.tsx",
+                    "span": {
+                      "end_column": 67,
+                      "end_line": 6,
+                      "start_column": 54,
+                      "start_line": 6
+                    }
+                  }
+                ],
+                "kind": "passes_function",
+                "provenance": "fact",
+                "relation": "I15",
+                "removed": false,
+                "source": "ui_route:react/src/routes.tsx#router.ROUTE%20%2Farticle",
+                "target": "function:react/src/loader.ts#articleLoader",
+                "via": null
+              }
+            ],
+            "wording": "passes this as callback, call not modelled"
+          },
+          {
+            "claim": "may depend on",
+            "confidence": null,
+            "distance": 2,
+            "kind": "variable",
+            "node": "variable:react/src/routes.tsx#router",
+            "provenance": "inferred",
+            "relation": "I2",
+            "seed": "function:react/src/loader.ts#articleLoader",
+            "steps": [
+              {
+                "confidence": 1,
+                "evidence": [
+                  {
+                    "file": "react/src/routes.tsx",
+                    "span": {
+                      "end_column": 67,
+                      "end_line": 6,
+                      "start_column": 54,
+                      "start_line": 6
+                    }
+                  }
+                ],
+                "kind": "passes_function",
+                "provenance": "fact",
+                "relation": "I15",
+                "removed": false,
+                "source": "ui_route:react/src/routes.tsx#router.ROUTE%20%2Farticle",
+                "target": "function:react/src/loader.ts#articleLoader",
+                "via": null
+              },
+              {
+                "confidence": 1,
+                "evidence": [
+                  {
+                    "file": "react/src/routes.tsx",
+                    "span": {
+                      "end_column": 69,
+                      "end_line": 6,
+                      "start_column": 2,
+                      "start_line": 6
+                    }
+                  }
+                ],
+                "kind": "contains",
+                "provenance": "fact",
+                "relation": "I2",
+                "removed": false,
+                "source": "variable:react/src/routes.tsx#router",
+                "target": "ui_route:react/src/routes.tsx#router.ROUTE%20%2Farticle",
+                "via": null
+              }
+            ],
+            "wording": "makes the changed call"
+          }
+        ],
+        "seeds": [
+          "function:react/src/loader.ts#articleLoader"
+        ],
+        "table_uses": [],
+        "unknowns": {
+          "blind_spots": [],
+          "gap_nodes": [],
+          "near_misses": [],
+          "not_extracted": [
+            {
+              "nodes": [],
+              "relation": "I11"
+            }
+          ],
+          "untraversed": {
+            "contains": 2
+          }
+        }
+      },
+      "seed": "function:react/src/loader.ts#articleLoader"
+    }
+  ],
+  "items": [
+    {
+      "after": {
+        "fields": {
+          "framework": "express",
+          "handler": "function:server/stable.ts#stableV2",
+          "method": "GET",
+          "paths": [
+            {
+              "conditional": false,
+              "resolution": "literal",
+              "template": "/api/stable"
+            }
+          ],
+          "pattern": "/api/stable",
+          "scope": null
+        },
+        "file": "server/app.ts",
+        "span": {
+          "end_column": 32,
+          "end_line": 12,
+          "start_column": 0,
+          "start_line": 12
+        }
+      },
+      "before": {
+        "fields": {
+          "framework": "express",
+          "handler": "function:server/stable.ts#stable",
+          "method": "GET",
+          "paths": [
+            {
+              "conditional": false,
+              "resolution": "literal",
+              "template": "/api/stable"
+            }
+          ],
+          "pattern": "/api/stable",
+          "scope": null
+        },
+        "file": "server/app.ts",
+        "span": {
+          "end_column": 30,
+          "end_line": 12,
+          "start_column": 0,
+          "start_line": 12
+        }
+      },
+      "cause": "code",
+      "change": "changed",
+      "confidence": null,
+      "fields": [
+        {
+          "after": "function:server/stable.ts#stableV2",
+          "before": "function:server/stable.ts#stable",
+          "change": "changed",
+          "name": "handler"
+        },
+        {
+          "after": [
+            "function:server/stable.ts#stableV2"
+          ],
+          "before": [
+            "function:server/stable.ts#stable"
+          ],
+          "change": "changed",
+          "name": "handler_edges"
+        }
+      ],
+      "group": "routes",
+      "hints": [],
+      "id": "route:server/app.ts#GET%20%2Fapi%2Fstable",
+      "identity": "route:server/app.ts#GET%20%2Fapi%2Fstable",
+      "impact_count": null,
+      "kind": "route",
+      "labels": [
+        "handler_changed"
+      ],
+      "name": "GET /api/stable",
+      "provenance": null,
+      "reason": null,
+      "record": "node",
+      "row": "C3",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": {
+        "fields": {
+          "completeness": "complete_in_source",
+          "name": "items",
+          "set": "db/migrations"
+        },
+        "file": "db/migrations/0001_items.sql",
+        "span": {
+          "end_column": 64,
+          "end_line": 1,
+          "start_column": 0,
+          "start_line": 1
+        }
+      },
+      "before": {
+        "fields": {
+          "completeness": "complete",
+          "name": "items",
+          "set": "db/migrations"
+        },
+        "file": "db/migrations/0001_items.sql",
+        "span": {
+          "end_column": 64,
+          "end_line": 1,
+          "start_column": 0,
+          "start_line": 1
+        }
+      },
+      "cause": "relink",
+      "change": "changed",
+      "confidence": null,
+      "fields": [
+        {
+          "after": "complete_in_source",
+          "before": "complete",
+          "change": "changed",
+          "name": "completeness"
+        }
+      ],
+      "group": "migration_tables",
+      "hints": [],
+      "id": "table:db/migrations/0001_items.sql#items",
+      "identity": "table:db/migrations/0001_items.sql#items",
+      "impact_count": 5,
+      "kind": "table",
+      "labels": [],
+      "name": "items",
+      "provenance": null,
+      "reason": null,
+      "record": "node",
+      "row": "C8",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": {
+        "fields": {
+          "completeness": "complete_in_source",
+          "name": "tags",
+          "set": "db/migrations"
+        },
+        "file": "db/migrations/0002_tags.sql",
+        "span": {
+          "end_column": 64,
+          "end_line": 1,
+          "start_column": 0,
+          "start_line": 1
+        }
+      },
+      "before": {
+        "fields": {
+          "completeness": "complete",
+          "name": "tags",
+          "set": "db/migrations"
+        },
+        "file": "db/migrations/0002_tags.sql",
+        "span": {
+          "end_column": 64,
+          "end_line": 1,
+          "start_column": 0,
+          "start_line": 1
+        }
+      },
+      "cause": "relink",
+      "change": "changed",
+      "confidence": null,
+      "fields": [
+        {
+          "after": "complete_in_source",
+          "before": "complete",
+          "change": "changed",
+          "name": "completeness"
+        }
+      ],
+      "group": "migration_tables",
+      "hints": [],
+      "id": "table:db/migrations/0002_tags.sql#tags",
+      "identity": "table:db/migrations/0002_tags.sql#tags",
+      "impact_count": null,
+      "kind": "table",
+      "labels": [],
+      "name": "tags",
+      "provenance": null,
+      "reason": null,
+      "record": "node",
+      "row": "C8",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": null,
+      "before": {
+        "fields": {
+          "nullable": false,
+          "primary_key": false,
+          "type": "text",
+          "unique": false
+        },
+        "file": "db/migrations/0002_tags.sql",
+        "span": {
+          "end_column": 62,
+          "end_line": 1,
+          "start_column": 43,
+          "start_line": 1
+        }
+      },
+      "cause": "relink",
+      "change": "unknown_now",
+      "confidence": null,
+      "fields": [],
+      "group": "migration_tables",
+      "hints": [],
+      "id": "column:db/migrations/0002_tags.sql#tags.label",
+      "identity": "column:db/migrations/0002_tags.sql#tags.label",
+      "impact_count": null,
+      "kind": "column",
+      "labels": [],
+      "name": "tags.label",
+      "provenance": null,
+      "reason": "table_not_complete",
+      "record": "node",
+      "row": "C9",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": {
+        "fields": {
+          "completeness": "complete",
+          "name": "heroes",
+          "pins": {
+            "pydantic": "2.13.4",
+            "sqlalchemy": "2.0.51",
+            "sqlmodel": "0.0.39"
+          },
+          "set": "models/sqlmodel/.",
+          "tool": "sqlmodel"
+        },
+        "file": "models/app/models.py",
+        "span": {
+          "end_column": 0,
+          "end_line": 11,
+          "start_column": 0,
+          "start_line": 6
+        }
+      },
+      "before": {
+        "fields": {
+          "completeness": "complete",
+          "name": "hero",
+          "pins": {
+            "pydantic": "2.13.4",
+            "sqlalchemy": "2.0.51",
+            "sqlmodel": "0.0.39"
+          },
+          "set": "models/sqlmodel/.",
+          "tool": "sqlmodel"
+        },
+        "file": "models/app/models.py",
+        "span": {
+          "end_column": 0,
+          "end_line": 9,
+          "start_column": 0,
+          "start_line": 6
+        }
+      },
+      "cause": "code",
+      "change": "changed",
+      "confidence": null,
+      "fields": [
+        {
+          "after": "heroes",
+          "before": "hero",
+          "change": "changed",
+          "name": "name"
+        }
+      ],
+      "group": "model_tables",
+      "hints": [],
+      "id": "table:models/app/models.py#Hero",
+      "identity": "table:models/app/models.py#Hero",
+      "impact_count": 2,
+      "kind": "table",
+      "labels": [],
+      "name": "Hero",
+      "provenance": null,
+      "reason": null,
+      "record": "node",
+      "row": "C11",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": {
+        "fields": {
+          "applied": true,
+          "content_hash": "sha256:9fcf07fba3e202c3c6a1eef81854fd6c5ba38f95558ac5b9d71ae4ce1e5e0fe9",
+          "order": 4
+        },
+        "file": "db/migrations/0004_tags_cleanup.sql",
+        "span": {
+          "end_column": 0,
+          "end_line": 3,
+          "start_column": 0,
+          "start_line": 1
+        }
+      },
+      "before": null,
+      "cause": "code",
+      "change": "added",
+      "confidence": null,
+      "fields": [],
+      "group": "migrations",
+      "hints": [],
+      "id": "migration:db/migrations/0004_tags_cleanup.sql#migration",
+      "identity": "migration:db/migrations/0004_tags_cleanup.sql#migration",
+      "impact_count": null,
+      "kind": "migration",
+      "labels": [],
+      "name": "migration",
+      "provenance": null,
+      "reason": null,
+      "record": "node",
+      "row": "C10",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": {
+        "fields": {},
+        "file": "ui/badge.ts",
+        "span": {
+          "end_column": 30,
+          "end_line": 4,
+          "start_column": 0,
+          "start_line": 3
+        }
+      },
+      "before": null,
+      "cause": "code",
+      "change": "added",
+      "confidence": null,
+      "fields": [],
+      "group": "code",
+      "hints": [],
+      "id": "class:ui/badge.ts#BadgeComponent",
+      "identity": "class:ui/badge.ts#BadgeComponent",
+      "impact_count": null,
+      "kind": "class",
+      "labels": [],
+      "name": "BadgeComponent",
+      "provenance": null,
+      "reason": null,
+      "record": "node",
+      "row": "C2",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": {
+        "fields": {},
+        "file": "react/src/article.tsx",
+        "span": {
+          "end_column": 1,
+          "end_line": 7,
+          "start_column": 0,
+          "start_line": 5
+        }
+      },
+      "before": null,
+      "cause": "code",
+      "change": "added",
+      "confidence": null,
+      "fields": [],
+      "group": "code",
+      "hints": [],
+      "id": "function:react/src/article.tsx#ArticleMeta",
+      "identity": "function:react/src/article.tsx#ArticleMeta",
+      "impact_count": null,
+      "kind": "function",
+      "labels": [],
+      "name": "ArticleMeta",
+      "provenance": null,
+      "reason": null,
+      "record": "node",
+      "row": "C2",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": {
+        "fields": {},
+        "file": "react/src/page.tsx",
+        "span": {
+          "end_column": 1,
+          "end_line": 14,
+          "start_column": 0,
+          "start_line": 12
+        }
+      },
+      "before": null,
+      "cause": "code",
+      "change": "added",
+      "confidence": null,
+      "fields": [],
+      "group": "code",
+      "hints": [],
+      "id": "function:react/src/page.tsx#PreviewPage",
+      "identity": "function:react/src/page.tsx#PreviewPage",
+      "impact_count": null,
+      "kind": "function",
+      "labels": [],
+      "name": "PreviewPage",
+      "provenance": null,
+      "reason": null,
+      "record": "node",
+      "row": "C2",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": {
+        "fields": {},
+        "file": "server/stable.ts",
+        "span": {
+          "end_column": 1,
+          "end_line": 7,
+          "start_column": 0,
+          "start_line": 5
+        }
+      },
+      "before": null,
+      "cause": "code",
+      "change": "added",
+      "confidence": null,
+      "fields": [],
+      "group": "code",
+      "hints": [],
+      "id": "function:server/stable.ts#stableV2",
+      "identity": "function:server/stable.ts#stableV2",
+      "impact_count": null,
+      "kind": "function",
+      "labels": [],
+      "name": "stableV2",
+      "provenance": null,
+      "reason": null,
+      "record": "node",
+      "row": "C2",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": {
+        "fields": {},
+        "file": "models/app/models.py",
+        "span": {
+          "end_column": 29,
+          "end_line": 11,
+          "start_column": 0,
+          "start_line": 6
+        }
+      },
+      "before": {
+        "fields": {},
+        "file": "models/app/models.py",
+        "span": {
+          "end_column": 29,
+          "end_line": 9,
+          "start_column": 0,
+          "start_line": 6
+        }
+      },
+      "cause": "code",
+      "change": "body_changed",
+      "confidence": null,
+      "fields": [],
+      "group": "code",
+      "hints": [],
+      "id": "class:models/app/models.py#Hero",
+      "identity": "class:models/app/models.py#Hero",
+      "impact_count": null,
+      "kind": "class",
+      "labels": [],
+      "name": "Hero",
+      "provenance": null,
+      "reason": null,
+      "record": "node",
+      "row": "C2",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": {
+        "fields": {},
+        "file": "ui/child.ts",
+        "span": {
+          "end_column": 1,
+          "end_line": 6,
+          "start_column": 0,
+          "start_line": 3
+        }
+      },
+      "before": {
+        "fields": {},
+        "file": "ui/child.ts",
+        "span": {
+          "end_column": 30,
+          "end_line": 4,
+          "start_column": 0,
+          "start_line": 3
+        }
+      },
+      "cause": "code",
+      "change": "body_changed",
+      "confidence": null,
+      "fields": [],
+      "group": "code",
+      "hints": [],
+      "id": "class:ui/child.ts#ChildComponent",
+      "identity": "class:ui/child.ts#ChildComponent",
+      "impact_count": 1,
+      "kind": "class",
+      "labels": [],
+      "name": "ChildComponent",
+      "provenance": null,
+      "reason": null,
+      "record": "node",
+      "row": "C2",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": {
+        "fields": {},
+        "file": "ui/parent.ts",
+        "span": {
+          "end_column": 31,
+          "end_line": 6,
+          "start_column": 0,
+          "start_line": 5
+        }
+      },
+      "before": {
+        "fields": {},
+        "file": "ui/parent.ts",
+        "span": {
+          "end_column": 31,
+          "end_line": 5,
+          "start_column": 0,
+          "start_line": 4
+        }
+      },
+      "cause": "code",
+      "change": "body_changed",
+      "confidence": null,
+      "fields": [],
+      "group": "code",
+      "hints": [],
+      "id": "class:ui/parent.ts#ParentComponent",
+      "identity": "class:ui/parent.ts#ParentComponent",
+      "impact_count": null,
+      "kind": "class",
+      "labels": [],
+      "name": "ParentComponent",
+      "provenance": null,
+      "reason": null,
+      "record": "node",
+      "row": "C2",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": {
+        "fields": {},
+        "file": "react/src/article.tsx",
+        "span": {
+          "end_column": 1,
+          "end_line": 3,
+          "start_column": 0,
+          "start_line": 1
+        }
+      },
+      "before": {
+        "fields": {},
+        "file": "react/src/article.tsx",
+        "span": {
+          "end_column": 1,
+          "end_line": 3,
+          "start_column": 0,
+          "start_line": 1
+        }
+      },
+      "cause": "code",
+      "change": "body_changed",
+      "confidence": null,
+      "fields": [],
+      "group": "code",
+      "hints": [],
+      "id": "function:react/src/article.tsx#ArticleContent",
+      "identity": "function:react/src/article.tsx#ArticleContent",
+      "impact_count": 6,
+      "kind": "function",
+      "labels": [],
+      "name": "ArticleContent",
+      "provenance": null,
+      "reason": null,
+      "record": "node",
+      "row": "C2",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": {
+        "fields": {},
+        "file": "react/src/loader.ts",
+        "span": {
+          "end_column": 1,
+          "end_line": 3,
+          "start_column": 0,
+          "start_line": 1
+        }
+      },
+      "before": {
+        "fields": {},
+        "file": "react/src/loader.ts",
+        "span": {
+          "end_column": 1,
+          "end_line": 3,
+          "start_column": 0,
+          "start_line": 1
+        }
+      },
+      "cause": "code",
+      "change": "body_changed",
+      "confidence": null,
+      "fields": [],
+      "group": "code",
+      "hints": [],
+      "id": "function:react/src/loader.ts#articleLoader",
+      "identity": "function:react/src/loader.ts#articleLoader",
+      "impact_count": 3,
+      "kind": "function",
+      "labels": [],
+      "name": "articleLoader",
+      "provenance": null,
+      "reason": null,
+      "record": "node",
+      "row": "C2",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": {
+        "fields": {},
+        "file": "react/src/page.tsx",
+        "span": {
+          "end_column": 1,
+          "end_line": 10,
+          "start_column": 0,
+          "start_line": 3
+        }
+      },
+      "before": {
+        "fields": {},
+        "file": "react/src/page.tsx",
+        "span": {
+          "end_column": 1,
+          "end_line": 9,
+          "start_column": 0,
+          "start_line": 3
+        }
+      },
+      "cause": "code",
+      "change": "body_changed",
+      "confidence": null,
+      "fields": [],
+      "group": "code",
+      "hints": [],
+      "id": "function:react/src/page.tsx#ArticlePage",
+      "identity": "function:react/src/page.tsx#ArticlePage",
+      "impact_count": null,
+      "kind": "function",
+      "labels": [],
+      "name": "ArticlePage",
+      "provenance": null,
+      "reason": null,
+      "record": "node",
+      "row": "C2",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": {
+        "fields": {},
+        "file": "react/src/routes.tsx",
+        "span": {
+          "end_column": 2,
+          "end_line": 8,
+          "start_column": 0,
+          "start_line": 5
+        }
+      },
+      "before": {
+        "fields": {},
+        "file": "react/src/routes.tsx",
+        "span": {
+          "end_column": 112,
+          "end_line": 5,
+          "start_column": 0,
+          "start_line": 5
+        }
+      },
+      "cause": "code",
+      "change": "body_changed",
+      "confidence": null,
+      "fields": [],
+      "group": "code",
+      "hints": [],
+      "id": "variable:react/src/routes.tsx#router",
+      "identity": "variable:react/src/routes.tsx#router",
+      "impact_count": null,
+      "kind": "variable",
+      "labels": [],
+      "name": "router",
+      "provenance": null,
+      "reason": null,
+      "record": "node",
+      "row": "C2",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": {
+        "fields": {},
+        "file": "web/broken.ts",
+        "span": {
+          "end_column": 1,
+          "end_line": 3,
+          "start_column": 0,
+          "start_line": 1
+        }
+      },
+      "before": null,
+      "cause": "code",
+      "change": "known_now",
+      "confidence": null,
+      "fields": [],
+      "group": "code",
+      "hints": [],
+      "id": "function:web/broken.ts#helperOne",
+      "identity": "function:web/broken.ts#helperOne",
+      "impact_count": null,
+      "kind": "function",
+      "labels": [],
+      "name": "helperOne",
+      "provenance": null,
+      "reason": "gap",
+      "record": "node",
+      "row": "C2",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": {
+        "fields": {},
+        "file": "web/broken.ts",
+        "span": {
+          "end_column": 1,
+          "end_line": 7,
+          "start_column": 0,
+          "start_line": 5
+        }
+      },
+      "before": null,
+      "cause": "code",
+      "change": "known_now",
+      "confidence": null,
+      "fields": [],
+      "group": "code",
+      "hints": [],
+      "id": "function:web/broken.ts#helperTwo",
+      "identity": "function:web/broken.ts#helperTwo",
+      "impact_count": null,
+      "kind": "function",
+      "labels": [],
+      "name": "helperTwo",
+      "provenance": null,
+      "reason": "gap",
+      "record": "node",
+      "row": "C2",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": null,
+      "before": {
+        "fields": {},
+        "file": "web/extra.ts",
+        "span": {
+          "end_column": 1,
+          "end_line": 3,
+          "start_column": 0,
+          "start_line": 1
+        }
+      },
+      "cause": "code",
+      "change": "removed",
+      "confidence": null,
+      "fields": [],
+      "group": "code",
+      "hints": [],
+      "id": "function:web/extra.ts#extra",
+      "identity": "function:web/extra.ts#extra",
+      "impact_count": null,
+      "kind": "function",
+      "labels": [],
+      "name": "extra",
+      "provenance": null,
+      "reason": null,
+      "record": "node",
+      "row": "C2",
+      "test": false,
+      "wording": "no_longer_in_index"
+    },
+    {
+      "after": {
+        "fields": {
+          "confidence": 1,
+          "provenance": "fact"
+        },
+        "file": "ui/parent.ts",
+        "span": {
+          "end_column": 130,
+          "end_line": 5,
+          "start_column": 121,
+          "start_line": 5
+        }
+      },
+      "before": null,
+      "cause": "code",
+      "change": "added",
+      "confidence": 1,
+      "fields": [],
+      "group": "angular",
+      "hints": [],
+      "id": "edge:[\"renders\",\"class:ui/parent.ts#ParentComponent\",\"class:ui/badge.ts#BadgeComponent\"]",
+      "identity": "[\"renders\",\"class:ui/parent.ts#ParentComponent\",\"class:ui/badge.ts#BadgeComponent\"]",
+      "impact_count": null,
+      "kind": "renders",
+      "labels": [],
+      "name": "class:ui/parent.ts#ParentComponent -\u003e class:ui/badge.ts#BadgeComponent",
+      "provenance": "fact",
+      "reason": null,
+      "record": "edge",
+      "row": "C12",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": {
+        "fields": {
+          "confidence": 1,
+          "provenance": "fact"
+        },
+        "file": "ui/parent.ts",
+        "span": {
+          "end_column": 95,
+          "end_line": 5,
+          "start_column": 63,
+          "start_line": 5
+        }
+      },
+      "before": null,
+      "cause": "code",
+      "change": "added",
+      "confidence": 1,
+      "fields": [],
+      "group": "angular",
+      "hints": [],
+      "id": "edge:[\"scope_imports\",\"class:ui/parent.ts#ParentComponent\",\"class:ui/badge.ts#BadgeComponent\"]",
+      "identity": "[\"scope_imports\",\"class:ui/parent.ts#ParentComponent\",\"class:ui/badge.ts#BadgeComponent\"]",
+      "impact_count": null,
+      "kind": "scope_imports",
+      "labels": [],
+      "name": "class:ui/parent.ts#ParentComponent -\u003e class:ui/badge.ts#BadgeComponent",
+      "provenance": "fact",
+      "reason": null,
+      "record": "edge",
+      "row": "C12",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": {
+        "fields": {
+          "confidence": 1,
+          "provenance": "fact"
+        },
+        "file": "react/src/page.tsx",
+        "span": {
+          "end_column": 21,
+          "end_line": 7,
+          "start_column": 6,
+          "start_line": 7
+        }
+      },
+      "before": null,
+      "cause": "code",
+      "change": "added",
+      "confidence": 1,
+      "fields": [],
+      "group": "react",
+      "hints": [],
+      "id": "edge:[\"renders\",\"function:react/src/page.tsx#ArticlePage\",\"function:react/src/article.tsx#ArticleMeta\"]",
+      "identity": "[\"renders\",\"function:react/src/page.tsx#ArticlePage\",\"function:react/src/article.tsx#ArticleMeta\"]",
+      "impact_count": null,
+      "kind": "renders",
+      "labels": [],
+      "name": "function:react/src/page.tsx#ArticlePage -\u003e function:react/src/article.tsx#ArticleMeta",
+      "provenance": "fact",
+      "reason": null,
+      "record": "edge",
+      "row": "C17",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": {
+        "fields": {
+          "confidence": 1,
+          "provenance": "fact"
+        },
+        "file": "react/src/page.tsx",
+        "span": {
+          "end_column": 42,
+          "end_line": 13,
+          "start_column": 9,
+          "start_line": 13
+        }
+      },
+      "before": null,
+      "cause": "code",
+      "change": "added",
+      "confidence": 1,
+      "fields": [],
+      "group": "react",
+      "hints": [],
+      "id": "edge:[\"renders\",\"function:react/src/page.tsx#PreviewPage\",\"function:react/src/article.tsx#ArticleContent\"]",
+      "identity": "[\"renders\",\"function:react/src/page.tsx#PreviewPage\",\"function:react/src/article.tsx#ArticleContent\"]",
+      "impact_count": null,
+      "kind": "renders",
+      "labels": [],
+      "name": "function:react/src/page.tsx#PreviewPage -\u003e function:react/src/article.tsx#ArticleContent",
+      "provenance": "fact",
+      "reason": null,
+      "record": "edge",
+      "row": "C17",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": {
+        "fields": {
+          "confidence": 1,
+          "provenance": "fact"
+        },
+        "file": "react/src/routes.tsx",
+        "span": {
+          "end_column": 44,
+          "end_line": 7,
+          "start_column": 33,
+          "start_line": 7
+        }
+      },
+      "before": null,
+      "cause": "code",
+      "change": "added",
+      "confidence": 1,
+      "fields": [],
+      "group": "react",
+      "hints": [],
+      "id": "edge:[\"routes_to\",\"ui_route:react/src/routes.tsx#router.ROUTE%20%2Fpreview\",\"function:react/src/page.tsx#PreviewPage\"]",
+      "identity": "[\"routes_to\",\"ui_route:react/src/routes.tsx#router.ROUTE%20%2Fpreview\",\"function:react/src/page.tsx#PreviewPage\"]",
+      "impact_count": null,
+      "kind": "routes_to",
+      "labels": [],
+      "name": "ui_route:react/src/routes.tsx#router.ROUTE%20%2Fpreview -\u003e function:react/src/page.tsx#PreviewPage",
+      "provenance": "fact",
+      "reason": null,
+      "record": "edge",
+      "row": "C17",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": {
+        "fields": {
+          "action": null,
+          "component": [
+            "function:react/src/page.tsx#PreviewPage"
+          ],
+          "element": null,
+          "index": null,
+          "lazy": null,
+          "loader": null,
+          "open": null,
+          "path": "/preview"
+        },
+        "file": "react/src/routes.tsx",
+        "span": {
+          "end_column": 46,
+          "end_line": 7,
+          "start_column": 2,
+          "start_line": 7
+        }
+      },
+      "before": null,
+      "cause": "code",
+      "change": "added",
+      "confidence": null,
+      "fields": [],
+      "group": "react",
+      "hints": [],
+      "id": "ui_route:react/src/routes.tsx#router.ROUTE%20%2Fpreview",
+      "identity": "ui_route:react/src/routes.tsx#router.ROUTE%20%2Fpreview",
+      "impact_count": null,
+      "kind": "ui_route",
+      "labels": [],
+      "name": "router.ROUTE /preview",
+      "provenance": null,
+      "reason": null,
+      "record": "node",
+      "row": "C17",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": {
+        "fields": {
+          "content_hash": "sha256:9fcf07fba3e202c3c6a1eef81854fd6c5ba38f95558ac5b9d71ae4ce1e5e0fe9",
+          "language": "sql",
+          "precision": "best_effort"
+        },
+        "file": "db/migrations/0004_tags_cleanup.sql"
+      },
+      "before": null,
+      "cause": "code",
+      "change": "added",
+      "confidence": null,
+      "fields": [],
+      "group": "files",
+      "hints": [],
+      "id": "file:db/migrations/0004_tags_cleanup.sql",
+      "identity": "db/migrations/0004_tags_cleanup.sql",
+      "impact_count": null,
+      "kind": "file",
+      "labels": [],
+      "name": "db/migrations/0004_tags_cleanup.sql",
+      "provenance": null,
+      "reason": null,
+      "record": "file",
+      "row": "C1",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": {
+        "fields": {
+          "content_hash": "sha256:bce5367bce968577eb473cb1c719a6005438d99e3b787e490680e722153be912",
+          "language": "typescript",
+          "precision": "precise"
+        },
+        "file": "ui/badge.ts"
+      },
+      "before": null,
+      "cause": "code",
+      "change": "added",
+      "confidence": null,
+      "fields": [],
+      "group": "files",
+      "hints": [],
+      "id": "file:ui/badge.ts",
+      "identity": "ui/badge.ts",
+      "impact_count": null,
+      "kind": "file",
+      "labels": [],
+      "name": "ui/badge.ts",
+      "provenance": null,
+      "reason": null,
+      "record": "file",
+      "row": "C1",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": {
+        "fields": {
+          "content_hash": "sha256:187e128b9a663417622ede75e88c1245dfae9fdd8a256c49a165c4e2fd3f831c",
+          "language": "python",
+          "precision": "precise"
+        },
+        "file": "models/app/models.py"
+      },
+      "before": {
+        "fields": {
+          "content_hash": "sha256:d7565969b92a830612b1e7db53fc305cb64748f44f89aaed0976657d6176633f",
+          "language": "python",
+          "precision": "precise"
+        },
+        "file": "models/app/models.py"
+      },
+      "cause": "code",
+      "change": "changed",
+      "confidence": null,
+      "fields": [
+        {
+          "after": "sha256:187e128b9a663417622ede75e88c1245dfae9fdd8a256c49a165c4e2fd3f831c",
+          "before": "sha256:d7565969b92a830612b1e7db53fc305cb64748f44f89aaed0976657d6176633f",
+          "change": "changed",
+          "name": "content_hash"
+        }
+      ],
+      "group": "files",
+      "hints": [],
+      "id": "file:models/app/models.py",
+      "identity": "models/app/models.py",
+      "impact_count": null,
+      "kind": "file",
+      "labels": [],
+      "name": "models/app/models.py",
+      "provenance": null,
+      "reason": null,
+      "record": "file",
+      "row": "C1",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": {
+        "fields": {
+          "content_hash": "sha256:e710f85b53012e4fedaec41485c4d20feaaadd2a8d68b0e50d0021772f07602d",
+          "language": "tsx",
+          "precision": "precise"
+        },
+        "file": "react/src/article.tsx"
+      },
+      "before": {
+        "fields": {
+          "content_hash": "sha256:f2778facb47205dbb3f684995f46b52a9546787c1278b27e53d808c2a11f3dc1",
+          "language": "tsx",
+          "precision": "precise"
+        },
+        "file": "react/src/article.tsx"
+      },
+      "cause": "code",
+      "change": "changed",
+      "confidence": null,
+      "fields": [
+        {
+          "after": "sha256:e710f85b53012e4fedaec41485c4d20feaaadd2a8d68b0e50d0021772f07602d",
+          "before": "sha256:f2778facb47205dbb3f684995f46b52a9546787c1278b27e53d808c2a11f3dc1",
+          "change": "changed",
+          "name": "content_hash"
+        }
+      ],
+      "group": "files",
+      "hints": [],
+      "id": "file:react/src/article.tsx",
+      "identity": "react/src/article.tsx",
+      "impact_count": null,
+      "kind": "file",
+      "labels": [],
+      "name": "react/src/article.tsx",
+      "provenance": null,
+      "reason": null,
+      "record": "file",
+      "row": "C1",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": {
+        "fields": {
+          "content_hash": "sha256:3d86408ed9e38e027eb71f1d52b0de39af4e5c2fad1429e1dd819c4dd3dd69dc",
+          "language": "typescript",
+          "precision": "precise"
+        },
+        "file": "react/src/loader.ts"
+      },
+      "before": {
+        "fields": {
+          "content_hash": "sha256:65c6dcb932a68feef4e310b464b23be870c236be899bfeae2212d4087f17072e",
+          "language": "typescript",
+          "precision": "precise"
+        },
+        "file": "react/src/loader.ts"
+      },
+      "cause": "code",
+      "change": "changed",
+      "confidence": null,
+      "fields": [
+        {
+          "after": "sha256:3d86408ed9e38e027eb71f1d52b0de39af4e5c2fad1429e1dd819c4dd3dd69dc",
+          "before": "sha256:65c6dcb932a68feef4e310b464b23be870c236be899bfeae2212d4087f17072e",
+          "change": "changed",
+          "name": "content_hash"
+        }
+      ],
+      "group": "files",
+      "hints": [],
+      "id": "file:react/src/loader.ts",
+      "identity": "react/src/loader.ts",
+      "impact_count": null,
+      "kind": "file",
+      "labels": [],
+      "name": "react/src/loader.ts",
+      "provenance": null,
+      "reason": null,
+      "record": "file",
+      "row": "C1",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": {
+        "fields": {
+          "content_hash": "sha256:c899a646ede2ef1a77f21ec89ab180132c389c649547a597428c824c79c4bdf6",
+          "language": "tsx",
+          "precision": "precise"
+        },
+        "file": "react/src/page.tsx"
+      },
+      "before": {
+        "fields": {
+          "content_hash": "sha256:55a1b13b92bf573e8d191e8c17eabf4ec1c873674e1764da11a773b190e84fec",
+          "language": "tsx",
+          "precision": "precise"
+        },
+        "file": "react/src/page.tsx"
+      },
+      "cause": "code",
+      "change": "changed",
+      "confidence": null,
+      "fields": [
+        {
+          "after": "sha256:c899a646ede2ef1a77f21ec89ab180132c389c649547a597428c824c79c4bdf6",
+          "before": "sha256:55a1b13b92bf573e8d191e8c17eabf4ec1c873674e1764da11a773b190e84fec",
+          "change": "changed",
+          "name": "content_hash"
+        }
+      ],
+      "group": "files",
+      "hints": [],
+      "id": "file:react/src/page.tsx",
+      "identity": "react/src/page.tsx",
+      "impact_count": null,
+      "kind": "file",
+      "labels": [],
+      "name": "react/src/page.tsx",
+      "provenance": null,
+      "reason": null,
+      "record": "file",
+      "row": "C1",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": {
+        "fields": {
+          "content_hash": "sha256:c6e6444bbc4a0941befa6c71a2ef6e7d2783eded6bd3ab1540fa4df81632b1bb",
+          "language": "tsx",
+          "precision": "precise"
+        },
+        "file": "react/src/routes.tsx"
+      },
+      "before": {
+        "fields": {
+          "content_hash": "sha256:c8a1515f29243e8ba04ae2601bf647e1aba04040b28e41f0a9b50bbe02376cc8",
+          "language": "tsx",
+          "precision": "precise"
+        },
+        "file": "react/src/routes.tsx"
+      },
+      "cause": "code",
+      "change": "changed",
+      "confidence": null,
+      "fields": [
+        {
+          "after": "sha256:c6e6444bbc4a0941befa6c71a2ef6e7d2783eded6bd3ab1540fa4df81632b1bb",
+          "before": "sha256:c8a1515f29243e8ba04ae2601bf647e1aba04040b28e41f0a9b50bbe02376cc8",
+          "change": "changed",
+          "name": "content_hash"
+        }
+      ],
+      "group": "files",
+      "hints": [],
+      "id": "file:react/src/routes.tsx",
+      "identity": "react/src/routes.tsx",
+      "impact_count": null,
+      "kind": "file",
+      "labels": [],
+      "name": "react/src/routes.tsx",
+      "provenance": null,
+      "reason": null,
+      "record": "file",
+      "row": "C1",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": {
+        "fields": {
+          "content_hash": "sha256:dad29d6ab3f3afd1c7c75c9130ff8033c1fb502899afcd1808238ebf0a0fe48c",
+          "language": "typescript",
+          "precision": "precise"
+        },
+        "file": "server/app.ts"
+      },
+      "before": {
+        "fields": {
+          "content_hash": "sha256:bbc2b67457a5ca6f552f2bd33e2fb961fc6492bbaefc0f4c13909d99f2777837",
+          "language": "typescript",
+          "precision": "precise"
+        },
+        "file": "server/app.ts"
+      },
+      "cause": "code",
+      "change": "changed",
+      "confidence": null,
+      "fields": [
+        {
+          "after": "sha256:dad29d6ab3f3afd1c7c75c9130ff8033c1fb502899afcd1808238ebf0a0fe48c",
+          "before": "sha256:bbc2b67457a5ca6f552f2bd33e2fb961fc6492bbaefc0f4c13909d99f2777837",
+          "change": "changed",
+          "name": "content_hash"
+        }
+      ],
+      "group": "files",
+      "hints": [],
+      "id": "file:server/app.ts",
+      "identity": "server/app.ts",
+      "impact_count": null,
+      "kind": "file",
+      "labels": [],
+      "name": "server/app.ts",
+      "provenance": null,
+      "reason": null,
+      "record": "file",
+      "row": "C1",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": {
+        "fields": {
+          "content_hash": "sha256:30c464d256c1a32d4aa848ea61f4ff33a03b2da482ec02287417413584b8df27",
+          "language": "typescript",
+          "precision": "precise"
+        },
+        "file": "server/stable.ts"
+      },
+      "before": {
+        "fields": {
+          "content_hash": "sha256:a23d2d41153def1d9aed99ddd52915f537954d9739be1bf3c832eda06da73494",
+          "language": "typescript",
+          "precision": "precise"
+        },
+        "file": "server/stable.ts"
+      },
+      "cause": "code",
+      "change": "changed",
+      "confidence": null,
+      "fields": [
+        {
+          "after": "sha256:30c464d256c1a32d4aa848ea61f4ff33a03b2da482ec02287417413584b8df27",
+          "before": "sha256:a23d2d41153def1d9aed99ddd52915f537954d9739be1bf3c832eda06da73494",
+          "change": "changed",
+          "name": "content_hash"
+        }
+      ],
+      "group": "files",
+      "hints": [],
+      "id": "file:server/stable.ts",
+      "identity": "server/stable.ts",
+      "impact_count": null,
+      "kind": "file",
+      "labels": [],
+      "name": "server/stable.ts",
+      "provenance": null,
+      "reason": null,
+      "record": "file",
+      "row": "C1",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": {
+        "fields": {
+          "content_hash": "sha256:e012bad2b878a019121e66e3f7ba96770b76fb5425332b3db8bc494d5f10afee",
+          "language": "typescript",
+          "precision": "precise"
+        },
+        "file": "ui/child.ts"
+      },
+      "before": {
+        "fields": {
+          "content_hash": "sha256:c3bdfeaf34885fe2c02ad24e3076e6f44e4a09a8e7d5b345506a9e23f98742e6",
+          "language": "typescript",
+          "precision": "precise"
+        },
+        "file": "ui/child.ts"
+      },
+      "cause": "code",
+      "change": "changed",
+      "confidence": null,
+      "fields": [
+        {
+          "after": "sha256:e012bad2b878a019121e66e3f7ba96770b76fb5425332b3db8bc494d5f10afee",
+          "before": "sha256:c3bdfeaf34885fe2c02ad24e3076e6f44e4a09a8e7d5b345506a9e23f98742e6",
+          "change": "changed",
+          "name": "content_hash"
+        }
+      ],
+      "group": "files",
+      "hints": [],
+      "id": "file:ui/child.ts",
+      "identity": "ui/child.ts",
+      "impact_count": null,
+      "kind": "file",
+      "labels": [],
+      "name": "ui/child.ts",
+      "provenance": null,
+      "reason": null,
+      "record": "file",
+      "row": "C1",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": {
+        "fields": {
+          "content_hash": "sha256:eb5badc084bb799f87396d21912dd96fef3cf8c61843a5a1986a6939ab757b7f",
+          "language": "typescript",
+          "precision": "precise"
+        },
+        "file": "ui/parent.ts"
+      },
+      "before": {
+        "fields": {
+          "content_hash": "sha256:cc7affb1272c504f3da94ad8a44242db6dea529d36401bad33fe205af2f3dacd",
+          "language": "typescript",
+          "precision": "precise"
+        },
+        "file": "ui/parent.ts"
+      },
+      "cause": "code",
+      "change": "changed",
+      "confidence": null,
+      "fields": [
+        {
+          "after": "sha256:eb5badc084bb799f87396d21912dd96fef3cf8c61843a5a1986a6939ab757b7f",
+          "before": "sha256:cc7affb1272c504f3da94ad8a44242db6dea529d36401bad33fe205af2f3dacd",
+          "change": "changed",
+          "name": "content_hash"
+        }
+      ],
+      "group": "files",
+      "hints": [],
+      "id": "file:ui/parent.ts",
+      "identity": "ui/parent.ts",
+      "impact_count": null,
+      "kind": "file",
+      "labels": [],
+      "name": "ui/parent.ts",
+      "provenance": null,
+      "reason": null,
+      "record": "file",
+      "row": "C1",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": {
+        "fields": {
+          "content_hash": "sha256:fa0dcfcac24347006fb9184eb69783cfb15882f3c80b1f444bb9f720d0eee666",
+          "language": "typescript",
+          "precision": "precise"
+        },
+        "file": "web/broken.ts"
+      },
+      "before": {
+        "fields": {
+          "content_hash": "sha256:0bcf1cd15c8653744f37d5c1622926ab4f62466907a7a90670a9a00adb747f22",
+          "language": "typescript",
+          "precision": "best_effort"
+        },
+        "file": "web/broken.ts"
+      },
+      "cause": "code",
+      "change": "changed",
+      "confidence": null,
+      "fields": [
+        {
+          "after": "sha256:fa0dcfcac24347006fb9184eb69783cfb15882f3c80b1f444bb9f720d0eee666",
+          "before": "sha256:0bcf1cd15c8653744f37d5c1622926ab4f62466907a7a90670a9a00adb747f22",
+          "change": "changed",
+          "name": "content_hash"
+        },
+        {
+          "after": "precise",
+          "before": "best_effort",
+          "change": "changed",
+          "name": "precision"
+        }
+      ],
+      "group": "files",
+      "hints": [],
+      "id": "file:web/broken.ts",
+      "identity": "web/broken.ts",
+      "impact_count": null,
+      "kind": "file",
+      "labels": [],
+      "name": "web/broken.ts",
+      "provenance": null,
+      "reason": null,
+      "record": "file",
+      "row": "C1",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": null,
+      "before": {
+        "fields": {
+          "content_hash": "sha256:468d98490e238ccc098c95859b364728a538ab2dcfe280766d18c5c96731d714",
+          "language": "typescript",
+          "precision": "precise"
+        },
+        "file": "web/extra.ts"
+      },
+      "cause": "code",
+      "change": "removed",
+      "confidence": null,
+      "fields": [],
+      "group": "files",
+      "hints": [],
+      "id": "file:web/extra.ts",
+      "identity": "web/extra.ts",
+      "impact_count": null,
+      "kind": "file",
+      "labels": [],
+      "name": "web/extra.ts",
+      "provenance": null,
+      "reason": null,
+      "record": "file",
+      "row": "C1",
+      "test": false,
+      "wording": "deleted"
+    },
+    {
+      "after": null,
+      "before": {
+        "fields": {
+          "codes": null
+        },
+        "file": "web/broken.ts"
+      },
+      "cause": null,
+      "change": "recovered",
+      "confidence": null,
+      "fields": [],
+      "group": "gaps",
+      "hints": [],
+      "id": "gap:web/broken.ts",
+      "identity": "web/broken.ts",
+      "impact_count": null,
+      "kind": "gap",
+      "labels": [],
+      "name": "web/broken.ts",
+      "provenance": null,
+      "reason": null,
+      "record": "gap",
+      "row": "C15",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": {
+        "fields": {
+          "confidence": 1,
+          "provenance": "fact"
+        },
+        "file": "react/src/article.tsx",
+        "span": {
+          "end_column": 1,
+          "end_line": 7,
+          "start_column": 0,
+          "start_line": 5
+        }
+      },
+      "before": null,
+      "cause": "code",
+      "change": "added",
+      "confidence": 1,
+      "fields": [],
+      "group": "other",
+      "hints": [],
+      "id": "edge:[\"contains\",\"file:react/src/article.tsx#react%2Fsrc%2Farticle.tsx\",\"function:react/src/article.tsx#ArticleMeta\"]",
+      "identity": "[\"contains\",\"file:react/src/article.tsx#react%2Fsrc%2Farticle.tsx\",\"function:react/src/article.tsx#ArticleMeta\"]",
+      "impact_count": null,
+      "kind": "contains",
+      "labels": [],
+      "name": "file:react/src/article.tsx#react%2Fsrc%2Farticle.tsx -\u003e function:react/src/article.tsx#ArticleMeta",
+      "provenance": "fact",
+      "reason": null,
+      "record": "edge",
+      "row": "C16",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": {
+        "fields": {
+          "confidence": 1,
+          "provenance": "fact"
+        },
+        "file": "react/src/page.tsx",
+        "span": {
+          "end_column": 1,
+          "end_line": 14,
+          "start_column": 0,
+          "start_line": 12
+        }
+      },
+      "before": null,
+      "cause": "code",
+      "change": "added",
+      "confidence": 1,
+      "fields": [],
+      "group": "other",
+      "hints": [],
+      "id": "edge:[\"contains\",\"file:react/src/page.tsx#react%2Fsrc%2Fpage.tsx\",\"function:react/src/page.tsx#PreviewPage\"]",
+      "identity": "[\"contains\",\"file:react/src/page.tsx#react%2Fsrc%2Fpage.tsx\",\"function:react/src/page.tsx#PreviewPage\"]",
+      "impact_count": null,
+      "kind": "contains",
+      "labels": [],
+      "name": "file:react/src/page.tsx#react%2Fsrc%2Fpage.tsx -\u003e function:react/src/page.tsx#PreviewPage",
+      "provenance": "fact",
+      "reason": null,
+      "record": "edge",
+      "row": "C16",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": {
+        "fields": {
+          "confidence": 1,
+          "provenance": "fact"
+        },
+        "file": "server/stable.ts",
+        "span": {
+          "end_column": 1,
+          "end_line": 7,
+          "start_column": 0,
+          "start_line": 5
+        }
+      },
+      "before": null,
+      "cause": "code",
+      "change": "added",
+      "confidence": 1,
+      "fields": [],
+      "group": "other",
+      "hints": [],
+      "id": "edge:[\"contains\",\"file:server/stable.ts#server%2Fstable.ts\",\"function:server/stable.ts#stableV2\"]",
+      "identity": "[\"contains\",\"file:server/stable.ts#server%2Fstable.ts\",\"function:server/stable.ts#stableV2\"]",
+      "impact_count": null,
+      "kind": "contains",
+      "labels": [],
+      "name": "file:server/stable.ts#server%2Fstable.ts -\u003e function:server/stable.ts#stableV2",
+      "provenance": "fact",
+      "reason": null,
+      "record": "edge",
+      "row": "C16",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": {
+        "fields": {
+          "confidence": 1,
+          "provenance": "fact"
+        },
+        "file": "ui/badge.ts",
+        "span": {
+          "end_column": 30,
+          "end_line": 4,
+          "start_column": 0,
+          "start_line": 3
+        }
+      },
+      "before": null,
+      "cause": "code",
+      "change": "added",
+      "confidence": 1,
+      "fields": [],
+      "group": "other",
+      "hints": [],
+      "id": "edge:[\"contains\",\"file:ui/badge.ts#ui%2Fbadge.ts\",\"class:ui/badge.ts#BadgeComponent\"]",
+      "identity": "[\"contains\",\"file:ui/badge.ts#ui%2Fbadge.ts\",\"class:ui/badge.ts#BadgeComponent\"]",
+      "impact_count": null,
+      "kind": "contains",
+      "labels": [],
+      "name": "file:ui/badge.ts#ui%2Fbadge.ts -\u003e class:ui/badge.ts#BadgeComponent",
+      "provenance": "fact",
+      "reason": null,
+      "record": "edge",
+      "row": "C16",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": {
+        "fields": {
+          "confidence": 1,
+          "provenance": "fact"
+        },
+        "file": "ui/badge.ts",
+        "span": {
+          "end_column": 40,
+          "end_line": 1,
+          "start_column": 0,
+          "start_line": 1
+        }
+      },
+      "before": null,
+      "cause": "code",
+      "change": "added",
+      "confidence": 1,
+      "fields": [],
+      "group": "other",
+      "hints": [],
+      "id": "edge:[\"imports\",\"file:ui/badge.ts#ui%2Fbadge.ts\",\"external:.#npm%3A%40angular%2Fcore\"]",
+      "identity": "[\"imports\",\"file:ui/badge.ts#ui%2Fbadge.ts\",\"external:.#npm%3A%40angular%2Fcore\"]",
+      "impact_count": null,
+      "kind": "imports",
+      "labels": [],
+      "name": "file:ui/badge.ts#ui%2Fbadge.ts -\u003e external:.#npm%3A%40angular%2Fcore",
+      "provenance": "fact",
+      "reason": null,
+      "record": "edge",
+      "row": "C16",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": {
+        "fields": {
+          "confidence": 1,
+          "provenance": "fact"
+        },
+        "file": "ui/parent.ts",
+        "span": {
+          "end_column": 39,
+          "end_line": 3,
+          "start_column": 0,
+          "start_line": 3
+        }
+      },
+      "before": null,
+      "cause": "code",
+      "change": "added",
+      "confidence": 1,
+      "fields": [],
+      "group": "other",
+      "hints": [],
+      "id": "edge:[\"imports\",\"file:ui/parent.ts#ui%2Fparent.ts\",\"file:ui/badge.ts#ui%2Fbadge.ts\"]",
+      "identity": "[\"imports\",\"file:ui/parent.ts#ui%2Fparent.ts\",\"file:ui/badge.ts#ui%2Fbadge.ts\"]",
+      "impact_count": null,
+      "kind": "imports",
+      "labels": [],
+      "name": "file:ui/parent.ts#ui%2Fparent.ts -\u003e file:ui/badge.ts#ui%2Fbadge.ts",
+      "provenance": "fact",
+      "reason": null,
+      "record": "edge",
+      "row": "C16",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": {
+        "fields": {
+          "confidence": 1,
+          "provenance": "fact"
+        },
+        "file": "react/src/routes.tsx",
+        "span": {
+          "end_column": 44,
+          "end_line": 7,
+          "start_column": 33,
+          "start_line": 7
+        }
+      },
+      "before": null,
+      "cause": "code",
+      "change": "added",
+      "confidence": 1,
+      "fields": [],
+      "group": "other",
+      "hints": [],
+      "id": "edge:[\"passes_function\",\"file:react/src/routes.tsx#react%2Fsrc%2Froutes.tsx\",\"function:react/src/page.tsx#PreviewPage\"]",
+      "identity": "[\"passes_function\",\"file:react/src/routes.tsx#react%2Fsrc%2Froutes.tsx\",\"function:react/src/page.tsx#PreviewPage\"]",
+      "impact_count": null,
+      "kind": "passes_function",
+      "labels": [],
+      "name": "file:react/src/routes.tsx#react%2Fsrc%2Froutes.tsx -\u003e function:react/src/page.tsx#PreviewPage",
+      "provenance": "fact",
+      "reason": null,
+      "record": "edge",
+      "row": "C16",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": {
+        "fields": {
+          "confidence": 1,
+          "provenance": "fact"
+        },
+        "file": "server/app.ts",
+        "span": {
+          "end_column": 31,
+          "end_line": 12,
+          "start_column": 23,
+          "start_line": 12
+        }
+      },
+      "before": null,
+      "cause": "code",
+      "change": "added",
+      "confidence": 1,
+      "fields": [],
+      "group": "other",
+      "hints": [],
+      "id": "edge:[\"passes_function\",\"file:server/app.ts#server%2Fapp.ts\",\"function:server/stable.ts#stableV2\"]",
+      "identity": "[\"passes_function\",\"file:server/app.ts#server%2Fapp.ts\",\"function:server/stable.ts#stableV2\"]",
+      "impact_count": null,
+      "kind": "passes_function",
+      "labels": [],
+      "name": "file:server/app.ts#server%2Fapp.ts -\u003e function:server/stable.ts#stableV2",
+      "provenance": "fact",
+      "reason": null,
+      "record": "edge",
+      "row": "C16",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": {
+        "fields": {
+          "confidence": 1,
+          "provenance": "fact"
+        },
+        "file": "web/broken.ts",
+        "span": {
+          "end_column": 1,
+          "end_line": 3,
+          "start_column": 0,
+          "start_line": 1
+        }
+      },
+      "before": null,
+      "cause": "code",
+      "change": "known_now",
+      "confidence": 1,
+      "fields": [],
+      "group": "other",
+      "hints": [],
+      "id": "edge:[\"contains\",\"file:web/broken.ts#web%2Fbroken.ts\",\"function:web/broken.ts#helperOne\"]",
+      "identity": "[\"contains\",\"file:web/broken.ts#web%2Fbroken.ts\",\"function:web/broken.ts#helperOne\"]",
+      "impact_count": null,
+      "kind": "contains",
+      "labels": [],
+      "name": "file:web/broken.ts#web%2Fbroken.ts -\u003e function:web/broken.ts#helperOne",
+      "provenance": "fact",
+      "reason": "gap",
+      "record": "edge",
+      "row": "C16",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": {
+        "fields": {
+          "confidence": 1,
+          "provenance": "fact"
+        },
+        "file": "web/broken.ts",
+        "span": {
+          "end_column": 1,
+          "end_line": 7,
+          "start_column": 0,
+          "start_line": 5
+        }
+      },
+      "before": null,
+      "cause": "code",
+      "change": "known_now",
+      "confidence": 1,
+      "fields": [],
+      "group": "other",
+      "hints": [],
+      "id": "edge:[\"contains\",\"file:web/broken.ts#web%2Fbroken.ts\",\"function:web/broken.ts#helperTwo\"]",
+      "identity": "[\"contains\",\"file:web/broken.ts#web%2Fbroken.ts\",\"function:web/broken.ts#helperTwo\"]",
+      "impact_count": null,
+      "kind": "contains",
+      "labels": [],
+      "name": "file:web/broken.ts#web%2Fbroken.ts -\u003e function:web/broken.ts#helperTwo",
+      "provenance": "fact",
+      "reason": "gap",
+      "record": "edge",
+      "row": "C16",
+      "test": false,
+      "wording": null
+    },
+    {
+      "after": null,
+      "before": {
+        "fields": {
+          "confidence": 1,
+          "provenance": "fact"
+        },
+        "file": "web/extra.ts",
+        "span": {
+          "end_column": 1,
+          "end_line": 3,
+          "start_column": 0,
+          "start_line": 1
+        }
+      },
+      "cause": "code",
+      "change": "removed",
+      "confidence": 1,
+      "fields": [],
+      "group": "other",
+      "hints": [],
+      "id": "edge:[\"contains\",\"file:web/extra.ts#web%2Fextra.ts\",\"function:web/extra.ts#extra\"]",
+      "identity": "[\"contains\",\"file:web/extra.ts#web%2Fextra.ts\",\"function:web/extra.ts#extra\"]",
+      "impact_count": null,
+      "kind": "contains",
+      "labels": [],
+      "name": "file:web/extra.ts#web%2Fextra.ts -\u003e function:web/extra.ts#extra",
+      "provenance": "fact",
+      "reason": null,
+      "record": "edge",
+      "row": "C16",
+      "test": false,
+      "wording": "no_longer_in_index"
+    },
+    {
+      "after": null,
+      "before": {
+        "fields": {
+          "confidence": 1,
+          "provenance": "fact"
+        },
+        "file": "server/app.ts",
+        "span": {
+          "end_column": 29,
+          "end_line": 12,
+          "start_column": 23,
+          "start_line": 12
+        }
+      },
+      "cause": "code",
+      "change": "removed",
+      "confidence": 1,
+      "fields": [],
+      "group": "other",
+      "hints": [],
+      "id": "edge:[\"passes_function\",\"file:server/app.ts#server%2Fapp.ts\",\"function:server/stable.ts#stable\"]",
+      "identity": "[\"passes_function\",\"file:server/app.ts#server%2Fapp.ts\",\"function:server/stable.ts#stable\"]",
+      "impact_count": null,
+      "kind": "passes_function",
+      "labels": [],
+      "name": "file:server/app.ts#server%2Fapp.ts -\u003e function:server/stable.ts#stable",
+      "provenance": "fact",
+      "reason": null,
+      "record": "edge",
+      "row": "C16",
+      "test": false,
+      "wording": "no_longer_in_index"
+    }
+  ],
+  "repository": "fixture",
+  "summary": {
+    "base": {
+      "dirty": null,
+      "extractor": {
+        "name": "graphvein",
+        "version": "extractors-62"
+      },
+      "finished_at": "\u003ctime-1\u003e",
+      "gaps": [
+        "web/broken.ts"
+      ],
+      "gaps_truncated": false,
+      "kind": "run",
+      "partial": true,
+      "partial_reasons": [],
+      "repository": "fixture",
+      "run": "\u003crun-1\u003e"
+    },
+    "contract_version": "T019-r8",
+    "extractor_changed": false,
+    "extractor_recheck": null,
+    "file_metadata_only": 0,
+    "groups": [
+      {
+        "causes": {
+          "code": 1
+        },
+        "changes": {
+          "changed": 1
+        },
+        "context": 0,
+        "group": "routes",
+        "hidden_tests": 0,
+        "items": 1,
+        "kinds": {
+          "route": 1
+        },
+        "moves": 0,
+        "other_changes": 0
+      },
+      {
+        "causes": {},
+        "changes": {},
+        "context": 0,
+        "group": "client_calls",
+        "hidden_tests": 0,
+        "items": 0,
+        "kinds": {},
+        "moves": 0,
+        "other_changes": 0
+      },
+      {
+        "causes": {},
+        "changes": {},
+        "context": 0,
+        "group": "api_operations",
+        "hidden_tests": 0,
+        "items": 0,
+        "kinds": {},
+        "moves": 0,
+        "other_changes": 0
+      },
+      {
+        "causes": {},
+        "changes": {},
+        "context": 0,
+        "group": "ipc",
+        "hidden_tests": 0,
+        "items": 0,
+        "kinds": {},
+        "moves": 0,
+        "other_changes": 0
+      },
+      {
+        "causes": {},
+        "changes": {},
+        "context": 0,
+        "group": "server_actions",
+        "hidden_tests": 0,
+        "items": 0,
+        "kinds": {},
+        "moves": 0,
+        "other_changes": 0
+      },
+      {
+        "causes": {
+          "relink": 3
+        },
+        "changes": {
+          "changed": 2,
+          "unknown_now": 1
+        },
+        "context": 1,
+        "group": "migration_tables",
+        "hidden_tests": 0,
+        "items": 3,
+        "kinds": {
+          "column": 1,
+          "table": 2
+        },
+        "moves": 0,
+        "other_changes": 0
+      },
+      {
+        "causes": {
+          "code": 1
+        },
+        "changes": {
+          "changed": 1
+        },
+        "context": 0,
+        "group": "model_tables",
+        "hidden_tests": 0,
+        "items": 1,
+        "kinds": {
+          "table": 1
+        },
+        "moves": 1,
+        "other_changes": 5
+      },
+      {
+        "causes": {
+          "code": 1
+        },
+        "changes": {
+          "added": 1
+        },
+        "context": 2,
+        "group": "migrations",
+        "hidden_tests": 0,
+        "items": 1,
+        "kinds": {
+          "migration": 1
+        },
+        "moves": 0,
+        "other_changes": 3
+      },
+      {
+        "causes": {
+          "code": 14
+        },
+        "changes": {
+          "added": 4,
+          "body_changed": 7,
+          "known_now": 2,
+          "removed": 1
+        },
+        "context": 0,
+        "group": "code",
+        "hidden_tests": 0,
+        "items": 14,
+        "kinds": {
+          "class": 4,
+          "function": 9,
+          "variable": 1
+        },
+        "moves": 1,
+        "other_changes": 0
+      },
+      {
+        "causes": {
+          "code": 2
+        },
+        "changes": {
+          "added": 2
+        },
+        "context": 0,
+        "group": "angular",
+        "hidden_tests": 0,
+        "items": 2,
+        "kinds": {
+          "renders": 1,
+          "scope_imports": 1
+        },
+        "moves": 2,
+        "other_changes": 0
+      },
+      {
+        "causes": {
+          "code": 4
+        },
+        "changes": {
+          "added": 4
+        },
+        "context": 1,
+        "group": "react",
+        "hidden_tests": 0,
+        "items": 4,
+        "kinds": {
+          "renders": 2,
+          "routes_to": 1,
+          "ui_route": 1
+        },
+        "moves": 3,
+        "other_changes": 0
+      },
+      {
+        "causes": {},
+        "changes": {},
+        "context": 0,
+        "group": "architecture",
+        "hidden_tests": 0,
+        "items": 0,
+        "kinds": {},
+        "moves": 0,
+        "other_changes": 0
+      },
+      {
+        "causes": {
+          "code": 13
+        },
+        "changes": {
+          "added": 2,
+          "changed": 10,
+          "removed": 1
+        },
+        "context": 13,
+        "group": "files",
+        "hidden_tests": 0,
+        "items": 13,
+        "kinds": {
+          "file": 13
+        },
+        "moves": 0,
+        "other_changes": 0
+      },
+      {
+        "causes": {},
+        "changes": {
+          "recovered": 1
+        },
+        "context": 0,
+        "group": "gaps",
+        "hidden_tests": 0,
+        "items": 1,
+        "kinds": {
+          "gap": 1
+        },
+        "moves": 0,
+        "other_changes": 0
+      },
+      {
+        "causes": {
+          "code": 12
+        },
+        "changes": {
+          "added": 8,
+          "known_now": 2,
+          "removed": 2
+        },
+        "context": 0,
+        "group": "other",
+        "hidden_tests": 0,
+        "items": 12,
+        "kinds": {
+          "contains": 7,
+          "imports": 2,
+          "passes_function": 3
+        },
+        "moves": 20,
+        "other_changes": 0
+      },
+      {
+        "causes": {},
+        "changes": {},
+        "context": 0,
+        "group": "unclassified",
+        "hidden_tests": 0,
+        "items": 0,
+        "kinds": {},
+        "moves": 0,
+        "other_changes": 0
+      }
+    ],
+    "head": {
+      "dirty": null,
+      "extractor": {
+        "name": "graphvein",
+        "version": "extractors-62"
+      },
+      "finished_at": "\u003ctime-2\u003e",
+      "gaps": [],
+      "gaps_truncated": false,
+      "kind": "current",
+      "partial": false,
+      "partial_reasons": [],
+      "repository": "fixture",
+      "run": "\u003crun-2\u003e"
+    },
+    "head_commit_differs": false,
+    "locations": 0,
+    "not_extracted": [
+      "architecture"
+    ],
+    "partial": true,
+    "total": 52
+  }
+}

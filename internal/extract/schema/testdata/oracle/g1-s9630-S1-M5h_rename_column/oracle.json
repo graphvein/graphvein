@@ -1,0 +1,35 @@
+{
+  "id": "g1-s9630-S1-M5h_rename_column",
+  "signature": "applied|S1|42P01|M5h.rename_column",
+  "class": "S1",
+  "owner": "P1",
+  "row": "M5h.rename_column",
+  "history": {
+    "id": "g1-s9630",
+    "tags": {
+      "1_m1.sql": [
+        "M1.create",
+        "M8.rename",
+        "M5h.rename_column"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42P01",
+        "message": "relation \"t1\" does not exist",
+        "statement": 3,
+        "statement_text": "ALTER TABLE t1 RENAME COLUMN c3 TO id;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

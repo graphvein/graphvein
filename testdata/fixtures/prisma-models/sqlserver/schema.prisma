@@ -1,0 +1,34 @@
+datasource db {
+  provider = "sqlserver"
+}
+
+model Ticket {
+  id      Int      @id @default(autoincrement())
+  title   String   @default("untitled", map: "DF_ticket_title")
+  body    Json
+  flag    Boolean  @default(false)
+  opened  DateTime @default(now())
+  amount  Decimal
+  score   Float
+  big     BigInt
+  payload Bytes
+  code    String   @unique
+  notes   Note[]
+  labels  Label[]
+
+  // SQL Server: @unique and @@unique are UNIQUE constraints, not indexes.
+  @@unique([flag, amount], map: "UQ_ticket_flag_amount")
+}
+
+// An implicit many-to-many: its (A, B) key is a UNIQUE constraint too.
+model Label {
+  id      Int      @id
+  tickets Ticket[]
+}
+
+// SQL Server has no Restrict: a required relation defaults to NoAction.
+model Note {
+  id       Int    @id
+  ticketId Int
+  ticket   Ticket @relation(fields: [ticketId], references: [id])
+}

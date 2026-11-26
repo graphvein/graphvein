@@ -1,0 +1,28 @@
+{
+  "id": "review-q03-twodefault",
+  "signature": "applied|S1|42601|",
+  "class": "S1",
+  "owner": "P4",
+  "row": "review",
+  "history": {
+    "id": "q03-twodefault"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42601",
+        "message": "multiple default values specified for column \"c\" of table \"t\"",
+        "statement": 1,
+        "statement_text": "CREATE TABLE t (c int DEFAULT 1 DEFAULT 2);"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

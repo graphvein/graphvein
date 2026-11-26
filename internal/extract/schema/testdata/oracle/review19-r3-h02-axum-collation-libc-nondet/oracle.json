@@ -1,0 +1,28 @@
+{
+  "id": "review19-r3-h02-axum-collation-libc-nondet",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y35",
+  "row": "review19",
+  "history": {
+    "id": "h02-axum-collation-libc-nondet"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "0A000",
+        "message": "nondeterministic collations not supported with this provider",
+        "statement": 1,
+        "statement_text": "create collation case_insensitive (provider = libc, locale = 'C', deterministic = false);"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

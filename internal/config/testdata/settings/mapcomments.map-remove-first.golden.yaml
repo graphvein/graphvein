@@ -1,0 +1,12 @@
+version: 1
+openapi:
+    base_paths:
+        contracts/admin.yaml: /admin/api  # admin only
+        legacy: /old      # retire in 2027
+    include:
+        - contracts/**   # every spec
+        # generated
+        - gen/**
+
+        # kept apart by a blank line
+        - vendor/specs/**

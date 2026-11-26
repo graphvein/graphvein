@@ -1,0 +1,28 @@
+{
+  "id": "review16-y08-plpgsql-setof-return",
+  "signature": "agreed at Revision 1.6",
+  "class": "S1",
+  "owner": "V1",
+  "row": "review16",
+  "history": {
+    "id": "y08-plpgsql-setof-return"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42804",
+        "message": "RETURN cannot have a parameter in function returning set",
+        "statement": 1,
+        "statement_text": "CREATE FUNCTION a16() RETURNS SETOF int LANGUAGE plpgsql AS $$ BEGIN RETURN 1; END $$;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

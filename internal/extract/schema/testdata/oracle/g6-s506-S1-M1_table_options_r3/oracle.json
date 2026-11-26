@@ -1,0 +1,33 @@
+{
+  "id": "g6-s506-S1-M1_table_options_r3",
+  "signature": "applied|S1|42601|M1.table_options_r3",
+  "class": "S1",
+  "owner": "P7",
+  "row": "M1.table_options_r3",
+  "history": {
+    "id": "g6-s506",
+    "tags": {
+      "1_m1.sql": [
+        "M1.table_options_r3"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42601",
+        "message": "syntax error at or near \")\"",
+        "statement": 1,
+        "statement_text": "CREATE TABLE t3 (y int) WITH ();"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

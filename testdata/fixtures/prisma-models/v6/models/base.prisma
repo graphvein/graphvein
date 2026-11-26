@@ -1,0 +1,11 @@
+// Prisma 6.19.3: multiSchema is GA (6.13.0), ulid() is a client default
+// (6.2.0), and the join table has the primary key form (6.0.0).
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  schemas  = ["public", "shop"]
+}
+
+generator client {
+  provider = "prisma-client-js"
+}

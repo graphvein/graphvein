@@ -1,0 +1,1114 @@
+{
+  "info": {
+    "description": "Routes registered in this repository's source, as Graphvein extracted them from its index. Graphvein ran no code and read no running server. A parameter, request body, response or security requirement that is absent was not read, which is not the same as none: each operation lists what was not read in x-graphvein.not_read. Routes Graphvein could not place on a path, forms OpenAPI cannot express and conflicting registrations are listed in the root x-graphvein, never guessed.",
+    "title": "fixture routes extracted by Graphvein",
+    "version": "unversioned"
+  },
+  "openapi": "3.1.1",
+  "paths": {
+    "/plain/{item_id}": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "item_id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "x-graphvein": {
+              "provenance": {
+                "chain": [],
+                "confidence": 1,
+                "file": "app/routers/plain.py",
+                "kind": "fact",
+                "line": 9,
+                "rule": "SH-F1"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "x-graphvein": {
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "app/routers/plain.py",
+                    "kind": "fact",
+                    "line": 9,
+                    "rule": "SH-F26"
+                  }
+                }
+              }
+            },
+            "description": "Not read by Graphvein",
+            "x-graphvein": {
+              "description": "not_read"
+            }
+          }
+        },
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "app/routers/plain.py",
+          "framework": "fastapi",
+          "handler": "function:app/routers/plain.py#read_plain",
+          "handler_expression": null,
+          "line": 8,
+          "not_read": [
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:app/routers/plain.py#GET%20%2Fplain%2F%7Bitem_id%7D",
+          "rule": "FastAPI routes (ADR 0015, ADR 0019)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [
+              {
+                "name": "HTTPValidationError",
+                "provenance": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "app/routers/plain.py",
+                  "kind": "fact",
+                  "line": 8,
+                  "rule": "SH-F30"
+                },
+                "schema": {
+                  "additional": "unknown",
+                  "fields": [
+                    {
+                      "name": "detail",
+                      "presence": "optional",
+                      "schema": {
+                        "items": {
+                          "ref": "ValidationError",
+                          "type": "ref"
+                        },
+                        "type": "array"
+                      }
+                    }
+                  ],
+                  "type": "object"
+                }
+              },
+              {
+                "name": "ValidationError",
+                "provenance": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "app/routers/plain.py",
+                  "kind": "fact",
+                  "line": 8,
+                  "rule": "SH-F30"
+                },
+                "schema": {
+                  "additional": "unknown",
+                  "fields": [
+                    {
+                      "name": "loc",
+                      "presence": "required",
+                      "schema": {
+                        "items": {
+                          "reason": "a string or an integer",
+                          "type": "unknown"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    {
+                      "name": "msg",
+                      "presence": "required",
+                      "schema": {
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "name": "type",
+                      "presence": "required",
+                      "schema": {
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "name": "input",
+                      "presence": "optional",
+                      "schema": {
+                        "reason": "any value",
+                        "type": "unknown"
+                      }
+                    },
+                    {
+                      "name": "ctx",
+                      "presence": "optional",
+                      "schema": {
+                        "additional": "allowed",
+                        "type": "object"
+                      }
+                    }
+                  ],
+                  "type": "object"
+                }
+              }
+            ],
+            "not_standard": [
+              {
+                "item": {
+                  "content_type": "application/json",
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "app/routers/plain.py",
+                    "kind": "intended",
+                    "line": 8,
+                    "rule": "SH-F30"
+                  },
+                  "schema": {
+                    "ref": "HTTPValidationError",
+                    "type": "ref"
+                  },
+                  "status": "422"
+                },
+                "row": "OG-77",
+                "section": "responses",
+                "why": "an intended type: a static type nothing checks at runtime"
+              },
+              {
+                "item": {
+                  "content_type": null,
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "app/routers/plain.py",
+                    "kind": "intended",
+                    "line": 11,
+                    "rule": "SH-F29"
+                  },
+                  "schema": null,
+                  "status": "404"
+                },
+                "row": "OG-77",
+                "section": "responses",
+                "why": "an intended type: a static type nothing checks at runtime"
+              }
+            ],
+            "sections": {
+              "body": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "app/routers/plain.py",
+                  "kind": "fact",
+                  "line": 9,
+                  "rule": "SH-F23"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "cookie": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "app/routers/plain.py",
+                  "kind": "fact",
+                  "line": 9,
+                  "rule": "SH-F23"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "header": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "app/routers/plain.py",
+                  "kind": "fact",
+                  "line": 9,
+                  "rule": "SH-F23"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "app/routers/plain.py",
+                  "kind": "fact",
+                  "line": 8,
+                  "rule": "SH-F3"
+                },
+                "standard": 1,
+                "state": "complete"
+              },
+              "query": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "app/routers/plain.py",
+                  "kind": "fact",
+                  "line": 9,
+                  "rule": "SH-F23"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "responses": {
+                "reason": "statuses from exception handlers, middleware and calls not followed are not read; keyword unpacking on FastAPI may pass exception_handlers (app/sub.py:7) can rewrite a raised HTTPException; keyword unpacking on FastAPI may pass exception_handlers (app/sub.py:7) can replace the 422 response",
+                "standard": 1,
+                "state": "partial"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 2
+            },
+            "version": 1
+          },
+          "template": "/plain/{item_id}"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:app/routers/plain.py#GET%20%2Fplain%2F%7Bitem_id%7D"
+          }
+        ]
+      }
+    },
+    "/root": {
+      "get": {
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "x-graphvein": {
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "app/main.py",
+                    "kind": "fact",
+                    "line": 14,
+                    "rule": "SH-F26"
+                  }
+                }
+              }
+            },
+            "description": "Not read by Graphvein",
+            "x-graphvein": {
+              "description": "not_read"
+            }
+          }
+        },
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "app/main.py",
+          "framework": "fastapi",
+          "handler": "function:app/main.py#read_root",
+          "handler_expression": null,
+          "line": 13,
+          "not_read": [
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:app/main.py#GET%20%2Froot",
+          "rule": "FastAPI routes (ADR 0015, ADR 0019)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [],
+            "sections": {
+              "body": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "app/main.py",
+                  "kind": "fact",
+                  "line": 14,
+                  "rule": "SH-F23"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "cookie": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "app/main.py",
+                  "kind": "fact",
+                  "line": 14,
+                  "rule": "SH-F23"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "header": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "app/main.py",
+                  "kind": "fact",
+                  "line": 14,
+                  "rule": "SH-F23"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "app/main.py",
+                  "kind": "fact",
+                  "line": 13,
+                  "rule": "SH-F3"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "app/main.py",
+                  "kind": "fact",
+                  "line": 14,
+                  "rule": "SH-F23"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "responses": {
+                "reason": "statuses from exception handlers, middleware and calls not followed are not read",
+                "standard": 1,
+                "state": "partial"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 2
+            },
+            "version": 1
+          },
+          "template": "/root"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:app/main.py#GET%20%2Froot"
+          }
+        ]
+      }
+    },
+    "/shared": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": [],
+            "security_dependencies_unknown": [
+              {
+                "chain": [],
+                "expression": "**APP_OPTIONS",
+                "reason": "dependencies may come from keyword unpacking"
+              }
+            ]
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "app/routers/plain.py",
+          "framework": "fastapi",
+          "handler": "function:app/routers/plain.py#read_shared",
+          "handler_expression": null,
+          "line": 19,
+          "not_read": [
+            "operationId",
+            "summary",
+            "tags"
+          ],
+          "resolution": "literal",
+          "route": "route:app/routers/plain.py#GET%20%2Fshared",
+          "rule": "FastAPI routes (ADR 0015, ADR 0019)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [],
+            "sections": {
+              "body": {
+                "reason": "a dependencies= list is not read: dependencies may come from keyword unpacking",
+                "standard": 0,
+                "state": "partial"
+              },
+              "cookie": {
+                "reason": "a dependencies= list is not read: dependencies may come from keyword unpacking",
+                "standard": 0,
+                "state": "partial"
+              },
+              "header": {
+                "reason": "a dependencies= list is not read: dependencies may come from keyword unpacking",
+                "standard": 0,
+                "state": "partial"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "app/routers/plain.py",
+                  "kind": "fact",
+                  "line": 19,
+                  "rule": "SH-F3"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "reason": "a dependencies= list is not read: dependencies may come from keyword unpacking",
+                "standard": 0,
+                "state": "partial"
+              },
+              "responses": {
+                "reason": "statuses from exception handlers, middleware and calls not followed are not read; keyword unpacking on FastAPI may set default_response_class (app/sub.py:7): the default success status is not read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "reason": "a security dependency is not read: dependencies may come from keyword unpacking; middleware is not read",
+                "standard": 0,
+                "state": "partial"
+              }
+            },
+            "stops": {
+              "ended": 2
+            },
+            "version": 1
+          },
+          "template": "/shared"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:app/routers/plain.py#GET%20%2Fshared"
+          }
+        ]
+      }
+    },
+    "/styled/page": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": []
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "app/routers/plain.py",
+          "framework": "fastapi",
+          "handler": "function:app/routers/plain.py#read_page",
+          "handler_expression": null,
+          "line": 28,
+          "not_read": [
+            "operationId",
+            "summary",
+            "tags",
+            "security"
+          ],
+          "resolution": "literal",
+          "route": "route:app/routers/plain.py#GET%20%2Fpage",
+          "rule": "FastAPI routes (ADR 0015, ADR 0019)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [],
+            "sections": {
+              "body": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "app/routers/plain.py",
+                  "kind": "fact",
+                  "line": 29,
+                  "rule": "SH-F23"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "cookie": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "app/routers/plain.py",
+                  "kind": "fact",
+                  "line": 29,
+                  "rule": "SH-F23"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "header": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "app/routers/plain.py",
+                  "kind": "fact",
+                  "line": 29,
+                  "rule": "SH-F23"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "app/routers/plain.py",
+                  "kind": "fact",
+                  "line": 28,
+                  "rule": "SH-F3"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "app/routers/plain.py",
+                  "kind": "fact",
+                  "line": 29,
+                  "rule": "SH-F23"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "responses": {
+                "reason": "statuses from exception handlers, middleware and calls not followed are not read; include_router default_response_class CreatedJSON (app/main.py:20): the default success status is not read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "standard": 0,
+                "state": "not_read"
+              }
+            },
+            "stops": {
+              "ended": 2
+            },
+            "version": 1
+          },
+          "template": "/styled/page"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:app/routers/plain.py#GET%20%2Fpage"
+          }
+        ]
+      }
+    },
+    "/sub/item/{item_id}": {
+      "get": {
+        "parameters": [
+          {
+            "in": "path",
+            "name": "item_id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            },
+            "x-graphvein": {
+              "provenance": {
+                "chain": [],
+                "confidence": 1,
+                "file": "app/sub.py",
+                "kind": "fact",
+                "line": 11,
+                "rule": "SH-F1"
+              }
+            }
+          }
+        ],
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": [],
+            "security_dependencies_unknown": [
+              {
+                "chain": [],
+                "expression": "**APP_OPTIONS",
+                "reason": "dependencies may come from keyword unpacking"
+              }
+            ]
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "app/sub.py",
+          "framework": "fastapi",
+          "handler": "function:app/sub.py#read_item",
+          "handler_expression": null,
+          "line": 10,
+          "not_read": [
+            "operationId",
+            "summary",
+            "tags"
+          ],
+          "resolution": "literal",
+          "route": "route:app/sub.py#GET%20%2Fitem%2F%7Bitem_id%7D",
+          "rule": "FastAPI routes (ADR 0015, ADR 0019)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [
+              {
+                "name": "HTTPValidationError",
+                "provenance": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "app/sub.py",
+                  "kind": "fact",
+                  "line": 10,
+                  "rule": "SH-F30"
+                },
+                "schema": {
+                  "additional": "unknown",
+                  "fields": [
+                    {
+                      "name": "detail",
+                      "presence": "optional",
+                      "schema": {
+                        "items": {
+                          "ref": "ValidationError",
+                          "type": "ref"
+                        },
+                        "type": "array"
+                      }
+                    }
+                  ],
+                  "type": "object"
+                }
+              },
+              {
+                "name": "ValidationError",
+                "provenance": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "app/sub.py",
+                  "kind": "fact",
+                  "line": 10,
+                  "rule": "SH-F30"
+                },
+                "schema": {
+                  "additional": "unknown",
+                  "fields": [
+                    {
+                      "name": "loc",
+                      "presence": "required",
+                      "schema": {
+                        "items": {
+                          "reason": "a string or an integer",
+                          "type": "unknown"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    {
+                      "name": "msg",
+                      "presence": "required",
+                      "schema": {
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "name": "type",
+                      "presence": "required",
+                      "schema": {
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "name": "input",
+                      "presence": "optional",
+                      "schema": {
+                        "reason": "any value",
+                        "type": "unknown"
+                      }
+                    },
+                    {
+                      "name": "ctx",
+                      "presence": "optional",
+                      "schema": {
+                        "additional": "allowed",
+                        "type": "object"
+                      }
+                    }
+                  ],
+                  "type": "object"
+                }
+              }
+            ],
+            "not_standard": [
+              {
+                "item": {
+                  "content_type": "application/json",
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "app/sub.py",
+                    "kind": "intended",
+                    "line": 10,
+                    "rule": "SH-F30"
+                  },
+                  "schema": {
+                    "ref": "HTTPValidationError",
+                    "type": "ref"
+                  },
+                  "status": "422"
+                },
+                "row": "OG-77",
+                "section": "responses",
+                "why": "an intended type: a static type nothing checks at runtime"
+              },
+              {
+                "item": {
+                  "content_type": null,
+                  "provenance": {
+                    "chain": [],
+                    "confidence": 1,
+                    "file": "app/sub.py",
+                    "kind": "intended",
+                    "line": 13,
+                    "rule": "SH-F29"
+                  },
+                  "schema": null,
+                  "status": "404"
+                },
+                "row": "OG-77",
+                "section": "responses",
+                "why": "an intended type: a static type nothing checks at runtime"
+              }
+            ],
+            "sections": {
+              "body": {
+                "reason": "a dependencies= list is not read: dependencies may come from keyword unpacking",
+                "standard": 0,
+                "state": "partial"
+              },
+              "cookie": {
+                "reason": "a dependencies= list is not read: dependencies may come from keyword unpacking",
+                "standard": 0,
+                "state": "partial"
+              },
+              "header": {
+                "reason": "a dependencies= list is not read: dependencies may come from keyword unpacking",
+                "standard": 0,
+                "state": "partial"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "app/sub.py",
+                  "kind": "fact",
+                  "line": 10,
+                  "rule": "SH-F3"
+                },
+                "standard": 1,
+                "state": "complete"
+              },
+              "query": {
+                "reason": "a dependencies= list is not read: dependencies may come from keyword unpacking",
+                "standard": 0,
+                "state": "partial"
+              },
+              "responses": {
+                "reason": "statuses from exception handlers, middleware and calls not followed are not read; keyword unpacking on FastAPI may pass exception_handlers (app/sub.py:7) can rewrite a raised HTTPException; keyword unpacking on FastAPI may set default_response_class (app/sub.py:7): the default success status is not read; keyword unpacking on FastAPI may pass exception_handlers (app/sub.py:7) can replace the 422 response",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "reason": "a security dependency is not read: dependencies may come from keyword unpacking; middleware is not read",
+                "standard": 0,
+                "state": "partial"
+              }
+            },
+            "stops": {
+              "ended": 2
+            },
+            "version": 1
+          },
+          "template": "/sub/item/{item_id}"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:app/sub.py#GET%20%2Fitem%2F%7Bitem_id%7D"
+          }
+        ]
+      }
+    },
+    "/sub/shared": {
+      "get": {
+        "x-graphvein": {
+          "assumptions": [],
+          "auth": {
+            "middleware": [],
+            "security_dependencies_unknown": [
+              {
+                "chain": [],
+                "expression": "**APP_OPTIONS",
+                "reason": "dependencies may come from keyword unpacking"
+              }
+            ]
+          },
+          "conditional": false,
+          "confidence": 1,
+          "documented_by": [],
+          "file": "app/routers/plain.py",
+          "framework": "fastapi",
+          "handler": "function:app/routers/plain.py#read_shared",
+          "handler_expression": null,
+          "line": 19,
+          "not_read": [
+            "operationId",
+            "summary",
+            "tags"
+          ],
+          "resolution": "literal",
+          "route": "route:app/routers/plain.py#GET%20%2Fshared",
+          "rule": "FastAPI routes (ADR 0015, ADR 0019)",
+          "shape": {
+            "depth_cap": [],
+            "depth_limit": 6,
+            "models": [],
+            "not_standard": [],
+            "sections": {
+              "body": {
+                "reason": "a dependencies= list is not read: dependencies may come from keyword unpacking",
+                "standard": 0,
+                "state": "partial"
+              },
+              "cookie": {
+                "reason": "a dependencies= list is not read: dependencies may come from keyword unpacking",
+                "standard": 0,
+                "state": "partial"
+              },
+              "header": {
+                "reason": "a dependencies= list is not read: dependencies may come from keyword unpacking",
+                "standard": 0,
+                "state": "partial"
+              },
+              "path": {
+                "evidence": {
+                  "chain": [],
+                  "confidence": 1,
+                  "file": "app/routers/plain.py",
+                  "kind": "fact",
+                  "line": 19,
+                  "rule": "SH-F3"
+                },
+                "standard": 0,
+                "state": "provably_none"
+              },
+              "query": {
+                "reason": "a dependencies= list is not read: dependencies may come from keyword unpacking",
+                "standard": 0,
+                "state": "partial"
+              },
+              "responses": {
+                "reason": "statuses from exception handlers, middleware and calls not followed are not read; keyword unpacking on FastAPI may set default_response_class (app/sub.py:7): the default success status is not read",
+                "standard": 0,
+                "state": "partial"
+              },
+              "security": {
+                "reason": "a security dependency is not read: dependencies may come from keyword unpacking; middleware is not read",
+                "standard": 0,
+                "state": "partial"
+              }
+            },
+            "stops": {
+              "ended": 2
+            },
+            "version": 1
+          },
+          "template": "/sub/shared"
+        }
+      },
+      "x-graphvein": {
+        "entries": [
+          {
+            "assumptions": [],
+            "conditional": false,
+            "method": "GET",
+            "resolution": "literal",
+            "route": "route:app/routers/plain.py#GET%20%2Fshared"
+          }
+        ]
+      }
+    }
+  },
+  "x-graphvein": {
+    "conflicts": [],
+    "contract_version": 1,
+    "counts": {
+      "any_method": 0,
+      "conditional": 0,
+      "conflicts": 0,
+      "may_be_shadowed": 0,
+      "operations": 6,
+      "path_keys": 6,
+      "production_routes": 9,
+      "routes": 9,
+      "set_by_you": 0,
+      "settings_default": 0,
+      "unrepresentable": 0,
+      "unresolved": 4,
+      "with_shape": 6
+    },
+    "excluded_test": {
+      "path_entries": 0,
+      "routes": 0
+    },
+    "generator": "graphvein",
+    "group": "repository",
+    "imported_specs": [],
+    "index": {
+      "extractor": "graphvein EXTRACTOR",
+      "finished_at": "FINISHED",
+      "run": "RUN"
+    },
+    "repository": "fixture",
+    "scope": "production",
+    "shape_errors": 0,
+    "unrepresentable": [],
+    "unresolved": [
+      {
+        "file": "app/routers/unpacked.py",
+        "keys": [
+          "route:app/routers/unpacked.py#GET%20%2Fmade",
+          "mount:app/routers/unpacked.py#%28module%29%20APIRouter%28prefix%3D%2A%2AROUTER_OPTIONS%29"
+        ],
+        "line": 10,
+        "method": "GET",
+        "pattern": "/made",
+        "reason": "no_path",
+        "route": "route:app/routers/unpacked.py#GET%20%2Fmade",
+        "unknown": {
+          "part": "mount_or_prefix",
+          "text": "no chain from an app to this registration is proven: a mount, prefix or router argument on the way is not read as a constant"
+        }
+      },
+      {
+        "file": "app/routers/unpacked.py",
+        "keys": [
+          "route:app/routers/unpacked.py#GET%20%2Fnested",
+          "mount:app/routers/unpacked.py#%28module%29%20APIRouter%28prefix%3D%2A%2AROUTER_OPTIONS%29"
+        ],
+        "line": 18,
+        "method": "GET",
+        "pattern": "/nested",
+        "reason": "no_path",
+        "route": "route:app/routers/unpacked.py#GET%20%2Fnested",
+        "unknown": {
+          "part": "mount_or_prefix",
+          "text": "no chain from an app to this registration is proven: a mount, prefix or router argument on the way is not read as a constant"
+        }
+      },
+      {
+        "file": "app/unread.py",
+        "keys": [
+          "route:app/unread.py#GET%20%2Fopt",
+          "mount:app/unread.py#%28module%29%20other.include_router%28prefix%3D%2A%2AINCLUDE_OPTIONS%29"
+        ],
+        "line": 11,
+        "method": "GET",
+        "pattern": "/opt",
+        "reason": "no_path",
+        "route": "route:app/unread.py#GET%20%2Fopt",
+        "unknown": {
+          "part": "mount_or_prefix",
+          "text": "no chain from an app to this registration is proven: a mount, prefix or router argument on the way is not read as a constant"
+        }
+      },
+      {
+        "file": "app/unread.py",
+        "keys": [
+          "route:app/unread.py#GET%20%2Forphan"
+        ],
+        "line": 26,
+        "method": "GET",
+        "pattern": "/orphan",
+        "reason": "no_path",
+        "route": "route:app/unread.py#GET%20%2Forphan",
+        "unknown": {
+          "diagnostic": "route_unmounted",
+          "expression": "orphan",
+          "part": "mount_or_prefix",
+          "text": "the router or app this route is registered on is not mounted on any app Graphvein can prove"
+        }
+      }
+    ],
+    "user_values": []
+  }
+}

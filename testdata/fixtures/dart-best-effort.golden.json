@@ -1,0 +1,4002 @@
+{
+  "diagnostics": [
+    {
+      "code": "unresolved_import",
+      "file": "lib/app.dart",
+      "message": "import 'src/missing.dart' does not name a scanned file",
+      "severity": "warning",
+      "type": "diagnostic"
+    },
+    {
+      "code": "unresolved_import",
+      "file": "lib/app.dart",
+      "message": "import 'package:acme_app/missing.dart' does not name a scanned file (package acme_app is .)",
+      "severity": "warning",
+      "type": "diagnostic"
+    },
+    {
+      "code": "unresolved_import",
+      "file": "lib/app.dart",
+      "message": "import '../../outside.dart' resolves outside the repository",
+      "severity": "warning",
+      "type": "diagnostic"
+    },
+    {
+      "code": "syntax_error",
+      "file": "lib/src/broken.dart",
+      "message": "tree-sitter recovered from invalid syntax",
+      "severity": "warning",
+      "type": "diagnostic"
+    }
+  ],
+  "edges": [
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/messages.g.dart",
+          "span": {
+            "end_column": 19,
+            "end_line": 5,
+            "start_column": 2,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:lib/src/messages.g.dart#Messages",
+      "target": "constructor:lib/src/messages.g.dart#Messages.new",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/messages.g.dart",
+          "span": {
+            "end_column": 26,
+            "end_line": 7,
+            "start_column": 2,
+            "start_line": 7
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:lib/src/messages.g.dart#Messages",
+      "target": "method:lib/src/messages.g.dart#Messages.bye",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/messages.g.dart",
+          "span": {
+            "end_column": 30,
+            "end_line": 6,
+            "start_column": 2,
+            "start_line": 6
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:lib/src/messages.g.dart#Messages",
+      "target": "method:lib/src/messages.g.dart#Messages.hello",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/modern.dart",
+          "span": {
+            "end_column": 14,
+            "end_line": 36,
+            "start_column": 2,
+            "start_line": 36
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:lib/src/modern.dart#Classic",
+      "target": "constructor:lib/src/modern.dart#Classic._",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/modern.dart",
+          "span": {
+            "end_column": 35,
+            "end_line": 35,
+            "start_column": 2,
+            "start_line": 35
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:lib/src/modern.dart#Classic",
+      "target": "constructor:lib/src/modern.dart#Classic.new",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/modern.dart",
+          "span": {
+            "end_column": 41,
+            "end_line": 20,
+            "start_column": 2,
+            "start_line": 20
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:lib/src/modern.dart#Concise",
+      "target": "constructor:lib/src/modern.dart#Concise.legacy",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/modern.dart",
+          "span": {
+            "end_column": 31,
+            "end_line": 18,
+            "start_column": 2,
+            "start_line": 18
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:lib/src/modern.dart#Concise",
+      "target": "constructor:lib/src/modern.dart#Concise.make",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/modern.dart",
+          "span": {
+            "end_column": 22,
+            "end_line": 16,
+            "start_column": 2,
+            "start_line": 16
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:lib/src/modern.dart#Concise",
+      "target": "constructor:lib/src/modern.dart#Concise.named",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/modern.dart",
+          "span": {
+            "end_column": 14,
+            "end_line": 15,
+            "start_column": 2,
+            "start_line": 15
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:lib/src/modern.dart#Concise",
+      "target": "constructor:lib/src/modern.dart#Concise.new",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/modern.dart",
+          "span": {
+            "end_column": 32,
+            "end_line": 19,
+            "start_column": 2,
+            "start_line": 19
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:lib/src/modern.dart#Concise",
+      "target": "constructor:lib/src/modern.dart#Concise.red",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/modern.dart",
+          "span": {
+            "end_column": 27,
+            "end_line": 17,
+            "start_column": 2,
+            "start_line": 17
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:lib/src/modern.dart#Concise",
+      "target": "constructor:lib/src/modern.dart#Concise.zero",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/modern.dart",
+          "span": {
+            "end_column": 14,
+            "end_line": 26,
+            "start_column": 2,
+            "start_line": 26
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:lib/src/modern.dart#Constant",
+      "target": "constructor:lib/src/modern.dart#Constant.new",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/modern.dart",
+          "span": {
+            "end_column": 11,
+            "end_line": 30,
+            "start_column": 2,
+            "start_line": 30
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:lib/src/modern.dart#Made",
+      "target": "constructor:lib/src/modern.dart#Made._",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/modern.dart",
+          "span": {
+            "end_column": 24,
+            "end_line": 31,
+            "start_column": 2,
+            "start_line": 31
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:lib/src/modern.dart#Made",
+      "target": "constructor:lib/src/modern.dart#Made.new",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/modern.dart",
+          "span": {
+            "end_column": 21,
+            "end_line": 45,
+            "start_column": 2,
+            "start_line": 45
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:lib/src/modern.dart#Torn",
+      "target": "constructor:lib/src/modern.dart#Torn.new",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/modern.dart",
+          "span": {
+            "end_column": 24,
+            "end_line": 49,
+            "start_column": 2,
+            "start_line": 49
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:lib/src/modern.dart#TornConst",
+      "target": "constructor:lib/src/modern.dart#TornConst.new",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/shapes.dart",
+          "span": {
+            "end_column": 28,
+            "end_line": 52,
+            "start_column": 2,
+            "start_line": 52
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:lib/src/shapes.dart#Circle",
+      "target": "constructor:lib/src/shapes.dart#Circle.new",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/shapes.dart",
+          "span": {
+            "end_column": 16,
+            "end_line": 54,
+            "start_column": 2,
+            "start_line": 53
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:lib/src/shapes.dart#Circle",
+      "target": "method:lib/src/shapes.dart#Circle.draw",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/shapes.dart",
+          "span": {
+            "end_column": 34,
+            "end_line": 12,
+            "start_column": 2,
+            "start_line": 12
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:lib/src/shapes.dart#Shape",
+      "target": "constructor:lib/src/shapes.dart#Shape.circle",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/shapes.dart",
+          "span": {
+            "end_column": 47,
+            "end_line": 9,
+            "start_column": 2,
+            "start_line": 9
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:lib/src/shapes.dart#Shape",
+      "target": "constructor:lib/src/shapes.dart#Shape.named",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/shapes.dart",
+          "span": {
+            "end_column": 22,
+            "end_line": 8,
+            "start_column": 2,
+            "start_line": 8
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:lib/src/shapes.dart#Shape",
+      "target": "constructor:lib/src/shapes.dart#Shape.new",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/shapes.dart",
+          "span": {
+            "end_column": 37,
+            "end_line": 11,
+            "start_column": 2,
+            "start_line": 11
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:lib/src/shapes.dart#Shape",
+      "target": "constructor:lib/src/shapes.dart#Shape.square",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/shapes.dart",
+          "span": {
+            "end_column": 33,
+            "end_line": 10,
+            "start_column": 2,
+            "start_line": 10
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:lib/src/shapes.dart#Shape",
+      "target": "constructor:lib/src/shapes.dart#Shape.unit",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/shapes.dart",
+          "span": {
+            "end_column": 21,
+            "end_line": 41,
+            "start_column": 4,
+            "start_line": 41
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:lib/src/shapes.dart#Shape",
+      "target": "function:lib/src/shapes.dart#Shape.inField",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/shapes.dart",
+          "span": {
+            "end_column": 20,
+            "end_line": 19,
+            "start_column": 2,
+            "start_line": 19
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:lib/src/shapes.dart#Shape",
+      "target": "method:lib/src/shapes.dart#Shape.area",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/shapes.dart",
+          "span": {
+            "end_column": 24,
+            "end_line": 20,
+            "start_column": 2,
+            "start_line": 20
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:lib/src/shapes.dart#Shape",
+      "target": "method:lib/src/shapes.dart#Shape.area%3D",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/shapes.dart",
+          "span": {
+            "end_column": 14,
+            "end_line": 22,
+            "start_column": 2,
+            "start_line": 22
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:lib/src/shapes.dart#Shape",
+      "target": "method:lib/src/shapes.dart#Shape.draw",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/shapes.dart",
+          "span": {
+            "end_column": 40,
+            "end_line": 24,
+            "start_column": 2,
+            "start_line": 24
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:lib/src/shapes.dart#Shape",
+      "target": "method:lib/src/shapes.dart#Shape.operator%20%2B",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/shapes.dart",
+          "span": {
+            "end_column": 59,
+            "end_line": 27,
+            "start_column": 2,
+            "start_line": 27
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:lib/src/shapes.dart#Shape",
+      "target": "method:lib/src/shapes.dart#Shape.operator%20%3D%3D",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/shapes.dart",
+          "span": {
+            "end_column": 38,
+            "end_line": 28,
+            "start_column": 2,
+            "start_line": 28
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:lib/src/shapes.dart#Shape",
+      "target": "method:lib/src/shapes.dart#Shape.operator%20%5B%5D",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/shapes.dart",
+          "span": {
+            "end_column": 44,
+            "end_line": 29,
+            "start_column": 2,
+            "start_line": 29
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:lib/src/shapes.dart#Shape",
+      "target": "method:lib/src/shapes.dart#Shape.operator%20%5B%5D%3D",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/shapes.dart",
+          "span": {
+            "end_column": 40,
+            "end_line": 25,
+            "start_column": 2,
+            "start_line": 25
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:lib/src/shapes.dart#Shape",
+      "target": "method:lib/src/shapes.dart#Shape.operator%20-",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/shapes.dart",
+          "span": {
+            "end_column": 29,
+            "end_line": 26,
+            "start_column": 2,
+            "start_line": 26
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:lib/src/shapes.dart#Shape",
+      "target": "method:lib/src/shapes.dart#Shape.operator%20-%402",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/shapes.dart",
+          "span": {
+            "end_column": 36,
+            "end_line": 21,
+            "start_column": 2,
+            "start_line": 21
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:lib/src/shapes.dart#Shape",
+      "target": "method:lib/src/shapes.dart#Shape.origin",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/shapes.dart",
+          "span": {
+            "end_column": 3,
+            "end_line": 38,
+            "start_column": 2,
+            "start_line": 31
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:lib/src/shapes.dart#Shape",
+      "target": "method:lib/src/shapes.dart#Shape.paint",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/shapes.dart",
+          "span": {
+            "end_column": 39,
+            "end_line": 17,
+            "start_column": 2,
+            "start_line": 14
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:lib/src/shapes.dart#Shape",
+      "target": "method:lib/src/shapes.dart#Shape.toString",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/shapes.dart",
+          "span": {
+            "end_column": 28,
+            "end_line": 46,
+            "start_column": 2,
+            "start_line": 46
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:lib/src/shapes.dart#Square",
+      "target": "constructor:lib/src/shapes.dart#Square.new",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/shapes.dart",
+          "span": {
+            "end_column": 16,
+            "end_line": 48,
+            "start_column": 2,
+            "start_line": 47
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:lib/src/shapes.dart#Square",
+      "target": "method:lib/src/shapes.dart#Square.draw",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "packages/core/lib/src/engine.dart",
+          "span": {
+            "end_column": 17,
+            "end_line": 2,
+            "start_column": 2,
+            "start_line": 2
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "class:packages/core/lib/src/engine.dart#Engine",
+      "target": "method:packages/core/lib/src/engine.dart#Engine.start",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/kinds.dart",
+          "span": {
+            "end_column": 16,
+            "end_line": 34,
+            "start_column": 2,
+            "start_line": 34
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "enum:lib/src/kinds.dart#Color",
+      "target": "constructor:lib/src/kinds.dart#Color.new",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/kinds.dart",
+          "span": {
+            "end_column": 28,
+            "end_line": 35,
+            "start_column": 2,
+            "start_line": 35
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "enum:lib/src/kinds.dart#Color",
+      "target": "method:lib/src/kinds.dart#Color.describe",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/kinds.dart",
+          "span": {
+            "end_column": 30,
+            "end_line": 10,
+            "start_column": 2,
+            "start_line": 10
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "extension:lib/src/kinds.dart#Doubling",
+      "target": "method:lib/src/kinds.dart#Doubling.doubled",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/kinds.dart",
+          "span": {
+            "end_column": 44,
+            "end_line": 13,
+            "start_column": 2,
+            "start_line": 13
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "extension:lib/src/kinds.dart#extension%20on%20List%3Cint%3E",
+      "target": "method:lib/src/kinds.dart#extension%20on%20List%3Cint%3E.total",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/kinds.dart",
+          "span": {
+            "end_column": 45,
+            "end_line": 16,
+            "start_column": 2,
+            "start_line": 16
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "extension:lib/src/kinds.dart#extension%20on%20List%3Cint%3E%402",
+      "target": "method:lib/src/kinds.dart#extension%20on%20List%3Cint%3E%402.firstOrZero",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/kinds.dart",
+          "span": {
+            "end_column": 35,
+            "end_line": 19,
+            "start_column": 2,
+            "start_line": 19
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "extension:lib/src/kinds.dart#extension%20on%20Map%3CString%2CT%3E%3F",
+      "target": "method:lib/src/kinds.dart#extension%20on%20Map%3CString%2CT%3E%3F.missing",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/kinds.dart",
+          "span": {
+            "end_column": 17,
+            "end_line": 22,
+            "start_column": 2,
+            "start_line": 22
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "extension:lib/src/kinds.dart#extension%20on%20void%20Function%28%29",
+      "target": "method:lib/src/kinds.dart#extension%20on%20void%20Function%28%29.twice",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/kinds.dart",
+          "span": {
+            "end_column": 28,
+            "end_line": 26,
+            "start_column": 2,
+            "start_line": 26
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "extension_type:lib/src/kinds.dart#Meters",
+      "target": "constructor:lib/src/kinds.dart#Meters.zero",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/kinds.dart",
+          "span": {
+            "end_column": 38,
+            "end_line": 27,
+            "start_column": 2,
+            "start_line": 27
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "extension_type:lib/src/kinds.dart#Meters",
+      "target": "method:lib/src/kinds.dart#Meters.kilometres",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/app.dart",
+          "span": {
+            "end_column": 1,
+            "end_line": 28,
+            "start_column": 0,
+            "start_line": 26
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/app.dart#lib%2Fapp.dart",
+      "target": "function:lib/app.dart#run",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/app_part.dart",
+          "span": {
+            "end_column": 29,
+            "end_line": 3,
+            "start_column": 0,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/src/app_part.dart#lib%2Fsrc%2Fapp_part.dart",
+      "target": "function:lib/src/app_part.dart#greeting",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/io_native.dart",
+          "span": {
+            "end_column": 30,
+            "end_line": 1,
+            "start_column": 0,
+            "start_line": 1
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/src/io_native.dart#lib%2Fsrc%2Fio_native.dart",
+      "target": "function:lib/src/io_native.dart#platform",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/io_stub.dart",
+          "span": {
+            "end_column": 28,
+            "end_line": 1,
+            "start_column": 0,
+            "start_line": 1
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/src/io_stub.dart#lib%2Fsrc%2Fio_stub.dart",
+      "target": "function:lib/src/io_stub.dart#platform",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/kinds.dart",
+          "span": {
+            "end_column": 22,
+            "end_line": 7,
+            "start_column": 0,
+            "start_line": 7
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/src/kinds.dart#lib%2Fsrc%2Fkinds.dart",
+      "target": "class:lib/src/kinds.dart#Result",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/kinds.dart",
+          "span": {
+            "end_column": 33,
+            "end_line": 6,
+            "start_column": 0,
+            "start_line": 6
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/src/kinds.dart#lib%2Fsrc%2Fkinds.dart",
+      "target": "class:lib/src/kinds.dart#Robot",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/kinds.dart",
+          "span": {
+            "end_column": 21,
+            "end_line": 5,
+            "start_column": 0,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/src/kinds.dart#lib%2Fsrc%2Fkinds.dart",
+      "target": "class:lib/src/kinds.dart#Runner",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/kinds.dart",
+          "span": {
+            "end_column": 1,
+            "end_line": 36,
+            "start_column": 0,
+            "start_line": 30
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/src/kinds.dart#lib%2Fsrc%2Fkinds.dart",
+      "target": "enum:lib/src/kinds.dart#Color",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/kinds.dart",
+          "span": {
+            "end_column": 1,
+            "end_line": 11,
+            "start_column": 0,
+            "start_line": 9
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/src/kinds.dart#lib%2Fsrc%2Fkinds.dart",
+      "target": "extension:lib/src/kinds.dart#Doubling",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/kinds.dart",
+          "span": {
+            "end_column": 1,
+            "end_line": 14,
+            "start_column": 0,
+            "start_line": 12
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/src/kinds.dart#lib%2Fsrc%2Fkinds.dart",
+      "target": "extension:lib/src/kinds.dart#extension%20on%20List%3Cint%3E",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/kinds.dart",
+          "span": {
+            "end_column": 1,
+            "end_line": 17,
+            "start_column": 0,
+            "start_line": 15
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/src/kinds.dart#lib%2Fsrc%2Fkinds.dart",
+      "target": "extension:lib/src/kinds.dart#extension%20on%20List%3Cint%3E%402",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/kinds.dart",
+          "span": {
+            "end_column": 1,
+            "end_line": 20,
+            "start_column": 0,
+            "start_line": 18
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/src/kinds.dart#lib%2Fsrc%2Fkinds.dart",
+      "target": "extension:lib/src/kinds.dart#extension%20on%20Map%3CString%2CT%3E%3F",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/kinds.dart",
+          "span": {
+            "end_column": 1,
+            "end_line": 23,
+            "start_column": 0,
+            "start_line": 21
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/src/kinds.dart#lib%2Fsrc%2Fkinds.dart",
+      "target": "extension:lib/src/kinds.dart#extension%20on%20void%20Function%28%29",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/kinds.dart",
+          "span": {
+            "end_column": 1,
+            "end_line": 28,
+            "start_column": 0,
+            "start_line": 25
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/src/kinds.dart#lib%2Fsrc%2Fkinds.dart",
+      "target": "extension_type:lib/src/kinds.dart#Meters",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/kinds.dart",
+          "span": {
+            "end_column": 36,
+            "end_line": 45,
+            "start_column": 0,
+            "start_line": 44
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/src/kinds.dart#lib%2Fsrc%2Fkinds.dart",
+      "target": "function:lib/src/kinds.dart#alert",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/kinds.dart",
+          "span": {
+            "end_column": 21,
+            "end_line": 41,
+            "start_column": 0,
+            "start_line": 40
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/src/kinds.dart#lib%2Fsrc%2Fkinds.dart",
+      "target": "function:lib/src/kinds.dart#answer",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/kinds.dart",
+          "span": {
+            "end_column": 24,
+            "end_line": 42,
+            "start_column": 0,
+            "start_line": 42
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/src/kinds.dart#lib%2Fsrc%2Fkinds.dart",
+      "target": "function:lib/src/kinds.dart#answer%3D",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/kinds.dart",
+          "span": {
+            "end_column": 23,
+            "end_line": 53,
+            "start_column": 2,
+            "start_line": 53
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/src/kinds.dart#lib%2Fsrc%2Fkinds.dart",
+      "target": "function:lib/src/kinds.dart#inTopLambda",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/kinds.dart",
+          "span": {
+            "end_column": 1,
+            "end_line": 50,
+            "start_column": 0,
+            "start_line": 47
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/src/kinds.dart#lib%2Fsrc%2Fkinds.dart",
+      "target": "function:lib/src/kinds.dart#main",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/kinds.dart",
+          "span": {
+            "end_column": 21,
+            "end_line": 4,
+            "start_column": 0,
+            "start_line": 4
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/src/kinds.dart#lib%2Fsrc%2Fkinds.dart",
+      "target": "mixin:lib/src/kinds.dart#Swimmer",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/kinds.dart",
+          "span": {
+            "end_column": 1,
+            "end_line": 3,
+            "start_column": 0,
+            "start_line": 1
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/src/kinds.dart#lib%2Fsrc%2Fkinds.dart",
+      "target": "mixin:lib/src/kinds.dart#Walker",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/messages.g.dart",
+          "span": {
+            "end_column": 1,
+            "end_line": 8,
+            "start_column": 0,
+            "start_line": 4
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/src/messages.g.dart#lib%2Fsrc%2Fmessages.g.dart",
+      "target": "class:lib/src/messages.g.dart#Messages",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/modern.dart",
+          "span": {
+            "end_column": 1,
+            "end_line": 37,
+            "start_column": 0,
+            "start_line": 34
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/src/modern.dart#lib%2Fsrc%2Fmodern.dart",
+      "target": "class:lib/src/modern.dart#Classic",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/modern.dart",
+          "span": {
+            "end_column": 1,
+            "end_line": 23,
+            "start_column": 0,
+            "start_line": 13
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/src/modern.dart#lib%2Fsrc%2Fmodern.dart",
+      "target": "class:lib/src/modern.dart#Concise",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/modern.dart",
+          "span": {
+            "end_column": 1,
+            "end_line": 27,
+            "start_column": 0,
+            "start_line": 25
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/src/modern.dart#lib%2Fsrc%2Fmodern.dart",
+      "target": "class:lib/src/modern.dart#Constant",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/modern.dart",
+          "span": {
+            "end_column": 12,
+            "end_line": 9,
+            "start_column": 0,
+            "start_line": 9
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/src/modern.dart#lib%2Fsrc%2Fmodern.dart",
+      "target": "class:lib/src/modern.dart#Empty",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/modern.dart",
+          "span": {
+            "end_column": 1,
+            "end_line": 32,
+            "start_column": 0,
+            "start_line": 29
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/src/modern.dart#lib%2Fsrc%2Fmodern.dart",
+      "target": "class:lib/src/modern.dart#Made",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/modern.dart",
+          "span": {
+            "end_column": 1,
+            "end_line": 7,
+            "start_column": 0,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/src/modern.dart#lib%2Fsrc%2Fmodern.dart",
+      "target": "class:lib/src/modern.dart#Named",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/modern.dart",
+          "span": {
+            "end_column": 34,
+            "end_line": 3,
+            "start_column": 0,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/src/modern.dart#lib%2Fsrc%2Fmodern.dart",
+      "target": "class:lib/src/modern.dart#Point",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/modern.dart",
+          "span": {
+            "end_column": 1,
+            "end_line": 46,
+            "start_column": 0,
+            "start_line": 43
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/src/modern.dart#lib%2Fsrc%2Fmodern.dart",
+      "target": "class:lib/src/modern.dart#Torn",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/modern.dart",
+          "span": {
+            "end_column": 1,
+            "end_line": 50,
+            "start_column": 0,
+            "start_line": 48
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/src/modern.dart#lib%2Fsrc%2Fmodern.dart",
+      "target": "class:lib/src/modern.dart#TornConst",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/modern.dart",
+          "span": {
+            "end_column": 1,
+            "end_line": 54,
+            "start_column": 0,
+            "start_line": 52
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/src/modern.dart#lib%2Fsrc%2Fmodern.dart",
+      "target": "class:lib/src/modern.dart#TornOther",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/modern.dart",
+          "span": {
+            "end_column": 1,
+            "end_line": 41,
+            "start_column": 0,
+            "start_line": 39
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/src/modern.dart#lib%2Fsrc%2Fmodern.dart",
+      "target": "class:lib/src/modern.dart#Wrong",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/modern.dart",
+          "span": {
+            "end_column": 47,
+            "end_line": 11,
+            "start_column": 0,
+            "start_line": 11
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/src/modern.dart#lib%2Fsrc%2Fmodern.dart",
+      "target": "enum:lib/src/modern.dart#Level",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/shapes.dart",
+          "span": {
+            "end_column": 1,
+            "end_line": 55,
+            "start_column": 0,
+            "start_line": 51
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/src/shapes.dart#lib%2Fsrc%2Fshapes.dart",
+      "target": "class:lib/src/shapes.dart#Circle",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/shapes.dart",
+          "span": {
+            "end_column": 1,
+            "end_line": 43,
+            "start_column": 0,
+            "start_line": 4
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/src/shapes.dart#lib%2Fsrc%2Fshapes.dart",
+      "target": "class:lib/src/shapes.dart#Shape",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/shapes.dart",
+          "span": {
+            "end_column": 1,
+            "end_line": 49,
+            "start_column": 0,
+            "start_line": 45
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:lib/src/shapes.dart#lib%2Fsrc%2Fshapes.dart",
+      "target": "class:lib/src/shapes.dart#Square",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "packages/core/lib/core.dart",
+          "span": {
+            "end_column": 1,
+            "end_line": 6,
+            "start_column": 0,
+            "start_line": 4
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:packages/core/lib/core.dart#packages%2Fcore%2Flib%2Fcore.dart",
+      "target": "class:packages/core/lib/core.dart#Core",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "packages/core/lib/src/engine.dart",
+          "span": {
+            "end_column": 1,
+            "end_line": 3,
+            "start_column": 0,
+            "start_line": 1
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:packages/core/lib/src/engine.dart#packages%2Fcore%2Flib%2Fsrc%2Fengine.dart",
+      "target": "class:packages/core/lib/src/engine.dart#Engine",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/kinds.dart",
+          "span": {
+            "end_column": 20,
+            "end_line": 48,
+            "start_column": 2,
+            "start_line": 48
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "function:lib/src/kinds.dart#main",
+      "target": "function:lib/src/kinds.dart#main.helper",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/shapes.dart",
+          "span": {
+            "end_column": 19,
+            "end_line": 33,
+            "start_column": 6,
+            "start_line": 33
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "function:lib/src/shapes.dart#Shape.paint.stroke",
+      "target": "function:lib/src/shapes.dart#Shape.paint.stroke.dot",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/shapes.dart",
+          "span": {
+            "end_column": 24,
+            "end_line": 36,
+            "start_column": 6,
+            "start_line": 36
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "method:lib/src/shapes.dart#Shape.paint",
+      "target": "function:lib/src/shapes.dart#Shape.paint.inLambda",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/shapes.dart",
+          "span": {
+            "end_column": 5,
+            "end_line": 34,
+            "start_column": 4,
+            "start_line": 32
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "method:lib/src/shapes.dart#Shape.paint",
+      "target": "function:lib/src/shapes.dart#Shape.paint.stroke",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/kinds.dart",
+          "span": {
+            "end_column": 16,
+            "end_line": 2,
+            "start_column": 2,
+            "start_line": 2
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "mixin:lib/src/kinds.dart#Walker",
+      "target": "method:lib/src/kinds.dart#Walker.walk",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/app.dart",
+          "span": {
+            "end_column": 20,
+            "end_line": 4,
+            "start_column": 0,
+            "start_line": 4
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:lib/app.dart#lib%2Fapp.dart",
+      "target": "external:.#dart%3Aasync",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/app.dart",
+          "span": {
+            "end_column": 19,
+            "end_line": 21,
+            "start_column": 0,
+            "start_line": 21
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:lib/app.dart#lib%2Fapp.dart",
+      "target": "external:.#dart%3Amath",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/app.dart",
+          "span": {
+            "end_column": 41,
+            "end_line": 9,
+            "start_column": 0,
+            "start_line": 9
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:lib/app.dart#lib%2Fapp.dart",
+      "target": "external:.#pub%3Ahttp",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/app.dart",
+          "span": {
+            "end_column": 56,
+            "end_line": 12,
+            "start_column": 0,
+            "start_line": 10
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:lib/app.dart#lib%2Fapp.dart",
+      "target": "external:.#pub%3Aweb",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/app.dart",
+          "span": {
+            "end_column": 25,
+            "end_line": 23,
+            "start_column": 0,
+            "start_line": 23
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:lib/app.dart#lib%2Fapp.dart",
+      "target": "file:lib/src/app_part.dart#lib%2Fsrc%2Fapp_part.dart",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/app.dart",
+          "span": {
+            "end_column": 56,
+            "end_line": 12,
+            "start_column": 0,
+            "start_line": 10
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:lib/app.dart#lib%2Fapp.dart",
+      "target": "file:lib/src/io_native.dart#lib%2Fsrc%2Fio_native.dart",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/app.dart",
+          "span": {
+            "end_column": 56,
+            "end_line": 12,
+            "start_column": 0,
+            "start_line": 10
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:lib/app.dart#lib%2Fapp.dart",
+      "target": "file:lib/src/io_stub.dart#lib%2Fsrc%2Fio_stub.dart",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/app.dart",
+          "span": {
+            "end_column": 50,
+            "end_line": 7,
+            "start_column": 0,
+            "start_line": 7
+          }
+        },
+        {
+          "file": "lib/app.dart",
+          "span": {
+            "end_column": 24,
+            "end_line": 19,
+            "start_column": 0,
+            "start_line": 19
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:lib/app.dart#lib%2Fapp.dart",
+      "target": "file:lib/src/kinds.dart#lib%2Fsrc%2Fkinds.dart",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/app.dart",
+          "span": {
+            "end_column": 27,
+            "end_line": 24,
+            "start_column": 0,
+            "start_line": 24
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:lib/app.dart#lib%2Fapp.dart",
+      "target": "file:lib/src/messages.g.dart#lib%2Fsrc%2Fmessages.g.dart",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/app.dart",
+          "span": {
+            "end_column": 42,
+            "end_line": 20,
+            "start_column": 0,
+            "start_line": 20
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:lib/app.dart#lib%2Fapp.dart",
+      "target": "file:lib/src/modern.dart#lib%2Fsrc%2Fmodern.dart",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/app.dart",
+          "span": {
+            "end_column": 25,
+            "end_line": 5,
+            "start_column": 0,
+            "start_line": 5
+          }
+        },
+        {
+          "file": "lib/app.dart",
+          "span": {
+            "end_column": 43,
+            "end_line": 15,
+            "start_column": 0,
+            "start_line": 15
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:lib/app.dart#lib%2Fapp.dart",
+      "target": "file:lib/src/shapes.dart#lib%2Fsrc%2Fshapes.dart",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "lib/src/shapes.dart",
+          "span": {
+            "end_column": 20,
+            "end_line": 1,
+            "start_column": 0,
+            "start_line": 1
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:lib/src/shapes.dart#lib%2Fsrc%2Fshapes.dart",
+      "target": "file:lib/src/kinds.dart#lib%2Fsrc%2Fkinds.dart",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "packages/core/lib/core.dart",
+          "span": {
+            "end_column": 43,
+            "end_line": 1,
+            "start_column": 0,
+            "start_line": 1
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:packages/core/lib/core.dart#packages%2Fcore%2Flib%2Fcore.dart",
+      "target": "file:packages/core/lib/src/engine.dart#packages%2Fcore%2Flib%2Fsrc%2Fengine.dart",
+      "type": "edge"
+    }
+  ],
+  "files": null,
+  "nodes": [
+    {
+      "attributes": {},
+      "content_hash": "sha256:674ee90782edd41d5c4660b10eac54a9fcc91e0fd145e0737e3988c3e3b6d2e5",
+      "file": "lib/src/kinds.dart",
+      "identity": "class:lib/src/kinds.dart#Result",
+      "kind": "class",
+      "level": 4,
+      "name": "Result",
+      "qualified_name": "Result",
+      "span": {
+        "end_column": 22,
+        "end_line": 7,
+        "start_column": 0,
+        "start_line": 7
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:13208a86bd79aeb30fba645f32deb6e75b27f74755f035ef22563e201f97e3f4",
+      "file": "lib/src/kinds.dart",
+      "identity": "class:lib/src/kinds.dart#Robot",
+      "kind": "class",
+      "level": 4,
+      "name": "Robot",
+      "qualified_name": "Robot",
+      "span": {
+        "end_column": 33,
+        "end_line": 6,
+        "start_column": 0,
+        "start_line": 6
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "mixin": true
+      },
+      "content_hash": "sha256:b3c2e5ded2bab129ca3ee1bd7cf889e5450381e8315d14e6e102dcc0892476aa",
+      "file": "lib/src/kinds.dart",
+      "identity": "class:lib/src/kinds.dart#Runner",
+      "kind": "class",
+      "level": 4,
+      "name": "Runner",
+      "qualified_name": "Runner",
+      "span": {
+        "end_column": 21,
+        "end_line": 5,
+        "start_column": 0,
+        "start_line": 5
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:35dcc6a42c90dc08166e10b9ce6178ee84d04fd48d1ef2e0fb1ab09eec15f5f2",
+      "file": "lib/src/messages.g.dart",
+      "identity": "class:lib/src/messages.g.dart#Messages",
+      "kind": "class",
+      "level": 4,
+      "name": "Messages",
+      "qualified_name": "Messages",
+      "span": {
+        "end_column": 1,
+        "end_line": 8,
+        "start_column": 0,
+        "start_line": 4
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:fab52e0f86607f756ba5cd7e2d3f34c02777811aa27bf06a189761f9f34e50a3",
+      "file": "lib/src/modern.dart",
+      "identity": "class:lib/src/modern.dart#Classic",
+      "kind": "class",
+      "level": 4,
+      "name": "Classic",
+      "qualified_name": "Classic",
+      "span": {
+        "end_column": 1,
+        "end_line": 37,
+        "start_column": 0,
+        "start_line": 34
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:4acc4c9a6e8014b773cc9c11df0ceabb42e7cb75bf7add32668436efdfb029bb",
+      "file": "lib/src/modern.dart",
+      "identity": "class:lib/src/modern.dart#Concise",
+      "kind": "class",
+      "level": 4,
+      "name": "Concise",
+      "qualified_name": "Concise",
+      "span": {
+        "end_column": 1,
+        "end_line": 23,
+        "start_column": 0,
+        "start_line": 13
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:d79d8ba6b6733664be5f2dd049fc8a9d7eb086fb991171f62a8ee06baedac7a9",
+      "file": "lib/src/modern.dart",
+      "identity": "class:lib/src/modern.dart#Constant",
+      "kind": "class",
+      "level": 4,
+      "name": "Constant",
+      "qualified_name": "Constant",
+      "span": {
+        "end_column": 1,
+        "end_line": 27,
+        "start_column": 0,
+        "start_line": 25
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:34023fc72eb8dd1019434dfb8a8c6820fda91742c4c21e12aac80ed60de2ada4",
+      "file": "lib/src/modern.dart",
+      "identity": "class:lib/src/modern.dart#Empty",
+      "kind": "class",
+      "level": 4,
+      "name": "Empty",
+      "qualified_name": "Empty",
+      "span": {
+        "end_column": 12,
+        "end_line": 9,
+        "start_column": 0,
+        "start_line": 9
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:6f1ab5ec55bbbe7fa072a366da42976169905e97fd145bbbab243ba66201fc27",
+      "file": "lib/src/modern.dart",
+      "identity": "class:lib/src/modern.dart#Made",
+      "kind": "class",
+      "level": 4,
+      "name": "Made",
+      "qualified_name": "Made",
+      "span": {
+        "end_column": 1,
+        "end_line": 32,
+        "start_column": 0,
+        "start_line": 29
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:bc1fac04fa53734a473c84992e4d3d51ae4f5277a63daf5355e1bd618f9b3985",
+      "file": "lib/src/modern.dart",
+      "identity": "class:lib/src/modern.dart#Named",
+      "kind": "class",
+      "level": 4,
+      "name": "Named",
+      "qualified_name": "Named",
+      "span": {
+        "end_column": 1,
+        "end_line": 7,
+        "start_column": 0,
+        "start_line": 5
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:427d3cd2e2214d2679c5012f0559515d32558741b4e55c8761efcdaed269aa66",
+      "file": "lib/src/modern.dart",
+      "identity": "class:lib/src/modern.dart#Point",
+      "kind": "class",
+      "level": 4,
+      "name": "Point",
+      "qualified_name": "Point",
+      "span": {
+        "end_column": 34,
+        "end_line": 3,
+        "start_column": 0,
+        "start_line": 3
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:f8d862a646992db0678df809c4f3139950b76d6ab4ddb570c26486d94fca679c",
+      "file": "lib/src/modern.dart",
+      "identity": "class:lib/src/modern.dart#Torn",
+      "kind": "class",
+      "level": 4,
+      "name": "Torn",
+      "qualified_name": "Torn",
+      "span": {
+        "end_column": 1,
+        "end_line": 46,
+        "start_column": 0,
+        "start_line": 43
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:45801ba1a4745636031f1db43d646f654d26a3d7bfeb51eb45c38ed27cb3cc7b",
+      "file": "lib/src/modern.dart",
+      "identity": "class:lib/src/modern.dart#TornConst",
+      "kind": "class",
+      "level": 4,
+      "name": "TornConst",
+      "qualified_name": "TornConst",
+      "span": {
+        "end_column": 1,
+        "end_line": 50,
+        "start_column": 0,
+        "start_line": 48
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:7c00a5f1efebd0f2155b348428f1a9ed6436d189c6d01ed7b9da4bc609fadb81",
+      "file": "lib/src/modern.dart",
+      "identity": "class:lib/src/modern.dart#TornOther",
+      "kind": "class",
+      "level": 4,
+      "name": "TornOther",
+      "qualified_name": "TornOther",
+      "span": {
+        "end_column": 1,
+        "end_line": 54,
+        "start_column": 0,
+        "start_line": 52
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:965094b9cb2e2d2da11afee788b16abf236f9c9f5b2ea7c4260e611d461c8fd1",
+      "file": "lib/src/modern.dart",
+      "identity": "class:lib/src/modern.dart#Wrong",
+      "kind": "class",
+      "level": 4,
+      "name": "Wrong",
+      "qualified_name": "Wrong",
+      "span": {
+        "end_column": 1,
+        "end_line": 41,
+        "start_column": 0,
+        "start_line": 39
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:c9b1afb70dfa2ed331264cf2ba4158835a29af7dacaef0d62a1ca050c4173f06",
+      "file": "lib/src/shapes.dart",
+      "identity": "class:lib/src/shapes.dart#Circle",
+      "kind": "class",
+      "level": 4,
+      "name": "Circle",
+      "qualified_name": "Circle",
+      "span": {
+        "end_column": 1,
+        "end_line": 55,
+        "start_column": 0,
+        "start_line": 51
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:9383f25f486abeb72a08c6459dce1745c35cfb4484656cf6e076c09ed18d2285",
+      "file": "lib/src/shapes.dart",
+      "identity": "class:lib/src/shapes.dart#Shape",
+      "kind": "class",
+      "level": 4,
+      "name": "Shape",
+      "qualified_name": "Shape",
+      "span": {
+        "end_column": 1,
+        "end_line": 43,
+        "start_column": 0,
+        "start_line": 4
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:0c881fa48708fd9890a066f1811caf60abd163a0be56c1c0d551053fe2e6cc9e",
+      "file": "lib/src/shapes.dart",
+      "identity": "class:lib/src/shapes.dart#Square",
+      "kind": "class",
+      "level": 4,
+      "name": "Square",
+      "qualified_name": "Square",
+      "span": {
+        "end_column": 1,
+        "end_line": 49,
+        "start_column": 0,
+        "start_line": 45
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:4aed223bee5ec6098a2350b8f31e67782b59ba20c3f648c85c174123c3677343",
+      "file": "packages/core/lib/core.dart",
+      "identity": "class:packages/core/lib/core.dart#Core",
+      "kind": "class",
+      "level": 4,
+      "name": "Core",
+      "qualified_name": "Core",
+      "span": {
+        "end_column": 1,
+        "end_line": 6,
+        "start_column": 0,
+        "start_line": 4
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:68b07f1e7267ce337217204ac0739d7f8caa1bca13d0378eade2a62102776b9f",
+      "file": "packages/core/lib/src/engine.dart",
+      "identity": "class:packages/core/lib/src/engine.dart#Engine",
+      "kind": "class",
+      "level": 4,
+      "name": "Engine",
+      "qualified_name": "Engine",
+      "span": {
+        "end_column": 1,
+        "end_line": 3,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:4fffb9bd6bfd04aa723589a6c38ec4499357351ebd2d92695512d660cbc2ef91",
+      "file": "lib/src/kinds.dart",
+      "identity": "constructor:lib/src/kinds.dart#Color.new",
+      "kind": "constructor",
+      "level": 4,
+      "name": "new",
+      "qualified_name": "Color.new",
+      "span": {
+        "end_column": 16,
+        "end_line": 34,
+        "start_column": 2,
+        "start_line": 34
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:e22c3c7530e756dbdc116a96c32be0941bc6fe18226e24b6eecc9566a07bd9d6",
+      "file": "lib/src/kinds.dart",
+      "identity": "constructor:lib/src/kinds.dart#Meters.zero",
+      "kind": "constructor",
+      "level": 4,
+      "name": "zero",
+      "qualified_name": "Meters.zero",
+      "span": {
+        "end_column": 28,
+        "end_line": 26,
+        "start_column": 2,
+        "start_line": 26
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:584f66e583656f1f0fbfc51ab46b3d2b24b2c93c32f56194e7fc3c8ad203b800",
+      "file": "lib/src/messages.g.dart",
+      "identity": "constructor:lib/src/messages.g.dart#Messages.new",
+      "kind": "constructor",
+      "level": 4,
+      "name": "new",
+      "qualified_name": "Messages.new",
+      "span": {
+        "end_column": 19,
+        "end_line": 5,
+        "start_column": 2,
+        "start_line": 5
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:f8881c53a29f45a1616392ec7b29e697672a22799e2019fe89d8e05fd42949af",
+      "file": "lib/src/modern.dart",
+      "identity": "constructor:lib/src/modern.dart#Classic._",
+      "kind": "constructor",
+      "level": 4,
+      "name": "_",
+      "qualified_name": "Classic._",
+      "span": {
+        "end_column": 14,
+        "end_line": 36,
+        "start_column": 2,
+        "start_line": 36
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:432036a1762ba00964adc51976eec2ce818660e62dc1a9e9ca9a61370ffcdef5",
+      "file": "lib/src/modern.dart",
+      "identity": "constructor:lib/src/modern.dart#Classic.new",
+      "kind": "constructor",
+      "level": 4,
+      "name": "new",
+      "qualified_name": "Classic.new",
+      "span": {
+        "end_column": 35,
+        "end_line": 35,
+        "start_column": 2,
+        "start_line": 35
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:ea92360e7b7735372a8d8284e59ba47e2c55cf74565ba96fe22deb8d91a04630",
+      "file": "lib/src/modern.dart",
+      "identity": "constructor:lib/src/modern.dart#Concise.legacy",
+      "kind": "constructor",
+      "level": 4,
+      "name": "legacy",
+      "qualified_name": "Concise.legacy",
+      "span": {
+        "end_column": 41,
+        "end_line": 20,
+        "start_column": 2,
+        "start_line": 20
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:d8a021cc73df426f20a4b2ef78127da04e140efff5bb528c9b543e5bfe825a53",
+      "file": "lib/src/modern.dart",
+      "identity": "constructor:lib/src/modern.dart#Concise.make",
+      "kind": "constructor",
+      "level": 4,
+      "name": "make",
+      "qualified_name": "Concise.make",
+      "span": {
+        "end_column": 31,
+        "end_line": 18,
+        "start_column": 2,
+        "start_line": 18
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:71cfa7a6569ad04583b8e794d0e688ceeac9b3b26ae00aa2ce64524f6a33732d",
+      "file": "lib/src/modern.dart",
+      "identity": "constructor:lib/src/modern.dart#Concise.named",
+      "kind": "constructor",
+      "level": 4,
+      "name": "named",
+      "qualified_name": "Concise.named",
+      "span": {
+        "end_column": 22,
+        "end_line": 16,
+        "start_column": 2,
+        "start_line": 16
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:51d7f865a519236f09c146be36c3b5506e8936b5686d31a6f68175d64fe60dbf",
+      "file": "lib/src/modern.dart",
+      "identity": "constructor:lib/src/modern.dart#Concise.new",
+      "kind": "constructor",
+      "level": 4,
+      "name": "new",
+      "qualified_name": "Concise.new",
+      "span": {
+        "end_column": 14,
+        "end_line": 15,
+        "start_column": 2,
+        "start_line": 15
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:2d1ffadcbe391254e594a61944a31fa4787978b094e142d6ee14a9a9a675a4a5",
+      "file": "lib/src/modern.dart",
+      "identity": "constructor:lib/src/modern.dart#Concise.red",
+      "kind": "constructor",
+      "level": 4,
+      "name": "red",
+      "qualified_name": "Concise.red",
+      "span": {
+        "end_column": 32,
+        "end_line": 19,
+        "start_column": 2,
+        "start_line": 19
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:afe782dde307024b6ad3f94e9525e5b7a0002692c36769c7556f6e0eec9a30d8",
+      "file": "lib/src/modern.dart",
+      "identity": "constructor:lib/src/modern.dart#Concise.zero",
+      "kind": "constructor",
+      "level": 4,
+      "name": "zero",
+      "qualified_name": "Concise.zero",
+      "span": {
+        "end_column": 27,
+        "end_line": 17,
+        "start_column": 2,
+        "start_line": 17
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:be98e14abca3d5596698a8325eaedeea2f5131a2d5003623ca0462b612249146",
+      "file": "lib/src/modern.dart",
+      "identity": "constructor:lib/src/modern.dart#Constant.new",
+      "kind": "constructor",
+      "level": 4,
+      "name": "new",
+      "qualified_name": "Constant.new",
+      "span": {
+        "end_column": 14,
+        "end_line": 26,
+        "start_column": 2,
+        "start_line": 26
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:125031cfe3dfc97e4b4d329e0fd3ff323c7ec855ffca1b41d6226386d0416031",
+      "file": "lib/src/modern.dart",
+      "identity": "constructor:lib/src/modern.dart#Made._",
+      "kind": "constructor",
+      "level": 4,
+      "name": "_",
+      "qualified_name": "Made._",
+      "span": {
+        "end_column": 11,
+        "end_line": 30,
+        "start_column": 2,
+        "start_line": 30
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:0ca9a5e781149e579c623afb6128d0d41926b6a904699681b2f19df31f1f1afc",
+      "file": "lib/src/modern.dart",
+      "identity": "constructor:lib/src/modern.dart#Made.new",
+      "kind": "constructor",
+      "level": 4,
+      "name": "new",
+      "qualified_name": "Made.new",
+      "span": {
+        "end_column": 24,
+        "end_line": 31,
+        "start_column": 2,
+        "start_line": 31
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:ada3c36f79b9e75aaa243f88e57411ed07ccd0459d6a50c1a0d38ac2967570bc",
+      "file": "lib/src/modern.dart",
+      "identity": "constructor:lib/src/modern.dart#Torn.new",
+      "kind": "constructor",
+      "level": 4,
+      "name": "new",
+      "qualified_name": "Torn.new",
+      "span": {
+        "end_column": 21,
+        "end_line": 45,
+        "start_column": 2,
+        "start_line": 45
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:13043b27cab97394769c13f0c82ebef917dc757b3fc66e2656297723126a71af",
+      "file": "lib/src/modern.dart",
+      "identity": "constructor:lib/src/modern.dart#TornConst.new",
+      "kind": "constructor",
+      "level": 4,
+      "name": "new",
+      "qualified_name": "TornConst.new",
+      "span": {
+        "end_column": 24,
+        "end_line": 49,
+        "start_column": 2,
+        "start_line": 49
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:0d1e32e702270b2c9093c2c96a25d96ff3c5707071e7b2a8a0e167a658de7e94",
+      "file": "lib/src/shapes.dart",
+      "identity": "constructor:lib/src/shapes.dart#Circle.new",
+      "kind": "constructor",
+      "level": 4,
+      "name": "new",
+      "qualified_name": "Circle.new",
+      "span": {
+        "end_column": 28,
+        "end_line": 52,
+        "start_column": 2,
+        "start_line": 52
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:86fe9ac6301eac28eb4694991d73a2859a84ccfded723d39b492a8485b1da69d",
+      "file": "lib/src/shapes.dart",
+      "identity": "constructor:lib/src/shapes.dart#Shape.circle",
+      "kind": "constructor",
+      "level": 4,
+      "name": "circle",
+      "qualified_name": "Shape.circle",
+      "span": {
+        "end_column": 34,
+        "end_line": 12,
+        "start_column": 2,
+        "start_line": 12
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:85e1ef44bde5382e2c546d212a70e2e35f679aa1aabe781b56fd2f68ceb263cb",
+      "file": "lib/src/shapes.dart",
+      "identity": "constructor:lib/src/shapes.dart#Shape.named",
+      "kind": "constructor",
+      "level": 4,
+      "name": "named",
+      "qualified_name": "Shape.named",
+      "span": {
+        "end_column": 47,
+        "end_line": 9,
+        "start_column": 2,
+        "start_line": 9
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:511c9bd7fa9134b734f664d2f515e26de653bf769b733b791a3f4906c326010b",
+      "file": "lib/src/shapes.dart",
+      "identity": "constructor:lib/src/shapes.dart#Shape.new",
+      "kind": "constructor",
+      "level": 4,
+      "name": "new",
+      "qualified_name": "Shape.new",
+      "span": {
+        "end_column": 22,
+        "end_line": 8,
+        "start_column": 2,
+        "start_line": 8
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:e77bb4bf6b206d384770994b811fd0f2df036b6b14b306a0f0da32c08919fee2",
+      "file": "lib/src/shapes.dart",
+      "identity": "constructor:lib/src/shapes.dart#Shape.square",
+      "kind": "constructor",
+      "level": 4,
+      "name": "square",
+      "qualified_name": "Shape.square",
+      "span": {
+        "end_column": 37,
+        "end_line": 11,
+        "start_column": 2,
+        "start_line": 11
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:c95e15bf5dc9ccf1d96dff419d9d39529a93608de65857646739815d03a2647e",
+      "file": "lib/src/shapes.dart",
+      "identity": "constructor:lib/src/shapes.dart#Shape.unit",
+      "kind": "constructor",
+      "level": 4,
+      "name": "unit",
+      "qualified_name": "Shape.unit",
+      "span": {
+        "end_column": 33,
+        "end_line": 10,
+        "start_column": 2,
+        "start_line": 10
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:43ad7779370c01c3209a21c05ae8eafa4b8f3f194b19de8cd36364ef5434c50d",
+      "file": "lib/src/shapes.dart",
+      "identity": "constructor:lib/src/shapes.dart#Square.new",
+      "kind": "constructor",
+      "level": 4,
+      "name": "new",
+      "qualified_name": "Square.new",
+      "span": {
+        "end_column": 28,
+        "end_line": 46,
+        "start_column": 2,
+        "start_line": 46
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:6e08b2f85c50141ecce925f1feeb43904429cfdcb1ae41b46bc03ab0a25326d6",
+      "file": "lib/src/kinds.dart",
+      "identity": "enum:lib/src/kinds.dart#Color",
+      "kind": "enum",
+      "level": 4,
+      "name": "Color",
+      "qualified_name": "Color",
+      "span": {
+        "end_column": 1,
+        "end_line": 36,
+        "start_column": 0,
+        "start_line": 30
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:4f9f2a5597e602c1ed0bbf34dae2338cb43f46b2b83f572d66ec6ac9b7858235",
+      "file": "lib/src/modern.dart",
+      "identity": "enum:lib/src/modern.dart#Level",
+      "kind": "enum",
+      "level": 4,
+      "name": "Level",
+      "qualified_name": "Level",
+      "span": {
+        "end_column": 47,
+        "end_line": 11,
+        "start_column": 0,
+        "start_line": 11
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:0421e4dd9ac5bf4cc87d661005e0804c78af555e5b1c4d3d46f0412aa261fb7b",
+      "file": "lib/src/kinds.dart",
+      "identity": "extension:lib/src/kinds.dart#Doubling",
+      "kind": "extension",
+      "level": 4,
+      "name": "Doubling",
+      "qualified_name": "Doubling",
+      "span": {
+        "end_column": 1,
+        "end_line": 11,
+        "start_column": 0,
+        "start_line": 9
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:265acd5fc49ad2d2e1d1dc15d7c3e2594b70b4f1676fda332413d1a168bcf301",
+      "file": "lib/src/kinds.dart",
+      "identity": "extension:lib/src/kinds.dart#extension%20on%20List%3Cint%3E",
+      "kind": "extension",
+      "level": 4,
+      "name": "extension on List\u003cint\u003e",
+      "qualified_name": "extension on List\u003cint\u003e",
+      "span": {
+        "end_column": 1,
+        "end_line": 14,
+        "start_column": 0,
+        "start_line": 12
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:b5c9576d01955d0d6d19505c52b92be2b52fc2ea54e19738403619216d3b6d46",
+      "file": "lib/src/kinds.dart",
+      "identity": "extension:lib/src/kinds.dart#extension%20on%20List%3Cint%3E%402",
+      "kind": "extension",
+      "level": 4,
+      "name": "extension on List\u003cint\u003e",
+      "qualified_name": "extension on List\u003cint\u003e@2",
+      "span": {
+        "end_column": 1,
+        "end_line": 17,
+        "start_column": 0,
+        "start_line": 15
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:3fd31a8c46b900f21df6975ce92a2faa83fb8737ff569491ce2b11206de5d84a",
+      "file": "lib/src/kinds.dart",
+      "identity": "extension:lib/src/kinds.dart#extension%20on%20Map%3CString%2CT%3E%3F",
+      "kind": "extension",
+      "level": 4,
+      "name": "extension on Map\u003cString,T\u003e?",
+      "qualified_name": "extension on Map\u003cString,T\u003e?",
+      "span": {
+        "end_column": 1,
+        "end_line": 20,
+        "start_column": 0,
+        "start_line": 18
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:09768fd869a1f6fb5fc6e3bdbca24ade9f1ce659a7f9bdcbc7891e5e8ad27498",
+      "file": "lib/src/kinds.dart",
+      "identity": "extension:lib/src/kinds.dart#extension%20on%20void%20Function%28%29",
+      "kind": "extension",
+      "level": 4,
+      "name": "extension on void Function()",
+      "qualified_name": "extension on void Function()",
+      "span": {
+        "end_column": 1,
+        "end_line": 23,
+        "start_column": 0,
+        "start_line": 21
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:0c1e0f703f1918370b347b6b8fc672ad54f829f437485798851f744214314783",
+      "file": "lib/src/kinds.dart",
+      "identity": "extension_type:lib/src/kinds.dart#Meters",
+      "kind": "extension_type",
+      "level": 4,
+      "name": "Meters",
+      "qualified_name": "Meters",
+      "span": {
+        "end_column": 1,
+        "end_line": 28,
+        "start_column": 0,
+        "start_line": 25
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "ecosystem": "dart",
+        "name": "async"
+      },
+      "content_hash": "sha256:636c4047a2a9d13f9cb2a7effb2d640fb3ef2b3681ab7dc09db2ca524e2139ca",
+      "file": ".",
+      "identity": "external:.#dart%3Aasync",
+      "kind": "external",
+      "level": 1,
+      "name": "async",
+      "qualified_name": "dart:async",
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "ecosystem": "dart",
+        "name": "math"
+      },
+      "content_hash": "sha256:e5a2c2684aa67b917a87937cf04c4c564f9e02bceda53e1065292b3ecc04aff1",
+      "file": ".",
+      "identity": "external:.#dart%3Amath",
+      "kind": "external",
+      "level": 1,
+      "name": "math",
+      "qualified_name": "dart:math",
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "ecosystem": "pub",
+        "name": "http"
+      },
+      "content_hash": "sha256:069db0626c84a316c8ad388fee8711738d48441c9b8ac452149d0df4794309df",
+      "file": ".",
+      "identity": "external:.#pub%3Ahttp",
+      "kind": "external",
+      "level": 1,
+      "name": "http",
+      "qualified_name": "pub:http",
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "ecosystem": "pub",
+        "name": "web"
+      },
+      "content_hash": "sha256:11c9d925ca782b11e31d8eefad55de92049b12e72270025289cad562bd07f851",
+      "file": ".",
+      "identity": "external:.#pub%3Aweb",
+      "kind": "external",
+      "level": 1,
+      "name": "web",
+      "qualified_name": "pub:web",
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:49192d2abbd8ddcb91a00652076863e676fe6925aa5a2ed71f79f770ec7907bb",
+      "file": "README.md",
+      "identity": "file:README.md#README.md",
+      "kind": "file",
+      "level": 3,
+      "name": "README.md",
+      "qualified_name": "README.md",
+      "span": {
+        "end_column": 0,
+        "end_line": 49,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:3fecadccb885e9e203a692848ea366ba4ee8183b8ddf69d393f6e2b3dd4ba500",
+      "file": "lib/app.dart",
+      "identity": "file:lib/app.dart#lib%2Fapp.dart",
+      "kind": "file",
+      "level": 3,
+      "name": "app.dart",
+      "qualified_name": "lib/app.dart",
+      "span": {
+        "end_column": 0,
+        "end_line": 29,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:eecf380e4964709d2b246971eb9478931401ce33fc3fbc3c5644691357b13d20",
+      "file": "lib/src/app_part.dart",
+      "identity": "file:lib/src/app_part.dart#lib%2Fsrc%2Fapp_part.dart",
+      "kind": "file",
+      "level": 3,
+      "name": "app_part.dart",
+      "qualified_name": "lib/src/app_part.dart",
+      "span": {
+        "end_column": 0,
+        "end_line": 4,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:245001d96190b4b9d9281176b13ee789252a6e839b44163a487498cf151e9d47",
+      "file": "lib/src/broken.dart",
+      "identity": "file:lib/src/broken.dart#lib%2Fsrc%2Fbroken.dart",
+      "kind": "file",
+      "level": 3,
+      "name": "broken.dart",
+      "qualified_name": "lib/src/broken.dart",
+      "span": {
+        "end_column": 0,
+        "end_line": 7,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:ac61cc611b0a89a61efed34bed5500ed5720854154a98a8978518480d8811537",
+      "file": "lib/src/io_native.dart",
+      "identity": "file:lib/src/io_native.dart#lib%2Fsrc%2Fio_native.dart",
+      "kind": "file",
+      "level": 3,
+      "name": "io_native.dart",
+      "qualified_name": "lib/src/io_native.dart",
+      "span": {
+        "end_column": 0,
+        "end_line": 2,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:2a5b1576aa95be220cb0f4330df36ce827dd8ccc0e13051565ece8cd5addad6e",
+      "file": "lib/src/io_stub.dart",
+      "identity": "file:lib/src/io_stub.dart#lib%2Fsrc%2Fio_stub.dart",
+      "kind": "file",
+      "level": 3,
+      "name": "io_stub.dart",
+      "qualified_name": "lib/src/io_stub.dart",
+      "span": {
+        "end_column": 0,
+        "end_line": 2,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:8016da179f5d20abb99db3fb2a8a8f9d460c809a8eee8cdcaad13dda1f88bcf7",
+      "file": "lib/src/kinds.dart",
+      "identity": "file:lib/src/kinds.dart#lib%2Fsrc%2Fkinds.dart",
+      "kind": "file",
+      "level": 3,
+      "name": "kinds.dart",
+      "qualified_name": "lib/src/kinds.dart",
+      "span": {
+        "end_column": 0,
+        "end_line": 55,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:eaabc4a16dfc79bd4ac50684cb55b1824df434184d71bc000e5bd9efb7925253",
+      "file": "lib/src/messages.g.dart",
+      "identity": "file:lib/src/messages.g.dart#lib%2Fsrc%2Fmessages.g.dart",
+      "kind": "file",
+      "level": 3,
+      "name": "messages.g.dart",
+      "qualified_name": "lib/src/messages.g.dart",
+      "span": {
+        "end_column": 0,
+        "end_line": 9,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:501b6bd05fb70d8c6495f98b2e550f277d1f3602f5819869e3bd466b6682156a",
+      "file": "lib/src/modern.dart",
+      "identity": "file:lib/src/modern.dart#lib%2Fsrc%2Fmodern.dart",
+      "kind": "file",
+      "level": 3,
+      "name": "modern.dart",
+      "qualified_name": "lib/src/modern.dart",
+      "span": {
+        "end_column": 0,
+        "end_line": 55,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:0534be35b6e163bc52ebffad11cec95614a5ed64af4cb5f7c655dcda724924d5",
+      "file": "lib/src/shapes.dart",
+      "identity": "file:lib/src/shapes.dart#lib%2Fsrc%2Fshapes.dart",
+      "kind": "file",
+      "level": 3,
+      "name": "shapes.dart",
+      "qualified_name": "lib/src/shapes.dart",
+      "span": {
+        "end_column": 0,
+        "end_line": 56,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:6a4c81ceb5cb590117fdd1d7d8a12e35550e5bb579878e82d8a8b18f3bdc2ed2",
+      "file": "packages/core/lib/core.dart",
+      "identity": "file:packages/core/lib/core.dart#packages%2Fcore%2Flib%2Fcore.dart",
+      "kind": "file",
+      "level": 3,
+      "name": "core.dart",
+      "qualified_name": "packages/core/lib/core.dart",
+      "span": {
+        "end_column": 0,
+        "end_line": 7,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:84c28bc7c278fcc158b3041cc8b67709f64303ba5af9fa1016305a6ebb579270",
+      "file": "packages/core/lib/src/engine.dart",
+      "identity": "file:packages/core/lib/src/engine.dart#packages%2Fcore%2Flib%2Fsrc%2Fengine.dart",
+      "kind": "file",
+      "level": 3,
+      "name": "engine.dart",
+      "qualified_name": "packages/core/lib/src/engine.dart",
+      "span": {
+        "end_column": 0,
+        "end_line": 4,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:5348283b7b4fd74f50454d1da39861601479f66c7a52ebfd2411423753ee84ff",
+      "file": "packages/core/pubspec.yaml",
+      "identity": "file:packages/core/pubspec.yaml#packages%2Fcore%2Fpubspec.yaml",
+      "kind": "file",
+      "level": 3,
+      "name": "pubspec.yaml",
+      "qualified_name": "packages/core/pubspec.yaml",
+      "span": {
+        "end_column": 0,
+        "end_line": 3,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:07adcadb943d476ca3ec949b5db1dfed8278c9d1d961408994b0c34d50d80fa1",
+      "file": "pubspec.yaml",
+      "identity": "file:pubspec.yaml#pubspec.yaml",
+      "kind": "file",
+      "level": 3,
+      "name": "pubspec.yaml",
+      "qualified_name": "pubspec.yaml",
+      "span": {
+        "end_column": 0,
+        "end_line": 9,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:b9aab06b955f39fb940655ff4be6eaddfca8e580c2d894ae74035b1d6d12d73e",
+      "file": "lib/app.dart",
+      "identity": "function:lib/app.dart#run",
+      "kind": "function",
+      "level": 4,
+      "name": "run",
+      "qualified_name": "run",
+      "span": {
+        "end_column": 1,
+        "end_line": 28,
+        "start_column": 0,
+        "start_line": 26
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:275bb1e229f201a41ac7bfadc6675cde192d25eae25eed7283322397898ba9d6",
+      "file": "lib/src/app_part.dart",
+      "identity": "function:lib/src/app_part.dart#greeting",
+      "kind": "function",
+      "level": 4,
+      "name": "greeting",
+      "qualified_name": "greeting",
+      "span": {
+        "end_column": 29,
+        "end_line": 3,
+        "start_column": 0,
+        "start_line": 3
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:ced22d6e2ad9fdb007d1f3fdee57e7cd64a335bbeede734f91938270e68bfb88",
+      "file": "lib/src/io_native.dart",
+      "identity": "function:lib/src/io_native.dart#platform",
+      "kind": "function",
+      "level": 4,
+      "name": "platform",
+      "qualified_name": "platform",
+      "span": {
+        "end_column": 30,
+        "end_line": 1,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:f180d75b304de08b2c9c65bb75cd27dc5451bfab4d202c54bdc2832a7101db09",
+      "file": "lib/src/io_stub.dart",
+      "identity": "function:lib/src/io_stub.dart#platform",
+      "kind": "function",
+      "level": 4,
+      "name": "platform",
+      "qualified_name": "platform",
+      "span": {
+        "end_column": 28,
+        "end_line": 1,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:6ac866f804153afc1a3e348c24a8a9e27cc0ee1e76b4de3b10396dff077389a0",
+      "file": "lib/src/kinds.dart",
+      "identity": "function:lib/src/kinds.dart#alert",
+      "kind": "function",
+      "level": 4,
+      "name": "alert",
+      "qualified_name": "alert",
+      "span": {
+        "end_column": 36,
+        "end_line": 45,
+        "start_column": 0,
+        "start_line": 44
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "accessor": "get"
+      },
+      "content_hash": "sha256:0e0049880dce8843a8a8750eedf4f86b36fcf8a36ae43668473d1ab7781ba4ce",
+      "file": "lib/src/kinds.dart",
+      "identity": "function:lib/src/kinds.dart#answer",
+      "kind": "function",
+      "level": 4,
+      "name": "answer",
+      "qualified_name": "answer",
+      "span": {
+        "end_column": 21,
+        "end_line": 41,
+        "start_column": 0,
+        "start_line": 40
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "accessor": "set"
+      },
+      "content_hash": "sha256:4b5eda0618d9408927c2413c109d6ade80e74ed479c2a909833d3966417ca31d",
+      "file": "lib/src/kinds.dart",
+      "identity": "function:lib/src/kinds.dart#answer%3D",
+      "kind": "function",
+      "level": 4,
+      "name": "answer=",
+      "qualified_name": "answer=",
+      "span": {
+        "end_column": 24,
+        "end_line": 42,
+        "start_column": 0,
+        "start_line": 42
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:3690a3aaef3af91b1fea381616f5ad52c9a27a4d979c248357903900e521d7e9",
+      "file": "lib/src/kinds.dart",
+      "identity": "function:lib/src/kinds.dart#inTopLambda",
+      "kind": "function",
+      "level": 4,
+      "name": "inTopLambda",
+      "qualified_name": "inTopLambda",
+      "span": {
+        "end_column": 23,
+        "end_line": 53,
+        "start_column": 2,
+        "start_line": 53
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:05b244a326701a5ac054c38d21e0d6dffb6e21a59344a7e4f06556fbc6217221",
+      "file": "lib/src/kinds.dart",
+      "identity": "function:lib/src/kinds.dart#main",
+      "kind": "function",
+      "level": 4,
+      "name": "main",
+      "qualified_name": "main",
+      "span": {
+        "end_column": 1,
+        "end_line": 50,
+        "start_column": 0,
+        "start_line": 47
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:9e5ba8f71f79f051f80e29c3debed4690a70a3514e9e5ac0a952885f0cc7e4ca",
+      "file": "lib/src/kinds.dart",
+      "identity": "function:lib/src/kinds.dart#main.helper",
+      "kind": "function",
+      "level": 4,
+      "name": "helper",
+      "qualified_name": "main.helper",
+      "span": {
+        "end_column": 20,
+        "end_line": 48,
+        "start_column": 2,
+        "start_line": 48
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:e40a0108778ddc4241afeb3091f8c4d92d53411903a1ed73aefc029cc4a69ceb",
+      "file": "lib/src/shapes.dart",
+      "identity": "function:lib/src/shapes.dart#Shape.inField",
+      "kind": "function",
+      "level": 4,
+      "name": "inField",
+      "qualified_name": "Shape.inField",
+      "span": {
+        "end_column": 21,
+        "end_line": 41,
+        "start_column": 4,
+        "start_line": 41
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:cddc98a033f4952dca1168a5c0629a4c59630c51cfae416f8664ec58282a6c36",
+      "file": "lib/src/shapes.dart",
+      "identity": "function:lib/src/shapes.dart#Shape.paint.inLambda",
+      "kind": "function",
+      "level": 4,
+      "name": "inLambda",
+      "qualified_name": "Shape.paint.inLambda",
+      "span": {
+        "end_column": 24,
+        "end_line": 36,
+        "start_column": 6,
+        "start_line": 36
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:36cfbd31f4e5e6315413dd5cfe4420cfc9bfa020bb8af55d6d6d4e73eb599b9e",
+      "file": "lib/src/shapes.dart",
+      "identity": "function:lib/src/shapes.dart#Shape.paint.stroke",
+      "kind": "function",
+      "level": 4,
+      "name": "stroke",
+      "qualified_name": "Shape.paint.stroke",
+      "span": {
+        "end_column": 5,
+        "end_line": 34,
+        "start_column": 4,
+        "start_line": 32
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:8a1c936a86e2efcea19b5439f5b46e4df26ac24ddcca16b7afadce37ffab9929",
+      "file": "lib/src/shapes.dart",
+      "identity": "function:lib/src/shapes.dart#Shape.paint.stroke.dot",
+      "kind": "function",
+      "level": 4,
+      "name": "dot",
+      "qualified_name": "Shape.paint.stroke.dot",
+      "span": {
+        "end_column": 19,
+        "end_line": 33,
+        "start_column": 6,
+        "start_line": 33
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:24a403801e448933951e2663ac97971a9004cb1be09ec21a75bd981f8da5ac13",
+      "file": "lib/src/kinds.dart",
+      "identity": "method:lib/src/kinds.dart#Color.describe",
+      "kind": "method",
+      "level": 4,
+      "name": "describe",
+      "qualified_name": "Color.describe",
+      "span": {
+        "end_column": 28,
+        "end_line": 35,
+        "start_column": 2,
+        "start_line": 35
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "accessor": "get"
+      },
+      "content_hash": "sha256:0677e9481c43b76651071dbd4ca10145948d763e64fa91300c85447520259996",
+      "file": "lib/src/kinds.dart",
+      "identity": "method:lib/src/kinds.dart#Doubling.doubled",
+      "kind": "method",
+      "level": 4,
+      "name": "doubled",
+      "qualified_name": "Doubling.doubled",
+      "span": {
+        "end_column": 30,
+        "end_line": 10,
+        "start_column": 2,
+        "start_line": 10
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "accessor": "get"
+      },
+      "content_hash": "sha256:1c4a6f6c927a58bb10115eddd85ca9f2f2766c2925c935ce451f40c7440fdcb8",
+      "file": "lib/src/kinds.dart",
+      "identity": "method:lib/src/kinds.dart#Meters.kilometres",
+      "kind": "method",
+      "level": 4,
+      "name": "kilometres",
+      "qualified_name": "Meters.kilometres",
+      "span": {
+        "end_column": 38,
+        "end_line": 27,
+        "start_column": 2,
+        "start_line": 27
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:442bfe318036b817ce2224b550c17cec9d2dbc409fb371ac02d7a5daf2b322f9",
+      "file": "lib/src/kinds.dart",
+      "identity": "method:lib/src/kinds.dart#Walker.walk",
+      "kind": "method",
+      "level": 4,
+      "name": "walk",
+      "qualified_name": "Walker.walk",
+      "span": {
+        "end_column": 16,
+        "end_line": 2,
+        "start_column": 2,
+        "start_line": 2
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "accessor": "get"
+      },
+      "content_hash": "sha256:f7fa1f01bf62738df2110d3454624abd455734f1fb0e5bdcab5bf585879fe563",
+      "file": "lib/src/kinds.dart",
+      "identity": "method:lib/src/kinds.dart#extension%20on%20List%3Cint%3E%402.firstOrZero",
+      "kind": "method",
+      "level": 4,
+      "name": "firstOrZero",
+      "qualified_name": "extension on List\u003cint\u003e@2.firstOrZero",
+      "span": {
+        "end_column": 45,
+        "end_line": 16,
+        "start_column": 2,
+        "start_line": 16
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "accessor": "get"
+      },
+      "content_hash": "sha256:3e662b87fb8285a3810b10b3118ff1a605b3c952bab26d2ba3652a354fc7f039",
+      "file": "lib/src/kinds.dart",
+      "identity": "method:lib/src/kinds.dart#extension%20on%20List%3Cint%3E.total",
+      "kind": "method",
+      "level": 4,
+      "name": "total",
+      "qualified_name": "extension on List\u003cint\u003e.total",
+      "span": {
+        "end_column": 44,
+        "end_line": 13,
+        "start_column": 2,
+        "start_line": 13
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "accessor": "get"
+      },
+      "content_hash": "sha256:27dfaad556b4871f0c705da2f546752a1b46831e4321dbfdc0b7c27b584a8f0a",
+      "file": "lib/src/kinds.dart",
+      "identity": "method:lib/src/kinds.dart#extension%20on%20Map%3CString%2CT%3E%3F.missing",
+      "kind": "method",
+      "level": 4,
+      "name": "missing",
+      "qualified_name": "extension on Map\u003cString,T\u003e?.missing",
+      "span": {
+        "end_column": 35,
+        "end_line": 19,
+        "start_column": 2,
+        "start_line": 19
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:bb7192fdab78213b0b30951b0adb47cc62e0492ba50a2860dfc54854aa4712c7",
+      "file": "lib/src/kinds.dart",
+      "identity": "method:lib/src/kinds.dart#extension%20on%20void%20Function%28%29.twice",
+      "kind": "method",
+      "level": 4,
+      "name": "twice",
+      "qualified_name": "extension on void Function().twice",
+      "span": {
+        "end_column": 17,
+        "end_line": 22,
+        "start_column": 2,
+        "start_line": 22
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "accessor": "get"
+      },
+      "content_hash": "sha256:d1205edc99328b04608526b25ea2dfdb9f91d43bd6b9138bb7f2b61dd91b0cbf",
+      "file": "lib/src/messages.g.dart",
+      "identity": "method:lib/src/messages.g.dart#Messages.bye",
+      "kind": "method",
+      "level": 4,
+      "name": "bye",
+      "qualified_name": "Messages.bye",
+      "span": {
+        "end_column": 26,
+        "end_line": 7,
+        "start_column": 2,
+        "start_line": 7
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "accessor": "get"
+      },
+      "content_hash": "sha256:cf9b4ead3cea1023648c53ef470d7f5e4aeb77b8777145ca0e2b0119a7d7a8d2",
+      "file": "lib/src/messages.g.dart",
+      "identity": "method:lib/src/messages.g.dart#Messages.hello",
+      "kind": "method",
+      "level": 4,
+      "name": "hello",
+      "qualified_name": "Messages.hello",
+      "span": {
+        "end_column": 30,
+        "end_line": 6,
+        "start_column": 2,
+        "start_line": 6
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:4c8d15c06198317183191c53e964585174c9c89fd725728f3b2901d720d94dd1",
+      "file": "lib/src/shapes.dart",
+      "identity": "method:lib/src/shapes.dart#Circle.draw",
+      "kind": "method",
+      "level": 4,
+      "name": "draw",
+      "qualified_name": "Circle.draw",
+      "span": {
+        "end_column": 16,
+        "end_line": 54,
+        "start_column": 2,
+        "start_line": 53
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "accessor": "get"
+      },
+      "content_hash": "sha256:fb8162ccac3df5ae26b393fe89da270a6c5761cb04e507207f722ff7fc0b270a",
+      "file": "lib/src/shapes.dart",
+      "identity": "method:lib/src/shapes.dart#Shape.area",
+      "kind": "method",
+      "level": 4,
+      "name": "area",
+      "qualified_name": "Shape.area",
+      "span": {
+        "end_column": 20,
+        "end_line": 19,
+        "start_column": 2,
+        "start_line": 19
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "accessor": "set"
+      },
+      "content_hash": "sha256:25314a70e9a920ed97589c70386cb0af994d991f4bb48a79c945b89d5fa86297",
+      "file": "lib/src/shapes.dart",
+      "identity": "method:lib/src/shapes.dart#Shape.area%3D",
+      "kind": "method",
+      "level": 4,
+      "name": "area=",
+      "qualified_name": "Shape.area=",
+      "span": {
+        "end_column": 24,
+        "end_line": 20,
+        "start_column": 2,
+        "start_line": 20
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:be609ac73d2a0577996f27a6eb8ef154adf061fe5f473cf4cb4fc1df4993c745",
+      "file": "lib/src/shapes.dart",
+      "identity": "method:lib/src/shapes.dart#Shape.draw",
+      "kind": "method",
+      "level": 4,
+      "name": "draw",
+      "qualified_name": "Shape.draw",
+      "span": {
+        "end_column": 14,
+        "end_line": 22,
+        "start_column": 2,
+        "start_line": 22
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:b0548e9260860051f6f9657f874a2473385aec41051448a1b391fc232293362a",
+      "file": "lib/src/shapes.dart",
+      "identity": "method:lib/src/shapes.dart#Shape.operator%20%2B",
+      "kind": "method",
+      "level": 4,
+      "name": "operator +",
+      "qualified_name": "Shape.operator +",
+      "span": {
+        "end_column": 40,
+        "end_line": 24,
+        "start_column": 2,
+        "start_line": 24
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:f21454cdee2e782c45d088f3c4f7ada410142cc34d63f6c2bb9e0a9e18996035",
+      "file": "lib/src/shapes.dart",
+      "identity": "method:lib/src/shapes.dart#Shape.operator%20%3D%3D",
+      "kind": "method",
+      "level": 4,
+      "name": "operator ==",
+      "qualified_name": "Shape.operator ==",
+      "span": {
+        "end_column": 59,
+        "end_line": 27,
+        "start_column": 2,
+        "start_line": 27
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:079e42747835acbaad07f17155df356c07400c5d42b05136abee7e22426bc608",
+      "file": "lib/src/shapes.dart",
+      "identity": "method:lib/src/shapes.dart#Shape.operator%20%5B%5D",
+      "kind": "method",
+      "level": 4,
+      "name": "operator []",
+      "qualified_name": "Shape.operator []",
+      "span": {
+        "end_column": 38,
+        "end_line": 28,
+        "start_column": 2,
+        "start_line": 28
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:660b57d9c67c2d2894419d694c88163aedc64b7f25859dd4c5817426eab9f938",
+      "file": "lib/src/shapes.dart",
+      "identity": "method:lib/src/shapes.dart#Shape.operator%20%5B%5D%3D",
+      "kind": "method",
+      "level": 4,
+      "name": "operator []=",
+      "qualified_name": "Shape.operator []=",
+      "span": {
+        "end_column": 44,
+        "end_line": 29,
+        "start_column": 2,
+        "start_line": 29
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:59fd3a5ac930257bb7b082d082c4995c2b481df1c9d3eb306d4863343c89d68c",
+      "file": "lib/src/shapes.dart",
+      "identity": "method:lib/src/shapes.dart#Shape.operator%20-",
+      "kind": "method",
+      "level": 4,
+      "name": "operator -",
+      "qualified_name": "Shape.operator -",
+      "span": {
+        "end_column": 40,
+        "end_line": 25,
+        "start_column": 2,
+        "start_line": 25
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:1939439fef8a78680477a67acd3f57bab3ca9e6a4ec28ae3ad322a638a807067",
+      "file": "lib/src/shapes.dart",
+      "identity": "method:lib/src/shapes.dart#Shape.operator%20-%402",
+      "kind": "method",
+      "level": 4,
+      "name": "operator -",
+      "qualified_name": "Shape.operator -@2",
+      "span": {
+        "end_column": 29,
+        "end_line": 26,
+        "start_column": 2,
+        "start_line": 26
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:8a8b9ef4727b9b3a9b4e4d56b281d01ec74142ed458afe473f2d25e99c35d48f",
+      "file": "lib/src/shapes.dart",
+      "identity": "method:lib/src/shapes.dart#Shape.origin",
+      "kind": "method",
+      "level": 4,
+      "name": "origin",
+      "qualified_name": "Shape.origin",
+      "span": {
+        "end_column": 36,
+        "end_line": 21,
+        "start_column": 2,
+        "start_line": 21
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:28b1ea119ca32342754d10d3aebe1f0e83c11b8bb38987a1fe293fc6b0042d45",
+      "file": "lib/src/shapes.dart",
+      "identity": "method:lib/src/shapes.dart#Shape.paint",
+      "kind": "method",
+      "level": 4,
+      "name": "paint",
+      "qualified_name": "Shape.paint",
+      "span": {
+        "end_column": 3,
+        "end_line": 38,
+        "start_column": 2,
+        "start_line": 31
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:363e992ed8d40ef8843d65366011d41ea87f002ec506d4fe3ef07a37cff4e655",
+      "file": "lib/src/shapes.dart",
+      "identity": "method:lib/src/shapes.dart#Shape.toString",
+      "kind": "method",
+      "level": 4,
+      "name": "toString",
+      "qualified_name": "Shape.toString",
+      "span": {
+        "end_column": 39,
+        "end_line": 17,
+        "start_column": 2,
+        "start_line": 14
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:4c8d15c06198317183191c53e964585174c9c89fd725728f3b2901d720d94dd1",
+      "file": "lib/src/shapes.dart",
+      "identity": "method:lib/src/shapes.dart#Square.draw",
+      "kind": "method",
+      "level": 4,
+      "name": "draw",
+      "qualified_name": "Square.draw",
+      "span": {
+        "end_column": 16,
+        "end_line": 48,
+        "start_column": 2,
+        "start_line": 47
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:47e8743a9d65d2878f1703a244366659d5a640b0d20be1d5e774dfe94fccffa7",
+      "file": "packages/core/lib/src/engine.dart",
+      "identity": "method:packages/core/lib/src/engine.dart#Engine.start",
+      "kind": "method",
+      "level": 4,
+      "name": "start",
+      "qualified_name": "Engine.start",
+      "span": {
+        "end_column": 17,
+        "end_line": 2,
+        "start_column": 2,
+        "start_line": 2
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:3547543876633558514bf0c6f89e95c083bb0271aa72c2392b3f0709bda955b6",
+      "file": "lib/src/kinds.dart",
+      "identity": "mixin:lib/src/kinds.dart#Swimmer",
+      "kind": "mixin",
+      "level": 4,
+      "name": "Swimmer",
+      "qualified_name": "Swimmer",
+      "span": {
+        "end_column": 21,
+        "end_line": 4,
+        "start_column": 0,
+        "start_line": 4
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:aafefbb6793608f6a2a5f97b365a9ef8dde8741a6fa1da738c2fd1d92aa4eaef",
+      "file": "lib/src/kinds.dart",
+      "identity": "mixin:lib/src/kinds.dart#Walker",
+      "kind": "mixin",
+      "level": 4,
+      "name": "Walker",
+      "qualified_name": "Walker",
+      "span": {
+        "end_column": 1,
+        "end_line": 3,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    }
+  ]
+}

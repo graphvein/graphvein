@@ -1,0 +1,49 @@
+# Dependabot version updates (docs/public/ci-plan.md, "Pinned actions").
+#
+# Dependabot is enabled only in the public repository (graphvein/graphvein);
+# in the maintainer's working repository it is off, so this file has no
+# effect there. Updates arrive as weekly pull requests, minor and patch
+# updates grouped per ecosystem; major updates come one per pull request so
+# each can be reviewed on its own.
+version: 2
+updates:
+  # Workflow actions are pinned by full commit SHA with the tag as a
+  # comment; Dependabot updates both.
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 3
+    groups:
+      actions-minor-patch:
+        update-types: [minor, patch]
+
+  # The main Go module.
+  - package-ecosystem: gomod
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 3
+    groups:
+      go-minor-patch:
+        update-types: [minor, patch]
+
+  # The website generator, its own Go module (ADR 0091).
+  - package-ecosystem: gomod
+    directory: /site
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 2
+    groups:
+      site-go-minor-patch:
+        update-types: [minor, patch]
+
+  # The web UI.
+  - package-ecosystem: npm
+    directory: /web
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 3
+    groups:
+      web-npm-minor-patch:
+        update-types: [minor, patch]

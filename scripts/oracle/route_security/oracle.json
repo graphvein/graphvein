@@ -1,0 +1,23 @@
+{
+  "apps": {
+    "express/": "express",
+    "goapp/ginapp/": "gin",
+    "goapp/chiapp/chiapp.go": "chi",
+    "goapp/chiapp/served.go": "served",
+    "axumapp/src/lib.rs": "axum"
+  },
+  "bearer": {
+    "route:express/app.js#GET /passport-bearer": "bearer-token",
+    "route:axumapp/src/lib.rs#GET /layer": "layer-token"
+  },
+  "open": {
+    "express": ["/p-session", "/p-anon", "/p-anon-name", "/oidc-check"],
+    "gin": ["/m-ret/x", "/m-jump/x"],
+    "chi": ["/c-jump/x", "/c16", "/c18/x"]
+  },
+  "open_routes": ["route:goapp/chiapp/chiapp.go#GET /x"],
+  "basic": {"user": "user", "password": "pass"},
+  "secret": "fixture-secret",
+  "issuer": "https://issuer.example",
+  "audience": "fixture-api"
+}

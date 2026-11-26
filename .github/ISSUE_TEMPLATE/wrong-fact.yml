@@ -1,0 +1,51 @@
+name: Wrong fact
+description: Graphvein shows something about your code that is not true (a wrong link, route, caller, table, impact or precision label).
+labels: ["wrong-fact"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        A wrong fact is the most important kind of bug: Graphvein promises never to state a fact it cannot back. A missing fact (shown as unknown) is less serious; please say which one you see.
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Output of `graphvein version`.
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Kind of problem
+      options:
+        - A fact is wrong (stated as known, but false)
+        - A fact is labelled more certain than it is (for example Precise when it is a guess)
+        - A fact is missing or unknown although the code states it
+    validations:
+      required: true
+  - type: input
+    id: language
+    attributes:
+      label: Language and framework
+      placeholder: for example TypeScript + Express 5, Python + FastAPI, Go + chi
+    validations:
+      required: true
+  - type: textarea
+    id: shown
+    attributes:
+      label: What Graphvein shows
+      description: The node or edge, its label and evidence, as shown in the UI or CLI output.
+    validations:
+      required: true
+  - type: textarea
+    id: truth
+    attributes:
+      label: What is actually true, and why
+      description: Point to the code that proves it (file and line), or the tool output (compiler, framework, database) that shows it.
+    validations:
+      required: true
+  - type: textarea
+    id: minimal
+    attributes:
+      label: Minimal example
+      description: The smallest code that reproduces it, or a public repository and commit.

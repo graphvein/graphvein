@@ -1,0 +1,28 @@
+{
+  "id": "review19-r1-m01-unique-notvalid",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y26",
+  "row": "review19",
+  "history": {
+    "id": "m01-unique-notvalid"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "0A000",
+        "message": "UNIQUE constraints cannot be marked NOT VALID",
+        "statement": 2,
+        "statement_text": "ALTER TABLE t ADD CONSTRAINT t_a UNIQUE (a) NOT VALID;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

@@ -1,0 +1,29 @@
+{
+  "id": "review19-r3-v028-alterfunc-set-bad",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y15",
+  "row": "review19",
+  "history": {
+    "id": "v028-alterfunc-set-bad"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "22023",
+        "message": "invalid value for parameter \"work_mem\": \"lots\"",
+        "statement": 2,
+        "statement_text": "ALTER FUNCTION f() SET work_mem = 'lots';",
+        "row_free": true
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

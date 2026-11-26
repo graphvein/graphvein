@@ -1,0 +1,33 @@
+{
+  "id": "g1-s9891-S1-M4_forward_table",
+  "signature": "applied|S1|25001|M4.forward_table",
+  "class": "S1",
+  "owner": "P6",
+  "row": "M4.forward_table",
+  "history": {
+    "id": "g1-s9891",
+    "tags": {
+      "1_m1.sql": [
+        "M4.forward_table"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "25001",
+        "message": "CREATE INDEX CONCURRENTLY cannot run inside a transaction block",
+        "statement": 1,
+        "statement_text": "CREATE INDEX CONCURRENTLY ix_10 ON t9 (id);"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

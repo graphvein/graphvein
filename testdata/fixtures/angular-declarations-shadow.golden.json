@@ -1,0 +1,298 @@
+{
+  "diagnostics": [
+    {
+      "code": "angular_decorator_unproven",
+      "file": "app.ts",
+      "message": "class:app.ts#Shadow metadata decorator: Angular decorator or class identity is unproven",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "angular_decorator_unproven",
+      "file": "app.ts",
+      "message": "class:app.ts#ShadowModule metadata decorator: Angular decorator or class identity is unproven",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "ts_structure_unread",
+      "file": "app.ts",
+      "message": "1 TypeScript or JavaScript declarations or imports are outside the structural claim contract and claim nothing (unlinked_package=1)",
+      "severity": "info",
+      "type": "diagnostic"
+    }
+  ],
+  "edges": [
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app.ts",
+          "span": {
+            "end_column": 22,
+            "end_line": 3,
+            "start_column": 0,
+            "start_line": 2
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:app.ts#app.ts",
+      "target": "class:app.ts#Shadow",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app.ts",
+          "span": {
+            "end_column": 28,
+            "end_line": 5,
+            "start_column": 0,
+            "start_line": 4
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:app.ts#app.ts",
+      "target": "class:app.ts#ShadowModule",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "core/index.ts",
+          "span": {
+            "end_column": 65,
+            "end_line": 1,
+            "start_column": 0,
+            "start_line": 1
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:core/index.ts#core%2Findex.ts",
+      "target": "function:core/index.ts#Component",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "core/index.ts",
+          "span": {
+            "end_column": 64,
+            "end_line": 2,
+            "start_column": 0,
+            "start_line": 2
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:core/index.ts#core%2Findex.ts",
+      "target": "function:core/index.ts#NgModule",
+      "type": "edge"
+    }
+  ],
+  "files": null,
+  "nodes": [
+    {
+      "attributes": {
+        "decorators": [
+          "@Component({template:'\u003cp\u003eshadow\u003c/p\u003e'})"
+        ],
+        "exported": true
+      },
+      "content_hash": "sha256:c2cb6e6490f4175193f7ae909847e3cd6db15b30fec6dd12cbaa9d66ccf1e342",
+      "file": "app.ts",
+      "identity": "class:app.ts#Shadow",
+      "kind": "class",
+      "level": 4,
+      "name": "Shadow",
+      "qualified_name": "Shadow",
+      "span": {
+        "end_column": 22,
+        "end_line": 3,
+        "start_column": 0,
+        "start_line": 2
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "decorators": [
+          "@NgModule({declarations:[Shadow]})"
+        ],
+        "exported": true
+      },
+      "content_hash": "sha256:500502aa5eb1a9339879a57d1ba83f042f3e2b19ca74ef838309ce532052bc48",
+      "file": "app.ts",
+      "identity": "class:app.ts#ShadowModule",
+      "kind": "class",
+      "level": 4,
+      "name": "ShadowModule",
+      "qualified_name": "ShadowModule",
+      "span": {
+        "end_column": 28,
+        "end_line": 5,
+        "start_column": 0,
+        "start_line": 4
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:c59b54498b389f759c782186f423169315ef92335b3c50afc3d0be94ccf85dc7",
+      "file": "README.md",
+      "identity": "file:README.md#README.md",
+      "kind": "file",
+      "level": 3,
+      "name": "README.md",
+      "qualified_name": "README.md",
+      "span": {
+        "end_column": 0,
+        "end_line": 7,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:f9f96762926cb1c328e2fb0fec31db786169fc26bcfe94b753e56e8b7daf89a9",
+      "file": "app.ts",
+      "identity": "file:app.ts#app.ts",
+      "kind": "file",
+      "level": 3,
+      "name": "app.ts",
+      "qualified_name": "app.ts",
+      "span": {
+        "end_column": 0,
+        "end_line": 6,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:c540064c158ce170688ffa8444f2b6cf78ffbadf374adcdaf593d4217b6a6d82",
+      "file": "core/index.ts",
+      "identity": "file:core/index.ts#core%2Findex.ts",
+      "kind": "file",
+      "level": 3,
+      "name": "index.ts",
+      "qualified_name": "core/index.ts",
+      "span": {
+        "end_column": 0,
+        "end_line": 3,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:1ac0ade7b6a138169a08472ff131ebf4de2b850b9b4ac6f04cc4e5d14eb9f7a7",
+      "file": "core/package.json",
+      "identity": "file:core/package.json#core%2Fpackage.json",
+      "kind": "file",
+      "level": 3,
+      "name": "package.json",
+      "qualified_name": "core/package.json",
+      "span": {
+        "end_column": 0,
+        "end_line": 2,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "exported": true
+      },
+      "content_hash": "sha256:da80271f9afb5d6d9b80d7475781ccc9cd20bb8644a766710617fdd78016f269",
+      "file": "core/index.ts",
+      "identity": "function:core/index.ts#Component",
+      "kind": "function",
+      "level": 4,
+      "name": "Component",
+      "qualified_name": "Component",
+      "span": {
+        "end_column": 65,
+        "end_line": 1,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "exported": true
+      },
+      "content_hash": "sha256:31072213a7b9c56999a7d978318434955d922c71471a0be176ee6ee27c6afc79",
+      "file": "core/index.ts",
+      "identity": "function:core/index.ts#NgModule",
+      "kind": "function",
+      "level": 4,
+      "name": "NgModule",
+      "qualified_name": "NgModule",
+      "span": {
+        "end_column": 64,
+        "end_line": 2,
+        "start_column": 0,
+        "start_line": 2
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "dependencies": [],
+        "directory": "core",
+        "ecosystem": "npm",
+        "name": "@angular/core"
+      },
+      "content_hash": "sha256:1ac0ade7b6a138169a08472ff131ebf4de2b850b9b4ac6f04cc4e5d14eb9f7a7",
+      "file": "core/package.json",
+      "identity": "package:core/package.json#%40angular%2Fcore",
+      "kind": "package",
+      "level": 2,
+      "name": "@angular/core",
+      "qualified_name": "@angular/core",
+      "span": {
+        "end_column": 0,
+        "end_line": 2,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    }
+  ]
+}

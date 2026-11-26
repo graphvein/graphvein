@@ -1,0 +1,3 @@
+CREATE TABLE p (a int);
+CREATE TABLE c (b int) INHERITS (p);
+ALTER TABLE p RENAME COLUMN a TO b;

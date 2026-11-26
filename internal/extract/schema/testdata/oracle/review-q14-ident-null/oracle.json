@@ -1,0 +1,28 @@
+{
+  "id": "review-q14-ident-null",
+  "signature": "agreed at af6a883",
+  "class": "S1",
+  "owner": "P7",
+  "row": "review",
+  "history": {
+    "id": "q14-ident-null"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42601",
+        "message": "conflicting NULL/NOT NULL declarations for column \"a\" of table \"t\"",
+        "statement": 1,
+        "statement_text": "CREATE TABLE t (a int NULL GENERATED ALWAYS AS IDENTITY);"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

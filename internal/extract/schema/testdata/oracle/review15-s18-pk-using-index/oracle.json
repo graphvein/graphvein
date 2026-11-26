@@ -1,0 +1,42 @@
+{
+  "id": "review15-s18-pk-using-index",
+  "signature": "agreed at Revision 1.5",
+  "class": "S1",
+  "owner": "U1",
+  "row": "review15",
+  "history": {
+    "id": "s18-pk-using-index"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "accepted"
+      }
+    ],
+    "tables": [
+      {
+        "table": "history.t",
+        "columns": [
+          {
+            "name": "a",
+            "type": "integer",
+            "not_null": true,
+            "has_default": false
+          }
+        ],
+        "primary_key": [
+          "a"
+        ],
+        "unique_keys": [],
+        "foreign_keys": [],
+        "indexes": []
+      }
+    ],
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

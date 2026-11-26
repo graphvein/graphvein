@@ -1,0 +1,2 @@
+CREATE TABLE p (id int, k int) PARTITION BY LIST (k);
+ALTER TABLE p ADD COLUMN u int UNIQUE;

@@ -1,0 +1,221 @@
+{
+  "api_version": 0,
+  "callers": [],
+  "callers_precision": {
+    "label": "best_effort",
+    "reason": "default_branch",
+    "row": "D"
+  },
+  "endpoint": {
+    "attributes": {
+      "framework": "express",
+      "handler": "function:server/app.ts#never",
+      "handler_inline": false,
+      "method": "GET",
+      "middleware": [],
+      "paths": [
+        {
+          "conditional": false,
+          "resolution": "literal",
+          "template": "/t016d-never"
+        }
+      ],
+      "pattern": "/t016d-never",
+      "shape": {
+        "body": {
+          "items": [],
+          "reason": "the handler reads no request property; no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+          "state": "not_read"
+        },
+        "cookie": {
+          "items": [],
+          "reason": "the handler reads no request property",
+          "state": "not_read"
+        },
+        "follow": {
+          "chains": [],
+          "depth_limit": 6
+        },
+        "header": {
+          "items": [],
+          "reason": "the handler reads no request property",
+          "state": "not_read"
+        },
+        "models": [],
+        "path": {
+          "evidence": {
+            "chain": [],
+            "confidence": 1,
+            "file": "server/app.ts",
+            "kind": "fact",
+            "line": 19,
+            "rule": "SH-E2"
+          },
+          "items": [],
+          "state": "provably_none"
+        },
+        "query": {
+          "items": [],
+          "reason": "the handler reads no request property",
+          "state": "not_read"
+        },
+        "responses": {
+          "items": [],
+          "reason": "the handler does not use a response parameter in a read form",
+          "state": "not_read"
+        },
+        "security": {
+          "items": [],
+          "state": "not_read"
+        },
+        "security_schemes": [],
+        "version": 1
+      }
+    },
+    "content_hash": "sha256:2dcffc0a28b8ed4209f50719caecdd1bfbe2addd4c87626d3704761b77f4008c",
+    "file": "server/app.ts",
+    "file_state": "unchanged",
+    "ide": {
+      "column": 1,
+      "exact": true,
+      "line": 19,
+      "link": "vscode://file/{ROOT}/server/app.ts:19:1"
+    },
+    "identity": "route:server/app.ts#GET%20%2Ft016d-never",
+    "kind": "route",
+    "level": 4,
+    "name": "GET /t016d-never",
+    "qualified_name": "GET /t016d-never",
+    "span": {
+      "end_column": 30,
+      "end_line": 19,
+      "start_column": 0,
+      "start_line": 19
+    },
+    "type": "node"
+  },
+  "handler": {
+    "edge": {
+      "confidence": 1,
+      "kind": "exposes_route",
+      "provenance": "fact"
+    },
+    "expression": null,
+    "node": {
+      "attributes": {
+        "exported": true
+      },
+      "content_hash": "sha256:353df8fb45f8cb74cb453c942b376402cc62a19f8b726c19e1a1a61ecb34ce65",
+      "file": "server/app.ts",
+      "file_state": "unchanged",
+      "ide": {
+        "column": 1,
+        "exact": true,
+        "line": 11,
+        "link": "vscode://file/{ROOT}/server/app.ts:11:1"
+      },
+      "identity": "function:server/app.ts#never",
+      "kind": "function",
+      "level": 4,
+      "name": "never",
+      "qualified_name": "never",
+      "span": {
+        "end_column": 26,
+        "end_line": 11,
+        "start_column": 0,
+        "start_line": 11
+      },
+      "type": "node"
+    },
+    "state": "resolved"
+  },
+  "ide": {
+    "available": true,
+    "editor": "vscode",
+    "error": null,
+    "label": "Open in VS Code",
+    "source": "builtin"
+  },
+  "index": {
+    "contract_version": 1,
+    "finished_at": "2026-11-03T14:32:05.123Z",
+    "indexer": {
+      "name": "graphvein",
+      "version": "extractors-62"
+    }
+  },
+  "model_tables": [],
+  "near_misses": [],
+  "near_misses_incomplete": 0,
+  "openapi": {
+    "operations": [],
+    "specs": 1
+  },
+  "precision": {
+    "label": "best_effort",
+    "reason": "default_branch",
+    "row": "D"
+  },
+  "repository": "fixture",
+  "root": null,
+  "scope": "production",
+  "shape": {
+    "body": {
+      "items": [],
+      "reason": "the handler reads no request property; no body parser is proven mounted before this route: req.body may be unparsed; the content type is not read",
+      "state": "not_read"
+    },
+    "cookie": {
+      "items": [],
+      "reason": "the handler reads no request property",
+      "state": "not_read"
+    },
+    "follow": {
+      "chains": [],
+      "depth_limit": 6
+    },
+    "header": {
+      "items": [],
+      "reason": "the handler reads no request property",
+      "state": "not_read"
+    },
+    "models": [],
+    "path": {
+      "evidence": {
+        "chain": [],
+        "confidence": 1,
+        "file": "server/app.ts",
+        "kind": "fact",
+        "line": 19,
+        "rule": "SH-E2"
+      },
+      "items": [],
+      "state": "provably_none"
+    },
+    "query": {
+      "items": [],
+      "reason": "the handler reads no request property",
+      "state": "not_read"
+    },
+    "responses": {
+      "items": [],
+      "reason": "the handler does not use a response parameter in a read form",
+      "state": "not_read"
+    },
+    "security": {
+      "items": [],
+      "state": "not_read"
+    },
+    "security_schemes": [],
+    "version": 1
+  },
+  "shape_links": {
+    "server/app.ts:19": {
+      "column": 1,
+      "exact": true,
+      "line": 19,
+      "link": "vscode://file/{ROOT}/server/app.ts:19:1"
+    }
+  },
+  "transport": "http"
+}

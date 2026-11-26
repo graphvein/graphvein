@@ -1,0 +1,2 @@
+CREATE TABLE t (a int, b xml);
+ALTER TABLE t ADD CONSTRAINT t_b UNIQUE (b);

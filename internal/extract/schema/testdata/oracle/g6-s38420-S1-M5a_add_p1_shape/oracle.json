@@ -1,0 +1,35 @@
+{
+  "id": "g6-s38420-S1-M5a_add_p1_shape",
+  "signature": "applied|S1|42809|M5a.add_p1_shape",
+  "class": "S1",
+  "owner": "P4",
+  "row": "M5a.add_p1_shape",
+  "history": {
+    "id": "g6-s38420",
+    "tags": {
+      "1_m1.sql": [
+        "M1.enum_default",
+        "M5a.add_p1_shape"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42809",
+        "message": "ALTER action ADD COLUMN cannot be performed on relation \"t2_c3_key\"",
+        "detail": "This operation is not supported for indexes.",
+        "statement": 2,
+        "statement_text": "ALTER TABLE t2_c3_key ADD COLUMN c10 int;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

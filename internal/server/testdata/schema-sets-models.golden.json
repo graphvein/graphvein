@@ -1,0 +1,3941 @@
+{
+  "api_version": 0,
+  "failed_sets": [],
+  "index": {
+    "contract_version": 1,
+    "finished_at": "2026-11-03T14:32:05.123Z",
+    "indexer": {
+      "name": "graphvein",
+      "version": "extractors-62"
+    }
+  },
+  "model_list_reasons": [],
+  "repository": "models",
+  "scan_gaps": [],
+  "sets": [
+    {
+      "conflicts": [],
+      "diagnostic_counts": {},
+      "dialect": "postgres",
+      "foreign_keys": [],
+      "linked_without_edge": 0,
+      "migrations": [
+        {
+          "alters": [],
+          "attributes": {
+            "applied": true,
+            "description": "init",
+            "dialect": "postgres",
+            "direction": "simple",
+            "errors": 0,
+            "extensions": [],
+            "modeled": 1,
+            "no_effect": 0,
+            "opaque": 0,
+            "opaque_sites": [],
+            "order": 1,
+            "package": "Cargo.toml",
+            "set": "migrations",
+            "set_opaque_statements": {
+              "by_kind": {},
+              "total": 0
+            },
+            "statements": 1,
+            "tool": "sqlx",
+            "unsupported": 0,
+            "version": "1",
+            "version_text": "0001"
+          },
+          "creates": [
+            "table:migrations/0001_init.sql#team"
+          ],
+          "file": "migrations/0001_init.sql",
+          "id": "migration:migrations/0001_init.sql#migration"
+        }
+      ],
+      "not_modeled_reasons": [],
+      "objects": "modeled",
+      "opaque_by_kind": {},
+      "opaque_total": 0,
+      "package": "Cargo.toml",
+      "precision": {
+        "label": "precise",
+        "reason": null,
+        "row": "PL-F1"
+      },
+      "rests_on": [
+        "E1",
+        "E4",
+        "E5",
+        "E6",
+        "E8"
+      ],
+      "set": "migrations",
+      "source": "migrations",
+      "table_list": "complete",
+      "table_list_reasons": [],
+      "tables": [
+        {
+          "altered_by": [],
+          "columns": [
+            {
+              "default_state": "implied",
+              "node": {
+                "attributes": {
+                  "claims": [
+                    {
+                      "fact": "exists",
+                      "migration": "migration:migrations/0001_init.sql#migration",
+                      "row": "M1",
+                      "span": {
+                        "end_column": 2,
+                        "end_line": 4,
+                        "start_column": 0,
+                        "start_line": 1
+                      }
+                    },
+                    {
+                      "fact": "nullable",
+                      "migration": "migration:migrations/0001_init.sql#migration",
+                      "row": "M1",
+                      "span": {
+                        "end_column": 2,
+                        "end_line": 4,
+                        "start_column": 0,
+                        "start_line": 1
+                      }
+                    },
+                    {
+                      "fact": "primary_key",
+                      "migration": "migration:migrations/0001_init.sql#migration",
+                      "row": "M1",
+                      "span": {
+                        "end_column": 2,
+                        "end_line": 4,
+                        "start_column": 0,
+                        "start_line": 1
+                      }
+                    },
+                    {
+                      "fact": "type",
+                      "migration": "migration:migrations/0001_init.sql#migration",
+                      "row": "M2",
+                      "span": {
+                        "end_column": 2,
+                        "end_line": 4,
+                        "start_column": 0,
+                        "start_line": 1
+                      }
+                    },
+                    {
+                      "fact": "type_resolved",
+                      "migration": "migration:migrations/0001_init.sql#migration",
+                      "row": "M2",
+                      "span": {
+                        "end_column": 2,
+                        "end_line": 4,
+                        "start_column": 0,
+                        "start_line": 1
+                      }
+                    },
+                    {
+                      "fact": "unique",
+                      "migration": "migration:migrations/0001_init.sql#migration",
+                      "row": "M1",
+                      "span": {
+                        "end_column": 2,
+                        "end_line": 4,
+                        "start_column": 0,
+                        "start_line": 1
+                      }
+                    }
+                  ],
+                  "collation": null,
+                  "default": null,
+                  "default_implied": "sequence",
+                  "generated": null,
+                  "identity": null,
+                  "name": "id",
+                  "nullable": false,
+                  "position": 1,
+                  "previous_names": [],
+                  "primary_key": true,
+                  "references": null,
+                  "type": "SERIAL",
+                  "type_resolved": "integer",
+                  "unique": true
+                },
+                "content_hash": "sha256:ae30b4b471cf38e7b18d7351abc39cced06656854c439ef6d7aa40b0cd2c258d",
+                "file": "migrations/0001_init.sql",
+                "identity": "column:migrations/0001_init.sql#team.id",
+                "kind": "column",
+                "level": 4,
+                "name": "id",
+                "qualified_name": "team.id",
+                "span": {
+                  "end_column": 25,
+                  "end_line": 2,
+                  "start_column": 4,
+                  "start_line": 2
+                },
+                "type": "node"
+              }
+            },
+            {
+              "default_state": "none",
+              "node": {
+                "attributes": {
+                  "claims": [
+                    {
+                      "fact": "exists",
+                      "migration": "migration:migrations/0001_init.sql#migration",
+                      "row": "M1",
+                      "span": {
+                        "end_column": 2,
+                        "end_line": 4,
+                        "start_column": 0,
+                        "start_line": 1
+                      }
+                    },
+                    {
+                      "fact": "nullable",
+                      "migration": "migration:migrations/0001_init.sql#migration",
+                      "row": "M1",
+                      "span": {
+                        "end_column": 2,
+                        "end_line": 4,
+                        "start_column": 0,
+                        "start_line": 1
+                      }
+                    },
+                    {
+                      "fact": "primary_key",
+                      "migration": "migration:migrations/0001_init.sql#migration",
+                      "row": "M1",
+                      "span": {
+                        "end_column": 2,
+                        "end_line": 4,
+                        "start_column": 0,
+                        "start_line": 1
+                      }
+                    },
+                    {
+                      "fact": "type",
+                      "migration": "migration:migrations/0001_init.sql#migration",
+                      "row": "M2",
+                      "span": {
+                        "end_column": 2,
+                        "end_line": 4,
+                        "start_column": 0,
+                        "start_line": 1
+                      }
+                    },
+                    {
+                      "fact": "unique",
+                      "migration": "migration:migrations/0001_init.sql#migration",
+                      "row": "M1",
+                      "span": {
+                        "end_column": 2,
+                        "end_line": 4,
+                        "start_column": 0,
+                        "start_line": 1
+                      }
+                    }
+                  ],
+                  "collation": null,
+                  "default": null,
+                  "generated": null,
+                  "identity": null,
+                  "name": "name",
+                  "nullable": false,
+                  "position": 2,
+                  "previous_names": [],
+                  "primary_key": false,
+                  "references": null,
+                  "type": "TEXT",
+                  "unique": false
+                },
+                "content_hash": "sha256:4f434446be79476f60ed32aca626deccbb6df7b0a9ef02244dd98df4c5cbf772",
+                "file": "migrations/0001_init.sql",
+                "identity": "column:migrations/0001_init.sql#team.name",
+                "kind": "column",
+                "level": 4,
+                "name": "name",
+                "qualified_name": "team.name",
+                "span": {
+                  "end_column": 22,
+                  "end_line": 3,
+                  "start_column": 4,
+                  "start_line": 3
+                },
+                "type": "node"
+              }
+            }
+          ],
+          "completeness": "complete",
+          "created_by": "migration:migrations/0001_init.sql#migration",
+          "foreign_keys_in": 0,
+          "foreign_keys_out": 0,
+          "indexes": [],
+          "node": {
+            "attributes": {
+              "dialect": "postgres",
+              "name": "team",
+              "opaque_after": 0,
+              "previous_names": [],
+              "primary_key": [
+                "id"
+              ],
+              "reasons": [],
+              "schema": null,
+              "set": "migrations",
+              "state": "complete",
+              "unique_keys": []
+            },
+            "content_hash": "sha256:aab8ccae54984780e95a844f30d5e98068df8c08bd46e909daa45a478728b5f3",
+            "file": "migrations/0001_init.sql",
+            "identity": "table:migrations/0001_init.sql#team",
+            "kind": "table",
+            "level": 4,
+            "name": "team",
+            "qualified_name": "team",
+            "span": {
+              "end_column": 2,
+              "end_line": 4,
+              "start_column": 0,
+              "start_line": 1
+            },
+            "type": "node"
+          },
+          "opaque_sites": [],
+          "overlaps": null,
+          "rests_on": [
+            "E1",
+            "E4",
+            "E5",
+            "E6",
+            "E8"
+          ],
+          "unresolved_references": 0,
+          "verification_counts": null
+        }
+      ],
+      "tables_by_scope": {
+        "production": 1,
+        "test": 0
+      },
+      "test_only": false,
+      "tool": "sqlx",
+      "unattached": {
+        "columns": 0,
+        "indexes": 0
+      }
+    },
+    {
+      "assumptions": [
+        "V1",
+        "V4",
+        "V6",
+        "V7"
+      ],
+      "conflicts": [],
+      "diagnostic_counts": {
+        "schema_model_import_failure": 4,
+        "schema_model_migration_overlap": 1,
+        "schema_model_name_unknown": 1,
+        "schema_model_not_claimed": 4,
+        "schema_model_not_proven": 1,
+        "schema_model_unread": 4,
+        "schema_unresolved_reference": 1
+      },
+      "dialect": null,
+      "files": [
+        {
+          "core_tables": 0,
+          "file": "app/declarative.py",
+          "tables": 0,
+          "unread": 2
+        },
+        {
+          "core_tables": 0,
+          "file": "app/decorators.py",
+          "tables": 2,
+          "unread": 0
+        },
+        {
+          "core_tables": 0,
+          "file": "app/decorators_shadowed.py",
+          "tables": 1,
+          "unread": 0
+        },
+        {
+          "core_tables": 0,
+          "file": "app/external.py",
+          "tables": 0,
+          "unread": 1
+        },
+        {
+          "core_tables": 0,
+          "file": "app/m12_classvar.py",
+          "tables": 0,
+          "unread": 1
+        },
+        {
+          "core_tables": 0,
+          "file": "app/models.py",
+          "tables": 3,
+          "unread": 0
+        },
+        {
+          "core_tables": 0,
+          "file": "app/mutations.py",
+          "tables": 10,
+          "unread": 2
+        },
+        {
+          "core_tables": 0,
+          "file": "app/pairs.py",
+          "tables": 2,
+          "unread": 0
+        },
+        {
+          "core_tables": 0,
+          "file": "app/squads.py",
+          "tables": 1,
+          "unread": 0
+        }
+      ],
+      "foreign_keys": [
+        {
+          "edge": {
+            "confidence": 1,
+            "kind": "foreign_key",
+            "provenance": "fact"
+          },
+          "source_column": "column:app/models.py#Hero.mentor_id",
+          "source_table": "table:app/models.py#Hero",
+          "target_column": "column:app/models.py#Hero.id",
+          "target_table": "table:app/models.py#Hero"
+        },
+        {
+          "edge": {
+            "confidence": 1,
+            "kind": "foreign_key",
+            "provenance": "fact"
+          },
+          "source_column": "column:app/models.py#Hero.team_id",
+          "source_table": "table:app/models.py#Hero",
+          "target_column": "column:app/models.py#Team.id",
+          "target_table": "table:app/models.py#Team"
+        }
+      ],
+      "linked_without_edge": 0,
+      "migrations": [],
+      "not_modeled_reasons": [],
+      "objects": "modeled",
+      "opaque_by_kind": null,
+      "opaque_total": null,
+      "package": null,
+      "pins": {
+        "pydantic": "2.13.4",
+        "sqlalchemy": "2.0.51",
+        "sqlmodel": "0.0.39"
+      },
+      "pins_conflict": false,
+      "precision": {
+        "label": "precise",
+        "reason": null,
+        "row": "PL-F2"
+      },
+      "rests_on": [
+        "V1",
+        "V4",
+        "V6",
+        "V7"
+      ],
+      "set": "models/sqlmodel/.",
+      "source": "models",
+      "table_list": "may_be_incomplete",
+      "table_list_reasons": [
+        "model_not_claimed",
+        "model_unread"
+      ],
+      "tables": [
+        {
+          "altered_by": [],
+          "columns": [
+            {
+              "default_state": "unknown",
+              "node": {
+                "attributes": {
+                  "annotation": "int",
+                  "attribute": "id",
+                  "default": "absent",
+                  "defined_in": {
+                    "file": "app/mutations.py",
+                    "line": 37
+                  },
+                  "foreign_keys": null,
+                  "index": false,
+                  "length": null,
+                  "name": "id",
+                  "nullable": false,
+                  "precision": null,
+                  "primary_key": true,
+                  "reasons": [
+                    {
+                      "fact": "foreign_keys",
+                      "file": "app/mutations.py",
+                      "line": 37,
+                      "reason": "constraint_call at app/mutations.py:62 may add a foreign key",
+                      "row": "X1"
+                    }
+                  ],
+                  "scale": null,
+                  "server_default": false,
+                  "source": "model",
+                  "state": "read",
+                  "timezone": null,
+                  "type": "Integer",
+                  "unique": false
+                },
+                "content_hash": "sha256:be31716dd4fc4092ad0a63cfe3ab6dde04f4775218580af0e1378680119f066c",
+                "file": "app/mutations.py",
+                "identity": "column:app/mutations.py#Bound.id",
+                "kind": "column",
+                "level": 4,
+                "name": "id",
+                "qualified_name": "Bound.id",
+                "span": {
+                  "end_column": 0,
+                  "end_line": 37,
+                  "start_column": 0,
+                  "start_line": 37
+                },
+                "type": "node"
+              }
+            },
+            {
+              "default_state": "unknown",
+              "node": {
+                "attributes": {
+                  "annotation": "str",
+                  "attribute": "ref",
+                  "default": "absent",
+                  "defined_in": {
+                    "file": "app/mutations.py",
+                    "line": 38
+                  },
+                  "foreign_keys": null,
+                  "index": false,
+                  "length": "none",
+                  "name": "ref",
+                  "nullable": false,
+                  "precision": null,
+                  "primary_key": false,
+                  "reasons": [
+                    {
+                      "fact": "foreign_keys",
+                      "file": "app/mutations.py",
+                      "line": 38,
+                      "reason": "constraint_call at app/mutations.py:62 may add a foreign key",
+                      "row": "X1"
+                    }
+                  ],
+                  "scale": null,
+                  "server_default": false,
+                  "source": "model",
+                  "state": "read",
+                  "timezone": null,
+                  "type": "AutoString",
+                  "unique": false
+                },
+                "content_hash": "sha256:e084d005b51d2915f1c51b8ca110aa6a333c8a2716ec8e314afb4ce85964692f",
+                "file": "app/mutations.py",
+                "identity": "column:app/mutations.py#Bound.ref",
+                "kind": "column",
+                "level": 4,
+                "name": "ref",
+                "qualified_name": "Bound.ref",
+                "span": {
+                  "end_column": 0,
+                  "end_line": 38,
+                  "start_column": 0,
+                  "start_line": 38
+                },
+                "type": "node"
+              }
+            }
+          ],
+          "completeness": "partial",
+          "created_by": null,
+          "foreign_keys_in": 0,
+          "foreign_keys_out": 0,
+          "indexes": [],
+          "node": {
+            "attributes": {
+              "assumptions": [
+                "V1",
+                "V4",
+                "V6",
+                "V7"
+              ],
+              "check_constraints": [],
+              "class": "class:app/mutations.py#Bound",
+              "column_set": "complete",
+              "constraint_set": "partial",
+              "ddl_hooks": false,
+              "indexes": [],
+              "name": "bound",
+              "pins": {
+                "pydantic": "2.13.4",
+                "sqlalchemy": "2.0.51",
+                "sqlmodel": "0.0.39"
+              },
+              "primary_key": [
+                "id"
+              ],
+              "reasons": [
+                {
+                  "fact": "constraint_set",
+                  "file": "app/mutations.py",
+                  "line": 62,
+                  "reason": "constraint_call at app/mutations.py:62",
+                  "row": "X1"
+                }
+              ],
+              "schema": null,
+              "schema_known": true,
+              "set": "models/sqlmodel/.",
+              "source": "model",
+              "state": "partial",
+              "tool": "sqlmodel",
+              "unique_constraints": [],
+              "verification": "oracle"
+            },
+            "content_hash": "sha256:36b191540f79e327b5eeece6b9b0cfd93d475bf7cde26cdc4e52dd11b11a6322",
+            "file": "app/mutations.py",
+            "identity": "table:app/mutations.py#Bound",
+            "kind": "table",
+            "level": 4,
+            "name": "bound",
+            "qualified_name": "Bound",
+            "span": {
+              "end_column": 0,
+              "end_line": 38,
+              "start_column": 0,
+              "start_line": 36
+            },
+            "type": "node"
+          },
+          "opaque_sites": null,
+          "overlaps": [],
+          "rests_on": [
+            "V1",
+            "V4",
+            "V6",
+            "V7"
+          ],
+          "unresolved_references": 0,
+          "verification_counts": {
+            "oracle": 17
+          }
+        },
+        {
+          "altered_by": [],
+          "columns": [
+            {
+              "default_state": "none",
+              "node": {
+                "attributes": {
+                  "annotation": "str",
+                  "attribute": "code",
+                  "default": "absent",
+                  "defined_in": {
+                    "file": "app/decorators.py",
+                    "line": 21
+                  },
+                  "foreign_keys": [],
+                  "index": false,
+                  "length": "none",
+                  "name": "code",
+                  "nullable": false,
+                  "precision": null,
+                  "primary_key": false,
+                  "reasons": [],
+                  "scale": null,
+                  "server_default": false,
+                  "source": "model",
+                  "state": "read",
+                  "timezone": null,
+                  "type": "AutoString",
+                  "unique": false
+                },
+                "content_hash": "sha256:b58433ca4898af6226723d4df58ef18340af6f45e90bb1d8182f1f4fe38b75f3",
+                "file": "app/decorators.py",
+                "identity": "column:app/decorators.py#Checked.code",
+                "kind": "column",
+                "level": 4,
+                "name": "code",
+                "qualified_name": "Checked.code",
+                "span": {
+                  "end_column": 0,
+                  "end_line": 21,
+                  "start_column": 0,
+                  "start_line": 21
+                },
+                "type": "node"
+              }
+            },
+            {
+              "default_state": "none",
+              "node": {
+                "attributes": {
+                  "annotation": "Optional[int]",
+                  "attribute": "id",
+                  "default": "absent",
+                  "defined_in": {
+                    "file": "app/decorators.py",
+                    "line": 20
+                  },
+                  "foreign_keys": [],
+                  "index": false,
+                  "length": null,
+                  "name": "id",
+                  "nullable": false,
+                  "precision": null,
+                  "primary_key": true,
+                  "reasons": [],
+                  "scale": null,
+                  "server_default": false,
+                  "source": "model",
+                  "state": "read",
+                  "timezone": null,
+                  "type": "Integer",
+                  "unique": false
+                },
+                "content_hash": "sha256:df770e8d1ac5deb557af957956ea51d70c81c8b82d46279e71acb620571693c3",
+                "file": "app/decorators.py",
+                "identity": "column:app/decorators.py#Checked.id",
+                "kind": "column",
+                "level": 4,
+                "name": "id",
+                "qualified_name": "Checked.id",
+                "span": {
+                  "end_column": 0,
+                  "end_line": 20,
+                  "start_column": 0,
+                  "start_line": 20
+                },
+                "type": "node"
+              }
+            }
+          ],
+          "completeness": "complete",
+          "created_by": null,
+          "foreign_keys_in": 0,
+          "foreign_keys_out": 0,
+          "indexes": [],
+          "node": {
+            "attributes": {
+              "assumptions": [
+                "V1",
+                "V4",
+                "V6",
+                "V7"
+              ],
+              "check_constraints": [],
+              "class": "class:app/decorators.py#Checked",
+              "column_set": "complete",
+              "constraint_set": "complete",
+              "ddl_hooks": false,
+              "indexes": [],
+              "name": "checked",
+              "pins": {
+                "pydantic": "2.13.4",
+                "sqlalchemy": "2.0.51",
+                "sqlmodel": "0.0.39"
+              },
+              "primary_key": [
+                "id"
+              ],
+              "reasons": [],
+              "schema": null,
+              "schema_known": true,
+              "set": "models/sqlmodel/.",
+              "source": "model",
+              "state": "complete",
+              "tool": "sqlmodel",
+              "unique_constraints": [],
+              "verification": "oracle"
+            },
+            "content_hash": "sha256:485c2755ccbf0d7d0b88bd055815dc7ab04caf37633df2ca54ae87a5264d8ec4",
+            "file": "app/decorators.py",
+            "identity": "table:app/decorators.py#Checked",
+            "kind": "table",
+            "level": 4,
+            "name": "checked",
+            "qualified_name": "Checked",
+            "span": {
+              "end_column": 0,
+              "end_line": 34,
+              "start_column": 0,
+              "start_line": 19
+            },
+            "type": "node"
+          },
+          "opaque_sites": null,
+          "overlaps": [],
+          "rests_on": [
+            "V1",
+            "V4",
+            "V6",
+            "V7"
+          ],
+          "unresolved_references": 0,
+          "verification_counts": {
+            "oracle": 19
+          }
+        },
+        {
+          "altered_by": [],
+          "columns": [
+            {
+              "default_state": "unknown",
+              "node": {
+                "attributes": {
+                  "annotation": "int",
+                  "attribute": "amount",
+                  "default": "absent",
+                  "defined_in": {
+                    "file": "app/mutations.py",
+                    "line": 48
+                  },
+                  "foreign_keys": [],
+                  "index": false,
+                  "length": null,
+                  "name": "amount",
+                  "nullable": true,
+                  "precision": null,
+                  "primary_key": false,
+                  "reasons": [],
+                  "scale": null,
+                  "server_default": false,
+                  "source": "model",
+                  "state": "read",
+                  "timezone": null,
+                  "type": "Integer",
+                  "unique": false
+                },
+                "content_hash": "sha256:d3af1d0f45907c755ebbd7f4eac50fc73d9e7a3f68332854f8e49b3ec9e4a3cd",
+                "file": "app/mutations.py",
+                "identity": "column:app/mutations.py#Checked.amount",
+                "kind": "column",
+                "level": 4,
+                "name": "amount",
+                "qualified_name": "Checked.amount",
+                "span": {
+                  "end_column": 0,
+                  "end_line": 48,
+                  "start_column": 0,
+                  "start_line": 48
+                },
+                "type": "node"
+              }
+            },
+            {
+              "default_state": "unknown",
+              "node": {
+                "attributes": {
+                  "annotation": "int",
+                  "attribute": "id",
+                  "default": "absent",
+                  "defined_in": {
+                    "file": "app/mutations.py",
+                    "line": 47
+                  },
+                  "foreign_keys": [],
+                  "index": false,
+                  "length": null,
+                  "name": "id",
+                  "nullable": false,
+                  "precision": null,
+                  "primary_key": true,
+                  "reasons": [],
+                  "scale": null,
+                  "server_default": false,
+                  "source": "model",
+                  "state": "read",
+                  "timezone": null,
+                  "type": "Integer",
+                  "unique": false
+                },
+                "content_hash": "sha256:be31716dd4fc4092ad0a63cfe3ab6dde04f4775218580af0e1378680119f066c",
+                "file": "app/mutations.py",
+                "identity": "column:app/mutations.py#Checked.id",
+                "kind": "column",
+                "level": 4,
+                "name": "id",
+                "qualified_name": "Checked.id",
+                "span": {
+                  "end_column": 0,
+                  "end_line": 47,
+                  "start_column": 0,
+                  "start_line": 47
+                },
+                "type": "node"
+              }
+            }
+          ],
+          "completeness": "partial",
+          "created_by": null,
+          "foreign_keys_in": 0,
+          "foreign_keys_out": 0,
+          "indexes": [],
+          "node": {
+            "attributes": {
+              "assumptions": [
+                "V1",
+                "V4",
+                "V6",
+                "V7"
+              ],
+              "check_constraints": [],
+              "class": "class:app/mutations.py#Checked",
+              "column_set": "complete",
+              "constraint_set": "partial",
+              "ddl_hooks": false,
+              "indexes": [],
+              "name": "checked",
+              "pins": {
+                "pydantic": "2.13.4",
+                "sqlalchemy": "2.0.51",
+                "sqlmodel": "0.0.39"
+              },
+              "primary_key": [
+                "id"
+              ],
+              "reasons": [
+                {
+                  "fact": "constraint_set",
+                  "file": "app/mutations.py",
+                  "line": 67,
+                  "reason": "append_constraint at app/mutations.py:67",
+                  "row": "X1"
+                }
+              ],
+              "schema": null,
+              "schema_known": true,
+              "set": "models/sqlmodel/.",
+              "source": "model",
+              "state": "partial",
+              "tool": "sqlmodel",
+              "unique_constraints": [],
+              "verification": "oracle"
+            },
+            "content_hash": "sha256:23495c4122a532f8113f9afa166e5828c510d6dbbbdd6bd24e82e69be93dde20",
+            "file": "app/mutations.py",
+            "identity": "table:app/mutations.py#Checked",
+            "kind": "table",
+            "level": 4,
+            "name": "checked",
+            "qualified_name": "Checked",
+            "span": {
+              "end_column": 0,
+              "end_line": 48,
+              "start_column": 0,
+              "start_line": 46
+            },
+            "type": "node"
+          },
+          "opaque_sites": null,
+          "overlaps": [],
+          "rests_on": [
+            "V1",
+            "V4",
+            "V6",
+            "V7"
+          ],
+          "unresolved_references": 0,
+          "verification_counts": {
+            "oracle": 18
+          }
+        },
+        {
+          "altered_by": [],
+          "columns": [
+            {
+              "default_state": "unknown",
+              "node": {
+                "attributes": {
+                  "annotation": "int",
+                  "attribute": "id",
+                  "default": null,
+                  "defined_in": {
+                    "file": "app/mutations.py",
+                    "line": 71
+                  },
+                  "foreign_keys": null,
+                  "index": null,
+                  "length": null,
+                  "name": "id",
+                  "nullable": null,
+                  "precision": null,
+                  "primary_key": null,
+                  "reasons": [
+                    {
+                      "fact": null,
+                      "file": "app/mutations.py",
+                      "line": 71,
+                      "reason": "attribute_assign at app/mutations.py:76",
+                      "row": "X1"
+                    }
+                  ],
+                  "scale": null,
+                  "server_default": null,
+                  "source": "model",
+                  "state": "unknown",
+                  "timezone": null,
+                  "type": null,
+                  "unique": null
+                },
+                "content_hash": "sha256:be31716dd4fc4092ad0a63cfe3ab6dde04f4775218580af0e1378680119f066c",
+                "file": "app/mutations.py",
+                "identity": "column:app/mutations.py#Commented.id",
+                "kind": "column",
+                "level": 4,
+                "name": "id",
+                "qualified_name": "Commented.id",
+                "span": {
+                  "end_column": 0,
+                  "end_line": 71,
+                  "start_column": 0,
+                  "start_line": 71
+                },
+                "type": "node"
+              }
+            }
+          ],
+          "completeness": "partial",
+          "created_by": null,
+          "foreign_keys_in": 0,
+          "foreign_keys_out": 0,
+          "indexes": [],
+          "node": {
+            "attributes": {
+              "assumptions": [
+                "V1",
+                "V4",
+                "V6",
+                "V7"
+              ],
+              "check_constraints": null,
+              "class": "class:app/mutations.py#Commented",
+              "column_set": "partial",
+              "constraint_set": "partial",
+              "ddl_hooks": false,
+              "indexes": null,
+              "name": "commented",
+              "pins": {
+                "pydantic": "2.13.4",
+                "sqlalchemy": "2.0.51",
+                "sqlmodel": "0.0.39"
+              },
+              "primary_key": null,
+              "reasons": [
+                {
+                  "fact": "column_set",
+                  "file": "app/mutations.py",
+                  "line": 76,
+                  "reason": "attribute_assign at app/mutations.py:76",
+                  "row": "X1"
+                }
+              ],
+              "schema": null,
+              "schema_known": false,
+              "set": "models/sqlmodel/.",
+              "source": "model",
+              "state": "partial",
+              "tool": "sqlmodel",
+              "unique_constraints": null,
+              "verification": "oracle"
+            },
+            "content_hash": "sha256:d8a8f1599bfc4d2e1ab3274bff34092c78dfdd913d23ef456049c8eb1f4bdbe6",
+            "file": "app/mutations.py",
+            "identity": "table:app/mutations.py#Commented",
+            "kind": "table",
+            "level": 4,
+            "name": "commented",
+            "qualified_name": "Commented",
+            "span": {
+              "end_column": 0,
+              "end_line": 71,
+              "start_column": 0,
+              "start_line": 70
+            },
+            "type": "node"
+          },
+          "opaque_sites": null,
+          "overlaps": [],
+          "rests_on": [
+            "V1",
+            "V4",
+            "V6",
+            "V7"
+          ],
+          "unresolved_references": 0,
+          "verification_counts": {}
+        },
+        {
+          "altered_by": [],
+          "columns": [
+            {
+              "default_state": "python",
+              "node": {
+                "attributes": {
+                  "annotation": "uuid.UUID",
+                  "attribute": "id",
+                  "default": "callable",
+                  "defined_in": {
+                    "file": "app/models.py",
+                    "line": 20
+                  },
+                  "foreign_keys": [],
+                  "index": false,
+                  "length": null,
+                  "name": "id",
+                  "nullable": false,
+                  "precision": null,
+                  "primary_key": true,
+                  "reasons": [],
+                  "scale": null,
+                  "server_default": false,
+                  "source": "model",
+                  "state": "read",
+                  "timezone": null,
+                  "type": "Uuid",
+                  "unique": false
+                },
+                "content_hash": "sha256:f8bbe6bd9bd7cd21ce6d0000b09e1e1b643267d5c4b59f250cdf4e9dd16d9e15",
+                "file": "app/models.py",
+                "identity": "column:app/models.py#Hero.id",
+                "kind": "column",
+                "level": 4,
+                "name": "id",
+                "qualified_name": "Hero.id",
+                "span": {
+                  "end_column": 0,
+                  "end_line": 20,
+                  "start_column": 0,
+                  "start_line": 20
+                },
+                "type": "node"
+              }
+            },
+            {
+              "default_state": "none",
+              "node": {
+                "attributes": {
+                  "annotation": "Optional[uuid.UUID]",
+                  "attribute": "mentor_id",
+                  "default": "absent",
+                  "defined_in": {
+                    "file": "app/models.py",
+                    "line": 24
+                  },
+                  "foreign_keys": [
+                    {
+                      "column": "id",
+                      "on_delete": "CASCADE",
+                      "schema": null,
+                      "status": "resolved",
+                      "table": "heroes"
+                    }
+                  ],
+                  "index": false,
+                  "length": null,
+                  "name": "mentor_id",
+                  "nullable": true,
+                  "precision": null,
+                  "primary_key": false,
+                  "reasons": [],
+                  "scale": null,
+                  "server_default": false,
+                  "source": "model",
+                  "state": "read",
+                  "timezone": null,
+                  "type": null,
+                  "unique": false
+                },
+                "content_hash": "sha256:379efbc0dc4214cfee65cda5df37f78e4961a2905a0fafef2b246123fe828323",
+                "file": "app/models.py",
+                "identity": "column:app/models.py#Hero.mentor_id",
+                "kind": "column",
+                "level": 4,
+                "name": "mentor_id",
+                "qualified_name": "Hero.mentor_id",
+                "span": {
+                  "end_column": 0,
+                  "end_line": 24,
+                  "start_column": 0,
+                  "start_line": 24
+                },
+                "type": "node"
+              }
+            },
+            {
+              "default_state": "none",
+              "node": {
+                "attributes": {
+                  "annotation": "Optional[str]",
+                  "attribute": "nickname",
+                  "default": "absent",
+                  "defined_in": {
+                    "file": "app/models.py",
+                    "line": 23
+                  },
+                  "foreign_keys": [],
+                  "index": false,
+                  "length": 30,
+                  "name": "nickname",
+                  "nullable": true,
+                  "precision": null,
+                  "primary_key": false,
+                  "reasons": [],
+                  "scale": null,
+                  "server_default": false,
+                  "source": "model",
+                  "state": "read",
+                  "timezone": null,
+                  "type": "String",
+                  "unique": true
+                },
+                "content_hash": "sha256:2e9ebb03f988d035a27f4cc9bdd507dae1805eacfe9d2121a15975a2cdfc53f8",
+                "file": "app/models.py",
+                "identity": "column:app/models.py#Hero.nickname",
+                "kind": "column",
+                "level": 4,
+                "name": "nickname",
+                "qualified_name": "Hero.nickname",
+                "span": {
+                  "end_column": 0,
+                  "end_line": 23,
+                  "start_column": 0,
+                  "start_line": 23
+                },
+                "type": "node"
+              }
+            },
+            {
+              "default_state": "none",
+              "node": {
+                "attributes": {
+                  "annotation": "Optional[int]",
+                  "attribute": "rival_id",
+                  "default": "absent",
+                  "defined_in": {
+                    "file": "app/models.py",
+                    "line": 22
+                  },
+                  "foreign_keys": [
+                    {
+                      "column": "id",
+                      "on_delete": null,
+                      "schema": null,
+                      "status": "unresolved",
+                      "table": "nowhere"
+                    }
+                  ],
+                  "index": false,
+                  "length": null,
+                  "name": "rival_id",
+                  "nullable": true,
+                  "precision": null,
+                  "primary_key": false,
+                  "reasons": [],
+                  "scale": null,
+                  "server_default": false,
+                  "source": "model",
+                  "state": "read",
+                  "timezone": null,
+                  "type": "Integer",
+                  "unique": false
+                },
+                "content_hash": "sha256:3f955475746c550c7c793db7bd8256f7a05eda5935e600bbeded88fca1d7dafe",
+                "file": "app/models.py",
+                "identity": "column:app/models.py#Hero.rival_id",
+                "kind": "column",
+                "level": 4,
+                "name": "rival_id",
+                "qualified_name": "Hero.rival_id",
+                "span": {
+                  "end_column": 0,
+                  "end_line": 22,
+                  "start_column": 0,
+                  "start_line": 22
+                },
+                "type": "node"
+              }
+            },
+            {
+              "default_state": "none",
+              "node": {
+                "attributes": {
+                  "annotation": "Optional[int]",
+                  "attribute": "team_id",
+                  "default": "absent",
+                  "defined_in": {
+                    "file": "app/models.py",
+                    "line": 21
+                  },
+                  "foreign_keys": [
+                    {
+                      "column": "id",
+                      "on_delete": "SET NULL",
+                      "schema": null,
+                      "status": "resolved",
+                      "table": "team"
+                    }
+                  ],
+                  "index": false,
+                  "length": null,
+                  "name": "team_id",
+                  "nullable": true,
+                  "precision": null,
+                  "primary_key": false,
+                  "reasons": [],
+                  "scale": null,
+                  "server_default": false,
+                  "source": "model",
+                  "state": "read",
+                  "timezone": null,
+                  "type": "Integer",
+                  "unique": false
+                },
+                "content_hash": "sha256:6f3693acb6aa6c2b6e7d2c89b26cee5e86a897f8044f7215e6d6971a0448adea",
+                "file": "app/models.py",
+                "identity": "column:app/models.py#Hero.team_id",
+                "kind": "column",
+                "level": 4,
+                "name": "team_id",
+                "qualified_name": "Hero.team_id",
+                "span": {
+                  "end_column": 0,
+                  "end_line": 21,
+                  "start_column": 0,
+                  "start_line": 21
+                },
+                "type": "node"
+              }
+            }
+          ],
+          "completeness": "complete",
+          "created_by": null,
+          "foreign_keys_in": 1,
+          "foreign_keys_out": 2,
+          "indexes": [],
+          "node": {
+            "attributes": {
+              "assumptions": [
+                "V1",
+                "V4",
+                "V6",
+                "V7"
+              ],
+              "check_constraints": [],
+              "class": "class:app/models.py#Hero",
+              "column_set": "complete",
+              "constraint_set": "complete",
+              "ddl_hooks": true,
+              "indexes": [],
+              "name": "heroes",
+              "pins": {
+                "pydantic": "2.13.4",
+                "sqlalchemy": "2.0.51",
+                "sqlmodel": "0.0.39"
+              },
+              "primary_key": [
+                "id"
+              ],
+              "reasons": [],
+              "schema": null,
+              "schema_known": true,
+              "set": "models/sqlmodel/.",
+              "source": "model",
+              "state": "complete",
+              "tool": "sqlmodel",
+              "unique_constraints": [],
+              "verification": "oracle"
+            },
+            "content_hash": "sha256:96da766beaa4f93c0a50dd53f50b2df46c7650bcbe84039bc58351146184a3e8",
+            "file": "app/models.py",
+            "identity": "table:app/models.py#Hero",
+            "kind": "table",
+            "level": 4,
+            "name": "heroes",
+            "qualified_name": "Hero",
+            "span": {
+              "end_column": 0,
+              "end_line": 25,
+              "start_column": 0,
+              "start_line": 18
+            },
+            "type": "node"
+          },
+          "opaque_sites": null,
+          "overlaps": [],
+          "rests_on": [
+            "V1",
+            "V4",
+            "V6",
+            "V7"
+          ],
+          "unresolved_references": 1,
+          "verification_counts": {
+            "oracle": 45
+          }
+        },
+        {
+          "altered_by": [],
+          "columns": [
+            {
+              "default_state": "unknown",
+              "node": {
+                "attributes": {
+                  "annotation": "str",
+                  "attribute": "code",
+                  "default": "absent",
+                  "defined_in": {
+                    "file": "app/mutations.py",
+                    "line": 16
+                  },
+                  "foreign_keys": [],
+                  "index": false,
+                  "length": "none",
+                  "name": "code",
+                  "nullable": false,
+                  "precision": null,
+                  "primary_key": true,
+                  "reasons": [],
+                  "scale": null,
+                  "server_default": false,
+                  "source": "model",
+                  "state": "read",
+                  "timezone": null,
+                  "type": "AutoString",
+                  "unique": false
+                },
+                "content_hash": "sha256:784bba2edd6edad2aebc79e0d7afa681ade4943c4135fb4f41cc6226caaa8f10",
+                "file": "app/mutations.py",
+                "identity": "column:app/mutations.py#Keyed.code",
+                "kind": "column",
+                "level": 4,
+                "name": "code",
+                "qualified_name": "Keyed.code",
+                "span": {
+                  "end_column": 0,
+                  "end_line": 16,
+                  "start_column": 0,
+                  "start_line": 16
+                },
+                "type": "node"
+              }
+            },
+            {
+              "default_state": "unknown",
+              "node": {
+                "attributes": {
+                  "annotation": "str",
+                  "attribute": "note",
+                  "default": "absent",
+                  "defined_in": {
+                    "file": "app/mutations.py",
+                    "line": 18
+                  },
+                  "foreign_keys": [],
+                  "index": false,
+                  "length": "none",
+                  "name": "note",
+                  "nullable": false,
+                  "precision": null,
+                  "primary_key": null,
+                  "reasons": [
+                    {
+                      "fact": "primary_key",
+                      "file": "app/mutations.py",
+                      "line": 53,
+                      "reason": "append_constraint at app/mutations.py:53 may add a primary key",
+                      "row": "X1"
+                    }
+                  ],
+                  "scale": null,
+                  "server_default": false,
+                  "source": "model",
+                  "state": "read",
+                  "timezone": null,
+                  "type": "AutoString",
+                  "unique": false
+                },
+                "content_hash": "sha256:c0ac8586eff6d01fdc7d24082325b73c2b7e06cc5ce0e0d5ecb1374e804c92ed",
+                "file": "app/mutations.py",
+                "identity": "column:app/mutations.py#Keyed.note",
+                "kind": "column",
+                "level": 4,
+                "name": "note",
+                "qualified_name": "Keyed.note",
+                "span": {
+                  "end_column": 0,
+                  "end_line": 18,
+                  "start_column": 0,
+                  "start_line": 18
+                },
+                "type": "node"
+              }
+            },
+            {
+              "default_state": "unknown",
+              "node": {
+                "attributes": {
+                  "annotation": "int",
+                  "attribute": "part",
+                  "default": "absent",
+                  "defined_in": {
+                    "file": "app/mutations.py",
+                    "line": 17
+                  },
+                  "foreign_keys": [],
+                  "index": false,
+                  "length": null,
+                  "name": "part",
+                  "nullable": null,
+                  "precision": null,
+                  "primary_key": null,
+                  "reasons": [
+                    {
+                      "fact": "primary_key",
+                      "file": "app/mutations.py",
+                      "line": 53,
+                      "reason": "append_constraint at app/mutations.py:53 may add a primary key",
+                      "row": "X1"
+                    }
+                  ],
+                  "scale": null,
+                  "server_default": false,
+                  "source": "model",
+                  "state": "read",
+                  "timezone": null,
+                  "type": "Integer",
+                  "unique": false
+                },
+                "content_hash": "sha256:56d14eba2a6ae88b33db2e00b566e02e006b8ff0a1b4284c3e0ce77e66e84d92",
+                "file": "app/mutations.py",
+                "identity": "column:app/mutations.py#Keyed.part",
+                "kind": "column",
+                "level": 4,
+                "name": "part",
+                "qualified_name": "Keyed.part",
+                "span": {
+                  "end_column": 0,
+                  "end_line": 17,
+                  "start_column": 0,
+                  "start_line": 17
+                },
+                "type": "node"
+              }
+            }
+          ],
+          "completeness": "partial",
+          "created_by": null,
+          "foreign_keys_in": 0,
+          "foreign_keys_out": 0,
+          "indexes": [],
+          "node": {
+            "attributes": {
+              "assumptions": [
+                "V1",
+                "V4",
+                "V6",
+                "V7"
+              ],
+              "check_constraints": [],
+              "class": "class:app/mutations.py#Keyed",
+              "column_set": "complete",
+              "constraint_set": "partial",
+              "ddl_hooks": false,
+              "indexes": [],
+              "name": "keyed",
+              "pins": {
+                "pydantic": "2.13.4",
+                "sqlalchemy": "2.0.51",
+                "sqlmodel": "0.0.39"
+              },
+              "primary_key": null,
+              "reasons": [
+                {
+                  "fact": "constraint_set",
+                  "file": "app/mutations.py",
+                  "line": 53,
+                  "reason": "append_constraint at app/mutations.py:53",
+                  "row": "X1"
+                }
+              ],
+              "schema": null,
+              "schema_known": true,
+              "set": "models/sqlmodel/.",
+              "source": "model",
+              "state": "partial",
+              "tool": "sqlmodel",
+              "unique_constraints": [],
+              "verification": "oracle"
+            },
+            "content_hash": "sha256:dac0c43e024bff6637e574201416d286aaba87205851a156703b3fe68a607887",
+            "file": "app/mutations.py",
+            "identity": "table:app/mutations.py#Keyed",
+            "kind": "table",
+            "level": 4,
+            "name": "keyed",
+            "qualified_name": "Keyed",
+            "span": {
+              "end_column": 0,
+              "end_line": 18,
+              "start_column": 0,
+              "start_line": 15
+            },
+            "type": "node"
+          },
+          "opaque_sites": null,
+          "overlaps": [],
+          "rests_on": [
+            "V1",
+            "V4",
+            "V6",
+            "V7"
+          ],
+          "unresolved_references": 0,
+          "verification_counts": {
+            "oracle": 26
+          }
+        },
+        {
+          "altered_by": [],
+          "columns": [
+            {
+              "default_state": "unknown",
+              "node": {
+                "attributes": {
+                  "annotation": "int",
+                  "attribute": "id",
+                  "default": "absent",
+                  "defined_in": {
+                    "file": "app/mutations.py",
+                    "line": 22
+                  },
+                  "foreign_keys": null,
+                  "index": false,
+                  "length": null,
+                  "name": "id",
+                  "nullable": false,
+                  "precision": null,
+                  "primary_key": true,
+                  "reasons": [
+                    {
+                      "fact": "foreign_keys",
+                      "file": "app/mutations.py",
+                      "line": 22,
+                      "reason": "append_constraint at app/mutations.py:55 may add a foreign key",
+                      "row": "X1"
+                    }
+                  ],
+                  "scale": null,
+                  "server_default": false,
+                  "source": "model",
+                  "state": "read",
+                  "timezone": null,
+                  "type": "Integer",
+                  "unique": false
+                },
+                "content_hash": "sha256:be31716dd4fc4092ad0a63cfe3ab6dde04f4775218580af0e1378680119f066c",
+                "file": "app/mutations.py",
+                "identity": "column:app/mutations.py#Linked.id",
+                "kind": "column",
+                "level": 4,
+                "name": "id",
+                "qualified_name": "Linked.id",
+                "span": {
+                  "end_column": 0,
+                  "end_line": 22,
+                  "start_column": 0,
+                  "start_line": 22
+                },
+                "type": "node"
+              }
+            },
+            {
+              "default_state": "unknown",
+              "node": {
+                "attributes": {
+                  "annotation": "str",
+                  "attribute": "keyed_code",
+                  "default": "absent",
+                  "defined_in": {
+                    "file": "app/mutations.py",
+                    "line": 23
+                  },
+                  "foreign_keys": null,
+                  "index": false,
+                  "length": "none",
+                  "name": "keyed_code",
+                  "nullable": false,
+                  "precision": null,
+                  "primary_key": false,
+                  "reasons": [
+                    {
+                      "fact": "foreign_keys",
+                      "file": "app/mutations.py",
+                      "line": 23,
+                      "reason": "append_constraint at app/mutations.py:55 may add a foreign key",
+                      "row": "X1"
+                    }
+                  ],
+                  "scale": null,
+                  "server_default": false,
+                  "source": "model",
+                  "state": "read",
+                  "timezone": null,
+                  "type": "AutoString",
+                  "unique": false
+                },
+                "content_hash": "sha256:2fd6cf018b1a484b83872620eb4c656485a3415178dbec95c32e7948ba53e309",
+                "file": "app/mutations.py",
+                "identity": "column:app/mutations.py#Linked.keyed_code",
+                "kind": "column",
+                "level": 4,
+                "name": "keyed_code",
+                "qualified_name": "Linked.keyed_code",
+                "span": {
+                  "end_column": 0,
+                  "end_line": 23,
+                  "start_column": 0,
+                  "start_line": 23
+                },
+                "type": "node"
+              }
+            }
+          ],
+          "completeness": "partial",
+          "created_by": null,
+          "foreign_keys_in": 0,
+          "foreign_keys_out": 0,
+          "indexes": [],
+          "node": {
+            "attributes": {
+              "assumptions": [
+                "V1",
+                "V4",
+                "V6",
+                "V7"
+              ],
+              "check_constraints": [],
+              "class": "class:app/mutations.py#Linked",
+              "column_set": "complete",
+              "constraint_set": "partial",
+              "ddl_hooks": false,
+              "indexes": [],
+              "name": "linked",
+              "pins": {
+                "pydantic": "2.13.4",
+                "sqlalchemy": "2.0.51",
+                "sqlmodel": "0.0.39"
+              },
+              "primary_key": [
+                "id"
+              ],
+              "reasons": [
+                {
+                  "fact": "constraint_set",
+                  "file": "app/mutations.py",
+                  "line": 55,
+                  "reason": "append_constraint at app/mutations.py:55",
+                  "row": "X1"
+                }
+              ],
+              "schema": null,
+              "schema_known": true,
+              "set": "models/sqlmodel/.",
+              "source": "model",
+              "state": "partial",
+              "tool": "sqlmodel",
+              "unique_constraints": [],
+              "verification": "oracle"
+            },
+            "content_hash": "sha256:95975fb8cb85d0305e8b27a30cb5ad904e9abf4ccba12a17323a13f6493d0c89",
+            "file": "app/mutations.py",
+            "identity": "table:app/mutations.py#Linked",
+            "kind": "table",
+            "level": 4,
+            "name": "linked",
+            "qualified_name": "Linked",
+            "span": {
+              "end_column": 0,
+              "end_line": 23,
+              "start_column": 0,
+              "start_line": 21
+            },
+            "type": "node"
+          },
+          "opaque_sites": null,
+          "overlaps": [],
+          "rests_on": [
+            "V1",
+            "V4",
+            "V6",
+            "V7"
+          ],
+          "unresolved_references": 0,
+          "verification_counts": {
+            "oracle": 17
+          }
+        },
+        {
+          "altered_by": [],
+          "columns": [
+            {
+              "default_state": "unknown",
+              "node": {
+                "attributes": {
+                  "annotation": "int",
+                  "attribute": "extra",
+                  "default": "absent",
+                  "defined_in": {
+                    "file": "app/mutations.py",
+                    "line": 28
+                  },
+                  "foreign_keys": null,
+                  "index": false,
+                  "length": null,
+                  "name": "extra",
+                  "nullable": null,
+                  "precision": null,
+                  "primary_key": null,
+                  "reasons": [
+                    {
+                      "fact": "primary_key",
+                      "file": "app/mutations.py",
+                      "line": 58,
+                      "reason": "append_constraint at app/mutations.py:58 may add a primary key",
+                      "row": "X1"
+                    },
+                    {
+                      "fact": "foreign_keys",
+                      "file": "app/mutations.py",
+                      "line": 28,
+                      "reason": "append_constraint at app/mutations.py:58 may add a foreign key",
+                      "row": "X1"
+                    }
+                  ],
+                  "scale": null,
+                  "server_default": false,
+                  "source": "model",
+                  "state": "read",
+                  "timezone": null,
+                  "type": "Integer",
+                  "unique": false
+                },
+                "content_hash": "sha256:093b47dfab318c4d8307183ca936404f517b6e920cc96337e431d6e7b741c66a",
+                "file": "app/mutations.py",
+                "identity": "column:app/mutations.py#Opaque.extra",
+                "kind": "column",
+                "level": 4,
+                "name": "extra",
+                "qualified_name": "Opaque.extra",
+                "span": {
+                  "end_column": 0,
+                  "end_line": 28,
+                  "start_column": 0,
+                  "start_line": 28
+                },
+                "type": "node"
+              }
+            },
+            {
+              "default_state": "unknown",
+              "node": {
+                "attributes": {
+                  "annotation": "int",
+                  "attribute": "id",
+                  "default": "absent",
+                  "defined_in": {
+                    "file": "app/mutations.py",
+                    "line": 27
+                  },
+                  "foreign_keys": null,
+                  "index": false,
+                  "length": null,
+                  "name": "id",
+                  "nullable": false,
+                  "precision": null,
+                  "primary_key": true,
+                  "reasons": [
+                    {
+                      "fact": "foreign_keys",
+                      "file": "app/mutations.py",
+                      "line": 27,
+                      "reason": "append_constraint at app/mutations.py:58 may add a foreign key",
+                      "row": "X1"
+                    }
+                  ],
+                  "scale": null,
+                  "server_default": false,
+                  "source": "model",
+                  "state": "read",
+                  "timezone": null,
+                  "type": "Integer",
+                  "unique": false
+                },
+                "content_hash": "sha256:be31716dd4fc4092ad0a63cfe3ab6dde04f4775218580af0e1378680119f066c",
+                "file": "app/mutations.py",
+                "identity": "column:app/mutations.py#Opaque.id",
+                "kind": "column",
+                "level": 4,
+                "name": "id",
+                "qualified_name": "Opaque.id",
+                "span": {
+                  "end_column": 0,
+                  "end_line": 27,
+                  "start_column": 0,
+                  "start_line": 27
+                },
+                "type": "node"
+              }
+            }
+          ],
+          "completeness": "partial",
+          "created_by": null,
+          "foreign_keys_in": 0,
+          "foreign_keys_out": 0,
+          "indexes": [],
+          "node": {
+            "attributes": {
+              "assumptions": [
+                "V1",
+                "V4",
+                "V6",
+                "V7"
+              ],
+              "check_constraints": [],
+              "class": "class:app/mutations.py#Opaque",
+              "column_set": "complete",
+              "constraint_set": "partial",
+              "ddl_hooks": false,
+              "indexes": [],
+              "name": "opaque",
+              "pins": {
+                "pydantic": "2.13.4",
+                "sqlalchemy": "2.0.51",
+                "sqlmodel": "0.0.39"
+              },
+              "primary_key": null,
+              "reasons": [
+                {
+                  "fact": "constraint_set",
+                  "file": "app/mutations.py",
+                  "line": 58,
+                  "reason": "append_constraint at app/mutations.py:58",
+                  "row": "X1"
+                }
+              ],
+              "schema": null,
+              "schema_known": true,
+              "set": "models/sqlmodel/.",
+              "source": "model",
+              "state": "partial",
+              "tool": "sqlmodel",
+              "unique_constraints": [],
+              "verification": "oracle"
+            },
+            "content_hash": "sha256:f347012d099fcb6afcf1db5cc491017522af0aee8c619f72d7838929020cc28d",
+            "file": "app/mutations.py",
+            "identity": "table:app/mutations.py#Opaque",
+            "kind": "table",
+            "level": 4,
+            "name": "opaque",
+            "qualified_name": "Opaque",
+            "span": {
+              "end_column": 0,
+              "end_line": 28,
+              "start_column": 0,
+              "start_line": 26
+            },
+            "type": "node"
+          },
+          "opaque_sites": null,
+          "overlaps": [],
+          "rests_on": [
+            "V1",
+            "V4",
+            "V6",
+            "V7"
+          ],
+          "unresolved_references": 0,
+          "verification_counts": {
+            "oracle": 14
+          }
+        },
+        {
+          "altered_by": [],
+          "columns": [
+            {
+              "default_state": "unknown",
+              "node": {
+                "attributes": {
+                  "annotation": "int",
+                  "attribute": "left",
+                  "default": "absent",
+                  "defined_in": {
+                    "file": "app/pairs.py",
+                    "line": 11
+                  },
+                  "foreign_keys": [],
+                  "index": false,
+                  "length": null,
+                  "name": "left",
+                  "nullable": false,
+                  "precision": null,
+                  "primary_key": null,
+                  "reasons": [
+                    {
+                      "fact": "primary_key",
+                      "file": "app/pairs.py",
+                      "line": 9,
+                      "reason": "the constraint set may hold a primary key",
+                      "row": "TA-D"
+                    }
+                  ],
+                  "scale": null,
+                  "server_default": false,
+                  "source": "model",
+                  "state": "read",
+                  "timezone": null,
+                  "type": "Integer",
+                  "unique": false
+                },
+                "content_hash": "sha256:eb0e2d595adf383f26eee47bc67d5365445f6dc5d349cd2980fd7b3cc4ecbe3c",
+                "file": "app/pairs.py",
+                "identity": "column:app/pairs.py#Pair.left",
+                "kind": "column",
+                "level": 4,
+                "name": "left",
+                "qualified_name": "Pair.left",
+                "span": {
+                  "end_column": 0,
+                  "end_line": 11,
+                  "start_column": 0,
+                  "start_line": 11
+                },
+                "type": "node"
+              }
+            },
+            {
+              "default_state": "unknown",
+              "node": {
+                "attributes": {
+                  "annotation": "Optional[str]",
+                  "attribute": "note",
+                  "default": "absent",
+                  "defined_in": {
+                    "file": "app/pairs.py",
+                    "line": 13
+                  },
+                  "foreign_keys": [],
+                  "index": false,
+                  "length": "none",
+                  "name": "note",
+                  "nullable": true,
+                  "precision": null,
+                  "primary_key": null,
+                  "reasons": [
+                    {
+                      "fact": "primary_key",
+                      "file": "app/pairs.py",
+                      "line": 9,
+                      "reason": "the constraint set may hold a primary key",
+                      "row": "TA-D"
+                    }
+                  ],
+                  "scale": null,
+                  "server_default": false,
+                  "source": "model",
+                  "state": "read",
+                  "timezone": null,
+                  "type": "AutoString",
+                  "unique": false
+                },
+                "content_hash": "sha256:5509b3d05d50d87ee085cdbf09adb5ae83a744c21d7e9ccc514ecfa16c96cda1",
+                "file": "app/pairs.py",
+                "identity": "column:app/pairs.py#Pair.note",
+                "kind": "column",
+                "level": 4,
+                "name": "note",
+                "qualified_name": "Pair.note",
+                "span": {
+                  "end_column": 0,
+                  "end_line": 13,
+                  "start_column": 0,
+                  "start_line": 13
+                },
+                "type": "node"
+              }
+            },
+            {
+              "default_state": "unknown",
+              "node": {
+                "attributes": {
+                  "annotation": "int",
+                  "attribute": "right",
+                  "default": "absent",
+                  "defined_in": {
+                    "file": "app/pairs.py",
+                    "line": 12
+                  },
+                  "foreign_keys": [],
+                  "index": false,
+                  "length": null,
+                  "name": "right",
+                  "nullable": false,
+                  "precision": null,
+                  "primary_key": null,
+                  "reasons": [
+                    {
+                      "fact": "primary_key",
+                      "file": "app/pairs.py",
+                      "line": 9,
+                      "reason": "the constraint set may hold a primary key",
+                      "row": "TA-D"
+                    }
+                  ],
+                  "scale": null,
+                  "server_default": false,
+                  "source": "model",
+                  "state": "read",
+                  "timezone": null,
+                  "type": "Integer",
+                  "unique": false
+                },
+                "content_hash": "sha256:393807b13391729b96511dc67ea5f1ee836894456a04a7d52f5f7009bb16b823",
+                "file": "app/pairs.py",
+                "identity": "column:app/pairs.py#Pair.right",
+                "kind": "column",
+                "level": 4,
+                "name": "right",
+                "qualified_name": "Pair.right",
+                "span": {
+                  "end_column": 0,
+                  "end_line": 12,
+                  "start_column": 0,
+                  "start_line": 12
+                },
+                "type": "node"
+              }
+            }
+          ],
+          "completeness": "partial",
+          "created_by": null,
+          "foreign_keys_in": 0,
+          "foreign_keys_out": 0,
+          "indexes": [],
+          "node": {
+            "attributes": {
+              "assumptions": [
+                "V1",
+                "V4",
+                "V6",
+                "V7"
+              ],
+              "check_constraints": [],
+              "class": "class:app/pairs.py#Pair",
+              "column_set": "complete",
+              "constraint_set": "partial",
+              "ddl_hooks": false,
+              "indexes": [],
+              "name": "pair",
+              "pins": {
+                "pydantic": "2.13.4",
+                "sqlalchemy": "2.0.51",
+                "sqlmodel": "0.0.39"
+              },
+              "primary_key": null,
+              "reasons": [
+                {
+                  "fact": "constraint_set",
+                  "file": "app/pairs.py",
+                  "line": 10,
+                  "reason": "element the contract does not read",
+                  "row": "TA-D"
+                }
+              ],
+              "schema": null,
+              "schema_known": true,
+              "set": "models/sqlmodel/.",
+              "source": "model",
+              "state": "partial",
+              "tool": "sqlmodel",
+              "unique_constraints": [],
+              "verification": "oracle"
+            },
+            "content_hash": "sha256:77a54a78497c807f620601154c6c39a161d32faf72dacd1f5df6ba43b8bd7117",
+            "file": "app/pairs.py",
+            "identity": "table:app/pairs.py#Pair",
+            "kind": "table",
+            "level": 4,
+            "name": "pair",
+            "qualified_name": "Pair",
+            "span": {
+              "end_column": 0,
+              "end_line": 13,
+              "start_column": 0,
+              "start_line": 9
+            },
+            "type": "node"
+          },
+          "opaque_sites": null,
+          "overlaps": [],
+          "rests_on": [
+            "V1",
+            "V4",
+            "V6",
+            "V7"
+          ],
+          "unresolved_references": 0,
+          "verification_counts": {
+            "oracle": 25
+          }
+        },
+        {
+          "altered_by": [],
+          "columns": [
+            {
+              "default_state": "unknown",
+              "node": {
+                "attributes": {
+                  "annotation": "int",
+                  "attribute": "id",
+                  "default": "absent",
+                  "defined_in": {
+                    "file": "app/mutations.py",
+                    "line": 42
+                  },
+                  "foreign_keys": [],
+                  "index": false,
+                  "length": null,
+                  "name": "id",
+                  "nullable": false,
+                  "precision": null,
+                  "primary_key": true,
+                  "reasons": [],
+                  "scale": null,
+                  "server_default": false,
+                  "source": "model",
+                  "state": "read",
+                  "timezone": null,
+                  "type": "Integer",
+                  "unique": false
+                },
+                "content_hash": "sha256:be31716dd4fc4092ad0a63cfe3ab6dde04f4775218580af0e1378680119f066c",
+                "file": "app/mutations.py",
+                "identity": "column:app/mutations.py#Pointed.id",
+                "kind": "column",
+                "level": 4,
+                "name": "id",
+                "qualified_name": "Pointed.id",
+                "span": {
+                  "end_column": 0,
+                  "end_line": 42,
+                  "start_column": 0,
+                  "start_line": 42
+                },
+                "type": "node"
+              }
+            },
+            {
+              "default_state": "unknown",
+              "node": {
+                "attributes": {
+                  "annotation": "str",
+                  "attribute": "target",
+                  "default": "absent",
+                  "defined_in": {
+                    "file": "app/mutations.py",
+                    "line": 43
+                  },
+                  "foreign_keys": null,
+                  "index": false,
+                  "length": "none",
+                  "name": "target",
+                  "nullable": false,
+                  "precision": null,
+                  "primary_key": false,
+                  "reasons": [
+                    {
+                      "fact": "foreign_keys",
+                      "file": "app/mutations.py",
+                      "line": 43,
+                      "reason": "append_foreign_key at app/mutations.py:64",
+                      "row": "X1"
+                    }
+                  ],
+                  "scale": null,
+                  "server_default": false,
+                  "source": "model",
+                  "state": "read",
+                  "timezone": null,
+                  "type": "AutoString",
+                  "unique": false
+                },
+                "content_hash": "sha256:ccfa6d9150f8bc616865142ddaccc95634a15af0bbf3ca2d69ad84c3abd1a5d1",
+                "file": "app/mutations.py",
+                "identity": "column:app/mutations.py#Pointed.target",
+                "kind": "column",
+                "level": 4,
+                "name": "target",
+                "qualified_name": "Pointed.target",
+                "span": {
+                  "end_column": 0,
+                  "end_line": 43,
+                  "start_column": 0,
+                  "start_line": 43
+                },
+                "type": "node"
+              }
+            }
+          ],
+          "completeness": "partial",
+          "created_by": null,
+          "foreign_keys_in": 0,
+          "foreign_keys_out": 0,
+          "indexes": [],
+          "node": {
+            "attributes": {
+              "assumptions": [
+                "V1",
+                "V4",
+                "V6",
+                "V7"
+              ],
+              "check_constraints": [],
+              "class": "class:app/mutations.py#Pointed",
+              "column_set": "complete",
+              "constraint_set": "partial",
+              "ddl_hooks": false,
+              "indexes": [],
+              "name": "pointed",
+              "pins": {
+                "pydantic": "2.13.4",
+                "sqlalchemy": "2.0.51",
+                "sqlmodel": "0.0.39"
+              },
+              "primary_key": [
+                "id"
+              ],
+              "reasons": [
+                {
+                  "fact": "constraint_set",
+                  "file": "app/mutations.py",
+                  "line": 64,
+                  "reason": "append_foreign_key at app/mutations.py:64",
+                  "row": "X1"
+                }
+              ],
+              "schema": null,
+              "schema_known": true,
+              "set": "models/sqlmodel/.",
+              "source": "model",
+              "state": "partial",
+              "tool": "sqlmodel",
+              "unique_constraints": [],
+              "verification": "oracle"
+            },
+            "content_hash": "sha256:e4c83996e80ffb2027cb068ec88be985fb8581d0ac1feb7942ac6d37af4003b5",
+            "file": "app/mutations.py",
+            "identity": "table:app/mutations.py#Pointed",
+            "kind": "table",
+            "level": 4,
+            "name": "pointed",
+            "qualified_name": "Pointed",
+            "span": {
+              "end_column": 0,
+              "end_line": 43,
+              "start_column": 0,
+              "start_line": 41
+            },
+            "type": "node"
+          },
+          "opaque_sites": null,
+          "overlaps": [],
+          "rests_on": [
+            "V1",
+            "V4",
+            "V6",
+            "V7"
+          ],
+          "unresolved_references": 0,
+          "verification_counts": {
+            "oracle": 18
+          }
+        },
+        {
+          "altered_by": [],
+          "columns": [
+            {
+              "default_state": "unknown",
+              "node": {
+                "attributes": {
+                  "annotation": "int",
+                  "attribute": "id",
+                  "default": "absent",
+                  "defined_in": {
+                    "file": "app/mutations.py",
+                    "line": 95
+                  },
+                  "foreign_keys": [],
+                  "index": false,
+                  "length": null,
+                  "name": "id",
+                  "nullable": false,
+                  "precision": null,
+                  "primary_key": true,
+                  "reasons": [],
+                  "scale": null,
+                  "server_default": false,
+                  "source": "model",
+                  "state": "read",
+                  "timezone": null,
+                  "type": "Integer",
+                  "unique": false
+                },
+                "content_hash": "sha256:be31716dd4fc4092ad0a63cfe3ab6dde04f4775218580af0e1378680119f066c",
+                "file": "app/mutations.py",
+                "identity": "column:app/mutations.py#Rekeyed.id",
+                "kind": "column",
+                "level": 4,
+                "name": "id",
+                "qualified_name": "Rekeyed.id",
+                "span": {
+                  "end_column": 0,
+                  "end_line": 95,
+                  "start_column": 0,
+                  "start_line": 95
+                },
+                "type": "node"
+              }
+            }
+          ],
+          "completeness": "partial",
+          "created_by": null,
+          "foreign_keys_in": 0,
+          "foreign_keys_out": 0,
+          "indexes": [],
+          "node": {
+            "attributes": {
+              "assumptions": [
+                "V1",
+                "V4",
+                "V6",
+                "V7"
+              ],
+              "check_constraints": null,
+              "class": "class:app/mutations.py#Rekeyed",
+              "column_set": "partial",
+              "constraint_set": "partial",
+              "ddl_hooks": false,
+              "indexes": null,
+              "name": "rekeyed",
+              "pins": {
+                "pydantic": "2.13.4",
+                "sqlalchemy": "2.0.51",
+                "sqlmodel": "0.0.39"
+              },
+              "primary_key": null,
+              "reasons": [
+                {
+                  "fact": "column_set",
+                  "file": "app/mutations.py",
+                  "line": 107,
+                  "reason": "attribute_assign at app/mutations.py:107",
+                  "row": "X1"
+                }
+              ],
+              "schema": null,
+              "schema_known": true,
+              "set": "models/sqlmodel/.",
+              "source": "model",
+              "state": "partial",
+              "tool": "sqlmodel",
+              "unique_constraints": null,
+              "verification": "oracle"
+            },
+            "content_hash": "sha256:9eb37a772b5a43e66a7f828c21ba1f511156cecf334f42af43313bfe839b622f",
+            "file": "app/mutations.py",
+            "identity": "table:app/mutations.py#Rekeyed",
+            "kind": "table",
+            "level": 4,
+            "name": "rekeyed",
+            "qualified_name": "Rekeyed",
+            "span": {
+              "end_column": 0,
+              "end_line": 96,
+              "start_column": 0,
+              "start_line": 94
+            },
+            "type": "node"
+          },
+          "opaque_sites": null,
+          "overlaps": [],
+          "rests_on": [
+            "V1",
+            "V4",
+            "V6",
+            "V7"
+          ],
+          "unresolved_references": 0,
+          "verification_counts": {
+            "oracle": 9
+          }
+        },
+        {
+          "altered_by": [],
+          "columns": [
+            {
+              "default_state": "unknown",
+              "node": {
+                "attributes": {
+                  "annotation": "int",
+                  "attribute": "id",
+                  "default": "absent",
+                  "defined_in": {
+                    "file": "app/mutations.py",
+                    "line": 89
+                  },
+                  "foreign_keys": [],
+                  "index": false,
+                  "length": null,
+                  "name": "id",
+                  "nullable": false,
+                  "precision": null,
+                  "primary_key": true,
+                  "reasons": [],
+                  "scale": null,
+                  "server_default": false,
+                  "source": "model",
+                  "state": "read",
+                  "timezone": null,
+                  "type": "Integer",
+                  "unique": false
+                },
+                "content_hash": "sha256:be31716dd4fc4092ad0a63cfe3ab6dde04f4775218580af0e1378680119f066c",
+                "file": "app/mutations.py",
+                "identity": "column:app/mutations.py#Relabeled.id",
+                "kind": "column",
+                "level": 4,
+                "name": "id",
+                "qualified_name": "Relabeled.id",
+                "span": {
+                  "end_column": 0,
+                  "end_line": 89,
+                  "start_column": 0,
+                  "start_line": 89
+                },
+                "type": "node"
+              }
+            },
+            {
+              "default_state": "unknown",
+              "node": {
+                "attributes": {
+                  "annotation": "str",
+                  "attribute": "note",
+                  "default": "absent",
+                  "defined_in": {
+                    "file": "app/mutations.py",
+                    "line": 91
+                  },
+                  "foreign_keys": [],
+                  "index": false,
+                  "length": "none",
+                  "name": "note",
+                  "nullable": false,
+                  "precision": null,
+                  "primary_key": false,
+                  "reasons": [],
+                  "scale": null,
+                  "server_default": false,
+                  "source": "model",
+                  "state": "read",
+                  "timezone": null,
+                  "type": "AutoString",
+                  "unique": false
+                },
+                "content_hash": "sha256:c0ac8586eff6d01fdc7d24082325b73c2b7e06cc5ce0e0d5ecb1374e804c92ed",
+                "file": "app/mutations.py",
+                "identity": "column:app/mutations.py#Relabeled.note",
+                "kind": "column",
+                "level": 4,
+                "name": "note",
+                "qualified_name": "Relabeled.note",
+                "span": {
+                  "end_column": 0,
+                  "end_line": 91,
+                  "start_column": 0,
+                  "start_line": 91
+                },
+                "type": "node"
+              }
+            }
+          ],
+          "completeness": "partial",
+          "created_by": null,
+          "foreign_keys_in": 0,
+          "foreign_keys_out": 0,
+          "indexes": [],
+          "node": {
+            "attributes": {
+              "assumptions": [
+                "V1",
+                "V4",
+                "V6",
+                "V7"
+              ],
+              "check_constraints": null,
+              "class": "class:app/mutations.py#Relabeled",
+              "column_set": "partial",
+              "constraint_set": "partial",
+              "ddl_hooks": false,
+              "indexes": null,
+              "name": "relabeled",
+              "pins": {
+                "pydantic": "2.13.4",
+                "sqlalchemy": "2.0.51",
+                "sqlmodel": "0.0.39"
+              },
+              "primary_key": null,
+              "reasons": [
+                {
+                  "fact": "column_set",
+                  "file": "app/mutations.py",
+                  "line": 105,
+                  "reason": "attribute_assign at app/mutations.py:105",
+                  "row": "X1"
+                }
+              ],
+              "schema": null,
+              "schema_known": true,
+              "set": "models/sqlmodel/.",
+              "source": "model",
+              "state": "partial",
+              "tool": "sqlmodel",
+              "unique_constraints": null,
+              "verification": "oracle"
+            },
+            "content_hash": "sha256:5abe796752e787e5ebbcd6f901d2947770ab9a1cfeee74ad9bc9cc6309377dac",
+            "file": "app/mutations.py",
+            "identity": "table:app/mutations.py#Relabeled",
+            "kind": "table",
+            "level": 4,
+            "name": "relabeled",
+            "qualified_name": "Relabeled",
+            "span": {
+              "end_column": 0,
+              "end_line": 91,
+              "start_column": 0,
+              "start_line": 88
+            },
+            "type": "node"
+          },
+          "opaque_sites": null,
+          "overlaps": [],
+          "rests_on": [
+            "V1",
+            "V4",
+            "V6",
+            "V7"
+          ],
+          "unresolved_references": 0,
+          "verification_counts": {
+            "oracle": 19
+          }
+        },
+        {
+          "altered_by": [],
+          "columns": [
+            {
+              "default_state": "none",
+              "node": {
+                "attributes": {
+                  "annotation": "Optional[int]",
+                  "attribute": "id",
+                  "default": "absent",
+                  "defined_in": {
+                    "file": "app/decorators.py",
+                    "line": 11
+                  },
+                  "foreign_keys": [],
+                  "index": false,
+                  "length": null,
+                  "name": "id",
+                  "nullable": false,
+                  "precision": null,
+                  "primary_key": true,
+                  "reasons": [],
+                  "scale": null,
+                  "server_default": false,
+                  "source": "model",
+                  "state": "read",
+                  "timezone": null,
+                  "type": "Integer",
+                  "unique": false
+                },
+                "content_hash": "sha256:df770e8d1ac5deb557af957956ea51d70c81c8b82d46279e71acb620571693c3",
+                "file": "app/decorators.py",
+                "identity": "column:app/decorators.py#Schedule.id",
+                "kind": "column",
+                "level": 4,
+                "name": "id",
+                "qualified_name": "Schedule.id",
+                "span": {
+                  "end_column": 0,
+                  "end_line": 11,
+                  "start_column": 0,
+                  "start_line": 11
+                },
+                "type": "node"
+              }
+            },
+            {
+              "default_state": "none",
+              "node": {
+                "attributes": {
+                  "annotation": "str",
+                  "attribute": "label",
+                  "default": "absent",
+                  "defined_in": {
+                    "file": "app/decorators.py",
+                    "line": 12
+                  },
+                  "foreign_keys": [],
+                  "index": false,
+                  "length": "none",
+                  "name": "label",
+                  "nullable": false,
+                  "precision": null,
+                  "primary_key": false,
+                  "reasons": [],
+                  "scale": null,
+                  "server_default": false,
+                  "source": "model",
+                  "state": "read",
+                  "timezone": null,
+                  "type": "AutoString",
+                  "unique": false
+                },
+                "content_hash": "sha256:afb6f43a9085788df84096874c949ddaec9c4bfeca0a763417d0ee916449c5eb",
+                "file": "app/decorators.py",
+                "identity": "column:app/decorators.py#Schedule.label",
+                "kind": "column",
+                "level": 4,
+                "name": "label",
+                "qualified_name": "Schedule.label",
+                "span": {
+                  "end_column": 0,
+                  "end_line": 12,
+                  "start_column": 0,
+                  "start_line": 12
+                },
+                "type": "node"
+              }
+            }
+          ],
+          "completeness": "complete",
+          "created_by": null,
+          "foreign_keys_in": 0,
+          "foreign_keys_out": 0,
+          "indexes": [],
+          "node": {
+            "attributes": {
+              "assumptions": [
+                "V1",
+                "V4",
+                "V6",
+                "V7"
+              ],
+              "check_constraints": [],
+              "class": "class:app/decorators.py#Schedule",
+              "column_set": "complete",
+              "constraint_set": "complete",
+              "ddl_hooks": false,
+              "indexes": [],
+              "name": "schedule",
+              "pins": {
+                "pydantic": "2.13.4",
+                "sqlalchemy": "2.0.51",
+                "sqlmodel": "0.0.39"
+              },
+              "primary_key": [
+                "id"
+              ],
+              "reasons": [],
+              "schema": null,
+              "schema_known": true,
+              "set": "models/sqlmodel/.",
+              "source": "model",
+              "state": "complete",
+              "tool": "sqlmodel",
+              "unique_constraints": [],
+              "verification": "oracle"
+            },
+            "content_hash": "sha256:34931273b9b847d19498cb2a1061ea6d75dcd9da470014468393ae03b84d196e",
+            "file": "app/decorators.py",
+            "identity": "table:app/decorators.py#Schedule",
+            "kind": "table",
+            "level": 4,
+            "name": "schedule",
+            "qualified_name": "Schedule",
+            "span": {
+              "end_column": 0,
+              "end_line": 16,
+              "start_column": 0,
+              "start_line": 10
+            },
+            "type": "node"
+          },
+          "opaque_sites": null,
+          "overlaps": [],
+          "rests_on": [
+            "V1",
+            "V4",
+            "V6",
+            "V7"
+          ],
+          "unresolved_references": 0,
+          "verification_counts": {
+            "oracle": 19
+          }
+        },
+        {
+          "altered_by": [],
+          "columns": [
+            {
+              "default_state": "unknown",
+              "node": {
+                "attributes": {
+                  "annotation": "Optional[int]",
+                  "attribute": "id",
+                  "default": "absent",
+                  "defined_in": {
+                    "file": "app/decorators_shadowed.py",
+                    "line": 15
+                  },
+                  "foreign_keys": [],
+                  "index": false,
+                  "length": null,
+                  "name": "id",
+                  "nullable": false,
+                  "precision": null,
+                  "primary_key": true,
+                  "reasons": [],
+                  "scale": null,
+                  "server_default": false,
+                  "source": "model",
+                  "state": "read",
+                  "timezone": null,
+                  "type": "Integer",
+                  "unique": false
+                },
+                "content_hash": "sha256:df770e8d1ac5deb557af957956ea51d70c81c8b82d46279e71acb620571693c3",
+                "file": "app/decorators_shadowed.py",
+                "identity": "column:app/decorators_shadowed.py#Shadowed.id",
+                "kind": "column",
+                "level": 4,
+                "name": "id",
+                "qualified_name": "Shadowed.id",
+                "span": {
+                  "end_column": 0,
+                  "end_line": 15,
+                  "start_column": 0,
+                  "start_line": 15
+                },
+                "type": "node"
+              }
+            }
+          ],
+          "completeness": "partial",
+          "created_by": null,
+          "foreign_keys_in": 0,
+          "foreign_keys_out": 0,
+          "indexes": [],
+          "node": {
+            "attributes": {
+              "assumptions": [
+                "V1",
+                "V4",
+                "V6",
+                "V7"
+              ],
+              "check_constraints": [],
+              "class": "class:app/decorators_shadowed.py#Shadowed",
+              "column_set": "partial",
+              "constraint_set": "partial",
+              "ddl_hooks": false,
+              "indexes": [],
+              "name": "shadowed",
+              "pins": {
+                "pydantic": "2.13.4",
+                "sqlalchemy": "2.0.51",
+                "sqlmodel": "0.0.39"
+              },
+              "primary_key": null,
+              "reasons": [
+                {
+                  "fact": "column_set",
+                  "file": "app/decorators_shadowed.py",
+                  "line": 18,
+                  "reason": "method make the contract does not read",
+                  "row": "M1"
+                }
+              ],
+              "schema": null,
+              "schema_known": true,
+              "set": "models/sqlmodel/.",
+              "source": "model",
+              "state": "partial",
+              "tool": "sqlmodel",
+              "unique_constraints": [],
+              "verification": "oracle"
+            },
+            "content_hash": "sha256:3f0569d826e3f50bc6afe7e3799893b3d3050dc0df7ea9c58aa0fa3920c3dd10",
+            "file": "app/decorators_shadowed.py",
+            "identity": "table:app/decorators_shadowed.py#Shadowed",
+            "kind": "table",
+            "level": 4,
+            "name": "shadowed",
+            "qualified_name": "Shadowed",
+            "span": {
+              "end_column": 0,
+              "end_line": 19,
+              "start_column": 0,
+              "start_line": 13
+            },
+            "type": "node"
+          },
+          "opaque_sites": null,
+          "overlaps": [],
+          "rests_on": [
+            "V1",
+            "V4",
+            "V6",
+            "V7"
+          ],
+          "unresolved_references": 0,
+          "verification_counts": {
+            "oracle": 9
+          }
+        },
+        {
+          "altered_by": [],
+          "columns": [
+            {
+              "default_state": "unknown",
+              "node": {
+                "attributes": {
+                  "annotation": "int",
+                  "attribute": "size",
+                  "default": "absent",
+                  "defined_in": {
+                    "file": "app/pairs.py",
+                    "line": 19
+                  },
+                  "foreign_keys": [],
+                  "index": false,
+                  "length": null,
+                  "name": "size",
+                  "nullable": null,
+                  "precision": null,
+                  "primary_key": null,
+                  "reasons": [
+                    {
+                      "fact": "primary_key",
+                      "file": "app/pairs.py",
+                      "line": 16,
+                      "reason": "the constraint set may hold a primary key",
+                      "row": "TA-D"
+                    }
+                  ],
+                  "scale": null,
+                  "server_default": false,
+                  "source": "model",
+                  "state": "read",
+                  "timezone": null,
+                  "type": "Integer",
+                  "unique": false
+                },
+                "content_hash": "sha256:007b3e711ee2a94b803d7c44a06a09d2434536799749b3f9338924c7ccfb1445",
+                "file": "app/pairs.py",
+                "identity": "column:app/pairs.py#Slot.size",
+                "kind": "column",
+                "level": 4,
+                "name": "size",
+                "qualified_name": "Slot.size",
+                "span": {
+                  "end_column": 0,
+                  "end_line": 19,
+                  "start_column": 0,
+                  "start_line": 19
+                },
+                "type": "node"
+              }
+            },
+            {
+              "default_state": "unknown",
+              "node": {
+                "attributes": {
+                  "annotation": "int",
+                  "attribute": "slot",
+                  "default": "absent",
+                  "defined_in": {
+                    "file": "app/pairs.py",
+                    "line": 18
+                  },
+                  "foreign_keys": [],
+                  "index": false,
+                  "length": null,
+                  "name": "slot",
+                  "nullable": null,
+                  "precision": null,
+                  "primary_key": null,
+                  "reasons": [
+                    {
+                      "fact": "primary_key",
+                      "file": "app/pairs.py",
+                      "line": 16,
+                      "reason": "the constraint set may hold a primary key",
+                      "row": "TA-D"
+                    }
+                  ],
+                  "scale": null,
+                  "server_default": false,
+                  "source": "model",
+                  "state": "read",
+                  "timezone": null,
+                  "type": "Integer",
+                  "unique": false
+                },
+                "content_hash": "sha256:87d8a2d484ade7b8cdc5fae373e226b2544c3d532cc7023ae42982770d245342",
+                "file": "app/pairs.py",
+                "identity": "column:app/pairs.py#Slot.slot",
+                "kind": "column",
+                "level": 4,
+                "name": "slot",
+                "qualified_name": "Slot.slot",
+                "span": {
+                  "end_column": 0,
+                  "end_line": 18,
+                  "start_column": 0,
+                  "start_line": 18
+                },
+                "type": "node"
+              }
+            }
+          ],
+          "completeness": "partial",
+          "created_by": null,
+          "foreign_keys_in": 0,
+          "foreign_keys_out": 0,
+          "indexes": [],
+          "node": {
+            "attributes": {
+              "assumptions": [
+                "V1",
+                "V4",
+                "V6",
+                "V7"
+              ],
+              "check_constraints": [],
+              "class": "class:app/pairs.py#Slot",
+              "column_set": "complete",
+              "constraint_set": "partial",
+              "ddl_hooks": false,
+              "indexes": [],
+              "name": "slot",
+              "pins": {
+                "pydantic": "2.13.4",
+                "sqlalchemy": "2.0.51",
+                "sqlmodel": "0.0.39"
+              },
+              "primary_key": null,
+              "reasons": [
+                {
+                  "fact": "constraint_set",
+                  "file": "app/pairs.py",
+                  "line": 17,
+                  "reason": "element the contract does not read",
+                  "row": "TA-D"
+                }
+              ],
+              "schema": null,
+              "schema_known": true,
+              "set": "models/sqlmodel/.",
+              "source": "model",
+              "state": "partial",
+              "tool": "sqlmodel",
+              "unique_constraints": [],
+              "verification": "oracle"
+            },
+            "content_hash": "sha256:c0cfb28fa31a0c250bb0298a2d78d52282952b66e8648c23f804a6032a104222",
+            "file": "app/pairs.py",
+            "identity": "table:app/pairs.py#Slot",
+            "kind": "table",
+            "level": 4,
+            "name": "slot",
+            "qualified_name": "Slot",
+            "span": {
+              "end_column": 0,
+              "end_line": 19,
+              "start_column": 0,
+              "start_line": 16
+            },
+            "type": "node"
+          },
+          "opaque_sites": null,
+          "overlaps": [],
+          "rests_on": [
+            "V1",
+            "V4",
+            "V6",
+            "V7"
+          ],
+          "unresolved_references": 0,
+          "verification_counts": {
+            "oracle": 14
+          }
+        },
+        {
+          "altered_by": [],
+          "columns": [
+            {
+              "default_state": "none",
+              "node": {
+                "attributes": {
+                  "annotation": "str",
+                  "attribute": "callsign",
+                  "default": "absent",
+                  "defined_in": {
+                    "file": "app/squads.py",
+                    "line": 9
+                  },
+                  "foreign_keys": [],
+                  "index": false,
+                  "length": 12,
+                  "name": "callsign",
+                  "nullable": false,
+                  "precision": null,
+                  "primary_key": false,
+                  "reasons": [],
+                  "scale": null,
+                  "server_default": false,
+                  "source": "model",
+                  "state": "read",
+                  "timezone": null,
+                  "type": "AutoString",
+                  "unique": false
+                },
+                "content_hash": "sha256:fb4c28ef31fd374456d80716ab90f10f4c5d0955ad231cc3e0a5d13e923edc98",
+                "file": "app/squads.py",
+                "identity": "column:app/squads.py#Squad.callsign",
+                "kind": "column",
+                "level": 4,
+                "name": "callsign",
+                "qualified_name": "Squad.callsign",
+                "span": {
+                  "end_column": 0,
+                  "end_line": 9,
+                  "start_column": 0,
+                  "start_line": 9
+                },
+                "type": "node"
+              }
+            },
+            {
+              "default_state": "none",
+              "node": {
+                "attributes": {
+                  "annotation": "Optional[int]",
+                  "attribute": "id",
+                  "default": "absent",
+                  "defined_in": {
+                    "file": "app/core/mixins.py",
+                    "line": 14
+                  },
+                  "foreign_keys": [],
+                  "index": false,
+                  "length": null,
+                  "name": "id",
+                  "nullable": false,
+                  "precision": null,
+                  "primary_key": true,
+                  "reasons": [],
+                  "scale": null,
+                  "server_default": false,
+                  "source": "model",
+                  "state": "read",
+                  "timezone": null,
+                  "type": "Integer",
+                  "unique": false
+                },
+                "content_hash": "sha256:df770e8d1ac5deb557af957956ea51d70c81c8b82d46279e71acb620571693c3",
+                "file": "app/squads.py",
+                "identity": "column:app/squads.py#Squad.id",
+                "kind": "column",
+                "level": 4,
+                "name": "id",
+                "qualified_name": "Squad.id",
+                "span": {
+                  "end_column": 0,
+                  "end_line": 9,
+                  "start_column": 0,
+                  "start_line": 8
+                },
+                "type": "node"
+              }
+            },
+            {
+              "default_state": "none",
+              "node": {
+                "attributes": {
+                  "annotation": "Optional[datetime]",
+                  "attribute": "updated",
+                  "default": "absent",
+                  "defined_in": {
+                    "file": "app/core/mixins.py",
+                    "line": 10
+                  },
+                  "foreign_keys": [],
+                  "index": false,
+                  "length": null,
+                  "name": "updated",
+                  "nullable": true,
+                  "precision": null,
+                  "primary_key": false,
+                  "reasons": [],
+                  "scale": null,
+                  "server_default": false,
+                  "source": "model",
+                  "state": "read",
+                  "timezone": false,
+                  "type": "DateTime",
+                  "unique": false
+                },
+                "content_hash": "sha256:d7ee26c095004cb9ca0decc75ab0aa17cb7bd3fe6212fa5566d15a486933b774",
+                "file": "app/squads.py",
+                "identity": "column:app/squads.py#Squad.updated",
+                "kind": "column",
+                "level": 4,
+                "name": "updated",
+                "qualified_name": "Squad.updated",
+                "span": {
+                  "end_column": 0,
+                  "end_line": 9,
+                  "start_column": 0,
+                  "start_line": 8
+                },
+                "type": "node"
+              }
+            }
+          ],
+          "completeness": "complete",
+          "created_by": null,
+          "foreign_keys_in": 0,
+          "foreign_keys_out": 0,
+          "indexes": [],
+          "node": {
+            "attributes": {
+              "assumptions": [
+                "V1",
+                "V4",
+                "V6",
+                "V7"
+              ],
+              "check_constraints": [],
+              "class": "class:app/squads.py#Squad",
+              "column_set": "complete",
+              "constraint_set": "complete",
+              "ddl_hooks": false,
+              "indexes": [],
+              "name": "squad",
+              "pins": {
+                "pydantic": "2.13.4",
+                "sqlalchemy": "2.0.51",
+                "sqlmodel": "0.0.39"
+              },
+              "primary_key": [
+                "id"
+              ],
+              "reasons": [],
+              "schema": null,
+              "schema_known": true,
+              "set": "models/sqlmodel/.",
+              "source": "model",
+              "state": "complete",
+              "tool": "sqlmodel",
+              "unique_constraints": [],
+              "verification": "oracle"
+            },
+            "content_hash": "sha256:ef7468596b3090b424df2919435f7e6c1aa285c3001db6e6b47f96608e6b5f40",
+            "file": "app/squads.py",
+            "identity": "table:app/squads.py#Squad",
+            "kind": "table",
+            "level": 4,
+            "name": "squad",
+            "qualified_name": "Squad",
+            "span": {
+              "end_column": 0,
+              "end_line": 9,
+              "start_column": 0,
+              "start_line": 8
+            },
+            "type": "node"
+          },
+          "opaque_sites": null,
+          "overlaps": [],
+          "rests_on": [
+            "V1",
+            "V4",
+            "V6",
+            "V7"
+          ],
+          "unresolved_references": 0,
+          "verification_counts": {
+            "oracle": 29
+          }
+        },
+        {
+          "altered_by": [],
+          "columns": [
+            {
+              "default_state": "unknown",
+              "node": {
+                "attributes": {
+                  "annotation": "int",
+                  "attribute": "id",
+                  "default": null,
+                  "defined_in": {
+                    "file": "app/mutations.py",
+                    "line": 32
+                  },
+                  "foreign_keys": null,
+                  "index": null,
+                  "length": null,
+                  "name": "id",
+                  "nullable": null,
+                  "precision": null,
+                  "primary_key": null,
+                  "reasons": [
+                    {
+                      "fact": null,
+                      "file": "app/mutations.py",
+                      "line": 32,
+                      "reason": "append_column at app/mutations.py:60 (may replace a defined column)",
+                      "row": "X1"
+                    }
+                  ],
+                  "scale": null,
+                  "server_default": null,
+                  "source": "model",
+                  "state": "unknown",
+                  "timezone": null,
+                  "type": null,
+                  "unique": null
+                },
+                "content_hash": "sha256:be31716dd4fc4092ad0a63cfe3ab6dde04f4775218580af0e1378680119f066c",
+                "file": "app/mutations.py",
+                "identity": "column:app/mutations.py#Swapped.id",
+                "kind": "column",
+                "level": 4,
+                "name": "id",
+                "qualified_name": "Swapped.id",
+                "span": {
+                  "end_column": 0,
+                  "end_line": 32,
+                  "start_column": 0,
+                  "start_line": 32
+                },
+                "type": "node"
+              }
+            },
+            {
+              "default_state": "unknown",
+              "node": {
+                "attributes": {
+                  "annotation": "int",
+                  "attribute": "size",
+                  "default": null,
+                  "defined_in": {
+                    "file": "app/mutations.py",
+                    "line": 33
+                  },
+                  "foreign_keys": null,
+                  "index": null,
+                  "length": null,
+                  "name": "size",
+                  "nullable": null,
+                  "precision": null,
+                  "primary_key": null,
+                  "reasons": [
+                    {
+                      "fact": null,
+                      "file": "app/mutations.py",
+                      "line": 33,
+                      "reason": "append_column at app/mutations.py:60 (may replace a defined column)",
+                      "row": "X1"
+                    }
+                  ],
+                  "scale": null,
+                  "server_default": null,
+                  "source": "model",
+                  "state": "unknown",
+                  "timezone": null,
+                  "type": null,
+                  "unique": null
+                },
+                "content_hash": "sha256:f77ed483ce6c62d4c3398d81637056799b777a5b3e04754880ee40a40aa44bd4",
+                "file": "app/mutations.py",
+                "identity": "column:app/mutations.py#Swapped.size",
+                "kind": "column",
+                "level": 4,
+                "name": "size",
+                "qualified_name": "Swapped.size",
+                "span": {
+                  "end_column": 0,
+                  "end_line": 33,
+                  "start_column": 0,
+                  "start_line": 33
+                },
+                "type": "node"
+              }
+            }
+          ],
+          "completeness": "partial",
+          "created_by": null,
+          "foreign_keys_in": 0,
+          "foreign_keys_out": 0,
+          "indexes": [],
+          "node": {
+            "attributes": {
+              "assumptions": [
+                "V1",
+                "V4",
+                "V6",
+                "V7"
+              ],
+              "check_constraints": [],
+              "class": "class:app/mutations.py#Swapped",
+              "column_set": "partial",
+              "constraint_set": "partial",
+              "ddl_hooks": false,
+              "indexes": [],
+              "name": "swapped",
+              "pins": {
+                "pydantic": "2.13.4",
+                "sqlalchemy": "2.0.51",
+                "sqlmodel": "0.0.39"
+              },
+              "primary_key": null,
+              "reasons": [
+                {
+                  "fact": "column_set",
+                  "file": "app/mutations.py",
+                  "line": 60,
+                  "reason": "append_column at app/mutations.py:60",
+                  "row": "X1"
+                }
+              ],
+              "schema": null,
+              "schema_known": true,
+              "set": "models/sqlmodel/.",
+              "source": "model",
+              "state": "partial",
+              "tool": "sqlmodel",
+              "unique_constraints": [],
+              "verification": "oracle"
+            },
+            "content_hash": "sha256:3da432e2c50ce666147673a3483c2bc5d69cdcacf8c60c39f4da36c51c36fe57",
+            "file": "app/mutations.py",
+            "identity": "table:app/mutations.py#Swapped",
+            "kind": "table",
+            "level": 4,
+            "name": "swapped",
+            "qualified_name": "Swapped",
+            "span": {
+              "end_column": 0,
+              "end_line": 33,
+              "start_column": 0,
+              "start_line": 31
+            },
+            "type": "node"
+          },
+          "opaque_sites": null,
+          "overlaps": [],
+          "rests_on": [
+            "V1",
+            "V4",
+            "V6",
+            "V7"
+          ],
+          "unresolved_references": 0,
+          "verification_counts": {}
+        },
+        {
+          "altered_by": [],
+          "columns": [
+            {
+              "default_state": "unknown",
+              "node": {
+                "attributes": {
+                  "annotation": "str",
+                  "attribute": "code",
+                  "default": "absent",
+                  "defined_in": {
+                    "file": "app/models.py",
+                    "line": 34
+                  },
+                  "foreign_keys": [],
+                  "index": false,
+                  "length": 8,
+                  "name": "code",
+                  "nullable": false,
+                  "precision": null,
+                  "primary_key": false,
+                  "reasons": [],
+                  "scale": null,
+                  "server_default": false,
+                  "source": "model",
+                  "state": "read",
+                  "timezone": null,
+                  "type": "AutoString",
+                  "unique": false
+                },
+                "content_hash": "sha256:1d984ecfe3aeb3a462b61470fb467483ba42f605de69f45ae78e6725a5cecef4",
+                "file": "app/models.py",
+                "identity": "column:app/models.py#Tagged.code",
+                "kind": "column",
+                "level": 4,
+                "name": "code",
+                "qualified_name": "Tagged.code",
+                "span": {
+                  "end_column": 0,
+                  "end_line": 34,
+                  "start_column": 0,
+                  "start_line": 34
+                },
+                "type": "node"
+              }
+            },
+            {
+              "default_state": "unknown",
+              "node": {
+                "attributes": {
+                  "annotation": "Optional[int]",
+                  "attribute": "id",
+                  "default": "absent",
+                  "defined_in": {
+                    "file": "app/models.py",
+                    "line": 33
+                  },
+                  "foreign_keys": [],
+                  "index": false,
+                  "length": null,
+                  "name": "id",
+                  "nullable": false,
+                  "precision": null,
+                  "primary_key": true,
+                  "reasons": [],
+                  "scale": null,
+                  "server_default": false,
+                  "source": "model",
+                  "state": "read",
+                  "timezone": null,
+                  "type": "Integer",
+                  "unique": false
+                },
+                "content_hash": "sha256:df770e8d1ac5deb557af957956ea51d70c81c8b82d46279e71acb620571693c3",
+                "file": "app/models.py",
+                "identity": "column:app/models.py#Tagged.id",
+                "kind": "column",
+                "level": 4,
+                "name": "id",
+                "qualified_name": "Tagged.id",
+                "span": {
+                  "end_column": 0,
+                  "end_line": 33,
+                  "start_column": 0,
+                  "start_line": 33
+                },
+                "type": "node"
+              }
+            }
+          ],
+          "completeness": "partial",
+          "created_by": null,
+          "foreign_keys_in": 0,
+          "foreign_keys_out": 0,
+          "indexes": [],
+          "node": {
+            "attributes": {
+              "assumptions": [
+                "V1",
+                "V4",
+                "V6",
+                "V7"
+              ],
+              "check_constraints": [
+                {
+                  "name": "ck_tagged_code",
+                  "sqltext": "length(code) \u003e 1"
+                }
+              ],
+              "class": "class:app/models.py#Tagged",
+              "column_set": "complete",
+              "constraint_set": "partial",
+              "ddl_hooks": false,
+              "indexes": [
+                {
+                  "columns": [
+                    "code"
+                  ],
+                  "name": "ix_tagged_code",
+                  "unique": true
+                }
+              ],
+              "name": "tagged",
+              "pins": {
+                "pydantic": "2.13.4",
+                "sqlalchemy": "2.0.51",
+                "sqlmodel": "0.0.39"
+              },
+              "primary_key": [
+                "id"
+              ],
+              "reasons": [
+                {
+                  "fact": "constraint_set",
+                  "file": "app/hooks.py",
+                  "line": 10,
+                  "reason": "append_constraint at app/hooks.py:10",
+                  "row": "X1"
+                }
+              ],
+              "schema": null,
+              "schema_known": true,
+              "set": "models/sqlmodel/.",
+              "source": "model",
+              "state": "partial",
+              "tool": "sqlmodel",
+              "unique_constraints": [],
+              "verification": "oracle"
+            },
+            "content_hash": "sha256:e0c33c479f3f4b69bcaeb962b4dc010a7a38e6413a6da601b1fdd035d02c1438",
+            "file": "app/models.py",
+            "identity": "table:app/models.py#Tagged",
+            "kind": "table",
+            "level": 4,
+            "name": "tagged",
+            "qualified_name": "Tagged",
+            "span": {
+              "end_column": 0,
+              "end_line": 34,
+              "start_column": 0,
+              "start_line": 28
+            },
+            "type": "node"
+          },
+          "opaque_sites": null,
+          "overlaps": [],
+          "rests_on": [
+            "V1",
+            "V4",
+            "V6",
+            "V7"
+          ],
+          "unresolved_references": 0,
+          "verification_counts": {
+            "oracle": 19
+          }
+        },
+        {
+          "altered_by": [],
+          "columns": [
+            {
+              "default_state": "none",
+              "node": {
+                "attributes": {
+                  "annotation": "Optional[datetime]",
+                  "attribute": "created",
+                  "default": "absent",
+                  "defined_in": {
+                    "file": "app/base.py",
+                    "line": 10
+                  },
+                  "foreign_keys": [],
+                  "index": false,
+                  "length": null,
+                  "name": "created",
+                  "nullable": true,
+                  "precision": null,
+                  "primary_key": false,
+                  "reasons": [],
+                  "scale": null,
+                  "server_default": false,
+                  "source": "model",
+                  "state": "read",
+                  "timezone": false,
+                  "type": "DateTime",
+                  "unique": false
+                },
+                "content_hash": "sha256:30bca6d4a4a42c0af521a4e7f6438ab0f99bedee2877afcb74ad520d0e7ce224",
+                "file": "app/models.py",
+                "identity": "column:app/models.py#Team.created",
+                "kind": "column",
+                "level": 4,
+                "name": "created",
+                "qualified_name": "Team.created",
+                "span": {
+                  "end_column": 0,
+                  "end_line": 15,
+                  "start_column": 0,
+                  "start_line": 12
+                },
+                "type": "node"
+              }
+            },
+            {
+              "default_state": "none",
+              "node": {
+                "attributes": {
+                  "annotation": "Optional[int]",
+                  "attribute": "id",
+                  "default": "absent",
+                  "defined_in": {
+                    "file": "app/models.py",
+                    "line": 13
+                  },
+                  "foreign_keys": [],
+                  "index": false,
+                  "length": null,
+                  "name": "id",
+                  "nullable": false,
+                  "precision": null,
+                  "primary_key": true,
+                  "reasons": [],
+                  "scale": null,
+                  "server_default": false,
+                  "source": "model",
+                  "state": "read",
+                  "timezone": null,
+                  "type": "Integer",
+                  "unique": false
+                },
+                "content_hash": "sha256:df770e8d1ac5deb557af957956ea51d70c81c8b82d46279e71acb620571693c3",
+                "file": "app/models.py",
+                "identity": "column:app/models.py#Team.id",
+                "kind": "column",
+                "level": 4,
+                "name": "id",
+                "qualified_name": "Team.id",
+                "span": {
+                  "end_column": 0,
+                  "end_line": 13,
+                  "start_column": 0,
+                  "start_line": 13
+                },
+                "type": "node"
+              }
+            },
+            {
+              "default_state": "python",
+              "node": {
+                "attributes": {
+                  "annotation": "str",
+                  "attribute": "label",
+                  "default": "scalar",
+                  "default_value": "new",
+                  "defined_in": {
+                    "file": "app/base.py",
+                    "line": 11
+                  },
+                  "foreign_keys": [],
+                  "index": false,
+                  "length": 20,
+                  "name": "label",
+                  "nullable": false,
+                  "precision": null,
+                  "primary_key": false,
+                  "reasons": [],
+                  "scale": null,
+                  "server_default": false,
+                  "source": "model",
+                  "state": "read",
+                  "timezone": null,
+                  "type": "AutoString",
+                  "unique": false
+                },
+                "content_hash": "sha256:c07b845a87e57ca845a36e50c6922ff9f47227b923eaa36107f0856a5d1b1234",
+                "file": "app/models.py",
+                "identity": "column:app/models.py#Team.label",
+                "kind": "column",
+                "level": 4,
+                "name": "label",
+                "qualified_name": "Team.label",
+                "span": {
+                  "end_column": 0,
+                  "end_line": 15,
+                  "start_column": 0,
+                  "start_line": 12
+                },
+                "type": "node"
+              }
+            },
+            {
+              "default_state": "none",
+              "node": {
+                "attributes": {
+                  "annotation": "str",
+                  "attribute": "name",
+                  "default": "absent",
+                  "defined_in": {
+                    "file": "app/models.py",
+                    "line": 14
+                  },
+                  "foreign_keys": [],
+                  "index": true,
+                  "length": 50,
+                  "name": "name",
+                  "nullable": false,
+                  "precision": null,
+                  "primary_key": false,
+                  "reasons": [],
+                  "scale": null,
+                  "server_default": false,
+                  "source": "model",
+                  "state": "read",
+                  "timezone": null,
+                  "type": "AutoString",
+                  "unique": false
+                },
+                "content_hash": "sha256:cb42b18c27f19dff79b1cf322d403cb4cca3d43b739826ca50cd49839e0e6ac4",
+                "file": "app/models.py",
+                "identity": "column:app/models.py#Team.name",
+                "kind": "column",
+                "level": 4,
+                "name": "name",
+                "qualified_name": "Team.name",
+                "span": {
+                  "end_column": 0,
+                  "end_line": 14,
+                  "start_column": 0,
+                  "start_line": 14
+                },
+                "type": "node"
+              }
+            }
+          ],
+          "completeness": "complete",
+          "created_by": null,
+          "foreign_keys_in": 1,
+          "foreign_keys_out": 0,
+          "indexes": [],
+          "node": {
+            "attributes": {
+              "assumptions": [
+                "V1",
+                "V4",
+                "V6",
+                "V7"
+              ],
+              "check_constraints": [],
+              "class": "class:app/models.py#Team",
+              "column_set": "complete",
+              "constraint_set": "complete",
+              "ddl_hooks": false,
+              "indexes": [],
+              "name": "team",
+              "pins": {
+                "pydantic": "2.13.4",
+                "sqlalchemy": "2.0.51",
+                "sqlmodel": "0.0.39"
+              },
+              "primary_key": [
+                "id"
+              ],
+              "reasons": [],
+              "schema": null,
+              "schema_known": true,
+              "set": "models/sqlmodel/.",
+              "source": "model",
+              "state": "complete",
+              "tool": "sqlmodel",
+              "unique_constraints": [],
+              "verification": "oracle"
+            },
+            "content_hash": "sha256:d4e959e9767fb0450db2a431bec02f97e948ef30f60231fbdc0241d38eb8963d",
+            "file": "app/models.py",
+            "identity": "table:app/models.py#Team",
+            "kind": "table",
+            "level": 4,
+            "name": "team",
+            "qualified_name": "Team",
+            "span": {
+              "end_column": 0,
+              "end_line": 15,
+              "start_column": 0,
+              "start_line": 12
+            },
+            "type": "node"
+          },
+          "opaque_sites": null,
+          "overlaps": [
+            {
+              "columns_only_here": [
+                "created",
+                "label"
+              ],
+              "columns_only_there": [],
+              "set": "migrations",
+              "source": "migrations",
+              "table": "table:migrations/0001_init.sql#team"
+            }
+          ],
+          "rests_on": [
+            "V1",
+            "V4",
+            "V6",
+            "V7"
+          ],
+          "unresolved_references": 0,
+          "verification_counts": {
+            "oracle": 39
+          }
+        }
+      ],
+      "tables_by_scope": {
+        "production": 19,
+        "test": 0
+      },
+      "test_only": false,
+      "tool": "sqlmodel",
+      "unattached": {
+        "columns": 0,
+        "indexes": 0
+      }
+    }
+  ],
+  "sets_without_records": [],
+  "unread_tools": [],
+  "unreadable_manifests": []
+}

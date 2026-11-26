@@ -1,0 +1,28 @@
+{
+  "id": "review-q21-def-col",
+  "signature": "agreed at af6a883",
+  "class": "S1",
+  "owner": "P5",
+  "row": "review",
+  "history": {
+    "id": "q21-def-col"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "0A000",
+        "message": "cannot use column reference in DEFAULT expression",
+        "statement": 1,
+        "statement_text": "CREATE TABLE t (a int, b int DEFAULT a);"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

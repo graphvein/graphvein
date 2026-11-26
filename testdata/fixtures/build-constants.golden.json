@@ -1,0 +1,1027 @@
+[
+  {
+    "confidence": 0.9,
+    "evidence": [
+      {
+        "file": "frontend.ts",
+        "span": {
+          "end_column": 78,
+          "end_line": 4,
+          "start_column": 42,
+          "start_line": 4
+        }
+      }
+    ],
+    "kind": "calls_route",
+    "provenance": "inferred",
+    "source": "client_call:frontend.ts#declaredGlobal.GET%20%60%24%7B__GLOBAL_API__%7D%2Fbc%2Fglobal%60",
+    "target": "route:server.ts#GET%20%2Fbc%2Fglobal",
+    "type": "edge"
+  },
+  {
+    "confidence": 0.9,
+    "evidence": [
+      {
+        "file": "frontend.ts",
+        "span": {
+          "end_column": 68,
+          "end_line": 1,
+          "start_column": 36,
+          "start_line": 1
+        }
+      }
+    ],
+    "kind": "calls_route",
+    "provenance": "inferred",
+    "source": "client_call:frontend.ts#prefixed.GET%20%60%24%7B__API_URL__%7D%2Fbc%2Fusers%60",
+    "target": "route:server.ts#GET%20%2Fbc%2Fusers",
+    "type": "edge"
+  },
+  {
+    "confidence": 0.9,
+    "evidence": [
+      {
+        "file": "frontend.ts",
+        "span": {
+          "end_column": 55,
+          "end_line": 3,
+          "start_column": 38,
+          "start_line": 3
+        }
+      }
+    ],
+    "kind": "calls_route",
+    "provenance": "inferred",
+    "source": "client_call:frontend.ts#viaWrapper.GET%20%277%27",
+    "target": "route:server.ts#GET%20%2Fbc%2Fusers%2F%3Aid",
+    "type": "edge"
+  },
+  {
+    "confidence": 0.7,
+    "evidence": [
+      {
+        "file": "orval/app.ts",
+        "span": {
+          "end_column": 50,
+          "end_line": 2,
+          "start_column": 32,
+          "start_line": 2
+        }
+      },
+      {
+        "file": "orval/transport.ts",
+        "span": {
+          "end_column": 95,
+          "end_line": 6,
+          "start_column": 25,
+          "start_line": 6
+        }
+      }
+    ],
+    "kind": "calls_route",
+    "provenance": "inferred",
+    "source": "client_call:orval/app.ts#call.GET%20getArticle",
+    "target": "route:server.ts#GET%20%2Fbc%2Farticles%2F%3Aslug",
+    "type": "edge"
+  },
+  {
+    "confidence": 0.7,
+    "evidence": [
+      {
+        "file": "url-objects.ts",
+        "span": {
+          "end_column": 57,
+          "end_line": 18,
+          "start_column": 9,
+          "start_line": 18
+        }
+      }
+    ],
+    "kind": "calls_route",
+    "provenance": "inferred",
+    "source": "client_call:url-objects.ts#assignedOrigin.POST%20requestUrl.toString%28%29",
+    "target": "route:server.ts#POST%20%2Fbc%2Forders",
+    "type": "edge"
+  },
+  {
+    "confidence": 0.7,
+    "evidence": [
+      {
+        "file": "url-objects.ts",
+        "span": {
+          "end_column": 24,
+          "end_line": 3,
+          "start_column": 9,
+          "start_line": 3
+        }
+      }
+    ],
+    "kind": "calls_route",
+    "provenance": "inferred",
+    "source": "client_call:url-objects.ts#baseArgument.GET%20url.href",
+    "target": "route:server.ts#GET%20%2Fbc%2Fusers",
+    "type": "edge"
+  },
+  {
+    "confidence": 0.7,
+    "evidence": [
+      {
+        "file": "url-objects.ts",
+        "span": {
+          "end_column": 24,
+          "end_line": 7,
+          "start_column": 9,
+          "start_line": 7
+        }
+      }
+    ],
+    "kind": "calls_route",
+    "provenance": "inferred",
+    "source": "client_call:url-objects.ts#envArgument.GET%20url.href",
+    "target": "route:server.ts#GET%20%2Fbc%2Fusers",
+    "type": "edge"
+  },
+  {
+    "confidence": 0.7,
+    "evidence": [
+      {
+        "file": "url-objects.ts",
+        "span": {
+          "end_column": 31,
+          "end_line": 24,
+          "start_column": 9,
+          "start_line": 24
+        }
+      }
+    ],
+    "kind": "calls_route",
+    "provenance": "inferred",
+    "source": "client_call:url-objects.ts#hostOnly.GET%20requestUrl.href",
+    "target": "route:server.ts#GET%20%2Fbc%2Fusers",
+    "type": "edge"
+  },
+  {
+    "confidence": 0.7,
+    "evidence": [
+      {
+        "file": "url-objects.ts",
+        "span": {
+          "end_column": 31,
+          "end_line": 40,
+          "start_column": 9,
+          "start_line": 40
+        }
+      }
+    ],
+    "kind": "calls_route",
+    "provenance": "inferred",
+    "source": "client_call:url-objects.ts#rewrittenSource.GET%20requestUrl.href",
+    "target": "route:server.ts#GET%20%2Fbc%2Fusers",
+    "type": "edge"
+  },
+  {
+    "confidence": 0.7,
+    "evidence": [
+      {
+        "file": "url-objects.ts",
+        "span": {
+          "end_column": 31,
+          "end_line": 32,
+          "start_column": 9,
+          "start_line": 32
+        }
+      }
+    ],
+    "kind": "calls_route",
+    "provenance": "inferred",
+    "source": "client_call:url-objects.ts#twoSources.GET%20requestUrl.href",
+    "target": "route:server.ts#GET%20%2Fbc%2Fusers",
+    "type": "edge"
+  },
+  {
+    "attributes": {
+      "base": "unresolved",
+      "base_expression": "__API_URL__",
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "candidate_count": 0,
+          "candidates": [],
+          "conditional": false,
+          "match": null,
+          "origin": null,
+          "resolution": "literal",
+          "status": "unmatched",
+          "template": "/acme/settings"
+        }
+      ],
+      "status": "unmatched",
+      "url_expression": "`${__API_URL__}/acme/settings`",
+      "wrapper": null
+    },
+    "content_hash": "sha256:7865ae3066804be21c465714ecd9e4c21cb3eb9c111faf9c5c396fe887780c54",
+    "file": "frontend.ts",
+    "identity": "client_call:frontend.ts#anchoredPrefix.GET%20%60%24%7B__API_URL__%7D%2Facme%2Fsettings%60",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET `${__API_URL__}/acme/settings`",
+    "qualified_name": "anchoredPrefix.GET `${__API_URL__}/acme/settings`",
+    "span": {
+      "end_column": 79,
+      "end_line": 12,
+      "start_column": 42,
+      "start_line": 12
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "base": "unresolved",
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "candidate_count": 0,
+          "candidates": [],
+          "conditional": false,
+          "match": null,
+          "origin": null,
+          "resolution": "literal",
+          "status": "dynamic",
+          "template": null
+        }
+      ],
+      "status": "dynamic",
+      "url_expression": "`${__ASSIGNED__}/bc/users`",
+      "wrapper": null
+    },
+    "content_hash": "sha256:40b0588734abf6ef3c5f858eccc8bb0dbc34b9e307d6142dfa407ada9ac090d9",
+    "file": "frontend.ts",
+    "identity": "client_call:frontend.ts#assignedGlobal.GET%20%60%24%7B__ASSIGNED__%7D%2Fbc%2Fusers%60",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET `${__ASSIGNED__}/bc/users`",
+    "qualified_name": "assignedGlobal.GET `${__ASSIGNED__}/bc/users`",
+    "span": {
+      "end_column": 75,
+      "end_line": 7,
+      "start_column": 42,
+      "start_line": 7
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "base": "unresolved",
+      "base_expression": "__API_URL__",
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "candidate_count": 0,
+          "candidates": [],
+          "conditional": false,
+          "match": null,
+          "origin": null,
+          "resolution": "evaluated",
+          "status": "dynamic",
+          "template": "/bc/users/{id}"
+        }
+      ],
+      "status": "wrapper",
+      "url_expression": "__API_URL__+'/bc/users/'+id",
+      "wrapper": null
+    },
+    "content_hash": "sha256:cc14941a4f7d0293a6e6dec3b77cd883af107708eb357f87a63041ed5ff2eaed",
+    "file": "frontend.ts",
+    "identity": "client_call:frontend.ts#concatenated.GET%20__API_URL__%2B%27%2Fbc%2Fusers%2F%27%2Bid",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET __API_URL__+'/bc/users/'+id",
+    "qualified_name": "concatenated.GET __API_URL__+'/bc/users/'+id",
+    "span": {
+      "end_column": 88,
+      "end_line": 2,
+      "start_column": 50,
+      "start_line": 2
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "base": "unresolved",
+      "base_expression": "__GLOBAL_API__",
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "candidate_count": 0,
+          "candidates": [
+            "route:server.ts#GET%20%2Fbc%2Fglobal"
+          ],
+          "conditional": false,
+          "match": "exact",
+          "origin": null,
+          "resolution": "literal",
+          "status": "linked",
+          "template": "/bc/global"
+        }
+      ],
+      "status": "linked",
+      "url_expression": "`${__GLOBAL_API__}/bc/global`",
+      "wrapper": null
+    },
+    "content_hash": "sha256:d3272c762c295bad50d751e297c4ebfff455f6e665760faa11057505054d5517",
+    "file": "frontend.ts",
+    "identity": "client_call:frontend.ts#declaredGlobal.GET%20%60%24%7B__GLOBAL_API__%7D%2Fbc%2Fglobal%60",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET `${__GLOBAL_API__}/bc/global`",
+    "qualified_name": "declaredGlobal.GET `${__GLOBAL_API__}/bc/global`",
+    "span": {
+      "end_column": 78,
+      "end_line": 4,
+      "start_column": 42,
+      "start_line": 4
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "base": "unresolved",
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "candidate_count": 0,
+          "candidates": [],
+          "conditional": false,
+          "match": null,
+          "origin": null,
+          "resolution": "literal",
+          "status": "dynamic",
+          "template": null
+        }
+      ],
+      "status": "dynamic",
+      "url_expression": "`${__DEFINED__}/bc/users`",
+      "wrapper": null
+    },
+    "content_hash": "sha256:d7442de5f1c94fa94de1e496a8e01aed3f4ba568ec2ac9c193debc87da2cb4b3",
+    "file": "frontend.ts",
+    "identity": "client_call:frontend.ts#defined.GET%20%60%24%7B__DEFINED__%7D%2Fbc%2Fusers%60",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET `${__DEFINED__}/bc/users`",
+    "qualified_name": "defined.GET `${__DEFINED__}/bc/users`",
+    "span": {
+      "end_column": 67,
+      "end_line": 6,
+      "start_column": 35,
+      "start_line": 6
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "base": "unresolved",
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "candidate_count": 0,
+          "candidates": [],
+          "conditional": false,
+          "match": null,
+          "origin": null,
+          "resolution": "literal",
+          "status": "dynamic",
+          "template": null
+        }
+      ],
+      "status": "dynamic",
+      "url_expression": "`${__LET_URL__}/bc/users`",
+      "wrapper": null
+    },
+    "content_hash": "sha256:b61b44cb50b572610c2cc45dc8f832c2736428d62ece71f34f1dc92d1c237cce",
+    "file": "frontend.ts",
+    "identity": "client_call:frontend.ts#letDeclared.GET%20%60%24%7B__LET_URL__%7D%2Fbc%2Fusers%60",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET `${__LET_URL__}/bc/users`",
+    "qualified_name": "letDeclared.GET `${__LET_URL__}/bc/users`",
+    "span": {
+      "end_column": 71,
+      "end_line": 8,
+      "start_column": 39,
+      "start_line": 8
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "base": "unresolved",
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "candidate_count": 0,
+          "candidates": [],
+          "conditional": false,
+          "match": null,
+          "origin": null,
+          "resolution": "literal",
+          "status": "dynamic",
+          "template": null
+        }
+      ],
+      "status": "dynamic",
+      "url_expression": "`${__MODULE_ONLY__}/bc/users`",
+      "wrapper": null
+    },
+    "content_hash": "sha256:920ab19daf83bc1a6060e6e590985970131842101f59ae937ee0c19ed5bd7a1a",
+    "file": "frontend.ts",
+    "identity": "client_call:frontend.ts#moduleOnly.GET%20%60%24%7B__MODULE_ONLY__%7D%2Fbc%2Fusers%60",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET `${__MODULE_ONLY__}/bc/users`",
+    "qualified_name": "moduleOnly.GET `${__MODULE_ONLY__}/bc/users`",
+    "span": {
+      "end_column": 74,
+      "end_line": 9,
+      "start_column": 38,
+      "start_line": 9
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "base": "unresolved",
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "candidate_count": 0,
+          "candidates": [],
+          "conditional": false,
+          "match": null,
+          "origin": null,
+          "resolution": "literal",
+          "status": "dynamic",
+          "template": null
+        }
+      ],
+      "status": "dynamic",
+      "url_expression": "`${__COUNT__}/bc/users`",
+      "wrapper": null
+    },
+    "content_hash": "sha256:eff5b2f247c235d72363b30f00179780ce47b6ef5538ceccba632052d1cbbfc9",
+    "file": "frontend.ts",
+    "identity": "client_call:frontend.ts#numeric.GET%20%60%24%7B__COUNT__%7D%2Fbc%2Fusers%60",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET `${__COUNT__}/bc/users`",
+    "qualified_name": "numeric.GET `${__COUNT__}/bc/users`",
+    "span": {
+      "end_column": 65,
+      "end_line": 5,
+      "start_column": 35,
+      "start_line": 5
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "base": "unresolved",
+      "base_expression": "__API_URL__",
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "candidate_count": 0,
+          "candidates": [
+            "route:server.ts#GET%20%2Fbc%2Fusers"
+          ],
+          "conditional": false,
+          "match": "exact",
+          "origin": null,
+          "resolution": "literal",
+          "status": "linked",
+          "template": "/bc/users"
+        }
+      ],
+      "status": "linked",
+      "url_expression": "`${__API_URL__}/bc/users`",
+      "wrapper": null
+    },
+    "content_hash": "sha256:1e5103d86663ac702f629e46fd54a17a6b1050572e1f11b10b55ce8455d3d56b",
+    "file": "frontend.ts",
+    "identity": "client_call:frontend.ts#prefixed.GET%20%60%24%7B__API_URL__%7D%2Fbc%2Fusers%60",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET `${__API_URL__}/bc/users`",
+    "qualified_name": "prefixed.GET `${__API_URL__}/bc/users`",
+    "span": {
+      "end_column": 68,
+      "end_line": 1,
+      "start_column": 36,
+      "start_line": 1
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "base": "unresolved",
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "candidate_count": 0,
+          "candidates": [],
+          "conditional": false,
+          "match": null,
+          "origin": null,
+          "resolution": "literal",
+          "status": "dynamic",
+          "template": null
+        }
+      ],
+      "status": "dynamic",
+      "url_expression": "`${__API_URL__}/bc/users`",
+      "wrapper": null
+    },
+    "content_hash": "sha256:1e5103d86663ac702f629e46fd54a17a6b1050572e1f11b10b55ce8455d3d56b",
+    "file": "frontend.ts",
+    "identity": "client_call:frontend.ts#shadowed.GET%20%60%24%7B__API_URL__%7D%2Fbc%2Fusers%60",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET `${__API_URL__}/bc/users`",
+    "qualified_name": "shadowed.GET `${__API_URL__}/bc/users`",
+    "span": {
+      "end_column": 87,
+      "end_line": 11,
+      "start_column": 55,
+      "start_line": 11
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "base": "unresolved",
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "candidate_count": 0,
+          "candidates": [],
+          "conditional": false,
+          "match": null,
+          "origin": null,
+          "resolution": "literal",
+          "status": "dynamic",
+          "template": null
+        }
+      ],
+      "status": "dynamic",
+      "url_expression": "`${__UNDECLARED__}/bc/users`",
+      "wrapper": null
+    },
+    "content_hash": "sha256:0be879cd9326f98e13c777f52aff59e951f6b52b60c8d020731e063842ff16e9",
+    "file": "frontend.ts",
+    "identity": "client_call:frontend.ts#undeclared.GET%20%60%24%7B__UNDECLARED__%7D%2Fbc%2Fusers%60",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET `${__UNDECLARED__}/bc/users`",
+    "qualified_name": "undeclared.GET `${__UNDECLARED__}/bc/users`",
+    "span": {
+      "end_column": 73,
+      "end_line": 10,
+      "start_column": 38,
+      "start_line": 10
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "base": "unresolved",
+      "base_expression": "__API_URL__",
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "candidate_count": 0,
+          "candidates": [
+            "route:server.ts#GET%20%2Fbc%2Fusers%2F%3Aid"
+          ],
+          "conditional": false,
+          "match": "exact",
+          "origin": null,
+          "resolution": "evaluated",
+          "status": "linked",
+          "template": "/bc/users/7"
+        }
+      ],
+      "status": "linked",
+      "url_expression": "'7'",
+      "wrapper": "function:frontend.ts#concatenated"
+    },
+    "content_hash": "sha256:c19b50fef80b4bc1c74e15ded54326552f2f1593167d15214ef838c38dc64ebb",
+    "file": "frontend.ts",
+    "identity": "client_call:frontend.ts#viaWrapper.GET%20%277%27",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET '7'",
+    "qualified_name": "viaWrapper.GET '7'",
+    "span": {
+      "end_column": 55,
+      "end_line": 3,
+      "start_column": 38,
+      "start_line": 3
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "base": "unresolved",
+      "base_expression": "__API_URL__",
+      "generated_export": "getArticle",
+      "generated_file": "orval/api/generated/articles/articles.ts",
+      "invocation": "direct",
+      "library": "orval",
+      "method": "GET",
+      "operation": "api_operation:orval/openapi.yaml#GET%20%2Fbc%2Farticles%2F%7Bslug%7D",
+      "origin_assumptions": [
+        "origin (not resolved statically) assumed to be this repository's server"
+      ],
+      "paths": [
+        {
+          "candidate_count": 0,
+          "candidates": [
+            "route:server.ts#GET%20%2Fbc%2Farticles%2F%3Aslug"
+          ],
+          "conditional": false,
+          "match": "exact",
+          "origin": null,
+          "origin_assumption": "origin (not resolved statically) assumed to be this repository's server",
+          "origin_resolution": "unresolved",
+          "resolution": "generated",
+          "status": "linked",
+          "template": "/bc/articles/{slug}"
+        }
+      ],
+      "status": "linked",
+      "url_expression": "getArticle",
+      "wrapper": "function:orval/transport.ts#apiFetch"
+    },
+    "content_hash": "sha256:45c933a16a440498dbc89b0b5da4ff7f23444a06f54d24efa6dd7a0acba70121",
+    "file": "orval/app.ts",
+    "identity": "client_call:orval/app.ts#call.GET%20getArticle",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET getArticle",
+    "qualified_name": "call.GET getArticle",
+    "span": {
+      "end_column": 50,
+      "end_line": 2,
+      "start_column": 32,
+      "start_line": 2
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "base": "unresolved",
+      "base_expression": "__API_URL__",
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "candidate_count": 0,
+          "candidates": [],
+          "conditional": false,
+          "match": null,
+          "origin": null,
+          "origin_resolution": "unresolved",
+          "resolution": "evaluated",
+          "status": "unmatched",
+          "template": "/acme/settings"
+        }
+      ],
+      "status": "unmatched",
+      "url_expression": "url.href",
+      "wrapper": null
+    },
+    "content_hash": "sha256:99fd53717f66e628f0256341965a9b4fc7bd75aff86f96cbbd733df9a997279d",
+    "file": "url-objects.ts",
+    "identity": "client_call:url-objects.ts#anchored.GET%20url.href",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET url.href",
+    "qualified_name": "anchored.GET url.href",
+    "span": {
+      "end_column": 24,
+      "end_line": 11,
+      "start_column": 9,
+      "start_line": 11
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "base": "unresolved",
+      "base_expression": "__API_URL__",
+      "library": "fetch",
+      "method": "POST",
+      "origin_assumptions": [
+        "origin (not resolved statically) assumed to be this repository's server"
+      ],
+      "paths": [
+        {
+          "candidate_count": 0,
+          "candidates": [
+            "route:server.ts#POST%20%2Fbc%2Forders"
+          ],
+          "conditional": false,
+          "match": "exact",
+          "origin": null,
+          "origin_assumption": "origin (not resolved statically) assumed to be this repository's server",
+          "origin_resolution": "unresolved",
+          "resolution": "evaluated",
+          "status": "linked",
+          "template": "/bc/orders"
+        }
+      ],
+      "status": "linked",
+      "url_expression": "requestUrl.toString()",
+      "wrapper": null
+    },
+    "content_hash": "sha256:77006b60fe0cade50bb479d4e44b4a06f2d0c5cbf9c92ba94f77f56d4ee0a1a3",
+    "file": "url-objects.ts",
+    "identity": "client_call:url-objects.ts#assignedOrigin.POST%20requestUrl.toString%28%29",
+    "kind": "client_call",
+    "level": 4,
+    "name": "POST requestUrl.toString()",
+    "qualified_name": "assignedOrigin.POST requestUrl.toString()",
+    "span": {
+      "end_column": 57,
+      "end_line": 18,
+      "start_column": 9,
+      "start_line": 18
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "base": "unresolved",
+      "base_expression": "__API_URL__",
+      "library": "fetch",
+      "method": "GET",
+      "origin_assumptions": [
+        "origin (not resolved statically) assumed to be this repository's server"
+      ],
+      "paths": [
+        {
+          "candidate_count": 0,
+          "candidates": [
+            "route:server.ts#GET%20%2Fbc%2Fusers"
+          ],
+          "conditional": false,
+          "match": "exact",
+          "origin": null,
+          "origin_assumption": "origin (not resolved statically) assumed to be this repository's server",
+          "origin_resolution": "unresolved",
+          "resolution": "evaluated",
+          "status": "linked",
+          "template": "/bc/users"
+        }
+      ],
+      "status": "linked",
+      "url_expression": "url.href",
+      "wrapper": null
+    },
+    "content_hash": "sha256:99fd53717f66e628f0256341965a9b4fc7bd75aff86f96cbbd733df9a997279d",
+    "file": "url-objects.ts",
+    "identity": "client_call:url-objects.ts#baseArgument.GET%20url.href",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET url.href",
+    "qualified_name": "baseArgument.GET url.href",
+    "span": {
+      "end_column": 24,
+      "end_line": 3,
+      "start_column": 9,
+      "start_line": 3
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "base": "unresolved",
+      "base_expression": "import.meta.env.VITE_API",
+      "library": "fetch",
+      "method": "GET",
+      "origin_assumptions": [
+        "origin (not resolved statically) assumed to be this repository's server"
+      ],
+      "paths": [
+        {
+          "candidate_count": 0,
+          "candidates": [
+            "route:server.ts#GET%20%2Fbc%2Fusers"
+          ],
+          "conditional": false,
+          "match": "exact",
+          "origin": null,
+          "origin_assumption": "origin (not resolved statically) assumed to be this repository's server",
+          "origin_resolution": "unresolved",
+          "resolution": "evaluated",
+          "status": "linked",
+          "template": "/bc/users"
+        }
+      ],
+      "status": "linked",
+      "url_expression": "url.href",
+      "wrapper": null
+    },
+    "content_hash": "sha256:99fd53717f66e628f0256341965a9b4fc7bd75aff86f96cbbd733df9a997279d",
+    "file": "url-objects.ts",
+    "identity": "client_call:url-objects.ts#envArgument.GET%20url.href",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET url.href",
+    "qualified_name": "envArgument.GET url.href",
+    "span": {
+      "end_column": 24,
+      "end_line": 7,
+      "start_column": 9,
+      "start_line": 7
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "base": "none",
+      "library": "fetch",
+      "method": "GET",
+      "origin_assumptions": [
+        "origin (not resolved statically) assumed to be this repository's server"
+      ],
+      "paths": [
+        {
+          "candidate_count": 0,
+          "candidates": [
+            "route:server.ts#GET%20%2Fbc%2Fusers"
+          ],
+          "conditional": false,
+          "match": "exact",
+          "origin": null,
+          "origin_assumption": "origin (not resolved statically) assumed to be this repository's server",
+          "origin_resolution": "unresolved",
+          "resolution": "evaluated",
+          "status": "linked",
+          "template": "/bc/users"
+        }
+      ],
+      "status": "linked",
+      "url_expression": "requestUrl.href",
+      "wrapper": null
+    },
+    "content_hash": "sha256:99ecc3e0bafc445d4bccb82f854ae18d87df21fb2e73830c5692e39dfa538665",
+    "file": "url-objects.ts",
+    "identity": "client_call:url-objects.ts#hostOnly.GET%20requestUrl.href",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET requestUrl.href",
+    "qualified_name": "hostOnly.GET requestUrl.href",
+    "span": {
+      "end_column": 31,
+      "end_line": 24,
+      "start_column": 9,
+      "start_line": 24
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "base": "none",
+      "library": "fetch",
+      "method": "GET",
+      "origin_assumptions": [
+        "origin (not resolved statically) assumed to be this repository's server"
+      ],
+      "paths": [
+        {
+          "candidate_count": 0,
+          "candidates": [
+            "route:server.ts#GET%20%2Fbc%2Fusers"
+          ],
+          "conditional": false,
+          "match": "exact",
+          "origin": null,
+          "origin_assumption": "origin (not resolved statically) assumed to be this repository's server",
+          "origin_resolution": "unresolved",
+          "resolution": "evaluated",
+          "status": "linked",
+          "template": "/bc/users"
+        }
+      ],
+      "status": "linked",
+      "url_expression": "requestUrl.href",
+      "wrapper": null
+    },
+    "content_hash": "sha256:99ecc3e0bafc445d4bccb82f854ae18d87df21fb2e73830c5692e39dfa538665",
+    "file": "url-objects.ts",
+    "identity": "client_call:url-objects.ts#rewrittenSource.GET%20requestUrl.href",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET requestUrl.href",
+    "qualified_name": "rewrittenSource.GET requestUrl.href",
+    "span": {
+      "end_column": 31,
+      "end_line": 40,
+      "start_column": 9,
+      "start_line": 40
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "base": "none",
+      "library": "fetch",
+      "method": "GET",
+      "origin_assumptions": [
+        "origin (not resolved statically) assumed to be this repository's server"
+      ],
+      "paths": [
+        {
+          "candidate_count": 0,
+          "candidates": [
+            "route:server.ts#GET%20%2Fbc%2Fusers"
+          ],
+          "conditional": false,
+          "match": "exact",
+          "origin": null,
+          "origin_assumption": "origin (not resolved statically) assumed to be this repository's server",
+          "origin_resolution": "unresolved",
+          "resolution": "evaluated",
+          "status": "linked",
+          "template": "/bc/users"
+        }
+      ],
+      "status": "linked",
+      "url_expression": "requestUrl.href",
+      "wrapper": null
+    },
+    "content_hash": "sha256:99ecc3e0bafc445d4bccb82f854ae18d87df21fb2e73830c5692e39dfa538665",
+    "file": "url-objects.ts",
+    "identity": "client_call:url-objects.ts#twoSources.GET%20requestUrl.href",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET requestUrl.href",
+    "qualified_name": "twoSources.GET requestUrl.href",
+    "span": {
+      "end_column": 31,
+      "end_line": 32,
+      "start_column": 9,
+      "start_line": 32
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "base": "unresolved",
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "candidate_count": 0,
+          "candidates": [],
+          "conditional": false,
+          "match": null,
+          "origin": null,
+          "resolution": "literal",
+          "status": "dynamic",
+          "template": null
+        }
+      ],
+      "status": "dynamic",
+      "url_expression": "url.href",
+      "wrapper": null
+    },
+    "content_hash": "sha256:99fd53717f66e628f0256341965a9b4fc7bd75aff86f96cbbd733df9a997279d",
+    "file": "url-objects.ts",
+    "identity": "client_call:url-objects.ts#unknownArgument.GET%20url.href",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET url.href",
+    "qualified_name": "unknownArgument.GET url.href",
+    "span": {
+      "end_column": 24,
+      "end_line": 44,
+      "start_column": 9,
+      "start_line": 44
+    },
+    "type": "node"
+  }
+]

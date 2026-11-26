@@ -1,0 +1,36 @@
+{
+  "id": "g3-s59521-S1-M5f_check",
+  "signature": "applied|S1|42P16|M5f.check",
+  "class": "S1",
+  "owner": "P8",
+  "row": "M5f.check",
+  "history": {
+    "id": "g3-s59521",
+    "tags": {
+      "1_m1.sql": [
+        "M4.expression_p5",
+        "M4.expression_p5",
+        "M1b.inherits",
+        "M5f.check"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42P16",
+        "message": "constraint must be added to child tables too",
+        "statement": 4,
+        "statement_text": "ALTER TABLE ONLY t1 ADD CONSTRAINT t1_pkey CHECK (d IS NOT NULL);"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

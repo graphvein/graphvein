@@ -1,0 +1,78 @@
+{
+  "alters": [],
+  "api_version": 0,
+  "creates": [],
+  "diagnostics": [],
+  "diagnostics_total": 0,
+  "ide": {
+    "available": true,
+    "editor": "vscode",
+    "error": null,
+    "label": "Open in VS Code",
+    "source": "builtin"
+  },
+  "index": {
+    "contract_version": 1,
+    "finished_at": "2026-11-03T14:32:05.123Z",
+    "indexer": {
+      "name": "graphvein",
+      "version": "extractors-62"
+    }
+  },
+  "migration": {
+    "attributes": {
+      "applied": false,
+      "description": "reversible",
+      "dialect": "postgres",
+      "direction": "down",
+      "errors": null,
+      "extensions": null,
+      "modeled": null,
+      "no_effect": null,
+      "opaque": null,
+      "opaque_sites": null,
+      "order": null,
+      "package": "pg-app/Cargo.toml",
+      "set": "pg-app/migrations",
+      "set_opaque_statements": {
+        "by_kind": {
+          "do": 1,
+          "function_call": 1,
+          "lexing_failure": 1
+        },
+        "total": 3
+      },
+      "statements": null,
+      "tool": "sqlx",
+      "unsupported": null,
+      "version": "10",
+      "version_text": "10"
+    },
+    "content_hash": "sha256:b93282acec623a5f6f650650b88b50abe263c1fbc9c973a32fec1ef229548fb7",
+    "file": "pg-app/migrations/10_reversible.down.sql",
+    "file_state": "unchanged",
+    "ide": {
+      "column": 1,
+      "exact": true,
+      "line": 1,
+      "link": "vscode://file/{ROOT}/pg-app/migrations/10_reversible.down.sql:1:1"
+    },
+    "identity": "migration:pg-app/migrations/10_reversible.down.sql#migration",
+    "kind": "migration",
+    "level": 3,
+    "name": "10_reversible.down.sql",
+    "qualified_name": "migration",
+    "span": {
+      "end_column": 0,
+      "end_line": 2,
+      "start_column": 0,
+      "start_line": 1
+    },
+    "type": "node"
+  },
+  "next": null,
+  "opaque_sites": null,
+  "previous": null,
+  "repository": "fixture",
+  "set": "pg-app/migrations"
+}

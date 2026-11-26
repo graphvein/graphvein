@@ -1,0 +1,28 @@
+{
+  "id": "review17-n21-drop-policy-after-renamed",
+  "signature": "agreed at Revision 1.7",
+  "class": "S1",
+  "owner": "W1",
+  "row": "review17",
+  "history": {
+    "id": "n21-drop-policy-after-renamed"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42704",
+        "message": "policy \"p\" for table \"t\" does not exist",
+        "statement": 4,
+        "statement_text": "DROP POLICY p ON t;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

@@ -1,0 +1,30 @@
+{
+  "id": "review19-r3-d22-publication-view",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y31",
+  "row": "review19",
+  "history": {
+    "id": "d22-publication-view"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "22023",
+        "message": "cannot add relation \"v\" to publication",
+        "detail": "This operation is not supported for views.",
+        "statement": 2,
+        "statement_text": "CREATE PUBLICATION p FOR TABLE v;",
+        "row_free": true
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

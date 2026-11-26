@@ -1,0 +1,28 @@
+{
+  "id": "review16-x10-sys-col-like",
+  "signature": "agreed at Revision 1.6",
+  "class": "S1",
+  "owner": "V11",
+  "row": "review16",
+  "history": {
+    "id": "x10-sys-col-like"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42701",
+        "message": "column name \"cmin\" conflicts with a system column name",
+        "statement": 2,
+        "statement_text": "CREATE TABLE t (LIKE src, cmin int);"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

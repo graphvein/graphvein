@@ -1,0 +1,28 @@
+{
+  "id": "review19-r2-i20-event-trigger",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y51",
+  "row": "review19",
+  "history": {
+    "id": "i20-event-trigger"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42501",
+        "message": "permission denied to create event trigger \"e\"",
+        "statement": 2,
+        "statement_text": "CREATE EVENT TRIGGER e ON ddl_command_end WHEN TAG IN ('CREATE INDEX') EXECUTE FUNCTION et();"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

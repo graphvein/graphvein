@@ -1,0 +1,5372 @@
+{
+  "linked": {
+    "Diagnostics": [
+      {
+        "code": "tauri_command_invalid",
+        "file": "app/src/bare.rs",
+        "message": "app/src/bare.rs:8: command twice has more than one Tauri command attribute",
+        "severity": "warning",
+        "type": "diagnostic"
+      },
+      {
+        "code": "tauri_command_invalid",
+        "file": "app/src/commands.rs",
+        "message": "app/src/commands.rs:19: command dynamic_name: non-literal value for rename",
+        "severity": "warning",
+        "type": "diagnostic"
+      },
+      {
+        "code": "tauri_command_duplicate",
+        "file": "app/src/main.rs",
+        "message": "app/src/main.rs:33: entry commands::greet repeats command greet; the first entry wins",
+        "severity": "info",
+        "type": "diagnostic"
+      },
+      {
+        "code": "tauri_entry_unresolved",
+        "file": "app/src/plugins.rs",
+        "message": "app/src/plugins.rs:19: entry crate::bare::twice does not resolve to a Tauri command",
+        "severity": "info",
+        "type": "diagnostic"
+      },
+      {
+        "code": "tauri_entry_unresolved",
+        "file": "app/src/plugins.rs",
+        "message": "app/src/plugins.rs:20: entry crate::negatives::poise_cmd does not resolve to a Tauri command",
+        "severity": "info",
+        "type": "diagnostic"
+      },
+      {
+        "code": "tauri_entry_unresolved",
+        "file": "app/src/plugins.rs",
+        "message": "app/src/plugins.rs:21: entry crate::negatives::clap_like does not resolve to a Tauri command",
+        "severity": "info",
+        "type": "diagnostic"
+      }
+    ],
+    "Edges": [
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "frontend/src/global.js",
+            "span": {
+              "end_column": 37,
+              "end_line": 3,
+              "start_column": 0,
+              "start_line": 3
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "file:frontend/src/global.js#frontend%2Fsrc%2Fglobal.js",
+        "target": "ipc_call:frontend/src/global.js#INVOKE%20%27greet%27",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "frontend/src/global.js",
+            "span": {
+              "end_column": 39,
+              "end_line": 4,
+              "start_column": 0,
+              "start_line": 4
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "file:frontend/src/global.js#frontend%2Fsrc%2Fglobal.js",
+        "target": "ipc_call:frontend/src/global.js#INVOKE%20name",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "frontend/src/local.ts",
+            "span": {
+              "end_column": 13,
+              "end_line": 6,
+              "start_column": 0,
+              "start_line": 6
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "file:frontend/src/local.ts#frontend%2Fsrc%2Flocal.ts",
+        "target": "ipc_call:frontend/src/local.ts#INVOKE%20%27greet%27",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "frontend/src/local.ts",
+            "span": {
+              "end_column": 13,
+              "end_line": 7,
+              "start_column": 0,
+              "start_line": 7
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "file:frontend/src/local.ts#frontend%2Fsrc%2Flocal.ts",
+        "target": "ipc_call:frontend/src/local.ts#INVOKE%20%27greet%27%402",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "frontend/src/local.ts",
+            "span": {
+              "end_column": 13,
+              "end_line": 8,
+              "start_column": 0,
+              "start_line": 8
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "file:frontend/src/local.ts#frontend%2Fsrc%2Flocal.ts",
+        "target": "ipc_call:frontend/src/local.ts#INVOKE%20%27greet%27%403",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "app/src/main.rs",
+            "span": {
+              "end_column": 29,
+              "end_line": 28,
+              "start_column": 12,
+              "start_line": 28
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:app/src/main.rs#main",
+        "target": "ipc_command:app/src/main.rs#main.COMMAND%20aliased",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "app/src/main.rs",
+            "span": {
+              "end_column": 26,
+              "end_line": 27,
+              "start_column": 12,
+              "start_line": 27
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:app/src/main.rs#main",
+        "target": "ipc_command:app/src/main.rs#main.COMMAND%20bare_cmd",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "app/src/main.rs",
+            "span": {
+              "end_column": 31,
+              "end_line": 32,
+              "start_column": 12,
+              "start_line": 32
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:app/src/main.rs#main",
+        "target": "ipc_command:app/src/main.rs#main.COMMAND%20debug_cmd",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "app/src/main.rs",
+            "span": {
+              "end_column": 34,
+              "end_line": 29,
+              "start_column": 12,
+              "start_line": 29
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:app/src/main.rs#main",
+        "target": "ipc_command:app/src/main.rs#main.COMMAND%20desktop_only",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "app/src/main.rs",
+            "span": {
+              "end_column": 27,
+              "end_line": 26,
+              "start_column": 12,
+              "start_line": 26
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:app/src/main.rs#main",
+        "target": "ipc_command:app/src/main.rs#main.COMMAND%20greet",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "app/src/main.rs",
+            "span": {
+              "end_column": 27,
+              "end_line": 33,
+              "start_column": 12,
+              "start_line": 33
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:app/src/main.rs#main",
+        "target": "ipc_command:app/src/main.rs#main.COMMAND%20greet%402",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "app/src/main.rs",
+            "span": {
+              "end_column": 35,
+              "end_line": 37,
+              "start_column": 12,
+              "start_line": 37
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:app/src/main.rs#main",
+        "target": "ipc_command:app/src/main.rs#main.COMMAND%20legacy_status",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "app/src/main.rs",
+            "span": {
+              "end_column": 31,
+              "end_line": 30,
+              "start_column": 12,
+              "start_line": 30
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:app/src/main.rs#main",
+        "target": "ipc_command:app/src/main.rs#main.COMMAND%20rename_me",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "app/src/main.rs",
+            "span": {
+              "end_column": 28,
+              "end_line": 38,
+              "start_column": 12,
+              "start_line": 38
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:app/src/main.rs#main",
+        "target": "ipc_command:app/src/main.rs#main.COMMAND%20status",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "app/src/main.rs",
+            "span": {
+              "end_column": 39,
+              "end_line": 35,
+              "start_column": 12,
+              "start_line": 35
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:app/src/main.rs#main",
+        "target": "ipc_command:app/src/main.rs#main.COMMAND%20test_cmd",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "app/src/plugins.rs",
+            "span": {
+              "end_column": 71,
+              "end_line": 8,
+              "start_column": 49,
+              "start_line": 8
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:app/src/plugins.rs#audit",
+        "target": "ipc_command:app/src/plugins.rs#audit.COMMAND%20greet",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "app/src/plugins.rs",
+            "span": {
+              "end_column": 79,
+              "end_line": 8,
+              "start_column": 73,
+              "start_line": 8
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:app/src/plugins.rs#audit",
+        "target": "ipc_command:app/src/plugins.rs#audit.COMMAND%20record",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "app/src/plugins.rs",
+            "span": {
+              "end_column": 39,
+              "end_line": 21,
+              "start_column": 12,
+              "start_line": 21
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:app/src/plugins.rs#named",
+        "target": "ipc_command:app/src/plugins.rs#named.COMMAND%20clap_like",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "app/src/plugins.rs",
+            "span": {
+              "end_column": 41,
+              "end_line": 18,
+              "start_column": 12,
+              "start_line": 18
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:app/src/plugins.rs#named",
+        "target": "ipc_command:app/src/plugins.rs#named.COMMAND%20dynamic_name",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "app/src/plugins.rs",
+            "span": {
+              "end_column": 39,
+              "end_line": 20,
+              "start_column": 12,
+              "start_line": 20
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:app/src/plugins.rs#named",
+        "target": "ipc_command:app/src/plugins.rs#named.COMMAND%20poise_cmd",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "app/src/plugins.rs",
+            "span": {
+              "end_column": 30,
+              "end_line": 19,
+              "start_column": 12,
+              "start_line": 19
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:app/src/plugins.rs#named",
+        "target": "ipc_command:app/src/plugins.rs#named.COMMAND%20twice",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "frontend/src/app.test.ts",
+            "span": {
+              "end_column": 24,
+              "end_line": 4,
+              "start_column": 9,
+              "start_line": 4
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:frontend/src/app.test.ts#fromTest",
+        "target": "ipc_call:frontend/src/app.test.ts#fromTest.INVOKE%20%27greet%27",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "frontend/src/app.test.ts",
+            "span": {
+              "end_column": 27,
+              "end_line": 9,
+              "start_column": 9,
+              "start_line": 9
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:frontend/src/app.test.ts#testCommand",
+        "target": "ipc_call:frontend/src/app.test.ts#testCommand.INVOKE%20%27test_cmd%27",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "frontend/src/app.ts",
+            "span": {
+              "end_column": 32,
+              "end_line": 14,
+              "start_column": 9,
+              "start_line": 14
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:frontend/src/app.ts#aliased",
+        "target": "ipc_call:frontend/src/app.ts#aliased.INVOKE%20%27bare_cmd%27",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "frontend/src/app.ts",
+            "span": {
+              "end_column": 43,
+              "end_line": 46,
+              "start_column": 9,
+              "start_line": 46
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:frontend/src/app.ts#conditional",
+        "target": "ipc_call:frontend/src/app.ts#conditional.INVOKE%20flag%3F%27greet%27%3A%27renamed%27",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "frontend/src/app.ts",
+            "span": {
+              "end_column": 31,
+              "end_line": 22,
+              "start_column": 9,
+              "start_line": 22
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:frontend/src/app.ts#coreMember",
+        "target": "ipc_call:frontend/src/app.ts#coreMember.INVOKE%20%27renamed%27",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "frontend/src/app.ts",
+            "span": {
+              "end_column": 25,
+              "end_line": 52,
+              "start_column": 9,
+              "start_line": 52
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:frontend/src/app.ts#dynamicName",
+        "target": "ipc_call:frontend/src/app.ts#dynamicName.INVOKE%20names%5B0%5D",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "frontend/src/app.ts",
+            "span": {
+              "end_column": 44,
+              "end_line": 10,
+              "start_column": 8,
+              "start_line": 10
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:frontend/src/app.ts#named",
+        "target": "ipc_call:frontend/src/app.ts#named.INVOKE%20%27greet%27",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "frontend/src/app.ts",
+            "span": {
+              "end_column": 36,
+              "end_line": 18,
+              "start_column": 9,
+              "start_line": 18
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:frontend/src/app.ts#namespaced",
+        "target": "ipc_call:frontend/src/app.ts#namespaced.INVOKE%20%27aliased%27",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "frontend/src/app.ts",
+            "span": {
+              "end_column": 31,
+              "end_line": 60,
+              "start_column": 2,
+              "start_line": 60
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:frontend/src/app.ts#plugins",
+        "target": "ipc_call:frontend/src/app.ts#plugins.INVOKE%20%27plugin%3Afs%7Cread_file%27",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "frontend/src/app.ts",
+            "span": {
+              "end_column": 27,
+              "end_line": 61,
+              "start_column": 9,
+              "start_line": 61
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:frontend/src/app.ts#plugins",
+        "target": "ipc_call:frontend/src/app.ts#plugins.INVOKE%20%27plugin%3Ax%27",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "frontend/src/app.ts",
+            "span": {
+              "end_column": 25,
+              "end_line": 71,
+              "start_column": 9,
+              "start_line": 71
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:frontend/src/app.ts#status",
+        "target": "ipc_call:frontend/src/app.ts#status.INVOKE%20%27status%27",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "frontend/src/app.ts",
+            "span": {
+              "end_column": 26,
+              "end_line": 42,
+              "start_column": 9,
+              "start_line": 42
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:frontend/src/app.ts#twoLevel",
+        "target": "ipc_call:frontend/src/app.ts#twoLevel.INVOKE%20%27test_cmd%27",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "frontend/src/app.ts",
+            "span": {
+              "end_column": 30,
+              "end_line": 56,
+              "start_column": 9,
+              "start_line": 56
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:frontend/src/app.ts#unregistered",
+        "target": "ipc_call:frontend/src/app.ts#unregistered.INVOKE%20%27missing_cmd%27",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "frontend/src/app.ts",
+            "span": {
+              "end_column": 3,
+              "end_line": 37,
+              "start_column": 8,
+              "start_line": 35
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:frontend/src/app.ts#viaWrapper",
+        "target": "ipc_call:frontend/src/app.ts#viaWrapper.INVOKE%20%27debug_cmd%27",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "frontend/src/app.ts",
+            "span": {
+              "end_column": 50,
+              "end_line": 34,
+              "start_column": 22,
+              "start_line": 34
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:frontend/src/app.ts#viaWrapper",
+        "target": "ipc_call:frontend/src/app.ts#viaWrapper.INVOKE%20%27desktop_only%27",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "frontend/src/lib/ipc.ts",
+            "span": {
+              "end_column": 38,
+              "end_line": 5,
+              "start_column": 9,
+              "start_line": 5
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:frontend/src/lib/ipc.ts#call",
+        "target": "ipc_call:frontend/src/lib/ipc.ts#call.INVOKE%20command",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "frontend/src/lib/relay.ts",
+            "span": {
+              "end_column": 25,
+              "end_line": 5,
+              "start_column": 9,
+              "start_line": 5
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:frontend/src/lib/relay.ts#relay",
+        "target": "ipc_call:frontend/src/lib/relay.ts#relay.INVOKE%20name",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "frontend/src/local.ts",
+            "span": {
+              "end_column": 49,
+              "end_line": 4,
+              "start_column": 34,
+              "start_line": 4
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:frontend/src/local.ts#send",
+        "target": "ipc_call:frontend/src/local.ts#send.INVOKE%20command",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "frontend/src/writes.ts",
+            "span": {
+              "end_column": 24,
+              "end_line": 27,
+              "start_column": 9,
+              "start_line": 27
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:frontend/src/writes.ts#closure",
+        "target": "ipc_call:frontend/src/writes.ts#closure.INVOKE%20command",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "frontend/src/writes.ts",
+            "span": {
+              "end_column": 24,
+              "end_line": 9,
+              "start_column": 9,
+              "start_line": 9
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:frontend/src/writes.ts#destructured",
+        "target": "ipc_call:frontend/src/writes.ts#destructured.INVOKE%20command",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "frontend/src/writes.ts",
+            "span": {
+              "end_column": 24,
+              "end_line": 34,
+              "start_column": 9,
+              "start_line": 34
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:frontend/src/writes.ts#forOf",
+        "target": "ipc_call:frontend/src/writes.ts#forOf.INVOKE%20command",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "frontend/src/writes.ts",
+            "span": {
+              "end_column": 24,
+              "end_line": 40,
+              "start_column": 9,
+              "start_line": 40
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:frontend/src/writes.ts#logged",
+        "target": "ipc_call:frontend/src/writes.ts#logged.INVOKE%20command",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "frontend/src/writes.ts",
+            "span": {
+              "end_column": 24,
+              "end_line": 14,
+              "start_column": 9,
+              "start_line": 14
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:frontend/src/writes.ts#objectPattern",
+        "target": "ipc_call:frontend/src/writes.ts#objectPattern.INVOKE%20command",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "frontend/src/writes.ts",
+            "span": {
+              "end_column": 24,
+              "end_line": 19,
+              "start_column": 9,
+              "start_line": 19
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:frontend/src/writes.ts#updated",
+        "target": "ipc_call:frontend/src/writes.ts#updated.INVOKE%20command",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "frontend/src/writes.ts",
+            "span": {
+              "end_column": 24,
+              "end_line": 49,
+              "start_column": 9,
+              "start_line": 49
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:frontend/src/writes.ts#useWrites",
+        "target": "ipc_call:frontend/src/writes.ts#useWrites.INVOKE%20%27greet%27",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "app/src/main.rs",
+            "span": {
+              "end_column": 26,
+              "end_line": 27,
+              "start_column": 12,
+              "start_line": 27
+            }
+          }
+        ],
+        "kind": "exposes_command",
+        "provenance": "fact",
+        "source": "function:app/src/bare.rs#bare_cmd",
+        "target": "ipc_command:app/src/main.rs#main.COMMAND%20bare_cmd",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "app/src/main.rs",
+            "span": {
+              "end_column": 29,
+              "end_line": 28,
+              "start_column": 12,
+              "start_line": 28
+            }
+          }
+        ],
+        "kind": "exposes_command",
+        "provenance": "fact",
+        "source": "function:app/src/commands.rs#aliased",
+        "target": "ipc_command:app/src/main.rs#main.COMMAND%20aliased",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "app/src/main.rs",
+            "span": {
+              "end_column": 31,
+              "end_line": 32,
+              "start_column": 12,
+              "start_line": 32
+            }
+          }
+        ],
+        "kind": "exposes_command",
+        "provenance": "fact",
+        "source": "function:app/src/commands.rs#debug_cmd",
+        "target": "ipc_command:app/src/main.rs#main.COMMAND%20debug_cmd",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "app/src/main.rs",
+            "span": {
+              "end_column": 34,
+              "end_line": 29,
+              "start_column": 12,
+              "start_line": 29
+            }
+          }
+        ],
+        "kind": "exposes_command",
+        "provenance": "fact",
+        "source": "function:app/src/commands.rs#desktop_only",
+        "target": "ipc_command:app/src/main.rs#main.COMMAND%20desktop_only",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "app/src/plugins.rs",
+            "span": {
+              "end_column": 41,
+              "end_line": 18,
+              "start_column": 12,
+              "start_line": 18
+            }
+          }
+        ],
+        "kind": "exposes_command",
+        "provenance": "fact",
+        "source": "function:app/src/commands.rs#dynamic_name",
+        "target": "ipc_command:app/src/plugins.rs#named.COMMAND%20dynamic_name",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "app/src/main.rs",
+            "span": {
+              "end_column": 27,
+              "end_line": 26,
+              "start_column": 12,
+              "start_line": 26
+            }
+          }
+        ],
+        "kind": "exposes_command",
+        "provenance": "fact",
+        "source": "function:app/src/commands.rs#greet",
+        "target": "ipc_command:app/src/main.rs#main.COMMAND%20greet",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "app/src/main.rs",
+            "span": {
+              "end_column": 27,
+              "end_line": 33,
+              "start_column": 12,
+              "start_line": 33
+            }
+          }
+        ],
+        "kind": "exposes_command",
+        "provenance": "fact",
+        "source": "function:app/src/commands.rs#greet",
+        "target": "ipc_command:app/src/main.rs#main.COMMAND%20greet%402",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "app/src/plugins.rs",
+            "span": {
+              "end_column": 71,
+              "end_line": 8,
+              "start_column": 49,
+              "start_line": 8
+            }
+          }
+        ],
+        "kind": "exposes_command",
+        "provenance": "fact",
+        "source": "function:app/src/commands.rs#greet",
+        "target": "ipc_command:app/src/plugins.rs#audit.COMMAND%20greet",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "app/src/main.rs",
+            "span": {
+              "end_column": 35,
+              "end_line": 37,
+              "start_column": 12,
+              "start_line": 37
+            }
+          }
+        ],
+        "kind": "exposes_command",
+        "provenance": "fact",
+        "source": "function:app/src/commands.rs#legacy_status",
+        "target": "ipc_command:app/src/main.rs#main.COMMAND%20legacy_status",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "app/src/main.rs",
+            "span": {
+              "end_column": 31,
+              "end_line": 30,
+              "start_column": 12,
+              "start_line": 30
+            }
+          }
+        ],
+        "kind": "exposes_command",
+        "provenance": "fact",
+        "source": "function:app/src/commands.rs#rename_me",
+        "target": "ipc_command:app/src/main.rs#main.COMMAND%20rename_me",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "app/src/main.rs",
+            "span": {
+              "end_column": 28,
+              "end_line": 38,
+              "start_column": 12,
+              "start_line": 38
+            }
+          }
+        ],
+        "kind": "exposes_command",
+        "provenance": "fact",
+        "source": "function:app/src/commands.rs#status",
+        "target": "ipc_command:app/src/main.rs#main.COMMAND%20status",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "app/src/main.rs",
+            "span": {
+              "end_column": 39,
+              "end_line": 35,
+              "start_column": 12,
+              "start_line": 35
+            }
+          }
+        ],
+        "kind": "exposes_command",
+        "provenance": "fact",
+        "source": "function:app/src/commands.rs#testing.test_cmd",
+        "target": "ipc_command:app/src/main.rs#main.COMMAND%20test_cmd",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "app/src/plugins.rs",
+            "span": {
+              "end_column": 79,
+              "end_line": 8,
+              "start_column": 73,
+              "start_line": 8
+            }
+          }
+        ],
+        "kind": "exposes_command",
+        "provenance": "fact",
+        "source": "function:app/src/plugins.rs#record",
+        "target": "ipc_command:app/src/plugins.rs#audit.COMMAND%20record",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "frontend/src/app.test.ts",
+            "span": {
+              "end_column": 24,
+              "end_line": 4,
+              "start_column": 9,
+              "start_line": 4
+            }
+          }
+        ],
+        "kind": "invokes_command",
+        "provenance": "fact",
+        "source": "ipc_call:frontend/src/app.test.ts#fromTest.INVOKE%20%27greet%27",
+        "target": "ipc_command:app/src/main.rs#main.COMMAND%20greet",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "frontend/src/app.test.ts",
+            "span": {
+              "end_column": 27,
+              "end_line": 9,
+              "start_column": 9,
+              "start_line": 9
+            }
+          }
+        ],
+        "kind": "invokes_command",
+        "provenance": "fact",
+        "source": "ipc_call:frontend/src/app.test.ts#testCommand.INVOKE%20%27test_cmd%27",
+        "target": "ipc_command:app/src/main.rs#main.COMMAND%20test_cmd",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "frontend/src/app.ts",
+            "span": {
+              "end_column": 32,
+              "end_line": 14,
+              "start_column": 9,
+              "start_line": 14
+            }
+          }
+        ],
+        "kind": "invokes_command",
+        "provenance": "fact",
+        "source": "ipc_call:frontend/src/app.ts#aliased.INVOKE%20%27bare_cmd%27",
+        "target": "ipc_command:app/src/main.rs#main.COMMAND%20bare_cmd",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "frontend/src/app.ts",
+            "span": {
+              "end_column": 43,
+              "end_line": 46,
+              "start_column": 9,
+              "start_line": 46
+            }
+          }
+        ],
+        "kind": "invokes_command",
+        "provenance": "fact",
+        "source": "ipc_call:frontend/src/app.ts#conditional.INVOKE%20flag%3F%27greet%27%3A%27renamed%27",
+        "target": "ipc_command:app/src/main.rs#main.COMMAND%20greet",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "frontend/src/app.ts",
+            "span": {
+              "end_column": 43,
+              "end_line": 46,
+              "start_column": 9,
+              "start_line": 46
+            }
+          }
+        ],
+        "kind": "invokes_command",
+        "provenance": "fact",
+        "source": "ipc_call:frontend/src/app.ts#conditional.INVOKE%20flag%3F%27greet%27%3A%27renamed%27",
+        "target": "ipc_command:app/src/main.rs#main.COMMAND%20rename_me",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "frontend/src/app.ts",
+            "span": {
+              "end_column": 31,
+              "end_line": 22,
+              "start_column": 9,
+              "start_line": 22
+            }
+          }
+        ],
+        "kind": "invokes_command",
+        "provenance": "fact",
+        "source": "ipc_call:frontend/src/app.ts#coreMember.INVOKE%20%27renamed%27",
+        "target": "ipc_command:app/src/main.rs#main.COMMAND%20rename_me",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "frontend/src/app.ts",
+            "span": {
+              "end_column": 44,
+              "end_line": 10,
+              "start_column": 8,
+              "start_line": 10
+            }
+          }
+        ],
+        "kind": "invokes_command",
+        "provenance": "fact",
+        "source": "ipc_call:frontend/src/app.ts#named.INVOKE%20%27greet%27",
+        "target": "ipc_command:app/src/main.rs#main.COMMAND%20greet",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "frontend/src/app.ts",
+            "span": {
+              "end_column": 36,
+              "end_line": 18,
+              "start_column": 9,
+              "start_line": 18
+            }
+          }
+        ],
+        "kind": "invokes_command",
+        "provenance": "fact",
+        "source": "ipc_call:frontend/src/app.ts#namespaced.INVOKE%20%27aliased%27",
+        "target": "ipc_command:app/src/main.rs#main.COMMAND%20aliased",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "frontend/src/app.ts",
+            "span": {
+              "end_column": 25,
+              "end_line": 71,
+              "start_column": 9,
+              "start_line": 71
+            }
+          }
+        ],
+        "kind": "invokes_command",
+        "provenance": "fact",
+        "source": "ipc_call:frontend/src/app.ts#status.INVOKE%20%27status%27",
+        "target": "ipc_command:app/src/main.rs#main.COMMAND%20legacy_status",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "frontend/src/app.ts",
+            "span": {
+              "end_column": 25,
+              "end_line": 71,
+              "start_column": 9,
+              "start_line": 71
+            }
+          }
+        ],
+        "kind": "invokes_command",
+        "provenance": "fact",
+        "source": "ipc_call:frontend/src/app.ts#status.INVOKE%20%27status%27",
+        "target": "ipc_command:app/src/main.rs#main.COMMAND%20status",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "frontend/src/app.ts",
+            "span": {
+              "end_column": 3,
+              "end_line": 37,
+              "start_column": 8,
+              "start_line": 35
+            }
+          }
+        ],
+        "kind": "invokes_command",
+        "provenance": "fact",
+        "source": "ipc_call:frontend/src/app.ts#viaWrapper.INVOKE%20%27debug_cmd%27",
+        "target": "ipc_command:app/src/main.rs#main.COMMAND%20debug_cmd",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "frontend/src/app.ts",
+            "span": {
+              "end_column": 50,
+              "end_line": 34,
+              "start_column": 22,
+              "start_line": 34
+            }
+          }
+        ],
+        "kind": "invokes_command",
+        "provenance": "fact",
+        "source": "ipc_call:frontend/src/app.ts#viaWrapper.INVOKE%20%27desktop_only%27",
+        "target": "ipc_command:app/src/main.rs#main.COMMAND%20desktop_only",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "frontend/src/local.ts",
+            "span": {
+              "end_column": 13,
+              "end_line": 6,
+              "start_column": 0,
+              "start_line": 6
+            }
+          }
+        ],
+        "kind": "invokes_command",
+        "provenance": "fact",
+        "source": "ipc_call:frontend/src/local.ts#INVOKE%20%27greet%27",
+        "target": "ipc_command:app/src/main.rs#main.COMMAND%20greet",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "frontend/src/local.ts",
+            "span": {
+              "end_column": 13,
+              "end_line": 7,
+              "start_column": 0,
+              "start_line": 7
+            }
+          }
+        ],
+        "kind": "invokes_command",
+        "provenance": "fact",
+        "source": "ipc_call:frontend/src/local.ts#INVOKE%20%27greet%27%402",
+        "target": "ipc_command:app/src/main.rs#main.COMMAND%20greet",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "frontend/src/local.ts",
+            "span": {
+              "end_column": 13,
+              "end_line": 8,
+              "start_column": 0,
+              "start_line": 8
+            }
+          }
+        ],
+        "kind": "invokes_command",
+        "provenance": "fact",
+        "source": "ipc_call:frontend/src/local.ts#INVOKE%20%27greet%27%403",
+        "target": "ipc_command:app/src/main.rs#main.COMMAND%20greet",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "frontend/src/writes.ts",
+            "span": {
+              "end_column": 24,
+              "end_line": 49,
+              "start_column": 9,
+              "start_line": 49
+            }
+          }
+        ],
+        "kind": "invokes_command",
+        "provenance": "fact",
+        "source": "ipc_call:frontend/src/writes.ts#useWrites.INVOKE%20%27greet%27",
+        "target": "ipc_command:app/src/main.rs#main.COMMAND%20greet",
+        "type": "edge"
+      }
+    ],
+    "Nodes": [
+      {
+        "attributes": {
+          "command": "greet",
+          "conditional": false,
+          "form": "direct",
+          "framework": "tauri",
+          "scope": "test",
+          "status": "linked",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:4f4b9a7f42ceedbc24aa26556583819054f19a9c6b080ecbce1b8bbeeb9a1d21",
+        "file": "frontend/src/app.test.ts",
+        "identity": "ipc_call:frontend/src/app.test.ts#fromTest.INVOKE%20%27greet%27",
+        "kind": "ipc_call",
+        "level": 4,
+        "name": "INVOKE 'greet'",
+        "qualified_name": "fromTest.INVOKE 'greet'",
+        "span": {
+          "end_column": 24,
+          "end_line": 4,
+          "start_column": 9,
+          "start_line": 4
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "command": "test_cmd",
+          "conditional": false,
+          "form": "direct",
+          "framework": "tauri",
+          "scope": "test",
+          "status": "linked",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:4af6e0be9193729d696df3f2ef909bc1d92bb0d126b6457ea1c3ad308556c144",
+        "file": "frontend/src/app.test.ts",
+        "identity": "ipc_call:frontend/src/app.test.ts#testCommand.INVOKE%20%27test_cmd%27",
+        "kind": "ipc_call",
+        "level": 4,
+        "name": "INVOKE 'test_cmd'",
+        "qualified_name": "testCommand.INVOKE 'test_cmd'",
+        "span": {
+          "end_column": 27,
+          "end_line": 9,
+          "start_column": 9,
+          "start_line": 9
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "command": "bare_cmd",
+          "conditional": false,
+          "form": "direct",
+          "framework": "tauri",
+          "status": "linked",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:cf1c13126038c97cf0e75b5528088e02e58a94de66e858b4f28322c0c4d6c744",
+        "file": "frontend/src/app.ts",
+        "identity": "ipc_call:frontend/src/app.ts#aliased.INVOKE%20%27bare_cmd%27",
+        "kind": "ipc_call",
+        "level": 4,
+        "name": "INVOKE 'bare_cmd'",
+        "qualified_name": "aliased.INVOKE 'bare_cmd'",
+        "span": {
+          "end_column": 32,
+          "end_line": 14,
+          "start_column": 9,
+          "start_line": 14
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "alternatives": [
+            {
+              "cfg_gated": false,
+              "command": "greet",
+              "conditional": true,
+              "status": "linked",
+              "target": "ipc_command:app/src/main.rs#main.COMMAND%20greet"
+            },
+            {
+              "cfg_gated": false,
+              "command": "renamed",
+              "conditional": true,
+              "status": "linked",
+              "target": "ipc_command:app/src/main.rs#main.COMMAND%20rename_me"
+            }
+          ],
+          "command": null,
+          "conditional": true,
+          "form": "direct",
+          "framework": "tauri",
+          "status": "linked",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:84809f5211acd6525859aa91209f53130c1150722a03451d9499327378e809f7",
+        "file": "frontend/src/app.ts",
+        "identity": "ipc_call:frontend/src/app.ts#conditional.INVOKE%20flag%3F%27greet%27%3A%27renamed%27",
+        "kind": "ipc_call",
+        "level": 4,
+        "name": "INVOKE flag?'greet':'renamed'",
+        "qualified_name": "conditional.INVOKE flag?'greet':'renamed'",
+        "span": {
+          "end_column": 43,
+          "end_line": 46,
+          "start_column": 9,
+          "start_line": 46
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "command": "renamed",
+          "conditional": false,
+          "form": "namespace",
+          "framework": "tauri",
+          "status": "linked",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:32e39501e05027a5c34492f3018ea7b688cd1de2738523619c97fed4dd4ff81d",
+        "file": "frontend/src/app.ts",
+        "identity": "ipc_call:frontend/src/app.ts#coreMember.INVOKE%20%27renamed%27",
+        "kind": "ipc_call",
+        "level": 4,
+        "name": "INVOKE 'renamed'",
+        "qualified_name": "coreMember.INVOKE 'renamed'",
+        "span": {
+          "end_column": 31,
+          "end_line": 22,
+          "start_column": 9,
+          "start_line": 22
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "command": null,
+          "conditional": false,
+          "form": "direct",
+          "framework": "tauri",
+          "status": "dynamic",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:2cf125b56cf93485e670e7df88eb3d89a2dd5656d55f7bc8fdd096e7b7f5233b",
+        "file": "frontend/src/app.ts",
+        "identity": "ipc_call:frontend/src/app.ts#dynamicName.INVOKE%20names%5B0%5D",
+        "kind": "ipc_call",
+        "level": 4,
+        "name": "INVOKE names[0]",
+        "qualified_name": "dynamicName.INVOKE names[0]",
+        "span": {
+          "end_column": 25,
+          "end_line": 52,
+          "start_column": 9,
+          "start_line": 52
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "command": "greet",
+          "conditional": false,
+          "form": "direct",
+          "framework": "tauri",
+          "status": "linked",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:9c719d00295f9ddf6cb90e114990fabde34fdbcad1894251590613ccc275014f",
+        "file": "frontend/src/app.ts",
+        "identity": "ipc_call:frontend/src/app.ts#named.INVOKE%20%27greet%27",
+        "kind": "ipc_call",
+        "level": 4,
+        "name": "INVOKE 'greet'",
+        "qualified_name": "named.INVOKE 'greet'",
+        "span": {
+          "end_column": 44,
+          "end_line": 10,
+          "start_column": 8,
+          "start_line": 10
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "command": "aliased",
+          "conditional": false,
+          "form": "namespace",
+          "framework": "tauri",
+          "status": "linked",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:02ed14c44c9547b47727eb98035edb2cae31ff3f9ebb5b74f7a045a5496c6819",
+        "file": "frontend/src/app.ts",
+        "identity": "ipc_call:frontend/src/app.ts#namespaced.INVOKE%20%27aliased%27",
+        "kind": "ipc_call",
+        "level": 4,
+        "name": "INVOKE 'aliased'",
+        "qualified_name": "namespaced.INVOKE 'aliased'",
+        "span": {
+          "end_column": 36,
+          "end_line": 18,
+          "start_column": 9,
+          "start_line": 18
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "command": "plugin:fs|read_file",
+          "conditional": false,
+          "form": "direct",
+          "framework": "tauri",
+          "plugin": "fs",
+          "plugin_command": "read_file",
+          "status": "plugin",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:6d9e9ada2b92a6198ee29d221930c7f69074a0a646237269d84be77bb3ac0ce7",
+        "file": "frontend/src/app.ts",
+        "identity": "ipc_call:frontend/src/app.ts#plugins.INVOKE%20%27plugin%3Afs%7Cread_file%27",
+        "kind": "ipc_call",
+        "level": 4,
+        "name": "INVOKE 'plugin:fs|read_file'",
+        "qualified_name": "plugins.INVOKE 'plugin:fs|read_file'",
+        "span": {
+          "end_column": 31,
+          "end_line": 60,
+          "start_column": 2,
+          "start_line": 60
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "command": "plugin:x",
+          "conditional": false,
+          "form": "direct",
+          "framework": "tauri",
+          "plugin": "x",
+          "plugin_command": "",
+          "status": "plugin",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:eccfa6bca952e634e62dddcc27172263ac832fcc7fe1ce4633d9a28aa4a3bc8c",
+        "file": "frontend/src/app.ts",
+        "identity": "ipc_call:frontend/src/app.ts#plugins.INVOKE%20%27plugin%3Ax%27",
+        "kind": "ipc_call",
+        "level": 4,
+        "name": "INVOKE 'plugin:x'",
+        "qualified_name": "plugins.INVOKE 'plugin:x'",
+        "span": {
+          "end_column": 27,
+          "end_line": 61,
+          "start_column": 9,
+          "start_line": 61
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "alternatives": [
+            {
+              "cfg_gated": true,
+              "command": "status",
+              "conditional": true,
+              "status": "linked",
+              "target": "ipc_command:app/src/main.rs#main.COMMAND%20legacy_status"
+            },
+            {
+              "cfg_gated": false,
+              "command": "status",
+              "conditional": true,
+              "status": "linked",
+              "target": "ipc_command:app/src/main.rs#main.COMMAND%20status"
+            }
+          ],
+          "command": "status",
+          "conditional": true,
+          "form": "direct",
+          "framework": "tauri",
+          "status": "linked",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:c2fa33f2b498b9bb8c7a4ef7c5c1c8f3681352277f91cc1abd45aa17adc29f9d",
+        "file": "frontend/src/app.ts",
+        "identity": "ipc_call:frontend/src/app.ts#status.INVOKE%20%27status%27",
+        "kind": "ipc_call",
+        "level": 4,
+        "name": "INVOKE 'status'",
+        "qualified_name": "status.INVOKE 'status'",
+        "span": {
+          "end_column": 25,
+          "end_line": 71,
+          "start_column": 9,
+          "start_line": 71
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "candidates": [
+            "ipc_command:app/src/main.rs#main.COMMAND%20test_cmd"
+          ],
+          "command": "test_cmd",
+          "conditional": false,
+          "form": "wrapper",
+          "framework": "tauri",
+          "status": "test_only",
+          "transport": "tauri_ipc",
+          "wrapper_identity": "function:frontend/src/lib/relay.ts#relay"
+        },
+        "content_hash": "sha256:43488f9f68c77ae7da52f4ea8575573332016e608be82c6e53bccaf4e6b8287f",
+        "file": "frontend/src/app.ts",
+        "identity": "ipc_call:frontend/src/app.ts#twoLevel.INVOKE%20%27test_cmd%27",
+        "kind": "ipc_call",
+        "level": 4,
+        "name": "INVOKE 'test_cmd'",
+        "qualified_name": "twoLevel.INVOKE 'test_cmd'",
+        "span": {
+          "end_column": 26,
+          "end_line": 42,
+          "start_column": 9,
+          "start_line": 42
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "command": "missing_cmd",
+          "conditional": false,
+          "form": "direct",
+          "framework": "tauri",
+          "status": "unmatched",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:1f31b3ba03d218d0483b434c184fd1fa240904cf59f7879bd3cd422331a7de77",
+        "file": "frontend/src/app.ts",
+        "identity": "ipc_call:frontend/src/app.ts#unregistered.INVOKE%20%27missing_cmd%27",
+        "kind": "ipc_call",
+        "level": 4,
+        "name": "INVOKE 'missing_cmd'",
+        "qualified_name": "unregistered.INVOKE 'missing_cmd'",
+        "span": {
+          "end_column": 30,
+          "end_line": 56,
+          "start_column": 9,
+          "start_line": 56
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "command": "debug_cmd",
+          "conditional": false,
+          "form": "wrapper",
+          "framework": "tauri",
+          "status": "linked",
+          "transport": "tauri_ipc",
+          "wrapper_identity": "function:frontend/src/lib/ipc.ts#call"
+        },
+        "content_hash": "sha256:664014496ca59c22682c4d49344c8236344b95db57ae5dd90f56552728f33f47",
+        "file": "frontend/src/app.ts",
+        "identity": "ipc_call:frontend/src/app.ts#viaWrapper.INVOKE%20%27debug_cmd%27",
+        "kind": "ipc_call",
+        "level": 4,
+        "name": "INVOKE 'debug_cmd'",
+        "qualified_name": "viaWrapper.INVOKE 'debug_cmd'",
+        "span": {
+          "end_column": 3,
+          "end_line": 37,
+          "start_column": 8,
+          "start_line": 35
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "command": "desktop_only",
+          "conditional": false,
+          "form": "wrapper",
+          "framework": "tauri",
+          "status": "linked",
+          "transport": "tauri_ipc",
+          "wrapper_identity": "function:frontend/src/lib/ipc.ts#call"
+        },
+        "content_hash": "sha256:5dab35500aa52119d27145ee8e259ce5c2b5f91916d4832e2384b7066590eb71",
+        "file": "frontend/src/app.ts",
+        "identity": "ipc_call:frontend/src/app.ts#viaWrapper.INVOKE%20%27desktop_only%27",
+        "kind": "ipc_call",
+        "level": 4,
+        "name": "INVOKE 'desktop_only'",
+        "qualified_name": "viaWrapper.INVOKE 'desktop_only'",
+        "span": {
+          "end_column": 50,
+          "end_line": 34,
+          "start_column": 22,
+          "start_line": 34
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "command": "greet",
+          "conditional": false,
+          "form": "global",
+          "framework": "tauri",
+          "status": "global_unlinked",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:1b603a0652ab97f429a0063e1725afbf06dd07a5c25a4f05436db44ad321aef8",
+        "file": "frontend/src/global.js",
+        "identity": "ipc_call:frontend/src/global.js#INVOKE%20%27greet%27",
+        "kind": "ipc_call",
+        "level": 4,
+        "name": "INVOKE 'greet'",
+        "qualified_name": "INVOKE 'greet'",
+        "span": {
+          "end_column": 37,
+          "end_line": 3,
+          "start_column": 0,
+          "start_line": 3
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "command": null,
+          "conditional": false,
+          "form": "global",
+          "framework": "tauri",
+          "status": "dynamic",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:9315f917cdc21c89155f203055712985c073b917f89786451e0c2d522463b2a0",
+        "file": "frontend/src/global.js",
+        "identity": "ipc_call:frontend/src/global.js#INVOKE%20name",
+        "kind": "ipc_call",
+        "level": 4,
+        "name": "INVOKE name",
+        "qualified_name": "INVOKE name",
+        "span": {
+          "end_column": 39,
+          "end_line": 4,
+          "start_column": 0,
+          "start_line": 4
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "command": null,
+          "conditional": false,
+          "form": "direct",
+          "framework": "tauri",
+          "status": "wrapper",
+          "transport": "tauri_ipc",
+          "wrapper": true
+        },
+        "content_hash": "sha256:0fa561f8e1ac3ba7dc6ead0b8d5614b58640e0d94e9a9b794e68d62e3fe826dd",
+        "file": "frontend/src/lib/ipc.ts",
+        "identity": "ipc_call:frontend/src/lib/ipc.ts#call.INVOKE%20command",
+        "kind": "ipc_call",
+        "level": 4,
+        "name": "INVOKE command",
+        "qualified_name": "call.INVOKE command",
+        "span": {
+          "end_column": 38,
+          "end_line": 5,
+          "start_column": 9,
+          "start_line": 5
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "command": null,
+          "conditional": false,
+          "form": "wrapper",
+          "framework": "tauri",
+          "status": "wrapper",
+          "transport": "tauri_ipc",
+          "wrapper": true,
+          "wrapper_identity": "function:frontend/src/lib/ipc.ts#call"
+        },
+        "content_hash": "sha256:f780d0e380244e9e3529651297b1814005986145bc72d705d02dad13eb31ee09",
+        "file": "frontend/src/lib/relay.ts",
+        "identity": "ipc_call:frontend/src/lib/relay.ts#relay.INVOKE%20name",
+        "kind": "ipc_call",
+        "level": 4,
+        "name": "INVOKE name",
+        "qualified_name": "relay.INVOKE name",
+        "span": {
+          "end_column": 25,
+          "end_line": 5,
+          "start_column": 9,
+          "start_line": 5
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "command": "greet",
+          "conditional": false,
+          "form": "wrapper",
+          "framework": "tauri",
+          "status": "linked",
+          "transport": "tauri_ipc",
+          "wrapper_identity": "function:frontend/src/local.ts#send"
+        },
+        "content_hash": "sha256:19882f3cb17d81f5ca432fd828ff5019bb7f222ac7dae546d4fff8d9b4896269",
+        "file": "frontend/src/local.ts",
+        "identity": "ipc_call:frontend/src/local.ts#INVOKE%20%27greet%27",
+        "kind": "ipc_call",
+        "level": 4,
+        "name": "INVOKE 'greet'",
+        "qualified_name": "INVOKE 'greet'",
+        "span": {
+          "end_column": 13,
+          "end_line": 6,
+          "start_column": 0,
+          "start_line": 6
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "command": "greet",
+          "conditional": false,
+          "form": "wrapper",
+          "framework": "tauri",
+          "status": "linked",
+          "transport": "tauri_ipc",
+          "wrapper_identity": "function:frontend/src/local.ts#send"
+        },
+        "content_hash": "sha256:19882f3cb17d81f5ca432fd828ff5019bb7f222ac7dae546d4fff8d9b4896269",
+        "file": "frontend/src/local.ts",
+        "identity": "ipc_call:frontend/src/local.ts#INVOKE%20%27greet%27%402",
+        "kind": "ipc_call",
+        "level": 4,
+        "name": "INVOKE 'greet'",
+        "qualified_name": "INVOKE 'greet'@2",
+        "span": {
+          "end_column": 13,
+          "end_line": 7,
+          "start_column": 0,
+          "start_line": 7
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "command": "greet",
+          "conditional": false,
+          "form": "wrapper",
+          "framework": "tauri",
+          "status": "linked",
+          "transport": "tauri_ipc",
+          "wrapper_identity": "function:frontend/src/local.ts#send"
+        },
+        "content_hash": "sha256:19882f3cb17d81f5ca432fd828ff5019bb7f222ac7dae546d4fff8d9b4896269",
+        "file": "frontend/src/local.ts",
+        "identity": "ipc_call:frontend/src/local.ts#INVOKE%20%27greet%27%403",
+        "kind": "ipc_call",
+        "level": 4,
+        "name": "INVOKE 'greet'",
+        "qualified_name": "INVOKE 'greet'@3",
+        "span": {
+          "end_column": 13,
+          "end_line": 8,
+          "start_column": 0,
+          "start_line": 8
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "command": null,
+          "conditional": false,
+          "form": "direct",
+          "framework": "tauri",
+          "status": "wrapper",
+          "transport": "tauri_ipc",
+          "wrapper": true
+        },
+        "content_hash": "sha256:32690b370d575e406ecf96207295add7a4250afc3699c84550b6b828629b9c8b",
+        "file": "frontend/src/local.ts",
+        "identity": "ipc_call:frontend/src/local.ts#send.INVOKE%20command",
+        "kind": "ipc_call",
+        "level": 4,
+        "name": "INVOKE command",
+        "qualified_name": "send.INVOKE command",
+        "span": {
+          "end_column": 49,
+          "end_line": 4,
+          "start_column": 34,
+          "start_line": 4
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "command": null,
+          "conditional": false,
+          "form": "direct",
+          "framework": "tauri",
+          "status": "dynamic",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:32690b370d575e406ecf96207295add7a4250afc3699c84550b6b828629b9c8b",
+        "file": "frontend/src/writes.ts",
+        "identity": "ipc_call:frontend/src/writes.ts#closure.INVOKE%20command",
+        "kind": "ipc_call",
+        "level": 4,
+        "name": "INVOKE command",
+        "qualified_name": "closure.INVOKE command",
+        "span": {
+          "end_column": 24,
+          "end_line": 27,
+          "start_column": 9,
+          "start_line": 27
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "command": null,
+          "conditional": false,
+          "form": "direct",
+          "framework": "tauri",
+          "status": "dynamic",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:32690b370d575e406ecf96207295add7a4250afc3699c84550b6b828629b9c8b",
+        "file": "frontend/src/writes.ts",
+        "identity": "ipc_call:frontend/src/writes.ts#destructured.INVOKE%20command",
+        "kind": "ipc_call",
+        "level": 4,
+        "name": "INVOKE command",
+        "qualified_name": "destructured.INVOKE command",
+        "span": {
+          "end_column": 24,
+          "end_line": 9,
+          "start_column": 9,
+          "start_line": 9
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "command": null,
+          "conditional": false,
+          "form": "direct",
+          "framework": "tauri",
+          "status": "dynamic",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:32690b370d575e406ecf96207295add7a4250afc3699c84550b6b828629b9c8b",
+        "file": "frontend/src/writes.ts",
+        "identity": "ipc_call:frontend/src/writes.ts#forOf.INVOKE%20command",
+        "kind": "ipc_call",
+        "level": 4,
+        "name": "INVOKE command",
+        "qualified_name": "forOf.INVOKE command",
+        "span": {
+          "end_column": 24,
+          "end_line": 34,
+          "start_column": 9,
+          "start_line": 34
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "command": null,
+          "conditional": false,
+          "form": "direct",
+          "framework": "tauri",
+          "status": "wrapper",
+          "transport": "tauri_ipc",
+          "wrapper": true
+        },
+        "content_hash": "sha256:32690b370d575e406ecf96207295add7a4250afc3699c84550b6b828629b9c8b",
+        "file": "frontend/src/writes.ts",
+        "identity": "ipc_call:frontend/src/writes.ts#logged.INVOKE%20command",
+        "kind": "ipc_call",
+        "level": 4,
+        "name": "INVOKE command",
+        "qualified_name": "logged.INVOKE command",
+        "span": {
+          "end_column": 24,
+          "end_line": 40,
+          "start_column": 9,
+          "start_line": 40
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "command": null,
+          "conditional": false,
+          "form": "direct",
+          "framework": "tauri",
+          "status": "dynamic",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:32690b370d575e406ecf96207295add7a4250afc3699c84550b6b828629b9c8b",
+        "file": "frontend/src/writes.ts",
+        "identity": "ipc_call:frontend/src/writes.ts#objectPattern.INVOKE%20command",
+        "kind": "ipc_call",
+        "level": 4,
+        "name": "INVOKE command",
+        "qualified_name": "objectPattern.INVOKE command",
+        "span": {
+          "end_column": 24,
+          "end_line": 14,
+          "start_column": 9,
+          "start_line": 14
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "command": null,
+          "conditional": false,
+          "form": "direct",
+          "framework": "tauri",
+          "status": "dynamic",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:32690b370d575e406ecf96207295add7a4250afc3699c84550b6b828629b9c8b",
+        "file": "frontend/src/writes.ts",
+        "identity": "ipc_call:frontend/src/writes.ts#updated.INVOKE%20command",
+        "kind": "ipc_call",
+        "level": 4,
+        "name": "INVOKE command",
+        "qualified_name": "updated.INVOKE command",
+        "span": {
+          "end_column": 24,
+          "end_line": 19,
+          "start_column": 9,
+          "start_line": 19
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "command": "greet",
+          "conditional": false,
+          "form": "wrapper",
+          "framework": "tauri",
+          "status": "linked",
+          "transport": "tauri_ipc",
+          "wrapper_identity": "function:frontend/src/writes.ts#logged"
+        },
+        "content_hash": "sha256:eb349a66afd7fc1b2e6e89da49632141fd2728627dde66cb91c8813254af996b",
+        "file": "frontend/src/writes.ts",
+        "identity": "ipc_call:frontend/src/writes.ts#useWrites.INVOKE%20%27greet%27",
+        "kind": "ipc_call",
+        "level": 4,
+        "name": "INVOKE 'greet'",
+        "qualified_name": "useWrites.INVOKE 'greet'",
+        "span": {
+          "end_column": 24,
+          "end_line": 49,
+          "start_column": 9,
+          "start_line": 49
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "cfg_gated": false,
+          "command": "aliased",
+          "framework": "tauri",
+          "handler": "function:app/src/commands.rs#aliased",
+          "registry": "app",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:c8a25ba4f760b4576e69704ea14519d09bdae81dcc77f80eaa1a9ebb831d71b7",
+        "file": "app/src/main.rs",
+        "identity": "ipc_command:app/src/main.rs#main.COMMAND%20aliased",
+        "kind": "ipc_command",
+        "level": 4,
+        "name": "COMMAND aliased",
+        "qualified_name": "main.COMMAND aliased",
+        "span": {
+          "end_column": 29,
+          "end_line": 28,
+          "start_column": 12,
+          "start_line": 28
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "cfg_gated": false,
+          "command": "bare_cmd",
+          "framework": "tauri",
+          "handler": "function:app/src/bare.rs#bare_cmd",
+          "registry": "app",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:607ed430cfb51b4378a2d2f2371e116092517189b408aae99b749c72044cc35f",
+        "file": "app/src/main.rs",
+        "identity": "ipc_command:app/src/main.rs#main.COMMAND%20bare_cmd",
+        "kind": "ipc_command",
+        "level": 4,
+        "name": "COMMAND bare_cmd",
+        "qualified_name": "main.COMMAND bare_cmd",
+        "span": {
+          "end_column": 26,
+          "end_line": 27,
+          "start_column": 12,
+          "start_line": 27
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "cfg_gated": true,
+          "command": "debug_cmd",
+          "framework": "tauri",
+          "handler": "function:app/src/commands.rs#debug_cmd",
+          "registry": "app",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:c155281e1101c8a3f5dfdfbd394ec56a0c4a4246f93ce18990b5db8f93e527c0",
+        "file": "app/src/main.rs",
+        "identity": "ipc_command:app/src/main.rs#main.COMMAND%20debug_cmd",
+        "kind": "ipc_command",
+        "level": 4,
+        "name": "COMMAND debug_cmd",
+        "qualified_name": "main.COMMAND debug_cmd",
+        "span": {
+          "end_column": 31,
+          "end_line": 32,
+          "start_column": 12,
+          "start_line": 32
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "cfg_gated": true,
+          "command": "desktop_only",
+          "framework": "tauri",
+          "handler": "function:app/src/commands.rs#desktop_only",
+          "registry": "app",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:e6bcd1e95884f758a7ab0f253a02ad3bd69baa0a55790e2abdf77b7dc374dc31",
+        "file": "app/src/main.rs",
+        "identity": "ipc_command:app/src/main.rs#main.COMMAND%20desktop_only",
+        "kind": "ipc_command",
+        "level": 4,
+        "name": "COMMAND desktop_only",
+        "qualified_name": "main.COMMAND desktop_only",
+        "span": {
+          "end_column": 34,
+          "end_line": 29,
+          "start_column": 12,
+          "start_line": 29
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "cfg_gated": false,
+          "command": "greet",
+          "framework": "tauri",
+          "handler": "function:app/src/commands.rs#greet",
+          "registry": "app",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:da234768cd8669fab530f50cbdeba65594e9d4d0d358a73c0a814c37ea24e42f",
+        "file": "app/src/main.rs",
+        "identity": "ipc_command:app/src/main.rs#main.COMMAND%20greet",
+        "kind": "ipc_command",
+        "level": 4,
+        "name": "COMMAND greet",
+        "qualified_name": "main.COMMAND greet",
+        "span": {
+          "end_column": 27,
+          "end_line": 26,
+          "start_column": 12,
+          "start_line": 26
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "cfg_gated": false,
+          "command": "greet",
+          "framework": "tauri",
+          "handler": "function:app/src/commands.rs#greet",
+          "registry": "app",
+          "transport": "tauri_ipc",
+          "unreachable": true
+        },
+        "content_hash": "sha256:da234768cd8669fab530f50cbdeba65594e9d4d0d358a73c0a814c37ea24e42f",
+        "file": "app/src/main.rs",
+        "identity": "ipc_command:app/src/main.rs#main.COMMAND%20greet%402",
+        "kind": "ipc_command",
+        "level": 4,
+        "name": "COMMAND greet",
+        "qualified_name": "main.COMMAND greet@2",
+        "span": {
+          "end_column": 27,
+          "end_line": 33,
+          "start_column": 12,
+          "start_line": 33
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "cfg_gated": true,
+          "command": "status",
+          "framework": "tauri",
+          "handler": "function:app/src/commands.rs#legacy_status",
+          "registry": "app",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:8bad369fc17bd076911d3eb7d44c7e067bb214dd1f589b6fbc30b666cd8c077e",
+        "file": "app/src/main.rs",
+        "identity": "ipc_command:app/src/main.rs#main.COMMAND%20legacy_status",
+        "kind": "ipc_command",
+        "level": 4,
+        "name": "COMMAND legacy_status",
+        "qualified_name": "main.COMMAND legacy_status",
+        "span": {
+          "end_column": 35,
+          "end_line": 37,
+          "start_column": 12,
+          "start_line": 37
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "cfg_gated": false,
+          "command": "renamed",
+          "framework": "tauri",
+          "handler": "function:app/src/commands.rs#rename_me",
+          "registry": "app",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:c4a54aa77911cee44d6c9ef436f67a89201f15e7862c4532c0abf2c43e66d0e5",
+        "file": "app/src/main.rs",
+        "identity": "ipc_command:app/src/main.rs#main.COMMAND%20rename_me",
+        "kind": "ipc_command",
+        "level": 4,
+        "name": "COMMAND rename_me",
+        "qualified_name": "main.COMMAND rename_me",
+        "span": {
+          "end_column": 31,
+          "end_line": 30,
+          "start_column": 12,
+          "start_line": 30
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "cfg_gated": false,
+          "command": "status",
+          "framework": "tauri",
+          "handler": "function:app/src/commands.rs#status",
+          "registry": "app",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:4aa5cf49297f5d2db873b832bc22dfeb08f498648c2af77a92ced73e93981833",
+        "file": "app/src/main.rs",
+        "identity": "ipc_command:app/src/main.rs#main.COMMAND%20status",
+        "kind": "ipc_command",
+        "level": 4,
+        "name": "COMMAND status",
+        "qualified_name": "main.COMMAND status",
+        "span": {
+          "end_column": 28,
+          "end_line": 38,
+          "start_column": 12,
+          "start_line": 38
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "cfg_gated": true,
+          "command": "test_cmd",
+          "framework": "tauri",
+          "handler": "function:app/src/commands.rs#testing.test_cmd",
+          "registry": "app",
+          "test_only": true,
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:5fa10a8cf272230d5200566758cc7935211a3978edb8532422d69fa2c9b4d2bb",
+        "file": "app/src/main.rs",
+        "identity": "ipc_command:app/src/main.rs#main.COMMAND%20test_cmd",
+        "kind": "ipc_command",
+        "level": 4,
+        "name": "COMMAND test_cmd",
+        "qualified_name": "main.COMMAND test_cmd",
+        "span": {
+          "end_column": 39,
+          "end_line": 35,
+          "start_column": 12,
+          "start_line": 35
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "cfg_gated": false,
+          "command": "greet",
+          "framework": "tauri",
+          "handler": "function:app/src/commands.rs#greet",
+          "plugin": "audit",
+          "registry": "plugin",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:23ca80f0eebaea878d1ec9f5f667ca54c3cd2312243c44433b1ccd425e26ee0a",
+        "file": "app/src/plugins.rs",
+        "identity": "ipc_command:app/src/plugins.rs#audit.COMMAND%20greet",
+        "kind": "ipc_command",
+        "level": 4,
+        "name": "COMMAND greet",
+        "qualified_name": "audit.COMMAND greet",
+        "span": {
+          "end_column": 71,
+          "end_line": 8,
+          "start_column": 49,
+          "start_line": 8
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "cfg_gated": false,
+          "command": "record",
+          "framework": "tauri",
+          "handler": "function:app/src/plugins.rs#record",
+          "plugin": "audit",
+          "registry": "plugin",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:70ce871f8a3d3fb449bc3c3ace6547cef02dfc74ffe48d912532a724bfdbe5b9",
+        "file": "app/src/plugins.rs",
+        "identity": "ipc_command:app/src/plugins.rs#audit.COMMAND%20record",
+        "kind": "ipc_command",
+        "level": 4,
+        "name": "COMMAND record",
+        "qualified_name": "audit.COMMAND record",
+        "span": {
+          "end_column": 79,
+          "end_line": 8,
+          "start_column": 73,
+          "start_line": 8
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "cfg_gated": false,
+          "command": null,
+          "framework": "tauri",
+          "handler": null,
+          "plugin": "a-b",
+          "registry": "plugin",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:11a01fe8c681f6fc2a99ee04dd71ef209f18157df91a5c7bd295f37e755a3076",
+        "file": "app/src/plugins.rs",
+        "identity": "ipc_command:app/src/plugins.rs#named.COMMAND%20clap_like",
+        "kind": "ipc_command",
+        "level": 4,
+        "name": "COMMAND clap_like",
+        "qualified_name": "named.COMMAND clap_like",
+        "span": {
+          "end_column": 39,
+          "end_line": 21,
+          "start_column": 12,
+          "start_line": 21
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "cfg_gated": false,
+          "command": null,
+          "framework": "tauri",
+          "handler": "function:app/src/commands.rs#dynamic_name",
+          "plugin": "a-b",
+          "registry": "plugin",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:794283e1d9781634c607b6d4fa77f371a3a0ed08d4b5f4bb0375cf93cbd2993a",
+        "file": "app/src/plugins.rs",
+        "identity": "ipc_command:app/src/plugins.rs#named.COMMAND%20dynamic_name",
+        "kind": "ipc_command",
+        "level": 4,
+        "name": "COMMAND dynamic_name",
+        "qualified_name": "named.COMMAND dynamic_name",
+        "span": {
+          "end_column": 41,
+          "end_line": 18,
+          "start_column": 12,
+          "start_line": 18
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "cfg_gated": false,
+          "command": null,
+          "framework": "tauri",
+          "handler": null,
+          "plugin": "a-b",
+          "registry": "plugin",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:5fcbaf4b35df647c182771a24f6707ba1c75ff39edddb8dade9141bc8710a5db",
+        "file": "app/src/plugins.rs",
+        "identity": "ipc_command:app/src/plugins.rs#named.COMMAND%20poise_cmd",
+        "kind": "ipc_command",
+        "level": 4,
+        "name": "COMMAND poise_cmd",
+        "qualified_name": "named.COMMAND poise_cmd",
+        "span": {
+          "end_column": 39,
+          "end_line": 20,
+          "start_column": 12,
+          "start_line": 20
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "cfg_gated": false,
+          "command": null,
+          "framework": "tauri",
+          "handler": null,
+          "plugin": "a-b",
+          "registry": "plugin",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:649f20465fb8b921596f7a5b049064261041ae581281aef533a6d1e05571b90b",
+        "file": "app/src/plugins.rs",
+        "identity": "ipc_command:app/src/plugins.rs#named.COMMAND%20twice",
+        "kind": "ipc_command",
+        "level": 4,
+        "name": "COMMAND twice",
+        "qualified_name": "named.COMMAND twice",
+        "span": {
+          "end_column": 30,
+          "end_line": 19,
+          "start_column": 12,
+          "start_line": 19
+        },
+        "type": "node"
+      }
+    ]
+  },
+  "pairs": {
+    "Diagnostics": [
+      {
+        "code": "tauri_command_duplicate",
+        "file": "pairs/app/src/main.rs",
+        "message": "pairs/app/src/main.rs:13: entry greet repeats command greet; the first entry wins",
+        "severity": "info",
+        "type": "diagnostic"
+      }
+    ],
+    "Edges": [
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "pairs/app/src/main.rs",
+            "span": {
+              "end_column": 32,
+              "end_line": 11,
+              "start_column": 30,
+              "start_line": 11
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:pairs/app/src/main.rs#main",
+        "target": "ipc_command:pairs/app/src/main.rs#main.COMMAND%20g1",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "pairs/app/src/main.rs",
+            "span": {
+              "end_column": 37,
+              "end_line": 12,
+              "start_column": 35,
+              "start_line": 12
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:pairs/app/src/main.rs#main",
+        "target": "ipc_command:pairs/app/src/main.rs#main.COMMAND%20g2",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "pairs/app/src/main.rs",
+            "span": {
+              "end_column": 13,
+              "end_line": 13,
+              "start_column": 8,
+              "start_line": 13
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:pairs/app/src/main.rs#main",
+        "target": "ipc_command:pairs/app/src/main.rs#main.COMMAND%20greet",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "pairs/web/main.ts",
+            "span": {
+              "end_column": 38,
+              "end_line": 2,
+              "start_column": 23,
+              "start_line": 2
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:pairs/web/main.ts#a",
+        "target": "ipc_call:pairs/web/main.ts#a.INVOKE%20%27greet%27",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "pairs/app/src/main.rs",
+            "span": {
+              "end_column": 32,
+              "end_line": 11,
+              "start_column": 30,
+              "start_line": 11
+            }
+          }
+        ],
+        "kind": "exposes_command",
+        "provenance": "fact",
+        "source": "function:pairs/app/src/main.rs#g1",
+        "target": "ipc_command:pairs/app/src/main.rs#main.COMMAND%20g1",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "pairs/app/src/main.rs",
+            "span": {
+              "end_column": 37,
+              "end_line": 12,
+              "start_column": 35,
+              "start_line": 12
+            }
+          }
+        ],
+        "kind": "exposes_command",
+        "provenance": "fact",
+        "source": "function:pairs/app/src/main.rs#g2",
+        "target": "ipc_command:pairs/app/src/main.rs#main.COMMAND%20g2",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "pairs/app/src/main.rs",
+            "span": {
+              "end_column": 13,
+              "end_line": 13,
+              "start_column": 8,
+              "start_line": 13
+            }
+          }
+        ],
+        "kind": "exposes_command",
+        "provenance": "fact",
+        "source": "function:pairs/app/src/main.rs#greet",
+        "target": "ipc_command:pairs/app/src/main.rs#main.COMMAND%20greet",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "pairs/web/main.ts",
+            "span": {
+              "end_column": 38,
+              "end_line": 2,
+              "start_column": 23,
+              "start_line": 2
+            }
+          }
+        ],
+        "kind": "invokes_command",
+        "provenance": "fact",
+        "source": "ipc_call:pairs/web/main.ts#a.INVOKE%20%27greet%27",
+        "target": "ipc_command:pairs/app/src/main.rs#main.COMMAND%20g1",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "pairs/web/main.ts",
+            "span": {
+              "end_column": 38,
+              "end_line": 2,
+              "start_column": 23,
+              "start_line": 2
+            }
+          }
+        ],
+        "kind": "invokes_command",
+        "provenance": "fact",
+        "source": "ipc_call:pairs/web/main.ts#a.INVOKE%20%27greet%27",
+        "target": "ipc_command:pairs/app/src/main.rs#main.COMMAND%20g2",
+        "type": "edge"
+      }
+    ],
+    "Nodes": [
+      {
+        "attributes": {
+          "alternatives": [
+            {
+              "cfg_gated": true,
+              "command": "greet",
+              "conditional": true,
+              "status": "linked",
+              "target": "ipc_command:pairs/app/src/main.rs#main.COMMAND%20g1"
+            },
+            {
+              "cfg_gated": true,
+              "command": "greet",
+              "conditional": true,
+              "status": "linked",
+              "target": "ipc_command:pairs/app/src/main.rs#main.COMMAND%20g2"
+            }
+          ],
+          "command": "greet",
+          "conditional": true,
+          "form": "direct",
+          "framework": "tauri",
+          "status": "linked",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:4f4b9a7f42ceedbc24aa26556583819054f19a9c6b080ecbce1b8bbeeb9a1d21",
+        "file": "pairs/web/main.ts",
+        "identity": "ipc_call:pairs/web/main.ts#a.INVOKE%20%27greet%27",
+        "kind": "ipc_call",
+        "level": 4,
+        "name": "INVOKE 'greet'",
+        "qualified_name": "a.INVOKE 'greet'",
+        "span": {
+          "end_column": 38,
+          "end_line": 2,
+          "start_column": 23,
+          "start_line": 2
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "cfg_gated": true,
+          "command": "greet",
+          "framework": "tauri",
+          "handler": "function:pairs/app/src/main.rs#g1",
+          "registry": "app",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:711430f6164e93803d93428bc1fab80f41e213bb197689307de8606d437c3038",
+        "file": "pairs/app/src/main.rs",
+        "identity": "ipc_command:pairs/app/src/main.rs#main.COMMAND%20g1",
+        "kind": "ipc_command",
+        "level": 4,
+        "name": "COMMAND g1",
+        "qualified_name": "main.COMMAND g1",
+        "span": {
+          "end_column": 32,
+          "end_line": 11,
+          "start_column": 30,
+          "start_line": 11
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "cfg_gated": true,
+          "command": "greet",
+          "framework": "tauri",
+          "handler": "function:pairs/app/src/main.rs#g2",
+          "registry": "app",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:4d2f4b668cfc48e6059d36e91326bf87de39ba819f35450477bc1ce614a63bbd",
+        "file": "pairs/app/src/main.rs",
+        "identity": "ipc_command:pairs/app/src/main.rs#main.COMMAND%20g2",
+        "kind": "ipc_command",
+        "level": 4,
+        "name": "COMMAND g2",
+        "qualified_name": "main.COMMAND g2",
+        "span": {
+          "end_column": 37,
+          "end_line": 12,
+          "start_column": 35,
+          "start_line": 12
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "cfg_gated": false,
+          "command": "greet",
+          "framework": "tauri",
+          "handler": "function:pairs/app/src/main.rs#greet",
+          "registry": "app",
+          "transport": "tauri_ipc",
+          "unreachable": true
+        },
+        "content_hash": "sha256:231bf89d726826891c1578a8ffe06ad898e70ecad4adb07668c2d9beca734b0c",
+        "file": "pairs/app/src/main.rs",
+        "identity": "ipc_command:pairs/app/src/main.rs#main.COMMAND%20greet",
+        "kind": "ipc_command",
+        "level": 4,
+        "name": "COMMAND greet",
+        "qualified_name": "main.COMMAND greet",
+        "span": {
+          "end_column": 13,
+          "end_line": 13,
+          "start_column": 8,
+          "start_line": 13
+        },
+        "type": "node"
+      }
+    ]
+  },
+  "registries": {
+    "Diagnostics": [
+      {
+        "code": "tauri_handler_invalid",
+        "file": "registries/src/main.rs",
+        "message": "registries/src/main.rs:19: generate_handler! is not the macro's input grammar: unsupported entry syntax",
+        "severity": "warning",
+        "type": "diagnostic"
+      },
+      {
+        "code": "tauri_registry_unproven",
+        "file": "registries/src/main.rs",
+        "message": "registries/src/main.rs:26: registry not proven [context]",
+        "severity": "info",
+        "type": "diagnostic"
+      },
+      {
+        "code": "tauri_registry_unproven",
+        "file": "registries/src/main.rs",
+        "message": "registries/src/main.rs:33: registry not proven [context]",
+        "severity": "info",
+        "type": "diagnostic"
+      },
+      {
+        "code": "tauri_registry_unproven",
+        "file": "registries/src/main.rs",
+        "message": "registries/src/main.rs:43: registry not proven [incomplete]",
+        "severity": "info",
+        "type": "diagnostic"
+      },
+      {
+        "code": "tauri_registry_unproven",
+        "file": "registries/src/main.rs",
+        "message": "registries/src/main.rs:50: registry not proven [not_last]",
+        "severity": "info",
+        "type": "diagnostic"
+      },
+      {
+        "code": "tauri_registry_unproven",
+        "file": "registries/src/main.rs",
+        "message": "registries/src/main.rs:51: registry not proven [not_consumed]",
+        "severity": "info",
+        "type": "diagnostic"
+      },
+      {
+        "code": "tauri_registry_unproven",
+        "file": "registries/src/main.rs",
+        "message": "registries/src/main.rs:56: registry not proven [not_consumed]",
+        "severity": "info",
+        "type": "diagnostic"
+      },
+      {
+        "code": "tauri_registry_unproven",
+        "file": "registries/src/main.rs",
+        "message": "registries/src/main.rs:64: registry not proven [method]",
+        "severity": "info",
+        "type": "diagnostic"
+      },
+      {
+        "code": "tauri_registry_unproven",
+        "file": "registries/src/main.rs",
+        "message": "registries/src/main.rs:72: registry not proven [generic]",
+        "severity": "info",
+        "type": "diagnostic"
+      },
+      {
+        "code": "tauri_registry_unproven",
+        "file": "registries/src/main.rs",
+        "message": "registries/src/main.rs:80: registry not proven [root]",
+        "severity": "info",
+        "type": "diagnostic"
+      },
+      {
+        "code": "tauri_registry_unproven",
+        "file": "registries/src/main.rs",
+        "message": "registries/src/main.rs:88: registry not proven [flow_binding]",
+        "severity": "info",
+        "type": "diagnostic"
+      },
+      {
+        "code": "tauri_registry_unproven",
+        "file": "registries/src/main.rs",
+        "message": "registries/src/main.rs:95: registry not proven [shadowed]",
+        "severity": "info",
+        "type": "diagnostic"
+      },
+      {
+        "code": "tauri_registry_unproven",
+        "file": "registries/src/main.rs",
+        "message": "registries/src/main.rs:103: registry not proven [shadowed]",
+        "severity": "info",
+        "type": "diagnostic"
+      },
+      {
+        "code": "tauri_registry_unproven",
+        "file": "registries/src/main.rs",
+        "message": "registries/src/main.rs:113: registry not proven [macro]",
+        "severity": "info",
+        "type": "diagnostic"
+      },
+      {
+        "code": "tauri_registry_unproven",
+        "file": "registries/src/main.rs",
+        "message": "registries/src/main.rs:120: registry not proven [macro]",
+        "severity": "info",
+        "type": "diagnostic"
+      },
+      {
+        "code": "tauri_registry_unproven",
+        "file": "registries/src/main.rs",
+        "message": "registries/src/main.rs:128: registry not proven [macro]",
+        "severity": "info",
+        "type": "diagnostic"
+      },
+      {
+        "code": "tauri_registry_unproven",
+        "file": "registries/src/main.rs",
+        "message": "registries/src/main.rs:137: registry not proven [mock_builder]",
+        "severity": "info",
+        "type": "diagnostic"
+      },
+      {
+        "code": "tauri_registry_unproven",
+        "file": "registries/src/main.rs",
+        "message": "registries/src/main.rs:145: registry not proven [plugin_name]",
+        "severity": "info",
+        "type": "diagnostic"
+      },
+      {
+        "code": "tauri_registry_unproven",
+        "file": "registries/src/main.rs",
+        "message": "registries/src/main.rs:34: invoke_handler argument is not Tauri's generate_handler! [handler]",
+        "severity": "info",
+        "type": "diagnostic"
+      },
+      {
+        "code": "tauri_registry_unproven",
+        "file": "registries/src/main.rs",
+        "message": "registries/src/main.rs:11: invoke_handler argument is not Tauri's generate_handler! [handler]",
+        "severity": "info",
+        "type": "diagnostic"
+      }
+    ],
+    "Edges": [
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "registries/src/main.rs",
+            "span": {
+              "end_column": 46,
+              "end_line": 128,
+              "start_column": 42,
+              "start_line": 128
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:registries/src/main.rs#attribute_macro",
+        "target": "ipc_command:registries/src/main.rs#attribute_macro.COMMAND%20ping",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "registries/src/main.rs",
+            "span": {
+              "end_column": 49,
+              "end_line": 113,
+              "start_column": 45,
+              "start_line": 113
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:registries/src/main.rs#body_macro",
+        "target": "ipc_command:registries/src/main.rs#body_macro.COMMAND%20ping",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "registries/src/main.rs",
+            "span": {
+              "end_column": 49,
+              "end_line": 103,
+              "start_column": 45,
+              "start_line": 103
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:registries/src/main.rs#destructured",
+        "target": "ipc_command:registries/src/main.rs#destructured.COMMAND%20ping",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "registries/src/main.rs",
+            "span": {
+              "end_column": 70,
+              "end_line": 56,
+              "start_column": 66,
+              "start_line": 56
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:registries/src/main.rs#escapes",
+        "target": "ipc_command:registries/src/main.rs#escapes.COMMAND%20ping",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "registries/src/main.rs",
+            "span": {
+              "end_column": 46,
+              "end_line": 64,
+              "start_column": 42,
+              "start_line": 64
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:registries/src/main.rs#extension",
+        "target": "ipc_command:registries/src/main.rs#extension.COMMAND%20ping",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "registries/src/main.rs",
+            "span": {
+              "end_column": 46,
+              "end_line": 72,
+              "start_column": 42,
+              "start_line": 72
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:registries/src/main.rs#generic_root",
+        "target": "ipc_command:registries/src/main.rs#generic_root.COMMAND%20ping",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "registries/src/main.rs",
+            "span": {
+              "end_column": 46,
+              "end_line": 80,
+              "start_column": 42,
+              "start_line": 80
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:registries/src/main.rs#helper_root",
+        "target": "ipc_command:registries/src/main.rs#helper_root.COMMAND%20ping",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "registries/src/main.rs",
+            "span": {
+              "end_column": 46,
+              "end_line": 43,
+              "start_column": 42,
+              "start_line": 43
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:registries/src/main.rs#incomplete",
+        "target": "ipc_command:registries/src/main.rs#incomplete.COMMAND%20ping",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "registries/src/main.rs",
+            "span": {
+              "end_column": 46,
+              "end_line": 50,
+              "start_column": 42,
+              "start_line": 50
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:registries/src/main.rs#later_handler",
+        "target": "ipc_command:registries/src/main.rs#later_handler.COMMAND%20ping",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "registries/src/main.rs",
+            "span": {
+              "end_column": 46,
+              "end_line": 51,
+              "start_column": 42,
+              "start_line": 51
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:registries/src/main.rs#later_handler",
+        "target": "ipc_command:registries/src/main.rs#later_handler.COMMAND%20ping%402",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "registries/src/main.rs",
+            "span": {
+              "end_column": 40,
+              "end_line": 33,
+              "start_column": 36,
+              "start_line": 33
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:registries/src/main.rs#let_bound",
+        "target": "ipc_command:registries/src/main.rs#let_bound.COMMAND%20ping",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "registries/src/main.rs",
+            "span": {
+              "end_column": 46,
+              "end_line": 137,
+              "start_column": 42,
+              "start_line": 137
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:registries/src/main.rs#mock_root",
+        "target": "ipc_command:registries/src/main.rs#mock_root.COMMAND%20ping",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "registries/src/main.rs",
+            "span": {
+              "end_column": 49,
+              "end_line": 120,
+              "start_column": 45,
+              "start_line": 120
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:registries/src/main.rs#opaque_macro",
+        "target": "ipc_command:registries/src/main.rs#opaque_macro.COMMAND%20ping",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "registries/src/main.rs",
+            "span": {
+              "end_column": 49,
+              "end_line": 88,
+              "start_column": 45,
+              "start_line": 88
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:registries/src/main.rs#partial_if",
+        "target": "ipc_command:registries/src/main.rs#partial_if.COMMAND%20ping",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "registries/src/main.rs",
+            "span": {
+              "end_column": 70,
+              "end_line": 26,
+              "start_column": 66,
+              "start_line": 26
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:registries/src/main.rs#path_form",
+        "target": "ipc_command:registries/src/main.rs#path_form.COMMAND%20ping",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "registries/src/main.rs",
+            "span": {
+              "end_column": 60,
+              "end_line": 145,
+              "start_column": 56,
+              "start_line": 145
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:registries/src/main.rs#plugin_mismatch",
+        "target": "ipc_command:registries/src/main.rs#plugin_mismatch.COMMAND%20ping",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "registries/src/main.rs",
+            "span": {
+              "end_column": 53,
+              "end_line": 95,
+              "start_column": 49,
+              "start_line": 95
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:registries/src/main.rs#shadowed",
+        "target": "ipc_command:registries/src/main.rs#shadowed.COMMAND%20ping",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "registries/src/main.rs",
+            "span": {
+              "end_column": 46,
+              "end_line": 128,
+              "start_column": 42,
+              "start_line": 128
+            }
+          }
+        ],
+        "kind": "exposes_command",
+        "provenance": "fact",
+        "source": "function:registries/src/main.rs#ping",
+        "target": "ipc_command:registries/src/main.rs#attribute_macro.COMMAND%20ping",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "registries/src/main.rs",
+            "span": {
+              "end_column": 49,
+              "end_line": 113,
+              "start_column": 45,
+              "start_line": 113
+            }
+          }
+        ],
+        "kind": "exposes_command",
+        "provenance": "fact",
+        "source": "function:registries/src/main.rs#ping",
+        "target": "ipc_command:registries/src/main.rs#body_macro.COMMAND%20ping",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "registries/src/main.rs",
+            "span": {
+              "end_column": 49,
+              "end_line": 103,
+              "start_column": 45,
+              "start_line": 103
+            }
+          }
+        ],
+        "kind": "exposes_command",
+        "provenance": "fact",
+        "source": "function:registries/src/main.rs#ping",
+        "target": "ipc_command:registries/src/main.rs#destructured.COMMAND%20ping",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "registries/src/main.rs",
+            "span": {
+              "end_column": 70,
+              "end_line": 56,
+              "start_column": 66,
+              "start_line": 56
+            }
+          }
+        ],
+        "kind": "exposes_command",
+        "provenance": "fact",
+        "source": "function:registries/src/main.rs#ping",
+        "target": "ipc_command:registries/src/main.rs#escapes.COMMAND%20ping",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "registries/src/main.rs",
+            "span": {
+              "end_column": 46,
+              "end_line": 64,
+              "start_column": 42,
+              "start_line": 64
+            }
+          }
+        ],
+        "kind": "exposes_command",
+        "provenance": "fact",
+        "source": "function:registries/src/main.rs#ping",
+        "target": "ipc_command:registries/src/main.rs#extension.COMMAND%20ping",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "registries/src/main.rs",
+            "span": {
+              "end_column": 46,
+              "end_line": 72,
+              "start_column": 42,
+              "start_line": 72
+            }
+          }
+        ],
+        "kind": "exposes_command",
+        "provenance": "fact",
+        "source": "function:registries/src/main.rs#ping",
+        "target": "ipc_command:registries/src/main.rs#generic_root.COMMAND%20ping",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "registries/src/main.rs",
+            "span": {
+              "end_column": 46,
+              "end_line": 80,
+              "start_column": 42,
+              "start_line": 80
+            }
+          }
+        ],
+        "kind": "exposes_command",
+        "provenance": "fact",
+        "source": "function:registries/src/main.rs#ping",
+        "target": "ipc_command:registries/src/main.rs#helper_root.COMMAND%20ping",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "registries/src/main.rs",
+            "span": {
+              "end_column": 46,
+              "end_line": 43,
+              "start_column": 42,
+              "start_line": 43
+            }
+          }
+        ],
+        "kind": "exposes_command",
+        "provenance": "fact",
+        "source": "function:registries/src/main.rs#ping",
+        "target": "ipc_command:registries/src/main.rs#incomplete.COMMAND%20ping",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "registries/src/main.rs",
+            "span": {
+              "end_column": 46,
+              "end_line": 50,
+              "start_column": 42,
+              "start_line": 50
+            }
+          }
+        ],
+        "kind": "exposes_command",
+        "provenance": "fact",
+        "source": "function:registries/src/main.rs#ping",
+        "target": "ipc_command:registries/src/main.rs#later_handler.COMMAND%20ping",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "registries/src/main.rs",
+            "span": {
+              "end_column": 46,
+              "end_line": 51,
+              "start_column": 42,
+              "start_line": 51
+            }
+          }
+        ],
+        "kind": "exposes_command",
+        "provenance": "fact",
+        "source": "function:registries/src/main.rs#ping",
+        "target": "ipc_command:registries/src/main.rs#later_handler.COMMAND%20ping%402",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "registries/src/main.rs",
+            "span": {
+              "end_column": 40,
+              "end_line": 33,
+              "start_column": 36,
+              "start_line": 33
+            }
+          }
+        ],
+        "kind": "exposes_command",
+        "provenance": "fact",
+        "source": "function:registries/src/main.rs#ping",
+        "target": "ipc_command:registries/src/main.rs#let_bound.COMMAND%20ping",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "registries/src/main.rs",
+            "span": {
+              "end_column": 46,
+              "end_line": 137,
+              "start_column": 42,
+              "start_line": 137
+            }
+          }
+        ],
+        "kind": "exposes_command",
+        "provenance": "fact",
+        "source": "function:registries/src/main.rs#ping",
+        "target": "ipc_command:registries/src/main.rs#mock_root.COMMAND%20ping",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "registries/src/main.rs",
+            "span": {
+              "end_column": 49,
+              "end_line": 120,
+              "start_column": 45,
+              "start_line": 120
+            }
+          }
+        ],
+        "kind": "exposes_command",
+        "provenance": "fact",
+        "source": "function:registries/src/main.rs#ping",
+        "target": "ipc_command:registries/src/main.rs#opaque_macro.COMMAND%20ping",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "registries/src/main.rs",
+            "span": {
+              "end_column": 49,
+              "end_line": 88,
+              "start_column": 45,
+              "start_line": 88
+            }
+          }
+        ],
+        "kind": "exposes_command",
+        "provenance": "fact",
+        "source": "function:registries/src/main.rs#ping",
+        "target": "ipc_command:registries/src/main.rs#partial_if.COMMAND%20ping",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "registries/src/main.rs",
+            "span": {
+              "end_column": 70,
+              "end_line": 26,
+              "start_column": 66,
+              "start_line": 26
+            }
+          }
+        ],
+        "kind": "exposes_command",
+        "provenance": "fact",
+        "source": "function:registries/src/main.rs#ping",
+        "target": "ipc_command:registries/src/main.rs#path_form.COMMAND%20ping",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "registries/src/main.rs",
+            "span": {
+              "end_column": 60,
+              "end_line": 145,
+              "start_column": 56,
+              "start_line": 145
+            }
+          }
+        ],
+        "kind": "exposes_command",
+        "provenance": "fact",
+        "source": "function:registries/src/main.rs#ping",
+        "target": "ipc_command:registries/src/main.rs#plugin_mismatch.COMMAND%20ping",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "registries/src/main.rs",
+            "span": {
+              "end_column": 53,
+              "end_line": 95,
+              "start_column": 49,
+              "start_line": 95
+            }
+          }
+        ],
+        "kind": "exposes_command",
+        "provenance": "fact",
+        "source": "function:registries/src/main.rs#ping",
+        "target": "ipc_command:registries/src/main.rs#shadowed.COMMAND%20ping",
+        "type": "edge"
+      }
+    ],
+    "Nodes": [
+      {
+        "attributes": {
+          "cfg_gated": false,
+          "command": "ping",
+          "framework": "tauri",
+          "handler": "function:registries/src/main.rs#ping",
+          "reason": "macro",
+          "registry": "unproven",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:758d61f26a44448384e5c4468a0dcb7a2abe456067b0f7b505bc28b9411fe931",
+        "file": "registries/src/main.rs",
+        "identity": "ipc_command:registries/src/main.rs#attribute_macro.COMMAND%20ping",
+        "kind": "ipc_command",
+        "level": 4,
+        "name": "COMMAND ping",
+        "qualified_name": "attribute_macro.COMMAND ping",
+        "span": {
+          "end_column": 46,
+          "end_line": 128,
+          "start_column": 42,
+          "start_line": 128
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "cfg_gated": false,
+          "command": "ping",
+          "framework": "tauri",
+          "handler": "function:registries/src/main.rs#ping",
+          "reason": "macro",
+          "registry": "unproven",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:758d61f26a44448384e5c4468a0dcb7a2abe456067b0f7b505bc28b9411fe931",
+        "file": "registries/src/main.rs",
+        "identity": "ipc_command:registries/src/main.rs#body_macro.COMMAND%20ping",
+        "kind": "ipc_command",
+        "level": 4,
+        "name": "COMMAND ping",
+        "qualified_name": "body_macro.COMMAND ping",
+        "span": {
+          "end_column": 49,
+          "end_line": 113,
+          "start_column": 45,
+          "start_line": 113
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "cfg_gated": false,
+          "command": "ping",
+          "framework": "tauri",
+          "handler": "function:registries/src/main.rs#ping",
+          "reason": "shadowed",
+          "registry": "unproven",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:758d61f26a44448384e5c4468a0dcb7a2abe456067b0f7b505bc28b9411fe931",
+        "file": "registries/src/main.rs",
+        "identity": "ipc_command:registries/src/main.rs#destructured.COMMAND%20ping",
+        "kind": "ipc_command",
+        "level": 4,
+        "name": "COMMAND ping",
+        "qualified_name": "destructured.COMMAND ping",
+        "span": {
+          "end_column": 49,
+          "end_line": 103,
+          "start_column": 45,
+          "start_line": 103
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "cfg_gated": false,
+          "command": "ping",
+          "framework": "tauri",
+          "handler": "function:registries/src/main.rs#ping",
+          "reason": "not_consumed",
+          "registry": "unproven",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:758d61f26a44448384e5c4468a0dcb7a2abe456067b0f7b505bc28b9411fe931",
+        "file": "registries/src/main.rs",
+        "identity": "ipc_command:registries/src/main.rs#escapes.COMMAND%20ping",
+        "kind": "ipc_command",
+        "level": 4,
+        "name": "COMMAND ping",
+        "qualified_name": "escapes.COMMAND ping",
+        "span": {
+          "end_column": 70,
+          "end_line": 56,
+          "start_column": 66,
+          "start_line": 56
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "cfg_gated": false,
+          "command": "ping",
+          "framework": "tauri",
+          "handler": "function:registries/src/main.rs#ping",
+          "reason": "method",
+          "registry": "unproven",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:758d61f26a44448384e5c4468a0dcb7a2abe456067b0f7b505bc28b9411fe931",
+        "file": "registries/src/main.rs",
+        "identity": "ipc_command:registries/src/main.rs#extension.COMMAND%20ping",
+        "kind": "ipc_command",
+        "level": 4,
+        "name": "COMMAND ping",
+        "qualified_name": "extension.COMMAND ping",
+        "span": {
+          "end_column": 46,
+          "end_line": 64,
+          "start_column": 42,
+          "start_line": 64
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "cfg_gated": false,
+          "command": "ping",
+          "framework": "tauri",
+          "handler": "function:registries/src/main.rs#ping",
+          "reason": "generic",
+          "registry": "unproven",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:758d61f26a44448384e5c4468a0dcb7a2abe456067b0f7b505bc28b9411fe931",
+        "file": "registries/src/main.rs",
+        "identity": "ipc_command:registries/src/main.rs#generic_root.COMMAND%20ping",
+        "kind": "ipc_command",
+        "level": 4,
+        "name": "COMMAND ping",
+        "qualified_name": "generic_root.COMMAND ping",
+        "span": {
+          "end_column": 46,
+          "end_line": 72,
+          "start_column": 42,
+          "start_line": 72
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "cfg_gated": false,
+          "command": "ping",
+          "framework": "tauri",
+          "handler": "function:registries/src/main.rs#ping",
+          "reason": "root",
+          "registry": "unproven",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:758d61f26a44448384e5c4468a0dcb7a2abe456067b0f7b505bc28b9411fe931",
+        "file": "registries/src/main.rs",
+        "identity": "ipc_command:registries/src/main.rs#helper_root.COMMAND%20ping",
+        "kind": "ipc_command",
+        "level": 4,
+        "name": "COMMAND ping",
+        "qualified_name": "helper_root.COMMAND ping",
+        "span": {
+          "end_column": 46,
+          "end_line": 80,
+          "start_column": 42,
+          "start_line": 80
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "cfg_gated": false,
+          "command": "ping",
+          "framework": "tauri",
+          "handler": "function:registries/src/main.rs#ping",
+          "reason": "incomplete",
+          "registry": "unproven",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:758d61f26a44448384e5c4468a0dcb7a2abe456067b0f7b505bc28b9411fe931",
+        "file": "registries/src/main.rs",
+        "identity": "ipc_command:registries/src/main.rs#incomplete.COMMAND%20ping",
+        "kind": "ipc_command",
+        "level": 4,
+        "name": "COMMAND ping",
+        "qualified_name": "incomplete.COMMAND ping",
+        "span": {
+          "end_column": 46,
+          "end_line": 43,
+          "start_column": 42,
+          "start_line": 43
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "cfg_gated": false,
+          "command": "ping",
+          "framework": "tauri",
+          "handler": "function:registries/src/main.rs#ping",
+          "reason": "not_last",
+          "registry": "unproven",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:758d61f26a44448384e5c4468a0dcb7a2abe456067b0f7b505bc28b9411fe931",
+        "file": "registries/src/main.rs",
+        "identity": "ipc_command:registries/src/main.rs#later_handler.COMMAND%20ping",
+        "kind": "ipc_command",
+        "level": 4,
+        "name": "COMMAND ping",
+        "qualified_name": "later_handler.COMMAND ping",
+        "span": {
+          "end_column": 46,
+          "end_line": 50,
+          "start_column": 42,
+          "start_line": 50
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "cfg_gated": false,
+          "command": "ping",
+          "framework": "tauri",
+          "handler": "function:registries/src/main.rs#ping",
+          "reason": "not_consumed",
+          "registry": "unproven",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:758d61f26a44448384e5c4468a0dcb7a2abe456067b0f7b505bc28b9411fe931",
+        "file": "registries/src/main.rs",
+        "identity": "ipc_command:registries/src/main.rs#later_handler.COMMAND%20ping%402",
+        "kind": "ipc_command",
+        "level": 4,
+        "name": "COMMAND ping",
+        "qualified_name": "later_handler.COMMAND ping@2",
+        "span": {
+          "end_column": 46,
+          "end_line": 51,
+          "start_column": 42,
+          "start_line": 51
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "cfg_gated": false,
+          "command": "ping",
+          "framework": "tauri",
+          "handler": "function:registries/src/main.rs#ping",
+          "reason": "context",
+          "registry": "unproven",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:758d61f26a44448384e5c4468a0dcb7a2abe456067b0f7b505bc28b9411fe931",
+        "file": "registries/src/main.rs",
+        "identity": "ipc_command:registries/src/main.rs#let_bound.COMMAND%20ping",
+        "kind": "ipc_command",
+        "level": 4,
+        "name": "COMMAND ping",
+        "qualified_name": "let_bound.COMMAND ping",
+        "span": {
+          "end_column": 40,
+          "end_line": 33,
+          "start_column": 36,
+          "start_line": 33
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "cfg_gated": false,
+          "command": "ping",
+          "framework": "tauri",
+          "handler": "function:registries/src/main.rs#ping",
+          "reason": "mock_builder",
+          "registry": "unproven",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:758d61f26a44448384e5c4468a0dcb7a2abe456067b0f7b505bc28b9411fe931",
+        "file": "registries/src/main.rs",
+        "identity": "ipc_command:registries/src/main.rs#mock_root.COMMAND%20ping",
+        "kind": "ipc_command",
+        "level": 4,
+        "name": "COMMAND ping",
+        "qualified_name": "mock_root.COMMAND ping",
+        "span": {
+          "end_column": 46,
+          "end_line": 137,
+          "start_column": 42,
+          "start_line": 137
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "cfg_gated": false,
+          "command": "ping",
+          "framework": "tauri",
+          "handler": "function:registries/src/main.rs#ping",
+          "reason": "macro",
+          "registry": "unproven",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:758d61f26a44448384e5c4468a0dcb7a2abe456067b0f7b505bc28b9411fe931",
+        "file": "registries/src/main.rs",
+        "identity": "ipc_command:registries/src/main.rs#opaque_macro.COMMAND%20ping",
+        "kind": "ipc_command",
+        "level": 4,
+        "name": "COMMAND ping",
+        "qualified_name": "opaque_macro.COMMAND ping",
+        "span": {
+          "end_column": 49,
+          "end_line": 120,
+          "start_column": 45,
+          "start_line": 120
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "cfg_gated": false,
+          "command": "ping",
+          "framework": "tauri",
+          "handler": "function:registries/src/main.rs#ping",
+          "reason": "flow_binding",
+          "registry": "unproven",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:758d61f26a44448384e5c4468a0dcb7a2abe456067b0f7b505bc28b9411fe931",
+        "file": "registries/src/main.rs",
+        "identity": "ipc_command:registries/src/main.rs#partial_if.COMMAND%20ping",
+        "kind": "ipc_command",
+        "level": 4,
+        "name": "COMMAND ping",
+        "qualified_name": "partial_if.COMMAND ping",
+        "span": {
+          "end_column": 49,
+          "end_line": 88,
+          "start_column": 45,
+          "start_line": 88
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "cfg_gated": false,
+          "command": "ping",
+          "framework": "tauri",
+          "handler": "function:registries/src/main.rs#ping",
+          "reason": "context",
+          "registry": "unproven",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:758d61f26a44448384e5c4468a0dcb7a2abe456067b0f7b505bc28b9411fe931",
+        "file": "registries/src/main.rs",
+        "identity": "ipc_command:registries/src/main.rs#path_form.COMMAND%20ping",
+        "kind": "ipc_command",
+        "level": 4,
+        "name": "COMMAND ping",
+        "qualified_name": "path_form.COMMAND ping",
+        "span": {
+          "end_column": 70,
+          "end_line": 26,
+          "start_column": 66,
+          "start_line": 26
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "cfg_gated": false,
+          "command": "ping",
+          "framework": "tauri",
+          "handler": "function:registries/src/main.rs#ping",
+          "reason": "plugin_name",
+          "registry": "unproven",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:758d61f26a44448384e5c4468a0dcb7a2abe456067b0f7b505bc28b9411fe931",
+        "file": "registries/src/main.rs",
+        "identity": "ipc_command:registries/src/main.rs#plugin_mismatch.COMMAND%20ping",
+        "kind": "ipc_command",
+        "level": 4,
+        "name": "COMMAND ping",
+        "qualified_name": "plugin_mismatch.COMMAND ping",
+        "span": {
+          "end_column": 60,
+          "end_line": 145,
+          "start_column": 56,
+          "start_line": 145
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "cfg_gated": false,
+          "command": "ping",
+          "framework": "tauri",
+          "handler": "function:registries/src/main.rs#ping",
+          "reason": "shadowed",
+          "registry": "unproven",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:758d61f26a44448384e5c4468a0dcb7a2abe456067b0f7b505bc28b9411fe931",
+        "file": "registries/src/main.rs",
+        "identity": "ipc_command:registries/src/main.rs#shadowed.COMMAND%20ping",
+        "kind": "ipc_command",
+        "level": 4,
+        "name": "COMMAND ping",
+        "qualified_name": "shadowed.COMMAND ping",
+        "span": {
+          "end_column": 53,
+          "end_line": 95,
+          "start_column": 49,
+          "start_line": 95
+        },
+        "type": "node"
+      }
+    ]
+  },
+  "second-bin": {
+    "Diagnostics": [
+      {
+        "code": "tauri_app_ambiguous",
+        "file": "second-bin/src/bin/b0.rs",
+        "message": "second-bin/src/bin/b0.rs:2: one of several Tauri app sites [root]",
+        "severity": "info",
+        "type": "diagnostic"
+      },
+      {
+        "code": "tauri_app_ambiguous",
+        "file": "second-bin/src/bin/ba.rs",
+        "message": "second-bin/src/bin/ba.rs:2: one of several Tauri app sites [alias]",
+        "severity": "info",
+        "type": "diagnostic"
+      },
+      {
+        "code": "tauri_app_ambiguous",
+        "file": "second-bin/src/bin/bb.rs",
+        "message": "second-bin/src/bin/bb.rs:2: one of several Tauri app sites [typed]",
+        "severity": "info",
+        "type": "diagnostic"
+      },
+      {
+        "code": "tauri_app_ambiguous",
+        "file": "second-bin/src/bin/bc.rs",
+        "message": "second-bin/src/bin/bc.rs:3: one of several Tauri app sites [root]",
+        "severity": "info",
+        "type": "diagnostic"
+      },
+      {
+        "code": "tauri_app_ambiguous",
+        "file": "second-bin/src/bin/bd.rs",
+        "message": "second-bin/src/bin/bd.rs:2: one of several Tauri app sites [root]",
+        "severity": "info",
+        "type": "diagnostic"
+      },
+      {
+        "code": "tauri_app_ambiguous",
+        "file": "second-bin/src/bin/be.rs",
+        "message": "second-bin/src/bin/be.rs:2: one of several Tauri app sites [root]",
+        "severity": "info",
+        "type": "diagnostic"
+      },
+      {
+        "code": "tauri_app_ambiguous",
+        "file": "second-bin/src/bin/bg.rs",
+        "message": "second-bin/src/bin/bg.rs:2: one of several Tauri app sites [root]",
+        "severity": "info",
+        "type": "diagnostic"
+      },
+      {
+        "code": "tauri_app_ambiguous",
+        "file": "second-bin/src/bin/bi.rs",
+        "message": "second-bin/src/bin/bi.rs:2: one of several Tauri app sites [root]",
+        "severity": "info",
+        "type": "diagnostic"
+      },
+      {
+        "code": "tauri_app_ambiguous",
+        "file": "second-bin/src/bin/bj.rs",
+        "message": "second-bin/src/bin/bj.rs:2: one of several Tauri app sites [macro]",
+        "severity": "info",
+        "type": "diagnostic"
+      },
+      {
+        "code": "tauri_app_ambiguous",
+        "file": "second-bin/src/bin/bk.rs",
+        "message": "second-bin/src/bin/bk.rs:3: one of several Tauri app sites [root]",
+        "severity": "info",
+        "type": "diagnostic"
+      },
+      {
+        "code": "tauri_app_ambiguous",
+        "file": "second-bin/src/bin/bl.rs",
+        "message": "second-bin/src/bin/bl.rs:3: one of several Tauri app sites [root]",
+        "severity": "info",
+        "type": "diagnostic"
+      },
+      {
+        "code": "tauri_app_ambiguous",
+        "file": "second-bin/src/lib.rs",
+        "message": "second-bin/src/lib.rs:4: one of several Tauri app sites [reexport]",
+        "severity": "info",
+        "type": "diagnostic"
+      },
+      {
+        "code": "tauri_app_ambiguous",
+        "file": "second-bin/src/main.rs",
+        "message": "second-bin/src/main.rs:5: 12 other Tauri app sites in the repository; app invokes are not linked",
+        "severity": "info",
+        "type": "diagnostic"
+      }
+    ],
+    "Edges": [
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "second-bin/src/main.rs",
+            "span": {
+              "end_column": 54,
+              "end_line": 5,
+              "start_column": 49,
+              "start_line": 5
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:second-bin/src/main.rs#main",
+        "target": "ipc_command:second-bin/src/main.rs#main.COMMAND%20greet",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "second-bin/web/main.ts",
+            "span": {
+              "end_column": 38,
+              "end_line": 2,
+              "start_column": 23,
+              "start_line": 2
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:second-bin/web/main.ts#a",
+        "target": "ipc_call:second-bin/web/main.ts#a.INVOKE%20%27greet%27",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "second-bin/src/main.rs",
+            "span": {
+              "end_column": 54,
+              "end_line": 5,
+              "start_column": 49,
+              "start_line": 5
+            }
+          }
+        ],
+        "kind": "exposes_command",
+        "provenance": "fact",
+        "source": "function:second-bin/src/main.rs#greet",
+        "target": "ipc_command:second-bin/src/main.rs#main.COMMAND%20greet",
+        "type": "edge"
+      }
+    ],
+    "Nodes": [
+      {
+        "attributes": {
+          "candidates": [
+            "ipc_command:second-bin/src/main.rs#main.COMMAND%20greet"
+          ],
+          "command": "greet",
+          "conditional": false,
+          "form": "direct",
+          "framework": "tauri",
+          "status": "ambiguous",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:4f4b9a7f42ceedbc24aa26556583819054f19a9c6b080ecbce1b8bbeeb9a1d21",
+        "file": "second-bin/web/main.ts",
+        "identity": "ipc_call:second-bin/web/main.ts#a.INVOKE%20%27greet%27",
+        "kind": "ipc_call",
+        "level": 4,
+        "name": "INVOKE 'greet'",
+        "qualified_name": "a.INVOKE 'greet'",
+        "span": {
+          "end_column": 38,
+          "end_line": 2,
+          "start_column": 23,
+          "start_line": 2
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "cfg_gated": false,
+          "command": "greet",
+          "framework": "tauri",
+          "handler": "function:second-bin/src/main.rs#greet",
+          "registry": "app",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:231bf89d726826891c1578a8ffe06ad898e70ecad4adb07668c2d9beca734b0c",
+        "file": "second-bin/src/main.rs",
+        "identity": "ipc_command:second-bin/src/main.rs#main.COMMAND%20greet",
+        "kind": "ipc_command",
+        "level": 4,
+        "name": "COMMAND greet",
+        "qualified_name": "main.COMMAND greet",
+        "span": {
+          "end_column": 54,
+          "end_line": 5,
+          "start_column": 49,
+          "start_line": 5
+        },
+        "type": "node"
+      }
+    ]
+  },
+  "test-only": {
+    "Diagnostics": [
+      {
+        "code": "tauri_entry_unresolved",
+        "file": "test-only/tests/ipc.rs",
+        "message": "test-only/tests/ipc.rs:13: entry missing::thing does not resolve to a Tauri command",
+        "severity": "info",
+        "type": "diagnostic"
+      }
+    ],
+    "Edges": [
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "test-only/tests/ipc.rs",
+            "span": {
+              "end_column": 53,
+              "end_line": 13,
+              "start_column": 49,
+              "start_line": 13
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:test-only/tests/ipc.rs#main",
+        "target": "ipc_command:test-only/tests/ipc.rs#main.COMMAND%20ping",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "test-only/tests/ipc.rs",
+            "span": {
+              "end_column": 75,
+              "end_line": 13,
+              "start_column": 71,
+              "start_line": 13
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:test-only/tests/ipc.rs#main",
+        "target": "ipc_command:test-only/tests/ipc.rs#main.COMMAND%20pong",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "test-only/tests/ipc.rs",
+            "span": {
+              "end_column": 69,
+              "end_line": 13,
+              "start_column": 55,
+              "start_line": 13
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:test-only/tests/ipc.rs#main",
+        "target": "ipc_command:test-only/tests/ipc.rs#main.COMMAND%20thing",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "test-only/web/main.test.ts",
+            "span": {
+              "end_column": 23,
+              "end_line": 4,
+              "start_column": 9,
+              "start_line": 4
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:test-only/web/main.test.ts#fromTest",
+        "target": "ipc_call:test-only/web/main.test.ts#fromTest.INVOKE%20%27ping%27",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "test-only/web/main.ts",
+            "span": {
+              "end_column": 22,
+              "end_line": 6,
+              "start_column": 8,
+              "start_line": 6
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:test-only/web/main.ts#production",
+        "target": "ipc_call:test-only/web/main.ts#production.INVOKE%20%27nope%27",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "test-only/web/main.ts",
+            "span": {
+              "end_column": 22,
+              "end_line": 4,
+              "start_column": 8,
+              "start_line": 4
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:test-only/web/main.ts#production",
+        "target": "ipc_call:test-only/web/main.ts#production.INVOKE%20%27ping%27",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "test-only/web/main.ts",
+            "span": {
+              "end_column": 22,
+              "end_line": 5,
+              "start_column": 8,
+              "start_line": 5
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:test-only/web/main.ts#production",
+        "target": "ipc_call:test-only/web/main.ts#production.INVOKE%20%27pong%27",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "test-only/tests/ipc.rs",
+            "span": {
+              "end_column": 53,
+              "end_line": 13,
+              "start_column": 49,
+              "start_line": 13
+            }
+          }
+        ],
+        "kind": "exposes_command",
+        "provenance": "fact",
+        "source": "function:test-only/tests/ipc.rs#ping",
+        "target": "ipc_command:test-only/tests/ipc.rs#main.COMMAND%20ping",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "test-only/tests/ipc.rs",
+            "span": {
+              "end_column": 75,
+              "end_line": 13,
+              "start_column": 71,
+              "start_line": 13
+            }
+          }
+        ],
+        "kind": "exposes_command",
+        "provenance": "fact",
+        "source": "function:test-only/tests/ipc.rs#pong",
+        "target": "ipc_command:test-only/tests/ipc.rs#main.COMMAND%20pong",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "test-only/web/main.test.ts",
+            "span": {
+              "end_column": 23,
+              "end_line": 4,
+              "start_column": 9,
+              "start_line": 4
+            }
+          }
+        ],
+        "kind": "invokes_command",
+        "provenance": "fact",
+        "source": "ipc_call:test-only/web/main.test.ts#fromTest.INVOKE%20%27ping%27",
+        "target": "ipc_command:test-only/tests/ipc.rs#main.COMMAND%20ping",
+        "type": "edge"
+      }
+    ],
+    "Nodes": [
+      {
+        "attributes": {
+          "command": "ping",
+          "conditional": false,
+          "form": "direct",
+          "framework": "tauri",
+          "scope": "test",
+          "status": "linked",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:8b26cd5e63869bd46edc58a8300a3ba93e0e5d34470f7b288ba10959adb46e72",
+        "file": "test-only/web/main.test.ts",
+        "identity": "ipc_call:test-only/web/main.test.ts#fromTest.INVOKE%20%27ping%27",
+        "kind": "ipc_call",
+        "level": 4,
+        "name": "INVOKE 'ping'",
+        "qualified_name": "fromTest.INVOKE 'ping'",
+        "span": {
+          "end_column": 23,
+          "end_line": 4,
+          "start_column": 9,
+          "start_line": 4
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "command": "nope",
+          "conditional": false,
+          "form": "direct",
+          "framework": "tauri",
+          "status": "unknown_command",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:85788ed6bf13c9512a07d468c38d95b4cb92428daab23ad424010a082a53b4d9",
+        "file": "test-only/web/main.ts",
+        "identity": "ipc_call:test-only/web/main.ts#production.INVOKE%20%27nope%27",
+        "kind": "ipc_call",
+        "level": 4,
+        "name": "INVOKE 'nope'",
+        "qualified_name": "production.INVOKE 'nope'",
+        "span": {
+          "end_column": 22,
+          "end_line": 6,
+          "start_column": 8,
+          "start_line": 6
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "candidates": [
+            "ipc_command:test-only/tests/ipc.rs#main.COMMAND%20ping"
+          ],
+          "command": "ping",
+          "conditional": false,
+          "form": "direct",
+          "framework": "tauri",
+          "status": "test_only",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:8b26cd5e63869bd46edc58a8300a3ba93e0e5d34470f7b288ba10959adb46e72",
+        "file": "test-only/web/main.ts",
+        "identity": "ipc_call:test-only/web/main.ts#production.INVOKE%20%27ping%27",
+        "kind": "ipc_call",
+        "level": 4,
+        "name": "INVOKE 'ping'",
+        "qualified_name": "production.INVOKE 'ping'",
+        "span": {
+          "end_column": 22,
+          "end_line": 4,
+          "start_column": 8,
+          "start_line": 4
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "command": "pong",
+          "conditional": false,
+          "form": "direct",
+          "framework": "tauri",
+          "status": "shadow_possible",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:fa99320204e1ffa4dad531f82918b6a6643896e29e653b57096572344a16bb5a",
+        "file": "test-only/web/main.ts",
+        "identity": "ipc_call:test-only/web/main.ts#production.INVOKE%20%27pong%27",
+        "kind": "ipc_call",
+        "level": 4,
+        "name": "INVOKE 'pong'",
+        "qualified_name": "production.INVOKE 'pong'",
+        "span": {
+          "end_column": 22,
+          "end_line": 5,
+          "start_column": 8,
+          "start_line": 5
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "cfg_gated": false,
+          "command": "ping",
+          "framework": "tauri",
+          "handler": "function:test-only/tests/ipc.rs#ping",
+          "registry": "app",
+          "scope": "test",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:758d61f26a44448384e5c4468a0dcb7a2abe456067b0f7b505bc28b9411fe931",
+        "file": "test-only/tests/ipc.rs",
+        "identity": "ipc_command:test-only/tests/ipc.rs#main.COMMAND%20ping",
+        "kind": "ipc_command",
+        "level": 4,
+        "name": "COMMAND ping",
+        "qualified_name": "main.COMMAND ping",
+        "span": {
+          "end_column": 53,
+          "end_line": 13,
+          "start_column": 49,
+          "start_line": 13
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "cfg_gated": false,
+          "command": "pong",
+          "framework": "tauri",
+          "handler": "function:test-only/tests/ipc.rs#pong",
+          "registry": "app",
+          "scope": "test",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:9795c5ff8937f23526ccb207a5684c1fc94a7854e19c021b39d944e51f5baef2",
+        "file": "test-only/tests/ipc.rs",
+        "identity": "ipc_command:test-only/tests/ipc.rs#main.COMMAND%20pong",
+        "kind": "ipc_command",
+        "level": 4,
+        "name": "COMMAND pong",
+        "qualified_name": "main.COMMAND pong",
+        "span": {
+          "end_column": 75,
+          "end_line": 13,
+          "start_column": 71,
+          "start_line": 13
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "cfg_gated": false,
+          "command": null,
+          "framework": "tauri",
+          "handler": null,
+          "registry": "app",
+          "scope": "test",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:df0335b84566f975789604c8ee3cf355469b5712cc04e98ff2880b91caa0489f",
+        "file": "test-only/tests/ipc.rs",
+        "identity": "ipc_command:test-only/tests/ipc.rs#main.COMMAND%20thing",
+        "kind": "ipc_command",
+        "level": 4,
+        "name": "COMMAND thing",
+        "qualified_name": "main.COMMAND thing",
+        "span": {
+          "end_column": 69,
+          "end_line": 13,
+          "start_column": 55,
+          "start_line": 13
+        },
+        "type": "node"
+      }
+    ]
+  },
+  "unsure": {
+    "Diagnostics": [],
+    "Edges": [
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "unsure/app/src/main.rs",
+            "span": {
+              "end_column": 54,
+              "end_line": 7,
+              "start_column": 49,
+              "start_line": 7
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:unsure/app/src/main.rs#main",
+        "target": "ipc_command:unsure/app/src/main.rs#main.COMMAND%20greet",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "unsure/app/src/main.rs",
+            "span": {
+              "end_column": 61,
+              "end_line": 7,
+              "start_column": 56,
+              "start_line": 7
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:unsure/app/src/main.rs#main",
+        "target": "ipc_command:unsure/app/src/main.rs#main.COMMAND%20other",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "unsure/web/main.ts",
+            "span": {
+              "end_column": 35,
+              "end_line": 25,
+              "start_column": 24,
+              "start_line": 25
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:unsure/web/main.ts#c2",
+        "target": "ipc_call:unsure/web/main.ts#c2.INVOKE%20%27greet%27",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "unsure/web/main.ts",
+            "span": {
+              "end_column": 99,
+              "end_line": 20,
+              "start_column": 88,
+              "start_line": 20
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:unsure/web/main.ts#u1",
+        "target": "ipc_call:unsure/web/main.ts#u1.INVOKE%20cmd",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "unsure/web/main.ts",
+            "span": {
+              "end_column": 74,
+              "end_line": 21,
+              "start_column": 63,
+              "start_line": 21
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:unsure/web/main.ts#u2",
+        "target": "ipc_call:unsure/web/main.ts#u2.INVOKE%20cmd",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "unsure/web/main.ts",
+            "span": {
+              "end_column": 39,
+              "end_line": 23,
+              "start_column": 28,
+              "start_line": 23
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:unsure/web/main.ts#u3",
+        "target": "ipc_call:unsure/web/main.ts#u3.INVOKE%20cmd",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "unsure/web/main.ts",
+            "span": {
+              "end_column": 92,
+              "end_line": 7,
+              "start_column": 81,
+              "start_line": 7
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:unsure/web/main.ts#v1",
+        "target": "ipc_call:unsure/web/main.ts#v1.INVOKE%20cmd",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "unsure/web/main.ts",
+            "span": {
+              "end_column": 103,
+              "end_line": 8,
+              "start_column": 92,
+              "start_line": 8
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:unsure/web/main.ts#v2",
+        "target": "ipc_call:unsure/web/main.ts#v2.INVOKE%20cmd",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "unsure/web/main.ts",
+            "span": {
+              "end_column": 71,
+              "end_line": 9,
+              "start_column": 60,
+              "start_line": 9
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:unsure/web/main.ts#v3",
+        "target": "ipc_call:unsure/web/main.ts#v3.INVOKE%20cmd",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "unsure/web/main.ts",
+            "span": {
+              "end_column": 98,
+              "end_line": 10,
+              "start_column": 87,
+              "start_line": 10
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:unsure/web/main.ts#v4",
+        "target": "ipc_call:unsure/web/main.ts#v4.INVOKE%20cmd",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "unsure/web/main.ts",
+            "span": {
+              "end_column": 95,
+              "end_line": 11,
+              "start_column": 84,
+              "start_line": 11
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:unsure/web/main.ts#v5",
+        "target": "ipc_call:unsure/web/main.ts#v5.INVOKE%20cmd",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "unsure/web/main.ts",
+            "span": {
+              "end_column": 64,
+              "end_line": 12,
+              "start_column": 53,
+              "start_line": 12
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:unsure/web/main.ts#v6",
+        "target": "ipc_call:unsure/web/main.ts#v6.INVOKE%20cmd",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "unsure/web/view.tsx",
+            "span": {
+              "end_column": 99,
+              "end_line": 3,
+              "start_column": 88,
+              "start_line": 3
+            }
+          }
+        ],
+        "kind": "contains",
+        "provenance": "fact",
+        "source": "function:unsure/web/view.tsx#V7",
+        "target": "ipc_call:unsure/web/view.tsx#V7.INVOKE%20cmd",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "unsure/app/src/main.rs",
+            "span": {
+              "end_column": 54,
+              "end_line": 7,
+              "start_column": 49,
+              "start_line": 7
+            }
+          }
+        ],
+        "kind": "exposes_command",
+        "provenance": "fact",
+        "source": "function:unsure/app/src/main.rs#greet",
+        "target": "ipc_command:unsure/app/src/main.rs#main.COMMAND%20greet",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "unsure/app/src/main.rs",
+            "span": {
+              "end_column": 61,
+              "end_line": 7,
+              "start_column": 56,
+              "start_line": 7
+            }
+          }
+        ],
+        "kind": "exposes_command",
+        "provenance": "fact",
+        "source": "function:unsure/app/src/main.rs#other",
+        "target": "ipc_command:unsure/app/src/main.rs#main.COMMAND%20other",
+        "type": "edge"
+      },
+      {
+        "confidence": 1,
+        "evidence": [
+          {
+            "file": "unsure/web/main.ts",
+            "span": {
+              "end_column": 35,
+              "end_line": 25,
+              "start_column": 24,
+              "start_line": 25
+            }
+          }
+        ],
+        "kind": "invokes_command",
+        "provenance": "fact",
+        "source": "ipc_call:unsure/web/main.ts#c2.INVOKE%20%27greet%27",
+        "target": "ipc_command:unsure/app/src/main.rs#main.COMMAND%20greet",
+        "type": "edge"
+      }
+    ],
+    "Nodes": [
+      {
+        "attributes": {
+          "command": "greet",
+          "conditional": false,
+          "form": "wrapper",
+          "framework": "tauri",
+          "status": "linked",
+          "transport": "tauri_ipc",
+          "wrapper_identity": "function:unsure/web/main.ts#u2"
+        },
+        "content_hash": "sha256:de3a7fef03b2bc85933106920ad0b2485ff1cdeb7e561f69594ff37756628c14",
+        "file": "unsure/web/main.ts",
+        "identity": "ipc_call:unsure/web/main.ts#c2.INVOKE%20%27greet%27",
+        "kind": "ipc_call",
+        "level": 4,
+        "name": "INVOKE 'greet'",
+        "qualified_name": "c2.INVOKE 'greet'",
+        "span": {
+          "end_column": 35,
+          "end_line": 25,
+          "start_column": 24,
+          "start_line": 25
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "command": null,
+          "conditional": false,
+          "form": "direct",
+          "framework": "tauri",
+          "status": "dynamic",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:c79b20f662304a7fea9b9c0365dd351ef8050cf6d0a2bd256789af312897a4f7",
+        "file": "unsure/web/main.ts",
+        "identity": "ipc_call:unsure/web/main.ts#u1.INVOKE%20cmd",
+        "kind": "ipc_call",
+        "level": 4,
+        "name": "INVOKE cmd",
+        "qualified_name": "u1.INVOKE cmd",
+        "span": {
+          "end_column": 99,
+          "end_line": 20,
+          "start_column": 88,
+          "start_line": 20
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "command": null,
+          "conditional": false,
+          "form": "direct",
+          "framework": "tauri",
+          "status": "wrapper",
+          "transport": "tauri_ipc",
+          "wrapper": true
+        },
+        "content_hash": "sha256:c79b20f662304a7fea9b9c0365dd351ef8050cf6d0a2bd256789af312897a4f7",
+        "file": "unsure/web/main.ts",
+        "identity": "ipc_call:unsure/web/main.ts#u2.INVOKE%20cmd",
+        "kind": "ipc_call",
+        "level": 4,
+        "name": "INVOKE cmd",
+        "qualified_name": "u2.INVOKE cmd",
+        "span": {
+          "end_column": 74,
+          "end_line": 21,
+          "start_column": 63,
+          "start_line": 21
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "command": null,
+          "conditional": false,
+          "form": "direct",
+          "framework": "tauri",
+          "status": "dynamic",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:c79b20f662304a7fea9b9c0365dd351ef8050cf6d0a2bd256789af312897a4f7",
+        "file": "unsure/web/main.ts",
+        "identity": "ipc_call:unsure/web/main.ts#u3.INVOKE%20cmd",
+        "kind": "ipc_call",
+        "level": 4,
+        "name": "INVOKE cmd",
+        "qualified_name": "u3.INVOKE cmd",
+        "span": {
+          "end_column": 39,
+          "end_line": 23,
+          "start_column": 28,
+          "start_line": 23
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "command": null,
+          "conditional": false,
+          "form": "direct",
+          "framework": "tauri",
+          "status": "dynamic",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:c79b20f662304a7fea9b9c0365dd351ef8050cf6d0a2bd256789af312897a4f7",
+        "file": "unsure/web/main.ts",
+        "identity": "ipc_call:unsure/web/main.ts#v1.INVOKE%20cmd",
+        "kind": "ipc_call",
+        "level": 4,
+        "name": "INVOKE cmd",
+        "qualified_name": "v1.INVOKE cmd",
+        "span": {
+          "end_column": 92,
+          "end_line": 7,
+          "start_column": 81,
+          "start_line": 7
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "command": null,
+          "conditional": false,
+          "form": "direct",
+          "framework": "tauri",
+          "status": "dynamic",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:c79b20f662304a7fea9b9c0365dd351ef8050cf6d0a2bd256789af312897a4f7",
+        "file": "unsure/web/main.ts",
+        "identity": "ipc_call:unsure/web/main.ts#v2.INVOKE%20cmd",
+        "kind": "ipc_call",
+        "level": 4,
+        "name": "INVOKE cmd",
+        "qualified_name": "v2.INVOKE cmd",
+        "span": {
+          "end_column": 103,
+          "end_line": 8,
+          "start_column": 92,
+          "start_line": 8
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "command": null,
+          "conditional": false,
+          "form": "direct",
+          "framework": "tauri",
+          "status": "dynamic",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:c79b20f662304a7fea9b9c0365dd351ef8050cf6d0a2bd256789af312897a4f7",
+        "file": "unsure/web/main.ts",
+        "identity": "ipc_call:unsure/web/main.ts#v3.INVOKE%20cmd",
+        "kind": "ipc_call",
+        "level": 4,
+        "name": "INVOKE cmd",
+        "qualified_name": "v3.INVOKE cmd",
+        "span": {
+          "end_column": 71,
+          "end_line": 9,
+          "start_column": 60,
+          "start_line": 9
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "command": null,
+          "conditional": false,
+          "form": "direct",
+          "framework": "tauri",
+          "status": "dynamic",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:c79b20f662304a7fea9b9c0365dd351ef8050cf6d0a2bd256789af312897a4f7",
+        "file": "unsure/web/main.ts",
+        "identity": "ipc_call:unsure/web/main.ts#v4.INVOKE%20cmd",
+        "kind": "ipc_call",
+        "level": 4,
+        "name": "INVOKE cmd",
+        "qualified_name": "v4.INVOKE cmd",
+        "span": {
+          "end_column": 98,
+          "end_line": 10,
+          "start_column": 87,
+          "start_line": 10
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "command": null,
+          "conditional": false,
+          "form": "direct",
+          "framework": "tauri",
+          "status": "dynamic",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:c79b20f662304a7fea9b9c0365dd351ef8050cf6d0a2bd256789af312897a4f7",
+        "file": "unsure/web/main.ts",
+        "identity": "ipc_call:unsure/web/main.ts#v5.INVOKE%20cmd",
+        "kind": "ipc_call",
+        "level": 4,
+        "name": "INVOKE cmd",
+        "qualified_name": "v5.INVOKE cmd",
+        "span": {
+          "end_column": 95,
+          "end_line": 11,
+          "start_column": 84,
+          "start_line": 11
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "command": null,
+          "conditional": false,
+          "form": "direct",
+          "framework": "tauri",
+          "status": "dynamic",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:c79b20f662304a7fea9b9c0365dd351ef8050cf6d0a2bd256789af312897a4f7",
+        "file": "unsure/web/main.ts",
+        "identity": "ipc_call:unsure/web/main.ts#v6.INVOKE%20cmd",
+        "kind": "ipc_call",
+        "level": 4,
+        "name": "INVOKE cmd",
+        "qualified_name": "v6.INVOKE cmd",
+        "span": {
+          "end_column": 64,
+          "end_line": 12,
+          "start_column": 53,
+          "start_line": 12
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "command": null,
+          "conditional": false,
+          "form": "direct",
+          "framework": "tauri",
+          "status": "dynamic",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:c79b20f662304a7fea9b9c0365dd351ef8050cf6d0a2bd256789af312897a4f7",
+        "file": "unsure/web/view.tsx",
+        "identity": "ipc_call:unsure/web/view.tsx#V7.INVOKE%20cmd",
+        "kind": "ipc_call",
+        "level": 4,
+        "name": "INVOKE cmd",
+        "qualified_name": "V7.INVOKE cmd",
+        "span": {
+          "end_column": 99,
+          "end_line": 3,
+          "start_column": 88,
+          "start_line": 3
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "cfg_gated": false,
+          "command": "greet",
+          "framework": "tauri",
+          "handler": "function:unsure/app/src/main.rs#greet",
+          "registry": "app",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:231bf89d726826891c1578a8ffe06ad898e70ecad4adb07668c2d9beca734b0c",
+        "file": "unsure/app/src/main.rs",
+        "identity": "ipc_command:unsure/app/src/main.rs#main.COMMAND%20greet",
+        "kind": "ipc_command",
+        "level": 4,
+        "name": "COMMAND greet",
+        "qualified_name": "main.COMMAND greet",
+        "span": {
+          "end_column": 54,
+          "end_line": 7,
+          "start_column": 49,
+          "start_line": 7
+        },
+        "type": "node"
+      },
+      {
+        "attributes": {
+          "cfg_gated": false,
+          "command": "other",
+          "framework": "tauri",
+          "handler": "function:unsure/app/src/main.rs#other",
+          "registry": "app",
+          "transport": "tauri_ipc"
+        },
+        "content_hash": "sha256:d9298a10d1b0735837dc4bd85dac641b0f3cef27a47e5d53a54f2f3f5b2fcffa",
+        "file": "unsure/app/src/main.rs",
+        "identity": "ipc_command:unsure/app/src/main.rs#main.COMMAND%20other",
+        "kind": "ipc_command",
+        "level": 4,
+        "name": "COMMAND other",
+        "qualified_name": "main.COMMAND other",
+        "span": {
+          "end_column": 61,
+          "end_line": 7,
+          "start_column": 56,
+          "start_line": 7
+        },
+        "type": "node"
+      }
+    ]
+  }
+}

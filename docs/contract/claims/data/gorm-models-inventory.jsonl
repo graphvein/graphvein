@@ -1,0 +1,296 @@
+{"corpus": "gotify", "scope": "discovery", "row": "GO-K1", "form": "module", "file": "go.mod", "line": 1, "id": "github.com/gotify/server/v3"}
+{"corpus": "gotify", "scope": "discovery", "row": "GO-K1", "form": "require", "file": "go.mod", "line": 22, "id": "gorm.io/driver/mysql v1.6.0"}
+{"corpus": "gotify", "scope": "discovery", "row": "GO-K1", "form": "require", "file": "go.mod", "line": 23, "id": "gorm.io/driver/postgres v1.6.3"}
+{"corpus": "gotify", "scope": "discovery", "row": "GO-K1", "form": "require", "file": "go.mod", "line": 24, "id": "gorm.io/driver/sqlite v1.6.0"}
+{"corpus": "gotify", "scope": "discovery", "row": "GO-K1", "form": "require", "file": "go.mod", "line": 25, "id": "gorm.io/gorm v1.31.2"}
+{"corpus": "gotify", "scope": "discovery", "row": "GO-K1", "form": "require_indirect", "file": "go.mod", "line": 52, "id": "github.com/jinzhu/inflection v1.0.0"}
+{"corpus": "gotify", "scope": "read", "row": "GO-K2", "form": "gorm.Open(dialector=gorm.io/driver/mysql.Open, config=ident)", "file": "database/database.go", "line": 54, "id": ""}
+{"corpus": "gotify", "scope": "read", "row": "GO-K2", "form": "gorm.Open(dialector=gorm.io/driver/postgres.Open, config=ident)", "file": "database/database.go", "line": 56, "id": ""}
+{"corpus": "gotify", "scope": "read", "row": "GO-K2", "form": "gorm.Open(dialector=gorm.io/driver/sqlite.Open, config=ident)", "file": "database/database.go", "line": 58, "id": ""}
+{"corpus": "gotify", "scope": "read", "row": "GO-K3", "form": "migrate_site:AutoMigrate:receiver=ident:var_typed(*gorm.DB)", "file": "database/database.go", "line": 90, "id": "5 args"}
+{"corpus": "gotify", "scope": "read", "row": "GO-K3", "form": "migrate_arg:new(qualified)", "file": "database/database.go", "line": 90, "id": "github.com/gotify/server/v3/model.User"}
+{"corpus": "gotify", "scope": "read", "row": "GO-K3", "form": "migrate_arg:new(qualified)", "file": "database/database.go", "line": 90, "id": "github.com/gotify/server/v3/model.Application"}
+{"corpus": "gotify", "scope": "read", "row": "GO-K3", "form": "migrate_arg:new(qualified)", "file": "database/database.go", "line": 90, "id": "github.com/gotify/server/v3/model.Message"}
+{"corpus": "gotify", "scope": "read", "row": "GO-K3", "form": "migrate_arg:new(qualified)", "file": "database/database.go", "line": 90, "id": "github.com/gotify/server/v3/model.Client"}
+{"corpus": "gotify", "scope": "read", "row": "GO-K3", "form": "migrate_arg:new(qualified)", "file": "database/database.go", "line": 90, "id": "github.com/gotify/server/v3/model.PluginConf"}
+{"corpus": "gotify", "scope": "read", "row": "GO-K2", "form": "gorm.Config literal{Logger=nonliteral,DisableForeignKeyConstraintWhenMigrating=true,TranslateError=true,NowFunc=nonliteral}", "file": "database/database.go", "line": 42, "id": ""}
+{"corpus": "gotify", "scope": "not_read(test)", "row": "GO-K2", "form": "gorm.Open(dialector=gorm.io/driver/sqlite.Open, config=&literal)", "file": "database/migration_test.go", "line": 25, "id": ""}
+{"corpus": "gotify", "scope": "not_read(test)", "row": "GO-K3", "form": "migrate_site:CreateTable:receiver=chain:db.Migrator", "file": "database/migration_test.go", "line": 31, "id": "1 args"}
+{"corpus": "gotify", "scope": "not_read(test)", "row": "GO-K3", "form": "migrate_arg:new(qualified)", "file": "database/migration_test.go", "line": 31, "id": "github.com/gotify/server/v3/model.User"}
+{"corpus": "gotify", "scope": "not_read(test)", "row": "GO-K2", "form": "gorm.Config literal{}", "file": "database/migration_test.go", "line": 25, "id": ""}
+{"corpus": "gotify", "scope": "read", "row": "GO-M1", "form": "struct:migrate_arg", "file": "model/application.go", "line": 10, "id": "Application"}
+{"corpus": "gotify", "scope": "read", "row": "GO-T1", "form": "go_type:uint", "file": "model/application.go", "line": 16, "id": "Application.ID"}
+{"corpus": "gotify", "scope": "read", "row": "GO-F1", "form": "gorm_tag", "file": "model/application.go", "line": 16, "id": "Application.ID"}
+{"corpus": "gotify", "scope": "read", "row": "GO-C1", "form": "tag:primarykey=flag", "file": "model/application.go", "line": 16, "id": "Application.ID"}
+{"corpus": "gotify", "scope": "read", "row": "GO-C1", "form": "tag:autoincrement=flag", "file": "model/application.go", "line": 16, "id": "Application.ID"}
+{"corpus": "gotify", "scope": "read", "row": "GO-T1", "form": "go_type:string", "file": "model/application.go", "line": 21, "id": "Application.Token"}
+{"corpus": "gotify", "scope": "read", "row": "GO-F1", "form": "gorm_tag", "file": "model/application.go", "line": 21, "id": "Application.Token"}
+{"corpus": "gotify", "scope": "read", "row": "GO-T1", "form": "tag:type=type:varchar(180)", "file": "model/application.go", "line": 21, "id": "Application.Token"}
+{"corpus": "gotify", "scope": "read", "row": "GO-I1", "form": "tag:uniqueindex=name", "file": "model/application.go", "line": 21, "id": "Application.Token", "name": "uix_applications_token"}
+{"corpus": "gotify", "scope": "read", "row": "GO-T1", "form": "go_type:uint", "file": "model/application.go", "line": 22, "id": "Application.UserID"}
+{"corpus": "gotify", "scope": "read", "row": "GO-F1", "form": "gorm_tag", "file": "model/application.go", "line": 22, "id": "Application.UserID"}
+{"corpus": "gotify", "scope": "read", "row": "GO-I1", "form": "tag:index=flag", "file": "model/application.go", "line": 22, "id": "Application.UserID", "name": "INDEX"}
+{"corpus": "gotify", "scope": "read", "row": "GO-I1", "form": "tag:uniqueindex=name,priority", "file": "model/application.go", "line": 22, "id": "Application.UserID", "name": "uix_application_user_id_sort_key"}
+{"corpus": "gotify", "scope": "read", "row": "GO-T1", "form": "go_type:string", "file": "model/application.go", "line": 27, "id": "Application.Name"}
+{"corpus": "gotify", "scope": "read", "row": "GO-F1", "form": "gorm_tag", "file": "model/application.go", "line": 27, "id": "Application.Name"}
+{"corpus": "gotify", "scope": "read", "row": "GO-T1", "form": "tag:type=type:text", "file": "model/application.go", "line": 27, "id": "Application.Name"}
+{"corpus": "gotify", "scope": "read", "row": "GO-T1", "form": "go_type:string", "file": "model/application.go", "line": 32, "id": "Application.Description"}
+{"corpus": "gotify", "scope": "read", "row": "GO-F1", "form": "gorm_tag", "file": "model/application.go", "line": 32, "id": "Application.Description"}
+{"corpus": "gotify", "scope": "read", "row": "GO-T1", "form": "tag:type=type:text", "file": "model/application.go", "line": 32, "id": "Application.Description"}
+{"corpus": "gotify", "scope": "read", "row": "GO-T1", "form": "go_type:bool", "file": "model/application.go", "line": 38, "id": "Application.Internal"}
+{"corpus": "gotify", "scope": "read", "row": "GO-T1", "form": "go_type:string", "file": "model/application.go", "line": 44, "id": "Application.Image"}
+{"corpus": "gotify", "scope": "read", "row": "GO-F1", "form": "gorm_tag", "file": "model/application.go", "line": 44, "id": "Application.Image"}
+{"corpus": "gotify", "scope": "read", "row": "GO-T1", "form": "tag:type=type:text", "file": "model/application.go", "line": 44, "id": "Application.Image"}
+{"corpus": "gotify", "scope": "read", "row": "GO-T1", "form": "go_type:[]local:MessageExternal", "file": "model/application.go", "line": 45, "id": "Application.Messages"}
+{"corpus": "gotify", "scope": "read", "row": "GO-F1", "form": "gorm_tag", "file": "model/application.go", "line": 45, "id": "Application.Messages"}
+{"corpus": "gotify", "scope": "read", "row": "GO-F1", "form": "tag:-=flag", "file": "model/application.go", "line": 45, "id": "Application.Messages"}
+{"corpus": "gotify", "scope": "read", "row": "GO-T1", "form": "go_type:int", "file": "model/application.go", "line": 50, "id": "Application.DefaultPriority"}
+{"corpus": "gotify", "scope": "read", "row": "GO-T1", "form": "go_type:time.Time", "file": "model/application.go", "line": 56, "id": "Application.CreatedAt"}
+{"corpus": "gotify", "scope": "read", "row": "GO-T1", "form": "go_type:*time.Time", "file": "model/application.go", "line": 61, "id": "Application.LastUsed"}
+{"corpus": "gotify", "scope": "read", "row": "GO-T1", "form": "go_type:string", "file": "model/application.go", "line": 66, "id": "Application.SortKey"}
+{"corpus": "gotify", "scope": "read", "row": "GO-F1", "form": "gorm_tag", "file": "model/application.go", "line": 66, "id": "Application.SortKey"}
+{"corpus": "gotify", "scope": "read", "row": "GO-T1", "form": "tag:type=type:bytes", "file": "model/application.go", "line": 66, "id": "Application.SortKey"}
+{"corpus": "gotify", "scope": "read", "row": "GO-I1", "form": "tag:uniqueindex=name,priority,length", "file": "model/application.go", "line": 66, "id": "Application.SortKey", "name": "uix_application_user_id_sort_key"}
+{"corpus": "gotify", "scope": "read", "row": "GO-M1", "form": "struct:migrate_arg", "file": "model/client.go", "line": 10, "id": "Client"}
+{"corpus": "gotify", "scope": "read", "row": "GO-T1", "form": "go_type:uint", "file": "model/client.go", "line": 16, "id": "Client.ID"}
+{"corpus": "gotify", "scope": "read", "row": "GO-F1", "form": "gorm_tag", "file": "model/client.go", "line": 16, "id": "Client.ID"}
+{"corpus": "gotify", "scope": "read", "row": "GO-C1", "form": "tag:primarykey=flag", "file": "model/client.go", "line": 16, "id": "Client.ID"}
+{"corpus": "gotify", "scope": "read", "row": "GO-C1", "form": "tag:autoincrement=flag", "file": "model/client.go", "line": 16, "id": "Client.ID"}
+{"corpus": "gotify", "scope": "read", "row": "GO-T1", "form": "go_type:string", "file": "model/client.go", "line": 21, "id": "Client.Token"}
+{"corpus": "gotify", "scope": "read", "row": "GO-F1", "form": "gorm_tag", "file": "model/client.go", "line": 21, "id": "Client.Token"}
+{"corpus": "gotify", "scope": "read", "row": "GO-T1", "form": "tag:type=type:varchar(180)", "file": "model/client.go", "line": 21, "id": "Client.Token"}
+{"corpus": "gotify", "scope": "read", "row": "GO-I1", "form": "tag:uniqueindex=name", "file": "model/client.go", "line": 21, "id": "Client.Token", "name": "uix_clients_token"}
+{"corpus": "gotify", "scope": "read", "row": "GO-T1", "form": "go_type:uint", "file": "model/client.go", "line": 22, "id": "Client.UserID"}
+{"corpus": "gotify", "scope": "read", "row": "GO-F1", "form": "gorm_tag", "file": "model/client.go", "line": 22, "id": "Client.UserID"}
+{"corpus": "gotify", "scope": "read", "row": "GO-I1", "form": "tag:index=flag", "file": "model/client.go", "line": 22, "id": "Client.UserID", "name": "INDEX"}
+{"corpus": "gotify", "scope": "read", "row": "GO-T1", "form": "go_type:string", "file": "model/client.go", "line": 27, "id": "Client.Name"}
+{"corpus": "gotify", "scope": "read", "row": "GO-F1", "form": "gorm_tag", "file": "model/client.go", "line": 27, "id": "Client.Name"}
+{"corpus": "gotify", "scope": "read", "row": "GO-T1", "form": "tag:type=type:text", "file": "model/client.go", "line": 27, "id": "Client.Name"}
+{"corpus": "gotify", "scope": "read", "row": "GO-T1", "form": "go_type:time.Time", "file": "model/client.go", "line": 33, "id": "Client.CreatedAt"}
+{"corpus": "gotify", "scope": "read", "row": "GO-T1", "form": "go_type:*time.Time", "file": "model/client.go", "line": 38, "id": "Client.LastUsed"}
+{"corpus": "gotify", "scope": "read", "row": "GO-T1", "form": "go_type:*time.Time", "file": "model/client.go", "line": 42, "id": "Client.ElevatedUntil"}
+{"corpus": "gotify", "scope": "read", "row": "GO-T1", "form": "go_type:uint", "file": "model/client.go", "line": 47, "id": "Client.ExpiresAfterInactivitySeconds"}
+{"corpus": "gotify", "scope": "read", "row": "GO-F1", "form": "gorm_tag", "file": "model/client.go", "line": 47, "id": "Client.ExpiresAfterInactivitySeconds"}
+{"corpus": "gotify", "scope": "read", "row": "GO-C3", "form": "tag:default=int", "file": "model/client.go", "line": 47, "id": "Client.ExpiresAfterInactivitySeconds"}
+{"corpus": "gotify", "scope": "read", "row": "GO-C2", "form": "tag:not null=flag", "file": "model/client.go", "line": 47, "id": "Client.ExpiresAfterInactivitySeconds"}
+{"corpus": "gotify", "scope": "read", "row": "GO-T1", "form": "go_type:*time.Time", "file": "model/client.go", "line": 52, "id": "Client.ExpiresAt"}
+{"corpus": "gotify", "scope": "read", "row": "GO-F1", "form": "gorm_tag", "file": "model/client.go", "line": 52, "id": "Client.ExpiresAt"}
+{"corpus": "gotify", "scope": "read", "row": "GO-I1", "form": "tag:index=flag", "file": "model/client.go", "line": 52, "id": "Client.ExpiresAt", "name": "INDEX"}
+{"corpus": "gotify", "scope": "read", "row": "GO-M1", "form": "struct:migrate_arg", "file": "model/message.go", "line": 8, "id": "Message"}
+{"corpus": "gotify", "scope": "read", "row": "GO-T1", "form": "go_type:uint", "file": "model/message.go", "line": 9, "id": "Message.ID"}
+{"corpus": "gotify", "scope": "read", "row": "GO-F1", "form": "gorm_tag", "file": "model/message.go", "line": 9, "id": "Message.ID"}
+{"corpus": "gotify", "scope": "read", "row": "GO-C1", "form": "tag:autoincrement=flag", "file": "model/message.go", "line": 9, "id": "Message.ID"}
+{"corpus": "gotify", "scope": "read", "row": "GO-C1", "form": "tag:primarykey=flag", "file": "model/message.go", "line": 9, "id": "Message.ID"}
+{"corpus": "gotify", "scope": "read", "row": "GO-I1", "form": "tag:index=flag", "file": "model/message.go", "line": 9, "id": "Message.ID", "name": "INDEX"}
+{"corpus": "gotify", "scope": "read", "row": "GO-T1", "form": "go_type:uint", "file": "model/message.go", "line": 10, "id": "Message.ApplicationID"}
+{"corpus": "gotify", "scope": "read", "row": "GO-T1", "form": "go_type:string", "file": "model/message.go", "line": 11, "id": "Message.Message"}
+{"corpus": "gotify", "scope": "read", "row": "GO-F1", "form": "gorm_tag", "file": "model/message.go", "line": 11, "id": "Message.Message"}
+{"corpus": "gotify", "scope": "read", "row": "GO-T1", "form": "tag:type=type:text", "file": "model/message.go", "line": 11, "id": "Message.Message"}
+{"corpus": "gotify", "scope": "read", "row": "GO-T1", "form": "go_type:string", "file": "model/message.go", "line": 12, "id": "Message.Title"}
+{"corpus": "gotify", "scope": "read", "row": "GO-F1", "form": "gorm_tag", "file": "model/message.go", "line": 12, "id": "Message.Title"}
+{"corpus": "gotify", "scope": "read", "row": "GO-T1", "form": "tag:type=type:text", "file": "model/message.go", "line": 12, "id": "Message.Title"}
+{"corpus": "gotify", "scope": "read", "row": "GO-T1", "form": "go_type:int", "file": "model/message.go", "line": 13, "id": "Message.Priority"}
+{"corpus": "gotify", "scope": "read", "row": "GO-T1", "form": "go_type:[]byte", "file": "model/message.go", "line": 14, "id": "Message.Extras"}
+{"corpus": "gotify", "scope": "read", "row": "GO-T1", "form": "go_type:time.Time", "file": "model/message.go", "line": 15, "id": "Message.Date"}
+{"corpus": "gotify", "scope": "read", "row": "GO-M1", "form": "struct:migrate_arg", "file": "model/pluginconf.go", "line": 6, "id": "PluginConf"}
+{"corpus": "gotify", "scope": "read", "row": "GO-T1", "form": "go_type:uint", "file": "model/pluginconf.go", "line": 7, "id": "PluginConf.ID"}
+{"corpus": "gotify", "scope": "read", "row": "GO-F1", "form": "gorm_tag", "file": "model/pluginconf.go", "line": 7, "id": "PluginConf.ID"}
+{"corpus": "gotify", "scope": "read", "row": "GO-C1", "form": "tag:primarykey=flag", "file": "model/pluginconf.go", "line": 7, "id": "PluginConf.ID"}
+{"corpus": "gotify", "scope": "read", "row": "GO-C1", "form": "tag:autoincrement=flag", "file": "model/pluginconf.go", "line": 7, "id": "PluginConf.ID"}
+{"corpus": "gotify", "scope": "read", "row": "GO-T1", "form": "go_type:uint", "file": "model/pluginconf.go", "line": 8, "id": "PluginConf.UserID"}
+{"corpus": "gotify", "scope": "read", "row": "GO-T1", "form": "go_type:string", "file": "model/pluginconf.go", "line": 9, "id": "PluginConf.ModulePath"}
+{"corpus": "gotify", "scope": "read", "row": "GO-F1", "form": "gorm_tag", "file": "model/pluginconf.go", "line": 9, "id": "PluginConf.ModulePath"}
+{"corpus": "gotify", "scope": "read", "row": "GO-T1", "form": "tag:type=type:text", "file": "model/pluginconf.go", "line": 9, "id": "PluginConf.ModulePath"}
+{"corpus": "gotify", "scope": "read", "row": "GO-T1", "form": "go_type:string", "file": "model/pluginconf.go", "line": 10, "id": "PluginConf.Token"}
+{"corpus": "gotify", "scope": "read", "row": "GO-F1", "form": "gorm_tag", "file": "model/pluginconf.go", "line": 10, "id": "PluginConf.Token"}
+{"corpus": "gotify", "scope": "read", "row": "GO-T1", "form": "tag:type=type:varchar(180)", "file": "model/pluginconf.go", "line": 10, "id": "PluginConf.Token"}
+{"corpus": "gotify", "scope": "read", "row": "GO-I1", "form": "tag:uniqueindex=name", "file": "model/pluginconf.go", "line": 10, "id": "PluginConf.Token", "name": "uix_plugin_confs_token"}
+{"corpus": "gotify", "scope": "read", "row": "GO-T1", "form": "go_type:uint", "file": "model/pluginconf.go", "line": 11, "id": "PluginConf.ApplicationID"}
+{"corpus": "gotify", "scope": "read", "row": "GO-T1", "form": "go_type:bool", "file": "model/pluginconf.go", "line": 12, "id": "PluginConf.Enabled"}
+{"corpus": "gotify", "scope": "read", "row": "GO-T1", "form": "go_type:time.Time", "file": "model/pluginconf.go", "line": 13, "id": "PluginConf.CreatedAt"}
+{"corpus": "gotify", "scope": "read", "row": "GO-T1", "form": "go_type:[]byte", "file": "model/pluginconf.go", "line": 14, "id": "PluginConf.Config"}
+{"corpus": "gotify", "scope": "read", "row": "GO-T1", "form": "go_type:[]byte", "file": "model/pluginconf.go", "line": 15, "id": "PluginConf.Storage"}
+{"corpus": "gotify", "scope": "read", "row": "GO-M1", "form": "struct:migrate_arg", "file": "model/user.go", "line": 6, "id": "User"}
+{"corpus": "gotify", "scope": "read", "row": "GO-T1", "form": "go_type:uint", "file": "model/user.go", "line": 7, "id": "User.ID"}
+{"corpus": "gotify", "scope": "read", "row": "GO-F1", "form": "gorm_tag", "file": "model/user.go", "line": 7, "id": "User.ID"}
+{"corpus": "gotify", "scope": "read", "row": "GO-C1", "form": "tag:primarykey=flag", "file": "model/user.go", "line": 7, "id": "User.ID"}
+{"corpus": "gotify", "scope": "read", "row": "GO-C1", "form": "tag:autoincrement=flag", "file": "model/user.go", "line": 7, "id": "User.ID"}
+{"corpus": "gotify", "scope": "read", "row": "GO-T1", "form": "go_type:string", "file": "model/user.go", "line": 8, "id": "User.Name"}
+{"corpus": "gotify", "scope": "read", "row": "GO-F1", "form": "gorm_tag", "file": "model/user.go", "line": 8, "id": "User.Name"}
+{"corpus": "gotify", "scope": "read", "row": "GO-T1", "form": "tag:type=type:varchar(180)", "file": "model/user.go", "line": 8, "id": "User.Name"}
+{"corpus": "gotify", "scope": "read", "row": "GO-I1", "form": "tag:uniqueindex=name", "file": "model/user.go", "line": 8, "id": "User.Name", "name": "uix_users_name"}
+{"corpus": "gotify", "scope": "read", "row": "GO-T1", "form": "go_type:[]byte", "file": "model/user.go", "line": 9, "id": "User.Pass"}
+{"corpus": "gotify", "scope": "read", "row": "GO-T1", "form": "go_type:bool", "file": "model/user.go", "line": 10, "id": "User.Admin"}
+{"corpus": "gotify", "scope": "read", "row": "GO-T1", "form": "go_type:time.Time", "file": "model/user.go", "line": 11, "id": "User.CreatedAt"}
+{"corpus": "gotify", "scope": "read", "row": "GO-T1", "form": "go_type:[]local:Application", "file": "model/user.go", "line": 12, "id": "User.Applications"}
+{"corpus": "gotify", "scope": "read", "row": "GO-T1", "form": "go_type:[]local:Client", "file": "model/user.go", "line": 13, "id": "User.Clients"}
+{"corpus": "gotify", "scope": "read", "row": "GO-T1", "form": "go_type:[]local:PluginConf", "file": "model/user.go", "line": 14, "id": "User.Plugins"}
+{"corpus": "gotify", "scope": "read", "row": "GO-T1", "form": "go_type:*string", "file": "model/user.go", "line": 16, "id": "User.OIDCID"}
+{"corpus": "gotify", "scope": "read", "row": "GO-F1", "form": "gorm_tag", "file": "model/user.go", "line": 16, "id": "User.OIDCID"}
+{"corpus": "gotify", "scope": "read", "row": "GO-F2", "form": "tag:column=value", "file": "model/user.go", "line": 16, "id": "User.OIDCID", "name": "oidc_id"}
+{"corpus": "gotify", "scope": "read", "row": "GO-T1", "form": "tag:type=type:text", "file": "model/user.go", "line": 16, "id": "User.OIDCID"}
+{"corpus": "gotify", "scope": "read", "row": "GO-I1", "form": "tag:uniqueindex=name,length", "file": "model/user.go", "line": 16, "id": "User.OIDCID", "name": "uix_users_oidc_id"}
+{"corpus": "realworld", "scope": "discovery", "row": "GO-K1", "form": "module", "file": "go.mod", "line": 1, "id": "github.com/gothinkster/golang-gin-realworld-example-app"}
+{"corpus": "realworld", "scope": "discovery", "row": "GO-K1", "form": "require", "file": "go.mod", "line": 12, "id": "gorm.io/driver/sqlite v1.5.7"}
+{"corpus": "realworld", "scope": "discovery", "row": "GO-K1", "form": "require", "file": "go.mod", "line": 13, "id": "gorm.io/gorm v1.25.12"}
+{"corpus": "realworld", "scope": "discovery", "row": "GO-K1", "form": "require_indirect", "file": "go.mod", "line": 28, "id": "github.com/jinzhu/inflection v1.0.0"}
+{"corpus": "realworld", "scope": "not_read(test)", "row": "GO-K3", "form": "package_function_call:users.AutoMigrate", "file": "articles/unit_test.go", "line": 339, "id": "github.com/gothinkster/golang-gin-realworld-example-app/users"}
+{"corpus": "realworld", "scope": "not_read(test)", "row": "GO-K3", "form": "migrate_site:AutoMigrate:receiver=ident:undeclared(package-level or outer)", "file": "articles/unit_test.go", "line": 340, "id": "1 args"}
+{"corpus": "realworld", "scope": "not_read(test)", "row": "GO-K3", "form": "migrate_arg:&local{}", "file": "articles/unit_test.go", "line": 340, "id": "github.com/gothinkster/golang-gin-realworld-example-app/articles.ArticleModel"}
+{"corpus": "realworld", "scope": "not_read(test)", "row": "GO-K3", "form": "migrate_site:AutoMigrate:receiver=ident:undeclared(package-level or outer)", "file": "articles/unit_test.go", "line": 341, "id": "1 args"}
+{"corpus": "realworld", "scope": "not_read(test)", "row": "GO-K3", "form": "migrate_arg:&local{}", "file": "articles/unit_test.go", "line": 341, "id": "github.com/gothinkster/golang-gin-realworld-example-app/articles.TagModel"}
+{"corpus": "realworld", "scope": "not_read(test)", "row": "GO-K3", "form": "migrate_site:AutoMigrate:receiver=ident:undeclared(package-level or outer)", "file": "articles/unit_test.go", "line": 342, "id": "1 args"}
+{"corpus": "realworld", "scope": "not_read(test)", "row": "GO-K3", "form": "migrate_arg:&local{}", "file": "articles/unit_test.go", "line": 342, "id": "github.com/gothinkster/golang-gin-realworld-example-app/articles.FavoriteModel"}
+{"corpus": "realworld", "scope": "not_read(test)", "row": "GO-K3", "form": "migrate_site:AutoMigrate:receiver=ident:undeclared(package-level or outer)", "file": "articles/unit_test.go", "line": 343, "id": "1 args"}
+{"corpus": "realworld", "scope": "not_read(test)", "row": "GO-K3", "form": "migrate_arg:&local{}", "file": "articles/unit_test.go", "line": 343, "id": "github.com/gothinkster/golang-gin-realworld-example-app/articles.ArticleUserModel"}
+{"corpus": "realworld", "scope": "not_read(test)", "row": "GO-K3", "form": "migrate_site:AutoMigrate:receiver=ident:undeclared(package-level or outer)", "file": "articles/unit_test.go", "line": 344, "id": "1 args"}
+{"corpus": "realworld", "scope": "not_read(test)", "row": "GO-K3", "form": "migrate_arg:&local{}", "file": "articles/unit_test.go", "line": 344, "id": "github.com/gothinkster/golang-gin-realworld-example-app/articles.CommentModel"}
+{"corpus": "realworld", "scope": "not_read(test)", "row": "GO-K3", "form": "package_function_call:users.AutoMigrate", "file": "articles/unit_test.go", "line": 1597, "id": "github.com/gothinkster/golang-gin-realworld-example-app/users"}
+{"corpus": "realworld", "scope": "not_read(test)", "row": "GO-K3", "form": "migrate_site:AutoMigrate:receiver=ident:undeclared(package-level or outer)", "file": "articles/unit_test.go", "line": 1598, "id": "1 args"}
+{"corpus": "realworld", "scope": "not_read(test)", "row": "GO-K3", "form": "migrate_arg:&local{}", "file": "articles/unit_test.go", "line": 1598, "id": "github.com/gothinkster/golang-gin-realworld-example-app/articles.ArticleModel"}
+{"corpus": "realworld", "scope": "not_read(test)", "row": "GO-K3", "form": "migrate_site:AutoMigrate:receiver=ident:undeclared(package-level or outer)", "file": "articles/unit_test.go", "line": 1599, "id": "1 args"}
+{"corpus": "realworld", "scope": "not_read(test)", "row": "GO-K3", "form": "migrate_arg:&local{}", "file": "articles/unit_test.go", "line": 1599, "id": "github.com/gothinkster/golang-gin-realworld-example-app/articles.TagModel"}
+{"corpus": "realworld", "scope": "not_read(test)", "row": "GO-K3", "form": "migrate_site:AutoMigrate:receiver=ident:undeclared(package-level or outer)", "file": "articles/unit_test.go", "line": 1600, "id": "1 args"}
+{"corpus": "realworld", "scope": "not_read(test)", "row": "GO-K3", "form": "migrate_arg:&local{}", "file": "articles/unit_test.go", "line": 1600, "id": "github.com/gothinkster/golang-gin-realworld-example-app/articles.FavoriteModel"}
+{"corpus": "realworld", "scope": "not_read(test)", "row": "GO-K3", "form": "migrate_site:AutoMigrate:receiver=ident:undeclared(package-level or outer)", "file": "articles/unit_test.go", "line": 1601, "id": "1 args"}
+{"corpus": "realworld", "scope": "not_read(test)", "row": "GO-K3", "form": "migrate_arg:&local{}", "file": "articles/unit_test.go", "line": 1601, "id": "github.com/gothinkster/golang-gin-realworld-example-app/articles.ArticleUserModel"}
+{"corpus": "realworld", "scope": "not_read(test)", "row": "GO-K3", "form": "migrate_site:AutoMigrate:receiver=ident:undeclared(package-level or outer)", "file": "articles/unit_test.go", "line": 1602, "id": "1 args"}
+{"corpus": "realworld", "scope": "not_read(test)", "row": "GO-K3", "form": "migrate_arg:&local{}", "file": "articles/unit_test.go", "line": 1602, "id": "github.com/gothinkster/golang-gin-realworld-example-app/articles.CommentModel"}
+{"corpus": "realworld", "scope": "read", "row": "GO-K2", "form": "gorm.Open(dialector=gorm.io/driver/sqlite.Open, config=&literal)", "file": "common/database.go", "line": 57, "id": ""}
+{"corpus": "realworld", "scope": "read", "row": "GO-K2", "form": "gorm.Open(dialector=gorm.io/driver/sqlite.Open, config=&literal)", "file": "common/database.go", "line": 84, "id": ""}
+{"corpus": "realworld", "scope": "read", "row": "GO-K2", "form": "gorm.Config literal{TranslateError=true}", "file": "common/database.go", "line": 57, "id": ""}
+{"corpus": "realworld", "scope": "read", "row": "GO-K2", "form": "gorm.Config literal{Logger=nonliteral,TranslateError=true}", "file": "common/database.go", "line": 84, "id": ""}
+{"corpus": "realworld", "scope": "read", "row": "GO-K3", "form": "package_function_call:users.AutoMigrate", "file": "hello.go", "line": 16, "id": "github.com/gothinkster/golang-gin-realworld-example-app/users"}
+{"corpus": "realworld", "scope": "read", "row": "GO-K3", "form": "migrate_site:AutoMigrate:receiver=ident:param_typed(*gorm.DB)", "file": "hello.go", "line": 17, "id": "1 args"}
+{"corpus": "realworld", "scope": "read", "row": "GO-K3", "form": "migrate_arg:&qualified{}", "file": "hello.go", "line": 17, "id": "github.com/gothinkster/golang-gin-realworld-example-app/articles.ArticleModel"}
+{"corpus": "realworld", "scope": "read", "row": "GO-K3", "form": "migrate_site:AutoMigrate:receiver=ident:param_typed(*gorm.DB)", "file": "hello.go", "line": 18, "id": "1 args"}
+{"corpus": "realworld", "scope": "read", "row": "GO-K3", "form": "migrate_arg:&qualified{}", "file": "hello.go", "line": 18, "id": "github.com/gothinkster/golang-gin-realworld-example-app/articles.TagModel"}
+{"corpus": "realworld", "scope": "read", "row": "GO-K3", "form": "migrate_site:AutoMigrate:receiver=ident:param_typed(*gorm.DB)", "file": "hello.go", "line": 19, "id": "1 args"}
+{"corpus": "realworld", "scope": "read", "row": "GO-K3", "form": "migrate_arg:&qualified{}", "file": "hello.go", "line": 19, "id": "github.com/gothinkster/golang-gin-realworld-example-app/articles.FavoriteModel"}
+{"corpus": "realworld", "scope": "read", "row": "GO-K3", "form": "migrate_site:AutoMigrate:receiver=ident:param_typed(*gorm.DB)", "file": "hello.go", "line": 20, "id": "1 args"}
+{"corpus": "realworld", "scope": "read", "row": "GO-K3", "form": "migrate_arg:&qualified{}", "file": "hello.go", "line": 20, "id": "github.com/gothinkster/golang-gin-realworld-example-app/articles.ArticleUserModel"}
+{"corpus": "realworld", "scope": "read", "row": "GO-K3", "form": "migrate_site:AutoMigrate:receiver=ident:param_typed(*gorm.DB)", "file": "hello.go", "line": 21, "id": "1 args"}
+{"corpus": "realworld", "scope": "read", "row": "GO-K3", "form": "migrate_arg:&qualified{}", "file": "hello.go", "line": 21, "id": "github.com/gothinkster/golang-gin-realworld-example-app/articles.CommentModel"}
+{"corpus": "realworld", "scope": "read", "row": "GO-K3", "form": "migrate_site:AutoMigrate:receiver=ident:define_from_call(common.GetDB,result0)", "file": "users/models.go", "line": 48, "id": "1 args"}
+{"corpus": "realworld", "scope": "read", "row": "GO-K3", "form": "migrate_arg:&local{}", "file": "users/models.go", "line": 48, "id": "github.com/gothinkster/golang-gin-realworld-example-app/users.UserModel"}
+{"corpus": "realworld", "scope": "read", "row": "GO-K3", "form": "migrate_site:AutoMigrate:receiver=ident:define_from_call(common.GetDB,result0)", "file": "users/models.go", "line": 49, "id": "1 args"}
+{"corpus": "realworld", "scope": "read", "row": "GO-K3", "form": "migrate_arg:&local{}", "file": "users/models.go", "line": 49, "id": "github.com/gothinkster/golang-gin-realworld-example-app/users.FollowModel"}
+{"corpus": "realworld", "scope": "not_read(test)", "row": "GO-K3", "form": "migrate_site:AutoMigrate:receiver=ident:var_typed(*gorm.DB)", "file": "users/unit_test.go", "line": 396, "id": "1 args"}
+{"corpus": "realworld", "scope": "not_read(test)", "row": "GO-K3", "form": "migrate_arg:&local{}", "file": "users/unit_test.go", "line": 396, "id": "github.com/gothinkster/golang-gin-realworld-example-app/users.UserModel"}
+{"corpus": "realworld", "scope": "read", "row": "GO-M1", "form": "struct:migrate_arg", "file": "articles/models.go", "line": 12, "id": "ArticleModel"}
+{"corpus": "realworld", "scope": "read", "row": "GO-T1", "form": "go_type:gorm.Model", "file": "articles/models.go", "line": 13, "id": "ArticleModel.(embedded gorm.Model)"}
+{"corpus": "realworld", "scope": "read", "row": "GO-T1", "form": "go_type:string", "file": "articles/models.go", "line": 14, "id": "ArticleModel.Slug"}
+{"corpus": "realworld", "scope": "read", "row": "GO-F1", "form": "gorm_tag", "file": "articles/models.go", "line": 14, "id": "ArticleModel.Slug"}
+{"corpus": "realworld", "scope": "read", "row": "GO-I1", "form": "tag:uniqueindex=flag", "file": "articles/models.go", "line": 14, "id": "ArticleModel.Slug", "name": "UNIQUEINDEX"}
+{"corpus": "realworld", "scope": "read", "row": "GO-T1", "form": "go_type:string", "file": "articles/models.go", "line": 15, "id": "ArticleModel.Title"}
+{"corpus": "realworld", "scope": "read", "row": "GO-T1", "form": "go_type:string", "file": "articles/models.go", "line": 16, "id": "ArticleModel.Description"}
+{"corpus": "realworld", "scope": "read", "row": "GO-F1", "form": "gorm_tag", "file": "articles/models.go", "line": 16, "id": "ArticleModel.Description"}
+{"corpus": "realworld", "scope": "read", "row": "GO-T1", "form": "tag:size=int", "file": "articles/models.go", "line": 16, "id": "ArticleModel.Description"}
+{"corpus": "realworld", "scope": "read", "row": "GO-T1", "form": "go_type:string", "file": "articles/models.go", "line": 17, "id": "ArticleModel.Body"}
+{"corpus": "realworld", "scope": "read", "row": "GO-F1", "form": "gorm_tag", "file": "articles/models.go", "line": 17, "id": "ArticleModel.Body"}
+{"corpus": "realworld", "scope": "read", "row": "GO-T1", "form": "tag:size=int", "file": "articles/models.go", "line": 17, "id": "ArticleModel.Body"}
+{"corpus": "realworld", "scope": "read", "row": "GO-T1", "form": "go_type:local:ArticleUserModel", "file": "articles/models.go", "line": 18, "id": "ArticleModel.Author"}
+{"corpus": "realworld", "scope": "read", "row": "GO-T1", "form": "go_type:uint", "file": "articles/models.go", "line": 19, "id": "ArticleModel.AuthorID"}
+{"corpus": "realworld", "scope": "read", "row": "GO-T1", "form": "go_type:[]local:TagModel", "file": "articles/models.go", "line": 20, "id": "ArticleModel.Tags"}
+{"corpus": "realworld", "scope": "read", "row": "GO-F1", "form": "gorm_tag", "file": "articles/models.go", "line": 20, "id": "ArticleModel.Tags"}
+{"corpus": "realworld", "scope": "read", "row": "GO-R2", "form": "tag:many2many=value", "file": "articles/models.go", "line": 20, "id": "ArticleModel.Tags", "name": "article_tags"}
+{"corpus": "realworld", "scope": "read", "row": "GO-T1", "form": "go_type:[]local:CommentModel", "file": "articles/models.go", "line": 21, "id": "ArticleModel.Comments"}
+{"corpus": "realworld", "scope": "read", "row": "GO-F1", "form": "gorm_tag", "file": "articles/models.go", "line": 21, "id": "ArticleModel.Comments"}
+{"corpus": "realworld", "scope": "read", "row": "GO-R1", "form": "tag:foreignkey=value", "file": "articles/models.go", "line": 21, "id": "ArticleModel.Comments"}
+{"corpus": "realworld", "scope": "read", "row": "GO-M1", "form": "struct:migrate_arg", "file": "articles/models.go", "line": 24, "id": "ArticleUserModel"}
+{"corpus": "realworld", "scope": "read", "row": "GO-T1", "form": "go_type:gorm.Model", "file": "articles/models.go", "line": 25, "id": "ArticleUserModel.(embedded gorm.Model)"}
+{"corpus": "realworld", "scope": "read", "row": "GO-T1", "form": "go_type:pkg:github.com/gothinkster/golang-gin-realworld-example-app/users.UserModel", "file": "articles/models.go", "line": 26, "id": "ArticleUserModel.UserModel"}
+{"corpus": "realworld", "scope": "read", "row": "GO-T1", "form": "go_type:uint", "file": "articles/models.go", "line": 27, "id": "ArticleUserModel.UserModelID"}
+{"corpus": "realworld", "scope": "read", "row": "GO-T1", "form": "go_type:[]local:ArticleModel", "file": "articles/models.go", "line": 28, "id": "ArticleUserModel.ArticleModels"}
+{"corpus": "realworld", "scope": "read", "row": "GO-F1", "form": "gorm_tag", "file": "articles/models.go", "line": 28, "id": "ArticleUserModel.ArticleModels"}
+{"corpus": "realworld", "scope": "read", "row": "GO-R1", "form": "tag:foreignkey=value", "file": "articles/models.go", "line": 28, "id": "ArticleUserModel.ArticleModels"}
+{"corpus": "realworld", "scope": "read", "row": "GO-T1", "form": "go_type:[]local:FavoriteModel", "file": "articles/models.go", "line": 29, "id": "ArticleUserModel.FavoriteModels"}
+{"corpus": "realworld", "scope": "read", "row": "GO-F1", "form": "gorm_tag", "file": "articles/models.go", "line": 29, "id": "ArticleUserModel.FavoriteModels"}
+{"corpus": "realworld", "scope": "read", "row": "GO-R1", "form": "tag:foreignkey=value", "file": "articles/models.go", "line": 29, "id": "ArticleUserModel.FavoriteModels"}
+{"corpus": "realworld", "scope": "read", "row": "GO-M1", "form": "struct:migrate_arg", "file": "articles/models.go", "line": 46, "id": "CommentModel"}
+{"corpus": "realworld", "scope": "read", "row": "GO-T1", "form": "go_type:gorm.Model", "file": "articles/models.go", "line": 47, "id": "CommentModel.(embedded gorm.Model)"}
+{"corpus": "realworld", "scope": "read", "row": "GO-T1", "form": "go_type:local:ArticleModel", "file": "articles/models.go", "line": 48, "id": "CommentModel.Article"}
+{"corpus": "realworld", "scope": "read", "row": "GO-T1", "form": "go_type:uint", "file": "articles/models.go", "line": 49, "id": "CommentModel.ArticleID"}
+{"corpus": "realworld", "scope": "read", "row": "GO-T1", "form": "go_type:local:ArticleUserModel", "file": "articles/models.go", "line": 50, "id": "CommentModel.Author"}
+{"corpus": "realworld", "scope": "read", "row": "GO-T1", "form": "go_type:uint", "file": "articles/models.go", "line": 51, "id": "CommentModel.AuthorID"}
+{"corpus": "realworld", "scope": "read", "row": "GO-T1", "form": "go_type:string", "file": "articles/models.go", "line": 52, "id": "CommentModel.Body"}
+{"corpus": "realworld", "scope": "read", "row": "GO-F1", "form": "gorm_tag", "file": "articles/models.go", "line": 52, "id": "CommentModel.Body"}
+{"corpus": "realworld", "scope": "read", "row": "GO-T1", "form": "tag:size=int", "file": "articles/models.go", "line": 52, "id": "CommentModel.Body"}
+{"corpus": "realworld", "scope": "read", "row": "GO-M1", "form": "struct:migrate_arg", "file": "articles/models.go", "line": 32, "id": "FavoriteModel"}
+{"corpus": "realworld", "scope": "read", "row": "GO-T1", "form": "go_type:gorm.Model", "file": "articles/models.go", "line": 33, "id": "FavoriteModel.(embedded gorm.Model)"}
+{"corpus": "realworld", "scope": "read", "row": "GO-T1", "form": "go_type:local:ArticleModel", "file": "articles/models.go", "line": 34, "id": "FavoriteModel.Favorite"}
+{"corpus": "realworld", "scope": "read", "row": "GO-T1", "form": "go_type:uint", "file": "articles/models.go", "line": 35, "id": "FavoriteModel.FavoriteID"}
+{"corpus": "realworld", "scope": "read", "row": "GO-T1", "form": "go_type:local:ArticleUserModel", "file": "articles/models.go", "line": 36, "id": "FavoriteModel.FavoriteBy"}
+{"corpus": "realworld", "scope": "read", "row": "GO-T1", "form": "go_type:uint", "file": "articles/models.go", "line": 37, "id": "FavoriteModel.FavoriteByID"}
+{"corpus": "realworld", "scope": "read", "row": "GO-M1", "form": "struct:migrate_arg", "file": "articles/models.go", "line": 40, "id": "TagModel"}
+{"corpus": "realworld", "scope": "read", "row": "GO-T1", "form": "go_type:gorm.Model", "file": "articles/models.go", "line": 41, "id": "TagModel.(embedded gorm.Model)"}
+{"corpus": "realworld", "scope": "read", "row": "GO-T1", "form": "go_type:string", "file": "articles/models.go", "line": 42, "id": "TagModel.Tag"}
+{"corpus": "realworld", "scope": "read", "row": "GO-F1", "form": "gorm_tag", "file": "articles/models.go", "line": 42, "id": "TagModel.Tag"}
+{"corpus": "realworld", "scope": "read", "row": "GO-I1", "form": "tag:uniqueindex=flag", "file": "articles/models.go", "line": 42, "id": "TagModel.Tag", "name": "UNIQUEINDEX"}
+{"corpus": "realworld", "scope": "read", "row": "GO-T1", "form": "go_type:[]local:ArticleModel", "file": "articles/models.go", "line": 43, "id": "TagModel.ArticleModels"}
+{"corpus": "realworld", "scope": "read", "row": "GO-F1", "form": "gorm_tag", "file": "articles/models.go", "line": 43, "id": "TagModel.ArticleModels"}
+{"corpus": "realworld", "scope": "read", "row": "GO-R2", "form": "tag:many2many=value", "file": "articles/models.go", "line": 43, "id": "TagModel.ArticleModels", "name": "article_tags"}
+{"corpus": "realworld", "scope": "read", "row": "GO-M1", "form": "struct:migrate_arg", "file": "users/models.go", "line": 36, "id": "FollowModel"}
+{"corpus": "realworld", "scope": "read", "row": "GO-T1", "form": "go_type:gorm.Model", "file": "users/models.go", "line": 37, "id": "FollowModel.(embedded gorm.Model)"}
+{"corpus": "realworld", "scope": "read", "row": "GO-T1", "form": "go_type:local:UserModel", "file": "users/models.go", "line": 38, "id": "FollowModel.Following"}
+{"corpus": "realworld", "scope": "read", "row": "GO-T1", "form": "go_type:uint", "file": "users/models.go", "line": 39, "id": "FollowModel.FollowingID"}
+{"corpus": "realworld", "scope": "read", "row": "GO-T1", "form": "go_type:local:UserModel", "file": "users/models.go", "line": 40, "id": "FollowModel.FollowedBy"}
+{"corpus": "realworld", "scope": "read", "row": "GO-T1", "form": "go_type:uint", "file": "users/models.go", "line": 41, "id": "FollowModel.FollowedByID"}
+{"corpus": "realworld", "scope": "read", "row": "GO-M1", "form": "struct:migrate_arg", "file": "users/models.go", "line": 16, "id": "UserModel"}
+{"corpus": "realworld", "scope": "read", "row": "GO-T1", "form": "go_type:uint", "file": "users/models.go", "line": 17, "id": "UserModel.ID"}
+{"corpus": "realworld", "scope": "read", "row": "GO-F1", "form": "gorm_tag", "file": "users/models.go", "line": 17, "id": "UserModel.ID"}
+{"corpus": "realworld", "scope": "read", "row": "GO-C1", "form": "tag:primarykey=flag", "file": "users/models.go", "line": 17, "id": "UserModel.ID"}
+{"corpus": "realworld", "scope": "read", "row": "GO-T1", "form": "go_type:string", "file": "users/models.go", "line": 18, "id": "UserModel.Username"}
+{"corpus": "realworld", "scope": "read", "row": "GO-F1", "form": "gorm_tag", "file": "users/models.go", "line": 18, "id": "UserModel.Username"}
+{"corpus": "realworld", "scope": "read", "row": "GO-F2", "form": "tag:column=value", "file": "users/models.go", "line": 18, "id": "UserModel.Username", "name": "username"}
+{"corpus": "realworld", "scope": "read", "row": "GO-T1", "form": "go_type:string", "file": "users/models.go", "line": 19, "id": "UserModel.Email"}
+{"corpus": "realworld", "scope": "read", "row": "GO-F1", "form": "gorm_tag", "file": "users/models.go", "line": 19, "id": "UserModel.Email"}
+{"corpus": "realworld", "scope": "read", "row": "GO-F2", "form": "tag:column=value", "file": "users/models.go", "line": 19, "id": "UserModel.Email", "name": "email"}
+{"corpus": "realworld", "scope": "read", "row": "GO-I1", "form": "tag:uniqueindex=flag", "file": "users/models.go", "line": 19, "id": "UserModel.Email", "name": "UNIQUEINDEX"}
+{"corpus": "realworld", "scope": "read", "row": "GO-T1", "form": "go_type:string", "file": "users/models.go", "line": 20, "id": "UserModel.Bio"}
+{"corpus": "realworld", "scope": "read", "row": "GO-F1", "form": "gorm_tag", "file": "users/models.go", "line": 20, "id": "UserModel.Bio"}
+{"corpus": "realworld", "scope": "read", "row": "GO-F2", "form": "tag:column=value", "file": "users/models.go", "line": 20, "id": "UserModel.Bio", "name": "bio"}
+{"corpus": "realworld", "scope": "read", "row": "GO-T1", "form": "tag:size=int", "file": "users/models.go", "line": 20, "id": "UserModel.Bio"}
+{"corpus": "realworld", "scope": "read", "row": "GO-T1", "form": "go_type:*string", "file": "users/models.go", "line": 21, "id": "UserModel.Image"}
+{"corpus": "realworld", "scope": "read", "row": "GO-F1", "form": "gorm_tag", "file": "users/models.go", "line": 21, "id": "UserModel.Image"}
+{"corpus": "realworld", "scope": "read", "row": "GO-F2", "form": "tag:column=value", "file": "users/models.go", "line": 21, "id": "UserModel.Image", "name": "image"}
+{"corpus": "realworld", "scope": "read", "row": "GO-T1", "form": "go_type:string", "file": "users/models.go", "line": 22, "id": "UserModel.PasswordHash"}
+{"corpus": "realworld", "scope": "read", "row": "GO-F1", "form": "gorm_tag", "file": "users/models.go", "line": 22, "id": "UserModel.PasswordHash"}
+{"corpus": "realworld", "scope": "read", "row": "GO-F2", "form": "tag:column=value", "file": "users/models.go", "line": 22, "id": "UserModel.PasswordHash", "name": "password"}
+{"corpus": "realworld", "scope": "read", "row": "GO-C2", "form": "tag:not null=flag", "file": "users/models.go", "line": 22, "id": "UserModel.PasswordHash"}
+{"corpus": "gotify", "scope": "oracle", "row": "oracle", "form": "catalog:gotify:postgres", "file": "", "line": 0, "id": "applications", "name": "{\"columns\": 11, \"defaults\": 1, \"foreign_keys\": 0, \"indexes\": 3, \"not_null\": 1, \"pk_columns\": 1, \"unique_constraints\": 0, \"unique_indexes\": 2}"}
+{"corpus": "gotify", "scope": "oracle", "row": "oracle", "form": "catalog:gotify:postgres", "file": "", "line": 0, "id": "clients", "name": "{\"columns\": 9, \"defaults\": 2, \"foreign_keys\": 0, \"indexes\": 3, \"not_null\": 2, \"pk_columns\": 1, \"unique_constraints\": 0, \"unique_indexes\": 1}"}
+{"corpus": "gotify", "scope": "oracle", "row": "oracle", "form": "catalog:gotify:postgres", "file": "", "line": 0, "id": "messages", "name": "{\"columns\": 7, \"defaults\": 1, \"foreign_keys\": 0, \"indexes\": 1, \"not_null\": 1, \"pk_columns\": 1, \"unique_constraints\": 0, \"unique_indexes\": 0}"}
+{"corpus": "gotify", "scope": "oracle", "row": "oracle", "form": "catalog:gotify:postgres", "file": "", "line": 0, "id": "plugin_confs", "name": "{\"columns\": 9, \"defaults\": 1, \"foreign_keys\": 0, \"indexes\": 1, \"not_null\": 1, \"pk_columns\": 1, \"unique_constraints\": 0, \"unique_indexes\": 1}"}
+{"corpus": "gotify", "scope": "oracle", "row": "oracle", "form": "catalog:gotify:postgres", "file": "", "line": 0, "id": "users", "name": "{\"columns\": 6, \"defaults\": 1, \"foreign_keys\": 0, \"indexes\": 2, \"not_null\": 1, \"pk_columns\": 1, \"unique_constraints\": 0, \"unique_indexes\": 2}"}
+{"corpus": "gotify", "scope": "oracle", "row": "oracle", "form": "catalog:gotify:sqlite", "file": "", "line": 0, "id": "applications", "name": "{\"columns\": 11, \"defaults\": 0, \"foreign_keys\": 0, \"indexes\": 3, \"not_null\": 0, \"pk_columns\": 1, \"unique_constraints\": 0, \"unique_indexes\": 2}"}
+{"corpus": "gotify", "scope": "oracle", "row": "oracle", "form": "catalog:gotify:sqlite", "file": "", "line": 0, "id": "clients", "name": "{\"columns\": 9, \"defaults\": 1, \"foreign_keys\": 0, \"indexes\": 3, \"not_null\": 1, \"pk_columns\": 1, \"unique_constraints\": 0, \"unique_indexes\": 1}"}
+{"corpus": "gotify", "scope": "oracle", "row": "oracle", "form": "catalog:gotify:sqlite", "file": "", "line": 0, "id": "messages", "name": "{\"columns\": 7, \"defaults\": 0, \"foreign_keys\": 0, \"indexes\": 1, \"not_null\": 0, \"pk_columns\": 1, \"unique_constraints\": 0, \"unique_indexes\": 0}"}
+{"corpus": "gotify", "scope": "oracle", "row": "oracle", "form": "catalog:gotify:sqlite", "file": "", "line": 0, "id": "plugin_confs", "name": "{\"columns\": 9, \"defaults\": 0, \"foreign_keys\": 0, \"indexes\": 1, \"not_null\": 0, \"pk_columns\": 1, \"unique_constraints\": 0, \"unique_indexes\": 1}"}
+{"corpus": "gotify", "scope": "oracle", "row": "oracle", "form": "catalog:gotify:sqlite", "file": "", "line": 0, "id": "users", "name": "{\"columns\": 6, \"defaults\": 0, \"foreign_keys\": 0, \"indexes\": 2, \"not_null\": 0, \"pk_columns\": 1, \"unique_constraints\": 0, \"unique_indexes\": 2}"}
+{"corpus": "gotify", "scope": "oracle", "row": "oracle", "form": "catalog:gotify-fk:postgres", "file": "", "line": 0, "id": "applications", "name": "{\"columns\": 11, \"defaults\": 1, \"foreign_keys\": 1, \"indexes\": 3, \"not_null\": 1, \"pk_columns\": 1, \"unique_constraints\": 0, \"unique_indexes\": 2}"}
+{"corpus": "gotify", "scope": "oracle", "row": "oracle", "form": "catalog:gotify-fk:postgres", "file": "", "line": 0, "id": "clients", "name": "{\"columns\": 9, \"defaults\": 2, \"foreign_keys\": 1, \"indexes\": 3, \"not_null\": 2, \"pk_columns\": 1, \"unique_constraints\": 0, \"unique_indexes\": 1}"}
+{"corpus": "gotify", "scope": "oracle", "row": "oracle", "form": "catalog:gotify-fk:postgres", "file": "", "line": 0, "id": "messages", "name": "{\"columns\": 7, \"defaults\": 1, \"foreign_keys\": 0, \"indexes\": 1, \"not_null\": 1, \"pk_columns\": 1, \"unique_constraints\": 0, \"unique_indexes\": 0}"}
+{"corpus": "gotify", "scope": "oracle", "row": "oracle", "form": "catalog:gotify-fk:postgres", "file": "", "line": 0, "id": "plugin_confs", "name": "{\"columns\": 9, \"defaults\": 1, \"foreign_keys\": 1, \"indexes\": 1, \"not_null\": 1, \"pk_columns\": 1, \"unique_constraints\": 0, \"unique_indexes\": 1}"}
+{"corpus": "gotify", "scope": "oracle", "row": "oracle", "form": "catalog:gotify-fk:postgres", "file": "", "line": 0, "id": "users", "name": "{\"columns\": 6, \"defaults\": 1, \"foreign_keys\": 0, \"indexes\": 2, \"not_null\": 1, \"pk_columns\": 1, \"unique_constraints\": 0, \"unique_indexes\": 2}"}
+{"corpus": "gotify", "scope": "oracle", "row": "oracle", "form": "catalog:gotify-fk:sqlite", "file": "", "line": 0, "id": "applications", "name": "{\"columns\": 11, \"defaults\": 0, \"foreign_keys\": 1, \"indexes\": 3, \"not_null\": 0, \"pk_columns\": 1, \"unique_constraints\": 0, \"unique_indexes\": 2}"}
+{"corpus": "gotify", "scope": "oracle", "row": "oracle", "form": "catalog:gotify-fk:sqlite", "file": "", "line": 0, "id": "clients", "name": "{\"columns\": 9, \"defaults\": 1, \"foreign_keys\": 1, \"indexes\": 3, \"not_null\": 1, \"pk_columns\": 1, \"unique_constraints\": 0, \"unique_indexes\": 1}"}
+{"corpus": "gotify", "scope": "oracle", "row": "oracle", "form": "catalog:gotify-fk:sqlite", "file": "", "line": 0, "id": "messages", "name": "{\"columns\": 7, \"defaults\": 0, \"foreign_keys\": 0, \"indexes\": 1, \"not_null\": 0, \"pk_columns\": 1, \"unique_constraints\": 0, \"unique_indexes\": 0}"}
+{"corpus": "gotify", "scope": "oracle", "row": "oracle", "form": "catalog:gotify-fk:sqlite", "file": "", "line": 0, "id": "plugin_confs", "name": "{\"columns\": 9, \"defaults\": 0, \"foreign_keys\": 1, \"indexes\": 1, \"not_null\": 0, \"pk_columns\": 1, \"unique_constraints\": 0, \"unique_indexes\": 1}"}
+{"corpus": "gotify", "scope": "oracle", "row": "oracle", "form": "catalog:gotify-fk:sqlite", "file": "", "line": 0, "id": "users", "name": "{\"columns\": 6, \"defaults\": 0, \"foreign_keys\": 0, \"indexes\": 2, \"not_null\": 0, \"pk_columns\": 1, \"unique_constraints\": 0, \"unique_indexes\": 2}"}
+{"corpus": "realworld", "scope": "oracle", "row": "oracle", "form": "catalog:realworld:postgres", "file": "", "line": 0, "id": "article_models", "name": "{\"columns\": 9, \"defaults\": 1, \"foreign_keys\": 1, \"indexes\": 2, \"not_null\": 1, \"pk_columns\": 1, \"unique_constraints\": 0, \"unique_indexes\": 1}"}
+{"corpus": "realworld", "scope": "oracle", "row": "oracle", "form": "catalog:realworld:postgres", "file": "", "line": 0, "id": "article_tags", "name": "{\"columns\": 2, \"defaults\": 0, \"foreign_keys\": 2, \"indexes\": 0, \"not_null\": 2, \"pk_columns\": 2, \"unique_constraints\": 0, \"unique_indexes\": 0}"}
+{"corpus": "realworld", "scope": "oracle", "row": "oracle", "form": "catalog:realworld:postgres", "file": "", "line": 0, "id": "article_user_models", "name": "{\"columns\": 5, \"defaults\": 1, \"foreign_keys\": 1, \"indexes\": 1, \"not_null\": 1, \"pk_columns\": 1, \"unique_constraints\": 0, \"unique_indexes\": 0}"}
+{"corpus": "realworld", "scope": "oracle", "row": "oracle", "form": "catalog:realworld:postgres", "file": "", "line": 0, "id": "comment_models", "name": "{\"columns\": 7, \"defaults\": 1, \"foreign_keys\": 2, \"indexes\": 1, \"not_null\": 1, \"pk_columns\": 1, \"unique_constraints\": 0, \"unique_indexes\": 0}"}
+{"corpus": "realworld", "scope": "oracle", "row": "oracle", "form": "catalog:realworld:postgres", "file": "", "line": 0, "id": "favorite_models", "name": "{\"columns\": 6, \"defaults\": 1, \"foreign_keys\": 2, \"indexes\": 1, \"not_null\": 1, \"pk_columns\": 1, \"unique_constraints\": 0, \"unique_indexes\": 0}"}
+{"corpus": "realworld", "scope": "oracle", "row": "oracle", "form": "catalog:realworld:postgres", "file": "", "line": 0, "id": "follow_models", "name": "{\"columns\": 6, \"defaults\": 1, \"foreign_keys\": 2, \"indexes\": 1, \"not_null\": 1, \"pk_columns\": 1, \"unique_constraints\": 0, \"unique_indexes\": 0}"}
+{"corpus": "realworld", "scope": "oracle", "row": "oracle", "form": "catalog:realworld:postgres", "file": "", "line": 0, "id": "tag_models", "name": "{\"columns\": 5, \"defaults\": 1, \"foreign_keys\": 0, \"indexes\": 2, \"not_null\": 1, \"pk_columns\": 1, \"unique_constraints\": 0, \"unique_indexes\": 1}"}
+{"corpus": "realworld", "scope": "oracle", "row": "oracle", "form": "catalog:realworld:postgres", "file": "", "line": 0, "id": "user_models", "name": "{\"columns\": 6, \"defaults\": 1, \"foreign_keys\": 0, \"indexes\": 1, \"not_null\": 2, \"pk_columns\": 1, \"unique_constraints\": 0, \"unique_indexes\": 1}"}
+{"corpus": "realworld", "scope": "oracle", "row": "oracle", "form": "catalog:realworld:sqlite", "file": "", "line": 0, "id": "article_models", "name": "{\"columns\": 9, \"defaults\": 0, \"foreign_keys\": 1, \"indexes\": 2, \"not_null\": 0, \"pk_columns\": 1, \"unique_constraints\": 0, \"unique_indexes\": 1}"}
+{"corpus": "realworld", "scope": "oracle", "row": "oracle", "form": "catalog:realworld:sqlite", "file": "", "line": 0, "id": "article_tags", "name": "{\"columns\": 2, \"defaults\": 0, \"foreign_keys\": 2, \"indexes\": 0, \"not_null\": 0, \"pk_columns\": 2, \"unique_constraints\": 0, \"unique_indexes\": 0}"}
+{"corpus": "realworld", "scope": "oracle", "row": "oracle", "form": "catalog:realworld:sqlite", "file": "", "line": 0, "id": "article_user_models", "name": "{\"columns\": 5, \"defaults\": 0, \"foreign_keys\": 1, \"indexes\": 1, \"not_null\": 0, \"pk_columns\": 1, \"unique_constraints\": 0, \"unique_indexes\": 0}"}
+{"corpus": "realworld", "scope": "oracle", "row": "oracle", "form": "catalog:realworld:sqlite", "file": "", "line": 0, "id": "comment_models", "name": "{\"columns\": 7, \"defaults\": 0, \"foreign_keys\": 2, \"indexes\": 1, \"not_null\": 0, \"pk_columns\": 1, \"unique_constraints\": 0, \"unique_indexes\": 0}"}
+{"corpus": "realworld", "scope": "oracle", "row": "oracle", "form": "catalog:realworld:sqlite", "file": "", "line": 0, "id": "favorite_models", "name": "{\"columns\": 6, \"defaults\": 0, \"foreign_keys\": 2, \"indexes\": 1, \"not_null\": 0, \"pk_columns\": 1, \"unique_constraints\": 0, \"unique_indexes\": 0}"}
+{"corpus": "realworld", "scope": "oracle", "row": "oracle", "form": "catalog:realworld:sqlite", "file": "", "line": 0, "id": "follow_models", "name": "{\"columns\": 6, \"defaults\": 0, \"foreign_keys\": 2, \"indexes\": 1, \"not_null\": 0, \"pk_columns\": 1, \"unique_constraints\": 0, \"unique_indexes\": 0}"}
+{"corpus": "realworld", "scope": "oracle", "row": "oracle", "form": "catalog:realworld:sqlite", "file": "", "line": 0, "id": "tag_models", "name": "{\"columns\": 5, \"defaults\": 0, \"foreign_keys\": 0, \"indexes\": 2, \"not_null\": 0, \"pk_columns\": 1, \"unique_constraints\": 0, \"unique_indexes\": 1}"}
+{"corpus": "realworld", "scope": "oracle", "row": "oracle", "form": "catalog:realworld:sqlite", "file": "", "line": 0, "id": "user_models", "name": "{\"columns\": 6, \"defaults\": 0, \"foreign_keys\": 0, \"indexes\": 1, \"not_null\": 1, \"pk_columns\": 1, \"unique_constraints\": 0, \"unique_indexes\": 1}"}

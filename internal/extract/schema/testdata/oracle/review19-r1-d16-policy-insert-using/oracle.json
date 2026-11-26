@@ -1,0 +1,28 @@
+{
+  "id": "review19-r1-d16-policy-insert-using",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y12",
+  "row": "review19",
+  "history": {
+    "id": "d16-policy-insert-using"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42601",
+        "message": "only WITH CHECK expression allowed for INSERT",
+        "statement": 2,
+        "statement_text": "CREATE POLICY p ON t FOR INSERT USING (true);"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

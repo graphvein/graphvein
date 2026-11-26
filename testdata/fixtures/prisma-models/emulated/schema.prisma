@@ -1,0 +1,25 @@
+// relationMode = "prisma": no foreign keys in the database; the relations
+// are listed in emulated_relations, and the join table has no foreign key.
+datasource db {
+  provider     = "postgresql"
+  relationMode = "prisma"
+}
+
+model User {
+  id     Int     @id
+  posts  Post[]
+  groups Group[]
+}
+
+model Post {
+  id     Int  @id
+  userId Int
+  user   User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+model Group {
+  id    Int    @id
+  users User[]
+}

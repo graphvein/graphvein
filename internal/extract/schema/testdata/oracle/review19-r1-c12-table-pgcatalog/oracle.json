@@ -1,0 +1,29 @@
+{
+  "id": "review19-r1-c12-table-pgcatalog",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y07",
+  "row": "review19",
+  "history": {
+    "id": "c12-table-pgcatalog"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42501",
+        "message": "permission denied for schema pg_catalog",
+        "statement": 1,
+        "statement_text": "CREATE TABLE pg_catalog.zzt (a int);",
+        "assumption": "E6"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

@@ -1,0 +1,1 @@
+CREATE DOMAIN d AS int; CREATE TABLE t (a d DEFAULT 1, b int);

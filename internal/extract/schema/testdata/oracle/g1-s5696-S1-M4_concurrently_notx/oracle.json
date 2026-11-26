@@ -1,0 +1,74 @@
+{
+  "id": "g1-s5696-S1-M4_concurrently_notx",
+  "signature": "applied|S1|42P01|M4.concurrently_notx",
+  "class": "S1",
+  "owner": "P1",
+  "row": "M4.concurrently_notx",
+  "history": {
+    "id": "g1-s5696",
+    "tags": {
+      "1_m1.sql": [
+        "M1.create",
+        "M1b.like",
+        "M8.rename"
+      ],
+      "2_m2.sql": [
+        "M4.concurrently_notx"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "accepted"
+      },
+      {
+        "file": "2_m2.sql",
+        "status": "refused",
+        "sqlstate": "42P01",
+        "message": "relation \"t2\" does not exist",
+        "statement": 1,
+        "statement_text": "CREATE INDEX CONCURRENTLY ix_5 ON t2 (c1);",
+        "no_transaction": true
+      }
+    ],
+    "tables": [
+      {
+        "table": "history.ix_4",
+        "columns": [
+          {
+            "name": "c1",
+            "type": "character varying(40)",
+            "not_null": false,
+            "has_default": false
+          }
+        ],
+        "primary_key": null,
+        "unique_keys": [],
+        "foreign_keys": [],
+        "indexes": []
+      },
+      {
+        "table": "history.t1",
+        "columns": [
+          {
+            "name": "c1",
+            "type": "character varying(40)",
+            "not_null": false,
+            "has_default": false
+          }
+        ],
+        "primary_key": null,
+        "unique_keys": [],
+        "foreign_keys": [],
+        "indexes": []
+      }
+    ],
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

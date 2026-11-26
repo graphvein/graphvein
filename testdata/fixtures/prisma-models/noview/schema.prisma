@@ -1,0 +1,13 @@
+// A view without the views preview feature: Prisma rejects the schema
+// (PR-P1).
+datasource db {
+  provider = "postgresql"
+}
+
+model Kept {
+  id Int @id
+}
+
+view Report {
+  id Int @unique
+}

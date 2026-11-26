@@ -1,0 +1,12 @@
+<div DATA-bind-title="value | first:arg | second" data-on-click="go()" bindon-name="value" let-off="value" ref-local="exported" @fade="state" title="{{ value | interpolated }}" i18n i18n-title *one="value" *two="other"></div>
+<ng-template let-item="item" #ref="exported"><ng-content select=".slot" /></ng-template>
+<svg:rect [attr.aria-label]="value" [class.active]="yes" [style.width.px]="width" (keydown.enter)="go()" />
+<input [(name)]="value" /><br><img alt="photo" />
+<div ngNonBindable><span [title]="value">{{ value | ignored }} @if (value) { text }</span></div>
+<script>{{ value | ignored }}</script><style>p { color: red }</style><link rel="stylesheet" href="theme.css" />
+@if (value | condition) { <p>yes</p> } <!-- connected --> @else if (other) {} @else {}
+@for (item of items; track item.id; let index = $index) {} @empty {}
+@switch (value) { @case (1) {} @default {} @default never {} }
+@defer (on idle; when ready) {} @placeholder (minimum 1s) {} @loading (after 1s; minimum 2s) {} @error {}
+@let local = value | assigned;
+<div *rxLet="tags$; let tags | covered"></div>

@@ -1,0 +1,871 @@
+{
+  "diagnostics": [
+    {
+      "code": "schema_model_unread",
+      "file": "drizzle.config.ts",
+      "message": "drizzle.config.ts: not drizzle-kit's default config of a Drizzle package and not named by a literal --config in its scripts; not read",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "ts_structure_unread",
+      "file": "drizzle.config.ts",
+      "message": "1 TypeScript or JavaScript declarations or imports are outside the structural claim contract and claim nothing (undeclared_package=1)",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "schema_model_unread",
+      "file": "plain/drizzle.config.js",
+      "message": "plain/drizzle.config.js: not drizzle-kit's default config of a Drizzle package and not named by a literal --config in its scripts; not read",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "ts_structure_unread",
+      "file": "queries.ts",
+      "message": "1 TypeScript or JavaScript declarations or imports are outside the structural claim contract and claim nothing (undeclared_package=1)",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "unresolved_calls",
+      "file": "queries.ts",
+      "message": "1 calls could not be resolved without a type checker (external=0, unknown=1)",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "ts_structure_unread",
+      "file": "schema.ts",
+      "message": "4 TypeScript or JavaScript declarations or imports are outside the structural claim contract and claim nothing (undeclared_package=4)",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "ts_structure_unread",
+      "file": "unknowns.ts",
+      "message": "1 TypeScript or JavaScript declarations or imports are outside the structural claim contract and claim nothing (undeclared_package=1)",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "unresolved_calls",
+      "file": "unknowns.ts",
+      "message": "3 calls could not be resolved without a type checker (external=0, unknown=3)",
+      "severity": "info",
+      "type": "diagnostic"
+    }
+  ],
+  "edges": [
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "queries.ts",
+          "span": {
+            "end_column": 51,
+            "end_line": 5,
+            "start_column": 0,
+            "start_line": 5
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:queries.ts#queries.ts",
+      "target": "function:queries.ts#byId",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "queries.ts",
+          "span": {
+            "end_column": 32,
+            "end_line": 6,
+            "start_column": 0,
+            "start_line": 6
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:queries.ts#queries.ts",
+      "target": "variable:queries.ts#raw",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "schema.ts",
+          "span": {
+            "end_column": 3,
+            "end_line": 24,
+            "start_column": 2,
+            "start_line": 22
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:schema.ts#schema.ts",
+      "target": "method:schema.ts#dataType",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "schema.ts",
+          "span": {
+            "end_column": 3,
+            "end_line": 27,
+            "start_column": 2,
+            "start_line": 25
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:schema.ts#schema.ts",
+      "target": "method:schema.ts#toDriver",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "schema.ts",
+          "span": {
+            "end_column": 65,
+            "end_line": 30,
+            "start_column": 0,
+            "start_line": 30
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:schema.ts#schema.ts",
+      "target": "variable:schema.ts#role",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "schema.ts",
+          "span": {
+            "end_column": 2,
+            "end_line": 78,
+            "start_column": 0,
+            "start_line": 75
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:schema.ts#schema.ts",
+      "target": "variable:schema.ts#self",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "schema.ts",
+          "span": {
+            "end_column": 1,
+            "end_line": 73,
+            "start_column": 0,
+            "start_line": 59
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:schema.ts#schema.ts",
+      "target": "variable:schema.ts#task",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "schema.ts",
+          "span": {
+            "end_column": 1,
+            "end_line": 50,
+            "start_column": 0,
+            "start_line": 34
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:schema.ts#schema.ts",
+      "target": "variable:schema.ts#workspace",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "schema.ts",
+          "span": {
+            "end_column": 3,
+            "end_line": 82,
+            "start_column": 0,
+            "start_line": 80
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:schema.ts#schema.ts",
+      "target": "variable:schema.ts#workspaceRelations",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "unknowns.ts",
+          "span": {
+            "end_column": 1,
+            "end_line": 50,
+            "start_column": 0,
+            "start_line": 48
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:unknowns.ts#unknowns.ts",
+      "target": "function:unknowns.ts#helper",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "unknowns.ts",
+          "span": {
+            "end_column": 3,
+            "end_line": 21,
+            "start_column": 2,
+            "start_line": 19
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:unknowns.ts#unknowns.ts",
+      "target": "method:unknowns.ts#generator",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "unknowns.ts",
+          "span": {
+            "end_column": 3,
+            "end_line": 15,
+            "start_column": 2,
+            "start_line": 13
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:unknowns.ts#unknowns.ts",
+      "target": "method:unknowns.ts#getter",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "unknowns.ts",
+          "span": {
+            "end_column": 3,
+            "end_line": 18,
+            "start_column": 2,
+            "start_line": 16
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:unknowns.ts#unknowns.ts",
+      "target": "method:unknowns.ts#method",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "unknowns.ts",
+          "span": {
+            "end_column": 3,
+            "end_line": 25,
+            "start_column": 2,
+            "start_line": 22
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:unknowns.ts#unknowns.ts",
+      "target": "method:unknowns.ts#plain",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "unknowns.ts",
+          "span": {
+            "end_column": 66,
+            "end_line": 7,
+            "start_column": 0,
+            "start_line": 7
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:unknowns.ts#unknowns.ts",
+      "target": "variable:unknowns.ts#mutable",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "unknowns.ts",
+          "span": {
+            "end_column": 2,
+            "end_line": 46,
+            "start_column": 0,
+            "start_line": 11
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:unknowns.ts#unknowns.ts",
+      "target": "variable:unknowns.ts#odd",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "queries.ts",
+          "span": {
+            "end_column": 32,
+            "end_line": 3,
+            "start_column": 0,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:queries.ts#queries.ts",
+      "target": "file:schema.ts#schema.ts",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "unknowns.ts",
+          "span": {
+            "end_column": 25,
+            "end_line": 53,
+            "start_column": 0,
+            "start_line": 53
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:unknowns.ts#unknowns.ts",
+      "target": "file:schema.ts#schema.ts",
+      "type": "edge"
+    }
+  ],
+  "files": null,
+  "nodes": [
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:ad6eb7832b6858f75be5a84f3e8ef108a4dc7b68b0da456f83c99cec0f339b1f",
+      "file": "README.md",
+      "identity": "file:README.md#README.md",
+      "kind": "file",
+      "level": 3,
+      "name": "README.md",
+      "qualified_name": "README.md",
+      "span": {
+        "end_column": 0,
+        "end_line": 22,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:620da911b1b3f4442d5d92b97dc469ee4c23d8a5fbcd3b2dd649c887e7960c69",
+      "file": "drizzle.config.ts",
+      "identity": "file:drizzle.config.ts#drizzle.config.ts",
+      "kind": "file",
+      "level": 3,
+      "name": "drizzle.config.ts",
+      "qualified_name": "drizzle.config.ts",
+      "span": {
+        "end_column": 0,
+        "end_line": 13,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:1ffa8147972cb877ebd63831dfec9581921e69c1e0f174a239620e93eb2d9da3",
+      "file": "plain/drizzle.config.js",
+      "identity": "file:plain/drizzle.config.js#plain%2Fdrizzle.config.js",
+      "kind": "file",
+      "level": 3,
+      "name": "drizzle.config.js",
+      "qualified_name": "plain/drizzle.config.js",
+      "span": {
+        "end_column": 0,
+        "end_line": 5,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 1,
+        "unresolved_unknown_call_sites": [
+          {
+            "caller": "function:queries.ts#byId",
+            "name": "eq",
+            "span": {
+              "end_column": 51,
+              "end_line": 5,
+              "start_column": 36,
+              "start_line": 5
+            }
+          }
+        ]
+      },
+      "content_hash": "sha256:2ca8fc5ad0dd5e57a9405a2b87fdff2d96b0607e5b2b25427df88c8f53e8c453",
+      "file": "queries.ts",
+      "identity": "file:queries.ts#queries.ts",
+      "kind": "file",
+      "level": 3,
+      "name": "queries.ts",
+      "qualified_name": "queries.ts",
+      "span": {
+        "end_column": 0,
+        "end_line": 7,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:7cf71467e160a91be4dceab14da76205e0ec6efef31be0e773370b5b8acfce25",
+      "file": "schema.ts",
+      "identity": "file:schema.ts#schema.ts",
+      "kind": "file",
+      "level": 3,
+      "name": "schema.ts",
+      "qualified_name": "schema.ts",
+      "span": {
+        "end_column": 0,
+        "end_line": 83,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 3,
+        "unresolved_unknown_call_sites": [
+          {
+            "caller": "method:unknowns.ts#getter",
+            "name": "text",
+            "span": {
+              "end_column": 25,
+              "end_line": 14,
+              "start_column": 11,
+              "start_line": 14
+            }
+          },
+          {
+            "caller": "function:unknowns.ts#helper",
+            "name": "pgTable",
+            "span": {
+              "end_column": 46,
+              "end_line": 49,
+              "start_column": 9,
+              "start_line": 49
+            }
+          },
+          {
+            "caller": "function:unknowns.ts#helper",
+            "name": "text",
+            "span": {
+              "end_column": 43,
+              "end_line": 49,
+              "start_column": 33,
+              "start_line": 49
+            }
+          }
+        ]
+      },
+      "content_hash": "sha256:8c960ec4665815a3de5b94a43051695b16f1a7d555cd941ccf3a21e293e7f3f7",
+      "file": "unknowns.ts",
+      "identity": "file:unknowns.ts#unknowns.ts",
+      "kind": "file",
+      "level": 3,
+      "name": "unknowns.ts",
+      "qualified_name": "unknowns.ts",
+      "span": {
+        "end_column": 0,
+        "end_line": 54,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "exported": true
+      },
+      "content_hash": "sha256:144a4b3f66078705e0f65f49bc4f041f584cf4a5c09a5162982845c82b856ba8",
+      "file": "queries.ts",
+      "identity": "function:queries.ts#byId",
+      "kind": "function",
+      "level": 4,
+      "name": "byId",
+      "qualified_name": "byId",
+      "span": {
+        "end_column": 51,
+        "end_line": 5,
+        "start_column": 0,
+        "start_line": 5
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:fc992203743def4ac8a3fdaf2397447ae4f16e98539993fd14d32e04a0470ff4",
+      "file": "unknowns.ts",
+      "identity": "function:unknowns.ts#helper",
+      "kind": "function",
+      "level": 4,
+      "name": "helper",
+      "qualified_name": "helper",
+      "span": {
+        "end_column": 1,
+        "end_line": 50,
+        "start_column": 0,
+        "start_line": 48
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:a889cffa710049185fa1794f1a1708f54fab35c11c04f0f80c933794ce139eec",
+      "file": "schema.ts",
+      "identity": "method:schema.ts#dataType",
+      "kind": "method",
+      "level": 4,
+      "name": "dataType",
+      "qualified_name": "dataType",
+      "span": {
+        "end_column": 3,
+        "end_line": 24,
+        "start_column": 2,
+        "start_line": 22
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:5a0d5142832ac7393068270fab422fbf8f4144b5cf4fae19d20a3f9b1d46b13c",
+      "file": "schema.ts",
+      "identity": "method:schema.ts#toDriver",
+      "kind": "method",
+      "level": 4,
+      "name": "toDriver",
+      "qualified_name": "toDriver",
+      "span": {
+        "end_column": 3,
+        "end_line": 27,
+        "start_column": 2,
+        "start_line": 25
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:a87327a2a2d28d2ab3c9f3605c4ed6fe85e56b0952c60b1910ebc7553478c998",
+      "file": "unknowns.ts",
+      "identity": "method:unknowns.ts#generator",
+      "kind": "method",
+      "level": 4,
+      "name": "generator",
+      "qualified_name": "generator",
+      "span": {
+        "end_column": 3,
+        "end_line": 21,
+        "start_column": 2,
+        "start_line": 19
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:2a96e4b0cf9b7c7d5013318f8e3f4a0da19b4449f9c08bd4a647a9523a631ec3",
+      "file": "unknowns.ts",
+      "identity": "method:unknowns.ts#getter",
+      "kind": "method",
+      "level": 4,
+      "name": "getter",
+      "qualified_name": "getter",
+      "span": {
+        "end_column": 3,
+        "end_line": 15,
+        "start_column": 2,
+        "start_line": 13
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:bf5de52e63e94b8c457e85ad2e0d6b719a42b78c7359e092cdabb7d5adddc3a3",
+      "file": "unknowns.ts",
+      "identity": "method:unknowns.ts#method",
+      "kind": "method",
+      "level": 4,
+      "name": "method",
+      "qualified_name": "method",
+      "span": {
+        "end_column": 3,
+        "end_line": 18,
+        "start_column": 2,
+        "start_line": 16
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {},
+      "content_hash": "sha256:037dbd1dd1dfdf1cf7e9f90ffeabea69ec76da65b4b75ab261524b22ad042161",
+      "file": "unknowns.ts",
+      "identity": "method:unknowns.ts#plain",
+      "kind": "method",
+      "level": 4,
+      "name": "plain",
+      "qualified_name": "plain",
+      "span": {
+        "end_column": 3,
+        "end_line": 25,
+        "start_column": 2,
+        "start_line": 22
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "exported": true
+      },
+      "content_hash": "sha256:43e2af02209935769c2f0a2444b6f1834f001caed1a508d7f5cc9c21a60cf1e3",
+      "file": "queries.ts",
+      "identity": "variable:queries.ts#raw",
+      "kind": "variable",
+      "level": 4,
+      "name": "raw",
+      "qualified_name": "raw",
+      "span": {
+        "end_column": 32,
+        "end_line": 6,
+        "start_column": 0,
+        "start_line": 6
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "exported": true
+      },
+      "content_hash": "sha256:9e05c69f2c7aeb4a8d33ac3e3ece837cea7100cac7b6f631483163e933074b21",
+      "file": "schema.ts",
+      "identity": "variable:schema.ts#role",
+      "kind": "variable",
+      "level": 4,
+      "name": "role",
+      "qualified_name": "role",
+      "span": {
+        "end_column": 65,
+        "end_line": 30,
+        "start_column": 0,
+        "start_line": 30
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "exported": true
+      },
+      "content_hash": "sha256:80ea7e836be24eb7406247041657c9de21c103ec3ed80477beb019db4a6fcfea",
+      "file": "schema.ts",
+      "identity": "variable:schema.ts#self",
+      "kind": "variable",
+      "level": 4,
+      "name": "self",
+      "qualified_name": "self",
+      "span": {
+        "end_column": 2,
+        "end_line": 78,
+        "start_column": 0,
+        "start_line": 75
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "exported": true
+      },
+      "content_hash": "sha256:d3f840e171de60f5e50445ddbb1ee993388550978fb2ed7e2903f6ef65f2aae9",
+      "file": "schema.ts",
+      "identity": "variable:schema.ts#task",
+      "kind": "variable",
+      "level": 4,
+      "name": "task",
+      "qualified_name": "task",
+      "span": {
+        "end_column": 1,
+        "end_line": 73,
+        "start_column": 0,
+        "start_line": 59
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "exported": true
+      },
+      "content_hash": "sha256:d02e2bc030d4e9fff4a7c714696dd324af6ef9a78169b3ac877a4b20bce01dfd",
+      "file": "schema.ts",
+      "identity": "variable:schema.ts#workspace",
+      "kind": "variable",
+      "level": 4,
+      "name": "workspace",
+      "qualified_name": "workspace",
+      "span": {
+        "end_column": 1,
+        "end_line": 50,
+        "start_column": 0,
+        "start_line": 34
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "exported": true
+      },
+      "content_hash": "sha256:76722dfbedb40b1f58390c198d23acf9257adfc34187b67b7a6d93bce0b7cc38",
+      "file": "schema.ts",
+      "identity": "variable:schema.ts#workspaceRelations",
+      "kind": "variable",
+      "level": 4,
+      "name": "workspaceRelations",
+      "qualified_name": "workspaceRelations",
+      "span": {
+        "end_column": 3,
+        "end_line": 82,
+        "start_column": 0,
+        "start_line": 80
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "exported": true
+      },
+      "content_hash": "sha256:4b7acd668256c24dc3ec4a0808842810f12c3793783010283c099553ed75a4ad",
+      "file": "unknowns.ts",
+      "identity": "variable:unknowns.ts#mutable",
+      "kind": "variable",
+      "level": 4,
+      "name": "mutable",
+      "qualified_name": "mutable",
+      "span": {
+        "end_column": 66,
+        "end_line": 7,
+        "start_column": 0,
+        "start_line": 7
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "exported": true
+      },
+      "content_hash": "sha256:514d1bdec66a87c283ab6cc92c1ed9275ac0bec5e736beaf896972f2ca61c14e",
+      "file": "unknowns.ts",
+      "identity": "variable:unknowns.ts#odd",
+      "kind": "variable",
+      "level": 4,
+      "name": "odd",
+      "qualified_name": "odd",
+      "span": {
+        "end_column": 2,
+        "end_line": 46,
+        "start_column": 0,
+        "start_line": 11
+      },
+      "type": "node"
+    }
+  ]
+}

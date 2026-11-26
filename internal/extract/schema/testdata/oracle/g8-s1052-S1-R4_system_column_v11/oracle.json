@@ -1,0 +1,35 @@
+{
+  "id": "g8-s1052-S1-R4_system_column_v11",
+  "signature": "applied|S1|2BP01|R4.system_column_v11",
+  "class": "S1",
+  "owner": "V11",
+  "row": "R4.system_column_v11",
+  "history": {
+    "id": "g8-s1052",
+    "tags": {
+      "2_m2.sql": [
+        "R4.system_column_v11",
+        "R4.system_column_v11",
+        "R4.system_column_v11"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "2_m2.sql",
+        "status": "refused",
+        "sqlstate": "2BP01",
+        "message": "cannot alter type \"ct9\" because it is the type of a typed table",
+        "statement": 3,
+        "statement_text": "ALTER TYPE ct9 ADD ATTRIBUTE xmin2 int RESTRICT;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

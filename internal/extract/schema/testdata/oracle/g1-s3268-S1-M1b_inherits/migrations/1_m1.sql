@@ -1,0 +1,3 @@
+CREATE TABLE t2 (id text);
+ALTER INDEX t2 RENAME TO ix_4;
+CREATE TABLE t5 (extra int) INHERITS (t2);

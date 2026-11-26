@@ -1,0 +1,35 @@
+{
+  "id": "g1-s3268-S1-M1b_inherits",
+  "signature": "applied|S1|42P01|M1b.inherits",
+  "class": "S1",
+  "owner": "P1",
+  "row": "M1b.inherits",
+  "history": {
+    "id": "g1-s3268",
+    "tags": {
+      "1_m1.sql": [
+        "M1.create",
+        "M8.rename",
+        "M1b.inherits"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "refused",
+        "sqlstate": "42P01",
+        "message": "relation \"t2\" does not exist",
+        "statement": 3,
+        "statement_text": "CREATE TABLE t5 (extra int) INHERITS (t2);"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

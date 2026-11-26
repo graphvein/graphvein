@@ -1,0 +1,55 @@
+{
+  "id": "g1-s1674-S1-index",
+  "signature": "index",
+  "class": "S1",
+  "owner": "H2",
+  "row": "",
+  "history": {
+    "id": "g1-s1674",
+    "tags": {
+      "1_m1.sql": [
+        "M1.create",
+        "M4.create_unnamed",
+        "M5h.rename_column"
+      ]
+    }
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_m1.sql",
+        "status": "accepted"
+      }
+    ],
+    "tables": [
+      {
+        "table": "history.t1",
+        "columns": [
+          {
+            "name": "r4",
+            "type": "timestamp with time zone",
+            "not_null": true,
+            "has_default": false
+          }
+        ],
+        "primary_key": null,
+        "unique_keys": [],
+        "foreign_keys": [],
+        "indexes": [
+          {
+            "name": "t1_c1_idx",
+            "unique": true,
+            "columns": [
+              "r4"
+            ]
+          }
+        ]
+      }
+    ],
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": []
+}

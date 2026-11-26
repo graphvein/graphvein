@@ -1,0 +1,3 @@
+package multi
+
+func A() {}

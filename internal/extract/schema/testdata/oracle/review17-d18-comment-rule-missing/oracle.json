@@ -1,0 +1,28 @@
+{
+  "id": "review17-d18-comment-rule-missing",
+  "signature": "agreed at Revision 1.7",
+  "class": "S1",
+  "owner": "W1",
+  "row": "review17",
+  "history": {
+    "id": "d18-comment-rule-missing"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42704",
+        "message": "rule \"nosuch\" for relation \"t\" does not exist",
+        "statement": 2,
+        "statement_text": "COMMENT ON RULE nosuch ON t IS 'x';"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

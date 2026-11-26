@@ -1,0 +1,788 @@
+[
+  {
+    "base": "unresolved",
+    "file": "configured/opaque.ts",
+    "helpers": null,
+    "line": 1,
+    "paths": [
+      {
+        "candidate_count": 0,
+        "candidates": [],
+        "conditional": false,
+        "match": null,
+        "origin": null,
+        "resolution": "literal",
+        "status": "dynamic",
+        "template": null
+      }
+    ],
+    "status": "wrapper"
+  },
+  {
+    "base": "none",
+    "file": "frontend.ts",
+    "helpers": null,
+    "line": 3,
+    "paths": [
+      {
+        "candidate_count": 0,
+        "candidates": [
+          "route:backend.ts#GET%20%2Fapi%2Fdot"
+        ],
+        "conditional": false,
+        "match": "exact",
+        "origin": null,
+        "resolution": "evaluated",
+        "status": "linked",
+        "template": "/api/dot"
+      }
+    ],
+    "status": "linked"
+  },
+  {
+    "base": "none",
+    "file": "frontend.ts",
+    "helpers": null,
+    "line": 4,
+    "paths": [
+      {
+        "candidate_count": 0,
+        "candidates": [
+          "route:backend.ts#GET%20%2Fapi%2Fdot"
+        ],
+        "conditional": false,
+        "match": "exact",
+        "origin": null,
+        "resolution": "evaluated",
+        "status": "linked",
+        "template": "/api/dot"
+      }
+    ],
+    "status": "linked"
+  },
+  {
+    "base": "none",
+    "file": "frontend.ts",
+    "helpers": [
+      "function:urls.ts#getURL"
+    ],
+    "line": 5,
+    "paths": [
+      {
+        "candidate_count": 0,
+        "candidates": [
+          "route:backend.ts#GET%20%2Fapi%2Fitems%2Fa%2Fb%2Fc"
+        ],
+        "conditional": false,
+        "match": "exact",
+        "origin": null,
+        "resolution": "evaluated",
+        "status": "linked",
+        "template": "/api/items/a/b/c"
+      }
+    ],
+    "status": "linked"
+  },
+  {
+    "base": "none",
+    "file": "frontend.ts",
+    "helpers": [
+      "function:urls.ts#getURL"
+    ],
+    "line": 6,
+    "paths": [
+      {
+        "candidate_count": 0,
+        "candidates": [
+          "route:backend.ts#GET%20%2Fapi%2Fitems%2F%3Aid"
+        ],
+        "conditional": false,
+        "match": "exact",
+        "origin": null,
+        "resolution": "evaluated",
+        "status": "linked",
+        "template": "/api/items/{id}"
+      }
+    ],
+    "status": "linked"
+  },
+  {
+    "base": "none",
+    "file": "frontend.ts",
+    "helpers": [
+      "function:urls.ts#defaults"
+    ],
+    "line": 7,
+    "paths": [
+      {
+        "candidate_count": 0,
+        "candidates": [
+          "route:backend.ts#GET%20%2Fapi%2Fa"
+        ],
+        "conditional": false,
+        "match": "exact",
+        "origin": null,
+        "resolution": "evaluated",
+        "status": "linked",
+        "template": "/api/a"
+      }
+    ],
+    "status": "linked"
+  },
+  {
+    "base": "none",
+    "file": "frontend.ts",
+    "helpers": null,
+    "line": 8,
+    "paths": [
+      {
+        "candidate_count": 0,
+        "candidates": [
+          "route:backend.ts#GET%20%2Fapi%2Fa"
+        ],
+        "conditional": false,
+        "match": "exact",
+        "origin": null,
+        "resolution": "evaluated",
+        "status": "linked",
+        "template": "/api/a"
+      }
+    ],
+    "status": "linked"
+  },
+  {
+    "base": "none",
+    "file": "frontend.ts",
+    "helpers": null,
+    "line": 9,
+    "paths": [
+      {
+        "candidate_count": 0,
+        "candidates": [
+          "route:backend.ts#GET%20%2Fapi%2Fb"
+        ],
+        "conditional": false,
+        "match": "exact",
+        "origin": null,
+        "resolution": "evaluated",
+        "status": "linked",
+        "template": "/api/b"
+      }
+    ],
+    "status": "linked"
+  },
+  {
+    "base": "unresolved",
+    "file": "frontend.ts",
+    "helpers": null,
+    "line": 10,
+    "paths": [
+      {
+        "candidate_count": 0,
+        "candidates": [],
+        "conditional": false,
+        "match": null,
+        "origin": null,
+        "resolution": "evaluated",
+        "status": "unmatched",
+        "template": "/"
+      }
+    ],
+    "status": "unmatched"
+  },
+  {
+    "base": "none",
+    "file": "frontend.ts",
+    "helpers": [
+      "function:urls.ts#choose"
+    ],
+    "line": 11,
+    "paths": [
+      {
+        "candidate_count": 0,
+        "candidates": [
+          "route:backend.ts#GET%20%2Fapi%2Fa"
+        ],
+        "conditional": false,
+        "match": "exact",
+        "origin": null,
+        "resolution": "evaluated",
+        "status": "linked",
+        "template": "/api/a"
+      }
+    ],
+    "status": "linked"
+  },
+  {
+    "base": "none",
+    "file": "frontend.ts",
+    "helpers": [
+      "function:urls.ts#choose"
+    ],
+    "line": 12,
+    "paths": [
+      {
+        "base": "none",
+        "candidate_count": 0,
+        "candidates": [
+          "route:backend.ts#GET%20%2Fapi%2Fa"
+        ],
+        "conditional": true,
+        "match": "exact",
+        "origin": null,
+        "resolution": "evaluated",
+        "status": "linked",
+        "template": "/api/a"
+      },
+      {
+        "base": "none",
+        "candidate_count": 0,
+        "candidates": [
+          "route:backend.ts#GET%20%2Fapi%2Fb"
+        ],
+        "conditional": true,
+        "match": "exact",
+        "origin": null,
+        "resolution": "evaluated",
+        "status": "linked",
+        "template": "/api/b"
+      }
+    ],
+    "status": "linked"
+  },
+  {
+    "base": "none",
+    "file": "frontend.ts",
+    "helpers": null,
+    "line": 13,
+    "paths": [
+      {
+        "base": "none",
+        "candidate_count": 0,
+        "candidates": [
+          "route:backend.ts#GET%20%2Fapi%2Fa"
+        ],
+        "conditional": true,
+        "match": "exact",
+        "origin": null,
+        "resolution": "evaluated",
+        "status": "linked",
+        "template": "/api/a"
+      }
+    ],
+    "status": "linked"
+  },
+  {
+    "base": "unresolved",
+    "file": "frontend.ts",
+    "helpers": null,
+    "line": 14,
+    "paths": [
+      {
+        "candidate_count": 0,
+        "candidates": [],
+        "conditional": true,
+        "match": null,
+        "origin": null,
+        "resolution": "evaluated",
+        "status": "dynamic",
+        "template": null
+      }
+    ],
+    "status": "dynamic"
+  },
+  {
+    "base": "unresolved",
+    "file": "frontend.ts",
+    "helpers": null,
+    "line": 15,
+    "paths": [
+      {
+        "candidate_count": 0,
+        "candidates": [],
+        "conditional": false,
+        "match": null,
+        "origin": null,
+        "resolution": "literal",
+        "status": "dynamic",
+        "template": null
+      }
+    ],
+    "status": "dynamic"
+  },
+  {
+    "base": "unresolved",
+    "file": "frontend.ts",
+    "helpers": null,
+    "line": 16,
+    "paths": [
+      {
+        "candidate_count": 0,
+        "candidates": [],
+        "conditional": false,
+        "match": null,
+        "origin": null,
+        "resolution": "evaluated",
+        "status": "dynamic",
+        "template": null
+      }
+    ],
+    "status": "dynamic"
+  },
+  {
+    "base": "none",
+    "file": "frontend.ts",
+    "helpers": null,
+    "line": 18,
+    "paths": [
+      {
+        "candidate_count": 0,
+        "candidates": [
+          "route:backend.ts#GET%20%2Fapi%2Fa"
+        ],
+        "conditional": false,
+        "match": "exact",
+        "origin": null,
+        "resolution": "evaluated",
+        "status": "linked",
+        "template": "/api/a"
+      }
+    ],
+    "status": "linked"
+  },
+  {
+    "base": "unresolved",
+    "file": "frontend.ts",
+    "helpers": null,
+    "line": 20,
+    "paths": [
+      {
+        "candidate_count": 0,
+        "candidates": [],
+        "conditional": false,
+        "match": null,
+        "origin": null,
+        "resolution": "literal",
+        "status": "dynamic",
+        "template": null
+      }
+    ],
+    "status": "dynamic"
+  },
+  {
+    "base": "unresolved",
+    "file": "frontend.ts",
+    "helpers": [
+      "function:urls.ts#recursive"
+    ],
+    "line": 21,
+    "paths": [
+      {
+        "candidate_count": 0,
+        "candidates": [],
+        "conditional": false,
+        "match": null,
+        "origin": null,
+        "resolution": "evaluated",
+        "status": "dynamic",
+        "template": null
+      }
+    ],
+    "status": "dynamic"
+  },
+  {
+    "base": "unresolved",
+    "file": "frontend.ts",
+    "helpers": [
+      "function:urls.ts#level1",
+      "function:urls.ts#level2",
+      "function:urls.ts#level3"
+    ],
+    "line": 22,
+    "paths": [
+      {
+        "candidate_count": 0,
+        "candidates": [],
+        "conditional": false,
+        "match": null,
+        "origin": null,
+        "resolution": "evaluated",
+        "status": "dynamic",
+        "template": null
+      }
+    ],
+    "status": "dynamic"
+  },
+  {
+    "base": "unresolved",
+    "file": "frontend.ts",
+    "helpers": null,
+    "line": 23,
+    "paths": [
+      {
+        "candidate_count": 0,
+        "candidates": [],
+        "conditional": false,
+        "match": null,
+        "origin": null,
+        "resolution": "literal",
+        "status": "dynamic",
+        "template": null
+      }
+    ],
+    "status": "dynamic"
+  },
+  {
+    "base": "none",
+    "file": "frontend.ts",
+    "helpers": null,
+    "line": 24,
+    "paths": [
+      {
+        "candidate_count": 0,
+        "candidates": [
+          "route:backend.py#POST%20%2Ftwins"
+        ],
+        "conditional": false,
+        "match": "exact",
+        "origin": null,
+        "resolution": "literal",
+        "status": "linked",
+        "template": "/api/twins"
+      }
+    ],
+    "status": "linked"
+  },
+  {
+    "base": "none",
+    "file": "frontend.ts",
+    "helpers": null,
+    "line": 25,
+    "paths": [
+      {
+        "candidate_count": 0,
+        "candidates": [
+          "route:backend.py#POST%20%2Ftwins%2F"
+        ],
+        "conditional": false,
+        "match": "exact",
+        "origin": null,
+        "resolution": "literal",
+        "status": "linked",
+        "template": "/api/twins",
+        "trailing_slash": true
+      }
+    ],
+    "status": "linked"
+  },
+  {
+    "base": "none",
+    "file": "frontend.ts",
+    "helpers": null,
+    "line": 26,
+    "paths": [
+      {
+        "candidate_count": 2,
+        "candidates": [
+          "route:backend.ts#POST%20%2Fapi%2Fexpress",
+          "route:backend.ts#POST%20%2Fapi%2Fexpress%2F"
+        ],
+        "conditional": false,
+        "match": null,
+        "origin": null,
+        "resolution": "literal",
+        "status": "ambiguous",
+        "template": "/api/express"
+      }
+    ],
+    "status": "ambiguous"
+  },
+  {
+    "base": "none",
+    "file": "frontend.ts",
+    "helpers": [
+      "function:urls.ts#values"
+    ],
+    "line": 27,
+    "paths": [
+      {
+        "candidate_count": 0,
+        "candidates": [
+          "route:backend.ts#GET%20%2Fapi%2Fitems%2Fa%2Fb%2Fc"
+        ],
+        "conditional": false,
+        "match": "exact",
+        "origin": null,
+        "resolution": "evaluated",
+        "status": "linked",
+        "template": "/api/items/a/b/c"
+      }
+    ],
+    "status": "linked"
+  },
+  {
+    "base": "none",
+    "file": "frontend.ts",
+    "helpers": [
+      "function:urls.ts#keys"
+    ],
+    "line": 28,
+    "paths": [
+      {
+        "candidate_count": 0,
+        "candidates": [
+          "route:backend.ts#GET%20%2Fapi%2Fitems%2Fa%2Fb%2Fc"
+        ],
+        "conditional": false,
+        "match": "exact",
+        "origin": null,
+        "resolution": "evaluated",
+        "status": "linked",
+        "template": "/api/items/a/b/c"
+      }
+    ],
+    "status": "linked"
+  },
+  {
+    "base": "none",
+    "file": "frontend.ts",
+    "helpers": [
+      "function:urls.ts#folded"
+    ],
+    "line": 29,
+    "paths": [
+      {
+        "candidate_count": 0,
+        "candidates": [
+          "route:backend.ts#GET%20%2Fapi%2Fa"
+        ],
+        "conditional": false,
+        "match": "exact",
+        "origin": null,
+        "resolution": "evaluated",
+        "status": "linked",
+        "template": "/api/a"
+      }
+    ],
+    "status": "linked"
+  },
+  {
+    "base": "unresolved",
+    "file": "frontend.ts",
+    "helpers": null,
+    "line": 30,
+    "paths": [
+      {
+        "candidate_count": 0,
+        "candidates": [],
+        "conditional": false,
+        "match": null,
+        "origin": null,
+        "resolution": "evaluated",
+        "status": "dynamic",
+        "template": null
+      }
+    ],
+    "status": "dynamic"
+  },
+  {
+    "base": "unresolved",
+    "file": "frontend.ts",
+    "helpers": null,
+    "line": 32,
+    "paths": [
+      {
+        "candidate_count": 0,
+        "candidates": [],
+        "conditional": false,
+        "match": null,
+        "origin": null,
+        "resolution": "evaluated",
+        "status": "dynamic",
+        "template": null
+      }
+    ],
+    "status": "dynamic"
+  },
+  {
+    "base": "none",
+    "file": "frontend.ts",
+    "helpers": [
+      "function:urls.ts#getURL"
+    ],
+    "line": 33,
+    "paths": [
+      {
+        "candidate_count": 0,
+        "candidates": [
+          "route:backend.ts#GET%20%2Fapi%2Fitems"
+        ],
+        "conditional": false,
+        "match": "exact",
+        "origin": null,
+        "resolution": "evaluated",
+        "status": "linked",
+        "template": "/api/items"
+      }
+    ],
+    "status": "linked"
+  },
+  {
+    "base": "none",
+    "file": "frontend.ts",
+    "helpers": null,
+    "line": 34,
+    "paths": [
+      {
+        "candidate_count": 0,
+        "candidates": [
+          "route:backend.ts#GET%20%2Fapi%2Fcoerce%2Fundefined%2Fnull%2Ffalse%2F12"
+        ],
+        "conditional": false,
+        "match": "exact",
+        "origin": null,
+        "resolution": "evaluated",
+        "status": "linked",
+        "template": "/api/coerce/undefined/null/false/12"
+      }
+    ],
+    "status": "linked"
+  },
+  {
+    "base": "unresolved",
+    "file": "frontend.ts",
+    "helpers": null,
+    "line": 35,
+    "paths": [
+      {
+        "candidate_count": 0,
+        "candidates": [],
+        "conditional": false,
+        "match": null,
+        "origin": null,
+        "resolution": "literal",
+        "status": "dynamic",
+        "template": null
+      }
+    ],
+    "status": "dynamic"
+  },
+  {
+    "base": "unresolved",
+    "file": "frontend.ts",
+    "helpers": null,
+    "line": 36,
+    "paths": [
+      {
+        "candidate_count": 0,
+        "candidates": [],
+        "conditional": false,
+        "match": null,
+        "origin": null,
+        "resolution": "literal",
+        "status": "dynamic",
+        "template": null
+      }
+    ],
+    "status": "dynamic"
+  },
+  {
+    "base": "unresolved",
+    "file": "frontend.ts",
+    "helpers": null,
+    "line": 37,
+    "paths": [
+      {
+        "candidate_count": 0,
+        "candidates": [],
+        "conditional": false,
+        "match": null,
+        "origin": null,
+        "resolution": "literal",
+        "status": "dynamic",
+        "template": null
+      }
+    ],
+    "status": "dynamic"
+  },
+  {
+    "base": "unresolved",
+    "file": "frontend.ts",
+    "helpers": null,
+    "line": 38,
+    "paths": [
+      {
+        "candidate_count": 0,
+        "candidates": [],
+        "conditional": false,
+        "match": null,
+        "origin": null,
+        "resolution": "literal",
+        "status": "dynamic",
+        "template": null
+      }
+    ],
+    "status": "dynamic"
+  },
+  {
+    "base": "none",
+    "file": "frontend.ts",
+    "helpers": null,
+    "line": 39,
+    "paths": [
+      {
+        "candidate_count": 0,
+        "candidates": [
+          "route:backend.ts#GET%20%2Fapi%2Fb"
+        ],
+        "conditional": false,
+        "match": "exact",
+        "origin": null,
+        "resolution": "evaluated",
+        "status": "linked",
+        "template": "/api/b"
+      }
+    ],
+    "status": "linked"
+  },
+  {
+    "base": "none",
+    "file": "frontend.ts",
+    "helpers": null,
+    "line": 40,
+    "paths": [
+      {
+        "candidate_count": 0,
+        "candidates": [
+          "route:backend.ts#GET%20%2Fapi%2Fa"
+        ],
+        "conditional": false,
+        "match": "exact",
+        "origin": null,
+        "resolution": "evaluated",
+        "status": "linked",
+        "template": "/api/a"
+      }
+    ],
+    "status": "linked"
+  },
+  {
+    "base": "unresolved",
+    "file": "frontend.ts",
+    "helpers": null,
+    "line": 42,
+    "paths": [
+      {
+        "candidate_count": 0,
+        "candidates": [],
+        "conditional": false,
+        "match": null,
+        "origin": null,
+        "resolution": "literal",
+        "status": "dynamic",
+        "template": null
+      }
+    ],
+    "status": "dynamic"
+  }
+]

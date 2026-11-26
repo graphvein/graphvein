@@ -1,0 +1,29 @@
+{
+  "id": "review19-r3-p008-ret-anyrange-elemarg",
+  "signature": "agreed at Revision 1.9",
+  "class": "S1",
+  "owner": "Y17",
+  "row": "review19",
+  "history": {
+    "id": "p008-ret-anyrange-elemarg"
+  },
+  "verdict": {
+    "default_schema": "history",
+    "outcomes": [
+      {
+        "file": "1_a.sql",
+        "status": "refused",
+        "sqlstate": "42P13",
+        "message": "cannot determine result data type",
+        "detail": "A result of type anyrange requires at least one input of type anyrange or anymultirange.",
+        "statement": 1,
+        "statement_text": "CREATE FUNCTION f(a anyelement) RETURNS anyrange LANGUAGE plpgsql AS $$ BEGIN RETURN NULL; END $$;"
+      }
+    ],
+    "tables": null,
+    "prelude_tables": [
+      "history._sqlx_migrations"
+    ]
+  },
+  "disagreements": null
+}

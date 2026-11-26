@@ -1,0 +1,4 @@
+CREATE TABLE t (id int, updated_at timestamptz);
+CREATE FUNCTION "touch"() RETURNS trigger LANGUAGE plpgsql AS $$ BEGIN RETURN NEW; END $$;
+CREATE TRIGGER "touch" BEFORE UPDATE ON t FOR EACH ROW EXECUTE FUNCTION touch();
+DROP FUNCTION touch;

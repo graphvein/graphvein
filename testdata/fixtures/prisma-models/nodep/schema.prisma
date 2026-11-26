@@ -1,0 +1,8 @@
+// Not read: this package does not depend on prisma or @prisma/client.
+datasource db {
+  provider = "postgresql"
+}
+
+model Orphan {
+  id Int @id
+}
