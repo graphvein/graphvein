@@ -64,7 +64,7 @@ func serveCommand(ctx context.Context, args []string, stdout, stderr io.Writer) 
 	if !pathFirst && flags.NArg() == 0 && override == nil {
 		// No path and no --repository: serve the workspace registry
 		// (ADR 0087, D2).
-		return serveWorkspace(ctx, *addr, registry, nil, stdout, stderr, logger)
+		return serveWorkspace(ctx, *addr, registry, nil, stdout, stderr, logger, nil)
 	}
 	absolute, err := filepath.Abs(root)
 	if err != nil {
@@ -104,7 +104,7 @@ func serveCommand(ctx context.Context, args []string, stdout, stderr io.Writer) 
 		Entry:   register(registry, workspace.KindRepository, *repository, absolute, logger),
 		Options: repositoryOptions(absolute, *repository, s, locker),
 	}
-	return serveWorkspace(ctx, *addr, registry, current, stdout, stderr, logger)
+	return serveWorkspace(ctx, *addr, registry, current, stdout, stderr, logger, nil)
 }
 
 // repositoryOptions are the options of a single-repository index: the
@@ -178,7 +178,10 @@ func register(registry *workspace.Registry, kind workspace.Kind, name, folder st
 // serveWorkspace serves the registry, with current (the index named on
 // the command line, owned by the caller) as the index of requests without
 // ws=.
-func serveWorkspace(ctx context.Context, addr string, registry *workspace.Registry, current *server.WorkspaceIndex, stdout, stderr io.Writer, logger *slog.Logger) int {
+//
+// hooks is nil for graphvein serve; graphvein with no arguments uses it to
+// open the browser once the server listens and to explain a busy port.
+func serveWorkspace(ctx context.Context, addr string, registry *workspace.Registry, current *server.WorkspaceIndex, stdout, stderr io.Writer, logger *slog.Logger, hooks *serveHooks) int {
 	workDir, _ := os.Getwd()
 	srv, err := server.Listen(ctx, addr, server.Options{
 		Version:   version,
@@ -195,6 +198,10 @@ func serveWorkspace(ctx context.Context, addr string, registry *workspace.Regist
 		},
 	})
 	if err != nil {
+		if hooks != nil && hooks.listenFailed != nil {
+			hooks.listenFailed(err)
+			return 1
+		}
 		fmt.Fprintf(stderr, "%v; if the port is in use, try --addr 127.0.0.1:0\n", err)
 		return 1
 	}
@@ -222,11 +229,23 @@ func serveWorkspace(ctx context.Context, addr string, registry *workspace.Regist
 		// since the folder was registered (its entry keeps the old name).
 		fmt.Fprintf(stdout, "Serving %s%s at %s\n", current.Options.Repository, more, srv.URL())
 	}
+	if hooks != nil && hooks.ready != nil {
+		hooks.ready(srv.URL())
+	}
 	if err := srv.Serve(ctx); err != nil {
 		logger.Error("server failed", "error", err)
 		return 1
 	}
 	return 0
+}
+
+// serveHooks lets a caller of serveWorkspace act on its two outcomes
+// without changing what graphvein serve prints: ready runs once the server
+// listens (with its URL), listenFailed replaces the generic message when
+// the address cannot be bound.
+type serveHooks struct {
+	ready        func(url string)
+	listenFailed func(err error)
 }
 
 // openWorkspaceIndex opens a registry entry's index as serve <path> or
@@ -365,7 +384,7 @@ func projectServeCommand(ctx context.Context, args []string, stdout, stderr io.W
 		Entry:   register(registry, workspace.KindProject, project.Name, project.Dir, logger),
 		Options: opt,
 	}
-	return serveWorkspace(ctx, *addr, registry, current, stdout, stderr, logger)
+	return serveWorkspace(ctx, *addr, registry, current, stdout, stderr, logger, nil)
 }
 
 // projectOptions are the options of a project index over its open read

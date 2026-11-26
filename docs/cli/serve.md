@@ -1,6 +1,7 @@
 # graphvein serve
 
 ```
+graphvein
 graphvein serve [--addr 127.0.0.1:7420]
 graphvein serve [path] [--repository id] [--addr 127.0.0.1:7420]
 graphvein serve --project <manifest or its directory> [--addr 127.0.0.1:7420]
@@ -11,6 +12,8 @@ Serves the local web UI and HTTP API v0. Design and reasons:
 for every index of the workspace:
 [ADR 0087](../adr/0087-multi-index-server.md).
 
+- `graphvein` with no arguments serves the workspace too and opens the
+  browser at it ([below](#running-graphvein-with-no-arguments)).
 - `graphvein serve` with neither a path nor `--repository` serves the
   workspace registry ([below](#workspace-multi-index-server)): every
   registered repository and project, none opened until used. With no
@@ -118,6 +121,46 @@ address cannot be bound (for example the port is in use; try
 mintty the shutdown is graceful but bash reports exit status 130 for a
 Ctrl+C; run through `winpty` to see the program's own status (verified on
 Windows, 2026-11-04).
+
+## Running graphvein with no arguments
+
+`graphvein` with no arguments, on every platform and however it was
+started (a terminal, a double-click on `graphvein.exe` in Windows
+Explorer, a desktop launcher), serves the workspace exactly as
+`graphvein serve` with no path does, and opens the default browser at its
+URL. `graphvein help` (also `-h`, `--help`) prints the commands, and every
+command with arguments behaves as before.
+
+- **Address.** `127.0.0.1:7420`, the `serve` default. When it cannot be
+  bound, graphvein first asks it `GET /api/v0/workspace` (loopback only,
+  2 s, through the egress policy). If a Graphvein server answers, nothing
+  new is started: graphvein prints
+  `Graphvein is already running at <url>; opened it.`, opens the browser
+  there and exits 0. Otherwise it tries `127.0.0.1:7421` to
+  `127.0.0.1:7430` in order and serves on the first free one; the banner
+  and the browser use the address actually bound. `graphvein serve` keeps
+  failing on a busy `--addr`, as before.
+- **Banner.** After the usual `Serving the workspace ...` line, stdout
+  shows the URL (`Graphvein web UI: <url>`), "Add a repository in the
+  browser. Run `graphvein help` for the commands." and "Press Ctrl+C or
+  close this window to stop."
+- **Browser.** Opened with the system URL handler (Windows
+  `rundll32 url.dll,FileProtocolHandler <url>`, macOS `open <url>`, other
+  systems `xdg-open <url>`), started as a process with the URL as one
+  argument, never through a shell. It is opened only when a desktop is
+  there: never in an SSH session (`SSH_CONNECTION` or `SSH_TTY` set), and
+  on Linux and other Unix systems only when `DISPLAY` or `WAYLAND_DISPLAY`
+  is set. Without one, or when the handler cannot be started (a warning is
+  logged), graphvein prints `Open <url> in your browser.` and keeps
+  serving; a browser problem never stops it.
+- **Every port taken.** When none of `127.0.0.1:7420` to `127.0.0.1:7430`
+  can be bound (and the first is not a Graphvein server), graphvein says
+  so on stderr, suggests `graphvein serve --addr 127.0.0.1:PORT` (or
+  `--addr 127.0.0.1:0` for a port the system picks) and exits 1. When
+  stdin is a terminal it first waits for Enter, so a double-clicked
+  `graphvein.exe` window stays open until the message has been read.
+- Stop it with Ctrl+C or by closing the window; the shutdown is that of
+  `graphvein serve`.
 
 ## Project mode (`--project`)
 

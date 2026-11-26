@@ -41,6 +41,7 @@ var execPackages = map[string]string{
 	"internal/scan":          "runs local git rev-parse to read the object format, and ls-tree for the run's git state",
 	"internal/gitref":        "runs local git rev-parse, merge-base, ls-tree and cat-file with transports disabled (ADR 0056)",
 	"cmd/profile":            "developer profiler runs graphvein and reg.exe",
+	"internal/desktop":       "opens graphvein's own loopback URL with the system URL handler (rundll32, open, xdg-open); no network",
 	"scripts/notices":        "licence notice generator runs go list with GOPROXY=off (ADR 0080); not linked into the binary",
 }
 

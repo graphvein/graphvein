@@ -23,7 +23,6 @@ func TestRun(t *testing.T) {
 		{"help lists query", []string{"help"}, 0, "\n  query <term> [path]"},
 		{"help lists callers", []string{"help"}, 0, "\n  callers <target> [path]"},
 		{"help lists impact", []string{"help"}, 0, "\n  impact <target> [path]"},
-		{"default help", nil, 0, "Commands:"},
 		{"help flag", []string{"--help"}, 0, "Commands:"},
 		{"short help", []string{"-h"}, 0, "Commands:"},
 		{"unknown", []string{"nonexistent"}, 2, "unknown command \"nonexistent\""},

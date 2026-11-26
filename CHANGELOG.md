@@ -9,7 +9,19 @@ Unreleased.
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-11-26
+
 ### Changed
+
+- `graphvein` with no arguments serves the workspace web UI (as
+  `graphvein serve` with no path) and opens the default browser at it, on
+  every platform, instead of printing the usage; double-clicking
+  `graphvein.exe` on Windows now opens the web UI instead of a window that
+  closes at once. It uses `127.0.0.1:7420`, opens a Graphvein already
+  running there instead of starting a second one, and otherwise falls back
+  to the next free port up to 7430. No browser is opened over SSH or
+  without a display; the URL is printed instead. `graphvein help` lists
+  the commands as before.
 
 - The website's quick start runs `graphvein serve .` after
   `graphvein index`, which opens the indexed repository directly;
@@ -71,5 +83,6 @@ Unreleased.
   by platform, so they are compared exactly only on the platform they were
   generated on, and as inclusions elsewhere. Indexing is unchanged.
 
-[Unreleased]: https://github.com/graphvein/graphvein/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/graphvein/graphvein/compare/v0.1.1...HEAD
+[0.1.1]: https://github.com/graphvein/graphvein/releases/tag/v0.1.1
 [0.1.0]: https://github.com/graphvein/graphvein/releases/tag/v0.1.0

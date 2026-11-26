@@ -21,6 +21,7 @@ var networkDeps = []struct {
 	{"github.com/graphvein/graphvein/internal/egress", "the boundary itself", nil},
 	{"github.com/graphvein/graphvein/internal/externalindex", "os/exec: runs the user's external indexer (ADR 0010)", nil},
 	{"github.com/graphvein/graphvein/internal/scan", "os/exec: local git rev-parse and ls-tree", nil},
+	{"github.com/graphvein/graphvein/internal/desktop", "os/exec: opens graphvein's own loopback URL with the system URL handler when run with no arguments", nil},
 	{"github.com/graphvein/graphvein/internal/gitref", "os/exec: local git with protocol.allow=never and GIT_NO_LAZY_FETCH=1 (ADR 0056)", nil},
 	{"github.com/graphvein/graphvein/internal/server", "net/http: serves on an egress.ListenLoopback listener; no client", nil},
 	{"github.com/jackc/pgx/v5/pgconn", "net, crypto/tls: dials only through Config.DialFunc/LookupFunc, which egress installs", nil},

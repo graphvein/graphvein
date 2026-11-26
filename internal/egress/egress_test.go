@@ -105,6 +105,11 @@ func TestNewPolicyValidation(t *testing.T) {
 		{Host: "a\x00b", Port: 1, Purpose: Database},
 		{Host: "db.example", Port: 0, Purpose: Database},
 		{Host: "db.example", Port: 1, Purpose: "other"},
+		// A local server is a loopback IP literal, never a name or a
+		// routable address.
+		{Host: "localhost", Port: 7420, Purpose: LocalServer},
+		{Host: "10.0.0.1", Port: 7420, Purpose: LocalServer},
+		{Host: "/var/run/postgresql", Port: 7420, Purpose: LocalServer},
 	} {
 		if _, err := NewPolicy(Offline, d); err == nil {
 			t.Fatalf("accepted %+v", d)
@@ -115,6 +120,8 @@ func TestNewPolicyValidation(t *testing.T) {
 		t.Fatal("accepted socket directory without port")
 	}
 	mustPolicy(t, Offline, Destination{Host: "/var/run/postgresql", Port: 5432, Purpose: Database})
+	mustPolicy(t, Offline, Destination{Host: "127.0.0.1", Port: 7420, Purpose: LocalServer})
+	mustPolicy(t, Offline, Destination{Host: "::1", Port: 7420, Purpose: LocalServer})
 }
 
 func TestLookupHost(t *testing.T) {

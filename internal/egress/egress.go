@@ -55,6 +55,12 @@ const (
 	// server builds one policy per request holding only the chosen
 	// environment's origin.
 	TryIt Purpose = "try-it"
+	// LocalServer is a Graphvein server on this machine's loopback
+	// interface: graphvein with no arguments asks the default address
+	// whether a Graphvein already serves there before it picks another
+	// port. It is allowed in every mode and only for loopback IP
+	// literals, so it can never reach beyond this machine.
+	LocalServer Purpose = "local-server"
 )
 
 // ErrBlocked is wrapped by every error caused by the allow-list, so callers
