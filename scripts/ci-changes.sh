@@ -19,6 +19,11 @@
 #   code changes (outside docs and Markdown) are all under site/, the
 #   website generator (ADR 0091), runs the Linux job only. A merge to main
 #   whose code equals an already tested branch commit is not re-tested.
+#
+# ci.yml starts push runs on main only, so a branch is tested through its
+# pull request (whose run records the branch head as head_sha, which the
+# merge skip looks up). The branch-push rules below are kept: they cost
+# nothing and scripts/test-t005a.sh still covers them.
 set -euo pipefail
 : "${GITHUB_OUTPUT:?GITHUB_OUTPUT must name the step output file}"
 event=${GITHUB_EVENT_NAME:-}

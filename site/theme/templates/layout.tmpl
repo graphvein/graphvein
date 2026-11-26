@@ -77,7 +77,7 @@
 {{end}}</code></pre>
 {{- end}}
 <p>{{.Then}}</p>
-<pre class="code"><code>{{range $i, $r := .Run}}{{$r}}{{if eq $r "graphvein serve"}}   <span class="c"># {{$.ServeNote}}</span>{{end}}
+<pre class="code"><code>{{range $i, $r := .Run}}{{$r}}{{if or (eq $r "graphvein serve") (eq $r "graphvein serve .")}}   <span class="c"># {{$.ServeNote}}</span>{{end}}
 {{end}}</code></pre>
 <p class="muted">{{.More}}</p>
 {{end}}
