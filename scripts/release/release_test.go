@@ -250,3 +250,79 @@ func readZip(t *testing.T, path string) map[string]string {
 	}
 	return got
 }
+
+// TestWriteSums collects the archives of a full pack in a new folder, as
+// the release workflow does with the archives of its per-target jobs:
+// SHA256SUMS must equal the one Pack wrote.
+func TestWriteSums(t *testing.T) {
+	root := fakeRoot(t)
+	packed, names := fakeRelease(t, root)
+	collected := t.TempDir()
+	for _, n := range names {
+		data, err := os.ReadFile(filepath.Join(packed, n))
+		if err != nil {
+			t.Fatal(err)
+		}
+		if err := os.WriteFile(filepath.Join(collected, n), data, 0o644); err != nil {
+			t.Fatal(err)
+		}
+	}
+	got, err := WriteSums("v0.1.0", collected)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if !reflect.DeepEqual(got, names) {
+		t.Errorf("WriteSums names = %v, want %v", got, names)
+	}
+	a, err := os.ReadFile(filepath.Join(packed, SumsFile))
+	if err != nil {
+		t.Fatal(err)
+	}
+	b, err := os.ReadFile(filepath.Join(collected, SumsFile))
+	if err != nil {
+		t.Fatal(err)
+	}
+	if !bytes.Equal(a, b) {
+		t.Errorf("SHA256SUMS differs:\nPack:\n%s\nWriteSums:\n%s", a, b)
+	}
+
+	// A second run finds SHA256SUMS itself, which is not an archive.
+	if _, err := WriteSums("v0.1.0", collected); err == nil {
+		t.Error("WriteSums accepted a folder that already holds SHA256SUMS")
+	}
+	if err := os.Remove(filepath.Join(collected, SumsFile)); err != nil {
+		t.Fatal(err)
+	}
+	// Another version's names, a missing archive and a stray file fail.
+	if _, err := WriteSums("v0.2.0", collected); err == nil {
+		t.Error("WriteSums accepted archives of another version")
+	}
+	if err := os.WriteFile(filepath.Join(collected, "stray.txt"), nil, 0o644); err != nil {
+		t.Fatal(err)
+	}
+	if _, err := WriteSums("v0.1.0", collected); err == nil {
+		t.Error("WriteSums accepted a stray file")
+	}
+	if err := os.Remove(filepath.Join(collected, "stray.txt")); err != nil {
+		t.Fatal(err)
+	}
+	if err := os.Remove(filepath.Join(collected, names[0])); err != nil {
+		t.Fatal(err)
+	}
+	if _, err := WriteSums("v0.1.0", collected); err == nil {
+		t.Error("WriteSums accepted a missing archive")
+	}
+	if _, err := WriteSums("bad/version", collected); err == nil {
+		t.Error("WriteSums accepted a bad version")
+	}
+}
+
+// TestArchiveName pins the archive names the release workflow collects.
+func TestArchiveName(t *testing.T) {
+	if got := ArchiveName("v0.1.0", "windows", "arm64"); got != "graphvein-v0.1.0-windows-arm64.zip" {
+		t.Errorf("windows: %s", got)
+	}
+	if got := ArchiveName("v0.1.0", "linux", "amd64"); got != "graphvein-v0.1.0-linux-amd64.tar.gz" {
+		t.Errorf("linux: %s", got)
+	}
+}

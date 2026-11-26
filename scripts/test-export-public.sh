@@ -67,7 +67,8 @@ mkdir -p "$priv/scripts/private" "$priv/docs/public" "$priv/docs/perf" "$priv/sr
 mkdir -p "$priv/scripts/hooks"
 cp "$src/hooks/pre-push-public" "$priv/scripts/hooks/"
 for f in export-public.sh import-contrib.sh public-snapshot.sh check-public-tree.sh check-public-privacy.sh \
-  public-exclude.txt public-reference-exempt.txt public-privacy-exempt.txt export-pr-template.md; do
+  public-exclude.txt public-reference-exempt.txt public-privacy-exempt.txt export-pr-template.md \
+  unwrap-markdown.awk; do
   cp "$src/$f" "$priv/scripts/"
 done
 echo 'zorblax  # test-only private name' > "$priv/scripts/private/privacy-patterns.txt"
@@ -131,7 +132,7 @@ grep -qF "push $remote refs/heads/export/launch:refs/heads/export/launch" "$t/ou
 c1=$(git -C "$pub" rev-parse export/launch)
 [ "$(git -C "$pub" rev-list --parents -n 1 "$c1" | wc -w | tr -d ' ')" = 1 ] || fail "initial commit has a parent"
 [ "$(git -C "$pub" ls-tree -r --name-only "$c1" | LC_ALL=C sort | tr '\n' ' ')" = \
-  ".github/dependabot.yml AGENTS.md README.md scripts/check-public-privacy.sh scripts/check-public-tree.sh scripts/export-pr-template.md scripts/export-public.sh scripts/hooks/pre-push-public scripts/import-contrib.sh scripts/public-exclude.txt scripts/public-privacy-exempt.txt scripts/public-reference-exempt.txt scripts/public-snapshot.sh src/a.go " ] ||
+  ".github/dependabot.yml AGENTS.md README.md scripts/check-public-privacy.sh scripts/check-public-tree.sh scripts/export-pr-template.md scripts/export-public.sh scripts/hooks/pre-push-public scripts/import-contrib.sh scripts/public-exclude.txt scripts/public-privacy-exempt.txt scripts/public-reference-exempt.txt scripts/public-snapshot.sh scripts/unwrap-markdown.awk src/a.go " ] ||
   fail "unexpected initial tree: $(git -C "$pub" ls-tree -r --name-only "$c1" | tr '\n' ' ')"
 git -C "$pub" show "$c1:AGENTS.md" | grep -q VISION || fail "root AGENTS.md is not the public one"
 [ "$(git -C "$pub" rev-parse "$c1:.github/dependabot.yml")" = "$(git -C "$priv" rev-parse HEAD:docs/public/dependabot.yml)" ] ||
@@ -269,12 +270,20 @@ printf 'package a\n\nfunc C() {}\n' > "$priv/src/c.go"
 git -C "$priv" rm -q src/a.go
 git -C "$priv" add -A
 git -C "$priv" commit -qm 'Add C'
-printf 'Adds C and removes a.go.\n' > "$t/notes.md"
+# Hard-wrapped notes become one line per paragraph and per bullet in the
+# commit message and in the pull request description.
+printf '%s\n' 'Adds C and removes' 'a.go.' '' '- First bullet,' '  wrapped.' '- Second.' '' '' > "$t/notes.md"
 export_public --body "$t/notes.md" T002 "$pub" 'Add C' > "$t/out.txt" 2>&1 || fail "second export"
 grep -qF 'gh pr create' "$t/out.txt" || fail "no pull request command"
 grep -qF 'Export of task T002' "$t/out.txt" || fail "no pull request text"
-grep -qF 'Adds C and removes a.go.' "$(git -C "$pub" rev-parse --absolute-git-dir)/export-pr-T002.md" || fail "pull request notes"
+pr2=$(git -C "$pub" rev-parse --absolute-git-dir)/export-pr-T002.md
+grep -qxF 'Adds C and removes a.go.' "$pr2" || fail "pull request notes are not unwrapped"
+grep -qxF -- '- First bullet, wrapped.' "$pr2" || fail "pull request bullet is not unwrapped"
+grep -q '^Export of task T002 from .* squashed commit whose tree .* after this task\.$' "$pr2" ||
+  fail "pull request template text is not unwrapped"
 c2=$(git -C "$pub" rev-parse export/T002)
+[ "$(git -C "$pub" log -1 --format=%B "$c2" | tr '\n' '|')" = 'Add C||Adds C and removes a.go.||- First bullet, wrapped.|- Second.||Task: T002||' ] ||
+  fail "export message: $(git -C "$pub" log -1 --format=%B "$c2" | tr '\n' '|')"
 [ "$(git -C "$pub" rev-parse "$c2^")" = "$(git -C "$pub" rev-parse origin/main)" ] || fail "export parent is not the base"
 git -C "$pub" cat-file -e "$c2:src/a.go" 2> /dev/null && fail "deletion not exported"
 [ "$(git -C "$pub" diff --name-status origin/main "$c2" | tr '\t\n' ' |')" = "D src/a.go|A src/c.go|" ] ||
@@ -322,5 +331,115 @@ bash "$priv/scripts/check-public-privacy.sh" "$t/ok" > "$t/out.txt" 2>&1 || fail
 echo 'zorblax' > "$t/ok/b.txt"
 GV_PRIVACY_PATTERNS=$t/none bash "$priv/scripts/check-public-privacy.sh" "$t/ok" > "$t/out.txt" 2>&1 || fail "check without patterns failed"
 grep -qF 'private names not checked' "$t/out.txt" || fail "no notice without the patterns file"
+
+# The unwrapping on its own (scripts/unwrap-markdown.awk): paragraphs,
+# bullets with continuation lines, nested and numbered items, quotes, hard
+# breaks, headings, rules, tables, HTML, fenced and indented code and
+# blank lines.
+cat > "$t/wrapped.md" <<'EOF'
+# Title stays
+
+A paragraph that is
+hard-wrapped over
+three lines.
+
+- A bullet
+  with a continuation line.
+  - A nested bullet
+    continued.
+- Another bullet
+lazily continued.
+1. A numbered item
+   continued.
+2) Another.
+
+> A quote
+> over two lines.
+
+Line with a hard break  
+next line kept.
+Backslash break\
+kept too.
+
+Heading
+=======
+
+---
+
+| a | b |
+| - | - |
+<details>
+inside HTML
+</details>
+
+```sh
+code stays
+  as it is
+```
+~~~~
+tilde fence
+~~~
+still in the fence
+~~~~
+
+    indented code
+    stays
+
+Last paragraph
+ends here.
+EOF
+cat > "$t/unwrapped.md" <<'EOF'
+# Title stays
+
+A paragraph that is hard-wrapped over three lines.
+
+- A bullet with a continuation line.
+  - A nested bullet continued.
+- Another bullet lazily continued.
+1. A numbered item continued.
+2) Another.
+
+> A quote over two lines.
+
+Line with a hard break  
+next line kept. Backslash break\
+kept too.
+
+Heading
+=======
+
+---
+
+| a | b |
+| - | - |
+<details>
+inside HTML
+</details>
+
+```sh
+code stays
+  as it is
+```
+~~~~
+tilde fence
+~~~
+still in the fence
+~~~~
+
+    indented code
+    stays
+
+Last paragraph ends here.
+EOF
+awk -f "$src/unwrap-markdown.awk" "$t/wrapped.md" > "$t/got.md"
+if ! cmp -s "$t/got.md" "$t/unwrapped.md"; then
+  diff "$t/unwrapped.md" "$t/got.md" > "$t/out.txt" || true
+  fail "unwrap-markdown.awk output differs (diff want got)"
+fi
+# CRLF input gives LF output; a last line without a newline gets one.
+printf 'a\r\nb\r\n' | awk -f "$src/unwrap-markdown.awk" > "$t/got.md"
+[ "$(cat "$t/got.md")" = 'a b' ] || fail "CRLF input: $(cat "$t/got.md")"
+printf 'a\nb' | awk -f "$src/unwrap-markdown.awk" > "$t/got.md"
+[ "$(wc -l < "$t/got.md" | tr -d ' ')" = 1 ] && [ "$(cat "$t/got.md")" = 'a b' ] || fail "no final newline"
 
 echo "test-export-public: ok"

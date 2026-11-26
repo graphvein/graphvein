@@ -6,6 +6,7 @@
 //	go run ./scripts/release -list
 //	go run ./scripts/release -version v0.1.0 -date 2026-11-20T10:00:00Z -out dist \
 //	    linux/amd64=build/linux-amd64/graphvein windows/amd64=build/windows-amd64/graphvein.exe
+//	go run ./scripts/release -sums -version v0.1.0 -out dist
 //
 // Each archive holds one folder, graphvein-VERSION-GOOS-GOARCH, with the
 // binary, LICENSE, NOTICE, THIRD_PARTY_NOTICES and README.md from the
@@ -13,6 +14,11 @@
 // archives are reproducible: entries are written in a fixed order with
 // fixed modes, no owner, and the -date as their time (the release uses the
 // tagged commit's time), so the same binaries give the same bytes.
+//
+// -sums writes SHA256SUMS over archives packed elsewhere: the release
+// workflow packs each target in its own job and collects the archives in
+// one folder. It requires exactly the archives of every target for
+// -version in -out, so a missing or stray file stops the release.
 package main
 
 import (
@@ -64,10 +70,22 @@ func main() {
 	date := flag.String("date", "", "time stamp of every archive entry (RFC 3339)")
 	out := flag.String("out", "", "folder that receives the archives and SHA256SUMS")
 	root := flag.String("root", ".", "repository root holding the extra files")
+	sumsOnly := flag.Bool("sums", false, "only write SHA256SUMS over the archives of every target already in -out")
 	flag.Parse()
 	if *list {
 		for _, t := range Targets {
 			fmt.Println(t)
+		}
+		return
+	}
+	if *sumsOnly {
+		names, err := WriteSums(*version, *out)
+		if err != nil {
+			slog.Error("release", "err", err)
+			os.Exit(1)
+		}
+		for _, n := range names {
+			fmt.Println(filepath.Join(*out, n))
 		}
 		return
 	}
@@ -127,19 +145,84 @@ func Pack(o Options, binaries []string) ([]string, error) {
 		}
 		names = append(names, name)
 	}
+	if err := writeSums(o.Out, names); err != nil {
+		return nil, err
+	}
 	sort.Strings(names)
-	var sums strings.Builder
+	return names, nil
+}
+
+// ArchiveName is the file name of the archive for one target: the release
+// workflow and WriteSums both rely on it.
+func ArchiveName(version, goos, goarch string) string {
+	base := fmt.Sprintf("graphvein-%s-%s-%s", version, goos, goarch)
+	if goos == "windows" {
+		return base + ".zip"
+	}
+	return base + ".tar.gz"
+}
+
+// WriteSums writes SHA256SUMS in out over the archives of every target in
+// Targets for version, which must be the only files there. The release
+// workflow packs each target in a separate job; this check makes sure the
+// collected folder holds the whole matrix and nothing else before it is
+// checksummed, attested and released. It returns the archive names in
+// SHA256SUMS order.
+func WriteSums(version, out string) ([]string, error) {
+	if !versionRe.MatchString(version) {
+		return nil, fmt.Errorf("version %q: use letters, digits and . _ + -", version)
+	}
+	if out == "" {
+		return nil, errors.New("no output folder (-out)")
+	}
+	want := map[string]bool{}
+	var names []string
+	for _, target := range Targets {
+		goos, goarch, _ := strings.Cut(target, "/")
+		name := ArchiveName(version, goos, goarch)
+		want[name] = true
+		names = append(names, name)
+	}
+	entries, err := os.ReadDir(out)
+	if err != nil {
+		return nil, fmt.Errorf("reading %s: %w", out, err)
+	}
+	found := map[string]bool{}
+	for _, e := range entries {
+		if !want[e.Name()] || !e.Type().IsRegular() {
+			return nil, fmt.Errorf("%s holds %s, which is not an archive of %s", out, e.Name(), version)
+		}
+		found[e.Name()] = true
+	}
 	for _, n := range names {
-		sum, err := fileSHA256(filepath.Join(o.Out, n))
+		if !found[n] {
+			return nil, fmt.Errorf("%s misses the archive %s", out, n)
+		}
+	}
+	if err := writeSums(out, names); err != nil {
+		return nil, err
+	}
+	sort.Strings(names)
+	return names, nil
+}
+
+// writeSums writes SHA256SUMS in out over the named archives, sorted by
+// name.
+func writeSums(out string, names []string) error {
+	sorted := append([]string(nil), names...)
+	sort.Strings(sorted)
+	var sums strings.Builder
+	for _, n := range sorted {
+		sum, err := fileSHA256(filepath.Join(out, n))
 		if err != nil {
-			return nil, err
+			return err
 		}
 		fmt.Fprintf(&sums, "%s  %s\n", sum, n)
 	}
-	if err := os.WriteFile(filepath.Join(o.Out, SumsFile), []byte(sums.String()), 0o644); err != nil {
-		return nil, fmt.Errorf("writing %s: %w", SumsFile, err)
+	if err := os.WriteFile(filepath.Join(out, SumsFile), []byte(sums.String()), 0o644); err != nil {
+		return fmt.Errorf("writing %s: %w", SumsFile, err)
 	}
-	return names, nil
+	return nil
 }
 
 // entry is one file of an archive, in archive order.
@@ -151,6 +234,7 @@ type entry struct {
 
 func packOne(o Options, goos, goarch, bin string) (string, error) {
 	base := fmt.Sprintf("graphvein-%s-%s-%s", o.Version, goos, goarch)
+	name := ArchiveName(o.Version, goos, goarch)
 	exe := "graphvein"
 	if goos == "windows" {
 		exe += ".exe"
@@ -167,10 +251,8 @@ func packOne(o Options, goos, goarch, bin string) (string, error) {
 		}
 	}
 	if goos == "windows" {
-		name := base + ".zip"
 		return name, writeFile(filepath.Join(o.Out, name), func(w io.Writer) error { return writeZip(w, base, o.Date, entries) })
 	}
-	name := base + ".tar.gz"
 	return name, writeFile(filepath.Join(o.Out, name), func(w io.Writer) error { return writeTarGz(w, base, o.Date, entries) })
 }
 

@@ -7,9 +7,13 @@ name: Release
 # builds and uploads the archives as a workflow artifact, and creates no
 # attestation and no release.
 #
-# Archives: scripts/release-archives.sh (one per system in
-# `go run ./scripts/release -list`, with LICENSE, NOTICE,
-# THIRD_PARTY_NOTICES and README.md) and SHA256SUMS over them. The release
+# Jobs: `prepare` checks the version, the notes and the notices and asks
+# scripts/ci-tested-tree.sh whether the tagged tree already passed the full
+# CI matrix; `test` runs the suite only when it did not; `build` packs one
+# target per job (the targets of `go run ./scripts/release -list`) with
+# scripts/release-archives.sh; `release` collects the archives, writes
+# SHA256SUMS over them (`go run ./scripts/release -sums`), smoke-tests the
+# Linux binary, attests the archives and creates the draft. The release
 # notes come from docs/releases/<tag>.md, which must exist on the tag,
 # unwrapped for the release body by scripts/releasenotes.
 
@@ -34,15 +38,21 @@ env:
   CGO_ENABLED: '0'
 
 jobs:
-  release:
+  prepare:
     # Never in the maintainer's working repository: binaries come only from
-    # public commits.
+    # public commits. Every later job needs this one, so none runs there.
     if: github.repository == 'graphvein/graphvein'
     runs-on: ubuntu-24.04
     permissions:
-      contents: write      # gh release create
-      id-token: write      # provenance attestation (Sigstore signing certificate)
-      attestations: write  # store the attestation
+      # scripts/ci-tested-tree.sh reads the CI runs, the merged pull
+      # request, and commits.
+      contents: read
+      actions: read
+      pull-requests: read
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+      targets: ${{ steps.targets.outputs.targets }}
+      tested: ${{ steps.tested.outputs.tested }}
     defaults:
       run:
         shell: bash
@@ -54,7 +64,8 @@ jobs:
       - uses: actions/setup-go@d8cbb8045d7f43706b9177cceb36c1f91a6644d5 # v7.1.0
         with:
           go-version-file: go.mod
-          # No cache restored from other runs into a release build.
+          # No cache from other runs in the jobs of a release that build or
+          # check what is released.
           cache: false
       - name: Version and release notes
         id: version
@@ -82,29 +93,133 @@ jobs:
           echo "version=$version" >> "$GITHUB_OUTPUT"
       - name: Download modules
         run: go mod download
-      # GitHub keeps every line break of a release body, so the wrapped
-      # notes file is passed with its paragraphs and list items joined, its
-      # comments removed and without its title (scripts/releasenotes).
-      - name: Release body
+      - name: Third-party notices are current
+        run: go run ./scripts/notices -check
+      # Fails early on notes that do not convert; the release job converts
+      # them again for the release body.
+      - name: Release notes convert
         if: github.event_name == 'push'
         env:
           VERSION: ${{ steps.version.outputs.version }}
-        run: go run ./scripts/releasenotes "docs/releases/$VERSION.md" > "$RUNNER_TEMP/release-notes.md"
-      - name: Third-party notices are current
-        run: go run ./scripts/notices -check
-      # The full suite on Linux, without Postgres: a tag may point at a commit
-      # whose main run is still going or was skipped, and the suite is the
-      # cheapest way to be sure the tagged tree is the tested one.
+        run: go run ./scripts/releasenotes "docs/releases/$VERSION.md" > /dev/null
+      - name: Build matrix
+        id: targets
+        run: echo "targets=$(go run ./scripts/release -list | jq -R . | jq -cs .)" >> "$GITHUB_OUTPUT"
+      # Every released tree must have passed the full CI matrix (Linux with
+      # Postgres, Windows, macOS). When a ci.yml run already passed this
+      # exact tree (the push run on main, or the merged pull request's last
+      # head with the same tree), the test job is skipped; otherwise it runs.
+      - name: Was this tree tested by CI
+        id: tested
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: bash scripts/ci-tested-tree.sh HEAD
+
+  # The full suite on Linux, without Postgres, only when no CI run passed
+  # the tagged tree (for example a tag pushed while the main run is still
+  # going, or a tree whose changes ci.yml skips as documentation). It runs
+  # in parallel with the builds; the release job waits for it. Its cache
+  # only speeds up the tests: nothing built here is released.
+  test:
+    needs: prepare
+    if: needs.prepare.outputs.tested != 'true'
+    runs-on: ubuntu-24.04
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-go@d8cbb8045d7f43706b9177cceb36c1f91a6644d5 # v7.1.0
+        with:
+          go-version-file: go.mod
+          cache-dependency-path: go.sum
+      - name: Download modules
+        run: go mod download
       - name: Vet and test
         run: bash scripts/test.sh
-      - name: Build the release archives
+
+  # One target per job, in parallel. Each archive has the same bytes as
+  # from one job building all six: the same Go toolchain, -trimpath, the
+  # tagged commit's time as build date, and a full clone, so the commit id
+  # that scripts/build.sh embeds has the same abbreviation.
+  build:
+    needs: prepare
+    name: build (${{ matrix.target }})
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: true
+      matrix:
+        target: ${{ fromJSON(needs.prepare.outputs.targets) }}
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-go@d8cbb8045d7f43706b9177cceb36c1f91a6644d5 # v7.1.0
+        with:
+          go-version-file: go.mod
+          # No cache restored from other runs into a release build.
+          cache: false
+      - name: Download modules
+        run: go mod download
+      - name: Build the release archive
+        id: archive
         env:
-          VERSION: ${{ steps.version.outputs.version }}
+          VERSION: ${{ needs.prepare.outputs.version }}
+          TARGET: ${{ matrix.target }}
           REPORT_URL: https://github.com/graphvein/graphvein/issues/new
-        run: bash scripts/release-archives.sh "$VERSION" dist
+        run: |
+          RELEASE_TARGETS=$TARGET bash scripts/release-archives.sh "$VERSION" dist
+          # The release job writes SHA256SUMS over every archive.
+          rm dist/SHA256SUMS
+          echo "name=${TARGET%/*}-${TARGET#*/}" >> "$GITHUB_OUTPUT"
+      - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
+        with:
+          name: archive-${{ steps.archive.outputs.name }}
+          path: dist/
+          if-no-files-found: error
+          retention-days: 1
+
+  release:
+    needs: [prepare, test, build]
+    # The test job may be skipped only because CI already passed the tree.
+    if: >-
+      !cancelled() && needs.prepare.result == 'success' && needs.build.result == 'success' &&
+      (needs.test.result == 'success' || (needs.test.result == 'skipped' && needs.prepare.outputs.tested == 'true'))
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write      # gh release create
+      id-token: write      # provenance attestation (Sigstore signing certificate)
+      attestations: write  # store the attestation
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-go@d8cbb8045d7f43706b9177cceb36c1f91a6644d5 # v7.1.0
+        with:
+          go-version-file: go.mod
+          cache: false
+      - uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
+        with:
+          pattern: archive-*
+          merge-multiple: true
+          path: dist
+      # Exactly one archive per target, then SHA256SUMS over them.
+      - name: SHA256SUMS
+        env:
+          VERSION: ${{ needs.prepare.outputs.version }}
+        run: go run ./scripts/release -sums -version "$VERSION" -out dist
       - name: Smoke test the Linux binary
         env:
-          VERSION: ${{ steps.version.outputs.version }}
+          VERSION: ${{ needs.prepare.outputs.version }}
         run: |
           (cd dist && sha256sum -c SHA256SUMS)
           name="graphvein-$VERSION-linux-amd64"
@@ -115,10 +230,18 @@ jobs:
           bash scripts/smoke-serve.sh "smoke/$name/graphvein"
       - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
         with:
-          name: release-archives-${{ steps.version.outputs.version }}
+          name: release-archives-${{ needs.prepare.outputs.version }}
           path: dist/
           if-no-files-found: error
           retention-days: 14
+      # GitHub keeps every line break of a release body, so the wrapped
+      # notes file is passed with its paragraphs and list items joined, its
+      # comments removed and without its title (scripts/releasenotes).
+      - name: Release body
+        if: github.event_name == 'push'
+        env:
+          VERSION: ${{ needs.prepare.outputs.version }}
+        run: go run ./scripts/releasenotes "docs/releases/$VERSION.md" > "$RUNNER_TEMP/release-notes.md"
       - name: Attest build provenance
         if: github.event_name == 'push'
         uses: actions/attest-build-provenance@4d101475d8b20a2381f78447822ac1eab6504dd8 # v4.2.2
@@ -130,7 +253,7 @@ jobs:
         if: github.event_name == 'push'
         env:
           GH_TOKEN: ${{ github.token }}
-          VERSION: ${{ steps.version.outputs.version }}
+          VERSION: ${{ needs.prepare.outputs.version }}
         run: |
           gh release create "$VERSION" --repo "$GITHUB_REPOSITORY" --draft --verify-tag \
             --title "Graphvein $VERSION" --notes-file "$RUNNER_TEMP/release-notes.md" \

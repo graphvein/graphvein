@@ -18,6 +18,11 @@
 # first public commit, without a parent, in a clone that has no commit yet.
 # FILE (--body) holds public notes for the commit message and the pull
 # request description; SUBJECT is the commit subject and pull request title.
+# GitHub shows commit messages and pull request descriptions with every line
+# break kept, so both are written with one line per paragraph and per list
+# item: scripts/unwrap-markdown.awk joins the hard-wrapped lines of FILE and
+# of scripts/export-pr-template.md (blank lines, headings, code blocks and
+# lists keep their structure).
 # TASK_ID is a task id (T050) or a short slug (launch).
 #
 # Check mode (after the maintainer squash-merged the pull request): compares
@@ -202,7 +207,7 @@ fi
   printf '%s\n' "$subject"
   if [ -n "$body" ]; then
     printf '\n'
-    sed -e :a -e '/^\n*$/{$d;N;ba' -e '}' "$body"
+    awk -f "$here/unwrap-markdown.awk" "$body" | sed -e :a -e '/^\n*$/{$d;N;ba' -e '}'
   fi
   printf '\nTask: %s\n' "$task"
 } > "$tmp/message.txt"
@@ -214,7 +219,7 @@ while IFS= read -r line || [ -n "$line" ]; do
   else
     printf '%s\n' "$line" | sed "s/@TASK@/$task/g"
   fi
-done < "$here/export-pr-template.md" | cat -s > "$tmp/pr.md"
+done < "$here/export-pr-template.md" | cat -s | awk -f "$here/unwrap-markdown.awk" > "$tmp/pr.md"
 mkdir "$tmp/text"
 cp "$tmp/public/AGENTS.md" "$tmp/text/AGENTS.md"
 cp "$tmp/message.txt" "$tmp/pr.md" "$tmp/text/"
