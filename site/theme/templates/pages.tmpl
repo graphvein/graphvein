@@ -10,6 +10,7 @@
 gh attestation verify graphvein-*-linux-amd64.tar.gz --repo {{.RepoSlug}}</code></pre>{{endcheck}}
 <p class="muted">Replace the system in the archive name with yours.</p>
 <h2 id="first-run">First run</h2>
+<p>Graphvein is a command-line tool. Run <code>graphvein</code> in a terminal, or double-click <code>graphvein.exe</code> on Windows, to open the web UI in your browser; <code>graphvein help</code> lists the commands.</p>
 <p><strong>Windows.</strong> SmartScreen can show “Windows protected your PC” for a downloaded program that is not code-signed: choose <strong>More info</strong>, then <strong>Run anyway</strong>. Or, before unpacking, open the <code>.zip</code> file’s <strong>Properties</strong> and tick <strong>Unblock</strong>.</p>
 <p><strong>macOS.</strong> Gatekeeper refuses a downloaded binary that is not notarised. Remove the download mark from the unpacked binary with <code>xattr -d com.apple.quarantine ./graphvein</code>, or try to run it once, then choose <strong>Open Anyway</strong> in <strong>System Settings → Privacy &amp; Security</strong>.</p>
 <h2 id="install-with-go">Install with Go, without warnings</h2>

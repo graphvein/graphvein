@@ -68,6 +68,10 @@ func NewPolicy(mode Mode, destinations ...Destination) (*Policy, error) {
 		}
 		switch d.Purpose {
 		case Database, TryIt:
+		case LocalServer:
+			if addr, err := netip.ParseAddr(d.Host); err != nil || !addr.Unmap().IsLoopback() {
+				return nil, fmt.Errorf("egress destination %s: a local-server destination must be a loopback IP literal", d.Host)
+			}
 		case LLMProvider:
 			if mode != LLM {
 				continue

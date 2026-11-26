@@ -20,7 +20,7 @@ or the Try it out environment you select
 ## Status
 
 <!-- site:status -->
-**Preview release (v0.1.0); contributions welcome** under the contributor licence agreement ([CONTRIBUTING.md](CONTRIBUTING.md)). What works today:
+**Preview release (v0.1.1); contributions welcome** under the contributor licence agreement ([CONTRIBUTING.md](CONTRIBUTING.md)). What works today:
 `graphvein index` builds the index of a repository, and `graphvein serve`
 opens a local web UI on it with the sections API (routes and their
 callers), Changes (what a change reaches), Architecture, Schema, Explorer
@@ -74,7 +74,7 @@ they are not code-signed. Download the archive for your system and
 `sha256sum`; on macOS use `shasum -a 256 -c` in its place):
 
 ```bash
-grep graphvein-v0.1.0-linux-amd64.tar.gz SHA256SUMS | sha256sum -c
+grep graphvein-v0.1.1-linux-amd64.tar.gz SHA256SUMS | sha256sum -c
 ```
 
 **Provenance.** Each archive has a build provenance attestation that ties
@@ -82,13 +82,18 @@ it to the workflow run and the commit it was built from. With the
 [GitHub CLI](https://cli.github.com/):
 
 ```bash
-gh attestation verify graphvein-v0.1.0-linux-amd64.tar.gz --repo graphvein/graphvein
+gh attestation verify graphvein-v0.1.1-linux-amd64.tar.gz --repo graphvein/graphvein
 ```
 
-Unpack it (`tar -xzf graphvein-v0.1.0-linux-amd64.tar.gz`; on Windows,
+Unpack it (`tar -xzf graphvein-v0.1.1-linux-amd64.tar.gz`; on Windows,
 Extract All in File Explorer) and put the folder on your `PATH`, or call
 the binary by its path: `graphvein version` prints the version you
 downloaded.
+
+Graphvein is a command-line tool: run `graphvein` in a terminal, or
+double-click `graphvein.exe` on Windows, to open the web UI in your
+browser, or `graphvein help` for the commands
+([no arguments](docs/cli/serve.md#running-graphvein-with-no-arguments)).
 
 **First run on Windows.** A downloaded program that is not code-signed
 can make SmartScreen show "Windows protected your PC". Choose **More
@@ -117,7 +122,7 @@ go install github.com/graphvein/graphvein/cmd/graphvein@latest
 It needs Go 1.21 or newer, which downloads the Go toolchain the module
 requires when yours is older. The binary goes to `$(go env GOPATH)/bin`
 and `graphvein version` reports the module version you installed (use
-`@v0.1.0` for a given release). To build from a checkout instead, see the
+`@v0.1.1` for a given release). To build from a checkout instead, see the
 next section.
 
 ## Building and running
@@ -134,6 +139,7 @@ bash scripts/build.sh
 ./bin/graphvein$(go env GOEXE) help
 ```
 
+Run `graphvein` to open the web UI, or `graphvein help` for the commands.
 `graphvein serve [path]` serves the local web UI and HTTP API for an indexed
 repository at `http://127.0.0.1:7420/` (loopback only; see
 [serve](docs/cli/serve.md)). The UI is embedded in the binary, so building and
