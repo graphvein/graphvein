@@ -20,6 +20,9 @@ func TestRun(t *testing.T) {
 	}{
 		{"version", []string{"version"}, 0, "graphvein dev\ncommit: unknown\nbuild date: unknown\n"},
 		{"help", []string{"help"}, 0, "Commands:\n  version"},
+		{"help lists query", []string{"help"}, 0, "\n  query <term> [path]"},
+		{"help lists callers", []string{"help"}, 0, "\n  callers <target> [path]"},
+		{"help lists impact", []string{"help"}, 0, "\n  impact <target> [path]"},
 		{"default help", nil, 0, "Commands:"},
 		{"help flag", []string{"--help"}, 0, "Commands:"},
 		{"short help", []string{"-h"}, 0, "Commands:"},

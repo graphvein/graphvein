@@ -12,6 +12,11 @@ function or line. It builds a deterministic graph of code facts and keeps
 design rationale, assessments and human decisions attached to the code they
 describe.
 
+Graphvein runs locally and uses no LLM. It opens no network connection
+except to what you configure yourself, such as a team Postgres database
+or the Try it out environment you select
+([FAQ](docs/guide/4-faq.md#does-graphvein-need-an-llm-or-send-my-code-anywhere)).
+
 ## Status
 
 <!-- site:status -->
@@ -22,7 +27,9 @@ callers), Changes (what a change reaches), Architecture, Schema, Explorer
 (API documentation and a guarded "Try it out"), Project and What Graphvein
 couldn't read. Two or more repositories can be indexed and served as one
 project, and `graphvein mcp` is a read-only MCP server over the same index
-for coding agents. Help in the app explains every section and label
+for coding agents. The same questions work from the command line, with
+`--json` for scripts: `graphvein callers 'GET /api/items' --json`
+([queries](docs/cli/queries.md)). Help in the app explains every section and label
 ([guide](docs/guide/1-start-here.md)). What Graphvein does not see or
 model today is listed in [known gaps](docs/known-gaps.md).
 <!-- /site:status -->
