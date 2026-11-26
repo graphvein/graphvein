@@ -59,7 +59,9 @@ setup_repo() {
 }
 
 # The working repository: the guard scripts, the internal and the public
-# AGENTS.md, a private folder, public files and a private name pattern.
+# AGENTS.md, the Dependabot configuration under docs/public (the snapshot
+# places it at .github/dependabot.yml), a private folder, public files and
+# a private name pattern.
 priv=$t/private
 mkdir -p "$priv/scripts/private" "$priv/docs/public" "$priv/docs/perf" "$priv/src"
 mkdir -p "$priv/scripts/hooks"
@@ -72,6 +74,7 @@ echo 'zorblax  # test-only private name' > "$priv/scripts/private/privacy-patter
 # Split words keep this file clear of the reference scan.
 printf '# Internal\n\nIgnore docs/%s.\n' "HAND""OFF.md" > "$priv/AGENTS.md"
 printf '# AGENTS.md\n\nRead docs/VISION.md.\n' > "$priv/docs/public/AGENTS.md"
+printf 'version: 2\nupdates: []\n' > "$priv/docs/public/dependabot.yml"
 echo 'private timing notes' > "$priv/docs/perf/notes.md"
 echo '# Demo' > "$priv/README.md"
 printf 'package a\n' > "$priv/src/a.go"
@@ -128,9 +131,23 @@ grep -qF "push $remote refs/heads/export/launch:refs/heads/export/launch" "$t/ou
 c1=$(git -C "$pub" rev-parse export/launch)
 [ "$(git -C "$pub" rev-list --parents -n 1 "$c1" | wc -w | tr -d ' ')" = 1 ] || fail "initial commit has a parent"
 [ "$(git -C "$pub" ls-tree -r --name-only "$c1" | LC_ALL=C sort | tr '\n' ' ')" = \
-  "AGENTS.md README.md scripts/check-public-privacy.sh scripts/check-public-tree.sh scripts/export-pr-template.md scripts/export-public.sh scripts/hooks/pre-push-public scripts/import-contrib.sh scripts/public-exclude.txt scripts/public-privacy-exempt.txt scripts/public-reference-exempt.txt scripts/public-snapshot.sh src/a.go " ] ||
+  ".github/dependabot.yml AGENTS.md README.md scripts/check-public-privacy.sh scripts/check-public-tree.sh scripts/export-pr-template.md scripts/export-public.sh scripts/hooks/pre-push-public scripts/import-contrib.sh scripts/public-exclude.txt scripts/public-privacy-exempt.txt scripts/public-reference-exempt.txt scripts/public-snapshot.sh src/a.go " ] ||
   fail "unexpected initial tree: $(git -C "$pub" ls-tree -r --name-only "$c1" | tr '\n' ' ')"
 git -C "$pub" show "$c1:AGENTS.md" | grep -q VISION || fail "root AGENTS.md is not the public one"
+[ "$(git -C "$pub" rev-parse "$c1:.github/dependabot.yml")" = "$(git -C "$priv" rev-parse HEAD:docs/public/dependabot.yml)" ] ||
+  fail ".github/dependabot.yml is not docs/public/dependabot.yml"
+# public-snapshot.sh places it the same way, and refuses a tree that holds
+# both paths.
+bash "$priv/scripts/public-snapshot.sh" "$t/snap" > "$t/out.txt" 2>&1 || fail "public-snapshot"
+cmp -s "$t/snap/.github/dependabot.yml" "$priv/docs/public/dependabot.yml" || fail "the snapshot's .github/dependabot.yml"
+[ ! -e "$t/snap/docs/public/dependabot.yml" ] || fail "the snapshot keeps docs/public/dependabot.yml"
+mkdir -p "$priv/.github"
+cp "$priv/docs/public/dependabot.yml" "$priv/.github/dependabot.yml"
+git -C "$priv" add -A
+git -C "$priv" commit -qm 'Both Dependabot paths'
+expect_fail 'both docs/public/dependabot.yml and .github/dependabot.yml' bash "$priv/scripts/public-snapshot.sh" "$t/snap2"
+expect_fail 'both docs/public/dependabot.yml and .github/dependabot.yml' export_public T008 "$pub" 'Both'
+git -C "$priv" reset -q --hard HEAD~1
 [ "$(git -C "$pub" log -1 --format='%an <%ae> %G?' "$c1")" = "Maintainer <maintainer@example.org> N" ] || fail "export author or signature"
 [ "$(git -C "$pub" log -1 --format=%B "$c1" | sed "/^$/d" | tr "\n" "|")" = "First public snapshot|Task: launch|" ] || fail "export message"
 [ -z "$(git -C "$pub" status --porcelain)" ] || fail "the export touched the clone's working tree"
@@ -238,6 +255,12 @@ git -C "$con" add -A && git -C "$con" commit -qm 'Private scripts'
 git -C "$con" push -q origin bad
 git -C "$pub" fetch -q origin
 expect_fail 'private path scripts/private/p.txt' import_contrib "$pub" origin/bad 11
+mkdir -p "$con/.github"
+echo 'version: 2' > "$con/.github/dependabot.yml"
+git -C "$con" add -A && git -C "$con" commit -qm 'Dependabot change'
+git -C "$con" push -q origin bad
+git -C "$pub" fetch -q origin
+expect_fail 'apply that change to docs/public/dependabot.yml by hand' import_contrib "$pub" origin/bad 13
 git -C "$priv" rev-parse -q --verify import/pr-8 > /dev/null && fail "a refused import left a branch"
 
 # The second export: the import merged, a maintainer change and a deletion.

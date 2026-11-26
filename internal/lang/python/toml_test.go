@@ -78,6 +78,11 @@ var tomlCases = []string{
 // fixtures' pyproject.toml files and, opt in, every pyproject.toml under
 // GRAPHVEIN_PYTHON_TOML_CORPUS. Numbers and dates are compared as present
 // (both sides map them to one marker); everything else exactly.
+//
+// The reader follows TOML 1.0, which tomllib reads in Python 3.11 to
+// 3.14; from 3.15 tomllib reads TOML 1.1 (a time without seconds, for
+// one), so the test skips there rather than compare with another
+// specification.
 func TestTOMLReader(t *testing.T) {
 	interpreter := os.Getenv("GRAPHVEIN_PYTHON_ORACLE")
 	if interpreter == "" {
@@ -87,8 +92,9 @@ func TestTOMLReader(t *testing.T) {
 		}
 		interpreter = found
 	}
-	if err := exec.Command(interpreter, "-I", "-c", "import tomllib").Run(); err != nil {
-		t.Skipf("%s has no tomllib: %v", interpreter, err)
+	check := "import sys, tomllib; print('%d.%d' % sys.version_info[:2]); sys.exit(sys.version_info[:2] > (3, 14))"
+	if out, err := exec.Command(interpreter, "-I", "-c", check).Output(); err != nil {
+		t.Skipf("%s (Python %s) has no tomllib of TOML 1.0, the version the reader follows (Python 3.11 to 3.14; set GRAPHVEIN_PYTHON_ORACLE): %v", interpreter, strings.TrimSpace(string(out)), err)
 	}
 	docs := map[string]string{}
 	for i, c := range tomlCases {

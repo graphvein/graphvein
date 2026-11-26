@@ -10,7 +10,7 @@
 // A server without the workspace endpoint (an older binary) renders the
 // shell exactly as before.
 
-import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
+import { createContext, useCallback, useContext, useEffect, useLayoutEffect, useMemo, useState, type ReactNode } from "react";
 
 import { ApiError, setRequestWorkspace } from "@/api/client";
 import { httpWorkspaceClient, type Workspace, type WorkspaceClient, type WorkspaceEntry } from "@/api/workspace";
@@ -162,7 +162,11 @@ export function WorkspaceRoot({ client = httpWorkspaceClient, shell, empty, over
     setSeenUnknown(unknown);
     setUnknownLink(unknown);
   }
-  useEffect(() => {
+  // A layout effect, not a passive one: the URL is written in the same
+  // commit that first shows the entry, before the browser paints it, so
+  // there is no moment where the page shows an entry its URL (and a
+  // copied link) does not name.
+  useLayoutEffect(() => {
     if (entryId === null || loc.ws === entryId) return;
     // The section of a link to another index is kept, never its selection:
     // an item id of one index means nothing in another.

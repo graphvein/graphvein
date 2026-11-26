@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 # Exports the public tree of Graphvein (ADR 0080): the committed tree of
 # HEAD (git archive) minus the private paths of scripts/public-exclude.txt,
-# with docs/public/AGENTS.md moved to the root as AGENTS.md.
+# with docs/public/AGENTS.md moved to the root as AGENTS.md and
+# docs/public/dependabot.yml moved to .github/dependabot.yml.
 #
 # Usage: bash scripts/public-snapshot.sh OUTDIR [LISTFILE]
 #
@@ -46,6 +47,18 @@ if [ ! -f "$out/docs/public/AGENTS.md" ]; then
   exit 1
 fi
 mv "$out/docs/public/AGENTS.md" "$out/AGENTS.md"
+
+# The Dependabot configuration lives under docs/public in the working
+# repository: Dependabot acts in any repository whose default branch holds
+# .github/dependabot.yml. An older revision may still hold it in place.
+if [ -f "$out/docs/public/dependabot.yml" ]; then
+  if [ -e "$out/.github/dependabot.yml" ]; then
+    echo "public-snapshot: both docs/public/dependabot.yml and .github/dependabot.yml exist; keep only the first" >&2
+    exit 1
+  fi
+  mkdir -p "$out/.github"
+  mv "$out/docs/public/dependabot.yml" "$out/.github/dependabot.yml"
+fi
 
 if [ -n "$list" ]; then
   (cd "$out" && find . -type f | sed 's|^\./||' | LC_ALL=C sort) > "$list"

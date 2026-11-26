@@ -76,7 +76,17 @@ jobs:
         run: go mod download
       - name: Check line endings
         run: bash scripts/check-line-endings.sh
+      # The same reference CPython as the postgres job: the Python oracle
+      # tests compare with that version only, so a runner image's own
+      # python3 (another version) never decides what they compare.
+      - name: Set up Python for the structure oracle
+        id: python
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6.3.0
+        with:
+          python-version: '3.14'
       - name: Vet and test (including golden self-tests)
+        env:
+          GRAPHVEIN_PYTHON_ORACLE: ${{ steps.python.outputs.python-path }}
         run: bash scripts/test.sh
       - name: Build
         run: bash scripts/build.sh

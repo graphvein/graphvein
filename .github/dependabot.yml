@@ -1,10 +1,15 @@
 # Dependabot version updates (docs/public/ci-plan.md, "Pinned actions").
 #
-# Dependabot is enabled only in the public repository (graphvein/graphvein);
-# in the maintainer's working repository it is off, so this file has no
-# effect there. Updates arrive as weekly pull requests, minor and patch
-# updates grouped per ecosystem; major updates come one per pull request so
-# each can be reviewed on its own.
+# Dependabot runs only in the public repository (graphvein/graphvein), where
+# this file is .github/dependabot.yml. Dependabot acts in any repository
+# whose default branch holds that file, so the maintainer's working
+# repository keeps it as docs/public/dependabot.yml and the public snapshot
+# (scripts/public-snapshot.sh) places it. Updates arrive as weekly pull
+# requests: minor and patch updates grouped per ecosystem, and major
+# updates grouped per ecosystem in a second pull request, so a week brings
+# at most two per ecosystem. The maintainer takes them in through the next
+# export rather than merging them in the public repository; Dependabot
+# then closes them.
 version: 2
 updates:
   # Workflow actions are pinned by full commit SHA with the tag as a
@@ -17,6 +22,8 @@ updates:
     groups:
       actions-minor-patch:
         update-types: [minor, patch]
+      actions-major:
+        update-types: [major]
 
   # The main Go module.
   - package-ecosystem: gomod
@@ -27,6 +34,8 @@ updates:
     groups:
       go-minor-patch:
         update-types: [minor, patch]
+      go-major:
+        update-types: [major]
 
   # The website generator, its own Go module (ADR 0091).
   - package-ecosystem: gomod
@@ -37,6 +46,8 @@ updates:
     groups:
       site-go-minor-patch:
         update-types: [minor, patch]
+      site-go-major:
+        update-types: [major]
 
   # The web UI.
   - package-ecosystem: npm
@@ -47,3 +58,5 @@ updates:
     groups:
       web-npm-minor-patch:
         update-types: [minor, patch]
+      web-npm-major:
+        update-types: [major]

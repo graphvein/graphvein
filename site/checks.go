@@ -94,7 +94,7 @@ func copyStrings(h homeCopy) []string {
 	v = append(v, h.Install.Run...)
 	v = append(v, h.Coming...)
 	for _, c := range h.Cards {
-		v = append(v, c.Label, c.Text, c.Link)
+		v = append(v, c.Label, c.Text, c.Link, c.RangeSep)
 	}
 	v = append(v, h.Reads.Title, h.Reads.Note, h.Reads.Link)
 	for _, l := range h.Reads.Languages {

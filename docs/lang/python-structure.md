@@ -217,8 +217,11 @@ an absolute import:
    `sys.path` entry (built in, frozen, or loaded at start-up:
    `metaPathNames` in `internal/lang/python/metapath.go`, generated from
    CPython 3.14.10's `sys.builtin_module_names`, frozen modules and a
-   `-I -S` start-up's `sys.modules` by
-   `scripts/oracle/python_structure/stdlib_lists.py`): `python-stdlib`
+   `-I -S` start-up's `sys.modules` on Linux by
+   `scripts/oracle/python_structure/stdlib_lists.py`; these lists, unlike
+   `sys.stdlib_module_names`, differ between platforms, so
+   `TestPythonMetaPathNames` compares them exactly only with 3.14.10 on
+   Linux and as inclusions elsewhere): `python-stdlib`
    (PS-I5), even when the repository holds a file of the name (`sys.py`,
    `os.py`).
 3. The importer's script directory (PS-M1 refusal, `script_directory_module`).

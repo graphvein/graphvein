@@ -46,6 +46,51 @@ calls:
 | seerr | 174 | 174 | 0 | 100.0% [97.8%, 100.0%] | 0.0% [0.0%, 2.2%] |
 | all three, current state | 363 | 363 | 0 | 100.0% [99.0%, 100.0%] | 0.0% [0.0%, 1.0%] |
 
+### Recall in application code
+
+Application code is the source each repository ships as its application,
+by top-level directory: langflow `src/` (its backend and frontend);
+owncast `web/` (the frontend source; `static/` holds the build output
+that `build/web/build.sh` writes from `web/`, plus service-worker
+libraries); seerr `src/` (frontend), `server/` (backend) and `public/`
+(its service worker `sw.js`). Left out are documentation (langflow
+`docs/`, seerr `gen-docs/`), tooling scripts (seerr `bin/`) and committed
+build output. Current state, from the `-t034` data files:
+
+| corpus | areas | production calls with a correct link | estimated missed calls | recall estimate [conservative 95%] |
+|---|---|---|---|---|
+| langflow | `src/` | 160 | 12 | 93.0% (all adjudicated) |
+| owncast | `web/` | 22 | 5 | 81.5% (all adjudicated) |
+| seerr | `src/`, `server/`, `public/` | 172 | 12 | 93.5% (all adjudicated) |
+
+Recall is measured over the calls Graphvein recognises as client calls
+(`fetch`, axios and the other clients of [client matching](../extract/clients.md));
+a call through a helper it does not recognise is in no stratum and is not
+counted. This matters for owncast: its admin console calls the API through
+the helpers `fetchData` and `fetchText` of `web/utils/apis.ts`, 57 call
+sites at the pin (56 `fetchData`, 1 `fetchText`; 53 of them under
+`web/pages/admin/` and `web/components/admin/`; the helper file and its
+tests not counted), and none of them is a client call. owncast's figure is
+therefore an upper bound for its application code. Only the helper's own
+`fetch` calls are counted, as correctly unlinked (generic helper).
+
+Over all production calls, recall is 27.8% (langflow), 81.5% (owncast)
+and 93.5% (seerr) (table "After the follow-ups" below). The gap is
+langflow's `docs/` folder: 409 unlinked calls in documentation examples,
+nearly all of which call the Langflow API through `fetch` with the
+method in a separate options object and the base URL from
+`process.env`, a form Graphvein does not resolve yet. The same estimator
+prints this table, restricted to the calls under the named directories.
+A sampled stratum that mixes them would be refused rather than split;
+here every stratum lies wholly inside or outside them, or was
+adjudicated in full:
+
+```bash
+python3 scripts/linkprecision/link_precision.py stats \
+  docs/evidence/data/link-precision-{langflow,owncast,seerr}-t034.jsonl \
+  --areas langflow=src --areas owncast=web --areas seerr=src,server,public
+```
+
 The 22 false links of the extractors-57 measurement fall into three classes:
 
 1. **A literal external origin linked to a catch-all route (18 links, every
@@ -166,6 +211,10 @@ Pooled over the three corpora: `exact-0.9` 388 of 392 correct (99.0%
 [97.4%, 99.6%]), `exact-origin-0.7` 0 of 18 (0.0% [0.0%, 17.6%]).
 
 ## Recall
+
+Recall counts only the calls Graphvein recognises as client calls; see
+"Recall in application code" above for owncast's helper calls, which are
+not counted.
 
 | corpus | stratum | unlinked calls | sampled | correctly unlinked | missed | missed share |
 |---|---|---|---|---|---|---|
@@ -352,7 +401,8 @@ included) and every adjudicated unlinked call, in the format above; a
 - Recall counts call sites, not edges. A call with two alternatives is one
   call. The recall estimate depends on which directories hold the
   unlinked calls. langflow's total is dominated by documentation examples,
-  so the application-only figure is given beside it.
+  so the recall in application code is given first ("Recall in
+  application code" above).
 - Owncast's committed build output repeats the same frontend modules in
   several chunks. Its links and misses are counted once per chunk, as
   stored.

@@ -15,6 +15,10 @@ import (
 // structureFixture is the Python structure fixture (README in the directory).
 const structureFixture = "../../../testdata/fixtures/python-structure"
 
+// structureExtensionModule is the fixture's extension module, named with
+// the reference build's suffix (CPython 3.14 on x86-64 Linux).
+const structureExtensionModule = "fastext.cpython-314-x86_64-linux-gnu.so"
+
 // structureExtraFiles are the fixture cases the repository cannot store as
 // written (it keeps UTF-8 text with LF line endings): the tests write them
 // into the temporary copy (TestPythonStructureFixture's golden included,
@@ -30,7 +34,7 @@ var structureExtraFiles = map[string]string{
 	// `import latin1` is refused (shadowed_module), not external.
 	"latin1.py": "# -*- coding: latin-1 -*-\nNAME = \"caf\xe9\"\ndef f():\n    return NAME\n",
 	// An extension module beside fastext.py: FileFinder tries it first.
-	"fastext.cpython-314-x86_64-linux-gnu.so": "\x7fELF\x00\x00fake",
+	structureExtensionModule: "\x7fELF\x00\x00fake",
 	// Bytecode without source: Python imports it; Graphvein cannot read it.
 	"onlypyc.pyc": "\xf3\x0d\x0d\x0a\x00\x00\x00\x00",
 }

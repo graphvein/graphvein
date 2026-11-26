@@ -77,7 +77,13 @@ commit SHA with the release tag as a comment (for example
 `actions/checkout@<sha> # v7.0.1`), so a moved tag cannot change what runs.
 Dependabot (`.github/dependabot.yml`, `github-actions` ecosystem) proposes
 updates to these pins, and to the Go and npm dependencies, as weekly
-grouped pull requests; it acts only in the public repository.
+grouped pull requests; it acts only in the public repository. Dependabot
+runs in any repository whose default branch holds `.github/dependabot.yml`,
+so the maintainer's working repository keeps the file as
+`docs/public/dependabot.yml` and the public snapshot
+(`scripts/public-snapshot.sh`, and the export's tree built the same way)
+places it at `.github/dependabot.yml`; the import refuses a change to
+either path, which goes into `docs/public/dependabot.yml` by hand.
 
 ## `scripts/ci-changes.sh` and its offline test
 

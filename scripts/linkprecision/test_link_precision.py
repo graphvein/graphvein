@@ -84,6 +84,44 @@ class LinkPrecisionTest(unittest.TestCase):
         lp["print_stats"](records, out)
         self.assertIn("| c | all | 2 | 1 | 1 | 0 |", out.getvalue())
 
+    def test_area_recall(self):
+        records = [
+            # a sampled stratum wholly outside the areas: left out
+            {"record": "stratum", "corpus": "c", "stratum": "docs", "population": 40},
+            {"record": "unlinked", "corpus": "c", "stratum": "docs", "call_site": "docs/a.js:1", "verdict": "missed"},
+            # a sampled stratum wholly inside: population x missed share
+            {"record": "stratum", "corpus": "c", "stratum": "src", "population": 10},
+            {"record": "unlinked", "corpus": "c", "stratum": "src", "call_site": "src/a.ts:1", "verdict": "missed"},
+            {"record": "unlinked", "corpus": "c", "stratum": "src", "call_site": "src/b.ts:1", "verdict": "correctly_unlinked"},
+            # a census that mixes areas: split exactly
+            {"record": "stratum", "corpus": "c", "stratum": "mixed", "population": 2},
+            {"record": "unlinked", "corpus": "c", "stratum": "mixed", "call_site": "src/c.ts:4", "verdict": "missed"},
+            {"record": "unlinked", "corpus": "c", "stratum": "mixed", "call_site": "bin/d.mjs:4", "verdict": "missed"},
+            {"record": "link", "corpus": "c", "tier": "exact-0.9", "verdict": "correct", "call": "x", "call_site": "src/x.ts:2"},
+            {"record": "link", "corpus": "c", "tier": "exact-0.9", "verdict": "correct", "call": "y", "call_site": "docs/y.md:2"},
+        ]
+        linked, rows = lp["area_recall"](records, "c", ["src"])
+        self.assertEqual(linked, 1)  # the docs link is outside
+        point, lo, hi, missed = lp["recall_estimate"](linked, rows)
+        self.assertEqual(missed, 6.0)  # src: 10 x 1/2, mixed census: 1
+        self.assertAlmostEqual(point, 1 / 7)
+        self.assertLess(lo, point)  # the src stratum is sampled
+        out = io.StringIO()
+        lp["print_stats"](records, out, {"c": ["src"]})
+        self.assertIn("| c | `src/` | 1 | 6 |", out.getvalue())
+        # only a census in the areas: no link, one exact miss
+        linked, rows = lp["area_recall"](records, "c", ["bin"])
+        self.assertEqual((linked, lp["recall_estimate"](linked, rows)[3]), (0, 1.0))
+
+    def test_area_recall_refuses_a_mixed_sample(self):
+        records = [
+            {"record": "stratum", "corpus": "c", "stratum": "s", "population": 9},
+            {"record": "unlinked", "corpus": "c", "stratum": "s", "call_site": "src/a.ts:1", "verdict": "missed"},
+            {"record": "unlinked", "corpus": "c", "stratum": "s", "call_site": "docs/a.js:1", "verdict": "missed"},
+        ]
+        with self.assertRaises(ValueError):
+            lp["area_recall"](records, "c", ["src"])
+
     def test_missing_verdict_is_an_error(self):
         with self.assertRaises(ValueError):
             lp["summarize"]([{"record": "link", "corpus": "c", "tier": "t", "verdict": None}])

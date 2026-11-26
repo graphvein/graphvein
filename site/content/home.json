@@ -12,6 +12,15 @@
       "source_label": "How we measured"
     },
     {
+      "number": "recall-app-langflow",
+      "number_to": "recall-app-seerr",
+      "label": "of client calls linked in application code (langflow, seerr)",
+      "text": "",
+      "source": "docs/evidence/link-precision.md",
+      "source_anchor": "recall-in-application-code",
+      "source_label": "How we measured"
+    },
+    {
       "number": "wrong-edges",
       "label": "TS/JS call edges in {corpora} codebases",
       "text": "",
@@ -19,12 +28,13 @@
       "source_label": "How we measured"
     },
     {
-      "number": "claude-mcp-of",
-      "label": "Claude Code runs correct with MCP",
-      "text": "",
+      "number": "claude-base",
+      "number_to": "claude-mcp",
+      "range_sep": " → ",
+      "label": "Claude Code answers right, without vs with the MCP server",
+      "text": "Correct runs out of {bench-runs}",
       "source": "docs/evidence/benchmark/results-2026-11-24.md",
-      "source_label": "How we measured",
-      "baseline": "{claude-base} without"
+      "source_label": "How we measured"
     }
   ],
   "reads": {

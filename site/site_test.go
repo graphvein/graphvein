@@ -234,6 +234,62 @@ func TestWorkWordsInCode(t *testing.T) {
 	}
 }
 
+// rangeCard edits the fixture's card into a range of two registry numbers
+// with an anchor on its evidence page.
+func rangeCard(t *testing.T, site, to, anchor string) {
+	t.Helper()
+	replaceIn(t, filepath.Join(site, "content/numbers.json"), `  {
+    "id": "rank",`, `  {
+    "id": "nine",
+    "show": "9",
+    "file": "docs/evidence/link-precision.md",
+    "quote": "| all | 9 | 9 |"
+  },
+  {
+    "id": "rank",`)
+	replaceIn(t, filepath.Join(site, "content/home.json"), `"number": "links",`,
+		`"number": "rank", "number_to": "`+to+`", "source_anchor": "`+anchor+`",`)
+}
+
+// TestRangeCard checks that a card can show a range whose two ends are
+// registry numbers, each checked against its own quote, and link to a
+// heading of its evidence page; an unknown end or a missing heading fails.
+func TestRangeCard(t *testing.T) {
+	s := mustBuild(t, fixture(t, func(_, site string) { rangeCard(t, site, "nine", "headline") }))
+	if len(s.problems) > 0 {
+		t.Fatalf("checks failed:\n%s", strings.Join(s.problems, "\n"))
+	}
+	home := string(s.out["index.html"])
+	for _, want := range []string{`<p class="big">1.0–9</p>`, `href="/docs/evidence/link-precision/#headline"`} {
+		if !strings.Contains(home, want) {
+			t.Errorf("home page lacks %s", want)
+		}
+	}
+	s = mustBuild(t, fixture(t, func(_, site string) {
+		rangeCard(t, site, "nine", "headline")
+		replaceIn(t, filepath.Join(site, "content/home.json"), `"number_to": "nine",`, `"number_to": "nine", "range_sep": " → ",`)
+	}))
+	if home := string(s.out["index.html"]); !strings.Contains(home, `<p class="big">1.0 → 9</p>`) {
+		t.Error("home page lacks the arrow range 1.0 → 9")
+	}
+	expectProblem(t, "a number outside a {placeholder}", func(_, site string) {
+		rangeCard(t, site, "nine", "headline")
+		replaceIn(t, filepath.Join(site, "content/home.json"), `"number_to": "nine",`, `"number_to": "nine", "range_sep": " to 7 to ",`)
+	})
+	expectProblem(t, "unknown number id nope", func(_, site string) { rangeCard(t, site, "nope", "headline") })
+	expectProblem(t, `has no id "nowhere"`, func(_, site string) { rangeCard(t, site, "nine", "nowhere") })
+	expectProblem(t, "9 is shown but not in the quote", func(_, site string) {
+		rangeCard(t, site, "nine", "headline")
+		replaceIn(t, filepath.Join(site, "content/numbers.json"), `"quote": "| all | 9 | 9 |"
+  },
+  {
+    "id": "rank",`, `"quote": "Headline"
+  },
+  {
+    "id": "rank",`)
+	})
+}
+
 // TestThemeVariants checks that a screenshot with a dark twin is written in
 // both variants, each marked for the page theme it shows on, that the
 // lightbox links of a feature lead to the variant shown, and that the

@@ -81,7 +81,8 @@ fi
 # snapshot_tree REV prints the tree object of the public snapshot of REV,
 # built in the working repository with a temporary index: the same rules as
 # scripts/public-snapshot.sh (REV's own scripts/public-exclude.txt removed,
-# docs/public/AGENTS.md moved to the root), from Git objects instead of an
+# docs/public/AGENTS.md moved to the root, docs/public/dependabot.yml, when
+# REV has it, to .github/dependabot.yml), from Git objects instead of an
 # archive, so line endings and file modes are exactly the committed ones.
 snapshot_tree() {
   local rev=$1 idx=$tmp/snapshot.index line entry info mode_sha
@@ -104,6 +105,14 @@ snapshot_tree() {
   mode_sha=$(printf '%s' "$info" | awk '{print $1 "," $2}')
   GIT_INDEX_FILE=$idx git -C "$root" update-index --force-remove -- docs/public/AGENTS.md
   GIT_INDEX_FILE=$idx git -C "$root" update-index --add --cacheinfo "$mode_sha,AGENTS.md"
+  info=$(GIT_INDEX_FILE=$idx git -C "$root" ls-files -s -- ':(literal)docs/public/dependabot.yml')
+  if [ -n "$info" ]; then
+    [ -z "$(GIT_INDEX_FILE=$idx git -C "$root" ls-files -- ':(literal).github/dependabot.yml')" ] ||
+      die "$rev has both docs/public/dependabot.yml and .github/dependabot.yml"
+    mode_sha=$(printf '%s' "$info" | awk '{print $1 "," $2}')
+    GIT_INDEX_FILE=$idx git -C "$root" update-index --force-remove -- docs/public/dependabot.yml
+    GIT_INDEX_FILE=$idx git -C "$root" update-index --add --cacheinfo "$mode_sha,.github/dependabot.yml"
+  fi
   GIT_INDEX_FILE=$idx git -C "$root" write-tree
 }
 
