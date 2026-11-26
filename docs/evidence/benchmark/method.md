@@ -429,7 +429,8 @@ reference only):
 
 A published result names the public commit whose tree id
 (`git rev-parse <commit>^{tree}`) equals the recorded `public_tree`, once
-the public repository exists. If the binary was built from uncommitted
+the public repository exists; a result whose build predates the public
+history says that no public commit has its tree. If the binary was built from uncommitted
 changes, the tree id names the commit, not those changes. The ids match only if
 the public commit keeps the snapshot's files byte for byte, including the
 executable bit (a commit made on Windows with `core.fileMode` false records

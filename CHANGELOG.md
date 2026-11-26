@@ -26,6 +26,14 @@ Unreleased.
   workflow joins the wrapped lines of `docs/releases/<tag>.md`, removes
   its comments and drops its title, which the release title repeats
   (`scripts/releasenotes`).
+- `graphvein help` lists the `query`, `callers` and `impact` commands,
+  and the README shows the command-line path to them.
+- The benchmark results of 2026-11-24 no longer say a public commit holds
+  the build the runs used: that build (`extractors-59`) predates the public
+  history, which starts at v0.1.0 (`extractors-62`).
+- The README says that Graphvein runs locally, uses no LLM and connects
+  only to what the user configures; the website's home page lists the
+  Angular `HttpClient`, hey-api, Orval and Supabase JS clients it reads.
 
 ## [0.1.0] - 2026-11-26
 
