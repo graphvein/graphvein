@@ -1074,31 +1074,33 @@ func validGoExprs(exprs []GoExpr) bool {
 }
 
 // valid checks the kind and the fields each kind requires; depth guards a
-// damaged cache entry that nests deeper than the capture ever writes.
+// damaged cache entry that nests deeper than the capture ever writes. The
+// switch only checks that a required child is present; each child is
+// validated once, after it, so the cost is linear in the tree (validating a
+// required child twice doubled the cost per level of nesting, T076).
 func (e GoExpr) valid(depth int) bool {
 	if depth > GoMaxDepth || !goExprKinds[e.Kind] {
 		return false
 	}
 	sub := func(x *GoExpr) bool { return x == nil || x.valid(depth+1) }
-	need := func(x *GoExpr) bool { return x != nil && x.valid(depth+1) }
 	switch e.Kind {
 	case GoIdentifier:
 		if e.Name == "" {
 			return false
 		}
 	case GoSelector:
-		if e.Name == "" || !need(e.Object) {
+		if e.Name == "" || e.Object == nil {
 			return false
 		}
 	case GoCall:
-		if !need(e.Callee) {
+		if e.Callee == nil {
 			return false
 		}
 	case GoUnary, GoBinary:
 		if e.Value == "" {
 			return false
 		}
-		if e.Kind == GoUnary && !need(e.Object) || e.Kind == GoBinary && (!need(e.Left) || !need(e.Right)) {
+		if e.Kind == GoUnary && e.Object == nil || e.Kind == GoBinary && (e.Left == nil || e.Right == nil) {
 			return false
 		}
 	case GoBoolean:
@@ -1110,11 +1112,11 @@ func (e GoExpr) valid(depth int) bool {
 			return false
 		}
 	case GoSpread, GoIndex, GoPointer, GoSlice, GoArray:
-		if !need(e.Object) {
+		if e.Object == nil {
 			return false
 		}
 	case GoMap:
-		if !need(e.Left) || !need(e.Right) {
+		if e.Left == nil || e.Right == nil {
 			return false
 		}
 	case GoFuncLit:

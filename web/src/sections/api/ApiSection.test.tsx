@@ -1,11 +1,12 @@
 import { act, fireEvent, render, screen, waitFor, within } from "@testing-library/react";
-import { beforeEach, describe, expect, it } from "vitest";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import { NO_LINKED_CALLER_HINT } from "@/api/categories";
 import { ApiError } from "@/api/client";
 import type { ApiClient, EndpointsParams } from "@/api/endpoints";
 import type { StatusView } from "@/hooks/useStatus";
 import { ApiSection } from "@/sections/api/ApiSection";
+import { COVERAGE_OPEN_KEY } from "@/sections/api/SummaryStrip";
 import { endpointsGolden, fakeClient, type Request } from "@/test/apiFixtures";
 import { goldenStatus } from "@/test/fixtures";
 
@@ -25,18 +26,20 @@ function endpointRequests(requests: Request[]): EndpointsParams[] {
 
 beforeEach(() => {
   setHash("#/api");
+  // Most tests read the coverage cards: open the disclosure (closed by
+  // default; the T065 tests below clear it).
+  window.localStorage.clear();
+  window.localStorage.setItem(COVERAGE_OPEN_KEY, "open");
 });
 
 describe("ApiSection", () => {
-  it("renders every root of each transport in the card and the strip, summing to the total", async () => {
+  it("renders every root of each transport in the card, summing to the total", async () => {
     render(<ApiSection status={ok()} client={fakeClient()} />);
     const data = endpointsGolden("api-endpoints-production");
     for (const t of data.transports) {
       const card = await screen.findByTestId(`roots-${t.transport}`);
-      const strip = screen.getByTestId(`strip-roots-${t.transport}`);
       const want = t.roots.map((r) => r.root);
       expect([...card.querySelectorAll("[data-root]")].map((e) => e.getAttribute("data-root"))).toEqual(want);
-      expect([...strip.querySelectorAll("[data-root]")].map((e) => e.getAttribute("data-root"))).toEqual(want);
       expect(t.roots.reduce((n, r) => n + r.total, 0)).toBe(t.calls.total);
       for (const r of t.roots) expect(card.textContent).toContain(`${String(r.total)} total`);
     }
@@ -265,13 +268,220 @@ describe("ApiSection", () => {
     expect(texts()).not.toMatch(/never called|not called/i);
     expect(within(screen.getByTestId("card-http")).getByText("No linked caller in production")).toBeTruthy();
     expect(screen.getByTestId("strip-http").textContent).toContain("no linked caller in production");
-    expect(screen.getByTestId("strip-http").querySelector('[data-cell="never"]')?.getAttribute("title")).toBe(NO_LINKED_CALLER_HINT);
-    expect(texts()).toMatch(/\d+ with no linked caller in production/);
+    expect(screen.getByTestId("strip-http").querySelector('[data-cell="never"]')?.getAttribute("title")).toMatch(new RegExp(`^\\d+ no linked caller in production\\. ${NO_LINKED_CALLER_HINT.replace(/[.;]/g, "\\$&")}$`));
+    // The list's group header counts them; a row says "0 linked" with the
+    // sentence in its tooltip (T073).
+    expect(screen.getAllByTestId("group-no-caller")[0]?.textContent).toMatch(/^\d+ no linked caller in production$/);
+    const row = screen.getAllByTestId("row-no-caller")[0];
+    expect(row?.textContent).toBe("0 linked");
+    expect(row?.getAttribute("title")).toBe(`No linked caller in production. ${NO_LINKED_CALLER_HINT}`);
     fireEvent.click(screen.getByRole("checkbox", { name: "Include tests" }));
     await waitFor(() => {
       expect(within(screen.getByTestId("card-http")).queryByText("No linked caller")).toBeTruthy();
     });
     expect(texts()).not.toMatch(/no linked caller in production|never called|not called/i);
     expect(screen.getByTestId("strip-http").textContent).toContain("no linked caller");
+  });
+});
+
+// T065: compact transport strips, "none found" tabs and the disclosure.
+describe("ApiSection strips (T065)", () => {
+  beforeEach(() => {
+    window.localStorage.clear();
+  });
+
+  /** A client whose answers have no Tauri IPC and no server actions at
+   * all, as on owncast or pdfcraft. */
+  function httpOnly(requests?: Request[]): ApiClient {
+    const base = fakeClient(requests);
+    return {
+      ...base,
+      endpoints: async (p, o) => {
+        const r = await base.endpoints(p, o);
+        for (const t of r.transports) {
+          if (t.transport === "http") continue;
+          t.endpoint_count = 0;
+          t.endpoints = [];
+          t.never_called = 0;
+          t.calls = { ...t.calls, total: 0, by_status: {} };
+          t.roots = [];
+        }
+        return r;
+      },
+    };
+  }
+
+  it("shows one strip per transport with the disclosure closed by default, and remembers it", async () => {
+    render(<ApiSection status={ok()} client={fakeClient()} />);
+    const strip = await screen.findByTestId("strip-http");
+    expect(screen.getByTestId("strip-tauri_ipc")).toBeTruthy();
+    expect(screen.queryByTestId("coverage-cards")).toBeNull();
+    const toggle = screen.getByRole("button", { name: "Coverage and roots" });
+    expect(toggle.getAttribute("aria-expanded")).toBe("false");
+    expect(strip.textContent).toContain("express");
+    fireEvent.click(toggle);
+    expect(toggle.getAttribute("aria-expanded")).toBe("true");
+    const cards = screen.getByTestId("coverage-cards");
+    expect(toggle.getAttribute("aria-controls")).toBe(cards.id);
+    expect(within(cards).getByTestId("roots-http")).toBeTruthy();
+    expect(window.localStorage.getItem(COVERAGE_OPEN_KEY)).toBe("open");
+    fireEvent.click(toggle);
+    expect(screen.queryByTestId("coverage-cards")).toBeNull();
+    expect(window.localStorage.getItem(COVERAGE_OPEN_KEY)).toBeNull();
+  });
+
+  it("works with throwing storage", async () => {
+    for (const m of ["getItem", "setItem", "removeItem"] as const) {
+      vi.spyOn(Storage.prototype, m).mockImplementation(() => {
+        throw new Error("blocked");
+      });
+    }
+    try {
+      render(<ApiSection status={ok()} client={fakeClient()} />);
+      const toggle = await screen.findByRole("button", { name: "Coverage and roots" });
+      fireEvent.click(toggle);
+      expect(screen.getByTestId("coverage-cards")).toBeTruthy();
+    } finally {
+      vi.restoreAllMocks();
+    }
+  });
+
+  it("turns empty transports into dashed none-found tabs with no strip and no doubled word", async () => {
+    render(<ApiSection status={ok()} client={httpOnly()} />);
+    await screen.findByTestId("strip-http");
+    expect(screen.queryByTestId("strip-tauri_ipc")).toBeNull();
+    expect(screen.queryByTestId("strip-server_action")).toBeNull();
+    const group = screen.getByRole("group", { name: "Transport" });
+    const ipc = within(group).getByRole("button", { name: /Tauri IPC/ });
+    expect(ipc.getAttribute("data-none-found")).toBe("true");
+    expect(ipc.textContent).toBe("Tauri IPCnone found");
+    expect(ipc.getAttribute("title")).toBe(
+      "Tauri IPC: none found in the indexed production files; Include tests also counts test files. Graphvein looks for #[tauri::command] functions and invoke calls.",
+    );
+    const actionsTab = within(group).getByRole("button", { name: /Server actions/ });
+    expect(actionsTab.textContent).toBe("Server actionsnone found");
+    expect(within(group).getByRole("button", { name: /HTTP/ }).hasAttribute("data-none-found")).toBe(false);
+    // Label defect 10: "No Server actions actions or action uses".
+    expect(document.body.textContent).not.toMatch(/actions actions|in this repository/);
+    fireEvent.click(screen.getByRole("checkbox", { name: "Include tests" }));
+    await waitFor(() => {
+      expect(within(screen.getByRole("group", { name: "Transport" })).getByRole("button", { name: /Tauri IPC/ }).getAttribute("title")).toMatch(
+        /^Tauri IPC: none found in the indexed files\. /,
+      );
+    });
+    // A link to an empty transport says so once, in place of the strips,
+    // and the list says the same, with no doubled word.
+    fireEvent.click(within(screen.getByRole("group", { name: "Transport" })).getByRole("button", { name: /Server actions/ }));
+    expect((await screen.findByTestId("none-found")).textContent).toBe("No server actions or action uses found in the indexed files.");
+    expect(screen.getByText("Server actions: no actions found in the indexed files")).toBeTruthy();
+    expect(screen.queryByTestId("summary-strip")).toBeNull();
+    expect(document.body.textContent).not.toMatch(/actions actions|in this repository/);
+  });
+
+  it("keeps a transport with no endpoints but calls in another root as a strip, not none found", async () => {
+    const base = httpOnly();
+    const client: ApiClient = {
+      ...base,
+      endpoints: async (p, o) => {
+        const r = await base.endpoints(p, o);
+        const ipc = r.transports.find((t) => t.transport === "tauri_ipc");
+        if (ipc !== undefined) ipc.roots = [{ root: "web", manifest: null, total: 2, by_status: { dynamic: 2 }, repository_by_status: null }];
+        return r;
+      },
+    };
+    render(<ApiSection status={ok()} client={client} />);
+    await screen.findByTestId("strip-http");
+    expect(within(screen.getByRole("group", { name: "Transport" })).getByRole("button", { name: /Tauri IPC/ }).hasAttribute("data-none-found")).toBe(false);
+  });
+
+  it("every count on the page follows Include tests (label defect 11)", async () => {
+    const prod = endpointsGolden("api-endpoints-production");
+    const all = endpointsGolden("api-endpoints-all");
+    const counts = () => {
+      const group = screen.getByRole("group", { name: "Transport" });
+      return {
+        tabs: within(group)
+          .getAllByRole("button")
+          .map((b) => b.textContent),
+        strips: ["http", "tauri_ipc", "server_action"].map((t) => [
+          screen.getByTestId(`strip-count-${t}`).textContent,
+          screen.getByTestId(`strip-total-${t}`).textContent,
+          ...[...screen.getByTestId(`strip-${t}`).querySelectorAll("[data-cell]")].map((c) => `${c.getAttribute("data-cell") ?? ""}:${c.querySelector("b")?.textContent ?? ""}`),
+        ]),
+        roots: [...screen.getByRole("combobox", { name: "Source root" }).querySelectorAll("option")].map((o) => o.textContent),
+      };
+    };
+    const want = (data: typeof prod) => {
+      const n = (t: string) => data.transports.find((x) => x.transport === t);
+      const total = data.transports.reduce((s, t) => s + t.endpoint_count, 0);
+      return { total, http: n("http"), ipc: n("tauri_ipc") };
+    };
+    render(<ApiSection status={ok()} client={fakeClient()} />);
+    await screen.findByTestId("strip-http");
+    const p = want(prod);
+    const before = counts();
+    expect(before.tabs[0]).toBe(`All${String(p.total)}`);
+    expect(before.strips[0]?.slice(0, 2)).toEqual([`${String(p.http?.endpoint_count)} routes`, ` of ${String(p.http?.calls.total)} client calls`]);
+    expect(before.strips[0]).toContain(`never:${String(p.http?.never_called)}`);
+    expect(before.strips[1]?.[1]).toBe(` of ${String(p.ipc?.calls.total)} invoke sites`);
+    fireEvent.click(screen.getByRole("checkbox", { name: "Include tests" }));
+    const a = want(all);
+    await waitFor(() => {
+      expect(counts().tabs[0]).toBe(`All${String(a.total)}`);
+    });
+    const after = counts();
+    expect(after.strips[0]?.slice(0, 2)).toEqual([`${String(a.http?.endpoint_count)} routes`, ` of ${String(a.http?.calls.total)} client calls`]);
+    expect(after.strips[0]).toContain(`never:${String(a.http?.never_called)}`);
+    expect(after.strips[1]?.[1]).toBe(` of ${String(a.ipc?.calls.total)} invoke sites`);
+    // The two answers differ, so no count could have stayed from the
+    // production answer.
+    expect(after.strips).not.toEqual(before.strips);
+    expect(after.tabs).not.toEqual(before.tabs);
+    // A call whose path matches only test-scope routes is a production
+    // call: its chip says what it is, not "test only".
+    expect(screen.getByTestId("strip-http").querySelector('[data-cell="test_only"]')?.textContent).toContain("only test endpoints match");
+  });
+
+  it("drops the chip words below 1300 px but keeps them for screen readers and in the tooltip", async () => {
+    render(<ApiSection status={ok()} client={fakeClient()} />);
+    const strip = await screen.findByTestId("strip-http");
+    const dyn = strip.querySelector('[data-cell="dynamic"]') as HTMLElement;
+    expect(dyn.querySelector("span")?.className).toContain("max-[1299px]:sr-only");
+    expect(dyn.getAttribute("title")).toMatch(/^3 dynamic\. dynamic: 3$/);
+    expect(dyn.textContent).toContain("dynamic");
+  });
+
+  it("puts the index time at the right end of the title row", async () => {
+    render(<ApiSection status={ok()} client={fakeClient()} />);
+    const time = await screen.findByTestId("index-time");
+    // The long words above 1300 px, "Index of" below (CSS decides).
+    expect(time.textContent).toMatch(/^Data from the index ofIndex of /);
+    expect(within(time).getByText("Data from the index of").className).toContain("max-[1299px]:hidden");
+    expect(time.className).toContain("ml-auto");
+  });
+
+  it("says once that a repository without any API has none, in production scope (pdfcraft)", async () => {
+    const base = httpOnly();
+    const client: ApiClient = {
+      ...base,
+      endpoints: async (p, o) => {
+        const r = await base.endpoints(p, o);
+        for (const t of r.transports) {
+          t.endpoint_count = 0;
+          t.endpoints = [];
+          t.never_called = 0;
+          t.calls = { ...t.calls, total: 0, by_status: {} };
+          t.roots = [];
+        }
+        return r;
+      },
+    };
+    render(<ApiSection status={ok()} client={client} />);
+    expect((await screen.findByTestId("none-found")).textContent).toBe(
+      "No HTTP routes or client calls, Tauri IPC commands or invoke sites or server actions or action uses found in the indexed production files; Include tests also counts test files.",
+    );
+    expect(screen.getByText("No routes or commands found in the indexed production files")).toBeTruthy();
+    expect(screen.queryByTestId("summary-strip")).toBeNull();
+    expect(document.body.textContent).not.toMatch(/in this repository/);
   });
 });

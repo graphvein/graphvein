@@ -29,7 +29,26 @@ specificity/method/slash-twin selection. A mixed tier drops test-only entries;
 one remaining target links at existing confidence, several stay ambiguous.
 An entirely test-only tier gives test_only, sorted candidates capped at ten,
 full candidate_count when at least two (zero for one), and no calls_route edge.
-It never falls through to a weaker production match. Test calls ignore scope
+It never falls through to a weaker production match.
+
+Precision correction (T057, 2026-11-27): test_only claims that only test routes
+can serve the call, so it holds only when every production route the call could
+reach is proven not to match. A production route whose full path is unknown is a
+possible match: when a production `unresolved_prefix_paths` entry (the path
+proven below a prefix the code does not fix, [routes](routes.md)) matches the
+call as the unknown-prefix tier reads one, with at least one literal segment
+(UP-17's competitor, as row UP-22 reads a rival), an entirely test-only tier
+gives `unmatched` instead, with no candidates and no edge. The typical case is a
+router whose production mount is unproven (the engine passed on after
+mounting) that a test file builds at a known prefix: the test-composed path is
+not the production one. Calls whose production rivals are all proven not to
+match (a route only test code registers, or a production path below the
+unknown prefix that differs) stay test_only. Likewise a route view in the
+production or all scope does not show a path composed only through test-scope
+mounts as the route's path when the route has a production unknown-prefix path:
+it shows that path, marked prefix unknown.
+
+Test calls ignore scope
 and match exactly as before. Node status order is dynamic > unmatched >
 test_only > ambiguous; all linked entries produce linked. Wrapper status is
 unchanged. Impact and callers still traverse test calls; diagnostics and CLI

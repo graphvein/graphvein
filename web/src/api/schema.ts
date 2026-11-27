@@ -123,6 +123,20 @@ export interface SchemaSummary {
   sources_read: string[] | null;
   /** T018f: schema tools found but not read; null when not known. */
   unread_tools: UnreadTool[] | null;
+  /** T070: model sources a linker found and refused as a whole, with the
+   * stored message naming the reason; null when not known (not indexed,
+   * an older server). [] never means every source was read. */
+  refused_sources: RefusedSource[] | null;
+}
+
+/** RefusedSource is one whole-source refusal of the summary (T070): the
+ * model tool, the file the diagnostic is filed on, its code and its
+ * message verbatim. */
+export interface RefusedSource {
+  tool: string;
+  file: string;
+  code: string;
+  message: string;
 }
 
 /** UnreadTool is a schema tool the index holds files of but Graphvein
@@ -659,6 +673,20 @@ export function readUnreadTools(v: unknown): UnreadTool[] | null {
   });
 }
 
+/** readRefusedSources reads refused_sources leniently: null when absent
+ * or not a list (an older server: not known), and null when an entry
+ * lacks a string tool, file, code or message (never a partial list). */
+export function readRefusedSources(v: unknown): RefusedSource[] | null {
+  return listOf(v, (o) => {
+    const tool = strLenient(o.tool);
+    const file = strLenient(o.file);
+    const code = strLenient(o.code);
+    const message = strLenient(o.message);
+    if (tool === null || file === null || code === null || message === null) return null;
+    return { tool, file, code, message };
+  });
+}
+
 function readModelFiles(v: unknown): ModelFile[] | null {
   return listOf(v, (o) => {
     const file = strLenient(o.file);
@@ -710,6 +738,7 @@ export function parseSchemaSummary(value: unknown): SchemaSummary {
     model_groups: countLenient(obj.model_groups),
     sources_read: stringsOrNull(obj.sources_read),
     unread_tools: readUnreadTools(obj.unread_tools),
+    refused_sources: readRefusedSources(obj.refused_sources),
   };
 }
 

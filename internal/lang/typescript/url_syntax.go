@@ -13,6 +13,10 @@ import (
 // URL syntax is separate from route syntax so broader client evaluation cannot
 // accidentally expand the route-pattern or factory contract.
 func urlExpr(n *parse.Node) facts.RouteExpr {
+	return (*exprMemo)(nil).url(n)
+}
+
+func (m *exprMemo) buildURL(n *parse.Node) facts.RouteExpr {
 	if n == nil {
 		return facts.RouteExpr{}
 	}
@@ -21,13 +25,13 @@ func urlExpr(n *parse.Node) facts.RouteExpr {
 	case "spread_element":
 		for _, c := range n.Children {
 			if c.Kind != "comment" {
-				e.Parts = append(e.Parts, urlExpr(c))
+				e.Parts = append(e.Parts, m.url(c))
 			}
 		}
 	case "array":
 		for _, c := range n.Children {
 			if c.Kind != "comment" {
-				e.Parts = append(e.Parts, urlExpr(c))
+				e.Parts = append(e.Parts, m.url(c))
 			}
 		}
 	case "identifier", "property_identifier":
@@ -35,7 +39,7 @@ func urlExpr(n *parse.Node) facts.RouteExpr {
 	case "parenthesized_expression", "as_expression", "satisfies_expression", "non_null_expression", "type_assertion":
 		for _, c := range n.Children {
 			if !strings.Contains(c.Kind, "type") && c.Kind != "comment" {
-				return urlExpr(c)
+				return m.url(c)
 			}
 		}
 	case "number", "true", "false", "null", "undefined":
@@ -43,7 +47,7 @@ func urlExpr(n *parse.Node) facts.RouteExpr {
 	case "unary_expression":
 		if strings.HasPrefix(n.Text, "-") || strings.HasPrefix(n.Text, "+") {
 			e.Operator = n.Text[:1]
-			e.Parts = []facts.RouteExpr{urlExpr(n.Fields["argument"])}
+			e.Parts = []facts.RouteExpr{m.url(n.Fields["argument"])}
 		}
 	case "string":
 		e.Kind = "literal"
@@ -63,16 +67,16 @@ func urlExpr(n *parse.Node) facts.RouteExpr {
 		if n.Kind == "new_expression" {
 			field = "constructor"
 		}
-		v := urlExpr(n.Fields[field])
+		v := m.url(n.Fields[field])
 		e.Object = &v
 		if n.Kind == "subscript_expression" {
-			e.Parts = []facts.RouteExpr{urlExpr(n.Fields["index"])}
+			e.Parts = []facts.RouteExpr{m.url(n.Fields["index"])}
 		}
 		if args := n.Fields["arguments"]; args != nil {
 			e.Args = nil
 			for _, a := range args.Children {
 				if a.Kind != "comment" {
-					e.Args = append(e.Args, urlExpr(a))
+					e.Args = append(e.Args, m.url(a))
 				}
 			}
 		}
@@ -85,7 +89,7 @@ func urlExpr(n *parse.Node) facts.RouteExpr {
 				}
 			}
 		}
-		e.Parts = []facts.RouteExpr{urlExpr(n.Fields["left"]), urlExpr(n.Fields["right"])}
+		e.Parts = []facts.RouteExpr{m.url(n.Fields["left"]), m.url(n.Fields["right"])}
 		// Keep nested URL-piece spelling even when assertions are transparent.
 		// The enclosing request expression (and therefore its identity) is unchanged.
 		for i, field := range []string{"left", "right"} {
@@ -94,7 +98,7 @@ func urlExpr(n *parse.Node) facts.RouteExpr {
 			}
 		}
 	case "ternary_expression":
-		e.Parts = []facts.RouteExpr{urlExpr(n.Fields["condition"]), urlExpr(n.Fields["consequence"]), urlExpr(n.Fields["alternative"])}
+		e.Parts = []facts.RouteExpr{m.url(n.Fields["condition"]), m.url(n.Fields["consequence"]), m.url(n.Fields["alternative"])}
 	case "object":
 		e.Properties = map[string]facts.RouteExpr{}
 		hasSpread := false
@@ -111,7 +115,7 @@ func urlExpr(n *parse.Node) facts.RouteExpr {
 			entry := facts.RouteKeyword{}
 			if p.Kind == "pair" && p.Fields["key"] != nil {
 				if hasSpread {
-					entry.Value = urlExpr(p.Fields["value"])
+					entry.Value = m.url(p.Fields["value"])
 				}
 				key := p.Fields["key"]
 				if key.Kind == "property_identifier" || key.Kind == "identifier" {
@@ -125,7 +129,7 @@ func urlExpr(n *parse.Node) facts.RouteExpr {
 					entry.Value = facts.RouteExpr{Kind: "identifier", Name: p.Text, Text: p.Text, Offset: int(p.Start)}
 				}
 			} else {
-				entry.Value = urlExpr(p)
+				entry.Value = m.url(p)
 			}
 			e.Keywords = append(e.Keywords, entry)
 			if p.Kind == "shorthand_property_identifier" {
@@ -162,7 +166,7 @@ func urlExpr(n *parse.Node) facts.RouteExpr {
 				if name == "query" || name == "queryFn" {
 					value := facts.RouteExpr{Kind: "unknown"}
 					if p.Kind == "pair" {
-						value = urlExpr(p.Fields["value"])
+						value = m.url(p.Fields["value"])
 					}
 					e.Properties[name] = value
 				}
@@ -192,7 +196,7 @@ func urlExpr(n *parse.Node) facts.RouteExpr {
 			if _, exists := e.Properties[name]; !exists {
 				e.Keys = append(e.Keys, name)
 			}
-			v := urlExpr(p.Fields["value"])
+			v := m.url(p.Fields["value"])
 			s := span(p)
 			v.Span = &s
 			e.Properties[name] = v
@@ -200,7 +204,7 @@ func urlExpr(n *parse.Node) facts.RouteExpr {
 	case "template_substitution":
 		// Reached through a tagged template's arguments (sql`...${t}...`).
 		if v := substitutionValue(n); v != nil {
-			o := urlExpr(v)
+			o := m.url(v)
 			e.Object = &o
 		}
 	case "template_string":
@@ -235,7 +239,7 @@ func urlExpr(n *parse.Node) facts.RouteExpr {
 			}
 			for _, v := range c.Children {
 				if v.Kind != "comment" {
-					part := urlExpr(v)
+					part := m.url(v)
 					part.Text = v.Text
 					e.Parts = append(e.Parts, part)
 					break
@@ -253,6 +257,7 @@ func urlExpr(n *parse.Node) facts.RouteExpr {
 	}
 	return e
 }
+
 func numericPropertyKey(raw string) (string, bool) {
 	raw = strings.ReplaceAll(raw, "_", "")
 	v, err := strconv.ParseFloat(raw, 64)
@@ -373,7 +378,12 @@ func jsString(s string) (string, bool) {
 	return out.String(), true
 }
 
+// urlStatements is the URL statement syntax of n, built without sharing.
 func urlStatements(n *parse.Node) []facts.URLStatement {
+	return (*exprMemo)(nil).urlStatements(n)
+}
+
+func (m *exprMemo) urlStatements(n *parse.Node) []facts.URLStatement {
 	if n == nil {
 		return nil
 	}
@@ -381,7 +391,7 @@ func urlStatements(n *parse.Node) []facts.URLStatement {
 		var out []facts.URLStatement
 		for _, c := range n.Children {
 			if c.Kind != "comment" {
-				out = append(out, urlStatements(c)...)
+				out = append(out, m.urlStatements(c)...)
 			}
 		}
 		return out
@@ -401,7 +411,7 @@ func urlStatements(n *parse.Node) []facts.URLStatement {
 			if c.Kind != "variable_declarator" || c.Fields["name"] == nil || c.Fields["name"].Kind != "identifier" {
 				return []facts.URLStatement{s}
 			}
-			out = append(out, facts.URLStatement{Kind: "declaration", Name: c.Fields["name"].Text, Constant: constant, Expression: urlExpr(c.Fields["value"]), Span: span(c)})
+			out = append(out, facts.URLStatement{Kind: "declaration", Name: c.Fields["name"].Text, Constant: constant, Expression: m.url(c.Fields["value"]), Span: span(c)})
 		}
 		return out
 	case "expression_statement":
@@ -412,7 +422,7 @@ func urlStatements(n *parse.Node) []facts.URLStatement {
 				if left != nil && left.Kind == "identifier" {
 					s.Kind = "assignment"
 					s.Name = left.Text
-					s.Expression = urlExpr(v.Fields["right"])
+					s.Expression = m.url(v.Fields["right"])
 					s.Operator = text(v.Fields["operator"])
 					if s.Operator == "" {
 						for _, t := range v.Tokens {
@@ -427,18 +437,18 @@ func urlStatements(n *parse.Node) []facts.URLStatement {
 	case "return_statement":
 		for _, c := range n.Children {
 			if c.Kind != "comment" {
-				s.Expression = urlExpr(c)
+				s.Expression = m.url(c)
 				break
 			}
 		}
 	case "if_statement":
-		s.Expression = urlExpr(n.Fields["condition"])
-		s.Body = urlStatements(n.Fields["consequence"])
-		s.Else = urlStatements(n.Fields["alternative"])
+		s.Expression = m.url(n.Fields["condition"])
+		s.Body = m.urlStatements(n.Fields["consequence"])
+		s.Else = m.urlStatements(n.Fields["alternative"])
 	case "else_clause":
 		for _, c := range n.Children {
 			if c.Kind != "comment" {
-				return urlStatements(c)
+				return m.urlStatements(c)
 			}
 		}
 	case "for_in_statement":
@@ -446,8 +456,8 @@ func urlStatements(n *parse.Node) []facts.URLStatement {
 		if left != nil && left.Kind == "identifier" {
 			s.Name = left.Text
 		}
-		s.Expression = urlExpr(n.Fields["right"])
-		s.Body = urlStatements(n.Fields["body"])
+		s.Expression = m.url(n.Fields["right"])
+		s.Body = m.urlStatements(n.Fields["body"])
 		for _, t := range n.Tokens {
 			if t == "of" || t == "in" {
 				s.Operator = t

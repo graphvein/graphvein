@@ -20,10 +20,10 @@ or the Try it out environment you select
 ## Status
 
 <!-- site:status -->
-**Preview release (v0.1.2); contributions welcome** under the contributor licence agreement ([CONTRIBUTING.md](CONTRIBUTING.md)). What works today:
+**Preview release (v0.2.0); contributions welcome** under the contributor licence agreement ([CONTRIBUTING.md](CONTRIBUTING.md)). What works today:
 `graphvein index` builds the index of a repository, and `graphvein serve`
-opens a local web UI on it with the sections API (routes and their
-callers), Changes (what a change reaches), Architecture, Schema, Explorer
+opens a local web UI on it with the sections Overview (a summary of the
+repository), API (routes and their callers), Changes (what a change reaches), Architecture, Schema, Explorer
 (API documentation and a guarded "Try it out"), Project and What Graphvein
 couldn't read. Two or more repositories can be indexed and served as one
 project, and `graphvein mcp` is a read-only MCP server over the same index
@@ -74,7 +74,7 @@ they are not code-signed. Download the archive for your system and
 `sha256sum`; on macOS use `shasum -a 256 -c` in its place):
 
 ```bash
-grep graphvein-v0.1.2-linux-amd64.tar.gz SHA256SUMS | sha256sum -c
+grep graphvein-v0.2.0-linux-amd64.tar.gz SHA256SUMS | sha256sum -c
 ```
 
 **Provenance.** Each archive has a build provenance attestation that ties
@@ -82,10 +82,10 @@ it to the workflow run and the commit it was built from. With the
 [GitHub CLI](https://cli.github.com/):
 
 ```bash
-gh attestation verify graphvein-v0.1.2-linux-amd64.tar.gz --repo graphvein/graphvein
+gh attestation verify graphvein-v0.2.0-linux-amd64.tar.gz --repo graphvein/graphvein
 ```
 
-Unpack it (`tar -xzf graphvein-v0.1.2-linux-amd64.tar.gz`; on Windows,
+Unpack it (`tar -xzf graphvein-v0.2.0-linux-amd64.tar.gz`; on Windows,
 Extract All in File Explorer) and put the folder on your `PATH`, or call
 the binary by its path: `graphvein version` prints the version you
 downloaded.
@@ -122,7 +122,7 @@ go install github.com/graphvein/graphvein/cmd/graphvein@latest
 It needs Go 1.21 or newer, which downloads the Go toolchain the module
 requires when yours is older. The binary goes to `$(go env GOPATH)/bin`
 and `graphvein version` reports the module version you installed (use
-`@v0.1.2` for a given release). To build from a checkout instead, see the
+`@v0.2.0` for a given release). To build from a checkout instead, see the
 next section.
 
 ## Building and running
@@ -142,7 +142,10 @@ bash scripts/build.sh
 Run `graphvein` to open the web UI, or `graphvein help` for the commands.
 `graphvein serve [path]` serves the local web UI and HTTP API for an indexed
 repository at `http://127.0.0.1:7420/` (loopback only; see
-[serve](docs/cli/serve.md)). The UI is embedded in the binary, so building and
+[serve](docs/cli/serve.md)). `graphvein index` keeps the index outside the
+repository, in a per-user stores folder, and prints where;
+`graphvein store where` shows it again and `graphvein store move` moves it
+([where indexes are kept](docs/adr/0093-per-user-store-location.md)). The UI is embedded in the binary, so building and
 testing need only Go. Node (24 LTS, pinned in `web/.nvmrc`) is needed only to
 change the UI: see [web/README.md](web/README.md) and run
 `bash scripts/check-web.sh` after editing `web/`.
@@ -165,8 +168,8 @@ Each member is named explicitly (`NAME=PATH`, unless its own
 the manifest.
 
 `project init` writes `graphvein-project.yaml`; `index --project` indexes
-each member into the project store (`.graphvein/index.db` next to the
-manifest) and links calls in one repository to routes in the other;
+each member into the project store (kept in the per-user stores folder,
+as a repository's index is) and links calls in one repository to routes in the other;
 `serve --project` serves the UI at `http://127.0.0.1:7420/` with a
 repository switcher and the Project view. A cross-repository link is
 `inferred` and shows the assumption it rests on; when several members

@@ -14,6 +14,8 @@ import { Fragment, useRef, type KeyboardEvent, type MouseEvent, type ReactNode, 
 import { CATEGORY_LABEL, categoryOf, endpointNoun, rawLabel } from "@/api/categories";
 import type { Caller, IdeStatus, NearMiss, PresentedNode, Reason, ScopeLabel, Transport } from "@/api/endpoints";
 import { FLAG_WIDTH_PX, WrongFactFlag } from "@/components/WrongFactFlag";
+import { useLabelStyle } from "@/hooks/useLabels";
+import { label } from "@/lib/labels";
 import { cn } from "@/lib/utils";
 import { FamilyChip } from "@/sections/api/precision";
 import { useReport, type WrongFact } from "@/shell/report";
@@ -53,6 +55,50 @@ export function shownNearMisses(transport: Transport, nearMisses: NearMiss[]): N
     const c = categoryOf(transport, statusOf(n.node));
     return c === "ambiguous" || c === "test_only";
   });
+}
+
+/** sameReason compares two reasons by code, text and detail. */
+function sameReason(a: Reason, b: Reason): boolean {
+  return a.code === b.code && a.text === b.text && (a.detail ?? "") === (b.detail ?? "");
+}
+
+/** sharedAssumptions are the assumption reasons (codes ending in
+ * "_assumed": path_assumed, prefix_assumed, origin_assumed) that every
+ * caller of the list carries with the identical text, when there are at
+ * least two callers (T071 question 10, T073). They are said once above
+ * the table and left out of the rows; a reason that differs on any caller
+ * stays under each caller. Near misses keep their own reasons. */
+export function sharedAssumptions(callers: Caller[]): Reason[] {
+  const [first, ...rest] = callers;
+  if (first === undefined || rest.length === 0) return [];
+  const out: Reason[] = [];
+  for (const r of first.reasons) {
+    if (!r.code.endsWith("_assumed") || out.some((o) => sameReason(o, r))) continue;
+    if (rest.every((c) => c.reasons.some((x) => sameReason(x, r)))) out.push(r);
+  }
+  return out;
+}
+
+/** ASSUMPTION_LEAD is how the server starts an assumption reason's text;
+ * the shared note's lead replaces it. */
+const ASSUMPTION_LEAD = "Assumption: ";
+
+/** SharedAssumption says an assumption every caller carries once, above
+ * the table: the lead (label row 71), then the reason's text and detail. */
+function SharedAssumption({ reason, count }: { reason: Reason; count: number }) {
+  const l = label(useLabelStyle(), "sharedAssumption", { count, code: reason.code });
+  const text = reason.text.startsWith(ASSUMPTION_LEAD) ? reason.text.slice(ASSUMPTION_LEAD.length) : reason.text;
+  return (
+    <p className="m-0 mb-1.5 rounded-md border border-dashed px-2 py-1.5 text-[12.5px] text-muted-foreground" data-testid="shared-assumption" data-reason={reason.code} title={l.title}>
+      <span className="font-medium text-foreground">{l.text}</span> {text}
+      {reason.detail !== null && reason.detail !== "" ? (
+        <>
+          {" "}
+          <span className="font-mono text-[11.5px] text-foreground/80 [overflow-wrap:anywhere]">{reason.detail}</span>
+        </>
+      ) : null}
+    </p>
+  );
 }
 
 function Reasons({ reasons }: { reasons: Reason[] }) {
@@ -262,6 +308,8 @@ export function CallersTable({ transport, callers, nearMisses, nearMissesIncompl
   const flags = useReport().url !== null && factOf !== undefined;
   const { linked, others } = splitCallers(callers);
   const near = shownNearMisses(transport, nearMisses);
+  const shared = sharedAssumptions(callers);
+  const ownReasons = (c: Caller) => (shared.length === 0 ? c.reasons : c.reasons.filter((r) => !shared.some((x) => sameReason(x, r))));
   const firstGap = useRef<HTMLTableRowElement>(null);
   const notFully = others.reduce((n, g) => n + g.callers.length, 0);
   const noun = endpointNoun(transport, 1);
@@ -292,7 +340,7 @@ export function CallersTable({ transport, callers, nearMisses, nearMissesIncompl
     return (
     <tr key={id} data-caller={id} {...row} className={cn(flags && "group/fact", highlight && peek !== id && "[&>td]:bg-dynamic-soft/55", row.className)}>
       <td className={TD}>
-        <CallerCell node={c.node} owner={c.owner} reasons={c.reasons} peeking={peek === id} />
+        <CallerCell node={c.node} owner={c.owner} reasons={ownReasons(c)} peeking={peek === id} />
       </td>
       <td className={TD}>
         <CategoryBadge transport={transport} raw={statusOf(c.node)} />
@@ -348,6 +396,9 @@ export function CallersTable({ transport, callers, nearMisses, nearMissesIncompl
           </button>
         )}
       </h4>
+      {shared.map((r) => (
+        <SharedAssumption key={`${r.code}-${r.text}`} reason={r} count={callers.length} />
+      ))}
       {callers.length + near.length > 0 && (
         <table className="w-full table-fixed border-collapse text-[13px]">
           <colgroup>

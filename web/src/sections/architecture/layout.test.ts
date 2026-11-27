@@ -3,8 +3,8 @@
 import { describe, expect, it } from "vitest";
 
 import { ElkClient, type WorkerLike } from "@/sections/api/flow/elk";
-import { CARD_W, EXPANDED_W, LIST_ROWS_H, elkGraph, expandedHeight, onLine, overlaps, readLayout } from "@/sections/architecture/layout";
-import { DEFAULT_SHOW, buildMap } from "@/sections/architecture/model";
+import { CARD_W, EXPANDED_W, NARROW_W, LIST_ROWS_H, elkGraph, expandedHeight, onLine, overlaps, readLayout } from "@/sections/architecture/layout";
+import { BAND_ID, DEFAULT_SHOW, buildMap } from "@/sections/architecture/model";
 import { LIST_ROWS } from "@/sections/architecture/rows";
 import { archGolden } from "@/test/architectureFixtures";
 
@@ -30,8 +30,9 @@ describe("map layout", () => {
         if (r.chip === null) continue;
         for (const b of boxes) expect(overlaps(r.chip, b), id).toBe(false);
       }
-      // Cards never overlap each other.
-      for (let i = 0; i < boxes.length; i++) for (let j = i + 1; j < boxes.length; j++) expect(overlaps(boxes[i] as never, boxes[j] as never)).toBe(false);
+      // Cards never overlap each other (the band holds its chips).
+      const cards = [...placed.boxes].filter(([id]) => id !== BAND_ID).map(([, b]) => b);
+      for (let i = 0; i < cards.length; i++) for (let j = i + 1; j < cards.length; j++) expect(overlaps(cards[i] as never, cards[j] as never)).toBe(false);
     }
   });
 
@@ -39,7 +40,8 @@ describe("map layout", () => {
     const m = buildMap(archGolden("synthetic"), DEFAULT_SHOW, "svc");
     const placed = readLayout(m, await realClient().layout(elkGraph(m, 40, (f) => f)));
     expect(placed.boxes.get("c:svc")).toMatchObject({ width: EXPANDED_W, height: expandedHeight(40) });
-    expect(placed.boxes.get("c:ui")?.width).toBe(CARD_W);
+    const ui = m.nodes.find((n) => n.id === "c:ui");
+    expect(placed.boxes.get("c:ui")?.width).toBe(ui?.type === "component" && ui.narrow ? NARROW_W : CARD_W);
     expect(expandedHeight(40)).toBe(expandedHeight(LIST_ROWS + 1));
     expect(expandedHeight(40)).toBeGreaterThan(LIST_ROWS_H);
     expect(expandedHeight(3)).toBeLessThan(expandedHeight(LIST_ROWS));

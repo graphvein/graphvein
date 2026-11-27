@@ -17,7 +17,9 @@ for every index of the workspace:
 - `graphvein serve` with neither a path nor `--repository` serves the
   workspace registry ([below](#workspace-multi-index-server)): every
   registered repository and project, none opened until used. With no
-  entry the UI shows its first-run screen ("Add a folder").
+  entry the UI shows its first-run screen ("Add a folder"), which says
+  where indexes are kept on this machine, with a link to Settings'
+  Storage section (Settings opens without an index).
 - `graphvein serve <path>` and `serve --project` serve that index exactly
   as before (the store is opened at start, with the same errors and exit
   codes), register it in the workspace registry, and serve the other
@@ -38,7 +40,11 @@ for every index of the workspace:
   name it was registered under; adding a new folder whose file does not
   load is still refused (`invalid_config`).
 - Storage is chosen as for `query`: `GRAPHVEIN_POSTGRES_URL`, or
-  `GRAPHVEIN_SQLITE_PATH` (default `<path>/.graphvein/index.db`). Requests
+  `GRAPHVEIN_SQLITE_PATH`, or by default the folder's store wherever the
+  store resolver finds it ([ADR 0093](../adr/0093-per-user-store-location.md):
+  the folder's own `.graphvein/index.db` when one exists, else a
+  `stores.yaml` entry, else `<stores>/<name>-<8 hex>/index.db` in the
+  per-user stores folder; `graphvein store where <path>` prints it). Requests
   read the store through a read-only connection: `serve` never creates or
   migrates it at start. A missing SQLite file or an old schema fails like
   `query`. Run `graphvein index` first. The only write is a re-index
@@ -167,9 +173,11 @@ command with arguments behaves as before.
 `graphvein serve --project` serves one project
 ([ADR 0075](../adr/0075-multi-repository-projects.md) "Server and UI",
 [project manifests](project.md)): one project per server, read from the
-project store that `graphvein index --project` filled (SQLite
-`<manifest dir>/.graphvein/index.db`, or `GRAPHVEIN_POSTGRES_URL` /
-`GRAPHVEIN_SQLITE_PATH` as for `index --project`). `serve` on a repository
+project store that `graphvein index --project` filled (SQLite, found by
+the store resolver for the manifest folder as for a repository: by default
+`<stores>/<name>-<8 hex>/index.db`, or `<manifest dir>/.graphvein/index.db`
+when one exists; or `GRAPHVEIN_POSTGRES_URL` / `GRAPHVEIN_SQLITE_PATH` as
+for `index --project`). `serve` on a repository
 is unchanged. A path or `--repository` with `--project` is a usage error
 (exit 2), as is a manifest that does not load. It prints
 
@@ -250,12 +258,17 @@ One `serve` process serves every index of the workspace registry
   (`<name>~<8 hex digits>`, WS-4). One folder is one entry: serving or
   adding a folder already registered (after a rename too) uses the stored
   entry and its id; the name shown is re-read from `graphvein.yaml` (or
-  the manifest) when the index opens. Each index is opened from its
-  folder as the CLI opens it (default `<folder>/.graphvein/index.db`;
-  `GRAPHVEIN_POSTGRES_URL` of the `serve` process applies to every entry).
-  `GRAPHVEIN_SQLITE_PATH` names one file, so it applies only to the index
-  named on the command line: while it is set, every other entry answers
-  409 `single_store`.
+  the manifest) when the index opens. Each index is opened where the
+  store resolver finds it ([ADR 0093](../adr/0093-per-user-store-location.md):
+  `GRAPHVEIN_POSTGRES_URL` of the `serve` process for every entry, then
+  the folder's own `.graphvein/index.db`, a `stores.yaml` entry, or the
+  per-user stores folder). `GRAPHVEIN_SQLITE_PATH` names one file, so it
+  applies only to the index named on the command line; every other entry
+  opens from its own store (WS-70). An entry's runs, locks and writer use
+  the place found when its index opened: a run that waited for the index
+  lock while the store was moved stops with 409 `store_moved` instead of
+  creating an index at the old place (WS-81). A folder with two indexes
+  answers 409 `two_indexes` until one is removed (WS-71).
 - **One database for every entry.** With `GRAPHVEIN_POSTGRES_URL` every
   entry's index lives in one database, which tells repositories apart by
   repository ID and projects by name, not by folder. Two registered
@@ -362,7 +375,8 @@ One `serve` process serves every index of the workspace registry
 - `registered`: false only for the command-line index when writing the
   registry failed (`registry.error` says why).
 - `suggestion`: the working directory, when it is not registered and holds
-  a project manifest or a `.graphvein` folder (`{"path", "kind"}`).
+  a project manifest or has an index wherever the store resolver finds it
+  (`{"path", "kind"}`).
 - `token`: the session token of the POSTs below.
 
 ### POST /api/v0/workspace/check, /add, /remove
@@ -373,9 +387,12 @@ checks of every state-changing POST and also needs a loopback peer (403
 `token_required`), `Content-Type: application/json` and one JSON object
 of at most 4 KiB with only the fields below. GET and other methods get 405.
 
-**check** `{"path": "/home/dev/src/miniflux"}` reads nothing but file
-metadata, `graphvein.yaml`, `graphvein-project.yaml` and the folder's store
-(opened read-only), and answers 200:
+**check** `{"path": "/home/dev/src/miniflux"}` (optionally with
+`"store_place": "default" | "inside" | "folder"` and, for `folder`,
+`"store_dir": "/data/graphvein"`: where this folder's new index is kept,
+the Add dialog's "Change…") reads nothing but file metadata,
+`graphvein.yaml`, `graphvein-project.yaml`, `stores.yaml` and the folder's
+store (opened read-only), and answers 200:
 
 ```json
 {
@@ -388,7 +405,13 @@ metadata, `graphvein.yaml`, `graphvein-project.yaml` and the folder's store
   "name": "miniflux",
   "members": null,
   "index": {"state": "absent", "last_run": null, "error": null},
-  "store": {"kind": "sqlite", "path": "/home/dev/src/miniflux/.graphvein/index.db"},
+  "store": {"kind": "sqlite", "path": "/home/dev/.local/share/graphvein/stores/miniflux-3f9a1c27/index.db",
+            "env": null, "origin": "default", "place": "outside", "exists": false, "size": null,
+            "stores_dir": "/home/dev/.local/share/graphvein/stores", "dir_source": "platform",
+            "error_code": null, "error": null},
+  "places": {"choosable": true, "reason": null, "chosen": null,
+             "default": "/home/dev/.local/share/graphvein/stores/miniflux-3f9a1c27/index.db",
+             "inside": "/home/dev/src/miniflux/.graphvein/index.db", "folder": null},
   "entry": null,
   "confirm": "M4X...",
   "confirm_expires_at": "2026-11-24T10:10:00Z",
@@ -413,7 +436,13 @@ metadata, `graphvein.yaml`, `graphvein-project.yaml` and the folder's store
   `inside_registered` (with `entry`),
   `invalid_manifest`, `invalid_config`, `shared_store_conflict` (under
   `GRAPHVEIN_POSTGRES_URL`, a repository or project name an entry in
-  another folder uses, with `entry`), `path_unreadable`, `registry_error`.
+  another folder uses, with `entry`), `two_indexes` and `foreign_store`
+  (WS-71), the store place's `store_fixed`, `team_mode`,
+  `place_unavailable` (WS-74) and the typed store folder's codes (WS-75:
+  `not_absolute`, `network_path`, `filesystem_root`, `home_directory`,
+  `inside_git`, `inside_folder`, `inside_registered`, `not_a_directory`,
+  `not_writable`, `unreadable`, `index_exists`, `foreign_store`),
+  `path_unreadable`, `registry_error`, `store_error`.
 - `resolved`: the absolute folder with symbolic links resolved; the
   confirmation names it and add registers it.
 - `kind`/`name`/`members`: a folder holding `graphvein-project.yaml` is a
@@ -421,8 +450,17 @@ metadata, `graphvein.yaml`, `graphvein-project.yaml` and the folder's store
   any other folder a repository named by `graphvein.yaml` or the folder.
 - `index.state`: `present` (runs stored; `last_run`), `absent` (no store,
   or no run in it) or `unknown` (`error`).
-- `store`: where `graphvein index` writes the index (`postgres` names the
-  variable `GRAPHVEIN_POSTGRES_URL`, never the URL).
+- `store`: where the index is or will be kept (WS-73): `kind` (`sqlite` or
+  `postgres`, which names the variable in `env`, never the URL), `path`,
+  `origin` (the lookup step: `postgres`, `sqlite_path_env`, `in_folder`,
+  `stores_file`, `default`), `place` (`inside` the folder, where Git lists
+  it, `outside`, `environment`, `postgres`), `exists`, `size` (bytes of
+  `index.db` and its `-wal`), `stores_dir` and `dir_source`.
+- `places` (with `ready`): the index files of the `default` and `inside`
+  places, `choosable` (false with a `reason` when the folder has an index
+  already, which stays where it is, or in team mode), and the `chosen`
+  place (with `folder`, the typed folder's index file). The confirm value
+  binds the place and the index file `store` names.
 - `command`: the terminal command that indexes the folder (single quotes,
   for bash and Git Bash).
 - `contains` (with `ready`): the registered entries inside the folder whose folder exists (a moved one is left out),
@@ -432,7 +470,10 @@ metadata, `graphvein.yaml`, `graphvein-project.yaml` and the folder's store
 
 **add** `{"path": "<resolved>", "confirm": "<value>", "index": true}`
 uses the confirm value up (whatever the outcome), checks the folder again
-and registers it. With `index` true (the default) it opens the folder's
+(with the checked place: the index file must be the one the check named,
+else 409 `path_changed`), records the place (a `stores.yaml` entry for a
+typed folder; for `inside`, an empty `<folder>/.graphvein/index.db`) and
+registers it. With `index` true (the default) it opens the folder's
 index, creating an empty store where `graphvein index` would, and starts
 its run as `POST /api/v0/index/run?ws=` does (a project: the project
 re-index), answering 202 `{"api_version": 0, "entry": {...},
@@ -441,7 +482,7 @@ progress. With `index: false` it only registers (200, `job` null); the
 entry is checked at once and its run can be started later with
 `POST /api/v0/index/run?ws=<id>`. Once registered the entry stays: when
 its index cannot be opened or the run is refused (`index_locked`,
-`reindex_unsupported`, `index_lock_unavailable`, `single_store`,
+`reindex_unsupported`, `index_lock_unavailable`, `two_indexes`,
 `store_error`), the add answers 200 with the entry, `job` null and
 `"run_error": {"code", "message"}` (null otherwise). 409
 `confirm_required` (no, used, expired or another folder's value) and 409
@@ -453,6 +494,77 @@ job.
 closes its index; the folder and its index are never deleted. 409
 `entry_in_use` (the index named on the command line), 409 `index_running`,
 404 `unknown_entry`.
+
+### Storage: GET /api/v0/store, POST /api/v0/store/check, /move, /default
+
+Where this machine keeps indexes (Settings' Storage section; ADR 0093,
+ADR 0088 revision; claim rows WS-77..WS-80). The GET needs no index and
+opens no store; the POSTs pass the same checks as the workspace POSTs.
+
+**GET /api/v0/store** answers 200:
+
+```json
+{
+  "api_version": 0,
+  "team_mode": {"env": "GRAPHVEIN_POSTGRES_URL", "set": false},
+  "sqlite_path": {"env": "GRAPHVEIN_SQLITE_PATH", "set": false, "entry": null},
+  "default_dir": {"path": "/home/dev/.local/share/graphvein/stores", "source": "platform",
+                  "env": "GRAPHVEIN_STORE_DIR", "editable": true, "reason": null, "error": null},
+  "stores_file": {"path": "/home/dev/.config/graphvein/stores.yaml", "error": null},
+  "registry": {"path": "/home/dev/.config/graphvein/workspace.yaml", "error": null},
+  "entries": [
+    {"id": "miniflux~1a2b3c4d", "kind": "repository", "name": "miniflux",
+     "folder": "/home/dev/src/miniflux", "folder_found": true, "current": true,
+     "store": {"kind": "sqlite", "path": "...", "origin": "default", "place": "outside",
+               "exists": true, "size": 50544640, "...": "as in check"},
+     "movable": true, "reason": null}
+  ]
+}
+```
+
+`sqlite_path.entry` is the command-line entry that uses
+`GRAPHVEIN_SQLITE_PATH`; `default_dir.source` is `platform`, `env`
+(`GRAPHVEIN_STORE_DIR`, then `editable` is false) or `stores_file`; an
+entry's `store` is null when its folder is gone, and carries
+`error_code` (`two_indexes`, `foreign_store`, `store_error`) when it cannot
+be resolved; `movable` is false with a `reason` in team mode, for the
+variable's file, without an index, for a folder that is gone, or for the
+command-line index of a server that cannot close it.
+
+**store/check** takes either `{"id": "<entry id>", "dest_dir": "/data/graphvein"}`
+(a move; `""` is the folder's place in the stores folder) or
+`{"default_dir": "/data/graphvein"}` (the folder for new indexes; `""` is
+the platform's). It answers 200 with `outcome` `ready` or `refused`
+(`refusal: {"row", "code", "message", "entry"}`), and when ready
+`"move": {"id", "folder", "from", "from_place", "to", "to_default", "size"}`
+or `"default_dir": {"from", "from_source", "to", "to_platform"}`, a
+one-time `confirm` value (10 minutes, bound to the entry, `dest_dir` and
+both index files, or to the folder), `confirm_expires_at` and, for a
+move, `command` (`graphvein store move '<folder>' ['<dest>']`). Refusal
+codes: WS-75's for the typed folder, and `team_mode`, `sqlite_path_env`,
+`no_index`, `folder_gone`, `entry_in_use`, `same_place` (a move, WS-78),
+`team_mode`, `set_by_environment`, `unchanged`, `no_platform_folder`
+(a default folder, WS-80). An unknown `id` is 404 `unknown_entry`.
+
+**store/move** `{"id", "dest_dir", "confirm"}` uses the value up, plans the
+move again, stops serving the entry (its requests answer 409
+`store_moving`), waits for requests in flight and closes its index, then
+moves it as `graphvein store move` does (under the index lock: `VACUUM
+INTO`, the same run ids and row counts, the record in `stores.yaml`, then
+the old `index.db`, `-wal`, `-shm` and `-lock` files are deleted) and
+answers 200 `{"api_version": 0, "id", "from", "to", "bytes", "runs",
+"deleted": [...], "remaining": [], "warning": null, "recorded"}`. The next
+request opens the index at its new place. `remaining` lists original
+files that could not be deleted (then both indexes are refused until they
+are). 409 `confirm_required`, `path_changed`, `index_running` (this
+server's re-index or ref job), `index_busy` (requests still reading after
+30 s), `index_locked` (another process's run held the lock past the
+wait); 500 `move_failed` (the original is kept).
+
+**store/default** `{"default_dir", "confirm"}` sets `stores.yaml`'s
+`default_dir` (`""` removes it) and answers 200 with the new
+`default_dir`; indexes that exist stay where they are. 409
+`confirm_required`, `path_changed`.
 
 ## Security behaviour
 
@@ -467,8 +579,10 @@ closes its index; the folder and its index are never deleted. 409
   `/api/v0/index/run`, which also takes POST (start a re-index), the
   writing change endpoints, the project manifest edit and
   `/api/v0/explorer/path-values` and `/api/v0/config` (POST: guarded
-  edits of `graphvein.yaml`), and `/api/v0/workspace/check`, `/add` and
-  `/remove` (POST only; [workspace](#post-apiv0workspacecheck-add-remove)). Other
+  edits of `graphvein.yaml`), `/api/v0/workspace/check`, `/add` and
+  `/remove` (POST only; [workspace](#post-apiv0workspacecheck-add-remove)),
+  and `/api/v0/store/check`, `/move` and `/default` (POST only;
+  [storage](#storage-get-apiv0store-post-apiv0storecheck-move-default)). Other
   methods, including OPTIONS, get 405 `method_not_allowed` with
   `Allow: GET, HEAD` (or `Allow: GET, HEAD, POST` on the re-index path,
   `/api/v0/tryit/environments`, `/api/v0/explorer/path-values` and
@@ -517,8 +631,9 @@ root get `no-cache`. Any other path is a plain-text 404; there are no
 directory listings and no fallback to `index.html`. The UI uses hash routing
 (`/#/api`), so its own paths never reach the server.
 
-The UI is a shell for the views to come: a sidebar with the sections (API,
-Explorer, Architecture, Schema and Changes; Review shown as "Soon"), and a top bar
+The UI is a shell for the views to come: a sidebar with the sections
+(Overview, API, Explorer, Architecture, Schema and Changes; Review shown as
+"Soon"), and a top bar
 with the repository, the compare chip, the freshness badge, a "Check"
 button and the extractor version. The top bar follows its own width: one
 row with every label from 1300 px; one row from 980 px, where the badge's
@@ -540,6 +655,27 @@ the last successful status answer only: skeletons until the first answer
 (and while a withdrawn answer is re-checked), "unavailable" after a failed
 request; no value is kept from an earlier answer. Sources and the rebuild
 workflow: `web/README.md`.
+
+The Overview (`#/overview`, T064) is the home page: `#/` and an empty
+fragment open it, and the sidebar's logo (also in the icon rail) links to
+it. It reads only answers other sections request (`/api/v0/status`,
+`/api/v0/architecture`, `/api/v0/api/endpoints`, `/api/v0/schema/summary`
+and `/api/v0/unread`): the components on the default map, the folded
+workspace libraries and the in-process edges into them
+(`libraries.links_in`), the components hidden on the map and the drawn
+links; routes and calls per transport (a transport with no endpoint and no
+call is "none found in the indexed production files", the API page's
+wording, T065); the schema state (`found`, never "no database"; a model
+source in `refused_sources` is "found, not read" with its reason, under
+the Schema page's title, T070); the unread counts; and links into the sections. In
+project mode it is the selected member's. The one-time label-style
+question is asked there only (no banner on the other sections). The
+sidebar has one width on every section: a collapse button beside the logo
+and the `[` key switch to the 56 px icon rail (an expand button under the
+logo switches back), remembered per browser (`graphvein.sidebar`). Without
+a choice the window decides: the full sidebar from 1100 px, the rail
+below; there, expanding opens the sidebar over the content until
+navigation or Esc. Rail icons have their names (and tags) as tooltips.
 
 The Explorer section (`#/explorer`, T029, ADR 0081 "Explorer UI") is
 API documentation built from `GET /api/v0/openapi` only: operations grouped
@@ -603,7 +739,8 @@ are OX-1..OX-49 of the [try-it claim contract](../contract/claims/try-it.md).
 The Schema section (T018f R2) shows one card per source group in its set
 strip (migration sets and model groups), a dashed card for a source the
 index proves was read and that holds nothing, and one per `unread_tools`
-entry ("Alembic migrations found, not read yet"); a "Rests on" line on the
+entry ("Alembic migrations found, not read yet"; every tool by its plain
+name, "GORM v1 models found, not read yet" for `gorm-v1`, T070); a "Rests on" line on the
 group (`rests_on`, a union: "Facts in <group> rest on") and on the table
 (an intersection), row chips where a record's claims rest on more than its
 table, and per-fact "why" popovers (contract row, assumption texts, the
@@ -620,18 +757,21 @@ route in the API section and in the Explorer. "No route of this repository uses 
 the member) appears only when the server proved it; otherwise the section says how
 many routes were not fully read, or that route shapes were not read. The
 Assumptions tab (`#/schema?tab=assumptions&a=E2`) lists
-`/api/v0/schema/assumptions`. Below 600 px the sidebar is its icon rail
-and popovers are bottom sheets.
+`/api/v0/schema/assumptions`. Below 600 px popovers are bottom sheets.
 
 The Architecture section (`#/architecture`, T026, combination
 X+) draws `GET /api/v0/architecture` as a map (React Flow on the ELK
-worker, ADR 0046; the sidebar is its icon rail): one card per shown
+worker, ADR 0046): one card per shown
 component (kind, manifests, counts, deploy markers as text, calls with no
-link as a dashed chip), one card per schema set, a folded "Workspace
-libraries" card and the tests, docs and configured components behind the
-Show toggles (off by default; Tests also requests `scope=all`), one muted
-dotted SDK stub per component (on by default), and a Hidden note with what
-the toggles leave out. Links between one pair of cards are bundled into one
+link as a dashed chip, SDK imports as a dashed "SDK n" chip), one card per
+schema set, the libraries band below the cards (T067: every workspace
+library as a chip with the number of components using it, in rows *Used
+by a card*, *Used by libraries, level n* and *No stored link*; one line per
+card-library pair from the card's line chip; links between libraries
+counted on the band and drawn for the selected library; on by default),
+the tests, docs and configured components behind the Show toggles (off by
+default; Tests also requests `scope=all`), and a Hidden note with what the
+toggles leave out. Above six cards the cards are narrow (180 px). Links between one pair of cards are bundled into one
 line whose chip shows the families, the count and the fixed three-cell
 glyph protocol | auth | TLS (proven filled, "as written" / documented
 olive, mixed half, n/a grey, unknown hatched). Selecting a card or chip
@@ -703,10 +843,33 @@ showing the index of T' (was T)". There is no cancel control: stopping
 `serve` cancels the run.
 
 The API section (`#/api`, ADR 0042) reads only the endpoints below and the
-polled status. It shows the coverage per transport (cards, or a compact
-strip below 1400 x 820 px) with every source root of the calling sites, the
-endpoint list (HTTP and Tauri IPC groups, windowed) and the selected
-endpoint's handler, OpenAPI operations and callers. Default scope is
+polled status. It shows one compact strip per transport with endpoints or
+calls (endpoint count, frameworks, status bar, linked share of the calls,
+one chip per status category and the endpoints with no linked caller; below
+1300 px wide the chips show only their numbers, the words stay in the
+tooltip). A transport with neither endpoints nor calls in any source root
+gets no strip: its toolbar tab is dashed and reads "none found" (tooltip:
+"none found in the indexed files", or "in the indexed production files"
+without Include tests, and what the reader looks for). The "Coverage and
+roots" disclosure (closed by default, remembered per browser in
+`localStorage` `graphvein.api.coverage`, exactly `open` = open) opens the
+coverage cards with the precision chips and every source root of the
+calling sites. Below them are the endpoint list (HTTP and Tauri IPC groups, windowed) and the selected
+endpoint's handler, OpenAPI operations and callers. A list row's caller
+cell is text (T073): "2 callers", or "0 linked" in muted text for a row
+with no linked caller (the headline's sentence in its tooltip). Each group
+header counts the rows once ("273 routes · 254 no linked caller in
+production"); when at least half the group's rows carry the
+path-assumption flag it adds "266 path assumed" and the icon shows only on
+the row under the pointer or selected, otherwise on every row that has it.
+The route header is the path, then one facts line: transport, framework
+and repository as text, "1 composed path, same as above" with that path's
+marks when the route's one composed path is the title (several paths keep
+their list), the precision chip with the facts it does not cover counted
+("4 parts unverified", the facts in the tooltip), the fact badge and its
+source. An assumption that every caller carries with the identical text
+is said once above the callers table ("Both callers rest on one
+assumption. ..."); a reason that differs stays under each caller. Default scope is
 production; "Include tests" switches to `all`; the source-root filter sets
 `root` on every request. Only the exact status `linked` is shown as linked;
 statuses the UI does not know are shown raw under "Other". Callers are only
@@ -716,8 +879,8 @@ the endpoints without a linked caller) with search, grouping by reason, file or 
 and "Copy list". When the polled status names another last run than the
 loaded data, the view requests everything again; a stale status adds a
 banner and every changed file is marked; `index_changed` is retried once.
-A list of source roots whose chips would not fit on one line (cards and
-strip, measured from the rendered chips) folds to one line: the largest
+A list of source roots whose chips would not fit on one line (in the
+cards, measured from the rendered chips) folds to one line: the largest
 roots by call count that fit (ties in the list's order), the active root's
 chip when a root filter is set, and a "+N more roots" chip that unfolds
 the full list in its usual order; "Show fewer" folds it again. The choice
@@ -866,8 +1029,8 @@ UI is exactly as described above. In project mode:
   "shown by default: choose a repository" sits under its highlighted
   row; a choice is kept per project in browser storage. Switching
   reloads every section. "Project" is the first entry under Sections. In
-  the collapsed sidebar (icon rail: graph views and windows under 600
-  px) a repository icon (a dot when the selection is the default or the
+  the collapsed sidebar (icon rail: the user's choice, or windows under
+  1100 px) a repository icon (a dot when the selection is the default or the
   links are stale) opens a popover with the same member list and link
   status. Wording through the label table (rows 28 to 30: link status,
   member freshness, the default note; both styles).
@@ -930,7 +1093,7 @@ there from the sidebar footer, with the same storage key): the editor's
 mark, a source marker and the editor's name. When `graphvein.yaml` sets
 `ide.link_template`, the same section shows it read-only with its line
 (edited in the YAML view). Every Settings section and key row has a stable
-anchor, `#/settings?at=<section>` (`editor`, `labels`, `indexing`, ...) or
+anchor, `#/settings?at=<section>` (`storage`, `editor`, `labels`, `indexing`, ...) or
 `#/settings?at=<key>` (`ide.editor`).
 The marker is a filled dot for your choice in this browser, a ring for the
 repository default from `graphvein.yaml`, and absent for Graphvein's
@@ -1067,7 +1230,12 @@ ingress, "may also use" with the database card's name, and where a hidden
 component's entry comes from) and two T025b rows,
 the impact panel's Unknowns line (untraversed edge kinds: "exposes route"
 or `exposes_route`; a relation not extracted: "Architecture components:
-..." or "Architecture components (I11): ...", the rule id in the tooltip);
+..." or "Architecture components (I11): ...", the rule id in the tooltip),
+and T073's rows 69-73 (a list row's "0 linked" or `never_called`, the
+group header's "266 path assumed" or `266 path_assumed`, the shared
+assumption's lead "Both callers rest on one assumption." or `path_assumed
+on 2 callers:`, the route header's "4 parts unverified" or the facts
+listed, the legend strip's "+ 5 kinds with no line here" or `+5 at 0`);
 a test checks that every row has both variants. A route's full path (row
 9) and an edge form without a checked word (row 4) read the same in both.
 Strings T025 left raw (reason and move-hint row tags, precision chips) are
@@ -1078,8 +1246,8 @@ Precedence: (1) the browser's choice; (2) the repository default,
 from `GET /api/v0/ui`; (3) plain. The setting's tooltip names the source.
 
 First launch: while nothing is chosen in this browser and the repository
-sets no default, a one-time banner sits across the top of the content
-(not a dialog; the page stays usable): "How should Graphvein label facts?"
+sets no default, a one-time banner sits across the top of the Overview
+(since T064 no other section shows it; not a dialog; the page stays usable): "How should Graphvein label facts?"
 with two equal buttons, "Plain" (e.g. Exact path match · 0.9) and "Technical"
 (e.g. inferred 0.9 exact, I4), and a close button (×) that keeps plain.
 Choosing or closing hides it for good in this browser; it waits for
@@ -1127,7 +1295,12 @@ not indexed. `found: unknown` opens "Schema not known for this index"
 (never "No migrations found"); the shell requests `/sets` once per index
 run, from the first visit to the section (leaving it and coming back reads
 the loaded answer), and for `scan_incomplete` and `manifest_unreadable` too, to list the
-paths. The home shows the selected set's strip (counts from the lists,
+paths (`scan_incomplete` names the kinds the scan gaps hold, such as
+"2 symlinks not followed", never a manifest kind, T070). `found: none`
+with `refused_sources` is titled by what was found and not read ("Graphvein
+found GORM models but did not read them") and lists each refusal with its
+file and stored reason, never "No migrations or model tables found"
+(T070). The home shows the selected set's strip (counts from the lists,
 the common state once, other states with full badges, the table-list
 line with every reason), under it one strip per failed set, set without
 records, unreadable manifest and one for the scan gaps, a compact foreign-key map
@@ -1151,8 +1324,8 @@ Code peek (T016e2, ADR 0044): clicking a caller or near-miss row, or its
 `</>` button ("Peek source (Enter)"; pressed while open, pressing again
 closes), opens the node's source from `GET /api/v0/source` in a resizable
 split below the detail pane; the handler has the same button. While it is
-open the coverage cards collapse to the compact strip, without its per-root
-rows (the Source root select still filters). Keyboard, with focus on a row
+open the coverage cards (when opened) are hidden and only the strips stay
+(the Source root select still filters). Keyboard, with focus on a row
 or a control in it: Up/Down move between rows (the open peek follows),
 Enter on the row toggles, Esc closes; closing returns focus to whatever
 opened the peek. The header shows the kind, name, state, path with
@@ -1196,10 +1369,17 @@ a "via fn()" pill in the call card. The summary line comes from `counts`
 misses" in the tab row (default 2 hops, near misses on; they filter the
 loaded answer and never re-request), zoom out, zoom in and Fit on the
 canvas (Fit returns to zoom 1, where every text is at least 12 px; the
-wheel and the buttons may zoom out to 0.5), a minimap, and the always
-visible legend whose chips (Fact, Exact, Suffix, Call, Near miss) dim a
-tier without re-layout; Dynamic and Unmatched are disabled at 0 ("never
-attached to an endpoint") with a link to their gap sheets. A wide graph
+wheel and the buttons may zoom out to 0.5), a minimap, and the legend
+strip below the canvas (T073, Proposed revision of ADR 0046): the kinds
+with a line on this screen as filter chips (Fact, Exact, Suffix, Call,
+Near miss dim a tier without re-layout), "+ n kinds with no line here",
+the calls' precision labels while the strip is at least 1000 px wide (the
+route's own label is in the header) and a **Legend** button. It opens the
+full legend over the bottom of the canvas (Esc or the button closes it;
+closed on every visit): every kind with its sample and count, Dynamic and
+Unmatched disabled at 0 ("never attached to an endpoint") with a link to
+their gap sheets, the boxes and marks, the notes and every precision
+label. A wide graph
 starts at the callers with a "Handler + downstream" pill. Clicking a card
 (a button) selects it and opens its code peek; its toolbar has Peek source
 (Enter), the IDE button (o) and the incoming and outgoing cards, each with
@@ -1226,8 +1406,8 @@ longer titles, paths and notes are cut in the middle with "…" (a path
 keeps its last `/` segment), the full texts are in the card's tooltip
 (hover or focus) and accessible name, and the peek header shows the full
 path. Column captions sit in a row pinned below the canvas's toolbar, at
-the canvas's left edge while their column is partly in view. While the tab is open the sidebar is
-an icon rail and the endpoint list a vertical rail whose button shows the
+the canvas's left edge while their column is partly in view. While the tab is open the
+endpoint list is a vertical rail whose button shows the
 list over the pane. React Flow and the layout worker load only when the tab
 opens: the Flow chunk, then elkjs's unmodified worker file from `/assets/`
 (a same-origin worker under the unchanged CSP); a layout taking over 10 s
@@ -1297,6 +1477,38 @@ kept, and says nothing about comments when none is lost. An edit that
 changes an `ide.*` key (in the YAML view: any key outside the form) reads
 the editor defaults again. In project mode the scope select is the member select,
 and the manifest's try-it environments are listed read-only.
+
+**Storage** (T068, [ADR 0088](../adr/0088-settings-editing.md) revision
+1) is the first section: where this machine keeps indexes, read from
+[`GET /api/v0/store`](#storage-get-apiv0store-post-apiv0storecheck-move-default).
+It is not in `graphvein.yaml` and needs no index: with no folder indexed,
+Settings shows only this section and says repository settings appear once
+a folder is indexed. Rows: "Index of <entry>" (the viewed entry's index
+file, or Postgres named by its variable, never the URL; its place chip,
+for example "outside the folder · default", "inside the folder" or
+"environment · this run only"; its size; Move… and Copy path; Move… is
+disabled with the server's reason for `GRAPHVEIN_SQLITE_PATH`'s file, a
+folder that is gone or no index yet, and absent in team mode); "New
+indexes are kept in" (the folder and where it comes from, Change…, read
+only while `GRAPHVEIN_STORE_DIR` decides it); Team mode (set or not set);
+Workspace list (the registry file). Move… and Change… are dialogs: the
+typed folder is checked by `POST /api/v0/store/check` while typing pauses
+(an empty folder means Graphvein's own folder), the answer (the index
+file it would be, its size, or the refusal's message) is shown, and the
+action button is enabled only for a ready answer of the folder on screen,
+whose one-time confirm value the move (`/store/move`) or the change
+(`/store/default`) sends. A finished move names the new file, the runs
+copied and the files deleted, and lists any original file that could not
+be deleted.
+
+The Add a folder confirmation has an "Index kept in" row: the index file
+the check named, its place chip and Change…, which offers Graphvein's
+folder (default), inside the folder (Git lists `.graphvein/` unless the
+repository ignores it) or another folder. Each choice is checked again by
+`POST /api/v0/workspace/check` with `store_place` (and `store_dir`), and
+Index uses that check's confirm value, so the index is created where the
+dialog showed. Change… is absent when the folder's index exists already
+(it stays where it is) or in team mode, with the server's reason.
 
 When `graphvein.yaml` does not load, `graphvein serve` starts anyway
 (an index run still refuses it): every view but Settings and the project
@@ -1484,6 +1696,12 @@ Concurrent requests wait for each other rather than scanning in parallel.
 - `index.indexed` is true when at least one run exists. `last_run` is the
   run with the latest finish time (null when there is none); `commit` is
   omitted when the producer recorded none.
+- `index.parse_failed` (T074, additive) counts the distinct files of the
+  stored run's `parse_failed` diagnostics: files whose facts are missing,
+  so every count of the index is incomplete. It is omitted when zero. The
+  Overview and the Couldn't read page show a notice from it; the files
+  are listed by `GET /api/v0/unread` under files not read. A failure to
+  read these diagnostics is a 500 `store_error`, as for the runs.
 - `extractor.current` is this binary's extractor version. `indexed` is the
   last run's version when Graphvein produced it, else null (external
   indexers have their own versions); `matches` compares the two and is null
@@ -1642,7 +1860,11 @@ with `all` every transport is present, also when empty.
 - HTTP rows: `method`, `pattern`, `framework` are the stored attributes (null
   when absent or not strings); `path` is the template of the first composed
   path whose entry is in scope (production and all: without `scope: test`;
-  test: with it), else of the first path, null when there is none, with
+  test: with it), else of the first path, null when there is none (and
+  null in production and all when no full path is production scope while
+  the route has a production unknown-prefix path: a path composed only
+  through test-scope mounts is not the route's production path, so
+  `prefix_unknown` is shown instead; T057), with
   a trailing `/` when the entry has `trailing_slash: true` and is not the
   root (the path FastAPI serves, ADR 0019; T025);
   `path_count` = number of composed paths (full paths only); `scope` is the raw attribute;
@@ -1998,7 +2220,7 @@ client_call, in this order:
 | `path_assumed` | as `prefix_assumed`, with `GR-V5`, `RO-V1` or `RO-V2` in the call's `assumes` (the route path entry the link matched rests on that path assumption, docs/extract/routes.md), after the `prefix_assumed` reasons | Assumption: `<the assumption's text>` ("a mounted app's catch-all may answer first: ...") | the assumption id |
 | `wrapper_inner` | status `wrapper` | Inner request of a wrapper; the wrapper's call sites are listed as calls | null |
 | `generated_output` | status `generated` (committed bundler output, ADR 0085) | Committed bundler output; its calls are not linked (clients.link_generated_output in graphvein.yaml links them) | `generated_output` (the marker row, `GB-1` ...) |
-| `no_matching_route` | a path entry is `unmatched` | No route matches this method and path | `<method> <template>` |
+| `no_matching_route` | a path entry is `unmatched` | No route with a known full path matches this method and path | `<method> <template>` |
 | `ambiguous` | a path entry is `ambiguous` | `<n>` routes match equally (`At least <n> ...` when no count is stored and ten are listed) | template |
 | `test_only_target` | a path entry is `test_only` | Only test-scope routes match | template |
 | `url_unevaluated` | every template is null | URL is not evaluated statically | `url_expression` |
@@ -2067,13 +2289,15 @@ The cheap count for the shell's Schema entry, read at load and again when
 `/api/v0/status` reports another `last_run.finished_at`. It reads the runs,
 the `migration` nodes, the stored file paths, the diagnostics of the
 stored `Cargo.toml` files and the diagnostics whose file is not stored
-(where the scanner reports what it did not read); never tables, columns or
-edges.
+(where the scanner reports what it did not read) and, for
+`refused_sources`, the stored `schema_model_not_proven` and
+`schema_model_unread` diagnostics; never columns or edges.
 
 ```json
 {"api_version": 0, "repository": "env-wrappers", "index": {...},
  "found": "none", "unknown_reason": null, "sets": 0, "test_only_sets": 0, "failed_sets": 0,
- "sets_without_records": 0, "unreadable_manifests": 0, "scan_gaps": 0}
+ "sets_without_records": 0, "unreadable_manifests": 0, "scan_gaps": 0,
+ "refused_sources": []}
 ```
 
 - `sets`: distinct string `set` values of the stored migrations;
@@ -2103,6 +2327,27 @@ edges.
   Graphvein's default exclusions (`target`, `vendor`, `node_modules`, a
   nested Git repository, ...) exclude is outside the index, so `none` says
   nothing about it.
+- `refused_sources` (T070; additive, `api_version` stays 0): the model
+  sources a linker found and refused as a whole, so the index holds no
+  model table for them: `[{tool, file, code, message}]`, one per stored
+  diagnostic of a stored file that matches one of the server's refusal
+  forms (`internal/server/schemarefusals.go`, one form per linker message
+  that refuses a package, module, config or schema file: a GORM module
+  not read, a package without a proven Prisma schema, `.prisma` files
+  outside every schema, a mongodb schema, a Drizzle, Sequelize or TypeORM
+  package, config or data source not read, a refused `diesel.toml`, a
+  Diesel `schema.rs` no `diesel.toml` names). `tool` is `gorm`, `prisma`,
+  `drizzle`, `sequelize`, `typeorm` or `diesel`; `code` is
+  `schema_model_not_proven` or `schema_model_unread`; `message` is the
+  stored text verbatim and names the reason. Ordered by file, tool, code,
+  then message; `[]` when none; null when not indexed. A refusal of a
+  single class, column or call site is not listed (it is counted in the
+  model group's `files` and `diagnostic_counts`), and a form the server
+  does not know is not listed, so `[]` never means "every source was
+  read". `found` does not change: a refused source is not a set. The
+  Schema view names these as "found, not read" with the message instead of
+  "No migrations or model tables found", and the Couldn't read page lists
+  them in its schema part.
 
 #### GET /api/v0/schema/sets
 
@@ -3016,6 +3261,11 @@ family. The response:
   `package` node and no `component_manifest_unread` diagnostic (an older
   index or another indexer): every manifest directory is then an unread
   component (CM-U1).
+- `parse_failed` (T074, additive): the number of files the run could not
+  parse, as `index.parse_failed` of `GET /api/v0/status`; omitted when
+  zero. Their facts are missing from every component, link and count
+  below; the Architecture header shows a notice and `GET /api/v0/unread`
+  lists the files.
 - `components[]`: `id` and `directory` (the manifest directory, `.` for the
   root), `name` (the package names, else the directory), `state` (`read`;
   `unread` for a CM-U1 directory, kind `unknown`; `unassigned` for the root
@@ -3024,7 +3274,7 @@ family. The response:
   `kinds[]` (`server`, `tauri_core`, `client`, `schema_source`, `binary`,
   `docs_site`, `package`, `unassigned_files` for the unassigned root (CK7,
   never folded), `unknown`), `frameworks[]` (of its routes),
-  `visibility` (`shown`, `folded` into the libraries card, `hidden`) with
+  `visibility` (`shown`, `folded` (the map's libraries band), `hidden`) with
   `hidden_by` (`tests`, `docs`, `configured`), `rows[]` (the CK and CV rows
   that applied), `markers[]` (`kind` `dockerfile`, `tauri_app` or
   `compose_service`, `label`, `file`, `row`, and for CD4 `basis`: Compose's
@@ -3501,6 +3751,11 @@ model at all, for any repository, is listed in
 [known gaps](../known-gaps.md). `scope` is `production`
 (default), `test` or `all`; `limit` bounds every list (1..2000, default
 200; counts are never capped); `editor` as above.
+The page also shows a "Schema: model sources found, not read" part when
+the shell's `/api/v0/schema/summary` answer has `refused_sources` (T070):
+one item per refusal, the tool, the file and the stored message. It is
+the schema summary's list, not part of this response, and it covers the
+served repository (in project mode the primary member), in every scope.
 
 ```json
 {"api_version": 0, "repository": "app", "scope": "production", "limit": 200,

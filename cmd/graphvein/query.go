@@ -19,11 +19,17 @@ import (
 	"github.com/graphvein/graphvein/internal/traverse"
 )
 
+// openReadStore opens root's store read-only, located as openStore
+// locates it (ADR 0093); it never creates one.
 func openReadStore(ctx context.Context, root string) (store.Store, error) {
 	if url := os.Getenv("GRAPHVEIN_POSTGRES_URL"); url != "" {
 		return postgres.OpenRead(ctx, url)
 	}
-	return sqlite.OpenRead(ctx, sqlitePath(root))
+	p, err := sqlitePath(root)
+	if err != nil {
+		return nil, err
+	}
+	return sqlite.OpenRead(ctx, p)
 }
 
 func queryCommand(command string, args []string, stdout, stderr io.Writer) int {

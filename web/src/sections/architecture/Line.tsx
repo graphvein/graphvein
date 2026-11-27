@@ -1,7 +1,9 @@
 // The map's lines: one per bundled pair of cards (AG15) on ELK's
 // orthogonal route, with a chip that names the families, the count and
-// the three-cell glyph. An SDK stub's line is thin and dotted with no chip
-// (AG5: never a protocol). A line is a button through its chip.
+// the three-cell glyph. A line is a button through its chip. Lines into
+// the libraries band (T067) have no chip of their own: the card's line
+// chip counts them, and library-library lines show only while one of
+// their ends is selected.
 
 import { BaseEdge, EdgeLabelRenderer, type Edge, type EdgeProps } from "@xyflow/react";
 
@@ -59,6 +61,15 @@ export function chainLineText(style: LabelStyle, edge: MapEdge): { text: string;
   return { text: `${words.slice(0, 2).join(", ")}${words.length > 2 ? ` +${String(words.length - 2)}` : ""} · ${tierText}`, title };
 }
 
+/** RAISED_LINE_Z is the z-index of chain and band lines: above the cards
+ * (0), below the band's chips and the chain's members (2). */
+export const RAISED_LINE_Z = 1;
+/** CHAIN_CHIP_Z is a chain line chip's z-index: above every line, so a
+ * chip interrupts its line instead of being struck through by it (T072).
+ * The chip also takes the pointer (the label layer passes it through by
+ * default), so its own line's wide hit path never answers over the chip. */
+export const CHAIN_CHIP_Z = 3;
+
 /** ChainLine draws stored edges between two chain members (dashed when
  * every one is structure, CH7/CH8), or a member's dotted line to its
  * step's fold. */
@@ -94,7 +105,7 @@ function ChainLine({ id, data }: EdgeProps<LineEdge>) {
         <EdgeLabelRenderer>
           <span
             className={cn("nodrag nopan absolute top-0 left-0 flex items-center justify-center rounded-full border bg-card px-1.5 text-[11px] leading-none whitespace-nowrap shadow-[0_1px_2px_hsl(240_10%_4%/.06)]", touches ? "border-brand text-foreground" : "border-brand/40 text-muted-foreground")}
-            style={{ transform: `translate(${String(chip.x)}px, ${String(chip.y)}px)`, height: chip.height, minWidth: chip.width }}
+            style={{ transform: `translate(${String(chip.x)}px, ${String(chip.y)}px)`, height: chip.height, minWidth: chip.width, zIndex: CHAIN_CHIP_Z, pointerEvents: "all" }}
             title={text.title}
             data-arch-chain-chip={id}
           >
@@ -109,7 +120,61 @@ function ChainLine({ id, data }: EdgeProps<LineEdge>) {
 /** MapLine renders one line; React Flow's edge type "line". */
 export function MapLine(props: EdgeProps<LineEdge>) {
   if (props.data?.edge.type === "chain" || props.data?.edge.type === "fold") return <ChainLine {...props} />;
+  if (props.data?.edge.band !== undefined) return <BandLine {...props} />;
   return <BundleLine {...props} />;
+}
+
+/** bandPath draws a band route: straight segments, then a curve into the
+ * chip (the last two points). */
+export function bandPath(pts: readonly { x: number; y: number }[]): string {
+  const last = pts[pts.length - 1];
+  const prev = pts[pts.length - 2];
+  if (last === undefined || prev === undefined) return "";
+  const head = pts.slice(0, -1).map((p, i) => `${i === 0 ? "M" : "L"} ${String(p.x)} ${String(p.y)}`).join(" ");
+  const my = (prev.y + last.y) / 2;
+  return `${head} C ${String(prev.x)} ${String(my)} ${String(last.x)} ${String(my)} ${String(last.x)} ${String(last.y)}`;
+}
+
+/** BandLine is a card-library line, routed on the bus (T072), or a
+ * library-library line while it is selected itself: a selected library's
+ * links are marked on the chips, not drawn (T071 V3). Selecting a line
+ * shows its links' evidence. */
+function BandLine({ id, data }: EdgeProps<LineEdge>) {
+  const a = useMapActions();
+  if (data === undefined) return null;
+  const { edge } = data;
+  const selected = a.selectedEdge === id;
+  const between = edge.band === "between";
+  if (between && !selected) return null;
+  const lit = a.focus !== null && a.focus.edges.has(id);
+  const hovered = !between && a.hover !== null && (a.hover === edge.source || a.hover === edge.target);
+  const dim = a.focus !== null && !lit;
+  // Bus lines rest in a lighter, solid grey (lines of one trunk lie on top
+  // of each other, so no alpha): the trunk under the pointer or keyboard
+  // focus and the selection's lines carry the contrast.
+  const color = lit || between || hovered ? "hsl(var(--brand))" : "color-mix(in srgb, hsl(var(--edge)) 58%, hsl(var(--canvas)))";
+  const pts = data.points.map((p) => ({ ...p }));
+  const last = pts[pts.length - 1];
+  const before = pts[pts.length - 2];
+  const heads = [];
+  if (last !== undefined) {
+    // A bus line ends on a straight segment into the chip; a selected
+    // library-library line curves in from straight above (or below).
+    const prev = !between && before !== undefined ? before : { x: last.x, y: pts.length > 1 && (before?.y ?? 0) > last.y ? last.y + 10 : last.y - 10 };
+    const h = arrow(last, prev, color, 6);
+    heads.push(<g key="end">{h.path}</g>);
+    pts[pts.length - 1] = h.base;
+  }
+  const path = between ? bandPath(pts) : roundedPath(pts, 5);
+  return (
+    <>
+      {selected && <path d={path} fill="none" stroke="hsl(var(--brand) / .35)" strokeWidth={7} strokeLinecap="round" />}
+      <g opacity={dim ? 0.1 : 1} data-arch-line={id} data-band={edge.band} data-dim={dim ? "true" : undefined} data-lit={lit || hovered ? "true" : undefined}>
+        <BaseEdge id={id} path={path} interactionWidth={between ? 10 : 6} style={{ stroke: color, strokeWidth: lit || hovered ? 2 : 1.3 }} />
+        {heads}
+      </g>
+    </>
+  );
 }
 
 function BundleLine({ id, data }: EdgeProps<LineEdge>) {
@@ -121,13 +186,12 @@ function BundleLine({ id, data }: EdgeProps<LineEdge>) {
   const dim = a.focus !== null && !a.focus.edges.has(id);
   const selected = a.selectedEdge === id;
   const family = edge.families.length === 1 ? (edge.families[0] ?? null) : null;
-  const stub = edge.type === "stub";
-  const color = stub ? "hsl(var(--muted-foreground))" : `hsl(var(${family !== null ? (FAMILY_STROKE[family] ?? "--edge") : "--edge"}))`;
+  const color = `hsl(var(${family !== null ? (FAMILY_STROKE[family] ?? "--edge") : "--edge"}))`;
   const heads = [];
   const last = pts[pts.length - 1];
   const prev = pts[pts.length - 2];
   if (last !== undefined && prev !== undefined) {
-    const h = arrow(last, prev, color, stub ? 6 : 8);
+    const h = arrow(last, prev, color, 8);
     heads.push(<g key="end">{h.path}</g>);
     pts[pts.length - 1] = h.base;
   }
@@ -147,10 +211,10 @@ function BundleLine({ id, data }: EdgeProps<LineEdge>) {
     <>
       {selected && <path d={path} fill="none" stroke="hsl(var(--brand) / .35)" strokeWidth={8} strokeLinecap="round" />}
       <g opacity={dim ? 0.2 : 1} data-arch-line={id} data-dim={dim ? "true" : undefined} data-type={edge.type}>
-        <BaseEdge id={id} path={path} interactionWidth={14} style={{ stroke: color, strokeWidth: stub ? 1.3 : 2.2, strokeDasharray: stub ? "2 4" : undefined }} />
+        <BaseEdge id={id} path={path} interactionWidth={14} style={{ stroke: color, strokeWidth: 2.2 }} />
         {heads}
       </g>
-      {chip !== null && !stub && (
+      {chip !== null && (
         <EdgeLabelRenderer>
           <button
             type="button"

@@ -23,7 +23,11 @@
 // claim row that keeps an item out of the standard fields. Rows 65 to 68
 // are the Explorer's Try it out (T029 part B): a base URL suggestion's
 // source, where an environment's auth comes from, why a request asks for a
-// confirmation, and why a response was cut.
+// confirmation, and why a response was cut. Rows 69 to 73 are T073's
+// quieter API pages: a list row's "0 linked", the group header's path
+// assumption count, the lead of an assumption every caller shares, the
+// route header's unverified count and the Flow legend strip's count of
+// kinds with no line.
 //
 // Row 9 reads the same in both styles: it is the route's full path, a
 // correctness fix rather than a wording choice. Row 4 has no checked rule
@@ -668,6 +672,47 @@ export const LABELS = {
     rows: { 55: { kind: "writes_table", provenance: "inferred", confidence: 0.9, wording: null } },
     plain: (a) => ({ text: withNumber(a.wording ?? accessVerb(a.kind, a.provenance === "fact"), a.confidence), title: `${a.kind} ${a.provenance} ${confidenceNumber(a.confidence)}. ${RANK_NOTE}` }),
     technical: (a) => ({ text: `${a.kind} ${a.provenance} ${confidenceNumber(a.confidence)}`, title: a.wording ?? accessVerb(a.kind, a.provenance === "fact") }),
+  }),
+  // T073 (rows 69-73, T071 questions 8-10): the quieter API list, route
+  // header and callers list, and the Flow tab's legend strip.
+  /** API list: the caller cell of a row with no linked caller (row 69).
+   * full is the headline's sentence ("No linked caller in production",
+   * neverCalledLabel); it stays in the tooltip in both styles. Technical
+   * shows the API key the row is counted under. */
+  rowNoCaller: entry<{ full: string; hint: string }>({
+    rows: { 69: { full: "No linked caller in production", hint: "Graphvein found no call it could link; unresolved calls may still reach it." } },
+    plain: (a) => ({ text: "0 linked", title: `${a.full}. ${a.hint}` }),
+    technical: (a) => ({ text: "never_called", title: `${a.full}. ${a.hint}` }),
+  }),
+  /** API list: the group header's count of rows whose composed path rests
+   * on an assumption, when the row icon is left out because at least half
+   * the group has it (row 70). */
+  groupAssumed: entry<{ count: number; of: number; noun: string }>({
+    rows: { 70: { count: 266, of: 273, noun: "routes" } },
+    plain: (a) => ({ text: `${String(a.count)} path assumed`, title: `Path assumption on ${String(a.count)} of ${String(a.of)} ${a.noun}: named on the route, and marked on the row under the pointer or selected (flag path_assumed)` }),
+    technical: (a) => ({ text: `${String(a.count)} path_assumed`, title: `A composed path rests on an assumption on ${String(a.count)} of ${String(a.of)} ${a.noun}; marked on the row under the pointer or selected` }),
+  }),
+  /** Callers: the lead of an assumption every caller of the list carries
+   * with the same text, said once above the table (row 71). */
+  sharedAssumption: entry<{ count: number; code: string }>({
+    rows: { 71: { count: 2, code: "path_assumed" } },
+    plain: (a) => ({ text: `${a.count === 2 ? "Both callers rest" : `All ${String(a.count)} callers rest`} on one assumption.`, title: `Said once: every caller below carries this reason (${a.code}) with the same text` }),
+    technical: (a) => ({ text: `${a.code} on ${String(a.count)} callers:`, title: `Every caller below rests on the same assumption, said once` }),
+  }),
+  /** Route header: the facts a Precise label does not cover, as a count
+   * with the facts in the tooltip (row 72); technical lists them. */
+  unverifiedCount: entry<readonly string[]>({
+    rows: { 72: ["handler", "middleware", "conditional", "scope"] },
+    plain: (f) => ({ text: `${String(f.length)} ${f.length === 1 ? "part" : "parts"} unverified`, title: `Unverified: ${f.join(", ")}. Outside the Precise scope (no oracle compares them): these facts stay unverified.` }),
+    technical: (f) => ({ text: `unverified: ${f.join(", ")}`, title: "Outside the Precise scope (no oracle compares them): these facts stay unverified." }),
+  }),
+  /** Flow tab: the legend strip's count of the kinds the tab can draw
+   * that have no line on this screen; they are in the full legend
+   * (row 73). */
+  legendHidden: entry<number>({
+    rows: { 73: 5 },
+    plain: (n) => ({ text: `+ ${String(n)} ${n === 1 ? "kind" : "kinds"} with no line here`, title: "Kinds this tab can draw with no line on this screen (their count is 0): open the Legend for every kind, its sample and the gap sheets" }),
+    technical: (n) => ({ text: `+${String(n)} at 0`, title: `${String(n)} ${n === 1 ? "kind" : "kinds"} with no line here; every kind is in the Legend` }),
   }),
 };
 

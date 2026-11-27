@@ -16,7 +16,7 @@
 //   steps. The inspector uses the same numbers (synced highlight).
 
 import type { ChainEdge, ChainEnd, ChainMember, ChainResponse, ChainSide, ChainStep, Link } from "@/api/architecture";
-import { LIBRARIES_ID, componentNodeId, type MapEdge, type MapModel, type MapNode } from "@/sections/architecture/model";
+import { componentNodeId, libraryNodeId, type MapEdge, type MapModel, type MapNode } from "@/sections/architecture/model";
 
 export type ChainSideName = "up" | "start" | "down";
 
@@ -115,11 +115,11 @@ export function chainView(r: ChainResponse): ChainView {
 }
 
 /** cardOf is the map card a member belongs to on a model: a component's
- * card (or the libraries card), a table's database card, a database
+ * card (or its library chip in the band), a table's database card, a database
  * member's own card; null when the Show toggles hide its card or the
  * answer names no card for it. */
 export function cardOf(model: MapModel, m: ChainMember): string | null {
-  const has = (id: string) => model.nodes.some((n) => n.id === id && (n.type === "component" || n.type === "database" || n.type === "libraries" || n.type === "repository"));
+  const has = (id: string) => model.nodes.some((n) => n.id === id && (n.type === "component" || n.type === "database" || n.type === "library" || n.type === "repository"));
   if (m.kind === "database") return has(m.id) ? m.id : null;
   // CH13: another member's node, or its card in a component chain.
   if (m.kind === "repository") return has(m.id) ? m.id : null;
@@ -128,9 +128,8 @@ export function cardOf(model: MapModel, m: ChainMember): string | null {
   if (m.component === null) return null;
   const card = componentNodeId(m.component);
   if (has(card)) return card;
-  const lib = model.nodes.flatMap((n) => (n.type === "libraries" ? [n] : []))[0];
-  if (lib !== undefined && lib.members.some((c) => c.id === m.component)) return LIBRARIES_ID;
-  return null;
+  const lib = libraryNodeId(m.component);
+  return has(lib) ? lib : null;
 }
 
 /** memberNodeId is the map node id of a drawn member. */
@@ -239,7 +238,7 @@ export function buildChainMap(base: MapModel, v: ChainView): { model: MapModel; 
   const nodes: MapNode[] = [];
   for (const n of base.nodes) {
     const members = containers.get(n.id);
-    if (members !== undefined && (n.type === "component" || n.type === "database" || n.type === "libraries" || n.type === "repository")) {
+    if (members !== undefined && (n.type === "component" || n.type === "database" || n.type === "library" || n.type === "repository")) {
       nodes.push({ type: "container", id: n.id, card: n, members: members.map((m) => m.id) });
       for (const m of members) nodes.push({ type: "member", id: memberNodeId(m.id), member: m, number: v.numberOf.get(m.id) ?? 0, parent: n.id });
     } else nodes.push(n);

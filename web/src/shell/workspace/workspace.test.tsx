@@ -515,8 +515,10 @@ describe("first run and notices (WS-47, WS-48, WS-51)", () => {
       </WorkspaceProvider>,
     );
     const nav = screen.getByRole("navigation", { name: "Sections" });
-    // Only Help is a link: it needs no index (T045); Settings is greyed.
-    expect([...nav.querySelectorAll("a[href^='#/']")].map((a) => a.getAttribute("href"))).toEqual(["#/help"]);
+    // Only the logo (home: the add card, T064), Settings and Help are
+    // links: Help needs no index (T045), and Settings shows this machine's
+    // Storage without one (T068 part 3).
+    expect([...nav.querySelectorAll("a[href^='#/']")].map((a) => a.getAttribute("href"))).toEqual(["#/overview", "#/settings", "#/help"]);
     expect(screen.getByTestId("sidebar-versions").textContent).not.toMatch(/Extractors|Server/);
     expect(screen.getByTestId("first-run").textContent).toContain("Add a folder");
     expect(screen.getByTestId("index-command").textContent).toContain("graphvein index <folder>");

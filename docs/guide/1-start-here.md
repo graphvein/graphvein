@@ -37,6 +37,11 @@ Labels come in two styles. Plain, the default, uses words and the number
 
 ## A first look
 
+The [Overview](#/overview) is the home page: the Graphvein logo at the top
+of the sidebar opens it. It shows the parts of the repository and how they
+connect, its routes and calls, its database tables and what Graphvein could
+not read, each with a link into the section that has the details.
+
 1. Open [API](#/api) and pick a route. The Callers tab lists every call
    matched to it, each with its label.
 2. Open [Changes](#/changes) to see what changed since an earlier index

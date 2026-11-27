@@ -7,8 +7,8 @@
     {
       "file": "hero-seerr-light.png",
       "kind": "screenshot",
-      "main_commit": "99b1f38708ff62901bd2bbf6a48183d42d18c985",
-      "extractor_version": "extractors-63",
+      "main_commit": "cdd27db734c9dc758f82eedd3183102378926412",
+      "extractor_version": "extractors-64",
       "corpus": "seerr",
       "corpus_repository": "https://github.com/seerr-team/seerr",
       "corpus_pin": "8331f36c919cf4af79ece4d308434fd8d7002390",
@@ -18,7 +18,7 @@
       },
       "device_scale_factor": 2,
       "theme": "light",
-      "shown": "Hero, uncropped. seerr API: 217 routes (express), 78% linked of 219 client calls: 172 linked, 21 unmatched, 20 dynamic, 3 wrapper, 105 no linked caller in production, 3 ambiguous. POST /api/v1/request (3 callers) selected; with the UI fix the route header (POST /api/v1/request, composed paths, Fact 1.0) and the Overview / Callers 3 / Flow tabs stay visible while the peek is open, with no splitter drag. Caller CollectionRequestModal peeking, Linked, \"Exact path match · 0.9\"; peek of CollectionRequestModal.tsx:205 with lines 205-210 axios.post<MediaRequest>('/api/v1/request', { ... }) highlighted. Status Fresh.",
+      "shown": "Hero, uncropped. seerr API: one summary strip, 217 routes (express), 78% linked of 219 client calls: 172 linked, 21 unmatched, 20 dynamic, 3 wrapper, 105 no linked caller in production, 3 ambiguous; Tauri IPC and Server actions shown as \"none found\" tabs. POST /api/v1/request (3 callers) selected; the route header (POST /api/v1/request, 2 composed paths, facts line HTTP · express · seerr, Fact 1.0) and the Overview / Callers 3 / Flow tabs stay visible while the peek is open; the peek splitter is dragged 28 px down so the caller row shows whole. Caller CollectionRequestModal peeking, Linked, \"Exact path match · 0.9\"; peek of CollectionRequestModal.tsx:205 with lines 205-210 axios.post<MediaRequest>('/api/v1/request', { ... }) highlighted. The endpoint list reads \"0 linked\" as text. Status Fresh.",
       "alt": "The API section of Graphvein on seerr: the route POST /api/v1/request is selected with its tabs in view, and the code peek of its caller CollectionRequestModal highlights axios.post('/api/v1/request', ...), labelled 'Exact path match · 0.9'; the summary shows 78% of client calls linked with the unmatched, dynamic and ambiguous counts.",
       "caption": "seerr: a route, the frontend call behind it, and the exact line.",
       "dark": "hero-seerr-dark.png"
@@ -26,8 +26,8 @@
     {
       "file": "hero-seerr-dark.png",
       "kind": "screenshot",
-      "main_commit": "99b1f38708ff62901bd2bbf6a48183d42d18c985",
-      "extractor_version": "extractors-63",
+      "main_commit": "cdd27db734c9dc758f82eedd3183102378926412",
+      "extractor_version": "extractors-64",
       "corpus": "seerr",
       "corpus_repository": "https://github.com/seerr-team/seerr",
       "corpus_pin": "8331f36c919cf4af79ece4d308434fd8d7002390",
@@ -37,15 +37,15 @@
       },
       "device_scale_factor": 2,
       "theme": "dark",
-      "shown": "Hero, uncropped. seerr API: 217 routes (express), 78% linked of 219 client calls: 172 linked, 21 unmatched, 20 dynamic, 3 wrapper, 105 no linked caller in production, 3 ambiguous. POST /api/v1/request (3 callers) selected; with the UI fix the route header (POST /api/v1/request, composed paths, Fact 1.0) and the Overview / Callers 3 / Flow tabs stay visible while the peek is open, with no splitter drag. Caller CollectionRequestModal peeking, Linked, \"Exact path match · 0.9\"; peek of CollectionRequestModal.tsx:205 with lines 205-210 axios.post<MediaRequest>('/api/v1/request', { ... }) highlighted. Status Fresh.",
+      "shown": "Hero, uncropped. seerr API: one summary strip, 217 routes (express), 78% linked of 219 client calls: 172 linked, 21 unmatched, 20 dynamic, 3 wrapper, 105 no linked caller in production, 3 ambiguous; Tauri IPC and Server actions shown as \"none found\" tabs. POST /api/v1/request (3 callers) selected; the route header (POST /api/v1/request, 2 composed paths, facts line HTTP · express · seerr, Fact 1.0) and the Overview / Callers 3 / Flow tabs stay visible while the peek is open; the peek splitter is dragged 28 px down so the caller row shows whole. Caller CollectionRequestModal peeking, Linked, \"Exact path match · 0.9\"; peek of CollectionRequestModal.tsx:205 with lines 205-210 axios.post<MediaRequest>('/api/v1/request', { ... }) highlighted. The endpoint list reads \"0 linked\" as text. Status Fresh.",
       "alt": "The API section of Graphvein on seerr: the route POST /api/v1/request is selected with its tabs in view, and the code peek of its caller CollectionRequestModal highlights axios.post('/api/v1/request', ...), labelled 'Exact path match · 0.9'; the summary shows 78% of client calls linked with the unmatched, dynamic and ambiguous counts.",
       "caption": "seerr: a route, the frontend call behind it, and the exact line."
     },
     {
-      "file": "api-owncast-callers-light.png",
+      "file": "overview-owncast-light.png",
       "kind": "screenshot",
-      "main_commit": "99b1f38708ff62901bd2bbf6a48183d42d18c985",
-      "extractor_version": "extractors-63",
+      "main_commit": "cdd27db734c9dc758f82eedd3183102378926412",
+      "extractor_version": "extractors-64",
       "corpus": "owncast",
       "corpus_repository": "https://github.com/owncast/owncast",
       "corpus_pin": "b2c4e69553f87884c856a1a71147fe8138d21cc3",
@@ -55,22 +55,71 @@
       },
       "device_scale_factor": 2,
       "theme": "light",
-      "shown": "owncast API (messy): 273 routes (chi, net/http), 10% linked of 202 client calls: 22 linked, 2 unmatched, 10 dynamic, 21 wrapper, 254 no linked caller in production, 1 ambiguous, 146 other; by source root: (repository root) 0% of 166, web 61% of 36. GET /api/config selected (assumes GR-V5, unverified handler/middleware/conditional/scope), Callers 2: Help (web/pages/admin/help.tsx:95) Linked, \"Exact path match · 0.9\", with the wrapper assumption. Status Fresh.",
-      "alt": "The API summary on owncast: 273 routes; of the client calls, 22 linked, 2 unmatched, 10 dynamic, 21 behind a wrapper, and 254 routes with no linked caller in production; split by source root, 0% linked at the repository root and 61% under web.",
+      "shown": "Overview of owncast (the home page): header (owncast, index time, extractors-64); Parts: 2 components on the map (github.com/owncast/owncast, chi server: 273 routes, 148 client calls, 1,310 files; owncast-web, Client: 33 client calls, 594 files), Workspace libraries in the band below the cards (10 packages), HTTP owncast-web -> github.com/owncast/owncast, 22 calls linked; Interfaces: 273 HTTP routes (chi, net/http), 202 client calls, 22 linked to a route (10 %), 254 routes with no linked caller in production, Tauri IPC and Server actions none found; Data: no migration set or model table found, \"This does not mean there is no database\"; What Graphvein could not read: 226 files not read, 444 files with no fact stored, 31 client calls not resolved, 1 route without a full path, 260 routes with parts of their shape not read, 82.2K in-code calls to unknown code; Start here links. Status Fresh.",
+      "alt": "The Overview page of Graphvein on owncast: its two parts, a Go chi server and a web client linked by 22 HTTP calls, and their workspace libraries; its interfaces, 273 routes and 202 client calls of which 22 are linked; no database found, with a note that this does not mean there is none; and what Graphvein could not read, counted.",
+      "caption": "Start from one page: the parts, the interfaces, the data, and what it couldn't read.",
+      "crop": {
+        "x": 490,
+        "y": 130,
+        "w": 2370,
+        "h": 1060
+      },
+      "dark": "overview-owncast-dark.png"
+    },
+    {
+      "file": "overview-owncast-dark.png",
+      "kind": "screenshot",
+      "main_commit": "cdd27db734c9dc758f82eedd3183102378926412",
+      "extractor_version": "extractors-64",
+      "corpus": "owncast",
+      "corpus_repository": "https://github.com/owncast/owncast",
+      "corpus_pin": "b2c4e69553f87884c856a1a71147fe8138d21cc3",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "device_scale_factor": 2,
+      "theme": "dark",
+      "shown": "Overview of owncast (the home page): header (owncast, index time, extractors-64); Parts: 2 components on the map (github.com/owncast/owncast, chi server: 273 routes, 148 client calls, 1,310 files; owncast-web, Client: 33 client calls, 594 files), Workspace libraries in the band below the cards (10 packages), HTTP owncast-web -> github.com/owncast/owncast, 22 calls linked; Interfaces: 273 HTTP routes (chi, net/http), 202 client calls, 22 linked to a route (10 %), 254 routes with no linked caller in production, Tauri IPC and Server actions none found; Data: no migration set or model table found, \"This does not mean there is no database\"; What Graphvein could not read: 226 files not read, 444 files with no fact stored, 31 client calls not resolved, 1 route without a full path, 260 routes with parts of their shape not read, 82.2K in-code calls to unknown code; Start here links. Status Fresh.",
+      "alt": "The Overview page of Graphvein on owncast: its two parts, a Go chi server and a web client linked by 22 HTTP calls, and their workspace libraries; its interfaces, 273 routes and 202 client calls of which 22 are linked; no database found, with a note that this does not mean there is none; and what Graphvein could not read, counted.",
+      "caption": "Start from one page: the parts, the interfaces, the data, and what it couldn't read.",
+      "crop": {
+        "x": 490,
+        "y": 130,
+        "w": 2370,
+        "h": 1060
+      }
+    },
+    {
+      "file": "api-owncast-callers-light.png",
+      "kind": "screenshot",
+      "main_commit": "cdd27db734c9dc758f82eedd3183102378926412",
+      "extractor_version": "extractors-64",
+      "corpus": "owncast",
+      "corpus_repository": "https://github.com/owncast/owncast",
+      "corpus_pin": "b2c4e69553f87884c856a1a71147fe8138d21cc3",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "device_scale_factor": 2,
+      "theme": "light",
+      "shown": "owncast API (messy): one summary strip, 273 routes (chi, net/http), 10% linked of 202 client calls: 22 linked, 2 unmatched, 10 dynamic, 21 wrapper, 254 no linked caller in production, 1 ambiguous, 146 other (the per-source-root split is behind \"Coverage and roots\", closed). Endpoint list header \"273 routes · 254 no linked caller in production · 266 path assumed\", rows \"0 linked\" as text. GET /api/config selected: path and one facts line (HTTP · chi · owncast, 1 composed path, same as above, literal, assumes GR-V5, Routes Precise, 4 parts unverified, Fact 1.0); Callers 2 linked, with \"Both callers rest on one assumption\" stated once above them: Help (web/pages/admin/help.tsx:95) and ClientConfigService.getConfig (web/services/client-config-service.ts:12), each Linked, \"Exact path match · 0.9\". Status Fresh.",
+      "alt": "The API section on owncast: of 202 client calls, 22 linked, 2 unmatched, 10 dynamic, 21 behind a wrapper, 1 ambiguous and 146 other, and 254 routes with no linked caller in production; the route GET /api/config has two linked callers, and the one assumption both rest on is stated once above them.",
       "caption": "On a messy repository, every call it couldn't link is counted by reason.",
       "crop": {
-        "x": 525,
-        "y": 295,
-        "w": 1630,
-        "h": 420
+        "x": 500,
+        "y": 215,
+        "w": 2350,
+        "h": 1150
       },
       "dark": "api-owncast-callers-dark.png"
     },
     {
       "file": "api-owncast-callers-dark.png",
       "kind": "screenshot",
-      "main_commit": "99b1f38708ff62901bd2bbf6a48183d42d18c985",
-      "extractor_version": "extractors-63",
+      "main_commit": "cdd27db734c9dc758f82eedd3183102378926412",
+      "extractor_version": "extractors-64",
       "corpus": "owncast",
       "corpus_repository": "https://github.com/owncast/owncast",
       "corpus_pin": "b2c4e69553f87884c856a1a71147fe8138d21cc3",
@@ -80,21 +129,21 @@
       },
       "device_scale_factor": 2,
       "theme": "dark",
-      "shown": "owncast API (messy): 273 routes (chi, net/http), 10% linked of 202 client calls: 22 linked, 2 unmatched, 10 dynamic, 21 wrapper, 254 no linked caller in production, 1 ambiguous, 146 other; by source root: (repository root) 0% of 166, web 61% of 36. GET /api/config selected (assumes GR-V5, unverified handler/middleware/conditional/scope), Callers 2: Help (web/pages/admin/help.tsx:95) Linked, \"Exact path match · 0.9\", with the wrapper assumption. Status Fresh.",
-      "alt": "The API summary on owncast: 273 routes; of the client calls, 22 linked, 2 unmatched, 10 dynamic, 21 behind a wrapper, and 254 routes with no linked caller in production; split by source root, 0% linked at the repository root and 61% under web.",
+      "shown": "owncast API (messy): one summary strip, 273 routes (chi, net/http), 10% linked of 202 client calls: 22 linked, 2 unmatched, 10 dynamic, 21 wrapper, 254 no linked caller in production, 1 ambiguous, 146 other (the per-source-root split is behind \"Coverage and roots\", closed). Endpoint list header \"273 routes · 254 no linked caller in production · 266 path assumed\", rows \"0 linked\" as text. GET /api/config selected: path and one facts line (HTTP · chi · owncast, 1 composed path, same as above, literal, assumes GR-V5, Routes Precise, 4 parts unverified, Fact 1.0); Callers 2 linked, with \"Both callers rest on one assumption\" stated once above them: Help (web/pages/admin/help.tsx:95) and ClientConfigService.getConfig (web/services/client-config-service.ts:12), each Linked, \"Exact path match · 0.9\". Status Fresh.",
+      "alt": "The API section on owncast: of 202 client calls, 22 linked, 2 unmatched, 10 dynamic, 21 behind a wrapper, 1 ambiguous and 146 other, and 254 routes with no linked caller in production; the route GET /api/config has two linked callers, and the one assumption both rest on is stated once above them.",
       "caption": "On a messy repository, every call it couldn't link is counted by reason.",
       "crop": {
-        "x": 525,
-        "y": 295,
-        "w": 1630,
-        "h": 420
+        "x": 500,
+        "y": 215,
+        "w": 2350,
+        "h": 1150
       }
     },
     {
       "file": "flow-axum-downstream-light.png",
       "kind": "screenshot",
-      "main_commit": "99b1f38708ff62901bd2bbf6a48183d42d18c985",
-      "extractor_version": "extractors-63",
+      "main_commit": "cdd27db734c9dc758f82eedd3183102378926412",
+      "extractor_version": "extractors-64",
       "corpus": "react + axum (project \"conduit-rust\")",
       "corpus_repository": "https://github.com/yurisldk/realworld-react-fsd; https://github.com/launchbadge/realworld-axum-sqlx",
       "corpus_pin": "react 969709a379b13935b4e1caae0ad8cad548e5879a; axum f1b25654773228297e35c292f357d33b7121a101",
@@ -104,22 +153,22 @@
       },
       "device_scale_factor": 2,
       "theme": "light",
-      "shown": "Project conduit-rust, member axum: POST /api/articles/{slug}/favorite, Flow at 1 hop, handler and downstream: favorite_article (src/http/articles/mod.rs:395) -> article_by_id (:501) -> tables article, user, follow (\"Reads · 1.0\") and article_favorite (\"Reads and writes · 1.0\"), edges labelled reads/writes 1.0, \"No other table at hop 3\" card; note \"No stored callers · No linked caller in production in this repository; calls of other repositories are linked to it\"; banner \"3 calls from other repositories (react) ... See them in Callers\"; summary \"4 tables (1 written), stored edges only, a lower bound\". The route itself is the header above the canvas (its card is left of the frame at this readable zoom). Status Fresh.",
+      "shown": "Project conduit-rust, member axum: POST /api/articles/{slug}/favorite, Flow at 1 hop, Handler + downstream: the route header above the canvas (path, facts line HTTP · axum · axum, Fact 1.0); favorite_article (src/http/articles/mod.rs:395) -> article_by_id (:501) -> tables article, user, follow (\"Reads · 1.0\") and article_favorite (\"Reads and writes · 1.0\"), edges labelled reads/writes 1.0, \"No other table at hop 3\" card; note \"No stored callers · No linked caller in production in this repository; calls of other repositories are linked to it\"; banner \"3 calls from other repositories (react) ... See them in Callers\"; summary \"4 tables (1 written), stored edges only, a lower bound\"; the legend as one strip (Fact 1.0, call, reads / writes, \"+ 5 kinds with no line here\", precision labels, Legend button). Status Fresh.",
       "alt": "The Flow tab of POST /api/articles/{slug}/favorite in a Rust axum backend: the handler favorite_article calls article_by_id, which reads the tables article, user and follow and reads and writes article_favorite, each edge labelled 1.0; a note says the route has no stored callers in this repository.",
       "caption": "From handler to the tables it reads and writes, one hop at a time.",
       "crop": {
-        "x": 288,
+        "x": 620,
         "y": 230,
-        "w": 1860,
-        "h": 1160
+        "w": 2220,
+        "h": 1380
       },
       "dark": "flow-axum-downstream-dark.png"
     },
     {
       "file": "flow-axum-downstream-dark.png",
       "kind": "screenshot",
-      "main_commit": "99b1f38708ff62901bd2bbf6a48183d42d18c985",
-      "extractor_version": "extractors-63",
+      "main_commit": "cdd27db734c9dc758f82eedd3183102378926412",
+      "extractor_version": "extractors-64",
       "corpus": "react + axum (project \"conduit-rust\")",
       "corpus_repository": "https://github.com/yurisldk/realworld-react-fsd; https://github.com/launchbadge/realworld-axum-sqlx",
       "corpus_pin": "react 969709a379b13935b4e1caae0ad8cad548e5879a; axum f1b25654773228297e35c292f357d33b7121a101",
@@ -129,21 +178,21 @@
       },
       "device_scale_factor": 2,
       "theme": "dark",
-      "shown": "Project conduit-rust, member axum: POST /api/articles/{slug}/favorite, Flow at 1 hop, handler and downstream: favorite_article (src/http/articles/mod.rs:395) -> article_by_id (:501) -> tables article, user, follow (\"Reads · 1.0\") and article_favorite (\"Reads and writes · 1.0\"), edges labelled reads/writes 1.0, \"No other table at hop 3\" card; note \"No stored callers · No linked caller in production in this repository; calls of other repositories are linked to it\"; banner \"3 calls from other repositories (react) ... See them in Callers\"; summary \"4 tables (1 written), stored edges only, a lower bound\". The route itself is the header above the canvas (its card is left of the frame at this readable zoom). Status Fresh.",
+      "shown": "Project conduit-rust, member axum: POST /api/articles/{slug}/favorite, Flow at 1 hop, Handler + downstream: the route header above the canvas (path, facts line HTTP · axum · axum, Fact 1.0); favorite_article (src/http/articles/mod.rs:395) -> article_by_id (:501) -> tables article, user, follow (\"Reads · 1.0\") and article_favorite (\"Reads and writes · 1.0\"), edges labelled reads/writes 1.0, \"No other table at hop 3\" card; note \"No stored callers · No linked caller in production in this repository; calls of other repositories are linked to it\"; banner \"3 calls from other repositories (react) ... See them in Callers\"; summary \"4 tables (1 written), stored edges only, a lower bound\"; the legend as one strip (Fact 1.0, call, reads / writes, \"+ 5 kinds with no line here\", precision labels, Legend button). Status Fresh.",
       "alt": "The Flow tab of POST /api/articles/{slug}/favorite in a Rust axum backend: the handler favorite_article calls article_by_id, which reads the tables article, user and follow and reads and writes article_favorite, each edge labelled 1.0; a note says the route has no stored callers in this repository.",
       "caption": "From handler to the tables it reads and writes, one hop at a time.",
       "crop": {
-        "x": 288,
+        "x": 620,
         "y": 230,
-        "w": 1860,
-        "h": 1160
+        "w": 2220,
+        "h": 1380
       }
     },
     {
       "file": "changes-langflow-impact-light.png",
       "kind": "screenshot",
-      "main_commit": "99b1f38708ff62901bd2bbf6a48183d42d18c985",
-      "extractor_version": "extractors-63",
+      "main_commit": "cdd27db734c9dc758f82eedd3183102378926412",
+      "extractor_version": "extractors-64",
       "corpus": "langflow",
       "corpus_repository": "https://github.com/langflow-ai/langflow",
       "corpus_pin": "504c02fc47e76087b82b0e7cbe4186e9cdd916d4",
@@ -153,7 +202,7 @@
       },
       "device_scale_factor": 2,
       "theme": "light",
-      "shown": "Changes (DEMO EDIT: a one-line edit made in the scratch copy, not an upstream change): previous run -> current index (run 2, dirty, both partial), \"Partial comparison\" notice naming the files whose facts are unknown in both runs; 1 body changed: get_messages; Impact at depth 5, 19 dependents: GET /api/v1/monitor/messages (handled by the changed code, Fact 1.0), its OpenAPI operation (documents this route, Inferred 0.9), two frontend client calls (calls this route, \"may depend on\", Inferred 0.9), their functions (makes the changed call), ... Status Fresh.",
+      "shown": "Changes (DEMO EDIT: a one-line edit made in the scratch copy, not an upstream change): previous run -> current index (run 2, dirty, both partial), \"Partial comparison\" notice naming the files whose facts are unknown in both runs; 1 body changed: get_messages (monitor.py:297); Impact at depth 5, 19 dependents: GET /api/v1/monitor/messages (handled by the changed code, Fact 1.0), its OpenAPI operation (documents this route, Inferred 0.9), two frontend client calls (calls this route, \"may depend on\", Inferred 0.9), their functions (makes the changed call), ... Status Fresh.",
       "demo_edit": true,
       "alt": "The Changes section on langflow after a demo one-line edit to the function get_messages: the Impact tab at depth 5 lists the route it handles as a fact, its OpenAPI operation and two frontend calls, each 'may depend on' and inferred 0.9.",
       "caption": "A demo one-line edit, and everything it may reach across the stack.",
@@ -168,8 +217,8 @@
     {
       "file": "changes-langflow-impact-dark.png",
       "kind": "screenshot",
-      "main_commit": "99b1f38708ff62901bd2bbf6a48183d42d18c985",
-      "extractor_version": "extractors-63",
+      "main_commit": "cdd27db734c9dc758f82eedd3183102378926412",
+      "extractor_version": "extractors-64",
       "corpus": "langflow",
       "corpus_repository": "https://github.com/langflow-ai/langflow",
       "corpus_pin": "504c02fc47e76087b82b0e7cbe4186e9cdd916d4",
@@ -179,7 +228,7 @@
       },
       "device_scale_factor": 2,
       "theme": "dark",
-      "shown": "Changes (DEMO EDIT: a one-line edit made in the scratch copy, not an upstream change): previous run -> current index (run 2, dirty, both partial), \"Partial comparison\" notice naming the files whose facts are unknown in both runs; 1 body changed: get_messages; Impact at depth 5, 19 dependents: GET /api/v1/monitor/messages (handled by the changed code, Fact 1.0), its OpenAPI operation (documents this route, Inferred 0.9), two frontend client calls (calls this route, \"may depend on\", Inferred 0.9), their functions (makes the changed call), ... Status Fresh.",
+      "shown": "Changes (DEMO EDIT: a one-line edit made in the scratch copy, not an upstream change): previous run -> current index (run 2, dirty, both partial), \"Partial comparison\" notice naming the files whose facts are unknown in both runs; 1 body changed: get_messages (monitor.py:297); Impact at depth 5, 19 dependents: GET /api/v1/monitor/messages (handled by the changed code, Fact 1.0), its OpenAPI operation (documents this route, Inferred 0.9), two frontend client calls (calls this route, \"may depend on\", Inferred 0.9), their functions (makes the changed call), ... Status Fresh.",
       "demo_edit": true,
       "alt": "The Changes section on langflow after a demo one-line edit to the function get_messages: the Impact tab at depth 5 lists the route it handles as a fact, its OpenAPI operation and two frontend calls, each 'may depend on' and inferred 0.9.",
       "caption": "A demo one-line edit, and everything it may reach across the stack.",
@@ -193,8 +242,8 @@
     {
       "file": "architecture-axum-link-light.png",
       "kind": "screenshot",
-      "main_commit": "99b1f38708ff62901bd2bbf6a48183d42d18c985",
-      "extractor_version": "extractors-63",
+      "main_commit": "cdd27db734c9dc758f82eedd3183102378926412",
+      "extractor_version": "extractors-64",
       "corpus": "react + axum (project \"conduit-rust\")",
       "corpus_repository": "https://github.com/yurisldk/realworld-react-fsd; https://github.com/launchbadge/realworld-axum-sqlx",
       "corpus_pin": "react 969709a379b13935b4e1caae0ad8cad548e5879a; axum f1b25654773228297e35c292f357d33b7121a101",
@@ -204,22 +253,22 @@
       },
       "device_scale_factor": 2,
       "theme": "light",
-      "shown": "Architecture map of axum in project conduit-rust: react (other repository, 27 calls, 19 operations) -HTTP 27-> realworld-axum-sqlx (Axum server, 19 routes, 5 tables, 24 files) -SQL 49-> sqlx schema (Database, PostgreSQL); the HTTP link selected: protocol HTTP proven (route and client-call facts), auth \"layer ServiceBuilder [...] (as written)\", TLS unknown; 27 links, Inferred 0.7, methods DELETE/GET/POST/PUT, the cross-repository assumption, evidence rows. Breadcrumb truncated by the side panel (\"condu... / a... / Architecture\"). Status Fresh.",
+      "shown": "Architecture map of axum in project conduit-rust (Libraries and SDK imports on; no library band is drawn on this map): react (other repository, 27 calls from it, 19 operations from it) -HTTP 27-> realworld-axum-sqlx (Axum server, 19 routes, 5 tables, 24 files, SDK 16) -SQL 49-> sqlx schema (Database, PostgreSQL), dimmed while the HTTP link is selected; the inspector: protocol HTTP proven (route and client-call facts), auth \"layer ServiceBuilder [...] (as written)\", TLS unknown; 27 links, Inferred 0.7, methods DELETE/GET/POST/PUT, the cross-repository assumption, evidence rows. Legend strip with a Legend button. Status Fresh.",
       "alt": "The Architecture map of a project: the React repository calls the realworld-axum-sqlx server over 27 HTTP links; the selected link shows the protocol as proven, the router's layer stack exactly as written in the source (a ServiceBuilder with its layers, not claimed to be authentication) and TLS as unknown.",
       "caption": "Each link says what's proven, what's as written, and what's unknown.",
       "crop": {
-        "x": 820,
-        "y": 250,
-        "w": 2050,
-        "h": 750
+        "x": 1000,
+        "y": 210,
+        "w": 1880,
+        "h": 1190
       },
       "dark": "architecture-axum-link-dark.png"
     },
     {
       "file": "architecture-axum-link-dark.png",
       "kind": "screenshot",
-      "main_commit": "99b1f38708ff62901bd2bbf6a48183d42d18c985",
-      "extractor_version": "extractors-63",
+      "main_commit": "cdd27db734c9dc758f82eedd3183102378926412",
+      "extractor_version": "extractors-64",
       "corpus": "react + axum (project \"conduit-rust\")",
       "corpus_repository": "https://github.com/yurisldk/realworld-react-fsd; https://github.com/launchbadge/realworld-axum-sqlx",
       "corpus_pin": "react 969709a379b13935b4e1caae0ad8cad548e5879a; axum f1b25654773228297e35c292f357d33b7121a101",
@@ -229,21 +278,21 @@
       },
       "device_scale_factor": 2,
       "theme": "dark",
-      "shown": "Architecture map of axum in project conduit-rust: react (other repository, 27 calls, 19 operations) -HTTP 27-> realworld-axum-sqlx (Axum server, 19 routes, 5 tables, 24 files) -SQL 49-> sqlx schema (Database, PostgreSQL); the HTTP link selected: protocol HTTP proven (route and client-call facts), auth \"layer ServiceBuilder [...] (as written)\", TLS unknown; 27 links, Inferred 0.7, methods DELETE/GET/POST/PUT, the cross-repository assumption, evidence rows. Breadcrumb truncated by the side panel (\"condu... / a... / Architecture\"). Status Fresh.",
+      "shown": "Architecture map of axum in project conduit-rust (Libraries and SDK imports on; no library band is drawn on this map): react (other repository, 27 calls from it, 19 operations from it) -HTTP 27-> realworld-axum-sqlx (Axum server, 19 routes, 5 tables, 24 files, SDK 16) -SQL 49-> sqlx schema (Database, PostgreSQL), dimmed while the HTTP link is selected; the inspector: protocol HTTP proven (route and client-call facts), auth \"layer ServiceBuilder [...] (as written)\", TLS unknown; 27 links, Inferred 0.7, methods DELETE/GET/POST/PUT, the cross-repository assumption, evidence rows. Legend strip with a Legend button. Status Fresh.",
       "alt": "The Architecture map of a project: the React repository calls the realworld-axum-sqlx server over 27 HTTP links; the selected link shows the protocol as proven, the router's layer stack exactly as written in the source (a ServiceBuilder with its layers, not claimed to be authentication) and TLS as unknown.",
       "caption": "Each link says what's proven, what's as written, and what's unknown.",
       "crop": {
-        "x": 820,
-        "y": 250,
-        "w": 2050,
-        "h": 750
+        "x": 1000,
+        "y": 210,
+        "w": 1880,
+        "h": 1190
       }
     },
     {
       "file": "schema-axum-article-light.png",
       "kind": "screenshot",
-      "main_commit": "99b1f38708ff62901bd2bbf6a48183d42d18c985",
-      "extractor_version": "extractors-63",
+      "main_commit": "cdd27db734c9dc758f82eedd3183102378926412",
+      "extractor_version": "extractors-64",
       "corpus": "react + axum (project \"conduit-rust\")",
       "corpus_repository": "https://github.com/yurisldk/realworld-react-fsd; https://github.com/launchbadge/realworld-axum-sqlx",
       "corpus_pin": "react 969709a379b13935b4e1caae0ad8cad548e5879a; axum f1b25654773228297e35c292f357d33b7121a101",
@@ -253,7 +302,7 @@
       },
       "device_scale_factor": 2,
       "theme": "light",
-      "shown": "Schema of axum: migrations/ (sqlx, postgres, 5 tables, 4 migrations, Precise), \"Table list may be incomplete\" (1 opaque statement), All 5 tables complete; FK map with article selected; table article: Complete, migration · sqlx, Precise, primary key (article_id), unique (slug), related article_comment / article_favorite / user, 9 columns with types, null, defaults, PK/UQ/FK keys and user_id -> user.user_id on delete cascade. Status Fresh.",
+      "shown": "Schema of axum (tabs Tables 5, Migrations 4, Assumptions 64, Overview): migrations/ (sqlx, postgres, Cargo.toml, 5 tables, 4 migrations, Precise), Models \"No model table claimed\", \"Table list may be incomplete\" (1 opaque statement), All 5 tables complete; FK map with article selected; table article: Complete, migration · sqlx, Precise, primary key (article_id), unique (slug), related article_comment / article_favorite / user, 9 columns with types, null, defaults, PK/UQ/FK keys and user_id -> user.user_id on delete cascade. Status Fresh.",
       "alt": "The Schema section on a sqlx migration set: the table article, Complete and Precise, with its primary and unique keys, related tables, and typed columns with their keys and an on-delete-cascade foreign key to user.",
       "caption": "Tables, keys and cascades, read straight from the migrations.",
       "crop": {
@@ -267,8 +316,8 @@
     {
       "file": "schema-axum-article-dark.png",
       "kind": "screenshot",
-      "main_commit": "99b1f38708ff62901bd2bbf6a48183d42d18c985",
-      "extractor_version": "extractors-63",
+      "main_commit": "cdd27db734c9dc758f82eedd3183102378926412",
+      "extractor_version": "extractors-64",
       "corpus": "react + axum (project \"conduit-rust\")",
       "corpus_repository": "https://github.com/yurisldk/realworld-react-fsd; https://github.com/launchbadge/realworld-axum-sqlx",
       "corpus_pin": "react 969709a379b13935b4e1caae0ad8cad548e5879a; axum f1b25654773228297e35c292f357d33b7121a101",
@@ -278,7 +327,7 @@
       },
       "device_scale_factor": 2,
       "theme": "dark",
-      "shown": "Schema of axum: migrations/ (sqlx, postgres, 5 tables, 4 migrations, Precise), \"Table list may be incomplete\" (1 opaque statement), All 5 tables complete; FK map with article selected; table article: Complete, migration · sqlx, Precise, primary key (article_id), unique (slug), related article_comment / article_favorite / user, 9 columns with types, null, defaults, PK/UQ/FK keys and user_id -> user.user_id on delete cascade. Status Fresh.",
+      "shown": "Schema of axum (tabs Tables 5, Migrations 4, Assumptions 64, Overview): migrations/ (sqlx, postgres, Cargo.toml, 5 tables, 4 migrations, Precise), Models \"No model table claimed\", \"Table list may be incomplete\" (1 opaque statement), All 5 tables complete; FK map with article selected; table article: Complete, migration · sqlx, Precise, primary key (article_id), unique (slug), related article_comment / article_favorite / user, 9 columns with types, null, defaults, PK/UQ/FK keys and user_id -> user.user_id on delete cascade. Status Fresh.",
       "alt": "The Schema section on a sqlx migration set: the table article, Complete and Precise, with its primary and unique keys, related tables, and typed columns with their keys and an on-delete-cascade foreign key to user.",
       "caption": "Tables, keys and cascades, read straight from the migrations.",
       "crop": {
@@ -291,8 +340,8 @@
     {
       "file": "explorer-axum-try-it-light.png",
       "kind": "screenshot",
-      "main_commit": "99b1f38708ff62901bd2bbf6a48183d42d18c985",
-      "extractor_version": "extractors-63",
+      "main_commit": "cdd27db734c9dc758f82eedd3183102378926412",
+      "extractor_version": "extractors-64",
       "corpus": "react + axum (project \"conduit-rust\")",
       "corpus_repository": "https://github.com/yurisldk/realworld-react-fsd; https://github.com/launchbadge/realworld-axum-sqlx",
       "corpus_pin": "react 969709a379b13935b4e1caae0ad8cad548e5879a; axum f1b25654773228297e35c292f357d33b7121a101",
@@ -302,22 +351,22 @@
       },
       "device_scale_factor": 2,
       "theme": "light",
-      "shown": "Explorer of axum: 19 operations generated from the index, filter update_user; PUT /api/user (handler update_user, Fact 1.0, http/users.rs:18) expanded with the Try it out panel open: \"No environment is configured ...\" and \"Add an environment...\"; nothing sent. Below: Parameters (path none proven, query/headers partial with \"more may exist\"), Responses 200 object, Security \"Not read by Graphvein\". With the UI fix the page header and the operation list fit the 900 px window without scrolling. Status Fresh.",
+      "shown": "Explorer of axum: 19 operations, 12 paths, 19 with a stored shape, 0 committed specs; filter update_user; PUT /api/user (handler update_user, Fact 1.0, http/users.rs:18) expanded with the Try it out panel open: \"No environment is configured ...\" and \"Add an environment...\"; nothing sent. Below: Parameters (path none proven, query and headers partial with \"more may exist\"), Responses 200 object, Security \"Not read by Graphvein\", Auth as written (the router's layers). The page is scrolled to the operation, so the page header is above the frame. Status Fresh.",
       "alt": "The Explorer on an axum backend: PUT /api/user with its handler update_user as a fact, and the Try it out panel open with no environment configured, so nothing is sent.",
       "caption": "Try it out, guarded: no environment, no request.",
       "crop": {
-        "x": 525,
-        "y": 740,
-        "w": 1430,
-        "h": 480
+        "x": 504,
+        "y": 240,
+        "w": 2336,
+        "h": 560
       },
       "dark": "explorer-axum-try-it-dark.png"
     },
     {
       "file": "explorer-axum-try-it-dark.png",
       "kind": "screenshot",
-      "main_commit": "99b1f38708ff62901bd2bbf6a48183d42d18c985",
-      "extractor_version": "extractors-63",
+      "main_commit": "cdd27db734c9dc758f82eedd3183102378926412",
+      "extractor_version": "extractors-64",
       "corpus": "react + axum (project \"conduit-rust\")",
       "corpus_repository": "https://github.com/yurisldk/realworld-react-fsd; https://github.com/launchbadge/realworld-axum-sqlx",
       "corpus_pin": "react 969709a379b13935b4e1caae0ad8cad548e5879a; axum f1b25654773228297e35c292f357d33b7121a101",
@@ -327,21 +376,21 @@
       },
       "device_scale_factor": 2,
       "theme": "dark",
-      "shown": "Explorer of axum: 19 operations generated from the index, filter update_user; PUT /api/user (handler update_user, Fact 1.0, http/users.rs:18) expanded with the Try it out panel open: \"No environment is configured ...\" and \"Add an environment...\"; nothing sent. Below: Parameters (path none proven, query/headers partial with \"more may exist\"), Responses 200 object, Security \"Not read by Graphvein\". With the UI fix the page header and the operation list fit the 900 px window without scrolling. Status Fresh.",
+      "shown": "Explorer of axum: 19 operations, 12 paths, 19 with a stored shape, 0 committed specs; filter update_user; PUT /api/user (handler update_user, Fact 1.0, http/users.rs:18) expanded with the Try it out panel open: \"No environment is configured ...\" and \"Add an environment...\"; nothing sent. Below: Parameters (path none proven, query and headers partial with \"more may exist\"), Responses 200 object, Security \"Not read by Graphvein\", Auth as written (the router's layers). The page is scrolled to the operation, so the page header is above the frame. Status Fresh.",
       "alt": "The Explorer on an axum backend: PUT /api/user with its handler update_user as a fact, and the Try it out panel open with no environment configured, so nothing is sent.",
       "caption": "Try it out, guarded: no environment, no request.",
       "crop": {
-        "x": 525,
-        "y": 740,
-        "w": 1430,
-        "h": 480
+        "x": 504,
+        "y": 240,
+        "w": 2336,
+        "h": 560
       }
     },
     {
       "file": "project-axum-cross-repo-callers-light.png",
       "kind": "screenshot",
-      "main_commit": "99b1f38708ff62901bd2bbf6a48183d42d18c985",
-      "extractor_version": "extractors-63",
+      "main_commit": "cdd27db734c9dc758f82eedd3183102378926412",
+      "extractor_version": "extractors-64",
       "corpus": "react + axum (project \"conduit-rust\")",
       "corpus_repository": "https://github.com/yurisldk/realworld-react-fsd; https://github.com/launchbadge/realworld-axum-sqlx",
       "corpus_pin": "react 969709a379b13935b4e1caae0ad8cad548e5879a; axum f1b25654773228297e35c292f357d33b7121a101",
@@ -351,22 +400,22 @@
       },
       "device_scale_factor": 2,
       "theme": "light",
-      "shown": "Project conduit-rust, member axum: 19 routes, 0 client calls inside axum, 0 with no linked caller in the project (\"19 of them called from other repositories of the project\"); POST /api/articles/{slug}/favorite, Callers 0 +3: \"Callers in other repositories: 3 calls linked by project conduit-rust, pass 1\": articleFavoriteToggleAction in react (src/pages/article/actions/article-favorite-toggle.action.ts:21, src/pages/home/actions/article-favorite-toggle.action.ts:21, ...), each \"Inferred · 0.7\" with its cross-repository assumption. Status Fresh.",
+      "shown": "Project conduit-rust, member axum: API strip 19 routes, 0 client calls inside axum, \"0 no linked caller in the project\"; endpoint list rows \"0 +n callers\"; POST /api/articles/{slug}/favorite, Callers 0 +3: \"No caller inside axum; 3 calls of other repositories are linked to this route below\", \"Callers in other repositories: 3 calls linked by project conduit-rust, pass 1\": articleFavoriteToggleAction in react (src/pages/article/actions/article-favorite-toggle.action.ts:21, src/pages/home/..., src/pages/profile/...), each \"Inferred · 0.7\" with its cross-repository assumption. Status Fresh.",
       "alt": "A project of two repositories: the Rust route POST /api/articles/{slug}/favorite has no caller inside its own repository and three callers in the React repository, each inferred 0.7 with the assumption it rests on.",
       "caption": "Callers from another repository, each with the assumption it rests on.",
       "crop": {
         "x": 1520,
-        "y": 790,
+        "y": 410,
         "w": 1320,
-        "h": 980
+        "h": 1240
       },
       "dark": "project-axum-cross-repo-callers-dark.png"
     },
     {
       "file": "project-axum-cross-repo-callers-dark.png",
       "kind": "screenshot",
-      "main_commit": "99b1f38708ff62901bd2bbf6a48183d42d18c985",
-      "extractor_version": "extractors-63",
+      "main_commit": "cdd27db734c9dc758f82eedd3183102378926412",
+      "extractor_version": "extractors-64",
       "corpus": "react + axum (project \"conduit-rust\")",
       "corpus_repository": "https://github.com/yurisldk/realworld-react-fsd; https://github.com/launchbadge/realworld-axum-sqlx",
       "corpus_pin": "react 969709a379b13935b4e1caae0ad8cad548e5879a; axum f1b25654773228297e35c292f357d33b7121a101",
@@ -376,21 +425,21 @@
       },
       "device_scale_factor": 2,
       "theme": "dark",
-      "shown": "Project conduit-rust, member axum: 19 routes, 0 client calls inside axum, 0 with no linked caller in the project (\"19 of them called from other repositories of the project\"); POST /api/articles/{slug}/favorite, Callers 0 +3: \"Callers in other repositories: 3 calls linked by project conduit-rust, pass 1\": articleFavoriteToggleAction in react (src/pages/article/actions/article-favorite-toggle.action.ts:21, src/pages/home/actions/article-favorite-toggle.action.ts:21, ...), each \"Inferred · 0.7\" with its cross-repository assumption. Status Fresh.",
+      "shown": "Project conduit-rust, member axum: API strip 19 routes, 0 client calls inside axum, \"0 no linked caller in the project\"; endpoint list rows \"0 +n callers\"; POST /api/articles/{slug}/favorite, Callers 0 +3: \"No caller inside axum; 3 calls of other repositories are linked to this route below\", \"Callers in other repositories: 3 calls linked by project conduit-rust, pass 1\": articleFavoriteToggleAction in react (src/pages/article/actions/article-favorite-toggle.action.ts:21, src/pages/home/..., src/pages/profile/...), each \"Inferred · 0.7\" with its cross-repository assumption. Status Fresh.",
       "alt": "A project of two repositories: the Rust route POST /api/articles/{slug}/favorite has no caller inside its own repository and three callers in the React repository, each inferred 0.7 with the assumption it rests on.",
       "caption": "Callers from another repository, each with the assumption it rests on.",
       "crop": {
         "x": 1520,
-        "y": 790,
+        "y": 410,
         "w": 1320,
-        "h": 980
+        "h": 1240
       }
     },
     {
       "file": "unread-langflow-light.png",
       "kind": "screenshot",
-      "main_commit": "99b1f38708ff62901bd2bbf6a48183d42d18c985",
-      "extractor_version": "extractors-63",
+      "main_commit": "cdd27db734c9dc758f82eedd3183102378926412",
+      "extractor_version": "extractors-64",
       "corpus": "langflow",
       "corpus_repository": "https://github.com/langflow-ai/langflow",
       "corpus_pin": "504c02fc47e76087b82b0e7cbe4186e9cdd916d4",
@@ -414,8 +463,8 @@
     {
       "file": "unread-langflow-dark.png",
       "kind": "screenshot",
-      "main_commit": "99b1f38708ff62901bd2bbf6a48183d42d18c985",
-      "extractor_version": "extractors-63",
+      "main_commit": "cdd27db734c9dc758f82eedd3183102378926412",
+      "extractor_version": "extractors-64",
       "corpus": "langflow",
       "corpus_repository": "https://github.com/langflow-ai/langflow",
       "corpus_pin": "504c02fc47e76087b82b0e7cbe4186e9cdd916d4",
@@ -438,8 +487,8 @@
     {
       "file": "graphvein-changes-impact-fastapi.txt",
       "kind": "terminal",
-      "main_commit": "99b1f38708ff62901bd2bbf6a48183d42d18c985",
-      "extractor_version": "extractors-63",
+      "main_commit": "cdd27db734c9dc758f82eedd3183102378926412",
+      "extractor_version": "extractors-64",
       "corpus": "fastapi",
       "corpus_repository": "https://github.com/fastapi/full-stack-fastapi-template",
       "corpus_pin": "1762adac607a1b29cfc4da129557780beea71616",
@@ -450,8 +499,8 @@
     {
       "file": "social.png",
       "kind": "derived",
-      "main_commit": "99b1f38708ff62901bd2bbf6a48183d42d18c985",
-      "extractor_version": "extractors-63",
+      "main_commit": "cdd27db734c9dc758f82eedd3183102378926412",
+      "extractor_version": "extractors-64",
       "derived_from": "hero-seerr-dark.png",
       "text": "Trace any route, call or table across your stack.",
       "shown": "Social preview (1200 x 630): logo, lead and the dark hero screenshot.",

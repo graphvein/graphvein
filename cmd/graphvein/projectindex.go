@@ -18,8 +18,6 @@ import (
 	"github.com/graphvein/graphvein/internal/parse"
 	"github.com/graphvein/graphvein/internal/projectlink"
 	"github.com/graphvein/graphvein/internal/store"
-	"github.com/graphvein/graphvein/internal/store/postgres"
-	"github.com/graphvein/graphvein/internal/store/sqlite"
 )
 
 // staleLinksShown bounds the stale links graphvein status --project lists
@@ -77,14 +75,7 @@ func projectDir(arg string) (string, error) {
 // 0075 "Locks"): a Postgres advisory lock keyed by schema and project, or
 // for SQLite the store's own index lock.
 func openProjectLocker(dir, project string) (store.IndexLocker, string) {
-	if url := os.Getenv("GRAPHVEIN_POSTGRES_URL"); url != "" {
-		return postgres.ProjectLocker(url, project), "Postgres project lock"
-	}
-	p := sqlitePath(dir)
-	if abs, err := filepath.Abs(p); err == nil {
-		p = abs
-	}
-	return sqlite.ProjectLocker(p, project), sqlite.LockPath(p)
+	return commandLine(dir).projectLocker(project)
 }
 
 // projectIndexCommand is graphvein index --project and status --project
@@ -151,7 +142,7 @@ type projectIndexOutcome struct {
 // the failure so its links show as stale. progress, when set, receives
 // each member's phases and, with an empty repository, the link pass.
 // graphvein index --project and a re-index from serve --project share it.
-func runProjectIndex(ctx context.Context, project config.Project, parser parse.Options, maxSize int64, emit indexrun.EmitFunc, progress func(string, indexrun.Progress)) projectIndexOutcome {
+func runProjectIndex(ctx context.Context, at storeAt, project config.Project, parser parse.Options, maxSize int64, emit indexrun.EmitFunc, progress func(string, indexrun.Progress)) projectIndexOutcome {
 	out := projectIndexOutcome{results: map[string]memberIndex{}, indexErrors: map[string]string{}}
 	for _, m := range project.Members {
 		if !m.Checkout {
@@ -161,7 +152,7 @@ func runProjectIndex(ctx context.Context, project config.Project, parser parse.O
 		if progress != nil {
 			report = func(p indexrun.Progress) { progress(m.Repository, p) }
 		}
-		r := indexProjectMember(ctx, project.Dir, m, parser, maxSize, emit, report)
+		r := indexProjectMember(ctx, at, m, parser, maxSize, emit, report)
 		out.results[m.Repository] = r
 		if r.err != nil {
 			out.indexErrors[m.Repository] = r.err.Error()
@@ -170,26 +161,35 @@ func runProjectIndex(ctx context.Context, project config.Project, parser parse.O
 	if progress != nil {
 		progress("", indexrun.Progress{})
 	}
-	out.set, out.run, out.passErr = linkProject(ctx, project, out.indexErrors)
+	out.set, out.run, out.passErr = linkProject(ctx, at, project, out.indexErrors)
 	return out
 }
 
 // runProjectLinkPass runs only the link pass over the members' stored
 // indexes: what a manifest edit that changed no member needs (T022 B10).
 // No member is indexed, so none is in the outcome's results.
-func runProjectLinkPass(ctx context.Context, project config.Project, progress func(string, indexrun.Progress)) projectIndexOutcome {
+func runProjectLinkPass(ctx context.Context, at storeAt, project config.Project, progress func(string, indexrun.Progress)) projectIndexOutcome {
 	out := projectIndexOutcome{results: map[string]memberIndex{}, indexErrors: map[string]string{}}
 	if progress != nil {
 		progress("", indexrun.Progress{})
 	}
-	out.set, out.run, out.passErr = linkProject(ctx, project, out.indexErrors)
+	out.set, out.run, out.passErr = linkProject(ctx, at, project, out.indexErrors)
 	return out
 }
 
 // projectIndex is graphvein index --project: runProjectIndex, then its
 // report.
 func projectIndex(ctx context.Context, project config.Project, parser parse.Options, maxSize int64, emit indexrun.EmitFunc, stdout, stderr io.Writer) int {
-	outcome := runProjectIndex(ctx, project, parser, maxSize, emit, nil)
+	// The project store is located like a repository's, keyed by the
+	// manifest folder (ADR 0093).
+	loc, err := locate(project.Dir)
+	if err != nil {
+		fmt.Fprintln(stderr, err)
+		return 1
+	}
+	fmt.Fprintln(stdout, indexLine(loc, "project", project.Name))
+	defer printLines(stdout, indexTrailer(loc, "graphvein serve --project "+quoteArg(loc.Folder)))
+	outcome := runProjectIndex(ctx, commandLine(project.Dir).pinned(loc), project, parser, maxSize, emit, nil)
 	results, set, run, passErr := outcome.results, outcome.set, outcome.run, outcome.passErr
 	failed := len(outcome.indexErrors) > 0 || passErr != nil
 	stored := map[string]string{}
@@ -238,8 +238,8 @@ func projectIndex(ctx context.Context, project config.Project, parser parse.Opti
 // indexProjectMember indexes one member checkout into the project store
 // under the member's own index lock, as graphvein index would; the fact
 // cache is the member repository's own in the project store.
-func indexProjectMember(ctx context.Context, dir string, m config.Member, parser parse.Options, maxSize int64, emit indexrun.EmitFunc, progress func(indexrun.Progress)) memberIndex {
-	locker, lockName := openLocker(dir, m.Repository)
+func indexProjectMember(ctx context.Context, at storeAt, m config.Member, parser parse.Options, maxSize int64, emit indexrun.EmitFunc, progress func(indexrun.Progress)) memberIndex {
+	locker, lockName := at.locker(m.Repository)
 	defer locker.Close()
 	lease, err := locker.Acquire(ctx, indexrun.LockWait)
 	if errors.Is(err, store.ErrIndexLocked) {
@@ -253,24 +253,29 @@ func indexProjectMember(ctx context.Context, dir string, m config.Member, parser
 		Root:        m.Path,
 		Repository:  m.Repository,
 		Lease:       lease,
-		OpenStore:   func(ctx context.Context) (store.Store, error) { return openStore(ctx, dir) },
+		OpenStore:   at.openWriter,
 		Parser:      parser,
 		MaxFileSize: maxSize,
 		Emit:        emit,
 		Progress:    progress,
-		SnapshotDir: storeDir(dir),
+		SnapshotDir: at.dir(),
+		StoreName:   at.name(),
 	})
 	if err != nil {
 		return memberIndex{err: err}
 	}
 	s := result.Summary
-	return memberIndex{summary: fmt.Sprintf("files %d, nodes %d, edges %d, diagnostics %d (parsed %d, reused %d)", s.Files, s.Nodes, s.Edges, s.Diagnostics, s.Parsed, s.Reused), run: &result.Run}
+	line := fmt.Sprintf("files %d, nodes %d, edges %d, diagnostics %d (parsed %d, reused %d)", s.Files, s.Nodes, s.Edges, s.Diagnostics, s.Parsed, s.Reused)
+	for _, l := range parseLines(s) {
+		line += "; " + l
+	}
+	return memberIndex{summary: line, run: &result.Run}
 }
 
 // linkProject runs the link pass under the project lock and returns the
 // stored set and journal entry.
-func linkProject(ctx context.Context, project config.Project, indexErrors map[string]string) (store.ProjectLinkSet, store.ProjectLinkRun, error) {
-	locker, lockName := openProjectLocker(project.Dir, project.Name)
+func linkProject(ctx context.Context, at storeAt, project config.Project, indexErrors map[string]string) (store.ProjectLinkSet, store.ProjectLinkRun, error) {
+	locker, lockName := at.projectLocker(project.Name)
 	defer locker.Close()
 	lease, err := locker.Acquire(ctx, indexrun.LockWait)
 	if errors.Is(err, store.ErrIndexLocked) {
@@ -280,7 +285,7 @@ func linkProject(ctx context.Context, project config.Project, indexErrors map[st
 		return store.ProjectLinkSet{}, store.ProjectLinkRun{}, fmt.Errorf("taking the project lock (%s): %w", lockName, err)
 	}
 	defer lease.Release()
-	s, err := openStore(ctx, project.Dir)
+	s, err := at.openWriter(ctx)
 	if err != nil {
 		return store.ProjectLinkSet{}, store.ProjectLinkRun{}, err
 	}

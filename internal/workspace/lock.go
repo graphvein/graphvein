@@ -34,9 +34,26 @@ type fileLock struct {
 // lockFile takes the exclusive lock on path, creating the file when
 // needed, and waits at most timeout for another holder to release it.
 func lockFile(path string, timeout time.Duration) (*fileLock, error) {
+	return lockFileOf("the workspace registry", path, timeout)
+}
+
+// LockFile takes the exclusive operating-system lock on path, as a
+// registry write does, for another small file kept beside the registry
+// (stores.yaml, internal/storeloc). what names that file in errors. The
+// returned function releases the lock; the lock file is never removed,
+// for the reason LockSuffix gives.
+func LockFile(what, path string) (unlock func() error, err error) {
+	l, err := lockFileOf(what, path, lockTimeout)
+	if err != nil {
+		return nil, err
+	}
+	return l.unlock, nil
+}
+
+func lockFileOf(what, path string, timeout time.Duration) (*fileLock, error) {
 	f, err := os.OpenFile(path, os.O_RDWR|os.O_CREATE, 0o600)
 	if err != nil {
-		return nil, fmt.Errorf("opening the workspace registry lock %s: %w", path, err)
+		return nil, fmt.Errorf("opening %s lock %s: %w", what, path, err)
 	}
 	deadline := time.Now().Add(timeout)
 	for {
@@ -46,11 +63,11 @@ func lockFile(path string, timeout time.Duration) (*fileLock, error) {
 		}
 		if !errors.Is(err, errLockBusy) {
 			f.Close()
-			return nil, fmt.Errorf("locking the workspace registry %s: %w", path, err)
+			return nil, fmt.Errorf("locking %s %s: %w", what, path, err)
 		}
 		if time.Now().After(deadline) {
 			f.Close()
-			return nil, fmt.Errorf("the workspace registry lock %s is held by another process for more than %s; try again", path, timeout)
+			return nil, fmt.Errorf("%s lock %s is held by another process for more than %s; try again", what, path, timeout)
 		}
 		time.Sleep(lockRetry)
 	}

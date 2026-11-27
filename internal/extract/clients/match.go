@@ -419,6 +419,14 @@ func (m matcher) link(identity, file string, span contract.Span, attrs map[strin
 		ids = append(ids, id)
 	}
 	sort.Strings(ids)
+	if testOnly && m.productionPrefixRival(attrs, original, method) {
+		// Precision correction (T057): only test-scope composed paths
+		// match, but a production route below an unknown prefix may serve
+		// the call, so "only test routes match" is not proven. The
+		// alternative is unmatched, never linked to either.
+		attrs["status"] = "unmatched"
+		return nil
+	}
 	if testOnly {
 		attrs["status"] = "test_only"
 		attrs["candidate_count"] = 0

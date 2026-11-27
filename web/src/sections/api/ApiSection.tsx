@@ -49,7 +49,7 @@ import { cn } from "@/lib/utils";
 import { replaceHash, useHash } from "@/router";
 import { PEEK_PANEL_ID } from "@/sections/api/CallersTable";
 import { CoverageCards } from "@/sections/api/CoverageCards";
-import type { CoverageActions } from "@/sections/api/coverage";
+import { noneFound, noneFoundSentence, type CoverageActions } from "@/sections/api/coverage";
 import { EndpointDetailView, peekTargets } from "@/sections/api/EndpointDetail";
 import { EndpointList, endpointLabel } from "@/sections/api/EndpointList";
 import { FlowControls } from "@/sections/api/flow/FlowControls";
@@ -59,7 +59,7 @@ import { GapSheet } from "@/sections/api/GapSheet";
 import { LinkDifferences, hasDifferences } from "@/sections/api/LinkDifferences";
 import { FLOW_PEEK_CLOSED, apiHash, parseApiParams, type ApiParams, type DetailTab, type GapCategory } from "@/sections/api/params";
 import { MIN_SPLIT_WIDTH, SplitPane } from "@/sections/api/SplitPane";
-import { SummaryStrip } from "@/sections/api/SummaryStrip";
+import { COVERAGE_PANEL_ID, SummaryStrip, useCoverageOpen } from "@/sections/api/SummaryStrip";
 import { Toolbar, rootOptions } from "@/sections/api/Toolbar";
 
 // The Flow tab's chunk: imported on first use only (D5 gate: the entry
@@ -529,6 +529,7 @@ export function ApiSection({ status, client = httpClient, sourceClient = httpSou
   }, [peekId, flowOpen]);
 
   const [railOpen, setRailOpen] = useState(false);
+  const [coverageOpen, setCoverageOpen] = useCoverageOpen();
   // The width of the list/detail area: narrower than the split's two
   // minimums (a window about 900 px wide), the list folds into the rail as
   // on the Flow tab, so the detail keeps a usable width.
@@ -688,10 +689,7 @@ export function ApiSection({ status, client = httpClient, sourceClient = httpSou
     body = (
       <div className="grid gap-3.5" aria-busy="true">
         <span className="sr-only">Loading the API section</span>
-        <div className="grid grid-cols-2 gap-3.5 compact:grid-cols-1">
-          <Skeleton className="h-36 compact:h-10" />
-          <Skeleton className="h-36 compact:h-10" />
-        </div>
+        <Skeleton className="h-10" />
         <Skeleton className="h-80" />
       </div>
     );
@@ -720,8 +718,18 @@ export function ApiSection({ status, client = httpClient, sourceClient = httpSou
         )}
         {!flowOpen && (
           <>
-            <CoverageCards transports={shown} repository={data.repository} scope={data.scope} actions={actions} collapsed={peekOpen} />
-            <SummaryStrip transports={shown} scope={data.scope} actions={actions} shown={peekOpen} />
+            <SummaryStrip transports={shown} scope={data.scope} actions={actions} open={coverageOpen} onOpen={setCoverageOpen} />
+            {coverageOpen && (
+              <CoverageCards transports={shown} repository={data.repository} scope={data.scope} actions={actions} collapsed={peekOpen} id={COVERAGE_PANEL_ID} />
+            )}
+            {shown.length > 0 && shown.every(noneFound) && (
+              <div className="rounded-xl border border-dashed px-4 py-2.5 text-[13px] text-muted-foreground" data-testid="none-found">
+                {noneFoundSentence(
+                  shown.map((t) => t.transport),
+                  data.scope,
+                )}
+              </div>
+            )}
           </>
         )}
         <div ref={setSplitBox} className="flex min-h-[340px] flex-1">
@@ -822,7 +830,7 @@ export function ApiSection({ status, client = httpClient, sourceClient = httpSou
   }
 
   return (
-    <section aria-labelledby="api-title" className="flex min-h-0 flex-1 flex-col gap-3.5 compact:gap-3">
+    <section aria-labelledby="api-title" className="flex min-h-0 flex-1 flex-col gap-3">
       <Toolbar
         transports={data?.transports ?? null}
         transport={params.transport}
@@ -839,6 +847,7 @@ export function ApiSection({ status, client = httpClient, sourceClient = httpSou
         }}
         roots={rootOptions(shown)}
         finishedAt={data?.index?.finished_at ?? null}
+        scope={data?.scope ?? scope}
       />
       <FreshnessBanner status={status} />
       {notice !== null && (

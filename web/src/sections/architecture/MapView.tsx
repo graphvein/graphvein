@@ -24,7 +24,7 @@ import { MapCard, type CardNode } from "@/sections/architecture/Cards";
 import { MapContext, type MapActions } from "@/sections/architecture/context";
 import { Legend } from "@/sections/architecture/Legend";
 import { elkGraph, readLayout, type Placed } from "@/sections/architecture/layout";
-import { MapLine, chainLineText, type LineEdge } from "@/sections/architecture/Line";
+import { MapLine, RAISED_LINE_Z, chainLineText, type LineEdge } from "@/sections/architecture/Line";
 import { MINIMAP_CARDS, type MapEdge, type MapModel } from "@/sections/architecture/model";
 
 /** The part of the layout client the map uses; tests pass their own. */
@@ -43,6 +43,7 @@ export interface MapViewProps {
 }
 
 const nodeTypes = { card: MapCard };
+const FIT_PADDING = { top: "52px", left: "24px", right: "24px", bottom: "56px" } as const;
 const edgeTypes = { line: MapLine };
 
 type LayoutState = { kind: "loading" } | { kind: "ok"; placed: Placed; key: string } | { kind: "failed"; error: string; key: string };
@@ -95,9 +96,10 @@ function Canvas({ model, actions, placed }: { model: MapModel; actions: MapActio
       model.nodes.flatMap((n) => {
         const b = placed.boxes.get(n.id);
         if (b === undefined) return [];
-        // An opened card lies under its chain lines, its members above them.
-        const zIndex = n.type === "member" || n.type === "fold" ? 2 : 0;
-        return [{ id: n.id, type: "card" as const, position: { x: b.x, y: b.y }, width: b.width, height: b.height, data: { node: n, width: b.width, height: b.height }, draggable: false, selectable: false, zIndex }];
+        // An opened card lies under its chain lines, its members above them;
+        // the band lies under its lines, its chips above them.
+        const zIndex = n.type === "member" || n.type === "fold" || n.type === "library" || n.type === "more" ? 2 : 0;
+        return [{ id: n.id, type: "card" as const, position: { x: b.x, y: b.y }, width: b.width, height: b.height, data: { node: n, width: b.width, height: b.height, bandRows: n.type === "band" ? placed.bandRows : null }, draggable: false, selectable: false, zIndex }];
       }),
     [model, placed],
   );
@@ -106,12 +108,14 @@ function Canvas({ model, actions, placed }: { model: MapModel; actions: MapActio
       model.edges.flatMap((e) => {
         const r = placed.routes.get(e.id);
         if (r === undefined) return [];
-        return [{ id: e.id, source: e.source, target: e.target, type: "line" as const, data: { edge: e, points: r.points, chip: r.chip }, selectable: false, zIndex: e.type === "chain" || e.type === "fold" ? 1 : 0 }];
+        return [{ id: e.id, source: e.source, target: e.target, type: "line" as const, data: { edge: e, points: r.points, chip: r.chip }, selectable: false, zIndex: e.type === "chain" || e.type === "fold" || e.band !== undefined ? RAISED_LINE_Z : 0 }];
       }),
     [model, placed],
   );
+  // The whole map fits between the Hidden note and the legend (T067: the
+  // band's text sizes of the design record assume this room).
   const fit = () => {
-    void rf.fitView({ padding: 0.12, maxZoom: 1, duration: 0 });
+    void rf.fitView({ padding: FIT_PADDING, maxZoom: 1, duration: 0 });
   };
   // Fit on every new layout (first view, expand, a toggle): the expanded
   // card when there is one (its rows stay readable), else the whole map.
@@ -122,7 +126,7 @@ function Canvas({ model, actions, placed }: { model: MapModel; actions: MapActio
     const f = requestAnimationFrame(() => {
       if (chainIds !== "") void rf.fitView({ nodes: chainIds.split("\n").map((id) => ({ id })), padding: { top: "96px", left: "24px", right: "24px", bottom: "56px" }, maxZoom: 1, duration: 0 });
       else if (expandedId !== null) void rf.fitView({ nodes: [{ id: expandedId }], padding: 0.25, maxZoom: 1, duration: 0 });
-      else void rf.fitView({ padding: 0.12, maxZoom: 1, duration: 0 });
+      else void rf.fitView({ padding: FIT_PADDING, maxZoom: 1, duration: 0 });
     });
     return () => {
       cancelAnimationFrame(f);

@@ -161,6 +161,46 @@ func TestDisplayPath(t *testing.T) {
 	}
 }
 
+// TestRoutePathTestComposedOnly is the T057 precision correction: a path
+// composed only through a test-scope mount is not shown as the route's
+// path in the production or all scope while the route has a production
+// path below an unknown prefix; that path is shown instead (row UP-29).
+func TestRoutePathTestComposedOnly(t *testing.T) {
+	test := map[string]any{"template": "/api/about", "scope": "test"}
+	prod := map[string]any{"template": "/api/about"}
+	entry := map[string]any{"template": "/api/about", "prefix": "unresolved", "prefix_reason": "route_mount_unresolved", "hop": "mount:router.go#SetRouter%20dispatcher"}
+	testEntry := map[string]any{"template": "/x/api/about", "prefix": "unresolved", "prefix_reason": "route_prefix_unresolved", "scope": "test"}
+	node := func(paths, entries []any) contract.Node {
+		attrs := map[string]any{"paths": paths}
+		if entries != nil {
+			attrs["unresolved_prefix_paths"] = entries
+		}
+		return contract.Node{Identity: "route:router.go#GET%20%2Fabout", Kind: "route", Attributes: attrs}
+	}
+	for _, tc := range []struct {
+		name         string
+		n            contract.Node
+		scope        string
+		path, prefix any
+	}{
+		{"production view, unknown production prefix", node([]any{test}, []any{entry}), scopeProduction, nil, "…/api/about"},
+		{"all view, unknown production prefix", node([]any{test}, []any{entry}), scopeAll, nil, "…/api/about"},
+		{"test view keeps the test path", node([]any{test}, []any{entry}), scopeTest, "/api/about", nil},
+		{"no production entry: unchanged", node([]any{test}, nil), scopeProduction, "/api/about", nil},
+		{"only a test-scope entry: unchanged", node([]any{test}, []any{testEntry}), scopeProduction, "/api/about", nil},
+		{"a production full path wins", node([]any{test, prod}, []any{entry}), scopeProduction, "/api/about", nil},
+	} {
+		got := routePath(tc.n, tc.scope)
+		if tc.path == nil && got != nil || tc.path != nil && (got == nil || *got != tc.path) {
+			t.Errorf("%s: path %v, want %v", tc.name, got, tc.path)
+		}
+		view := routePrefix(tc.n, tc.scope)
+		if tc.prefix == nil && view != nil || tc.prefix != nil && (view == nil || view.Path != tc.prefix) {
+			t.Errorf("%s: prefix %+v, want %v", tc.name, view, tc.prefix)
+		}
+	}
+}
+
 func TestRouteSortAndFlags(t *testing.T) {
 	s := func(v string) *string { return &v }
 	rows := []routeRow{

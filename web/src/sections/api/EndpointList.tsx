@@ -5,11 +5,14 @@
 import { CircleHelp, FlaskConical, GitBranch, Layers, ListFilter, Settings2, Unplug } from "lucide-react";
 import { useMemo } from "react";
 
-import { POSSIBLY_CALLED, TRANSPORT_LABEL, endpointNoun, isNeverRow, isPossiblyCalledRow, neverCalledLabel } from "@/api/categories";
+import { NO_LINKED_CALLER_HINT, POSSIBLY_CALLED, TRANSPORT_LABEL, endpointNoun, isNeverRow, isPossiblyCalledRow, neverCalledLabel } from "@/api/categories";
 import type { EndpointRow, Transport, TransportSummary } from "@/api/endpoints";
 import { VirtualList, type VirtualItem } from "@/components/VirtualList";
+import { useLabelStyle } from "@/hooks/useLabels";
+import { label } from "@/lib/labels";
 import { NO_PATH_TITLE, NO_PATH_WORDS, noPathKind } from "@/lib/routePath";
 import { cn } from "@/lib/utils";
+import { filesWhere } from "@/sections/api/coverage";
 import { Method, PathText, TransportBadge } from "@/sections/api/parts";
 import type { ChangeItem } from "@/api/changes";
 import { itemsFor, markerTitle, VIEW_GROUPS } from "@/sections/changes/markers";
@@ -21,8 +24,22 @@ export const ROW_HEIGHT = 34;
 export const HEADER_HEIGHT = 36;
 
 type ListItem =
-  | (VirtualItem & { kind: "header"; summary: TransportSummary; shown: number; never: number; possibly: number })
-  | (VirtualItem & { kind: "row"; row: EndpointRow });
+  | (VirtualItem & { kind: "header"; summary: TransportSummary; shown: number; never: number; possibly: number; assumed: number; quiet: boolean })
+  | (VirtualItem & { kind: "row"; row: EndpointRow; quiet: boolean });
+
+/** ASSUMED_ICON_SHARE is the share of a group's rows from which the
+ * path-assumption icon leaves the rows (T071 question 9, T073): a mark on
+ * nearly every row says nothing about a row. At or above it the group
+ * header counts the rows once, and the icon shows only on the row under
+ * the pointer or selected; below it every row that has it shows it. */
+export const ASSUMED_ICON_SHARE = 0.5;
+
+/** quietAssumed reports whether a group of rows, assumed of which carry
+ * the path_assumed flag, shows the count in its header instead of the
+ * icon on every row. */
+export function quietAssumed(assumed: number, rows: number): boolean {
+  return rows > 0 && assumed >= rows * ASSUMED_ICON_SHARE;
+}
 
 /** endpointLabel is the text a row stands for (search, aria-label). */
 export function endpointLabel(row: EndpointRow): string {
@@ -97,7 +114,10 @@ const FLAG_ICONS: { flag: string; label: string; Icon: typeof FlaskConical }[] =
   { flag: "unreachable", label: "Unreachable registration", Icon: Unplug },
 ];
 
-function Flags({ row }: { row: EndpointRow }) {
+/** Flags draws a row's flag icons. quiet leaves the path-assumption icon
+ * to the row under the pointer (or in focus) or selected: the group header
+ * counts it (quietAssumed). */
+function Flags({ row, quiet = false, selected = false }: { row: EndpointRow; quiet?: boolean; selected?: boolean }) {
   const shown = FLAG_ICONS.filter((f) => row.flags.includes(f.flag));
   if (row.scope === "test" && !shown.some((f) => f.flag === "test_only" || f.flag === "test_paths")) {
     shown.push({ flag: "scope_test", label: "Test scope", Icon: FlaskConical });
@@ -106,7 +126,7 @@ function Flags({ row }: { row: EndpointRow }) {
   return (
     <span className="flex items-center gap-1 text-muted-foreground">
       {shown.map(({ flag, label, Icon }) => (
-        <span key={flag} title={label} role="img" aria-label={label}>
+        <span key={flag} title={label} role="img" aria-label={label} className={quiet && flag === "path_assumed" && !selected ? "hidden group-hover/row:inline" : undefined} data-testid={flag === "path_assumed" ? "row-path-assumed" : undefined}>
           <Icon aria-hidden="true" className="size-3.5" />
         </span>
       ))}
@@ -141,22 +161,35 @@ function CallerCount({ n, scope, may = false, project = null, possible = null }:
     );
   }
   return n > 0 ? (
-    <span className="text-xs whitespace-nowrap text-muted-foreground tabular-nums">
+    <span className="text-xs whitespace-nowrap text-foreground tabular-nums">
       {n} {n === 1 ? "caller" : "callers"}
     </span>
   ) : (
-    <span className="rounded-[4px] bg-never-soft px-1.5 text-[11.5px] leading-[18px] whitespace-nowrap text-never">{neverCalledLabel(scope, undefined, project !== null).toLowerCase()}</span>
+    <NoCaller scope={scope} project={project !== null} />
   );
 }
 
-function Row({ row, scope, selected, mark }: { row: EndpointRow; scope: string; selected: boolean; mark: Mark | null }) {
+/** NoCaller is the caller cell of a row with no linked caller: quiet text
+ * ("0 linked", label row 69), not a chip, since most rows of a large
+ * repository carry it (T071 question 9). The headline's sentence is in the
+ * tooltip and the group header counts the rows. */
+function NoCaller({ scope, project }: { scope: string; project: boolean }) {
+  const l = label(useLabelStyle(), "rowNoCaller", { full: neverCalledLabel(scope, undefined, project), hint: NO_LINKED_CALLER_HINT });
+  return (
+    <span className="text-xs whitespace-nowrap text-muted-foreground tabular-nums" title={l.title} data-testid="row-no-caller">
+      {l.text}
+    </span>
+  );
+}
+
+function Row({ row, scope, selected, mark, quiet }: { row: EndpointRow; scope: string; selected: boolean; mark: Mark | null; quiet: boolean }) {
   // The marker follows the path in the same cell and shrinks before it:
   // the path keeps at least about half the cell, cut with an ellipsis,
   // and the row's tooltip has the full text (T019 Revision 5, R5-6). In a
   // cell narrower than 200 px (a side-by-side window) the marker is a dot.
   const marker = mark === null ? null : <ChangeMarker items={mark.items} baseText={mark.baseText} as="decoration" className="max-w-[45%] min-w-[3.5rem] flex-[0_1_auto]" shrinkInCell />;
   const cls = cn(
-    "grid h-full cursor-pointer items-center gap-2 border-b border-border/70 px-3 text-[13px] hover:bg-accent/70",
+    "group/row grid h-full cursor-pointer items-center gap-2 border-b border-border/70 px-3 text-[13px] hover:bg-accent/70",
     selected && "bg-brand-soft shadow-[inset_2px_0_0_hsl(var(--brand))] hover:bg-brand-soft",
   );
   if (row.transport === "http") {
@@ -194,7 +227,7 @@ function Row({ row, scope, selected, mark }: { row: EndpointRow; scope: string; 
           </span>
           {marker}
         </span>
-        <Flags row={row} />
+        <Flags row={row} quiet={quiet} selected={selected} />
         <CallerCount n={row.caller_count} scope={scope} may={mayBeCalled(row)} project={row.project_caller_count} possible={row.project_possible_caller_count} />
       </div>
     );
@@ -211,7 +244,7 @@ function Row({ row, scope, selected, mark }: { row: EndpointRow; scope: string; 
         </span>
         {marker}
       </span>
-      <Flags row={row} />
+      <Flags row={row} quiet={quiet} selected={selected} />
       <CallerCount n={row.caller_count} scope={scope} may={mayBeCalled(row)} project={row.project_caller_count} possible={row.project_possible_caller_count} />
     </div>
   );
@@ -228,6 +261,8 @@ function Header({
   shown,
   never,
   possibly,
+  assumed,
+  quiet,
   repository,
   scope,
   filtered,
@@ -236,6 +271,8 @@ function Header({
   shown: number;
   never: number;
   possibly: number;
+  assumed: number;
+  quiet: boolean;
   repository: string;
   scope: string;
   filtered: boolean;
@@ -243,12 +280,14 @@ function Header({
   return (
     <div
       className={cn(
-        "flex h-full items-center gap-2 border-b bg-card pr-3 pl-[9px] text-[12.5px] whitespace-nowrap",
+        "@container/hdr flex h-full items-center gap-2 border-b bg-card pr-3 pl-[9px] text-[12.5px] whitespace-nowrap",
         HEADER_EDGE[summary.transport],
       )}
     >
       <TransportBadge transport={summary.transport} />
-      <span className="truncate text-muted-foreground">
+      {/* The repository and frameworks are in the strip above; a narrow
+          header leaves them out before its counts. */}
+      <span className="truncate text-muted-foreground @max-[560px]/hdr:hidden">
         {repository}
         {summary.frameworks.length > 0 ? ` · ${summary.frameworks.join(", ")}` : ""}
       </span>
@@ -258,7 +297,10 @@ function Header({
           {filtered ? <span className="text-muted-foreground"> of {summary.endpoints.length}</span> : null}{" "}
           <span className="text-muted-foreground">{endpointNoun(summary.transport, summary.endpoints.length)}</span>
         </span>
-        <span className="text-muted-foreground">{neverCalledLabel(scope, never, summary.never_called_in_project !== null)}</span>
+        <span className="text-muted-foreground" title={NO_LINKED_CALLER_HINT} data-testid="group-no-caller">
+          {never} {neverCalledLabel(scope, undefined, summary.never_called_in_project !== null).toLowerCase()}
+        </span>
+        {quiet && <GroupAssumed count={assumed} of={shown} noun={endpointNoun(summary.transport, shown)} />}
         {possibly > 0 && (
           <span className="text-muted-foreground" data-testid="possibly-called-count">
             {possibly} {POSSIBLY_CALLED}
@@ -266,6 +308,18 @@ function Header({
         )}
       </span>
     </div>
+  );
+}
+
+/** GroupAssumed counts the group's rows with a path assumption once
+ * (label row 70), when the rows leave the icon out. */
+function GroupAssumed({ count, of, noun }: { count: number; of: number; noun: string }) {
+  const l = label(useLabelStyle(), "groupAssumed", { count, of, noun });
+  const [num, ...rest] = l.text.split(" ");
+  return (
+    <span className="text-muted-foreground" title={l.title} data-testid="group-path-assumed">
+      <b className="font-semibold text-foreground">{num}</b> {rest.join(" ")}
+    </span>
   );
 }
 
@@ -309,8 +363,10 @@ export function EndpointList(props: EndpointListProps) {
     for (const t of transports) {
       if (t.endpoints.length === 0) continue;
       const rows = t.endpoints.filter((r) => matchesFilter(r, query));
-      out.push({ key: `h:${t.transport}`, kind: "header", summary: t, shown: rows.length, never: rows.filter((r) => isNeverRow(r) && !mayBeCalled(r)).length, possibly: rows.filter(isPossiblyCalledRow).length });
-      for (const row of rows) out.push({ key: row.id, kind: "row", row });
+      const assumed = rows.filter((r) => r.flags.includes("path_assumed")).length;
+      const quiet = quietAssumed(assumed, rows.length);
+      out.push({ key: `h:${t.transport}`, kind: "header", summary: t, shown: rows.length, never: rows.filter((r) => isNeverRow(r) && !mayBeCalled(r)).length, possibly: rows.filter(isPossiblyCalledRow).length, assumed, quiet });
+      for (const row of rows) out.push({ key: row.id, kind: "row", row, quiet });
     }
     return out;
   }, [transports, query]);
@@ -348,19 +404,19 @@ export function EndpointList(props: EndpointListProps) {
           const mark = markOf(item.row.id);
           return rowAriaLabel(item.row, props.scope) + (mark === null ? "" : `, ${markerTitle(mark.items, mark.baseText).replace(/: open in Changes$/, "")}`);
         }}
-        renderRow={(item, selected) => (item.kind === "row" ? <Row row={item.row} scope={props.scope} selected={selected} mark={markOf(item.row.id)} /> : null)}
+        renderRow={(item, selected) => (item.kind === "row" ? <Row row={item.row} scope={props.scope} selected={selected} mark={markOf(item.row.id)} quiet={item.quiet} /> : null)}
         renderHeader={(item) =>
           item.kind === "header" ? (
-            <Header summary={item.summary} shown={item.shown} never={item.never} possibly={item.possibly} repository={props.repository} scope={props.scope} filtered={query !== ""} />
+            <Header summary={item.summary} shown={item.shown} never={item.never} possibly={item.possibly} assumed={item.assumed} quiet={item.quiet} repository={props.repository} scope={props.scope} filtered={query !== ""} />
           ) : null
         }
         empty={
           <div className="px-4 py-8 text-center text-[13px] text-muted-foreground">
             {emptyTransport !== undefined
-              ? `No ${TRANSPORT_LABEL[emptyTransport.transport]} ${endpointNoun(emptyTransport.transport, 2)} in this repository`
+              ? `${TRANSPORT_LABEL[emptyTransport.transport]}: no ${endpointNoun(emptyTransport.transport, 2)} found ${filesWhere(props.scope)}`
               : query !== ""
                 ? `No route or command matches "${query}"`
-                : "No routes or commands in this repository"}
+                : `No routes or commands found ${filesWhere(props.scope)}`}
           </div>
         }
       />

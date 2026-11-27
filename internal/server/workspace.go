@@ -14,6 +14,7 @@ import (
 
 	"github.com/graphvein/graphvein/internal/config"
 	"github.com/graphvein/graphvein/internal/index"
+	"github.com/graphvein/graphvein/internal/storeloc"
 	"github.com/graphvein/graphvein/internal/workspace"
 )
 
@@ -64,33 +65,19 @@ const (
 // reported as it is, never as "not indexed".
 var ErrNoIndex = errors.New("no index is stored for this folder")
 
-// ErrSingleStore is returned (wrapped, with the reason) by
-// WorkspaceOptions.Open when the environment names one store file for
-// every index (GRAPHVEIN_SQLITE_PATH), which only the index named on the
-// command line uses: opening other entries on it would answer every entry
-// from one store (T038 review follow-up).
-var ErrSingleStore = errors.New("the store is set for one index only")
-
 // WorkspaceIndex is one opened registry entry: the options a
 // single-index server for it would have, and how to release them.
 type WorkspaceIndex struct {
 	Entry workspace.Entry
 	// Options carries Root, Repository, Store, Locker, OpenWriter,
-	// StoreDir and, for a project, Project. Version, Assets, Logger,
+	// StoreDir, StoreName and, for a project, Project. Version, Assets, Logger,
 	// Now and ReportURL come from the server's own options.
 	Options Options
-	// Close releases the store and the lockers; nil when the caller owns
-	// them (the index named on the command line).
+	// Close releases the store and the lockers. For the index named on
+	// the command line (Current) the server calls it only to move that
+	// index's store (POST /api/v0/store/move); nil there means its store
+	// cannot be moved from the UI.
 	Close func()
-}
-
-// StoreLocation says where an entry's index is stored, as the CLI would
-// store it: an SQLite file, or Postgres named by its environment variable
-// (never the URL, which may hold a password).
-type StoreLocation struct {
-	Kind string `json:"kind"`
-	Path string `json:"path,omitempty"`
-	Env  string `json:"env,omitempty"`
 }
 
 // WorkspaceOptions makes a server serve the workspace registry (ADR 0087).
@@ -107,8 +94,15 @@ type WorkspaceOptions struct {
 	// when none exists (adding a folder); without it a missing store is
 	// ErrNoIndex.
 	Open func(ctx context.Context, e workspace.Entry, create bool) (*WorkspaceIndex, error)
-	// StoreLocation reports where an index of folder is stored.
-	StoreLocation func(folder string) StoreLocation
+	// Stores resolves where each folder's index is stored (ADR 0093), the
+	// one resolver the CLI uses: entries other than Current resolve
+	// without GRAPHVEIN_SQLITE_PATH. nil turns the store fields and the
+	// store endpoints off (tests of other parts).
+	Stores *storeloc.Resolver
+	// CreateStore creates an empty store at loc: adding a folder whose
+	// index the user put inside the folder (an in-folder store is found by
+	// its file). nil refuses that place.
+	CreateStore func(ctx context.Context, loc storeloc.Location) error
 	// WorkDir is the server's working directory: without Current, the
 	// registered entry for it is current, and an unregistered folder with
 	// an index or manifest is suggested.
@@ -165,6 +159,12 @@ type workspaceServer struct {
 	confirms map[string]confirmRecord
 	// currentID is the entry served without ws ("" when none).
 	currentID string
+	// moving marks entries whose store is being moved: requests for them
+	// are refused (409 store_moving) and nothing opens their store.
+	moving map[string]bool
+	// direct counts opens of an entry's store outside the open indexes
+	// (background checks) in progress; a move waits for them.
+	direct map[string]int
 
 	bgCtx    context.Context
 	bgCancel context.CancelFunc
@@ -179,6 +179,7 @@ func newWorkspaceServer(opt Options, allowedHosts []string) *workspaceServer {
 	s := &workspaceServer{
 		opt: opt, ws: opt.Workspace, token: rand.Text(), budget: &cacheBudget{limit: cacheTotalLimit},
 		open: map[string]*openIndex{}, checks: map[string]entryCheck{}, confirms: map[string]confirmRecord{},
+		moving: map[string]bool{}, direct: map[string]int{},
 		bgCtx: ctx, bgCancel: cancel, wake: make(chan struct{}, 1),
 	}
 	if s.ws.Registry == nil {
@@ -235,8 +236,11 @@ func (s *workspaceServer) serveAPI(w http.ResponseWriter, r *http.Request) {
 	case workspacePath:
 		s.list(w, r)
 		return
-	case workspaceCheckPath, workspaceAddPath, workspaceRemovePath:
+	case workspaceCheckPath, workspaceAddPath, workspaceRemovePath, storeCheckPath, storeMovePath, storeDefaultPath:
 		s.post(w, r)
+		return
+	case storePath:
+		s.storeSettings(w, r)
 		return
 	}
 	id, r, err := s.entryOf(r)
@@ -333,6 +337,9 @@ func (s *workspaceServer) acquire(ctx context.Context, id string, create, write 
 	if err := s.sharedConflict(id); err != nil {
 		return nil, err
 	}
+	if err := s.notMoving(id); err != nil {
+		return nil, err
+	}
 	if write || create {
 		e, err := s.entry(id)
 		if err != nil {
@@ -359,12 +366,17 @@ func (s *workspaceServer) acquire(ctx context.Context, id string, create, write 
 	if folderGone(e.Path) {
 		return nil, folderGoneError(e)
 	}
+	// A move that started meanwhile waits for this open (openMu) and
+	// closes what it opened; one marked before is refused here.
+	if err := s.notMoving(id); err != nil {
+		return nil, err
+	}
 	wi, err := s.ws.Open(ctx, e, create)
 	if errors.Is(err, ErrNoIndex) {
 		return nil, &apiError{http.StatusConflict, "no_index", fmt.Sprintf("no index is stored for %s (%s) yet; start its run (\"Index it\" in the Workspace list, or POST /api/v0/index/run?ws=%s) or run %s", e.Name, e.Path, e.ID, indexCommandFor(e.Kind, e.Path))}
 	}
-	if errors.Is(err, ErrSingleStore) {
-		return nil, &apiError{http.StatusConflict, "single_store", err.Error()}
+	if ae := storeOpenError(err); ae != nil {
+		return nil, ae
 	}
 	if err != nil {
 		return nil, fmt.Errorf("opening the index of %s: %w", e.Name, err)
@@ -720,8 +732,13 @@ func (s *workspaceServer) suggestion(entries []workspace.Entry) *workspaceSugges
 	if _, err := os.Stat(filepath.Join(dir, config.ProjectFile)); err == nil {
 		return &workspaceSuggestion{Path: dir, Kind: workspace.KindProject}
 	}
-	if info, err := os.Stat(filepath.Join(dir, ".graphvein")); err == nil && info.IsDir() {
-		return &workspaceSuggestion{Path: dir, Kind: workspace.KindRepository}
+	// An index of the working directory, wherever the store resolver
+	// finds it (WS-72): its own .graphvein, a stores.yaml entry or the
+	// stores folder. Nothing is opened or created.
+	if s.ws.Stores != nil {
+		if loc, err := s.ws.Stores.Resolve(dir, storeloc.Scope{}); err == nil && loc.Exists {
+			return &workspaceSuggestion{Path: dir, Kind: workspace.KindRepository}
+		}
 	}
 	return nil
 }
@@ -820,6 +837,12 @@ func (s *workspaceServer) checkEntry(ctx context.Context, e workspace.Entry) {
 		c = checkOptions(ctx, oi.handler.opt, checkedAt)
 		s.release(oi)
 	} else {
+		// A store being moved is not opened; a move waits for an open
+		// that started before it.
+		if !s.beginDirect(e.ID) {
+			return
+		}
+		defer s.endDirect(e.ID)
 		wi, err := s.ws.Open(ctx, e, false)
 		switch {
 		case errors.Is(err, ErrNoIndex):

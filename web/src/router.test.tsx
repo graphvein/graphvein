@@ -22,19 +22,21 @@ beforeEach(() => {
 });
 
 describe("router", () => {
-  it("redirects an empty hash to #/api without a history entry", () => {
+  it("redirects an empty hash to the Overview without a history entry (T064)", () => {
     const before = window.history.length;
     for (const hash of ["", "#", "#/"]) {
       setHash(hash);
       normaliseHash();
-      expect(window.location.hash).toBe("#/api");
+      expect(window.location.hash).toBe("#/overview");
     }
     expect(window.history.length).toBe(before);
   });
 
   it("parses sections and unknown hashes", () => {
     expect(parseRoute("#/api")).toMatchObject({ kind: "section", section: { id: "api" } });
-    expect(parseRoute("")).toMatchObject({ kind: "section", section: { id: "api" } });
+    expect(parseRoute("")).toMatchObject({ kind: "section", section: { id: "overview" } });
+    expect(parseRoute("#/")).toMatchObject({ kind: "section", section: { id: "overview" } });
+    expect(parseRoute("#/overview")).toMatchObject({ kind: "section", section: { id: "overview", label: "Overview" } });
     expect(parseRoute("#/schema")).toMatchObject({ kind: "section", section: { id: "schema" } });
     expect(parseRoute("#/schema?tab=overview")).toMatchObject({ kind: "section", section: { id: "schema" } });
     // Disabled sections are not routes yet.
@@ -46,14 +48,14 @@ describe("router", () => {
     setHash("#/api");
     render(<AppShell fetcher={fresh} client={fakeClient()} schemaClient={schemaClient()} />);
     expect(await screen.findByRole("heading", { name: "API" })).toBeTruthy();
-    expect(await screen.findByTestId("card-http")).toBeTruthy();
+    expect(await screen.findByTestId("strip-http")).toBeTruthy();
 
     act(() => {
       window.location.hash = "#/nope";
     });
     expect(await screen.findByRole("heading", { name: "Page not found" })).toBeTruthy();
-    const back = screen.getByRole("link", { name: "Go to the API section" });
-    expect(back.getAttribute("href")).toBe("#/api");
+    const back = screen.getByRole("link", { name: "Go to the Overview" });
+    expect(back.getAttribute("href")).toBe("#/overview");
   });
 
   it("links only available sections", async () => {
@@ -78,7 +80,7 @@ describe("router", () => {
       expect(item?.textContent, label).toBe(`${label}, coming soonSoon`);
       expect(item?.querySelector('[aria-hidden="true"][data-slot="badge"]')?.textContent, label).toBe("Soon");
     }
-    expect(within(nav).getAllByRole("link").map((a) => a.textContent.replace(/\d+ unreadable$/, ""))).toEqual(["API", "Explorer", "Architecture", "Schema", "Changes", "Couldn't read", "Settings", "Help?", "Third-party licences"]);
+    expect(within(nav).getAllByRole("link").map((a) => a.textContent.replace(/\d+ unreadable$/, ""))).toEqual(["Graphveinfixture", "Overview", "API", "Explorer", "Architecture", "Schema", "Changes", "Couldn't read", "Settings", "Help?", "Third-party licences"]);
   });
 
   it("treats #/api with a query as the API section", () => {

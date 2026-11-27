@@ -1,5 +1,5 @@
 // The right inspector of the architecture map (X+): the selected
-// component, line, database, libraries card, SDK stub or expanded row,
+// component, line, database, library of the band (T067) or expanded row,
 // with every annotation cell's source and the evidence behind a line (its
 // stored members, each with an IDE link where the component answer has
 // one). With nothing selected it lists what the repository does not prove.
@@ -30,7 +30,8 @@ import { label } from "@/lib/labels";
 import { cn } from "@/lib/utils";
 import { KindTextPlain, mainKind } from "@/sections/architecture/kindText";
 import { CellLine, FAMILY_TEXT, Glyph, Strip } from "@/sections/architecture/Glyph";
-import { LIBRARIES_ID, databaseTitle, endpointName, type MapEdge, type MapModel, type MapNode, type ShowOptions } from "@/sections/architecture/model";
+import { databaseTitle, endpointName, type MapEdge, type MapModel, type MapNode, type ShowOptions } from "@/sections/architecture/model";
+import { rowText, rowTitle } from "@/sections/architecture/Cards";
 import { memberTitle } from "@/sections/architecture/chain";
 import { arrangeNotProven, notProvenCount, type NotProvenItem } from "@/sections/architecture/notProven";
 import type { DetailState } from "@/sections/architecture/useDetails";
@@ -551,12 +552,14 @@ function nodeTitle(data: ArchitectureResponse, n: MapNode): string {
   switch (n.type) {
     case "component":
       return n.component.name;
-    case "libraries":
-      return "Workspace libraries";
+    case "library":
+      return n.component.name;
+    case "band":
+      return "Libraries";
+    case "more":
+      return `${String(n.count)} more libraries`;
     case "database":
       return databaseTitle(n.database);
-    case "stub":
-      return `SDK imports of ${endpointName(data, n.stub.component)}`;
     case "repository":
       return n.member.name;
     case "container":
@@ -681,7 +684,7 @@ export function Inspector(p: InspectorProps) {
     const found = model.nodes.find((x) => x.id === p.node);
     // A card the chain opened reads as the card itself.
     const n = found?.type === "container" ? found.card : found;
-    if (n !== undefined && (n.type === "component" || n.type === "database" || n.type === "libraries" || n.type === "stub" || n.type === "repository")) return <NodeInspector {...p} n={n} />;
+    if (n !== undefined && (n.type === "component" || n.type === "database" || n.type === "library" || n.type === "repository")) return <NodeInspector {...p} n={n} />;
   }
   if (p.chain !== undefined && p.chain !== null && p.chainTitle !== undefined && p.chainTitle !== null) {
     return (
@@ -691,10 +694,10 @@ export function Inspector(p: InspectorProps) {
       </div>
     );
   }
-  return <Overview data={data} show={p.show} onClose={p.onClose} />;
+  return <Overview data={data} model={model} show={p.show} onClose={p.onClose} />;
 }
 
-function NodeInspector(p: InspectorProps & { n: Extract<MapNode, { type: "component" | "database" | "libraries" | "stub" | "repository" }> }) {
+function NodeInspector(p: InspectorProps & { n: Extract<MapNode, { type: "component" | "database" | "library" | "repository" }> }) {
   const { data, model, n } = p;
   const style = useLabelStyle();
   if (n.type === "repository") {
@@ -791,43 +794,99 @@ function NodeInspector(p: InspectorProps & { n: Extract<MapNode, { type: "compon
       </div>
     );
   }
-  if (n.type === "libraries") {
-    const linesIn = model.edges.filter((e) => e.target === LIBRARIES_ID || e.source === LIBRARIES_ID);
-    return (
-      <div data-testid="inspector" data-kind="libraries">
-        <Header kicker="Libraries · selected" title={`Workspace libraries (${String(n.members.length)})`} onClose={p.onClose} />
-        <Section title="In-process">
-          <Kv k="Into the card">{formatCount(data.libraries.links_in)}</Kv>
-          <Kv k="Out of the card">{formatCount(data.libraries.links_out)}</Kv>
-          {n.inside > 0 && <Kv k="Between them">{formatCount(n.inside)} (not drawn)</Kv>}
-          {linesIn.map((e) => (
-            <button key={e.id} type="button" className="text-left text-[12.5px] text-brand-text hover:underline" onClick={() => { p.onSelectEdge(e.id); }}>
-              {e.families.map((f) => label(style, "linkFamily", { family: f, row: "" }).text).join(" + ")} {formatCount(e.count)} with{" "}
-              {nodeTitle(data, model.nodes.find((x) => x.id === (e.source === LIBRARIES_ID ? e.target : e.source)) ?? n)}
-            </button>
-          ))}
-        </Section>
-        <Section title="Packages">
-          <ul className="grid gap-1">
-            {n.members.map((m) => (
-              <li key={m.id} className="flex min-w-0 items-center gap-2 text-[12.5px]">
-                <span className="min-w-0 truncate font-medium">{m.name}</span>
-                <span className="ml-auto truncate font-mono text-[11.5px] text-muted-foreground">{m.directory}</span>
-              </li>
-            ))}
-          </ul>
-        </Section>
-      </div>
-    );
+  return <LibraryView p={p} n={n} />;
+}
+
+/** LibraryView is a library of the band selected (T062 A2): the
+ * components using it and the libraries it uses, each with the summed
+ * count of the stored links between them, and what its band row means.
+ * A library no stored link touches says so, never "unused". */
+function LibraryView({ p, n }: { p: InspectorProps; n: Extract<MapNode, { type: "library" }> }) {
+  const { data, model } = p;
+  const c = n.component;
+  const dir = c.directory === "." ? "./" : `${c.directory}/`;
+  const usedBy = new Map<string, number>();
+  const uses = new Map<string, number>();
+  for (const l of data.links) {
+    if (l.source === l.target) continue;
+    if (l.target === c.id) usedBy.set(l.source, (usedBy.get(l.source) ?? 0) + l.count + l.back_count);
+    if (l.source === c.id) uses.set(l.target, (uses.get(l.target) ?? 0) + l.count + l.back_count);
   }
-  const s = n.stub;
-  const owner = data.components.find((c) => c.id === s.component);
+  const sorted = (m: Map<string, number>) => [...m].sort((x, y) => y[1] - x[1] || endpointName(data, x[0]).localeCompare(endpointName(data, y[0])));
+  const nodeOf = (id: string) => model.nodes.find((x) => (x.type === "component" || x.type === "library") && x.component.id === id)?.id ?? null;
+  // A library reads as on its chip (the shared prefix dropped).
+  const nameOf = (id: string) => {
+    const x = model.nodes.find((y) => y.type === "library" && y.component.id === id);
+    return x?.type === "library" ? x.display : endpointName(data, id);
+  };
+  const row = model.nodes.find((x) => x.type === "band");
+  const bandRow = row?.type === "band" ? row.band.rows[n.row] : undefined;
+  const Entry = ({ id, count }: { id: string; count: number }) => {
+    const target = nodeOf(id);
+    const isCard = target?.startsWith("c:") === true;
+    const name = (
+      <>
+        <span className="min-w-0 truncate font-mono text-[12.5px]" title={endpointName(data, id)}>
+          {nameOf(id)}
+        </span>
+        {isCard && <span className="flex-none text-xs text-muted-foreground">card</span>}
+        <span className="ml-auto flex-none tabular-nums">{formatCount(count)}</span>
+      </>
+    );
+    return (
+      <li>
+        {target !== null ? (
+          <button type="button" className="flex w-full min-w-0 items-center gap-1.5 rounded-md px-1 py-0.5 text-left hover:bg-accent" onClick={() => { p.onSelectNode(target); }}>
+            {name}
+          </button>
+        ) : (
+          <span className="flex min-w-0 items-center gap-1.5 px-1 py-0.5" title="not drawn: hidden by a Show toggle">
+            {name}
+          </span>
+        )}
+      </li>
+    );
+  };
   return (
-    <div data-testid="inspector" data-kind="stub">
-      <Header kicker="SDK imports · selected" title={owner?.name ?? s.component} onClose={p.onClose} />
-      <Section title="Imports">
-        <StubPackages text={label(style, "stub", { text: s.text, row: s.row })} detail={p.detail(s.component)} />
-        <CellLine name="Protocol" cell={s.protocol} />
+    <div data-testid="inspector" data-kind="library">
+      <Header kicker="Library · selected" title={c.name} extra={<span className="font-mono text-xs text-muted-foreground">{[dir, ...c.manifests.map((m) => m.file.split("/").pop() ?? m.file), `${formatCount(c.counts.files)} files`].join(" · ")}</span>} onClose={p.onClose} />
+      {usedBy.size + uses.size === 0 ? (
+        <Section title="Links">
+          <p className="text-[13px]">No stored link starts or ends at this library in this answer.</p>
+          <p className="text-xs text-muted-foreground">Not read as unused: a use the indexer did not resolve is not stored.</p>
+        </Section>
+      ) : (
+        <>
+          <Section title={`Used by ↑ · ${String(usedBy.size)}`} testId="library-used-by">
+            {usedBy.size > 0 ? (
+              <ul className="grid gap-0.5">
+                {sorted(usedBy).map(([id, k]) => (
+                  <Entry key={id} id={id} count={k} />
+                ))}
+              </ul>
+            ) : (
+              <p className="text-xs text-muted-foreground">No stored link ends at this library.</p>
+            )}
+          </Section>
+          {uses.size > 0 && (
+            <Section title={`Uses ↓ · ${String(uses.size)}`} testId="library-uses">
+              <ul className="grid grid-cols-2 gap-x-4 gap-y-0.5">
+                {sorted(uses).map(([id, k]) => (
+                  <Entry key={id} id={id} count={k} />
+                ))}
+              </ul>
+            </Section>
+          )}
+        </>
+      )}
+      {bandRow !== undefined && (
+        <Section title="Band row">
+          <p className="text-[13px]">{[rowText(bandRow).label ?? "Used by libraries", rowText(bandRow).sub].filter((x) => x !== null).join(", ")}</p>
+          <p className="text-xs text-muted-foreground">{rowTitle(bandRow)}. The numbers are the stored links' counts, as the band's chips show them while this library is selected (↑ uses it, ↓ it uses); otherwise a chip's number is the components using it.</p>
+        </Section>
+      )}
+      <Section title="In-process">
+        <p className="text-xs text-muted-foreground">Calls and imports between components; protocol, auth and TLS do not apply. Each line's cells and evidence: select the line.</p>
       </Section>
     </div>
   );
@@ -884,20 +943,42 @@ function ProjectOverview({ p }: { p: ArchProject }) {
   );
 }
 
-function Overview({ data, show, onClose }: { data: ArchitectureResponse; show?: ShowOptions | undefined; onClose?: (() => void) | undefined }) {
+function Overview({ data, model, show, onClose }: { data: ArchitectureResponse; model: MapModel; show?: ShowOptions | undefined; onClose?: (() => void) | undefined }) {
   const style = useLabelStyle();
+  const bandNode = model.nodes.find((n) => n.type === "band");
+  const band = bandNode?.type === "band" ? bandNode.band : undefined;
   const count = notProvenCount(arrangeNotProven(data, data.not_proven, show));
   const notDrawn = Object.entries(data.not_drawn);
   const linksLine = label(style, "archLinksSummary", { links: data.links.length, components: data.components.length });
   return (
     <div data-testid="inspector" data-kind="overview">
-      <Header kicker="Architecture" title={data.repository} extra={<p className="text-[13px] font-normal text-muted-foreground">Select a card or a line chip to see its cells, their sources and the evidence.</p>} onClose={onClose} />
+      <Header kicker="Architecture" title={data.repository} extra={<p className="text-[13px] font-normal text-muted-foreground">Select a card, a library or a line chip to see its cells, their sources and the evidence.</p>} onClose={onClose} />
       {data.notice !== null && (
         <Section title="Manifests">
           <p className="text-[13px] text-dynamic">{data.notice}</p>
         </Section>
       )}
       {data.project !== null && <ProjectOverview p={data.project} />}
+      {band !== undefined && (
+        <Section title="Libraries" testId="overview-libraries">
+          <dl className="grid grid-cols-[1fr_auto] gap-x-3 gap-y-0.5 text-[13px]">
+            {(
+              [
+                ["Workspace packages (kind package only)", band.libraries],
+                ["Card ⇄ library pairs, drawn", band.cardLines],
+                ["Links between libraries", band.between],
+                ["With no stored link", band.unlinked],
+              ] as const
+            ).map(([k, v]) => (
+              <div key={k} className="contents">
+                <dt>{k}</dt>
+                <dd className="text-right tabular-nums">{formatCount(v)}</dd>
+              </div>
+            ))}
+          </dl>
+          <p className="text-xs text-muted-foreground">Select a library or a card to mark its neighbours on their chips: ↑ uses the selection, ↓ used by it, with the stored counts.</p>
+        </Section>
+      )}
       <Section title={`Not proven in this repository · ${String(count)}`}>
         {data.not_proven.length > 0 ? <NotProvenList data={data} items={data.not_proven} show={show} /> : <p className="text-xs text-muted-foreground">The answer lists no entry.</p>}
       </Section>

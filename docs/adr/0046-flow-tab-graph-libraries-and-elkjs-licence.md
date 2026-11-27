@@ -146,3 +146,54 @@ accepted and not edited).
 - Revisions after review: back edges (handler -> route) laid out forward with the arrowhead kept at the stored target; Flow-tab peek height, sticky controls and pan-to-selection; focus restore after re-layout; chip units; minimap never covers a card; first view fitted to call sites, endpoint and handler with pan pills (recorded decision "G1 starts fitted to callers-route-handler").
 - Gates (2026-11-03): Langflow (5 routes) and kftray (2 commands): on-screen numbers equal /flow and /endpoint, drawn lines equal stored edges, 0 CSP violations or console errors, text >= 12 px, nothing under overlays; acceptance route GET /api/v1/flows/{flow_id} shows its 3 callers, read_flow and the hop-2 callers; largest flow laid out in 0.93 s.
 - Known gaps: on the largest Langflow flow the handler starts off-screen (call cards over 600 px wide; reachable by the pill); wide call cards clip the column caption; changing hops re-lays out the whole graph; React Flow attribution kept visible.
+
+## Revision (T073): the legend folds into a strip with a Legend button
+
+Status of this revision: Proposed (pending the developer's review; the
+decisions above keep their status).
+
+### Context
+
+T016f D6 (UQ4 A) placed the whole legend in an always visible strip
+below the canvas. The T071 design review measured it on owncast (`GET
+/api/config`, 2 callers): 117 px in three rows under a 442 px graph at
+1440x900, 195 px under a 200 px graph at 900x800, and 5 of its 7 line
+kinds had no line on screen. The developer chose T071 question 8 with its
+default on 2026-11-27.
+
+### Options considered
+
+- Keep the always visible legend (D6): every kind is always explained,
+  at the cost of up to half the canvas on a short pane.
+- A strip of the drawn kinds plus a Legend button opening the full legend
+  (T071's recommendation, chosen).
+- Hide the legend entirely behind a button: the filter chips of the drawn
+  kinds would be one click away too; rejected.
+
+### Decision
+
+- The strip shows the kinds with a line on this screen as filter chips
+  (unchanged: sample, label, count, toggle), "+ n kinds with no line
+  here" (label table row 73; n counts the listed tiers at 0 plus Dynamic
+  and Unmatched), the calls' precision labels while the strip is at least
+  1000 px wide (the route's own label is in the route header) and a
+  Legend button, the same disclosure control as the Architecture map's.
+- The button opens the full legend over the bottom of the canvas (no
+  re-layout): every tier the filter can dim with its count, Dynamic and
+  Unmatched disabled at 0 with their gap sheet links, "defined in", the
+  other-target box, the wrapper pill, the changed dot, the notes and
+  every precision label. Esc or the button closes it. The choice is not
+  remembered: it is closed on every visit.
+
+### Consequences
+
+- At 0 a kind is counted, never shown as absent; its explanation and its
+  gap sheet are one click away instead of always on screen.
+- The graph gains the legend's extra rows (measured in the T073 record).
+- `Legend.test.tsx` and the legend cases of `FlowTab.test.tsx` and
+  `places.test.tsx` test the strip and the opened legend.
+
+### Known gaps
+
+- The 1000 px threshold for the precision labels is a container query on
+  the strip, not measured from the chips.

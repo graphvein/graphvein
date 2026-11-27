@@ -1,4 +1,5 @@
-// The coverage cards (M5 .covc), shown on wide screens: per transport the
+// The coverage cards (M5 .covc), behind the strips' "Coverage and roots"
+// disclosure (T065): per transport the
 // endpoint count, linked percentage, stacked bar, one stat cell per
 // category (the M5 five always, further categories when not zero) and the
 // per-source-root breakdown. Non-linked cells with calls open the gap
@@ -27,7 +28,7 @@ import type { TransportSummary } from "@/api/endpoints";
 import { cn } from "@/lib/utils";
 import {
   barParts,
-  isEmptyTransport,
+  noneFound,
   manifestTitle,
   rootLabel,
   rootCategoryCounts,
@@ -38,7 +39,6 @@ import { FamilyChip } from "@/sections/api/precision";
 import { RootChip, RootsToggle, groupLabel, useRootsFold } from "@/sections/api/RootsFold";
 
 const TOP: Record<string, string> = { http: "border-t-http-bar", tauri_ipc: "border-t-ipc-bar", server_action: "border-t-action-bar" };
-const LEFT: Record<string, string> = { http: "border-l-http-bar", tauri_ipc: "border-l-ipc-bar", server_action: "border-l-action-bar" };
 
 function cellTitle(cell: CoverageCell): string {
   if (cell.kind === "never") return `Endpoints with no stored caller. ${NO_LINKED_CALLER_HINT}`;
@@ -216,18 +216,6 @@ export function RootLines({ t, actions }: { t: TransportSummary; actions: Covera
 }
 
 function Card({ t, repository, scope, actions }: { t: TransportSummary; repository: string; scope: string; actions: CoverageActions }) {
-  if (isEmptyTransport(t)) {
-    return (
-      <div data-testid={`card-${t.transport}`} className={cn("flex items-center gap-2 rounded-xl border border-l-[3px] bg-card px-3.5 py-2 shadow-[0_1px_2px_rgba(0,0,0,.04)]", LEFT[t.transport])}>
-        <div className="flex items-center gap-2">
-          <TransportBadge transport={t.transport} />
-          <span className="text-[13px] text-muted-foreground">
-            No {TRANSPORT_LABEL[t.transport]} {endpointNoun(t.transport, 2)} or {callNoun(t.transport, 2)} in this repository
-          </span>
-        </div>
-      </div>
-    );
-  }
   // Project mode: the project's counts (T022 MR-UI), linked across
   // repositories included; the repository's own are the secondary line.
   const project = t.calls.repository_by_status !== null;
@@ -289,37 +277,36 @@ function Card({ t, repository, scope, actions }: { t: TransportSummary; reposito
   );
 }
 
-/** CoverageCards renders one card per shown transport with data; a
- * transport without endpoints and calls gets one slim line instead. */
+/** CoverageCards renders one card per shown transport with endpoints or
+ * calls, behind the strips' "Coverage and roots" disclosure (T065). A
+ * transport with neither has no card: the toolbar says "none found". */
 export function CoverageCards({
   transports,
   repository,
   scope,
   actions,
   collapsed = false,
+  id,
 }: {
   transports: TransportSummary[];
   repository: string;
   /** The scope the counts were read in (the endpoints answer's scope). */
   scope: string;
   actions: CoverageActions;
-  /** Hidden in favour of the summary strip (the code peek is open). */
+  /** Hidden while the code peek is open, so the callers keep room. */
   collapsed?: boolean;
+  /** The id the disclosure button controls. */
+  id?: string;
 }) {
-  const full = transports.filter((t) => !isEmptyTransport(t));
-  const empty = transports.filter(isEmptyTransport);
+  const full = transports.filter((t) => !noneFound(t));
+  if (full.length === 0) return null;
   return (
-    <div className={cn("grid gap-2 compact:hidden", collapsed && "hidden")} data-testid="coverage-cards">
-      {full.length > 0 && (
-        <div className={cn("grid gap-3.5", full.length > 1 ? "grid-cols-2" : "grid-cols-1")}>
-          {full.map((t) => (
-            <Card key={t.transport} t={t} repository={repository} scope={scope} actions={actions} />
-          ))}
-        </div>
-      )}
-      {empty.map((t) => (
-        <Card key={t.transport} t={t} repository={repository} scope={scope} actions={actions} />
-      ))}
+    <div id={id} className={cn("grid flex-none gap-2", collapsed && "hidden")} data-testid="coverage-cards">
+      <div className={cn("grid gap-3.5", full.length > 1 ? "grid-cols-2 max-[1100px]:grid-cols-1" : "grid-cols-1")}>
+        {full.map((t) => (
+          <Card key={t.transport} t={t} repository={repository} scope={scope} actions={actions} />
+        ))}
+      </div>
     </div>
   );
 }

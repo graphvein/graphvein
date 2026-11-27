@@ -11,6 +11,7 @@ import (
 	"net/url"
 	"os"
 	"path/filepath"
+	"slices"
 	"strings"
 	"sync"
 	"testing"
@@ -36,7 +37,10 @@ func TestServeUsageErrors(t *testing.T) {
 		if code := serveCommand(context.Background(), args, &out, &errOut); code != 2 || out.Len() != 0 {
 			t.Errorf("%v: exit %d, stdout %q", args, code, out.String())
 		}
-		if strings.Contains(strings.Join(args, " "), "7420") && !strings.Contains(errOut.String(), "--addr must be a loopback IP literal such as 127.0.0.1:7420 or [::1]:7420") {
+		// Only the flags name the port: the temporary folder name is random and
+		// may contain "7420" itself.
+		flags := strings.Join(slices.DeleteFunc(slices.Clone(args), func(a string) bool { return a == root }), " ")
+		if strings.Contains(flags, "7420") && !strings.Contains(errOut.String(), "--addr must be a loopback IP literal such as 127.0.0.1:7420 or [::1]:7420") {
 			t.Errorf("%v: stderr %q", args, errOut.String())
 		}
 	}

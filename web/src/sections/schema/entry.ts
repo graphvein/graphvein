@@ -8,6 +8,7 @@
 
 import type { SchemaSummary } from "@/api/schema";
 import { unreadableCount } from "@/sections/schema/state";
+import { joinNames, toolLabel } from "@/sections/schema/tools";
 
 export interface EntryTag {
   text: string;
@@ -49,6 +50,11 @@ export function schemaEntryTag(summary: SchemaSummary | null): EntryTag | null {
   if (f === "none") {
     // T018f: a tool found but not read is never "none found".
     const unread = summary.unread_tools ?? [];
+    // T070: a model source found and refused is never "none found".
+    const refused = summary.refused_sources ?? [];
+    if (refused.length > 0) {
+      return { text: "not read", tone: "muted", title: `${joinNames([...new Set(refused.map((r) => toolLabel(r.tool)))])} models found, not read (the Schema view gives the reason)` };
+    }
     if (unread.length > 0) return { text: "not read yet", tone: "muted", title: `${unread.some((t) => t.tool === "alembic") ? "Alembic migrations" : unread.some((t) => t.tool === "prisma-migrate") ? "Prisma migrations" : unread.some((t) => t.tool === "drizzle-kit") ? "Drizzle migrations" : "Migrations"} found that Graphvein does not read yet` };
     return { text: "none found", tone: "muted", title: "No sqlx migration set among the indexed manifests (this does not mean there is no database)" };
   }

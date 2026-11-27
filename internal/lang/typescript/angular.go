@@ -1,42 +1,53 @@
 package typescript
 
 import (
+	"maps"
+	"slices"
 	"strings"
 
 	"github.com/graphvein/graphvein/internal/lang/facts"
 	"github.com/graphvein/graphvein/internal/parse"
 )
 
+// angularExpr is the Angular provider syntax of n, built without sharing.
 func angularExpr(n *parse.Node) facts.RouteExpr {
-	e := urlExpr(n)
+	return (*exprMemo)(nil).angular(n)
+}
+
+func (m *exprMemo) buildAngular(n *parse.Node) facts.RouteExpr {
+	e := m.url(n)
 	if n == nil {
 		return e
 	}
+	// e may share its Parts and Properties with other expressions (exprMemo):
+	// extend copies of them, never the shared ones.
 	if n.Kind == "array" {
+		e.Parts = slices.Clip(e.Parts)
 		for _, c := range n.Children {
 			if c.Kind != "comment" {
-				e.Parts = append(e.Parts, angularExpr(c))
+				e.Parts = append(e.Parts, m.angular(c))
 			}
 		}
 	}
 	// Provider arrays are syntax, outside the URL evaluator's value subset.
 	if n.Kind == "object" {
+		e.Properties = maps.Clone(e.Properties)
 		for _, p := range n.Children {
 			if p.Kind == "pair" {
-				e.Properties[strings.Trim(text(p.Fields["key"]), "\"'")] = angularExpr(p.Fields["value"])
+				e.Properties[strings.Trim(text(p.Fields["key"]), "\"'")] = m.angular(p.Fields["value"])
 			}
 		}
 	}
 	if n.Kind == "call_expression" || n.Kind == "new_expression" {
 		if n.Kind == "new_expression" {
-			object := urlExpr(n.Fields["constructor"])
+			object := m.url(n.Fields["constructor"])
 			e.Object = &object
 		}
 		e.Args = nil
 		if args := n.Fields["arguments"]; args != nil {
 			for _, c := range args.Children {
 				if c.Kind != "comment" {
-					e.Args = append(e.Args, angularExpr(c))
+					e.Args = append(e.Args, m.angular(c))
 				}
 			}
 		}
@@ -44,7 +55,7 @@ func angularExpr(n *parse.Node) facts.RouteExpr {
 	return e
 }
 
-func cacheAngular(root *parse.Node, r *facts.RouteFacts, out *Facts) {
+func cacheAngular(m *exprMemo, root *parse.Node, r *facts.RouteFacts, out *Facts) {
 	cacheLocalInjection(r)
 	// Skip unrelated modules before walking syntax or retaining Angular metadata.
 	angular := false
@@ -77,7 +88,7 @@ func cacheAngular(root *parse.Node, r *facts.RouteFacts, out *Facts) {
 		}
 		for _, c := range n.Children {
 			if c.Kind == "decorator" && len(c.Children) > 0 {
-				decorators = append(decorators, angularExpr(c.Children[0]))
+				decorators = append(decorators, m.angular(c.Children[0]))
 			}
 		}
 		if n.Kind == "class_declaration" || n.Kind == "abstract_class_declaration" {
@@ -104,7 +115,7 @@ func cacheAngular(root *parse.Node, r *facts.RouteFacts, out *Facts) {
 			if body != nil {
 				for _, member := range body.Children {
 					if member.Kind == "public_field_definition" {
-						value := angularExpr(member.Fields["value"])
+						value := m.angular(member.Fields["value"])
 						if value.Kind == "call_expression" && value.Object != nil && len(value.Args) == 1 {
 							fields = append(fields, field{injection: facts.AngularInjection{Token: value.Args[0], Factory: *value.Object}, start: n.Start, end: n.End, name: text(member.Fields["name"])})
 						}
@@ -128,7 +139,7 @@ func cacheAngular(root *parse.Node, r *facts.RouteFacts, out *Facts) {
 								}
 								var token, factory facts.RouteExpr
 								if typ := p.Fields["type"]; typ != nil && len(typ.Children) == 1 {
-									token = urlExpr(typ.Children[0])
+									token = m.url(typ.Children[0])
 									token.Kind = "identifier"
 									token.Name = typ.Children[0].Text
 									if parts := strings.Split(token.Name, "."); len(parts) == 2 {
@@ -138,7 +149,7 @@ func cacheAngular(root *parse.Node, r *facts.RouteFacts, out *Facts) {
 								}
 								for _, c := range p.Children {
 									if c.Kind == "decorator" && len(c.Children) > 0 {
-										dec := angularExpr(c.Children[0])
+										dec := m.angular(c.Children[0])
 										if dec.Object != nil && len(dec.Args) == 1 {
 											token, factory = dec.Args[0], *dec.Object
 										}
@@ -157,7 +168,7 @@ func cacheAngular(root *parse.Node, r *facts.RouteFacts, out *Facts) {
 			}
 		}
 		if n.Kind == "object" || n.Kind == "call_expression" {
-			e := angularExpr(n)
+			e := m.angular(n)
 			scope := 0
 			for _, c := range r.Clients {
 				if c.Expression.Offset == int(n.Start) {
@@ -213,9 +224,9 @@ func cacheAngular(root *parse.Node, r *facts.RouteFacts, out *Facts) {
 					}
 				}
 				body := n.Fields["body"]
-				in := facts.AngularInterceptor{Name: name, Request: param(ps.Children[0]), Next: param(ps.Children[1]), Body: urlStatements(body)}
+				in := facts.AngularInterceptor{Name: name, Request: param(ps.Children[0]), Next: param(ps.Children[1]), Body: m.urlStatements(body)}
 				if body != nil && body.Kind != "statement_block" {
-					in.Body = []facts.URLStatement{{Kind: "return_statement", Expression: urlExpr(body)}}
+					in.Body = []facts.URLStatement{{Kind: "return_statement", Expression: m.url(body)}}
 				}
 				var expressions func(*parse.Node)
 				expressions = func(v *parse.Node) {
@@ -223,7 +234,7 @@ func cacheAngular(root *parse.Node, r *facts.RouteFacts, out *Facts) {
 						return
 					}
 					if v.Kind == "call_expression" || v.Kind == "new_expression" {
-						in.Expressions = append(in.Expressions, angularExpr(v))
+						in.Expressions = append(in.Expressions, m.angular(v))
 					}
 					for _, c := range v.Children {
 						expressions(c)

@@ -13,8 +13,10 @@
 
 import { Fragment, useMemo, useState, type ReactNode } from "react";
 
+import type { SchemaSummary } from "@/api/schema";
 import { fetchUnread, type FileWithoutFacts, type UnreadFetcher, type UnreadList, type UnreadPage } from "@/api/unread";
 import type { IdeLink, IdeStatus } from "@/api/endpoints";
+import { ParseFailedNotice } from "@/components/ParseFailedNotice";
 import { useApiRequest } from "@/hooks/useApiRequest";
 import { useEditor, withEditor } from "@/hooks/useEditor";
 import type { StatusView } from "@/hooks/useStatus";
@@ -25,7 +27,8 @@ import { replaceHash, useHash } from "@/router";
 import { IdeButton, Method, WrappedPath } from "@/sections/api/parts";
 import { apiHash, parseApiParams } from "@/sections/api/params";
 import { explorerPrefixHash } from "@/sections/explorer/params";
-import { COPY_HEADER, DOCUMENT_SCOPE_PRODUCTION, DOCUMENT_SCOPE_TESTS, ROUTES_WITHHELD_TITLE, cards, extensionLabel, fileGroups, pageText, pathsSentence, parseUnreadParams, projectText, reasonText, routePathsComplete, unplacedText, unreadHash, type Card } from "@/sections/unread/model";
+import { refusalReason, toolLabel } from "@/sections/schema/tools";
+import { COPY_HEADER, DOCUMENT_SCOPE_PRODUCTION, DOCUMENT_SCOPE_TESTS, ROUTES_WITHHELD_TITLE, SCHEMA_REFUSED_TITLE, cards, schemaText, extensionLabel, fileGroups, pageText, pathsSentence, parseUnreadParams, projectText, reasonText, routePathsComplete, unplacedText, unreadHash, type Card } from "@/sections/unread/model";
 import { useProject } from "@/shell/project";
 
 /** SHOWN is how many items a list shows before "Show all". */
@@ -444,13 +447,38 @@ function PageSections({ page, prefix }: { page: UnreadPage; prefix: string }) {
   );
 }
 
+/** SchemaPart lists the model sources the schema summary names as found
+ * and refused (T070): the Schema view's "found, not read" items, so this
+ * page names them too. Shown only when there is one. */
+function SchemaPart({ summary }: { summary: SchemaSummary }) {
+  const refused = summary.refused_sources ?? [];
+  if (refused.length === 0) return null;
+  return (
+    <Panel id="schema-refused" title={SCHEMA_REFUSED_TITLE} chip={`${formatCount(refused.length)} ${refused.length === 1 ? "source" : "sources"}`} source={`from the schema summary of ${summary.repository}`}>
+      <p className="m-0 text-[13px] text-muted-foreground">
+        A model linker found these and refused them as a whole, so the Schema view holds no model table from them. The message is the stored reason.
+      </p>
+      <ul className="m-0 grid list-none gap-0 p-0" data-testid="unread-schema-refused">
+        {refused.map((r, i) => (
+          <li key={i} className="grid gap-0.5 border-b border-dashed py-1.5 text-[13px] last:border-b-0" data-testid="unread-schema-item">
+            <span className="min-w-0 [overflow-wrap:anywhere]">
+              <b className="font-semibold">{toolLabel(r.tool)} models</b> found, not read · <WrappedPath file={r.file} line={null} />
+            </span>
+            <span className="text-[12.5px] text-muted-foreground [overflow-wrap:anywhere]">{refusalReason(r)}</span>
+          </li>
+        ))}
+      </ul>
+    </Panel>
+  );
+}
+
 function scrollTo(id: string): void {
   const el = document.getElementById(id);
   if (el !== null && typeof el.scrollIntoView === "function") el.scrollIntoView({ block: "start", behavior: "smooth" });
 }
 
 /** UnreadSection is the page. fetcher replaces the request in tests. */
-export function UnreadSection({ status, fetcher = fetchUnread }: { status: StatusView; fetcher?: UnreadFetcher }) {
+export function UnreadSection({ status, fetcher = fetchUnread, schema = null }: { status: StatusView; fetcher?: UnreadFetcher; schema?: SchemaSummary | null }) {
   const hash = useHash();
   const params = parseUnreadParams(hash);
   const project = useProject();
@@ -475,7 +503,7 @@ export function UnreadSection({ status, fetcher = fetchUnread }: { status: Statu
 
   const copy = () => {
     if (answer === null) return;
-    const lines = [COPY_HEADER, "", ...(answer.kind === "page" ? pageText(answer.page) : projectText(answer.project))];
+    const lines = [COPY_HEADER, "", ...(answer.kind === "page" ? pageText(answer.page) : projectText(answer.project)), ...schemaText(schema?.refused_sources ?? null)];
     void copyText(lines.join("\n")).then((ok) => {
       setCopied(ok ? "Copied" : "Could not copy: select the text on the page");
     });
@@ -492,6 +520,7 @@ export function UnreadSection({ status, fetcher = fetchUnread }: { status: Statu
             {ext !== null && ` · ${ext}`}. Facts behind these items are shown as unknown in the other views, never as absent.{" "}
             {params.tests ? "Production and test code." : "Production code only."}
           </p>
+          {project === null && status.kind === "ok" && <ParseFailedNotice count={status.status.index.parse_failed ?? 0} onPage className="rounded-md border bg-dynamic-soft px-3 py-2" />}
         </div>
         <div className="flex flex-wrap items-center gap-2.5">
           {project !== null && (
@@ -560,6 +589,7 @@ export function UnreadSection({ status, fetcher = fetchUnread }: { status: Statu
             <PageSections page={m} prefix={`${m.repository}-`} />
           </div>
         ))}
+      {answer !== null && schema !== null && <SchemaPart summary={schema} />}
     </div>
   );
 }

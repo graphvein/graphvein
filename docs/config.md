@@ -63,7 +63,9 @@ The SQLite store is in WAL journal mode
 ([ADR 0049](adr/0049-sqlite-wal-journal-mode.md)), so `serve`, `status` and
 the query commands keep reading the last committed run while
 `graphvein index` writes. Next to `index.db` (by default in
-`<repo>/.graphvein/`, which Git and the scanner already ignore) SQLite keeps
+the folder's own store folder in the per-user stores folder, or
+`<repo>/.graphvein/` for a store kept inside the repository, which the scanner
+ignores but Git lists unless an ignore file covers it; ADR 0093) SQLite keeps
 two sidecar files:
 
 - While any Graphvein process has the store open: `index.db-wal` and
@@ -98,20 +100,27 @@ next run.
 
 Every index run (`graphvein index`, `index --project`, a re-index or a ref
 snapshot started from `serve`, and `changes` indexing a missing ref) first
-writes the run's NDJSON snapshot to a temporary file, `snapshot-*.ndjson`,
-and ingests it from there. The file goes next to the store: with the
-default layout that is `<repo>/.graphvein/`, which Git and the scanner
-ignore; with `GRAPHVEIN_SQLITE_PATH` (or a project store) it is the
-directory of that `index.db`, so a run with the store outside the
+writes the run's NDJSON snapshot to a temporary file,
+`snapshot-<tag>-*.ndjson` (`<tag>` is a short hash of the store's file
+name; `snapshot-*.ndjson` with Postgres), and ingests it from there. The
+file goes next to the store: the directory of its `index.db` (the
+folder's store folder in the per-user stores folder by default,
+`<repo>/.graphvein/` for a store inside the repository, which the
+scanner ignores, or the directory of `GRAPHVEIN_SQLITE_PATH`), so a run
+with the store outside the
 repository writes nothing into the indexed tree, not even an empty
 `.graphvein/`. With Postgres, or a SQLite path inside the repository but
 outside its `.graphvein/`, the file goes to the operating system's
 temporary directory instead, so the scan never reads it. The run removes
 the file when it ends, successfully or not, and removes a directory it
-created for it when that directory is empty. A run that is killed leaves
-the file behind in that same place (never in the repository unless the
-store is in its `.graphvein/`); it is safe to delete once no index run is
-active.
+created for it when that directory is empty. A run that is killed (for
+example by the operating system's out-of-memory killer) cannot clean up
+and leaves the file behind in that same place (never in the repository
+unless the store is in its `.graphvein/`). The next run of the same SQLite
+store, which holds the store's index lock, removes it; the snapshots of
+other stores in the same directory are left alone. A leftover in the
+operating system's temporary directory (Postgres) is never removed by a
+run; it is safe to delete once no index run is active.
 
 Never delete `index.db-wal` or `index.db-shm` on their own, and never delete
 or replace `index.db` while any Graphvein process has it open. To reset a
@@ -158,11 +167,15 @@ registry file outside every repository:
 - Contents: `version: 1` and `entries`, each with `kind` (`repository` or
   `project`), `name` (the repository ID or project name), the absolute
   folder `path` with symbolic links resolved, and `added_at`. The store
-  location is not stored: each index is opened from its folder as the CLI
-  opens it (`<folder>/.graphvein/index.db`, or `GRAPHVEIN_POSTGRES_URL` of
-  the `serve` process). `GRAPHVEIN_SQLITE_PATH` names one file, so it
-  applies only to the index named on the `serve` command line; while it is
-  set, other entries are not opened. Under `GRAPHVEIN_POSTGRES_URL` every
+  location is not stored there: each index is opened where the store
+  resolver finds it for its folder, as the CLI does
+  ([ADR 0093](adr/0093-per-user-store-location.md)):
+  `GRAPHVEIN_POSTGRES_URL` of the `serve` process, else the folder's own
+  `.graphvein/index.db` when one exists (an index made inside the folder),
+  else a `stores.yaml` entry, else `<stores>/<name>-<8 hex>/index.db` in
+  the per-user stores folder. `GRAPHVEIN_SQLITE_PATH` names one file, so it
+  applies only to the index named on the `serve` command line; every other
+  entry opens from its own store. Under `GRAPHVEIN_POSTGRES_URL` every
   entry shares one database, which keeps facts by repository ID and
   project name: two entries in different folders with one name are not
   served until one is renamed (`repository:` in `graphvein.yaml`) or
@@ -181,7 +194,20 @@ registry file outside every repository:
   it is removed; removing an entry never deletes the folder or its index.
 
 Scripts and tests that run `serve` should point `GRAPHVEIN_WORKSPACE_FILE`
-at a temporary file so they leave the user's registry alone.
+at a temporary file and `GRAPHVEIN_STORE_DIR` at a temporary folder, so
+they leave the user's registry and stores alone.
+
+`stores.yaml`, beside `workspace.yaml`, holds the exceptions to the
+default: `default_dir` (the folder new indexes go to, set with Change… on
+"New indexes are kept in" in the web UI's Settings, Storage) and
+`entries` (a folder whose index is kept elsewhere: chosen with Change… in
+the Add a folder confirmation, or moved with Move… in Settings or
+`graphvein store move`). Settings' Storage section opens without an index
+and shows where each index is, its place and size; Move and Change… are
+checked by the server before anything is written
+([serve](cli/serve.md#storage-get-apiv0store-post-apiv0storecheck-move-default),
+[ADR 0088](adr/0088-settings-editing.md) revision 1). Indexes that exist
+never move on their own.
 
 ## IDE
 

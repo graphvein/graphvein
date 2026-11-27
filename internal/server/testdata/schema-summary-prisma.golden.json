@@ -1,0 +1,46 @@
+{
+  "api_version": 0,
+  "failed_sets": 0,
+  "found": "sets",
+  "index": {
+    "contract_version": 1,
+    "finished_at": "2026-11-03T14:32:05.123Z",
+    "indexer": {
+      "name": "graphvein",
+      "version": "extractors-64"
+    }
+  },
+  "model_groups": 11,
+  "refused_sources": [
+    {
+      "code": "schema_model_unread",
+      "file": "mongo/schema.prisma",
+      "message": "mongo/schema.prisma:2: provider mongodb: collections are out of scope, no table is claimed",
+      "tool": "prisma"
+    },
+    {
+      "code": "schema_model_unread",
+      "file": "nodep/schema.prisma",
+      "message": "2 .prisma file(s) are outside every discovered Prisma schema and not read: nodep/schema.prisma, nonliteral/prisma/schema.prisma",
+      "tool": "prisma"
+    },
+    {
+      "code": "schema_model_not_proven",
+      "file": "nonliteral/package.json",
+      "message": "nonliteral/package.json: no Prisma schema is proven for this package: the schema setting of nonliteral/prisma.config.ts is not a string literal",
+      "tool": "prisma"
+    }
+  ],
+  "repository": "prisma",
+  "scan_gaps": 0,
+  "sets": 0,
+  "sets_without_records": 0,
+  "sources_read": [
+    "migrations",
+    "models"
+  ],
+  "test_only_sets": 0,
+  "unknown_reason": null,
+  "unread_tools": [],
+  "unreadable_manifests": 0
+}

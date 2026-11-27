@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 
 import { parseUnread, unreadPath, type FileWithoutFacts, type UnreadPage } from "@/api/unread";
-import { cards, codeFilesNotRead, DOCUMENT_SCOPE_PRODUCTION, DOCUMENT_SCOPE_TESTS, fileGroups, filesNotReadText, pageText, parseUnreadParams, PATHS_COMPLETE, PATHS_COMPLETE_IN_FILES_READ, PATTERN_ONLY, pathsSentence, syntaxErrorsText, projectText, ROUTES_WITHHELD_TITLE, routePathsComplete, unplacedText, unreadHash } from "@/sections/unread/model";
+import { cards, codeFilesNotRead, DOCUMENT_SCOPE_PRODUCTION, DOCUMENT_SCOPE_TESTS, fileGroups, filesNotReadText, NO_ROUTES, NO_ROUTES_IN_FILES_READ, NO_ROUTES_IN_FILES_READ_WITHOUT_ERRORS, pageText, parseUnreadParams, PATHS_COMPLETE, PATHS_COMPLETE_IN_FILES_READ, PATTERN_ONLY, pathsSentence, syntaxErrorsText, projectText, ROUTES_WITHHELD_TITLE, routePathsComplete, unplacedText, unreadHash } from "@/sections/unread/model";
 
 const COUNTS = {
   unplaced_routes: 85,
@@ -223,6 +223,18 @@ describe("couldn't-read model", () => {
     expect(pathsSentence(p).gaps.map((g) => g.list)).toEqual(["files-not-read", "syntax-errors"]);
     p.files.syntax_errors = list([]);
     expect(pathsSentence(p)).toEqual({ opening: PATHS_COMPLETE_IN_FILES_READ, gaps: [{ list: "files-not-read", text: "1 file was not read" }] });
+  });
+
+  // T066 (defect 12): with no route in scope the sentence says so.
+  it("says no production route was found when shapes.routes is 0", () => {
+    const p = page();
+    p.shapes.routes = 0;
+    expect(pathsSentence(p)).toEqual({ opening: NO_ROUTES, gaps: [] });
+    p.files.syntax_errors = list([{ file: "src/a.ts", line: 3, ide: null, category: "code_with_reader" as const, stored: true, code: "syntax_error", message: "syntax error", test: false }]);
+    expect(pathsSentence(p).opening).toBe(NO_ROUTES_IN_FILES_READ_WITHOUT_ERRORS);
+    p.files.syntax_errors = list([]);
+    p.files.not_read = { ...list([{ file: "b.js", line: null, ide: null, category: "code_with_reader" as const, stored: false, code: "file_not_utf8", message: "not UTF-8", test: false }]), by_category: [{ category: "code_with_reader", count: 1 }] };
+    expect(pathsSentence(p)).toEqual({ opening: NO_ROUTES_IN_FILES_READ, gaps: [{ list: "files-not-read", text: "1 file was not read" }] });
   });
 
   // B6: what the route lists cover, in each scope; the count is the same.

@@ -23,6 +23,7 @@ import (
 	"github.com/graphvein/graphvein/internal/indexrun"
 	"github.com/graphvein/graphvein/internal/store"
 	"github.com/graphvein/graphvein/internal/store/sqlite"
+	"github.com/graphvein/graphvein/internal/storeloc"
 	"github.com/graphvein/graphvein/internal/workspace"
 )
 
@@ -81,9 +82,8 @@ func newWSFixture(t *testing.T, open wsOpenFunc, setup func(*WorkspaceOptions)) 
 			}
 			return wi, nil
 		},
-		StoreLocation: func(folder string) StoreLocation {
-			return StoreLocation{Kind: "sqlite", Path: filepath.Join(folder, sqlite.DefaultPath)}
-		},
+		Stores:        testResolver(t, f.cfg),
+		CreateStore:   createTestStore,
 		Home:          t.TempDir(),
 		CheckInterval: -1,
 	}
@@ -94,6 +94,26 @@ func newWSFixture(t *testing.T, open wsOpenFunc, setup func(*WorkspaceOptions)) 
 	f.ws = newWorkspaceServer(opt, testHosts)
 	t.Cleanup(f.ws.shutdown)
 	return f
+}
+
+// testResolver is a store resolver on temporary folders that reads no
+// environment: stores.yaml beside the registry in cfg, the per-user data
+// folder a temporary folder.
+func testResolver(t *testing.T, cfg string) *storeloc.Resolver {
+	return &storeloc.Resolver{Getenv: func(string) string { return "" }, StoresFile: filepath.Join(cfg, storeloc.StoresFileName), DataDir: t.TempDir()}
+}
+
+// createTestStore creates an empty SQLite store at loc, as serve's
+// CreateStore does.
+func createTestStore(ctx context.Context, loc storeloc.Location) error {
+	if err := loc.Prepare(); err != nil {
+		return err
+	}
+	w, err := sqlite.Open(ctx, loc.Path)
+	if err != nil {
+		return err
+	}
+	return w.Close()
 }
 
 func (f *wsFixture) clock() time.Time {
@@ -321,12 +341,25 @@ func TestWorkspaceList(t *testing.T) {
 		t.Fatalf("registry %+v", l.Registry)
 	}
 
-	// An unregistered working directory holding an index is suggested.
+	// An unregistered working directory holding an index is suggested
+	// (WS-72), wherever the store resolver finds it: here in the stores
+	// folder. An empty .graphvein folder is no index.
 	other := t.TempDir()
 	if err := os.Mkdir(filepath.Join(other, ".graphvein"), 0o755); err != nil {
 		t.Fatal(err)
 	}
-	g := newWSFixture(t, sharedOpen(nil), func(o *WorkspaceOptions) { o.WorkDir = other })
+	var stores *storeloc.Resolver
+	g := newWSFixture(t, sharedOpen(nil), func(o *WorkspaceOptions) { o.WorkDir, stores = other, o.Stores })
+	if gl := g.list(); gl.Suggestion != nil {
+		t.Fatalf("suggested without an index: %+v", gl.Suggestion)
+	}
+	loc, err := stores.Resolve(other, storeloc.Scope{})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if err := createTestStore(context.Background(), loc); err != nil {
+		t.Fatal(err)
+	}
 	gl := g.list()
 	resolved, _ := workspace.Resolve(other)
 	if gl.Current != nil || gl.Suggestion == nil || gl.Suggestion.Path != resolved || gl.Suggestion.Kind != workspace.KindRepository || len(gl.Entries) != 0 {
@@ -778,7 +811,7 @@ func TestWorkspaceGuards(t *testing.T) {
 	f := newWSFixture(t, sharedOpen(nil), nil)
 	dir := t.TempDir()
 	body, _ := json.Marshal(map[string]string{"path": dir})
-	for _, p := range []string{workspaceCheckPath, workspaceAddPath, workspaceRemovePath} {
+	for _, p := range []string{workspaceCheckPath, workspaceAddPath, workspaceRemovePath, storeCheckPath, storeMovePath, storeDefaultPath} {
 		for name, tc := range map[string]struct {
 			method string
 			body   string
@@ -827,6 +860,13 @@ func TestWorkspaceGuards(t *testing.T) {
 	}
 	if len(f.ws.confirms) != 0 {
 		t.Fatal("a refused request issued a confirm value")
+	}
+	// GET /api/v0/store is behind the GET guard (WS-77).
+	if rec := f.do(http.MethodGet, storePath, "", map[string]string{"Sec-Fetch-Site": "cross-site"}); rec.Code != 403 {
+		t.Fatalf("cross-site store settings: %d", rec.Code)
+	}
+	if rec := f.do(http.MethodPost, storePath, "{}", nil); rec.Code != 405 {
+		t.Fatalf("POST store settings: %d", rec.Code)
 	}
 	// The token is served only behind the GET guard.
 	if rec := f.do(http.MethodGet, workspacePath, "", map[string]string{"Sec-Fetch-Site": "cross-site"}); rec.Code != 403 || strings.Contains(rec.Body.String(), f.ws.token) {
@@ -921,7 +961,8 @@ func TestWorkspaceCheckPath(t *testing.T) {
 		t.Errorf("named: %+v", got)
 	}
 	plain := mk("plain")
-	if got := f.checkPath(plain); *got.Name != "plain" || got.Store == nil || got.Store.Path != filepath.Join(plain, sqlite.DefaultPath) {
+	// A new folder's index goes to the stores folder (ADR 0093).
+	if got := f.checkPath(plain); *got.Name != "plain" || got.Store == nil || got.Store.Path == nil || !strings.HasSuffix(*got.Store.Path, filepath.Join(storeloc.Key(plain), storeloc.StoreFile)) || *got.Store.Place != placeOutside {
 		t.Errorf("plain: %+v", got)
 	}
 	// WS-23: a symbolic link is resolved, and the target is what is named.
@@ -1234,13 +1275,15 @@ func TestWorkspaceContractTable(t *testing.T) {
 			t.Errorf("row %s names test %s, which does not exist", r.ID, r.Test)
 		}
 	}
-	src, err := os.ReadFile("workspace_paths.go")
-	if err != nil {
-		t.Fatal(err)
-	}
-	for _, m := range regexp.MustCompile(`"(WS-[0-9D]+)"`).FindAllSubmatch(src, -1) {
-		if !known[string(m[1])] {
-			t.Errorf("refusal row %s is not in the table", m[1])
+	for _, file := range []string{"workspace_paths.go", "workspace_store.go"} {
+		src, err := os.ReadFile(file)
+		if err != nil {
+			t.Fatal(err)
+		}
+		for _, m := range regexp.MustCompile(`"(WS-[0-9D]+)"`).FindAllSubmatch(src, -1) {
+			if !known[string(m[1])] {
+				t.Errorf("refusal row %s of %s is not in the table", m[1], file)
+			}
 		}
 	}
 }
@@ -1259,10 +1302,7 @@ func TestWorkspaceReportURL(t *testing.T) {
 		t.Fatal(err)
 	}
 	opt := Options{Version: "test", Assets: fstest.MapFS{"index.html": {Data: []byte("<p>t</p>")}}, Now: fixedNow, ReportURL: form,
-		Workspace: &WorkspaceOptions{Registry: reg, Current: current, Open: sharedOpen(nil), Home: t.TempDir(), CheckInterval: -1,
-			StoreLocation: func(folder string) StoreLocation {
-				return StoreLocation{Kind: "sqlite", Path: filepath.Join(folder, sqlite.DefaultPath)}
-			}}}
+		Workspace: &WorkspaceOptions{Registry: reg, Current: current, Open: sharedOpen(nil), Home: t.TempDir(), CheckInterval: -1}}
 	ws := newWorkspaceServer(opt, testHosts)
 	t.Cleanup(ws.shutdown)
 	for _, target := range []string{"/api/v0/ui", "/api/v0/ui?ws=" + url.QueryEscape(b.ID)} {

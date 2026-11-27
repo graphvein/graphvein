@@ -10,6 +10,7 @@ import chainComponentFixture from "../../../internal/server/testdata/chain-compo
 import chainRoute from "../../../internal/server/testdata/chain-route.golden.json";
 import chainTable from "../../../internal/server/testdata/chain-table.golden.json";
 import project from "../../../internal/server/testdata/architecture-project.golden.json";
+import bandAnswers from "./libraryBand.json";
 
 import { ApiError } from "@/api/client";
 import { parseArchitecture, parseChain, parseComponentDetail, type ArchitectureClient, type ArchitectureResponse, type ArchScope, type ChainResponse, type ComponentResponse } from "@/api/architecture";
@@ -73,4 +74,37 @@ export function fakeArchClient(name: ArchGoldenName, requests: string[] = [], al
       return Promise.reject(new ApiError("http", "not_found: no node", 404, "not_found"));
     },
   };
+}
+
+/** BAND_ANSWERS are the pdfcraft (explore set) and owncast (corpus)
+ * overviews of the T062 design round (extractors-63, production scope),
+ * reduced to what the libraries band reads: components [id, name,
+ * directory, visibility, kinds, files, SDK packages] and links [source,
+ * target, family, count, back count]. Names and directories only. */
+type BandData = { components: (string | number)[][]; links: (string | number)[][] };
+
+/** bandAnswer builds a full overview answer from a reduced one, on the
+ * components golden's shape (cells and counts of its first entries). */
+export function bandAnswer(name: "pdfcraft" | "owncast"): ArchitectureResponse {
+  const base = archGolden("components");
+  const d = (bandAnswers as Record<string, BandData>)[name];
+  const comp = base.components[0];
+  const link = base.links.find((l) => l.family === "in_process") ?? base.links[0];
+  const stub = base.stubs[0];
+  if (d === undefined || comp === undefined || link === undefined || stub === undefined) throw new Error("band fixture");
+  const components = d.components.map(([id, nm, dir, vis, kinds, files]) => ({
+    ...structuredClone(comp),
+    id: String(id),
+    name: String(nm),
+    directory: String(dir),
+    visibility: String(vis),
+    kinds: String(kinds).split(","),
+    state: "read",
+    reason: null,
+    counts: { ...comp.counts, files: Number(files) },
+  }));
+  const links = d.links.map(([s, t, fam, n, back]) => ({ ...structuredClone(link), id: `${String(fam)}:${String(s)}->${String(t)}`, family: String(fam), source: String(s), target: String(t), count: Number(n), back_count: Number(back), members: [] }));
+  const stubs = d.components.filter((c) => Number(c[6]) > 0).map((c) => ({ ...structuredClone(stub), component: String(c[0]), packages: Number(c[6]), text: `imports ${String(c[6])} external packages` }));
+  const libs = components.filter((c) => c.visibility === "folded").map((c) => c.id);
+  return { ...base, repository: name, components, links, stubs, ghosts: [], databases: [], not_proven: [], libraries: { ...base.libraries, components: libs } };
 }

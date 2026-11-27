@@ -3,8 +3,8 @@ package server
 // workspaceRow is one row of the workspace claim contract
 // (docs/contract/claims/workspace.md, server rows). The table and this
 // list are kept 1:1 by TestWorkspaceContractTable, and each row names the
-// test that checks it. A refusal of POST /api/v0/workspace/check carries
-// its row (refusal.row).
+// test that checks it. A refusal of POST /api/v0/workspace/check or
+// POST /api/v0/store/check carries its row (refusal.row).
 type workspaceRow struct {
 	ID    string
 	Topic string
@@ -58,4 +58,16 @@ var workspaceRows = []workspaceRow{
 	{"WS-39", "remove", "TestWorkspaceRemove"},
 	{"WS-40", "index run shape under --project", "TestIndexRunProjectShape"},
 	{"WS-D", "any other path error", "TestWorkspaceCheckPath"},
+	{"WS-70", "each entry's store", "TestServeWorkspace"},
+	{"WS-71", "two indexes, foreign store folder", "TestWorkspaceCheckStore"},
+	{"WS-72", "suggestion", "TestWorkspaceList"},
+	{"WS-73", "store in a check", "TestWorkspaceCheckStore"},
+	{"WS-74", "store place", "TestWorkspaceCheckStoreChoice"},
+	{"WS-75", "typed store folders", "TestWorkspaceCheckStoreChoice"},
+	{"WS-76", "add binds the store", "TestWorkspaceAddStorePlace"},
+	{"WS-77", "Storage settings", "TestStoreSettings"},
+	{"WS-78", "move check", "TestStoreMoveCheck"},
+	{"WS-79", "move", "TestStoreMove"},
+	{"WS-80", "folder for new indexes", "TestStoreDefaultDir"},
+	{"WS-81", "runs after a move", "TestServeEntryAfterMove"},
 }

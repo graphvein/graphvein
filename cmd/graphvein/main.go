@@ -11,7 +11,6 @@ import (
 	"log/slog"
 	"os"
 	"os/signal"
-	"path/filepath"
 	"runtime/debug"
 
 	"github.com/graphvein/graphvein/internal/contract"
@@ -19,7 +18,6 @@ import (
 	"github.com/graphvein/graphvein/internal/ingest"
 	"github.com/graphvein/graphvein/internal/store"
 	"github.com/graphvein/graphvein/internal/store/postgres"
-	"github.com/graphvein/graphvein/internal/store/sqlite"
 )
 
 var (
@@ -61,6 +59,9 @@ func run(args []string, stdout, stderr io.Writer) int {
 	if args[0] == "index" || args[0] == "status" {
 		return indexCommand(args[0], args[1:], stdout, stderr)
 	}
+	if args[0] == "store" {
+		return storeCommand(args[1:], stdinOf(), stdout, stderr)
+	}
 	if args[0] == "serve" {
 		// Ctrl+C (os.Interrupt on every OS) stops the server gracefully.
 		ctx, stop := signal.NotifyContext(context.Background(), os.Interrupt)
@@ -96,7 +97,7 @@ func run(args []string, stdout, stderr io.Writer) int {
 	case "version":
 		fmt.Fprintf(stdout, "graphvein %s\ncommit: %s\nbuild date: %s\n", version, commit, buildDate)
 	case "help", "-h", "--help":
-		fmt.Fprintln(stdout, "Usage: graphvein [command]\n\nWithout a command, graphvein serves the workspace web UI at 127.0.0.1:7420 (or the next free port up to 7430) and opens the browser.\n\nCommands:\n  version  Print version, commit and build date\n  help     Show this help\n  index [path] [--emit file.ndjson] [--indexer executable] [--indexer-timeout duration]  Index a repository\n  status [path]  Report index freshness\n  query <term> [path] [--kind KIND] [--file PATH] [--limit N] [--json]  Find nodes by identity, name or qualified-name suffix\n  callers <target> [path] [--depth N] [--project DIR] [--json]  Show what calls a function or route\n  impact <target> [path] [--depth N] [--project DIR] [--json]  Show what depends on a target through calls, imports, references and routes\n  index --project DIR  Index every project member, then link them (status --project: members and link freshness)\n  changes [path] [--base previous|run:ID|pin:NAME|ref:BASE[..HEAD]] [--json]  Show what changed and what depends on it (also: changes impact ID, changes pin NAME, changes unpin NAME)\n  serve [path] [--addr 127.0.0.1:7420]  Serve the local web UI\n  mcp [path] [--project DIR] [--structured-only]  Serve the read-only MCP server on stdin/stdout\n  openapi [path] [--format json|yaml] [--out file]  Write an OpenAPI 3.1 document of the stored routes (--project DIR --repository MEMBER: one member)\n  ingest <file.ndjson>  Ingest a complete repository snapshot\n  project init --name NAME [--dir DIR] [REPOSITORY=]PATH...  Write graphvein-project.yaml for several repositories\n  project add [--manifest DIR] [REPOSITORY=]PATH  Add a repository to the project manifest\n  project suggest [--manifest DIR] [--json] [--accept N]  List consumes declarations proposed from env, Compose and dev-server proxy files; --accept N writes one\n  project forget [--manifest DIR] REPOSITORY  Remove a name the manifest no longer has (an old member name) from the project store\n\nRepository: --repository, graphvein.yaml, then directory basename\nStorage: GRAPHVEIN_POSTGRES_URL, or GRAPHVEIN_SQLITE_PATH (default .graphvein/index.db)")
+		fmt.Fprintln(stdout, "Usage: graphvein [command]\n\nWithout a command, graphvein serves the workspace web UI at 127.0.0.1:7420 (or the next free port up to 7430) and opens the browser.\n\nCommands:\n  version  Print version, commit and build date\n  help     Show this help\n  index [path] [--emit file.ndjson] [--indexer executable] [--indexer-timeout duration]  Index a repository\n  status [path]  Report index freshness\n  query <term> [path] [--kind KIND] [--file PATH] [--limit N] [--json]  Find nodes by identity, name or qualified-name suffix\n  callers <target> [path] [--depth N] [--project DIR] [--json]  Show what calls a function or route\n  impact <target> [path] [--depth N] [--project DIR] [--json]  Show what depends on a target through calls, imports, references and routes\n  index --project DIR  Index every project member, then link them (status --project: members and link freshness)\n  changes [path] [--base previous|run:ID|pin:NAME|ref:BASE[..HEAD]] [--json]  Show what changed and what depends on it (also: changes impact ID, changes pin NAME, changes unpin NAME)\n  serve [path] [--addr 127.0.0.1:7420]  Serve the local web UI\n  mcp [path] [--project DIR] [--structured-only]  Serve the read-only MCP server on stdin/stdout\n  openapi [path] [--format json|yaml] [--out file]  Write an OpenAPI 3.1 document of the stored routes (--project DIR --repository MEMBER: one member)\n  ingest <file.ndjson>  Ingest a complete repository snapshot\n  project init --name NAME [--dir DIR] [REPOSITORY=]PATH...  Write graphvein-project.yaml for several repositories\n  project add [--manifest DIR] [REPOSITORY=]PATH  Add a repository to the project manifest\n  project suggest [--manifest DIR] [--json] [--accept N]  List consumes declarations proposed from env, Compose and dev-server proxy files; --accept N writes one\n  project forget [--manifest DIR] REPOSITORY  Remove a name the manifest no longer has (an old member name) from the project store\n  store where [path]  Show where a folder's index is kept\n  store move <path> [<folder>] [--yes]  Move a folder's index (default: to the per-user stores folder)\n  store list  List the indexes Graphvein knows, including ones whose folder is gone\n\nRepository: --repository, graphvein.yaml, then directory basename\nStorage: GRAPHVEIN_POSTGRES_URL; else GRAPHVEIN_SQLITE_PATH for the folder named on the command line; else <folder>/.graphvein/index.db when it exists; else the per-user stores folder (GRAPHVEIN_STORE_DIR replaces it; graphvein store where shows the place)")
 	default:
 		fmt.Fprintf(stderr, "unknown command %q; run graphvein help\n", args[0])
 		return 2
@@ -147,15 +148,10 @@ func ingestInput(name string, input io.Reader) error {
 		locker, lockName = postgres.IndexLocker(url, lockRepository), "Postgres advisory lock"
 		open = func(ctx context.Context) (store.Store, error) { return postgres.Open(ctx, url) }
 	} else {
-		p := os.Getenv("GRAPHVEIN_SQLITE_PATH")
-		if p == "" {
-			p = sqlite.DefaultPath
-		}
-		if abs, err := filepath.Abs(p); err == nil {
-			p = abs
-		}
-		locker, lockName = sqlite.IndexLocker(p), sqlite.LockPath(p)
-		open = func(ctx context.Context) (store.Store, error) { return sqlite.Open(ctx, p) }
+		// The store of the current folder, located as graphvein index
+		// locates it (ADR 0093).
+		locker, lockName = openLocker(".", "")
+		open = func(ctx context.Context) (store.Store, error) { return openStore(ctx, ".") }
 	}
 	defer locker.Close()
 	lease, err := locker.Acquire(ctx, indexrun.LockWait)

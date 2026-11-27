@@ -85,7 +85,7 @@ describe("WorkspaceRoot", () => {
       screen.getByRole("button", { name: "to gotify" }).click();
     });
     // A target never seen opens its default section, with one history entry.
-    expect(screen.getByTestId("shown").textContent).toBe("gotify #/api");
+    expect(screen.getByTestId("shown").textContent).toBe("gotify #/overview");
     expect(window.history.length).toBe(before + 1);
     expect(readView("express~2")?.hash).toBe("#/api?sel=GET%20%2Fusers&tab=callers");
     act(() => {
@@ -112,7 +112,8 @@ describe("WorkspaceRoot", () => {
       screen.getByRole("button", { name: "to gotify" }).click();
     });
     expect(readLocation().ws).toBe("gotify~3");
-    expect(screen.getByTestId("shown").textContent).toBe("gotify #/api");
+    // A target never seen opens the home page (T064).
+    expect(screen.getByTestId("shown").textContent).toBe("gotify #/overview");
   });
 
   it("restores a remembered project member with its view", async () => {

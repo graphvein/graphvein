@@ -210,6 +210,65 @@ of the index inputs (ii) in a column of its own on every index run.
   migrations. Its old runs have no record and report `unknown`.
 - `docs/config.md` lists `tryit` among the root keys (it was missing).
 
+## Revision 1: a Storage section outside graphvein.yaml (T068 part 3)
+
+**Status:** Proposed
+
+[ADR 0093](0093-per-user-store-location.md) keeps new indexes in a
+per-user stores folder and lets a person move one. Where an index is kept
+is a property of this machine, not of the repository, so it cannot be a
+`graphvein.yaml` key; yet the design round (T063, D5) put it in Settings,
+where people look for "where is my index". This revision adds a section
+to the Settings page that this ADR's single-source rule does not cover.
+
+### Options considered
+
+- **A machine-level Storage section first in Settings, outside
+  `graphvein.yaml`, available without an index (chosen).** Read from
+  `GET /api/v0/store`, which opens no store; written only through the
+  guarded store endpoints (ADR 0041 revision 2): a typed folder is
+  checked by `POST /api/v0/store/check` and the move or new default
+  folder sends the check's one-time confirm value. The section says it
+  is "this machine · all folders", and the page header says Storage is
+  not in `graphvein.yaml`. Rows: the viewed entry's index (path, place,
+  size, Move…, Copy path; read-only with the server's reason for
+  `GRAPHVEIN_SQLITE_PATH`'s file, and without Move in team mode), "New
+  indexes are kept in" (`stores.yaml` `default_dir`, Change…; read-only
+  while `GRAPHVEIN_STORE_DIR` decides it), team mode (set or not set,
+  never the URL) and the workspace list file.
+- A `storage:` key in `graphvein.yaml`. The file is committed and shared
+  by everyone who clones the repository; a store path is one person's
+  disk. Rejected.
+- Storage only in the CLI (`graphvein store`). The UI's Add flow already
+  says where an index goes and offers Change…; leaving the follow-up
+  (move, default folder) to a terminal splits one task over two tools.
+  Rejected.
+- A separate Storage page. Settings is where the design round's readers
+  looked first, and a second settings-like page would need its own
+  sidebar entry. Rejected.
+
+### Decision
+
+- Settings is reachable before the first index: the sidebar's Settings
+  link is enabled on the first-run page, which then shows only the
+  Storage section and a note that repository settings appear once a
+  folder is indexed (with Add a folder). With an index the Storage
+  section comes first, before the `graphvein.yaml` sections, and the
+  page index lists it; its anchor is `#/settings?at=storage`.
+- The section never writes `graphvein.yaml`, never shares the form's
+  draft or save bar, and shows only what `GET /api/v0/store` answered: a
+  value it does not carry is "not known", never a default.
+- Move… and Change… enable their action only for a ready check of the
+  folder shown in the dialog; a refusal shows the server's message.
+
+### Consequences
+
+- The first-run page's Settings link and the page's machine-only state
+  are new UI (T063 mockups A1, A4, A5, A6, A8).
+- The single-source rule above stays true for repository settings: the
+  Storage section reads and writes `stores.yaml` and the store folders
+  through their own endpoints, never through `POST /api/v0/config`.
+
 ## Known gaps
 
 - The workspace server (T038) resolves `serve <path>` with

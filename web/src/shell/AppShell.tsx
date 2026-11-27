@@ -1,7 +1,7 @@
 // The application frame: sidebar, top bar and the current section. Every
 // later view plugs into the content area by adding a section in router.ts.
 
-import { Suspense, lazy, useCallback, useEffect, useState, useSyncExternalStore, type ReactNode } from "react";
+import { Suspense, lazy, useCallback, useEffect, useState, type ReactNode } from "react";
 
 import type { ArchitectureClient } from "@/api/architecture";
 import type { ConfigClient } from "@/api/config";
@@ -31,16 +31,14 @@ import { groupHash, parseChangesParams } from "@/sections/changes/params";
 import { groupEntries } from "@/sections/changes/words";
 import { NotFound } from "@/sections/NotFound";
 import { HelpSection } from "@/sections/help/HelpSection";
+import { OverviewSection } from "@/sections/overview/OverviewSection";
 import { useHelpShortcut } from "@/sections/help/shortcut";
 import { ProjectSection } from "@/sections/project/ProjectSection";
-import { isGraphView } from "@/sections/api/params";
 import { schemaEntryTag } from "@/sections/schema/entry";
-import { isSchemaGraphView } from "@/sections/schema/params";
 import { SchemaSection } from "@/sections/schema/SchemaSection";
 import { UnreadSection } from "@/sections/unread/UnreadSection";
 import { JumpToDialog, useJumpShortcut } from "@/shell/JumpTo";
 import { ReportProvider } from "@/shell/report";
-import { LabelBanner } from "@/shell/LabelControl";
 import { deriveReindex } from "@/shell/reindexModel";
 import { ConfigErrorScreen, useConfigProblem } from "@/shell/ConfigGate";
 import { ServerBanner } from "@/shell/ServerBanner";
@@ -48,6 +46,7 @@ import { SwitchNotice, useRunSwitchNotice } from "@/shell/SwitchNotice";
 import { CompareProvider, useCompare } from "@/shell/compare";
 import { MarkersProvider } from "@/shell/markers";
 import { Sidebar, type SubEntries } from "@/shell/Sidebar";
+import { useSidebarMode, type SidebarMode } from "@/shell/sidebarMode";
 import type { EntryTag } from "@/sections/schema/entry";
 import { formatCount } from "@/lib/count";
 import { TopBar } from "@/shell/TopBar";
@@ -63,6 +62,8 @@ import { useWorkspace } from "@/shell/workspace/WorkspaceRoot";
 const ExplorerSection = lazy(() => import("@/sections/explorer/ExplorerSection"));
 // Settings (T039) is its own chunk too.
 const SettingsSection = lazy(() => import("@/sections/settings/SettingsSection").then((m) => ({ default: m.SettingsSection })));
+// Settings without an index: this machine's Storage only (T068 part 3).
+const MachineSettings = lazy(() => import("@/sections/settings/StorageSection").then((m) => ({ default: m.MachineSettings })));
 
 /** PROJECT_SECTION is the Project view (T022 B9): a route only under
  * `serve --project`, so a single-repository server keeps its sections. */
@@ -75,30 +76,25 @@ function projectRoute(hash: string, project: boolean): Route {
   return project && path === "#/project" ? { kind: "section", section: PROJECT_SECTION } : parseRoute(hash);
 }
 
-const NARROW_QUERY = "(max-width: 599px)";
-
-function subscribeNarrow(onChange: () => void): () => void {
-  if (typeof window.matchMedia !== "function") return () => undefined;
-  const m = window.matchMedia(NARROW_QUERY);
-  m.addEventListener("change", onChange);
-  return () => {
-    m.removeEventListener("change", onChange);
-  };
+/** gridColumns is the frame's two columns: the 56 px rail or the
+ * sidebar's width (232 px, 204 px up to 1400 px). */
+function gridColumns(rail: boolean): string {
+  return rail ? "grid-cols-[56px_1fr]" : "grid-cols-[var(--sbw)_1fr]";
 }
 
-/** useNarrowWindow says whether the window is narrower than 600 px; false
- * where matchMedia is missing (tests). */
-function useNarrowWindow(): boolean {
-  return useSyncExternalStore(subscribeNarrow, () => typeof window.matchMedia === "function" && window.matchMedia(NARROW_QUERY).matches, () => false);
-}
-
-/** useRail says whether the sidebar is its icon rail: graph views
- * (T016-ui-decisions "Graph views") and windows under 600 px (T018f 2.4).
- * The 900 px rule is unchanged (T038). */
-function useRail(hash: string, section: string | null): boolean {
-  const narrow = useNarrowWindow();
-  // The architecture map is a graph view too (T026 AG-C1).
-  return narrow || section === "architecture" || (section === "api" && isGraphView(hash)) || (section === "schema" && isSchemaGraphView(hash));
+/** SidebarOverlay is the full sidebar opened over the content below
+ * 1100 px (T064): no reflow, a shadow, and a click beside it closes it, as
+ * navigation and Esc do. */
+function SidebarOverlay({ mode, children }: { mode: SidebarMode; children: ReactNode }) {
+  if (!mode.overlay) return null;
+  return (
+    <>
+      <div aria-hidden="true" className="fixed inset-0 z-40 bg-foreground/10" data-testid="sidebar-overlay-backdrop" onClick={mode.close} />
+      <div className="fixed inset-y-0 left-0 z-50 w-[var(--sbw)] shadow-[0_8px_32px_rgba(0,0,0,.18)]" data-testid="sidebar-overlay">
+        {children}
+      </div>
+    </>
+  );
 }
 
 /** ShellPlaceholder is the frame while a project index's document is
@@ -108,13 +104,15 @@ function useRail(hash: string, section: string | null): boolean {
 export function ShellPlaceholder() {
   const hash = useHash();
   const route = parseRoute(hash);
-  const section = route.kind === "section" ? route.section.id : null;
-  const rail = useRail(hash, section);
+  const mode = useSidebarMode(hash);
   const workspace = useWorkspace();
   return (
     <TooltipProvider delayDuration={200}>
-      <div className={cn("grid h-screen", rail ? "grid-cols-[56px_1fr]" : "grid-cols-[var(--sbw)_1fr]")} aria-busy="true" data-testid="shell-placeholder">
-        <Sidebar route={route} repository={undefined} status={{ kind: "loading" }} collapsed={rail} />
+      <div className={cn("grid h-screen", gridColumns(mode.rail))} aria-busy="true" data-testid="shell-placeholder">
+        <Sidebar route={route} repository={undefined} status={{ kind: "loading" }} collapsed={mode.rail} onToggle={mode.toggle} />
+        <SidebarOverlay mode={mode}>
+          <Sidebar route={route} repository={undefined} status={{ kind: "loading" }} onToggle={mode.toggle} overlay />
+        </SidebarOverlay>
         <div className="flex min-h-0 min-w-0 flex-col">
           <header className="flex h-[52px] flex-none items-center gap-2 border-b px-5 text-sm text-muted-foreground max-[1400px]:px-4">
             {workspace?.entry !== null && workspace?.entry !== undefined && <span>{workspace.entry.name}</span>}
@@ -144,19 +142,28 @@ export function FirstRunPage() {
   // this page shows itself: Help needs no index.
   const help = helpHash("start-here");
   const onHelp = route.kind === "section" && route.section.id === "help";
+  // Settings needs no index for this machine's Storage (T068 part 3).
+  const onSettings = route.kind === "section" && route.section.id === "settings";
   useHelpShortcut();
-  const narrow = useNarrowWindow();
+  const mode = useSidebarMode(hash);
   return (
     <TooltipProvider delayDuration={200}>
-      <div className={cn("grid h-screen", narrow ? "grid-cols-[56px_1fr]" : "grid-cols-[var(--sbw)_1fr]")}>
-        <Sidebar route={route} repository={undefined} status={{ kind: "loading" }} collapsed={narrow} noIndex />
+      <div className={cn("grid h-screen", gridColumns(mode.rail))}>
+        <Sidebar route={route} repository={undefined} status={{ kind: "loading" }} collapsed={mode.rail} noIndex onToggle={mode.toggle} />
+        <SidebarOverlay mode={mode}>
+          <Sidebar route={route} repository={undefined} status={{ kind: "loading" }} noIndex onToggle={mode.toggle} overlay />
+        </SidebarOverlay>
         <div className="flex min-h-0 min-w-0 flex-col">
           <header className="flex h-[52px] flex-none items-center border-b px-5 text-sm font-medium max-[1400px]:px-4" data-testid="top-bar">
-            {onHelp ? "Help" : choose ? "Workspace" : "Add a folder"}
+            {onHelp ? "Help" : onSettings ? "Settings" : choose ? "Workspace" : "Add a folder"}
           </header>
           <main className="flex min-h-0 flex-1 flex-col gap-3.5 overflow-auto px-5 py-4 max-[1400px]:px-4 max-[1400px]:py-3">
             {onHelp ? (
               <HelpSection status={{ kind: "loading" }} noIndex />
+            ) : onSettings ? (
+              <Suspense fallback={<Skeleton className="h-28" />}>
+                <MachineSettings />
+              </Suspense>
             ) : (
               <>
                 <UnknownLinkNotice />
@@ -209,12 +216,10 @@ export function AppShell({
   const hash = useHash();
   const project = useProject();
   const route = projectRoute(hash, project !== null);
-  // Graph views collapse the sidebar to its icon rail (T016-ui-decisions
-  // "Graph views"), so the canvas gets the width.
   const section = route.kind === "section" ? route.section.id : null;
-  // Below 600 px the sidebar is its icon rail too, so a section keeps the
-  // width its narrow layout needs (T018f 2.4).
-  const rail = useRail(hash, section);
+  // One sidebar width on every section (T064): the user's choice, else the
+  // window's width; graph views no longer fold it to the rail.
+  const mode = useSidebarMode(hash);
   const result = useStatus(fetcher);
   const { view } = result;
   const indexRun = useIndexRun(view, result.check, runClient);
@@ -258,7 +263,7 @@ export function AppShell({
         <CompareProvider status={view} onStale={result.check} {...(changesClient !== undefined ? { client: changesClient } : {})}>
           <MarkersProvider>
           <JumpToDialog open={jumpOpen} onOpenChange={setJumpOpen} served={result.repository} {...(searchFetcher !== undefined ? { searchFetcher } : {})} />
-          <Frame route={route} hash={hash} rail={rail} schemaTag={schemaTag}>
+          <Frame route={route} hash={hash} mode={mode} schemaTag={schemaTag}>
             {{
               sidebarProps: { repository: result.repository, status: view, onJump: openJump },
               // The top bar is the single-repository one in project mode too:
@@ -268,7 +273,6 @@ export function AppShell({
                 <>
                   <UnknownLinkNotice />
                   {view.kind === "loading" && <OpeningNote />}
-                  <LabelBanner />
                   <NoCheckoutNote />
                   {view.kind === "failed" && <ServerBanner error={view.error} checking={result.checking} onRetry={result.check} />}
                   {switched.notice !== null && <SwitchNotice notice={switched.notice} onDismiss={switched.dismiss} />}
@@ -293,7 +297,15 @@ export function AppShell({
                   ) : section === "help" ? (
                     <HelpSection status={view} client={client} />
                   ) : section === "unread" ? (
-                    <UnreadSection status={view} {...(unreadFetcher !== undefined ? { fetcher: unreadFetcher } : {})} />
+                    <UnreadSection status={view} schema={summary.state.kind === "ok" ? summary.state.data : null} {...(unreadFetcher !== undefined ? { fetcher: unreadFetcher } : {})} />
+                  ) : section === "overview" ? (
+                    <OverviewSection
+                      status={view}
+                      summary={summary}
+                      {...(client !== undefined ? { client } : {})}
+                      {...(architectureClient !== undefined ? { architectureClient } : {})}
+                      {...(unreadFetcher !== undefined ? { unreadFetcher } : {})}
+                    />
                   ) : section === "architecture" ? (
                     <ArchitectureSection status={view} client={architectureClient} />
                   ) : route.kind === "section" ? (
@@ -331,7 +343,7 @@ interface FrameSlots {
 
 /** Frame is the grid inside the providers: it reads the compare state for
  * the Changes entry's count and its group list. */
-function Frame({ route, hash, rail, schemaTag, children }: { route: Route; hash: string; rail: boolean; schemaTag: EntryTag | null; children: FrameSlots }) {
+function Frame({ route, hash, mode, schemaTag, children }: { route: Route; hash: string; mode: SidebarMode; schemaTag: EntryTag | null; children: FrameSlots }) {
   const compare = useCompare();
   const tags: Record<string, EntryTag> = {};
   if (schemaTag !== null) tags.schema = schemaTag;
@@ -356,8 +368,11 @@ function Frame({ route, hash, rail, schemaTag, children }: { route: Route; hash:
     };
   }
   return (
-    <div className={cn("grid h-screen", rail ? "grid-cols-[56px_1fr]" : "grid-cols-[var(--sbw)_1fr]")}>
-      <Sidebar route={route} repository={children.sidebarProps.repository} status={children.sidebarProps.status} collapsed={rail} tags={tags} sub={sub} onJump={children.sidebarProps.onJump} />
+    <div className={cn("grid h-screen", gridColumns(mode.rail))}>
+      <Sidebar route={route} repository={children.sidebarProps.repository} status={children.sidebarProps.status} collapsed={mode.rail} tags={tags} sub={sub} onJump={children.sidebarProps.onJump} onToggle={mode.toggle} />
+      <SidebarOverlay mode={mode}>
+        <Sidebar route={route} repository={children.sidebarProps.repository} status={children.sidebarProps.status} tags={tags} sub={sub} onJump={children.sidebarProps.onJump} onToggle={mode.toggle} overlay />
+      </SidebarOverlay>
       <div className="flex min-h-0 min-w-0 flex-col">
         {children.top}
         <main {...{ [SCROLL_ATTR]: "main" }} className="relative flex min-h-0 flex-1 flex-col gap-3.5 overflow-auto px-5 py-4 max-[1400px]:px-4 max-[1400px]:py-3">

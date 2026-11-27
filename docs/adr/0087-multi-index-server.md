@@ -424,8 +424,80 @@ WS-15, WS-53, WS-57.
   open entry's name is the one its index serves (as opened, or the
   manifest the open project last read), not what the files say now.
 
+## Revision 5: one store resolver for every entry (T068 part 2)
+
+**Status:** Proposed
+
+[ADR 0093](0093-per-user-store-location.md) puts new indexes in a
+per-user stores folder and makes one function, `storeloc.Resolve`, decide
+every folder's store. This revision makes the server use it. Claim rows
+WS-70..WS-81 (new) and WS-12, WS-15, WS-21, WS-37 and WS-57 (changed) of
+[the workspace contract](../contract/claims/workspace.md).
+
+### `single_store` is removed
+
+- **Each entry resolves its own store (chosen).** The entry named on the
+  command line resolves with `Scope{CommandLine: true}`, so
+  `GRAPHVEIN_SQLITE_PATH` names its store; every other entry resolves with
+  `CommandLine: false` and opens from its own store. Revision 2 rejected
+  ignoring the variable for other entries because project runs and the
+  CLI's helpers read it themselves, so a run started from the UI could
+  write where the server does not read. That reason is gone: an entry is
+  resolved once when it opens, and its read store, index and project
+  locks, writer, snapshot folder and project runs (member runs and the
+  link pass) all use that location (`storeAt` in `cmd/graphvein`), never
+  the environment. A test proves another entry never opens the
+  variable's file (WS-70).
+- Keeping 409 `single_store`. It made every other entry unusable while
+  the variable was set, the audit's finding. Rejected.
+
+### A store that moved is never recreated
+
+- **The place is checked before and after the index lock (chosen).** A
+  move holds the store's index lock while it copies, and deletes the old
+  files afterwards; a re-index that waited for that lock would then
+  create an empty store at the old place, which the two-index refusal
+  would name at once. Every lock of an entry (re-index, project, member)
+  checks before it creates the store folder and again once held that the
+  folder still resolves where the entry opened; otherwise the run stops
+  with `storeloc.ErrMoved`, answered 409 `store_moved` (WS-81). The
+  writer checks too. `graphvein index` and `index --project` hold their
+  announced place the same way.
+- Checking only in the writer. The lock folder (and `folder.txt`) would
+  already have been recreated at the old place. Rejected.
+
+### What else the server reads through the resolver
+
+- The working directory is suggested when the resolver finds an index of
+  it, wherever it is kept, instead of when it holds a `.graphvein` folder
+  (WS-72).
+- A folder with two indexes (or whose store folder belongs to another
+  folder) answers 409 `two_indexes` (`foreign_store`) on every
+  per-index request and is refused as a typed path (WS-71), instead of a
+  500 `store_error`.
+- Moving an entry's store from the UI (ADR 0041 revision 2) stops serving
+  that entry while it moves: its requests answer 409 `store_moving`, the
+  background check skips it, requests in flight finish (at most 30 s),
+  its index is closed (the command-line index through
+  `WorkspaceIndex.Close`, which `serve` now supplies and calls once), and
+  the next request opens it at the new place. A running re-index or ref
+  job of this server refuses the move (`index_running`).
+
+### Consequences
+
+- With `GRAPHVEIN_SQLITE_PATH` set, every entry but the command-line one
+  opens normally; the startup warning about other entries is gone.
+- Project runs and lockers take the store location as a parameter
+  (`runProjectIndex`, `linkProject`, `indexProjectMember`), so the CLI and
+  the server pass the place they announced.
+
 ## Known gaps
 
+- A `serve` process that did not make the move (another `serve`, or the
+  CLI's `graphvein store move`) keeps reading the store it opened until
+  the entry closes or the server restarts (on Linux and macOS the open
+  file is the deleted one); its re-index is refused with `store_moved`
+  rather than writing at the old place.
 - Unicode normalization is not folded: a folder name typed in another
   normalization form than the one the volume stores (macOS) keeps the
   typed form, so it can still become a second entry; only letter case is

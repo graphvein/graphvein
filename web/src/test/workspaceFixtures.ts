@@ -2,7 +2,8 @@
 // follow docs/cli/serve.md ("GET /api/v0/workspace", "POST .../check") and
 // go through the same parsers as the server's answers.
 
-import { parseAdd, parseCheck, parseEntry, parseWorkspace, type AddResult, type CheckResult, type Workspace, type WorkspaceClient, type WorkspaceEntry } from "@/api/workspace";
+import { parseMoveResult, parseStoreCheck, parseStoreSettings, type MoveResult, type StoreCheck, type StoreClient, type StoreSettings } from "@/api/store";
+import { parseAdd, parseCheck, parseEntry, parseWorkspace, type AddResult, type CheckResult, type PlaceChoice, type Workspace, type WorkspaceClient, type WorkspaceEntry } from "@/api/workspace";
 
 type Raw = Record<string, unknown>;
 
@@ -98,7 +99,7 @@ export function addNotStarted(id: string, name: string, code = "index_locked", m
 }
 
 /** fakeWorkspaceClient answers from mutable state the test changes. */
-export function fakeWorkspaceClient(initial: Workspace, opts: { check?: (path: string) => Promise<CheckResult>; add?: (path: string, confirm: string) => Promise<AddResult>; run?: (id: string) => Promise<void> } = {}): WorkspaceClient & { doc: Workspace; calls: string[] } {
+export function fakeWorkspaceClient(initial: Workspace, opts: { check?: (path: string, place?: PlaceChoice) => Promise<CheckResult>; add?: (path: string, confirm: string) => Promise<AddResult>; run?: (id: string) => Promise<void> } = {}): WorkspaceClient & { doc: Workspace; calls: string[] } {
   const client = {
     doc: initial,
     calls: [] as string[],
@@ -106,9 +107,9 @@ export function fakeWorkspaceClient(initial: Workspace, opts: { check?: (path: s
       client.calls.push("list");
       return Promise.resolve(client.doc);
     },
-    check: (path: string, token: string) => {
-      client.calls.push(`check ${path} ${token}`);
-      return opts.check ? opts.check(path) : Promise.resolve(readyCheck());
+    check: (path: string, token: string, place?: PlaceChoice) => {
+      client.calls.push(`check ${path} ${token}${place !== undefined ? ` ${place.place}${place.place === "folder" ? `=${place.dir}` : ""}` : ""}`);
+      return opts.check ? opts.check(path, place) : Promise.resolve(readyCheck());
     },
     add: (path: string, confirm: string, token: string) => {
       client.calls.push(`add ${path} ${confirm} ${token}`);
@@ -117,6 +118,98 @@ export function fakeWorkspaceClient(initial: Workspace, opts: { check?: (path: s
     run: (id: string) => {
       client.calls.push(`run ${id}`);
       return opts.run ? opts.run(id) : Promise.resolve();
+    },
+  };
+  return client;
+}
+
+/** STORES is the per-user stores folder of the storage fixtures. */
+export const STORES = "/home/dev/.local/share/graphvein/stores";
+
+/** rawStoreDoc is a raw store document (WS-73) of a new per-user store;
+ * patch overrides fields. */
+export function rawStoreDoc(patch: Raw = {}): Raw {
+  return { kind: "sqlite", path: `${STORES}/miniflux-3f9a1c27/index.db`, env: null, origin: "default", place: "outside", exists: false, size: null, stores_dir: STORES, dir_source: "platform", error_code: null, error: null, ...patch };
+}
+
+/** storeCheck is a ready check answer with the store and its places. */
+export function storeCheck(patch: Raw = {}): CheckResult {
+  return readyCheck({
+    store: rawStoreDoc(),
+    places: { choosable: true, reason: null, chosen: null, default: `${STORES}/miniflux-3f9a1c27/index.db`, inside: "/src/miniflux/.graphvein/index.db", folder: null },
+    ...patch,
+  });
+}
+
+/** rawStoreEntry is one raw entry of GET /api/v0/store. */
+export function rawStoreEntry(patch: Raw = {}): Raw {
+  return { id: "miniflux~1", kind: "repository", name: "miniflux", folder: "/src/miniflux", folder_found: true, current: true, store: rawStoreDoc({ exists: true, size: 50544640 }), movable: true, reason: null, ...patch };
+}
+
+/** storeSettings is a parsed GET /api/v0/store; patch overrides top-level
+ * fields. */
+export function storeSettings(patch: Raw = {}): StoreSettings {
+  return parseStoreSettings({
+    api_version: 0,
+    team_mode: { env: "GRAPHVEIN_POSTGRES_URL", set: false },
+    sqlite_path: { env: "GRAPHVEIN_SQLITE_PATH", set: false, entry: null },
+    default_dir: { path: STORES, source: "platform", env: "GRAPHVEIN_STORE_DIR", editable: true, reason: null, error: null },
+    stores_file: { path: "/home/dev/.config/graphvein/stores.yaml", error: null },
+    registry: { path: "/home/dev/.config/graphvein/workspace.yaml", error: null },
+    entries: [rawStoreEntry()],
+    ...patch,
+  });
+}
+
+/** readyMove is a ready store/check answer for a move of miniflux~1. */
+export function readyMove(to = "/data/graphvein/miniflux-3f9a1c27/index.db"): StoreCheck {
+  return parseStoreCheck({
+    api_version: 0,
+    outcome: "ready",
+    refusal: null,
+    move: { id: "miniflux~1", folder: "/src/miniflux", from: `${STORES}/miniflux-3f9a1c27/index.db`, from_place: "outside", to, to_default: false, size: 50544640 },
+    default_dir: null,
+    confirm: "MOVE",
+    confirm_expires_at: "2026-11-24T10:10:00Z",
+    command: "graphvein store move '/src/miniflux' '/data/graphvein'",
+  });
+}
+
+/** refusedStore is a refused store/check answer. */
+export function refusedStore(code: string, message: string): StoreCheck {
+  return parseStoreCheck({ api_version: 0, outcome: "refused", refusal: { row: "WS-75", code, message, entry: null }, move: null, default_dir: null, confirm: null, confirm_expires_at: null, command: null });
+}
+
+/** fakeStoreClient answers from the given functions and records calls. */
+export function fakeStoreClient(
+  settings: StoreSettings,
+  opts: { checkMove?: (id: string, dir: string) => Promise<StoreCheck>; checkDefault?: (dir: string) => Promise<StoreCheck>; move?: () => Promise<MoveResult> } = {},
+): StoreClient & { calls: string[] } {
+  const client = {
+    calls: [] as string[],
+    get: () => {
+      client.calls.push("get");
+      return Promise.resolve(settings);
+    },
+    checkMove: (id: string, dir: string, token: string) => {
+      client.calls.push(`checkMove ${id} ${dir} ${token}`);
+      return opts.checkMove ? opts.checkMove(id, dir) : Promise.resolve(readyMove());
+    },
+    checkDefault: (dir: string, token: string) => {
+      client.calls.push(`checkDefault ${dir} ${token}`);
+      return opts.checkDefault
+        ? opts.checkDefault(dir)
+        : Promise.resolve(parseStoreCheck({ api_version: 0, outcome: "ready", refusal: null, move: null, default_dir: { from: STORES, from_source: "platform", to: dir, to_platform: dir === "" }, confirm: "DEF", confirm_expires_at: null, command: null }));
+    },
+    move: (id: string, dir: string, confirm: string, token: string) => {
+      client.calls.push(`move ${id} ${dir} ${confirm} ${token}`);
+      return opts.move
+        ? opts.move()
+        : Promise.resolve(parseMoveResult({ api_version: 0, id, from: `${STORES}/miniflux-3f9a1c27/index.db`, to: "/data/graphvein/miniflux-3f9a1c27/index.db", bytes: 50544640, runs: 3, deleted: ["index.db", "index.db-lock"], remaining: [], warning: null, recorded: true }));
+    },
+    setDefault: (dir: string, confirm: string, token: string) => {
+      client.calls.push(`setDefault ${dir} ${confirm} ${token}`);
+      return Promise.resolve(settings.default_dir);
     },
   };
   return client;

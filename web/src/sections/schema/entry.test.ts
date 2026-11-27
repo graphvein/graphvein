@@ -15,6 +15,12 @@ describe("schemaEntryTag (round 3 Y, Revision 1)", () => {
     }
   });
 
+  it("a refused model source is never none found (T070)", () => {
+    const tag = schemaEntryTag(craftedSummary({ found: "none", refused_sources: [{ tool: "gorm", file: "go.mod", code: "schema_model_not_proven", message: "go.mod: GORM module m is not read: why" }] }));
+    expect(tag?.text).toBe("not read");
+    expect(tag?.title).toBe("GORM models found, not read (the Schema view gives the reason)");
+  });
+
   it.each([
     ["version_ambiguous", "re-index"],
     ["predates_schema", "re-index"],

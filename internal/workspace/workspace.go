@@ -289,6 +289,13 @@ func (r *Registry) write(entries []Entry) error {
 	return writeFileAtomic(r.path, data)
 }
 
+// WriteFileAtomic replaces path with data through a temporary file in
+// the same folder renamed over it, so a reader or a crash never sees half
+// a file. internal/storeloc writes stores.yaml with it.
+func WriteFileAtomic(path string, data []byte) error {
+	return writeFileAtomic(path, data)
+}
+
 func writeFileAtomic(path string, data []byte) error {
 	tmp, err := os.CreateTemp(filepath.Dir(path), ".workspace-*.tmp")
 	if err != nil {

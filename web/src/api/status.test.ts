@@ -20,6 +20,15 @@ describe("parseStatus", () => {
     expect(status.freshness.changed_count).toBeNull();
   });
 
+  it("reads index.parse_failed when sent and leaves it out when the server omits it (T074)", () => {
+    expect(parseStatus(GOLDENS.fresh).index.parse_failed).toBeUndefined();
+    const raw = rawGolden("fresh");
+    (raw.index as Record<string, unknown>).parse_failed = 39;
+    expect(parseStatus(raw).index.parse_failed).toBe(39);
+    (raw.index as Record<string, unknown>).parse_failed = "39";
+    expect(() => parseStatus(raw)).toThrow(StatusFormatError);
+  });
+
   it("parses a missing last run as null", () => {
     expect(parseStatus(GOLDENS.not_indexed).index.last_run).toBeNull();
   });

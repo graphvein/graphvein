@@ -9,8 +9,49 @@ Unreleased.
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-11-28
+
 ### Added
 
+- Indexes are kept outside the repository by default, in a per-user
+  stores folder: `%LocalAppData%\graphvein\stores` on Windows,
+  `~/Library/Application Support/graphvein/stores` on macOS and
+  `$XDG_DATA_HOME/graphvein/stores` (default
+  `~/.local/share/graphvein/stores`) elsewhere, one owner-only folder per
+  indexed folder. `graphvein index` no longer writes `.graphvein/` into
+  the repository, so `git status` stays clean, and it prints first where
+  the index is (`Index: <path>` and why it is there). An existing
+  `<folder>/.graphvein/index.db` keeps working where it is and is never
+  moved on its own; when a folder has two indexes, every command refuses
+  and names both (ADR 0093).
+- `graphvein store where [path]`, `graphvein store move <path> [<folder>]`
+  and `graphvein store list`: where an index is kept and why, moving it
+  (copied, checked, then the old files removed; asks first unless
+  `--yes`) and every index Graphvein knows with its folder and size.
+  `GRAPHVEIN_STORE_DIR` sets the stores folder (for example for scripts
+  and tests); `stores.yaml`, beside `workspace.yaml`, records a chosen
+  default folder and indexes kept elsewhere.
+- Settings in the web UI starts with a Storage section, also without an
+  index: where each index is, its size, Move… and Copy path, and the
+  folder new indexes go to (Change…). The Add a folder confirmation shows
+  where the new index will be kept, with Change….
+- An Overview page is the home of the web UI: the repository's parts and
+  libraries, its interfaces by transport, its data, what Graphvein could
+  not read, and where to start. The logo links to it.
+- The sidebar collapses to its icons with a button or `[`, and the choice
+  is remembered in the browser; below 1100 px wide it opens over the page.
+- A file whose parse runs past its deadline while other files are parsed
+  in parallel is parsed again alone with a longer deadline (60 s by
+  default). `graphvein index` prints how many files were parsed again and
+  how many were read, and when files stay unread it says the counts are
+  incomplete. The Overview, the Architecture section and What Graphvein
+  couldn't read show the same notice; `/api/v0/status` gains
+  `index.parse_failed` and `/api/v0/architecture` `parse_failed` (both
+  left out when zero).
+- `/api/v0/schema/summary` gains `refused_sources`: model sources
+  Graphvein found and refused to read as a whole (for example a GORM
+  module with a database driver it does not read, or a Prisma package
+  without a schema it can prove), each with tool, file and reason.
 - A Code scanning triage workflow, started by hand: it lists the open
   code scanning alerts, or dismisses the ones matching the reviewed list
   in `.github/codeql-dismissals.json` (rule, exact file, reason and the
@@ -22,6 +63,66 @@ Unreleased.
   directory's reviewed reason; it never merges and leaves every other pull
   request alone. `dependabot.yml` also stops version and security-update
   pull requests for those directories (alerts stay).
+
+### Changed
+
+- The extractor version is `extractors-64`. Facts are unchanged, but the
+  cached facts have a new layout, so the first index after upgrading
+  parses every file again.
+- Expression trees in TypeScript and JavaScript facts are shared instead
+  of copied into every enclosing call: stores are up to about a third
+  smaller (one measured store went from 944 MB to 640 MB) and memory for
+  deeply nested code grows with the file instead of with its nesting.
+- `GRAPHVEIN_SQLITE_PATH` still names the store file, but only for the
+  folder named on the command line; the web UI opens every other
+  workspace entry from its own store.
+- Architecture shows libraries by default, as a band of library chips
+  below the component cards with lines on a shared bus. Selecting a card
+  or a library marks what it uses and what uses it, and chain chips are
+  drawn above their lines. `show=nolibraries` in the page address hides
+  the band.
+- API section: one summary strip per transport, with the coverage cards
+  behind a "Coverage and roots" disclosure (remembered in the browser); a
+  transport with nothing found in the indexed files is a dashed "none
+  found" tab. The endpoint list shows "0 linked" as text and a quieter
+  "path assumed" mark, the route header is the path and one line of
+  facts, an assumption shared by every caller is stated once above the
+  callers, and the Flow tab's legend is one strip with a Legend button
+  for the full legend. The "Test only" category reads "Only test
+  endpoints match".
+- Schema: the page shown when no tables are found lists what Graphvein
+  reads and what it does not read yet, and names refused model sources
+  with their file and reason ("Graphvein found GORM models but did not
+  read them"); What Graphvein couldn't read lists them too.
+- A production call whose only match is a route mounted under test code
+  is no longer counted as test-only when a production route with an
+  unknown prefix could also serve it: it is unmatched, and that route
+  shows its path with "prefix unknown" instead of the path built only
+  from test code (ADR 0021, revision 1).
+- Development dependencies: jsdom 31.0.1; the release workflow uses
+  upload-artifact v7.0.2 and download-artifact v8.0.2.
+
+### Fixed
+
+- Indexing a file with a very deep syntax tree, such as a large
+  generated TypeScript union type, no longer copies the file's text into
+  every node: one 717 KB file needed about 6.9 GB before.
+- A temporary snapshot left by a killed `graphvein index` run is removed
+  by the next run of the same index.
+- The Couldn't read page's route paths card no longer says "Every
+  production route has a full path" when no production route was found.
+- Re-indexing a Go repository with deeply nested expressions (for
+  example a long chain of selectors) no longer stalls: checking a cached
+  expression took twice as long for every level of nesting, so a warm
+  run could stop making progress.
+
+### Known limits
+
+- Very large TypeScript monorepos can still run out of memory during
+  indexing. On one such repository (about 28,000 files, most of them
+  vendored), excluding the vendored folder in `.graphveinignore` and
+  setting `GOMEMLIMIT=5GiB` let indexing finish within 7 GB of memory;
+  the whole repository still needs more.
 
 ## [0.1.2] - 2026-11-27
 
@@ -144,7 +245,8 @@ Unreleased.
   by platform, so they are compared exactly only on the platform they were
   generated on, and as inclusions elsewhere. Indexing is unchanged.
 
-[Unreleased]: https://github.com/graphvein/graphvein/compare/v0.1.2...HEAD
+[Unreleased]: https://github.com/graphvein/graphvein/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/graphvein/graphvein/releases/tag/v0.2.0
 [0.1.2]: https://github.com/graphvein/graphvein/releases/tag/v0.1.2
 [0.1.1]: https://github.com/graphvein/graphvein/releases/tag/v0.1.1
 [0.1.0]: https://github.com/graphvein/graphvein/releases/tag/v0.1.0

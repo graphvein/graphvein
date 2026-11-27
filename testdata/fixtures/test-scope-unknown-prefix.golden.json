@@ -1,0 +1,278 @@
+[
+  {
+    "confidence": 0.9,
+    "evidence": [
+      {
+        "file": "web/src/api.test.ts",
+        "span": {
+          "end_column": 28,
+          "end_line": 2,
+          "start_column": 9,
+          "start_line": 2
+        }
+      }
+    ],
+    "kind": "calls_route",
+    "provenance": "inferred",
+    "source": "client_call:web/src/api.test.ts#aboutInTest.GET%20%22%2Fapi%2Fabout%22",
+    "target": "route:server/router/api.go#GET%20%2Fabout",
+    "type": "edge"
+  },
+  {
+    "confidence": 0.6,
+    "evidence": [
+      {
+        "file": "web/src/api.ts",
+        "span": {
+          "end_column": 30,
+          "end_line": 18,
+          "start_column": 9,
+          "start_line": 18
+        }
+      }
+    ],
+    "kind": "calls_route",
+    "provenance": "inferred",
+    "source": "client_call:web/src/api.ts#getAdminStats.GET%20%22%2Fadmin%2Fstats%22",
+    "target": "route:server/stats/stats.go#GET%20%2Fstats",
+    "type": "edge"
+  },
+  {
+    "attributes": {
+      "base": "none",
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "candidate_count": 0,
+          "candidates": [
+            "route:server/router/api.go#GET%20%2Fabout"
+          ],
+          "conditional": false,
+          "match": "exact",
+          "origin": null,
+          "resolution": "literal",
+          "status": "linked",
+          "template": "/api/about"
+        }
+      ],
+      "scope": "test",
+      "status": "linked",
+      "url_expression": "\"/api/about\"",
+      "wrapper": null
+    },
+    "content_hash": "sha256:0a4fb5e6c6f724540da5605bf4fb0aea3f018ba628452d3b248c3f7568c9a342",
+    "file": "web/src/api.test.ts",
+    "identity": "client_call:web/src/api.test.ts#aboutInTest.GET%20%22%2Fapi%2Fabout%22",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET \"/api/about\"",
+    "qualified_name": "aboutInTest.GET \"/api/about\"",
+    "span": {
+      "end_column": 28,
+      "end_line": 2,
+      "start_column": 9,
+      "start_line": 2
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "base": "none",
+      "library": "fetch",
+      "method": "POST",
+      "paths": [
+        {
+          "candidate_count": 0,
+          "candidates": [],
+          "conditional": false,
+          "match": null,
+          "origin": null,
+          "resolution": "literal",
+          "status": "unmatched",
+          "template": "/api/token",
+          "trailing_slash": true
+        }
+      ],
+      "status": "unmatched",
+      "url_expression": "\"/api/token/\"",
+      "wrapper": null
+    },
+    "content_hash": "sha256:cc4ff73b22921a855c052caa9df0f972735459bfbbb0db86500c2583f9871d91",
+    "file": "web/src/api.ts",
+    "identity": "client_call:web/src/api.ts#createToken.POST%20%22%2Fapi%2Ftoken%2F%22",
+    "kind": "client_call",
+    "level": 4,
+    "name": "POST \"/api/token/\"",
+    "qualified_name": "createToken.POST \"/api/token/\"",
+    "span": {
+      "end_column": 55,
+      "end_line": 6,
+      "start_column": 9,
+      "start_line": 6
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "base": "none",
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "candidate_count": 0,
+          "candidates": [],
+          "conditional": false,
+          "match": null,
+          "origin": null,
+          "resolution": "literal",
+          "status": "unmatched",
+          "template": "/api/about"
+        }
+      ],
+      "status": "unmatched",
+      "url_expression": "\"/api/about\"",
+      "wrapper": null
+    },
+    "content_hash": "sha256:0a4fb5e6c6f724540da5605bf4fb0aea3f018ba628452d3b248c3f7568c9a342",
+    "file": "web/src/api.ts",
+    "identity": "client_call:web/src/api.ts#getAbout.GET%20%22%2Fapi%2Fabout%22",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET \"/api/about\"",
+    "qualified_name": "getAbout.GET \"/api/about\"",
+    "span": {
+      "end_column": 28,
+      "end_line": 2,
+      "start_column": 9,
+      "start_line": 2
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "assumes": [
+        "UP-V1"
+      ],
+      "base": "none",
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "assumes": [
+            "UP-V1"
+          ],
+          "candidate_count": 0,
+          "candidates": [
+            "route:server/stats/stats.go#GET%20%2Fstats"
+          ],
+          "conditional": false,
+          "match": "suffix",
+          "origin": null,
+          "resolution": "literal",
+          "route_prefix": "unresolved",
+          "status": "linked",
+          "template": "/admin/stats"
+        }
+      ],
+      "status": "linked",
+      "url_expression": "\"/admin/stats\"",
+      "wrapper": null
+    },
+    "content_hash": "sha256:eb20ce94fb02f6ee6b162798928511925f0e58fc4be93c2c64ed4d303a7d9513",
+    "file": "web/src/api.ts",
+    "identity": "client_call:web/src/api.ts#getAdminStats.GET%20%22%2Fadmin%2Fstats%22",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET \"/admin/stats\"",
+    "qualified_name": "getAdminStats.GET \"/admin/stats\"",
+    "span": {
+      "end_column": 30,
+      "end_line": 18,
+      "start_column": 9,
+      "start_line": 18
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "base": "none",
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "candidate_count": 0,
+          "candidates": [
+            "route:server/router/api_test.go#GET%20%2Fapi%2Fdebug"
+          ],
+          "conditional": false,
+          "match": null,
+          "origin": null,
+          "resolution": "literal",
+          "status": "test_only",
+          "template": "/api/debug"
+        }
+      ],
+      "status": "test_only",
+      "url_expression": "\"/api/debug\"",
+      "wrapper": null
+    },
+    "content_hash": "sha256:a069ae099b79add6158ad98815e30268d5ab06ff7ee6a71558ac7a0573d2356b",
+    "file": "web/src/api.ts",
+    "identity": "client_call:web/src/api.ts#getDebug.GET%20%22%2Fapi%2Fdebug%22",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET \"/api/debug\"",
+    "qualified_name": "getDebug.GET \"/api/debug\"",
+    "span": {
+      "end_column": 28,
+      "end_line": 10,
+      "start_column": 9,
+      "start_line": 10
+    },
+    "type": "node"
+  },
+  {
+    "attributes": {
+      "base": "none",
+      "library": "fetch",
+      "method": "GET",
+      "paths": [
+        {
+          "candidate_count": 0,
+          "candidates": [
+            "route:server/stats/stats.go#GET%20%2Fstats"
+          ],
+          "conditional": false,
+          "match": null,
+          "origin": null,
+          "resolution": "literal",
+          "status": "test_only",
+          "template": "/stats"
+        }
+      ],
+      "status": "test_only",
+      "url_expression": "\"/stats\"",
+      "wrapper": null
+    },
+    "content_hash": "sha256:563a74943a82a6d07c8547195b260300ac1b59a60b4ba6ed6fea6e648cabe6e4",
+    "file": "web/src/api.ts",
+    "identity": "client_call:web/src/api.ts#getStats.GET%20%22%2Fstats%22",
+    "kind": "client_call",
+    "level": 4,
+    "name": "GET \"/stats\"",
+    "qualified_name": "getStats.GET \"/stats\"",
+    "span": {
+      "end_column": 24,
+      "end_line": 14,
+      "start_column": 9,
+      "start_line": 14
+    },
+    "type": "node"
+  },
+  "route:server/router/api.go#GET%20%2Fabout scope=null paths=[{\"conditional\":false,\"resolution\":\"literal\",\"scope\":\"test\",\"template\":\"/api/about\"}] entries=[{\"conditional\":false,\"hop\":\"mount:server/router/main.go#SetRouter%20dispatcher\",\"prefix\":\"unresolved\",\"prefix_reason\":\"route_mount_unresolved\",\"resolution\":\"literal\",\"template\":\"/api/about\"}]",
+  "route:server/router/api.go#POST%20%2Ftoken%2F scope=null paths=[{\"conditional\":false,\"resolution\":\"literal\",\"scope\":\"test\",\"template\":\"/api/token\",\"trailing_slash\":true}] entries=[{\"conditional\":false,\"hop\":\"mount:server/router/main.go#SetRouter%20dispatcher\",\"prefix\":\"unresolved\",\"prefix_reason\":\"route_mount_unresolved\",\"resolution\":\"literal\",\"template\":\"/api/token\",\"trailing_slash\":true}]",
+  "route:server/router/api_test.go#GET%20%2Fapi%2Fdebug scope=\"test\" paths=[{\"conditional\":false,\"resolution\":\"literal\",\"scope\":\"test\",\"template\":\"/api/debug\"}] entries=null",
+  "route:server/router/main.go#GET%20%2Fplugins scope=null paths=[] entries=[{\"conditional\":false,\"hop\":\"mount:server/router/main.go#SetRouter%20dispatcher\",\"prefix\":\"unresolved\",\"prefix_reason\":\"route_mount_unresolved\",\"resolution\":\"literal\",\"template\":\"/plugins\"}]",
+  "route:server/stats/stats.go#GET%20%2Fstats scope=null paths=[{\"conditional\":false,\"resolution\":\"literal\",\"scope\":\"test\",\"template\":\"/stats\"}] entries=[{\"conditional\":false,\"hop\":\"mount:server/router/main.go#SetRouter%20dispatcher\",\"prefix\":\"unresolved\",\"prefix_reason\":\"route_mount_unresolved\",\"resolution\":\"literal\",\"template\":\"/admin/stats\"}]"
+]

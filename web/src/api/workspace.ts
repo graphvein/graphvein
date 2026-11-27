@@ -8,6 +8,7 @@
 import { ApiError, fetchJSON } from "@/api/client";
 import { parseJob, type Job } from "@/api/indexRun";
 import { API_VERSION } from "@/api/status";
+import { parsePlaces, parseStoreDoc, StoreFormatError, type StoreDoc, type StorePlaces } from "@/api/store";
 
 export const WORKSPACE_PATH = "/api/v0/workspace";
 export const WORKSPACE_CHECK_PATH = "/api/v0/workspace/check";
@@ -216,7 +217,11 @@ export interface CheckResult {
   name: string | null;
   members: CheckMember[] | null;
   index: { state: string; last_run: string | null; error: string | null } | null;
-  store: { kind: string; path: string | null; env: string | null } | null;
+  /** store is where the index is or will be kept (WS-73). */
+  store: StoreDoc | null;
+  /** places are the places a ready folder's new index can be kept, and
+   * the one this check was asked for (the Add dialog's Change…). */
+  places: StorePlaces | null;
   entry: string | null;
   confirm: string | null;
   command: string | null;
@@ -263,10 +268,14 @@ export function parseCheck(v: unknown): CheckResult {
       return { id: str(co, "id", "contains"), kind: str(co, "kind", "contains"), name: str(co, "name", "contains"), path: str(co, "path", "contains") };
     });
   }
-  let store: CheckResult["store"] = null;
-  if (o.store !== null && o.store !== undefined) {
-    const s = object(o.store, "store");
-    store = { kind: str(s, "kind", "store"), path: strOrNull(s, "path", "store"), env: strOrNull(s, "env", "store") };
+  let store: StoreDoc | null;
+  let places: StorePlaces | null;
+  try {
+    store = parseStoreDoc(o.store);
+    places = parsePlaces(o.places);
+  } catch (err) {
+    if (err instanceof StoreFormatError) throw new WorkspaceFormatError(err.message);
+    throw err;
   }
   return {
     path: str(o, "path", "check"),
@@ -278,6 +287,7 @@ export function parseCheck(v: unknown): CheckResult {
     members,
     index,
     store,
+    places,
     entry: strOrNull(o, "entry", "check"),
     confirm: strOrNull(o, "confirm", "check"),
     command: strOrNull(o, "command", "check"),
@@ -314,10 +324,25 @@ function typed<T>(parse: (v: unknown) => T, body: unknown): T {
   }
 }
 
+/** PlaceChoice is a store place of a check: "default", "inside", or
+ * "folder" with the typed folder in dir. */
+export type PlaceChoice = { place: "default" } | { place: "inside" } | { place: "folder"; dir: string };
+
+/** checkBody is a check's JSON body: the folder, and the place when one
+ * was chosen (store_dir only with "folder"). */
+export function checkBody(path: string, place?: PlaceChoice): Record<string, string> {
+  if (place === undefined) return { path };
+  if (place.place === "folder") return { path, store_place: "folder", store_dir: place.dir };
+  return { path, store_place: place.place };
+}
+
 /** WorkspaceClient is every workspace request; tests pass their own. */
 export interface WorkspaceClient {
   list: (options: { signal?: AbortSignal }) => Promise<Workspace>;
-  check: (path: string, token: string) => Promise<CheckResult>;
+  /** check checks a typed folder; place asks where its new index would be
+   * kept (default, inside, or a typed folder), and the confirm value
+   * binds that place's index file. */
+  check: (path: string, token: string, place?: PlaceChoice) => Promise<CheckResult>;
   add: (path: string, confirm: string, token: string) => Promise<AddResult>;
   /** run starts an entry's index run (POST /api/v0/index/run?ws=), which
    * creates its store when it has none (WS-15, WS-55). */
@@ -329,7 +354,7 @@ const TOKEN_HEADER = "X-Graphvein-Token";
 /** httpWorkspaceClient talks to the server that served the page. */
 export const httpWorkspaceClient: WorkspaceClient = {
   list: async ({ signal }) => typed(parseWorkspace, await fetchJSON(WORKSPACE_PATH, signal ? { signal } : {})),
-  check: async (path, token) => typed(parseCheck, await fetchJSON(WORKSPACE_CHECK_PATH, { method: "POST", body: { path }, headers: { [TOKEN_HEADER]: token } })),
+  check: async (path, token, place) => typed(parseCheck, await fetchJSON(WORKSPACE_CHECK_PATH, { method: "POST", body: checkBody(path, place), headers: { [TOKEN_HEADER]: token } })),
   add: async (path, confirm, token) => typed(parseAdd, await fetchJSON(WORKSPACE_ADD_PATH, { method: "POST", body: { path, confirm }, headers: { [TOKEN_HEADER]: token }, timeoutMs: 60_000 })),
   run: async (id) => {
     await fetchJSON(`/api/v0/index/run?ws=${encodeURIComponent(id)}`, { method: "POST", body: {}, timeoutMs: 60_000 });

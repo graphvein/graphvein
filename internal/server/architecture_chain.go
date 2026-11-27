@@ -449,7 +449,7 @@ func (w *chainWalk) addMember(n contract.Node, step int, row string) *chainMembe
 	switch n.Kind {
 	case "route":
 		cm.Method, cm.Path = stringAttr(n, "method"), stringAttr(n, "pattern")
-		cm.FullPath = displayPath(objects(n.Attributes["paths"]), scopeProduction)
+		cm.FullPath = routePath(n, scopeProduction)
 		cm.PrefixPath = prefixPath(n, scopeProduction)
 	case "client_call":
 		cm.Method, cm.Status = stringAttr(n, "method"), stringAttr(n, "status")

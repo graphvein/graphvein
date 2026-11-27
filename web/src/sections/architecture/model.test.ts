@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 
 import { parseArchitecture, unknownCell, type Cell } from "@/api/architecture";
-import { DEFAULT_SHOW, LIBRARIES_ID, MINIMAP_CARDS, buildMap, focusOf, mergeCells, placement } from "@/sections/architecture/model";
+import { BAND_ID, DEFAULT_SHOW, MINIMAP_CARDS, buildMap, focusOf, mergeCells, placement } from "@/sections/architecture/model";
 import { ARCH_GOLDENS, archGolden } from "@/test/architectureFixtures";
 
 const cell = (value: string, state: string, counts: Record<string, number> | null = null): Cell => ({ value, state, source: `${state}: x`, rows: ["R"], counts });
@@ -27,26 +27,35 @@ describe("architecture answer guard", () => {
 });
 
 describe("buildMap", () => {
-  it("shows the shown components, folds libraries and hides tests and docs by default (AG4, AG10)", () => {
+  it("shows the shown components and the libraries band, hides tests and docs by default (AG4 as revised by T067, AG10)", () => {
     const r = archGolden("components");
     const m = buildMap(r, DEFAULT_SHOW, null);
     const comps = m.nodes.filter((n) => n.type === "component").map((n) => n.id);
     expect(comps).toEqual(r.components.filter((c) => c.visibility === "shown").map((c) => `c:${c.id}`));
-    expect(m.nodes.some((n) => n.id === LIBRARIES_ID)).toBe(false);
-    expect(m.hidden).toMatchObject({ tests: 1, docs: 1, configured: 1, libraries: 4 });
+    expect(m.nodes.some((n) => n.id === BAND_ID)).toBe(true);
+    expect(m.nodes.filter((n) => n.type === "library").map((n) => n.id.slice(4)).sort()).toEqual([...r.libraries.components].sort());
+    expect(m.hidden).toMatchObject({ tests: 1, docs: 1, configured: 1, libraries: 0 });
+  });
+
+  it("hides the libraries with the toggle off, counted in the Hidden note", () => {
+    const r = archGolden("components");
+    const m = buildMap(r, { ...DEFAULT_SHOW, libraries: false }, null);
+    expect(m.nodes.some((n) => n.type === "band" || n.type === "library")).toBe(false);
+    expect(m.hidden).toMatchObject({ libraries: 4 });
     // A link to a hidden library is not drawn.
     expect(m.edges.filter((e) => e.type === "link").flatMap((e) => e.links.map((l) => l.id))).not.toContain("in_process:web->shared");
   });
 
-  it("draws the libraries card and each toggled component", () => {
+  it("draws one line per card-library pair into the band and each toggled component", () => {
     const r = archGolden("components");
-    const m = buildMap(r, { ...DEFAULT_SHOW, libraries: true, tests: true, docs: true, configured: true }, null);
-    const lib = m.nodes.find((n) => n.id === LIBRARIES_ID);
-    expect(lib?.type === "libraries" ? lib.members.map((c) => c.id) : null).toEqual(r.libraries.components);
+    const m = buildMap(r, { ...DEFAULT_SHOW, tests: true, docs: true, configured: true }, null);
     expect(m.nodes.filter((n) => n.type === "component")).toHaveLength(r.components.filter((c) => c.visibility !== "folded").length);
     expect(m.hidden).toMatchObject({ tests: 0, docs: 0, configured: 0, libraries: 0 });
-    const toLib = m.edges.find((e) => e.target === LIBRARIES_ID || e.source === LIBRARIES_ID);
+    const toLib = m.edges.find((e) => e.band === "card");
+    expect(toLib).toMatchObject({ source: "c:web", target: "lib:shared" });
     expect(toLib?.links.map((l) => l.id)).toEqual(["in_process:web->shared"]);
+    // The card's line chip counts it (T062 A).
+    expect(m.nodes.find((n) => n.id === "c:web")).toMatchObject({ fan: { count: toLib?.count, libraries: 1 } });
   });
 
   it("bundles parallel links of one pair into one line with mixed cells (AG15)", () => {
@@ -68,18 +77,20 @@ describe("buildMap", () => {
     for (const l of drawn) expect(r.links).toContainEqual(l);
     expect(drawn).toHaveLength(r.links.length);
     expect(r.components.some((c) => c.markers.length > 0)).toBe(true);
-    expect(m.edges.every((e) => e.type === "stub" || e.links.length > 0)).toBe(true);
+    expect(m.edges.every((e) => e.links.length > 0)).toBe(true);
   });
 
-  it("adds one SDK stub per component card, and none when the toggle is off (AG5, O2)", () => {
+  it("puts one SDK chip on each component card, never a line, and none when the toggle is off (AG5, O2)", () => {
     const r = archGolden("components");
     const on = buildMap(r, DEFAULT_SHOW, null);
     const owners = new Set(on.nodes.filter((n) => n.type === "component").map((n) => n.id.slice(2)));
-    const stubs = on.nodes.filter((n) => n.type === "stub");
-    expect(stubs).toHaveLength(r.stubs.filter((s) => owners.has(s.component)).length);
+    const chips = on.nodes.filter((n) => n.type === "component" && n.stub !== null);
+    expect(chips).toHaveLength(r.stubs.filter((s) => owners.has(s.component)).length);
+    expect(chips.length).toBeGreaterThan(0);
+    expect(on.edges.every((e) => e.links.length > 0)).toBe(true);
     const off = buildMap(r, { ...DEFAULT_SHOW, sdk: false }, null);
-    expect(off.nodes.some((n) => n.type === "stub")).toBe(false);
-    expect(off.hidden.sdk).toBe(stubs.length);
+    expect(off.nodes.some((n) => n.type === "component" && n.stub !== null)).toBe(false);
+    expect(off.hidden.sdk).toBe(chips.length);
   });
 
   it("counts test-scope edges in the production scope only", () => {

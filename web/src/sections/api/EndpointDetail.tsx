@@ -7,7 +7,7 @@
 import { ArrowUpRight, TriangleAlert } from "lucide-react";
 import { lazy, Suspense, useRef, type KeyboardEvent, type ReactNode } from "react";
 
-import { categoryCounts, CATEGORY_LABEL, neverCalledLabel, neverScoped, POSSIBLY_CALLED } from "@/api/categories";
+import { categoryCounts, CATEGORY_LABEL, neverCalledLabel, neverScoped, POSSIBLY_CALLED, TRANSPORT_LABEL } from "@/api/categories";
 import type { EndpointDetail as Detail, PresentedNode, TransportSummary } from "@/api/endpoints";
 import { NO_PATH_TITLE, NO_PATH_WORDS, isFullPathEntry, noPathKind, pathAssumptions, pathAssumptionTitle, prefixReasonText, prefixUnknownPaths, servedPath, shadowedPaths } from "@/lib/routePath";
 import { cn } from "@/lib/utils";
@@ -132,6 +132,28 @@ function PathAssumptionChip({ entry }: { entry: Attrs }) {
   );
 }
 
+/** PathMarks are a composed path's marks: how it was resolved, a
+ * condition, optional, its assumptions and test scope. */
+function PathMarks({ p, d }: { p: Attrs; d: Detail }) {
+  return (
+    <>
+      {s(p, "resolution") !== null && <span className={OUTLINE}>{s(p, "resolution")}</span>}
+      {p.conditional === true && (
+        <span className={OUTLINE}>
+          conditional <UnverifiedMark label={d.precision} fact="conditional" />
+        </span>
+      )}
+      {p.optional === true && <span className={OUTLINE}>optional</span>}
+      <PathAssumptionChip entry={p} />
+      {p.scope === "test" && (
+        <span className={cn(BADGE, TONE_CLASS.other)}>
+          test <UnverifiedMark label={d.precision} fact="scope" />
+        </span>
+      )}
+    </>
+  );
+}
+
 function HttpHeader({ d }: { d: Detail }) {
   const a = d.endpoint.attributes;
   // Full composed paths only: a path whose prefix the code does not fix
@@ -146,6 +168,10 @@ function HttpHeader({ d }: { d: Detail }) {
   const first = paths[0];
   const shownPath = first !== undefined ? servedPath(first) : null;
   const firstPrefixed = prefixed[0];
+  // One composed path that is the title (T071 question 10, T073): it is
+  // not printed again; its marks join the facts line as "1 composed path,
+  // same as above". Several paths keep their list.
+  const folded = paths.length === 1 && first !== undefined && pathAssumptions(first) !== null ? first : null;
   return (
     <>
       <div className="flex items-start gap-2.5">
@@ -219,7 +245,7 @@ function HttpHeader({ d }: { d: Detail }) {
           ))}
         </div>
       )}
-      {(paths.length > 1 || paths.some((p) => pathAssumptions(p) !== null)) && (
+      {folded === null && (paths.length > 1 || paths.some((p) => pathAssumptions(p) !== null)) && (
         <div className="grid gap-1" data-testid="composed-paths">
           <div className="text-xs text-muted-foreground">
             {paths.length} composed {paths.length === 1 ? "path" : "paths"}
@@ -229,33 +255,30 @@ function HttpHeader({ d }: { d: Detail }) {
               <span className="font-mono">
                 <PathText path={servedPath(p) ?? "(no template)"} />
               </span>
-              {s(p, "resolution") !== null && <span className={OUTLINE}>{s(p, "resolution")}</span>}
-              {p.conditional === true && (
-                <span className={OUTLINE}>
-                  conditional <UnverifiedMark label={d.precision} fact="conditional" />
-                </span>
-              )}
-              {p.optional === true && <span className={OUTLINE}>optional</span>}
-              <PathAssumptionChip entry={p} />
-              {p.scope === "test" && (
-                <span className={cn(BADGE, TONE_CLASS.other)}>
-                  test <UnverifiedMark label={d.precision} fact="scope" />
-                </span>
-              )}
+              <PathMarks p={p} d={d} />
             </div>
           ))}
         </div>
       )}
-      <div className="flex flex-wrap items-center gap-1.5 text-[12.5px]">
-        <TransportBadge transport="http" />
-        {s(a, "framework") !== null && <span className={SECONDARY}>{s(a, "framework")}</span>}
-        <span className={SECONDARY}>{d.repository}</span>
+      {/* The facts line (T071, T073): transport, framework and repository
+          as plain text, the folded composed path's marks, then the
+          precision chip, the unverified count and the fact badge; one line
+          where the pane is wide enough. */}
+      <div className="flex flex-wrap items-center gap-x-1.5 gap-y-1 text-[12.5px]" data-testid="route-facts">
+        <span className="inline-flex items-center gap-1.5 text-muted-foreground" data-testid="route-facts-text">
+          <span aria-hidden="true" className="size-[7px] rounded-[2px] bg-http-bar" />
+          <span>
+            {[TRANSPORT_LABEL.http, s(a, "framework"), d.repository].filter((x): x is string => x !== null && x !== "").join(" · ")}
+            {folded !== null && <span data-testid="composed-path-same"> · 1 composed path, same as above ·</span>}
+          </span>
+        </span>
+        {folded !== null && <PathMarks p={folded} d={d} />}
         {a.scope === "test" && (
           <span className={cn(BADGE, TONE_CLASS.other)}>
             test scope <UnverifiedMark label={d.precision} fact="scope" />
           </span>
         )}
-        <FamilyChip transport="http" which="endpoints" label={d.precision} testId="detail-precision" />
+        <FamilyChip transport="http" which="endpoints" label={d.precision} testId="detail-precision" countUnverified />
         <FactBadge />
         <span className="text-muted-foreground">from the route registration</span>
       </div>

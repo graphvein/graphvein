@@ -5,6 +5,8 @@
 import type { ScopeLabel, Transport } from "@/api/endpoints";
 import { PrecisionChip } from "@/components/precision/PrecisionChip";
 import { scopeChip } from "@/components/precision/words";
+import { useLabelStyle } from "@/hooks/useLabels";
+import { label as labelText } from "@/lib/labels";
 
 /** The two families of a transport: names on the chips and the server's
  * family keys (the popover's column when the label is row D). */
@@ -47,16 +49,22 @@ export function UnverifiedMark({ label, fact }: { label: ScopeLabel | null; fact
 
 /** FamilyChip is one family's chip, or nothing without a label. A precise
  * chip whose row leaves facts out names them beside it. */
-export function FamilyChip({ transport, which, label, testId, bare = false }: { transport: Transport; which: "endpoints" | "calls"; label: ScopeLabel | null; testId?: string; bare?: boolean }) {
+export function FamilyChip({ transport, which, label, testId, bare = false, countUnverified = false }: { transport: Transport; which: "endpoints" | "calls"; label: ScopeLabel | null; testId?: string; bare?: boolean; countUnverified?: boolean }) {
+  const style = useLabelStyle();
   const [name, family] = FAMILIES[transport][which];
   const out = unverifiedFacts(label);
   const chip = <PrecisionChip state={scopeChip(label)} scope={name} focus={{ column: column(label, family) }} bare={bare} testId={testId ?? `precision-${which}`} />;
   if (out.length === 0) return chip;
+  // countUnverified (the route header, T073): "4 parts unverified" with
+  // the facts in the tooltip (label row 72); the technical style lists
+  // them as before.
+  const tag = countUnverified ? labelText(style, "unverifiedCount", out) : { text: `unverified: ${out.join(", ")}`, title: "Outside the Precise scope (no oracle compares them): these facts stay unverified." };
   return (
     <span className="inline-flex items-center gap-1">
       {chip}
-      <span className={UNVERIFIED_TAG} title="Outside the Precise scope (no oracle compares them): these facts stay unverified." data-testid={`${testId ?? `precision-${which}`}-unverified`}>
-        unverified: {out.join(", ")}
+      <span className={UNVERIFIED_TAG} title={tag.title} data-testid={`${testId ?? `precision-${which}`}-unverified`}>
+        {tag.text}
+        {countUnverified && style === "plain" && <span className="sr-only">: {out.join(", ")}</span>}
       </span>
     </span>
   );

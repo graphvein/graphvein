@@ -30,7 +30,7 @@ describe("configuration gate (T039 ST-F)", () => {
     expect(screenEl.textContent).toContain(MESSAGE);
     expect(screenEl.textContent).toContain("API is not shown while the file does not load");
     expect(screen.getByRole("link", { name: "Fix it in Settings" }).getAttribute("href")).toBe("#/settings");
-    expect(screen.queryByTestId("card-http")).toBeNull();
+    expect(screen.queryByTestId("strip-http")).toBeNull();
 
     // Another section reads the file again: still broken.
     act(() => {
@@ -56,13 +56,13 @@ describe("configuration gate (T039 ST-F)", () => {
     await waitFor(() => {
       expect(screen.queryByTestId("config-error-screen")).toBeNull();
     });
-    expect(await screen.findByTestId("card-http")).toBeTruthy();
+    expect(await screen.findByTestId("strip-http")).toBeTruthy();
   });
 
   it("a config read that fails gates nothing", async () => {
     const config = fakeConfigClient([], () => editResult());
     render(<AppShell fetcher={fresh} client={fakeClient()} schemaClient={fakeSchemaClient({ summary: summaryGolden("fixture") })} configClient={config} />);
-    expect(await screen.findByTestId("card-http")).toBeTruthy();
+    expect(await screen.findByTestId("strip-http")).toBeTruthy();
     expect(screen.queryByTestId("config-error-screen")).toBeNull();
   });
 });

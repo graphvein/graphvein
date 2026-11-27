@@ -17,6 +17,7 @@ import (
 	"github.com/graphvein/graphvein/internal/indexrun"
 	"github.com/graphvein/graphvein/internal/parse"
 	"github.com/graphvein/graphvein/internal/store"
+	"github.com/graphvein/graphvein/internal/storeloc"
 )
 
 // indexRunPath is the only path that accepts POST (ADR 0052).
@@ -338,6 +339,11 @@ func (rn *runner) begin(ctx context.Context, linkPassOnly bool) error {
 	if errors.Is(err, store.ErrIndexLocked) {
 		return &apiError{http.StatusConflict, "index_locked", "another process holds the index lock for this store (graphvein index or another graphvein serve); try again when it has finished"}
 	}
+	if errors.Is(err, storeloc.ErrMoved) {
+		// The store moved while this server had it open (WS-81): the run
+		// stops instead of creating an index at the old place.
+		return &apiError{http.StatusConflict, "store_moved", err.Error()}
+	}
 	if err != nil {
 		return &apiError{http.StatusServiceUnavailable, "index_lock_unavailable", err.Error()}
 	}
@@ -403,6 +409,7 @@ func (rn *runner) execute(job *jobDoc, lease store.IndexLease) {
 			Progress:    func(p indexrun.Progress) { rn.progress(job, p) },
 			OnCommit:    func(run store.Run) { rn.committed(job, run) },
 			SnapshotDir: rn.opt.StoreDir,
+			StoreName:   rn.opt.StoreName,
 		})
 	}()
 	rn.finish(job, err)
@@ -534,6 +541,11 @@ func (rn *runner) beginProject(ctx context.Context, linkPassOnly bool) error {
 		}
 	}
 	state, err := rn.opt.Locker.State(ctx)
+	if errors.Is(err, storeloc.ErrMoved) {
+		// The store moved while this server had it open (WS-81): the run
+		// stops instead of creating an index at the old place.
+		return &apiError{http.StatusConflict, "store_moved", err.Error()}
+	}
 	if err != nil {
 		return &apiError{http.StatusServiceUnavailable, "index_lock_unavailable", err.Error()}
 	}

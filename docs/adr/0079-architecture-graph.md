@@ -648,3 +648,108 @@ decisions above keep their status).
   the map while the inspector still lists every member within the caps.
 - Known gaps: as in ADR 0056's T042 revision; the map draws at most the
   budget whatever the depth.
+
+## Revision (T067): the libraries band, SDK chips on cards
+
+Status of this revision: Proposed (pending the developer's review; the
+decisions above keep their status). Design record and mockups: task T062
+(variant A with every recommended default, developer decision
+2026-11-27).
+
+- Context: AG4 folded every CV3 library (kind `package` only) into one
+  "Workspace libraries (n)" card, hidden by default. On pdfcraft that
+  left 0 of 127 links on the default map (82 in-process calls and imports
+  from 8 cards into 13 libraries, 109 links between libraries); with
+  Libraries on, the folded card took the map to 23 % zoom (names at
+  3.4 px) and still said only "they connect to libraries", not to which.
+  AG5's dotted stub cards added one card per component to every map.
+- Decision AG4 (revised): Libraries is on by default. The map has two
+  lanes: the cards (ELK, as before) on top, and the libraries band, a
+  fixed grid below them, holding each CV3 library as a chip: its name
+  without the prefix every library shares (at least three libraries, the
+  footer names it), the number of components a stored link reaches it
+  from, the directory in the tooltip or on a second line (names repeat,
+  or at most 12 chips); a root package reads "<name> (root ./)". Band
+  rows: *Used by a card* (ordered under the cards using each library),
+  *Used by libraries, level n* (one level below the deepest library using
+  it; a cycle stops at its first repeat), *No stored user* (linked, but no
+  stored link ends at it), *No stored link* (never worded "unused": P3).
+  A row shows at most 24 chips (four lines of six); the rest fold into one
+  "+ n more libraries" chip that opens the band. Every card-library pair
+  is a line (AG15 bundling unchanged), routed down the column gutters, and
+  the card carries one line chip summing them; library-library pairs are
+  counted on the band and the inspector and drawn while one of their ends
+  is selected. Selecting a library lights its users and what it uses and
+  lists both with counts; it starts no chain (a card still does, CH9). The
+  Libraries toggle off returns to hiding them, counted in the Hidden note.
+  Above six cards the map uses 180 px cards with the kind on the second
+  line.
+- Decision AG5 (drawing only): the SDK stub is a dashed "SDK n" chip on
+  its card, the stub's text and protocol cell in the tooltip and the
+  inspector; the fact, its text and "never a protocol" are unchanged. The
+  SDK imports toggle hides the chips, counted as before.
+- Consequences: no server, API, contract or golden change; the API's
+  `visibility: folded` and `libraries` block are read as before. The claim
+  contract's CV3, CE4 and CE6 claim cells name the new drawing. The hash
+  writes `show=nolibraries` for the toggle off; an old link's
+  `show=libraries` still reads as on. The minimap counts cards, not band
+  chips. A chain drawn in place opens a library's chip as a card in the
+  card lane like any other card.
+- Known gaps: the band cap is per row, so a band with many rows can still
+  be tall (artcraft not measured, P4); library-library lines use simple
+  curves inside the band and can cross chips; the band is not part of the
+  ELK layout, so card-card lines never route around it (they never reach
+  it: the band sits below every card). Classification questions P1-P4 of
+  the design record are unchanged.
+
+## Revision (T072): band lines on a bus, selection marks on the chips
+
+Status of this revision: Proposed (pending the developer's review; the
+decisions above keep their status). Design review: task T071 (declutter
+review, recommendations V1 and V3 with their defaults, developer decision
+2026-11-27).
+
+- Context: the T067 band drew 18 card-library lines on pdfcraft with 21
+  crossing points and 15 passes of a line under a chip it does not end
+  at (11 lines in one 40 px cell); a selected library drew its library
+  links as curves across the band (44 lines, the lit ones under 45
+  chips), and dimming could not help because the popular libraries touch
+  most of the band.
+- Decision AG4 (drawing of the band's lines, revised): every card-library
+  pair is still a line, now routed on a bus: one trunk per card from its
+  line chip (along a gutter no card stands in when a card stands below)
+  to the card's own track between the card lane and the band, right
+  angles throughout, one port per card on each chip. Tracks are ordered
+  to cross least; tracks whose spans are apart share a level. When the
+  card row wraps, its top chip line holds the libraries of the cards with
+  the fewest libraries (a straight drop under their card), the rest fill
+  the lines below and are fed by an inner bus between the first and
+  second chip line; deeper chips (and the "+ n more libraries" chip when
+  a card's line ends there) are entered from the side along a channel in
+  a column gap, one slot per card. Chip columns are 20 px apart where the
+  same number of chips per line still fits. Resting lines are a lighter
+  solid grey; the lines of the card or chip under the pointer or holding
+  keyboard focus light. A band no card line reaches is placed as before.
+- Decision (selection, revises "drawn while one of their ends is
+  selected"): library-library links are marked on the chips, not drawn.
+  While a card or library is selected, each chip a stored link joins to
+  it shows the stored count of those links with the direction (↑ it uses
+  the selection, ↓ the selection uses it) instead of the number of
+  components using it, and the band footer names it ("selected: ↑ n use
+  it · ↓ it uses m · stored counts"). A library-library line selected on
+  its own (inspector, Links tab) is still drawn. Unrelated chips dim to
+  25 % (35 %), unrelated band lines to 10 % (18 %); cards keep 35 %.
+- Chain drawn in place: chain line chips are painted above their lines;
+  the inspector says an end note once per step when every member of the
+  step carries the identical note ("Both: ...", "All n: ...").
+- Consequences: no server, API, contract or golden change. pdfcraft at
+  1440x900: 9 crossing points (all right angles between trunks), 0
+  passes under a chip, fit zoom 0.941 (0.959), card names 13.6 px
+  (13.9 px), 10.9 px at 900x800 (11.1 px); with `engine` selected 2 lit
+  lines and 26 marked chips instead of 28 lit curves. The step badges on
+  band chips are unchanged.
+- Known gaps: the trunks of different cards still cross at right angles
+  (9 points on pdfcraft); a gutter search falls back to the gutter right
+  of the card when no clear one exists (not seen on a packed lane); the
+  quiet variant (lines only under the pointer) of the review was not
+  built.

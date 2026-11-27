@@ -2,15 +2,14 @@ package main
 
 import (
 	"context"
-	"errors"
 	"flag"
 	"fmt"
 	"io"
-	"io/fs"
 	"log/slog"
 	"net/netip"
 	"os"
 	"path/filepath"
+	"sync"
 
 	"github.com/graphvein/graphvein/internal/config"
 	"github.com/graphvein/graphvein/internal/indexrun"
@@ -18,6 +17,7 @@ import (
 	"github.com/graphvein/graphvein/internal/server"
 	"github.com/graphvein/graphvein/internal/server/ui"
 	"github.com/graphvein/graphvein/internal/store"
+	"github.com/graphvein/graphvein/internal/storeloc"
 	"github.com/graphvein/graphvein/internal/workspace"
 )
 
@@ -87,36 +87,58 @@ func serveCommand(ctx context.Context, args []string, stdout, stderr io.Writer) 
 		fmt.Fprintln(stderr, err)
 		return 1
 	}
-	s, err := openReadStore(ctx, absolute)
+	// The store is located once and held there: a re-index that waited
+	// for the lock during a move stops instead of writing at the old
+	// place (ADR 0087 revision 5).
+	loc, err := locate(absolute)
 	if err != nil {
 		fmt.Fprintln(stderr, err)
 		return 1
 	}
-	// Deferred so it runs after Serve returned, which happens only once the
-	// last request handler finished with the store.
-	defer s.Close()
+	at := commandLine(absolute).pinned(loc)
+	s, err := at.openRead(ctx)
+	if err != nil {
+		fmt.Fprintln(stderr, err)
+		return 1
+	}
 	// Re-index from the UI uses the same lock and writer store as
 	// graphvein index (ADR 0052). Serve returns only after a running job
 	// released the lock, so closing the locker afterwards is safe.
-	locker, _ := openLocker(absolute, *repository)
-	defer locker.Close()
+	locker, _ := at.locker(*repository)
+	// Deferred so it runs after Serve returned, which happens only once the
+	// last request handler finished with the store. A store move from the
+	// UI closes it earlier through the same function (once).
+	release := closeOnce(func() {
+		locker.Close()
+		s.Close()
+	})
+	defer release()
 	current := &server.WorkspaceIndex{
 		Entry:   register(registry, workspace.KindRepository, *repository, absolute, logger),
-		Options: repositoryOptions(absolute, *repository, s, locker),
+		Options: repositoryOptions(at, absolute, *repository, s, locker),
+		Close:   release,
 	}
 	return serveWorkspace(ctx, *addr, registry, current, stdout, stderr, logger, nil)
 }
 
+// closeOnce returns a function that runs release on its first call only.
+func closeOnce(release func()) func() {
+	var once sync.Once
+	return func() { once.Do(release) }
+}
+
 // repositoryOptions are the options of a single-repository index: the
-// read store, the index lock and the writer store of a re-index.
-func repositoryOptions(root, repository string, s store.Store, locker store.IndexLocker) server.Options {
+// read store, the index lock and the writer store of a re-index, all at
+// the place at holds.
+func repositoryOptions(at storeAt, root, repository string, s store.Store, locker store.IndexLocker) server.Options {
 	return server.Options{
 		Root:       root,
 		Repository: repository,
 		Store:      s,
 		Locker:     locker,
-		OpenWriter: func(ctx context.Context) (store.Store, error) { return openStore(ctx, root) },
-		StoreDir:   storeDir(root),
+		OpenWriter: at.openWriter,
+		StoreDir:   at.dir(),
+		StoreName:  at.name(),
 	}
 }
 
@@ -183,18 +205,27 @@ func register(registry *workspace.Registry, kind workspace.Kind, name, folder st
 // open the browser once the server listens and to explain a busy port.
 func serveWorkspace(ctx context.Context, addr string, registry *workspace.Registry, current *server.WorkspaceIndex, stdout, stderr io.Writer, logger *slog.Logger, hooks *serveHooks) int {
 	workDir, _ := os.Getwd()
+	stores, err := storeResolver()
+	if err != nil {
+		// Without a per-user folder the store fields of the workspace
+		// endpoints are not available; every entry still opens (and
+		// fails) through the resolver as the CLI does.
+		logger.Warn("store locations are unavailable", "error", err)
+		stores = nil
+	}
 	srv, err := server.Listen(ctx, addr, server.Options{
 		Version:   version,
 		Assets:    ui.Assets,
 		Logger:    logger,
 		ReportURL: reportIssueURL(logger),
 		Workspace: &server.WorkspaceOptions{
-			Registry:      registry,
-			Current:       current,
-			Open:          openWorkspaceIndex,
-			StoreLocation: storeLocation,
-			WorkDir:       workDir,
-			SharedStore:   os.Getenv("GRAPHVEIN_POSTGRES_URL") != "",
+			Registry:    registry,
+			Current:     current,
+			Open:        openWorkspaceIndex,
+			Stores:      stores,
+			CreateStore: createStore,
+			WorkDir:     workDir,
+			SharedStore: os.Getenv("GRAPHVEIN_POSTGRES_URL") != "",
 		},
 	})
 	if err != nil {
@@ -211,9 +242,6 @@ func serveWorkspace(ctx context.Context, addr string, registry *workspace.Regist
 		if current == nil || e.ID != current.Entry.ID {
 			others++
 		}
-	}
-	if others > 0 && os.Getenv("GRAPHVEIN_SQLITE_PATH") != "" && os.Getenv("GRAPHVEIN_POSTGRES_URL") == "" {
-		logger.Warn("GRAPHVEIN_SQLITE_PATH applies only to the index named on the command line; the other workspace entries are not opened while it is set")
 	}
 	more := ""
 	if others > 0 {
@@ -249,30 +277,33 @@ type serveHooks struct {
 }
 
 // openWorkspaceIndex opens a registry entry's index as serve <path> or
-// serve --project would, with the store located from the folder and the
-// environment as the CLI locates it. Without create, a missing SQLite
-// store is server.ErrNoIndex; with create (adding a folder) an empty store
-// is created first, as graphvein index would create it.
-//
-// GRAPHVEIN_SQLITE_PATH names one SQLite file, so it applies only to the
-// index named on the command line (serve <path> or serve --project, which
-// the caller opens itself): every entry this function would open is
-// refused with server.ErrSingleStore instead of being answered from that
-// one file. The repository name is re-read from graphvein.yaml when it
-// names one (a project's from its manifest), so an index renamed since it was
-// registered answers under its new name while its entry keeps its id.
+// serve --project would. The store is resolved once through the store
+// resolver without GRAPHVEIN_SQLITE_PATH, which names the store of the
+// folder on the command line only (ADR 0093, ADR 0087 revision 5): every
+// other entry opens from its own store, and its runs, locks and writer use
+// that place (never the environment) and stop if it moves. Without create,
+// a missing SQLite store is server.ErrNoIndex; with create (adding a
+// folder, or a run of an entry without a store) an empty store is created
+// first, as graphvein index would create it. The repository name is
+// re-read from graphvein.yaml when it names one (a project's from its
+// manifest), so an index renamed since it was registered answers under
+// its new name while its entry keeps its id.
 func openWorkspaceIndex(ctx context.Context, e workspace.Entry, create bool) (*server.WorkspaceIndex, error) {
 	dir := e.Path
-	if p := os.Getenv("GRAPHVEIN_SQLITE_PATH"); p != "" && os.Getenv("GRAPHVEIN_POSTGRES_URL") == "" {
-		return nil, fmt.Errorf("%w: GRAPHVEIN_SQLITE_PATH names one SQLite file (%s), which only the index named on the command line uses; unset it to open %s from its own store", server.ErrSingleStore, p, e.Name)
+	r, err := storeResolver()
+	if err != nil {
+		return nil, err
 	}
-	if os.Getenv("GRAPHVEIN_POSTGRES_URL") == "" {
-		if _, err := os.Stat(sqlitePath(dir)); errors.Is(err, fs.ErrNotExist) && !create {
-			return nil, server.ErrNoIndex
-		}
+	loc, err := r.Resolve(dir, storeloc.Scope{})
+	if err != nil {
+		return nil, err
 	}
+	if loc.Origin != storeloc.OriginPostgres && !loc.Exists && !create {
+		return nil, server.ErrNoIndex
+	}
+	at := entryStore(loc)
 	if create {
-		w, err := openStore(ctx, dir)
+		w, err := at.openWriter(ctx)
 		if err != nil {
 			return nil, err
 		}
@@ -287,7 +318,7 @@ func openWorkspaceIndex(ctx context.Context, e workspace.Entry, create bool) (*s
 			return nil, err
 		}
 	}
-	s, err := openReadStore(ctx, dir)
+	s, err := at.openRead(ctx)
 	if err != nil {
 		return nil, err
 	}
@@ -302,29 +333,28 @@ func openWorkspaceIndex(ctx context.Context, e workspace.Entry, create bool) (*s
 			s.Close()
 			return nil, err
 		}
-		locker, _ := openLocker(dir, repository)
-		return &server.WorkspaceIndex{Entry: e, Options: repositoryOptions(dir, repository, s, locker), Close: func() {
+		locker, _ := at.locker(repository)
+		return &server.WorkspaceIndex{Entry: e, Options: repositoryOptions(at, dir, repository, s, locker), Close: func() {
 			locker.Close()
 			s.Close()
 		}}, nil
 	}
-	opt, closeLockers := projectOptions(project, s)
+	opt, closeLockers := projectOptions(at, project, s)
 	return &server.WorkspaceIndex{Entry: e, Options: opt, Close: func() {
 		closeLockers()
 		s.Close()
 	}}, nil
 }
 
-// storeLocation reports where graphvein index stores folder's index.
-func storeLocation(folder string) server.StoreLocation {
-	if os.Getenv("GRAPHVEIN_POSTGRES_URL") != "" {
-		return server.StoreLocation{Kind: "postgres", Env: "GRAPHVEIN_POSTGRES_URL"}
+// createStore creates an empty store at loc, a place the user chose when
+// adding a folder (Add's "Change…": inside the folder): the in-folder
+// store is found by its file, so creating it records the choice.
+func createStore(ctx context.Context, loc storeloc.Location) error {
+	w, err := entryStore(loc).openWriter(ctx)
+	if err != nil {
+		return err
 	}
-	p := sqlitePath(folder)
-	if abs, err := filepath.Abs(p); err == nil {
-		p = abs
-	}
-	return server.StoreLocation{Kind: "sqlite", Path: p}
+	return w.Close()
 }
 
 // loopbackLiteral mirrors egress.ListenLoopback's rule so a bad --addr is a
@@ -372,17 +402,27 @@ func projectServeCommand(ctx context.Context, args []string, stdout, stderr io.W
 		fmt.Fprintln(stderr, err)
 		return 1
 	}
-	s, err := openReadStore(ctx, project.Dir)
+	loc, err := locate(project.Dir)
 	if err != nil {
 		fmt.Fprintln(stderr, err)
 		return 1
 	}
-	defer s.Close()
-	opt, closeLockers := projectOptions(project, s)
-	defer closeLockers()
+	at := commandLine(project.Dir).pinned(loc)
+	s, err := at.openRead(ctx)
+	if err != nil {
+		fmt.Fprintln(stderr, err)
+		return 1
+	}
+	opt, closeLockers := projectOptions(at, project, s)
+	release := closeOnce(func() {
+		closeLockers()
+		s.Close()
+	})
+	defer release()
 	current := &server.WorkspaceIndex{
 		Entry:   register(registry, workspace.KindProject, project.Name, project.Dir, logger),
 		Options: opt,
+		Close:   release,
 	}
 	return serveWorkspace(ctx, *addr, registry, current, stdout, stderr, logger, nil)
 }
@@ -390,11 +430,11 @@ func projectServeCommand(ctx context.Context, args []string, stdout, stderr io.W
 // projectOptions are the options of a project index over its open read
 // store: the project lock, each member's lock and the project re-index.
 // closeLockers releases the lockers.
-func projectOptions(project config.Project, s store.Store) (server.Options, func()) {
-	locker, _ := openProjectLocker(project.Dir, project.Name)
+func projectOptions(at storeAt, project config.Project, s store.Store) (server.Options, func()) {
+	locker, _ := at.projectLocker(project.Name)
 	memberLockers := map[string]store.IndexLocker{}
 	for _, m := range project.Members {
-		l, _ := openLocker(project.Dir, m.Repository)
+		l, _ := at.locker(m.Repository)
 		memberLockers[m.Repository] = l
 	}
 	closeLockers := func() {
@@ -406,23 +446,24 @@ func projectOptions(project config.Project, s store.Store) (server.Options, func
 	return server.Options{
 		Store:      s,
 		Locker:     locker,
-		OpenWriter: func(ctx context.Context) (store.Store, error) { return openStore(ctx, project.Dir) },
-		StoreDir:   storeDir(project.Dir),
+		OpenWriter: at.openWriter,
+		StoreDir:   at.dir(),
+		StoreName:  at.name(),
 		Project: &server.ProjectOptions{
 			Project:       project,
 			MemberLockers: memberLockers,
 			// A member renamed from the UI (T022 B10) gets its lock here.
 			OpenMemberLocker: func(repository string) store.IndexLocker {
-				l, _ := openLocker(project.Dir, repository)
+				l, _ := at.locker(repository)
 				return l
 			},
 			// project is the manifest the server serves now, which a UI
 			// edit may have changed since start.
 			Reindex: func(ctx context.Context, project config.Project, linkPassOnly bool, progress func(string, indexrun.Progress)) server.ProjectRun {
 				if linkPassOnly {
-					return projectRunOf(project, runProjectLinkPass(ctx, project, progress))
+					return projectRunOf(project, runProjectLinkPass(ctx, at, project, progress))
 				}
-				return projectRunOf(project, runProjectIndex(ctx, project, parse.Options{Timeout: indexrun.DefaultTimeout}, indexrun.DefaultMaxFileSize, nil, progress))
+				return projectRunOf(project, runProjectIndex(ctx, at, project, parse.Options{Timeout: indexrun.DefaultTimeout}, indexrun.DefaultMaxFileSize, nil, progress))
 			},
 		},
 	}, closeLockers

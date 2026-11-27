@@ -9,7 +9,12 @@ import (
 	"github.com/graphvein/graphvein/internal/parse"
 )
 
+// routeExpr is the route syntax of n, built without sharing (see exprMemo).
 func routeExpr(n *parse.Node) facts.RouteExpr {
+	return (*exprMemo)(nil).route(n)
+}
+
+func (m *exprMemo) buildRoute(n *parse.Node) facts.RouteExpr {
 	if n == nil {
 		return facts.RouteExpr{}
 	}
@@ -18,19 +23,19 @@ func routeExpr(n *parse.Node) facts.RouteExpr {
 	case "identifier", "property_identifier":
 		e.Name = n.Text
 	case "member_expression":
-		o := routeExpr(n.Fields["object"])
+		o := m.route(n.Fields["object"])
 		e.Object = &o
 		e.Name = text(n.Fields["property"])
 	case "call_expression":
 		callee := n.Fields["function"]
 		// The embedded TS grammar attaches await to a generic call's callee.
 		// Keep this correction specific to client syntax below.
-		o := routeExpr(callee)
+		o := m.route(callee)
 		e.Object = &o
 		if args := n.Fields["arguments"]; args != nil {
 			for _, a := range args.Children {
 				if a.Kind != "comment" {
-					e.Args = append(e.Args, routeExpr(a))
+					e.Args = append(e.Args, m.route(a))
 				}
 			}
 		}
@@ -38,26 +43,26 @@ func routeExpr(n *parse.Node) facts.RouteExpr {
 		// The constructor and its arguments (T029 SH-S: a passport strategy
 		// registered with passport.use(new Strategy({...}))).
 		if c := n.Fields["constructor"]; c != nil {
-			o := routeExpr(c)
+			o := m.route(c)
 			e.Object = &o
 		}
 		if args := n.Fields["arguments"]; args != nil {
 			for _, a := range args.Children {
 				if a.Kind != "comment" {
-					e.Args = append(e.Args, routeExpr(a))
+					e.Args = append(e.Args, m.route(a))
 				}
 			}
 		}
 	case "parenthesized_expression":
 		if len(n.Children) == 1 {
-			return routeExpr(n.Children[0])
+			return m.route(n.Children[0])
 		}
 	case "await_expression":
 		// The awaited expression, so a const bound to `await f()` keeps
 		// the call (Supabase client wrappers, row SB-K1).
 		for _, c := range n.Children {
 			if c.Kind != "comment" {
-				o := routeExpr(c)
+				o := m.route(c)
 				e.Object = &o
 				break
 			}
@@ -67,7 +72,7 @@ func routeExpr(n *parse.Node) facts.RouteExpr {
 		for _, c := range n.Children {
 			if c.Kind == "pair" {
 				key := strings.Trim(text(c.Fields["key"]), "\"'")
-				e.Properties[key] = routeExpr(c.Fields["value"])
+				e.Properties[key] = m.route(c.Fields["value"])
 			} else if c.Kind == "shorthand_property_identifier" {
 				e.Properties[c.Text] = facts.RouteExpr{Kind: "identifier", Name: c.Text, Text: c.Text}
 			} else if c.Kind == "spread_element" {
@@ -78,7 +83,7 @@ func routeExpr(n *parse.Node) facts.RouteExpr {
 		// A tagged template's arguments are its children, so substitutions
 		// arrive here directly; keep the reduced inner expression.
 		if v := substitutionValue(n); v != nil {
-			o := routeExpr(v)
+			o := m.route(v)
 			e.Object = &o
 		}
 	case "binary_expression":
@@ -90,7 +95,7 @@ func routeExpr(n *parse.Node) facts.RouteExpr {
 				}
 			}
 		}
-		e.Parts = []facts.RouteExpr{routeExpr(n.Fields["left"]), routeExpr(n.Fields["right"])}
+		e.Parts = []facts.RouteExpr{m.route(n.Fields["left"]), m.route(n.Fields["right"])}
 	case "string", "template_string":
 		literal := true
 		for _, c := range n.Children {
@@ -112,7 +117,7 @@ func routeExpr(n *parse.Node) facts.RouteExpr {
 				}
 				for _, v := range c.Children {
 					if v.Kind != "comment" {
-						e.Parts = append(e.Parts, routeExpr(v))
+						e.Parts = append(e.Parts, m.route(v))
 						break
 					}
 				}
@@ -138,6 +143,12 @@ func substitutionValue(n *parse.Node) *parse.Node {
 }
 
 func extractRoutes(file string, source []byte, root *parse.Node, out *Facts) {
+	extractRoutesWith(memoFor(root), file, source, root, out)
+}
+
+// extractRoutesWith is extractRoutes with the file's expression memo (nil:
+// no sharing; see exprMemo).
+func extractRoutesWith(m *exprMemo, file string, source []byte, root *parse.Node, out *Facts) {
 	r := &facts.RouteFacts{Scopes: []facts.RouteScope{{Parent: -1, Bindings: map[string]facts.RouteBinding{}}}, Exports: map[string]string{}, Parameters: map[string][]facts.ClientParameter{}, ParameterScopes: map[string]int{}}
 	declarations := map[int]map[string]int{}
 	ambient := map[uint32]bool{}
@@ -308,9 +319,9 @@ func extractRoutes(file string, source []byte, root *parse.Node, out *Facts) {
 						}
 						if name == "" {
 							name = "@default"
-							value := routeExpr(decl)
+							value := m.route(decl)
 							if strings.HasPrefix(path.Base(file), "openapi-ts.config.") || strings.HasPrefix(path.Base(file), "orval.config.") {
-								value = urlExpr(decl)
+								value = m.url(decl)
 							}
 							r.Scopes[scope].Bindings[name] = facts.RouteBinding{Value: value}
 							if decl.Kind == "arrow_function" || decl.Kind == "function_expression" {
@@ -348,7 +359,7 @@ func extractRoutes(file string, source []byte, root *parse.Node, out *Facts) {
 		case "variable_declarator":
 			name, value := n.Fields["name"], n.Fields["value"]
 			if name != nil && name.Kind == "identifier" {
-				b := facts.RouteBinding{Value: routeExpr(value)}
+				b := facts.RouteBinding{Value: m.route(value)}
 				// Only module-level const literal initializers resolve mount prefixes.
 				r.Scopes[scope].Bindings[name.Text] = b
 				if exported {
@@ -472,7 +483,7 @@ func extractRoutes(file string, source []byte, root *parse.Node, out *Facts) {
 							name = item
 						}
 						if name != nil && name.Kind == "identifier" {
-							parameters = append(parameters, facts.ClientParameter{Name: name.Text, Default: urlExpr(item.Fields["value"])})
+							parameters = append(parameters, facts.ClientParameter{Name: name.Text, Default: m.url(item.Fields["value"])})
 						} else if item.Kind != "comment" {
 							parameters = append(parameters, facts.ClientParameter{})
 						}
@@ -494,7 +505,7 @@ func extractRoutes(file string, source []byte, root *parse.Node, out *Facts) {
 				if v.Kind == "return_statement" {
 					for _, c := range v.Children {
 						if c.Kind != "comment" {
-							returns = append(returns, routeExpr(c))
+							returns = append(returns, m.route(c))
 							break
 						}
 					}
@@ -505,7 +516,7 @@ func extractRoutes(file string, source []byte, root *parse.Node, out *Facts) {
 				}
 			}
 			if body != nil && body.Kind != "statement_block" {
-				returns = append(returns, routeExpr(body))
+				returns = append(returns, m.route(body))
 			} else {
 				collect(body)
 				// Without an unconditional terminal return, a factory can also yield
@@ -553,12 +564,12 @@ func extractRoutes(file string, source []byte, root *parse.Node, out *Facts) {
 				left = n.Fields["argument"]
 			}
 			if left != nil && (n.Kind != "unary_expression" || strings.HasPrefix(n.Text, "delete")) && (left.Kind == "member_expression" || left.Kind == "subscript_expression") {
-				r.Clients = append(r.Clients, facts.ClientCall{Expression: facts.RouteExpr{Kind: "config_mutation", Parts: []facts.RouteExpr{urlExpr(left)}}, Scope: scope, Owner: owner, Span: span(n)})
+				r.Clients = append(r.Clients, facts.ClientCall{Expression: facts.RouteExpr{Kind: "config_mutation", Parts: []facts.RouteExpr{m.url(left)}}, Scope: scope, Owner: owner, Span: span(n)})
 			}
 			if scope == 0 && !conditional && n.Kind == "assignment_expression" {
-				left := routeExpr(n.Fields["left"])
+				left := m.route(n.Fields["left"])
 				if left.Kind == "member_expression" && left.Name == "baseURL" && left.Object != nil && left.Object.Kind == "member_expression" && left.Object.Name == "defaults" && left.Object.Object != nil {
-					r.Defaults = append(r.Defaults, facts.ClientDefault{Receiver: *left.Object.Object, Value: routeExpr(n.Fields["right"]), Scope: scope})
+					r.Defaults = append(r.Defaults, facts.ClientDefault{Receiver: *left.Object.Object, Value: m.route(n.Fields["right"]), Scope: scope})
 				}
 			}
 			// Mutation removes proof for this binding throughout its scope. This is
@@ -592,11 +603,11 @@ func extractRoutes(file string, source []byte, root *parse.Node, out *Facts) {
 					actions.LoadsUnread = true
 				}
 			}
-			e := routeExpr(n)
+			e := m.route(n)
 			clientExpression := e
 			clientNode := n
 			if callee := n.Fields["function"]; callee != nil && callee.Kind == "await_expression" && len(callee.Children) == 1 {
-				v := routeExpr(callee.Children[0])
+				v := m.route(callee.Children[0])
 				clientExpression.Object = &v
 				clone := *n
 				clone.Start = callee.Children[0].Start
@@ -624,7 +635,7 @@ func extractRoutes(file string, source []byte, root *parse.Node, out *Facts) {
 					base = *base.Object.Object
 				}
 				if c.Method == "setConfig" {
-					c.Args = urlExpr(n).Args
+					c.Args = m.url(n).Args
 				}
 				if c.Method == "use" || c.Method == "setConfig" || routeVerb(c.Method) {
 					r.Calls = append(r.Calls, c)
@@ -647,10 +658,11 @@ func extractRoutes(file string, source []byte, root *parse.Node, out *Facts) {
 	}
 	markHeyConfigConditionals(root, r)
 	markGuardedCalls(root, r)
-	cacheURLSyntax(root, r, out)
-	cacheAngular(root, r, out)
+	cacheURLSyntax(m, root, r, out)
+	cacheAngular(m, root, r, out)
 	cacheGlobalNames(file, root, r)
 	cacheCommonJS(root, r)
+	r.SetSource(root.Text, int(root.Start))
 	if r.CommonJS != nil || len(r.Calls) > 0 || len(r.Clients) > 0 || len(r.Scopes[0].Bindings) > 0 || len(r.AmbientStrings) > 0 || len(r.GlobalDefinitions) > 0 || len(r.AutoImports) > 0 {
 		out.Routes = r
 	}

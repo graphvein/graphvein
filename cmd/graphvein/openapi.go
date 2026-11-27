@@ -5,13 +5,13 @@ import (
 	"flag"
 	"fmt"
 	"io"
-	"os"
 	"path/filepath"
 	"strings"
 
 	"github.com/graphvein/graphvein/internal/config"
 	"github.com/graphvein/graphvein/internal/openapi"
 	"github.com/graphvein/graphvein/internal/store"
+	"github.com/graphvein/graphvein/internal/storeloc"
 )
 
 // openapiCommand writes the OpenAPI document of a repository's stored
@@ -83,8 +83,11 @@ func openapiCommand(args []string, stdout, stderr io.Writer) int {
 			fmt.Fprintln(stderr, err)
 			return 2
 		}
-		if _, err := os.Stat(sqlitePath(abs)); os.Getenv("GRAPHVEIN_POSTGRES_URL") == "" && err != nil {
-			fmt.Fprintf(stderr, "repository %s is not indexed (no store at %s); run graphvein index first\n", repository, sqlitePath(abs))
+		if loc, err := locate(abs); err != nil {
+			fmt.Fprintln(stderr, err)
+			return 1
+		} else if loc.Origin != storeloc.OriginPostgres && !loc.Exists {
+			fmt.Fprintf(stderr, "repository %s is not indexed (no store at %s); run graphvein index first\n", repository, loc.Path)
 			return 1
 		}
 		if s, err = openReadStore(ctx, abs); err != nil {

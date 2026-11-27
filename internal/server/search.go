@@ -484,7 +484,7 @@ func searchRead(ctx context.Context, h *apiHandler, rd *reader, runs []store.Run
 			// The unknown-prefix path the item is labelled with, without
 			// its leading "…", so any part of the label shown finds the
 			// route (JS-4, ADR 0089 Revision 2).
-			if displayPath(paths, scopeProduction) == nil {
+			if routePath(n, scopeProduction) == nil {
 				if prefix := routePrefix(n, scopeAll); prefix != nil {
 					keys = append(keys, searchKey{"prefix_unknown", strings.TrimPrefix(prefix.Path, "…")})
 				}
@@ -500,7 +500,7 @@ func searchRead(ctx context.Context, h *apiHandler, rd *reader, runs []store.Run
 				item := searchItem{ID: &id, Label: n.Name, File: n.File, Line: lineOf(n), IDE: ideOf(n), Method: stringAttr(n, "method")}
 				test := n.Attributes["scope"] == "test"
 				item.Test = &test
-				if shown := displayPath(paths, scopeProduction); shown != nil {
+				if shown := routePath(n, scopeProduction); shown != nil {
 					item.Path, item.Label = shown, *shown
 				} else if prefix := routePrefix(n, scopeAll); prefix != nil {
 					item.PrefixUnknown, item.Label = &prefix.Path, prefix.Path

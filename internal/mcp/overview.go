@@ -164,6 +164,10 @@ func overviewTool(ctx context.Context, s *Server, in overviewArgs, e *Envelope) 
 	if len(listOf(schema["unread_tools"])) > 0 {
 		e.unknown("MC-28", "schema_unread_tools", "schema: these tools' sources are not read", schema["unread_tools"])
 	}
+	// T070: model sources a linker found and refused as a whole.
+	if len(listOf(schema["refused_sources"])) > 0 {
+		e.unknown("MC-28", "schema_refused_sources", "schema: these model sources were found and not read (the message gives the reason)", schema["refused_sources"])
+	}
 	summary["schema"] = schemaOut
 	summary["precision"] = precisionSummary(e, prec)
 	e.Summary = summary

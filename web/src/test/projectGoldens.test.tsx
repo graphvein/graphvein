@@ -87,7 +87,7 @@ describe("project goldens in the UI (T022 B9)", () => {
     expect(unmatched?.textContent).toContain("0");
     expect(unmatched?.textContent).toContain("Unmatched in the project");
     expect(screen.getByTestId("repository-counts-http").textContent).toContain("Inside frontend alone: 0% linked · 2 unmatched.");
-    render(<SummaryStrip transports={res.transports} scope={res.scope} actions={{ openGap: () => undefined, setRoot: () => undefined, activeGap: null, root: null }} />);
+    render(<SummaryStrip transports={res.transports} scope={res.scope} actions={{ openGap: () => undefined, setRoot: () => undefined, activeGap: null, root: null }} open={false} onOpen={() => undefined} />);
     expect(screen.getByTestId("strip-pct-http").textContent).toBe("100% linked");
     expect(screen.getByTestId("strip-pct-http").getAttribute("title")).toContain("inside this repository alone 0%");
   });

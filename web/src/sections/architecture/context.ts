@@ -6,6 +6,7 @@ import { createContext, useContext } from "react";
 
 import type { ArchitectureResponse } from "@/api/architecture";
 import type { ChainOverlay } from "@/sections/architecture/chain";
+import type { Mark } from "@/sections/architecture/model";
 import type { Row } from "@/sections/architecture/rows";
 
 /** ExpandedRows is the expanded component's content: loading, its rows,
@@ -31,6 +32,23 @@ export interface MapActions {
   /** Clears the selection (a click on the empty canvas, Escape). */
   clear: () => void;
   retryRows: () => void;
+  /** Opens or folds the band's libraries past its cap. */
+  toggleBand: () => void;
+  /** The band's chips show their directory line. */
+  bandDirs: boolean;
+  /** The card or band chip under the pointer or holding keyboard focus
+   * (T072): its band lines light. */
+  hover: string | null;
+  /** The hovered card or chip and the other ends of its band lines. */
+  hoverNodes: ReadonlySet<string>;
+  /** Sets (or clears, null) the pointer's or the keyboard focus's card;
+   * the pointer wins while both are set. */
+  setHover: (id: string | null, by: "pointer" | "focus") => void;
+  /** Selection marks (T072): per chip linked with the selected card or
+   * library, the stored counts of its links with the selection (uses: the
+   * selection uses it; usedBy: it uses the selection). Empty when no card
+   * or library is selected. */
+  marks: ReadonlyMap<string, Mark>;
 }
 
 export const MapContext = createContext<MapActions | null>(null);

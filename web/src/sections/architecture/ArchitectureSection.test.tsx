@@ -1,10 +1,12 @@
 import { act, fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import { beforeAll, beforeEach, describe, expect, it } from "vitest";
 
+import { parseArchitecture } from "@/api/architecture";
 import { LabelProvider } from "@/hooks/useLabels";
 import type { StatusView } from "@/hooks/useStatus";
 import { ElkClient, type WorkerLike } from "@/sections/api/flow/elk";
 import { ArchitectureSection } from "@/sections/architecture/ArchitectureSection";
+import { RAISED_LINE_Z } from "@/sections/architecture/Line";
 import { parseArchParams } from "@/sections/architecture/params";
 import { fakeArchClient } from "@/test/architectureFixtures";
 
@@ -97,7 +99,7 @@ describe("ArchitectureSection", { timeout: 20_000 }, () => {
       expect(document.querySelector('[data-arch-card="c:web"]')).not.toBeNull();
     }, SLOW);
     expect(requests).toContain("overview production");
-    expect(screen.getByTestId("hidden-note").textContent).toBe("Hidden: tests 1 component · docs 1 component · libraries 4 · configured 1");
+    expect(screen.getByTestId("hidden-note").textContent).toBe("Hidden: tests 1 component · docs 1 component · configured 1");
     expect(screen.getByTestId("arch-crumbs").textContent).toContain("L1Architecture");
     // The minimap shows above 12 cards (C1); AG-RF's unassigned root card
     // (CK7, no longer folded) is one of them.
@@ -105,27 +107,102 @@ describe("ArchitectureSection", { timeout: 20_000 }, () => {
       const shown = Number(screen.getByTestId("arch-map").getAttribute("data-cards"));
       expect(document.querySelector(".react-flow__minimap") !== null).toBe(shown > 12);
     }, SLOW);
-    // Libraries are folded and hidden by default.
-    expect(document.querySelector('[data-arch-card="lib"]')).toBeNull();
+    // Libraries are in the band by default (AG4 as revised by T067).
+    expect(document.querySelector("[data-arch-band]")).not.toBeNull();
+    expect(document.querySelector('[data-arch-card="lib:shared"]')).not.toBeNull();
   });
 
-  it("shows tests with the all scope and the libraries card from the toggles", async () => {
+  it("selects a library chip: its users and uses in the inspector, no chain", async () => {
+    const requests = renderSection("components");
+    await waitFor(() => {
+      expect(document.querySelector('[data-arch-card="lib:shared"]')).not.toBeNull();
+    }, SLOW);
+    act(() => {
+      document.querySelector<HTMLButtonElement>('[data-arch-card="lib:shared"]')?.click();
+    });
+    const insp = await screen.findByTestId("inspector", {}, SLOW);
+    expect(insp.getAttribute("data-kind")).toBe("library");
+    expect(within(insp).getByTestId("library-used-by").textContent).toContain("web");
+    expect(insp.textContent).not.toMatch(/unused/i);
+    expect(parseArchParams(window.location.hash)).toMatchObject({ node: "lib:shared", chain: null });
+    expect(requests.some((r) => r.startsWith("chain shared"))).toBe(false);
+    // The card using it stays lit, the others dim.
+    expect(document.querySelector('[data-arch-card="c:web"]')?.getAttribute("data-dim")).toBeNull();
+    // The band names the selection's marks (T072).
+    expect(document.querySelector("[data-arch-band]")?.textContent).toContain("selected: ↑ 1 use it · ↓ it uses 0 · stored counts");
+  });
+
+  it("selecting a card marks its libraries' chips with the stored counts (T072)", async () => {
+    renderSection("components");
+    await waitFor(() => {
+      expect(document.querySelector('[data-arch-card="lib:shared"]')).not.toBeNull();
+    }, SLOW);
+    const chip = () => document.querySelector('[data-arch-card="lib:shared"]');
+    expect(chip()?.getAttribute("data-mark")).toBeNull();
+    act(() => {
+      document.querySelector<HTMLElement>('[data-arch-card="c:web"]')?.click();
+    });
+    await waitFor(() => {
+      expect(chip()?.getAttribute("data-mark")).toBe("used");
+    }, SLOW);
+    expect(chip()?.textContent).toContain("↓2");
+    expect(document.querySelector("[data-arch-band]")?.textContent).toContain("selected card uses ↓ 1 · stored counts");
+  });
+
+  it("lights a chip's band lines under the pointer and on keyboard focus (T072)", async () => {
+    renderSection("components");
+    await waitFor(() => {
+      expect(document.querySelector('[data-arch-line][data-band="card"]')).not.toBeNull();
+    }, SLOW);
+    const line = () => document.querySelector('[data-arch-line][data-band="card"]');
+    const chip = document.querySelector<HTMLElement>('[data-arch-card="lib:shared"]');
+    expect(line()?.getAttribute("data-lit")).toBeNull();
+    act(() => {
+      chip?.focus();
+    });
+    await waitFor(() => {
+      expect(line()?.getAttribute("data-lit")).toBe("true");
+    }, SLOW);
+    act(() => {
+      chip?.blur();
+    });
+    await waitFor(() => {
+      expect(line()?.getAttribute("data-lit")).toBeNull();
+    }, SLOW);
+    const card = chip?.parentElement;
+    if (card === null || card === undefined) throw new Error("no chip wrapper");
+    fireEvent.mouseEnter(card);
+    await waitFor(() => {
+      expect(line()?.getAttribute("data-lit")).toBe("true");
+    }, SLOW);
+    fireEvent.mouseLeave(card);
+    await waitFor(() => {
+      expect(line()?.getAttribute("data-lit")).toBeNull();
+    }, SLOW);
+  });
+
+  it("shows tests with the all scope and hides the band with the Libraries toggle", async () => {
     const requests = renderSection("components");
     await screen.findByTestId("arch-map", {}, SLOW);
     fireEvent.click(screen.getByRole("button", { name: /^Tests/ }));
-    fireEvent.click(screen.getByRole("button", { name: /^Libraries/ }));
     expect(parseArchParams(window.location.hash).show).toMatchObject({ tests: true, libraries: true });
     await waitFor(() => {
       expect(requests).toContain("overview all");
     }, SLOW);
     await waitFor(() => {
-      expect(document.querySelector('[data-arch-card="lib"]')).not.toBeNull();
+      expect(document.querySelector('[data-arch-card="lib:shared"]')).not.toBeNull();
     }, SLOW);
     expect(document.querySelector('[data-arch-card="c:e2e"]')).not.toBeNull();
-    // Above 12 cards the minimap shows (C1); the default map has fewer.
+    // Above 12 cards the minimap shows (C1); band chips are not cards.
     const cards = Number(screen.getByTestId("arch-map").getAttribute("data-cards"));
-    expect(cards).toBeGreaterThan(12);
-    expect(document.querySelector(".react-flow__minimap")).not.toBeNull();
+    expect(cards).toBe(11);
+    expect(document.querySelector(".react-flow__minimap")).toBeNull();
+    fireEvent.click(screen.getByRole("button", { name: /^Libraries/ }));
+    expect(window.location.hash).toContain("nolibraries");
+    await waitFor(() => {
+      expect(document.querySelector("[data-arch-band]")).toBeNull();
+    }, SLOW);
+    expect(screen.getByTestId("hidden-note").textContent).toContain("libraries 4");
   });
 
   it("selects a line: strip, each cell's source and the evidence", async () => {
@@ -158,7 +235,7 @@ describe("ArchitectureSection", { timeout: 20_000 }, () => {
   });
 
   it("expands a component in place with its rows and selects a row", async () => {
-    setHash("#/architecture?show=libraries");
+    setHash("#/architecture");
     renderSection("components");
     await waitFor(() => {
       expect(document.querySelector('[data-arch-card="c:crates/app"]')).not.toBeNull();
@@ -221,6 +298,36 @@ describe("ArchitectureSection", { timeout: 20_000 }, () => {
     // Esc clears the chain.
     fireEvent.keyDown(window, { key: "Escape" });
     expect(parseArchParams(window.location.hash).chain).toBeNull();
+  });
+
+  it("a chain line chip is the hit target where it is drawn, above its line", async () => {
+    // The chain of a route across two cards and a database (chain.test.ts's
+    // chainsynth): its lines between cards carry chips.
+    const comp = (id: string) => ({ id, directory: id, name: id, state: "read", visibility: "shown", hidden_by: null, kinds: ["server"], manifests: [], markers: [], rows: [] });
+    const synth = parseArchitecture({
+      api_version: 0,
+      repository: "chainsynth",
+      index: null,
+      components: [comp("api"), comp("ui")],
+      links: [],
+      databases: [{ id: "database:models", set: "models", tool: "sqlmodel", tables: 1, engine: null, evidence: [], accessors: [] }],
+      stubs: [],
+      ghosts: [],
+      documents: [],
+      not_proven: [],
+    });
+    const route = "route:api/items.py#GET%20%2Fitems";
+    setHash(`#/architecture?chain=${encodeURIComponent(route)}`);
+    render(<ArchitectureSection status={LOADING} client={{ ...fakeArchClient("components"), overview: () => Promise.resolve(synth) }} elk={elk} />);
+    await waitFor(() => {
+      expect(document.querySelector("[data-arch-chain-chip]")).not.toBeNull();
+    }, SLOW);
+    for (const chip of document.querySelectorAll<HTMLElement>("[data-arch-chain-chip]")) {
+      // The label layer has pointer-events: none; without its own value the
+      // chip lets its line's wide interaction path under it take the pointer.
+      expect(chip.style.pointerEvents).toBe("all");
+      expect(Number(chip.style.zIndex)).toBeGreaterThan(RAISED_LINE_Z);
+    }
   });
 
   it("the chain's depth switch (T042): repository default, a remembered choice, the link's depth", async () => {
