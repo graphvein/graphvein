@@ -1,0 +1,45 @@
+name: Code scanning triage
+
+# Lists the open code scanning alerts, or dismisses those that match the
+# reviewed dismissal list (.github/codeql-dismissals.json: rule id, exact
+# file path, reason and comment per entry), with scripts/codeql-triage.sh.
+# Manual dispatch only; `list` changes nothing and prints every open alert
+# to the job log, `dismiss` dismisses the matching ones and prints the
+# rest. An alert with no matching entry is never dismissed.
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: list (read only) or dismiss
+        required: true
+        default: list
+        type: choice
+        options: [list, dismiss]
+
+concurrency:
+  group: codeql-triage
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  triage:
+    if: github.repository == 'graphvein/graphvein'
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+      security-events: write  # read code scanning alerts; dismiss in dismiss mode
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Triage
+        env:
+          GH_TOKEN: ${{ github.token }}
+          MODE: ${{ inputs.mode }}
+        run: bash scripts/codeql-triage.sh "$MODE" .github/codeql-dismissals.json

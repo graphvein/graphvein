@@ -29,6 +29,7 @@ filter cannot depend on the repository):
 | `dependency-review.yml` | pull request to `main` |
 | `release.yml` (Release) | push of a `v*` tag, manual dispatch on a `v*` tag (release) or on a branch (dry run) |
 | `tag.yml` (Tag release) | manual dispatch only: creates a `v*` tag on a commit of `main` and dispatches `release.yml` on it |
+| `codeql-triage.yml` (Code scanning triage) | manual dispatch only: lists the open code scanning alerts, or dismisses those matching the reviewed list `.github/codeql-dismissals.json` (rule, exact path, reason, comment); alerts without an entry stay open |
 
 No workflow but the release starts on a tag (Tag release only creates one), and none starts on a push to
 another branch. A branch with an open pull request is therefore tested

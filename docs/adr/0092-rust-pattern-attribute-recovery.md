@@ -1,6 +1,6 @@
 # ADR 0092: Reading Rust files with attributes on struct pattern fields
 
-**Status:** Proposed
+**Status:** Accepted (delegated review, 2026-11-27)
 
 ## Context
 
