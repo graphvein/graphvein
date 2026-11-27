@@ -16,6 +16,12 @@ name: Release
 # Linux binary, attests the archives and creates the draft. The release
 # notes come from docs/releases/<tag>.md, which must exist on the tag,
 # unwrapped for the release body by scripts/releasenotes.
+#
+# A release starts from a pushed tag, or from a manual dispatch on a tag
+# ref (the Tag release workflow, tag.yml, creates the tag and dispatches
+# this workflow on it, because a tag created with GITHUB_TOKEN starts no
+# push run). Both build the same draft release; a dispatch on a branch is
+# the dry run.
 
 on:
   push:
@@ -51,6 +57,7 @@ jobs:
       pull-requests: read
     outputs:
       version: ${{ steps.version.outputs.version }}
+      release: ${{ steps.version.outputs.release }}
       targets: ${{ steps.targets.outputs.targets }}
       tested: ${{ steps.tested.outputs.tested }}
     defaults:
@@ -71,15 +78,22 @@ jobs:
         id: version
         env:
           EVENT: ${{ github.event_name }}
+          REF_TYPE: ${{ github.ref_type }}
           TAG: ${{ github.ref_name }}
           INPUT: ${{ inputs.version }}
         run: |
-          if [ "$EVENT" = push ]; then version=$TAG; else version=$INPUT; fi
+          # A tag push, or a dispatch on a tag ref, is a release; a dispatch
+          # on a branch is the dry run, named by its version input.
+          if [ "$EVENT" = push ] || [ "$REF_TYPE" = tag ]; then
+            release=true; version=$TAG
+          else
+            release=false; version=$INPUT
+          fi
           if [[ ! "$version" =~ ^v[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z.]+)?$ ]]; then
             echo "::error::version $version is not vMAJOR.MINOR.PATCH[-PRERELEASE]"
             exit 1
           fi
-          if [ "$EVENT" = push ]; then
+          if [ "$release" = true ]; then
             # A release is built only from a commit that is on main.
             if ! git merge-base --is-ancestor HEAD origin/main; then
               echo "::error::tag $version is not on main"
@@ -90,6 +104,7 @@ jobs:
               exit 1
             fi
           fi
+          echo "release=$release" >> "$GITHUB_OUTPUT"
           echo "version=$version" >> "$GITHUB_OUTPUT"
       - name: Download modules
         run: go mod download
@@ -98,7 +113,7 @@ jobs:
       # Fails early on notes that do not convert; the release job converts
       # them again for the release body.
       - name: Release notes convert
-        if: github.event_name == 'push'
+        if: steps.version.outputs.release == 'true'
         env:
           VERSION: ${{ steps.version.outputs.version }}
         run: go run ./scripts/releasenotes "docs/releases/$VERSION.md" > /dev/null
@@ -238,19 +253,19 @@ jobs:
       # notes file is passed with its paragraphs and list items joined, its
       # comments removed and without its title (scripts/releasenotes).
       - name: Release body
-        if: github.event_name == 'push'
+        if: needs.prepare.outputs.release == 'true'
         env:
           VERSION: ${{ needs.prepare.outputs.version }}
         run: go run ./scripts/releasenotes "docs/releases/$VERSION.md" > "$RUNNER_TEMP/release-notes.md"
       - name: Attest build provenance
-        if: github.event_name == 'push'
+        if: needs.prepare.outputs.release == 'true'
         uses: actions/attest-build-provenance@4d101475d8b20a2381f78447822ac1eab6504dd8 # v4.2.2
         with:
           subject-path: |
             dist/*.tar.gz
             dist/*.zip
       - name: Create the draft release
-        if: github.event_name == 'push'
+        if: needs.prepare.outputs.release == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
           VERSION: ${{ needs.prepare.outputs.version }}

@@ -19,6 +19,10 @@ Unreleased.
   same tree), and builds the six targets in parallel jobs: a merge to a
   draft release takes about 5 minutes instead of about 13
   (`docs/public/ci-plan.md`).
+- A release can also start from the Actions tab: the Tag release workflow
+  creates the `v*` tag on a commit of `main` (after the release checks)
+  and starts the release workflow on it, which treats a dispatch on a tag
+  as a release and a dispatch on a branch as the dry run.
 - `await f<T>(x)` is read as a call of `f`: the call gets its name and its
   `calls` edge, and an awaited generic `Object.assign` counts as a write.
 - Dependencies: pgx 5.13.0, wazero 1.12.0, modernc.org/sqlite 1.63.0
