@@ -47,7 +47,7 @@ import (
 )
 
 // Version invalidates cached facts when any language or asset semantics change.
-const Version = "extractors-62"
+const Version = "extractors-63"
 
 func supported(language string) bool {
 	return language == "typescript" || language == "tsx" || language == "javascript" || language == "go" || language == "python" || language == "rust" || language == "html" || bestEffort(language)
@@ -220,6 +220,10 @@ func emitWithPipeline(ctx context.Context, root string, s store.Store, output io
 	}
 	var jobs []parse.Job
 	var pending []int
+	// Rust files row RS-F4 may read (rust.PatternAttributes), and their
+	// indexes in scanned.Files.
+	var rustRecoveries []*rust.Recovery
+	var rustRecovered []int
 	report(Progress{Phase: PhaseCache, Total: len(scanned.Files), Counted: true})
 	for i, f := range scanned.Files {
 		if i > 0 {
@@ -335,6 +339,13 @@ func emitWithPipeline(ctx context.Context, root string, s store.Store, output io
 				// Rows RS-F2, RS-F3: a file tree-sitter recovered, or whose
 				// text Rust reads differently, claims nothing beyond its file.
 				extracted = rust.Refuse(extracted, f.LoneCR)
+				if !f.LoneCR {
+					// Row RS-F4 may still read it, after this pass.
+					if rec := rust.PatternAttributes(result.Root, f.Source); rec != nil {
+						rustRecoveries = append(rustRecoveries, rec)
+						rustRecovered = append(rustRecovered, pending[i])
+					}
+				}
 			}
 			if result.SyntaxError {
 				extracted.Diagnostics = append(extracted.Diagnostics, contract.Diagnostic{Type: "diagnostic", File: f.Record.Path, Severity: "warning", Code: "syntax_error", Message: "tree-sitter recovered from invalid syntax"})
@@ -396,6 +407,24 @@ func emitWithPipeline(ctx context.Context, root string, s store.Store, output io
 		if e != nil {
 			return summary, e
 		}
+	}
+	// Row RS-F4: Rust files whose only syntax errors are attributes on
+	// struct pattern fields are parsed again with those attributes blanked,
+	// after every first tree is released; a file the checks pass replaces
+	// its RS-F2 refusal with the facts of the clean tree.
+	if e := rust.Recover(ctx, rustRecoveries, func(ctx context.Context, jobs []parse.Job, consume func(int, parse.Result)) error {
+		return pipeline(ctx, jobs, options.Parser, consume)
+	}, func(i int, root *parse.Node) {
+		f := scanned.Files[rustRecovered[i]]
+		extracted, e := safeExtract(extract, f.Record.Path, f.Source, root, f.Record.Language)
+		if e != nil {
+			// The RS-F2 facts stay; the failure is the file's own.
+			diagnostics = append(diagnostics, contract.Diagnostic{Type: "diagnostic", File: f.Record.Path, Severity: "error", Code: "extract_failed", Message: e.Error()})
+			return
+		}
+		facts[f.Record.Path] = extracted
+	}); e != nil {
+		return summary, e
 	}
 	// All host roots have been released and workers joined before any guest
 	// parse. Only byte ranges and ordinary facts cross this phase boundary.

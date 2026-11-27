@@ -9,6 +9,49 @@ Unreleased.
 
 ## [Unreleased]
 
+## [0.1.2] - 2026-11-27
+
+### Changed
+
+- The release workflow skips its own test run when CI already tested the
+  tagged tree (a successful run with the postgres, Windows and macOS jobs
+  on the tag commit, or on the merged pull request's last head with the
+  same tree), and builds the six targets in parallel jobs: a merge to a
+  draft release takes about 5 minutes instead of about 13
+  (`docs/public/ci-plan.md`).
+- `await f<T>(x)` is read as a call of `f`: the call gets its name and its
+  `calls` edge, and an awaited generic `Object.assign` counts as a write.
+- Dependencies: pgx 5.13.0, wazero 1.12.0, modernc.org/sqlite 1.63.0
+  (SQLite 3.54.1), yaml 3.0.6, x/sys 0.50.0, x/text 0.44.0; the web UI's
+  lucide-react, Tailwind CSS, Vite, React plugin and typescript-eslint
+  minor updates; setup-python v7.1.0, dependency-review-action v5.0.1 and
+  upload-artifact v7.0.2. The extractor version is `extractors-63`.
+
+### Fixed
+
+- Rust files whose only syntax errors are attributes on struct pattern
+  fields (`#[cfg(...)]` before a field in a pattern, which rustc accepts
+  and the grammar does not) are read from a verified second parse instead
+  of being dropped (row RS-F4, ADR 0092). Any other syntax error still
+  leaves the file unread.
+- A `.rs` file holding a few raw NUL bytes in literals or comments is read
+  as source instead of being skipped as binary.
+- The architecture chain endpoint answers 500 when the store fails,
+  instead of 200 with an empty chain.
+- A remembered view whose entry id is a JavaScript object property name
+  (such as `constructor`) no longer reads an inherited value.
+- docs/known-gaps.md says that Pages Router API routes (`pages/api/`) are
+  read.
+
+### Security
+
+- The copied `curl` command in Try it shell-escapes the configured auth
+  header name and prefix, so a configured value cannot run a command when
+  the copied text is pasted into a shell.
+- The oracle tooling (development only, not shipped) takes the x/crypto,
+  x/net, quic-go, joi, zod and next 15.5 security fixes. govulncheck
+  reports nothing in the `graphvein` binary.
+
 ## [0.1.1] - 2026-11-26
 
 ### Changed
@@ -83,6 +126,7 @@ Unreleased.
   by platform, so they are compared exactly only on the platform they were
   generated on, and as inclusions elsewhere. Indexing is unchanged.
 
-[Unreleased]: https://github.com/graphvein/graphvein/compare/v0.1.1...HEAD
+[Unreleased]: https://github.com/graphvein/graphvein/compare/v0.1.2...HEAD
+[0.1.2]: https://github.com/graphvein/graphvein/releases/tag/v0.1.2
 [0.1.1]: https://github.com/graphvein/graphvein/releases/tag/v0.1.1
 [0.1.0]: https://github.com/graphvein/graphvein/releases/tag/v0.1.0

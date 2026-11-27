@@ -167,7 +167,7 @@ describe("PrecisionChip", () => {
     const pop = await screen.findByTestId("precision-popover");
     expect(within(pop).getByTestId("precision-why").textContent).toContain("another extractor version");
     await waitFor(() => {
-      expect(within(pop).getByTestId("precision-run").textContent).toContain("Indexed with extractors-0; this binary has extractors-62");
+      expect(within(pop).getByTestId("precision-run").textContent).toContain("Indexed with extractors-0; this binary has extractors-63");
     });
     expect(within(pop).getByTestId("precision-refused-row").textContent).toContain("Row PL-F2");
     // No column is labelled Precise in a refused run.

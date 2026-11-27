@@ -169,6 +169,27 @@
       "type": "diagnostic"
     },
     {
+      "code": "unresolved_calls",
+      "file": "app/src/patattr.rs",
+      "message": "1 calls could not be resolved without a type checker (external=0, unknown=1)",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "rust_structure_unread",
+      "file": "app/src/patbroken.rs",
+      "message": "3 Rust declarations, modules or import leaves are outside the structural claim contract and claim nothing (syntax_error=3)",
+      "severity": "info",
+      "type": "diagnostic"
+    },
+    {
+      "code": "syntax_error",
+      "file": "app/src/patbroken.rs",
+      "message": "tree-sitter recovered from invalid syntax",
+      "severity": "warning",
+      "type": "diagnostic"
+    },
+    {
       "code": "rust_structure_unread",
       "file": "app/src/unreached.rs",
       "message": "2 Rust declarations, modules or import leaves are outside the structural claim contract and claim nothing (impl_assoc_item=1, unrooted_crate_path=1)",
@@ -1850,6 +1871,120 @@
       "confidence": 1,
       "evidence": [
         {
+          "file": "app/src/nul.rs",
+          "span": {
+            "end_column": 45,
+            "end_line": 2,
+            "start_column": 0,
+            "start_line": 2
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:app/src/nul.rs#app%2Fsrc%2Fnul.rs",
+      "target": "function:app/src/nul.rs#nul",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/src/patattr.rs",
+          "span": {
+            "end_column": 17,
+            "end_line": 43,
+            "start_column": 0,
+            "start_line": 43
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:app/src/patattr.rs#app%2Fsrc%2Fpatattr.rs",
+      "target": "function:app/src/patattr.rs#after",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/src/patattr.rs",
+          "span": {
+            "end_column": 1,
+            "end_line": 41,
+            "start_column": 0,
+            "start_line": 38
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:app/src/patattr.rs#app%2Fsrc%2Fpatattr.rs",
+      "target": "function:app/src/patattr.rs#by_field",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/src/patattr.rs",
+          "span": {
+            "end_column": 1,
+            "end_line": 36,
+            "start_column": 0,
+            "start_line": 13
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:app/src/patattr.rs#app%2Fsrc%2Fpatattr.rs",
+      "target": "function:app/src/patattr.rs#split",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/src/patattr.rs",
+          "span": {
+            "end_column": 1,
+            "end_line": 11,
+            "start_column": 0,
+            "start_line": 6
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:app/src/patattr.rs#app%2Fsrc%2Fpatattr.rs",
+      "target": "struct:app/src/patattr.rs#Services",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/src/patattr/inner.rs",
+          "span": {
+            "end_column": 17,
+            "end_line": 3,
+            "start_column": 0,
+            "start_line": 3
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "file:app/src/patattr/inner.rs#app%2Fsrc%2Fpatattr%2Finner.rs",
+      "target": "function:app/src/patattr/inner.rs#inner",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
           "file": "app/src/pathdir/x.rs",
           "span": {
             "end_column": 13,
@@ -2895,6 +3030,25 @@
       "confidence": 1,
       "evidence": [
         {
+          "file": "app/src/patattr.rs",
+          "span": {
+            "end_column": 32,
+            "end_line": 31,
+            "start_column": 12,
+            "start_line": 31
+          }
+        }
+      ],
+      "kind": "contains",
+      "provenance": "fact",
+      "source": "function:app/src/patattr.rs#split",
+      "target": "function:app/src/patattr.rs#split.local_helper",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
           "file": "app/src/locals.rs",
           "span": {
             "end_column": 9,
@@ -3739,6 +3893,63 @@
         {
           "file": "app/src/lib.rs",
           "span": {
+            "end_column": 12,
+            "end_line": 76,
+            "start_column": 0,
+            "start_line": 76
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:app/src/lib.rs#app%2Fsrc%2Flib.rs",
+      "target": "file:app/src/nul.rs#app%2Fsrc%2Fnul.rs",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/src/lib.rs",
+          "span": {
+            "end_column": 16,
+            "end_line": 74,
+            "start_column": 0,
+            "start_line": 74
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:app/src/lib.rs#app%2Fsrc%2Flib.rs",
+      "target": "file:app/src/patattr.rs#app%2Fsrc%2Fpatattr.rs",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/src/lib.rs",
+          "span": {
+            "end_column": 18,
+            "end_line": 75,
+            "start_column": 0,
+            "start_line": 75
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:app/src/lib.rs#app%2Fsrc%2Flib.rs",
+      "target": "file:app/src/patbroken.rs#app%2Fsrc%2Fpatbroken.rs",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/src/lib.rs",
+          "span": {
             "end_column": 39,
             "end_line": 12,
             "start_column": 29,
@@ -4015,6 +4226,25 @@
       "provenance": "fact",
       "source": "file:app/src/nonmod.rs#app%2Fsrc%2Fnonmod.rs",
       "target": "file:app/src/nonmod/inner.rs#app%2Fsrc%2Fnonmod%2Finner.rs",
+      "type": "edge"
+    },
+    {
+      "confidence": 1,
+      "evidence": [
+        {
+          "file": "app/src/patattr.rs",
+          "span": {
+            "end_column": 14,
+            "end_line": 4,
+            "start_column": 0,
+            "start_line": 4
+          }
+        }
+      ],
+      "kind": "imports",
+      "provenance": "fact",
+      "source": "file:app/src/patattr.rs#app%2Fsrc%2Fpatattr.rs",
+      "target": "file:app/src/patattr/inner.rs#app%2Fsrc%2Fpatattr%2Finner.rs",
       "type": "edge"
     },
     {
@@ -4574,7 +4804,7 @@
         "unresolved_calls_unknown": 0,
         "unresolved_unknown_call_sites": []
       },
-      "content_hash": "sha256:57a55ecff597495b63763ec44b77d5a6d921e5d68aebc9d0384687542b637cbd",
+      "content_hash": "sha256:f7592b2d1aff268738b6e7cc80ccfec1d9ec71ea6d4979a2cf9ca20ebe71f7d5",
       "file": "README.md",
       "identity": "file:README.md#README.md",
       "kind": "file",
@@ -4583,7 +4813,7 @@
       "qualified_name": "README.md",
       "span": {
         "end_column": 0,
-        "end_line": 49,
+        "end_line": 54,
         "start_column": 0,
         "start_line": 1
       },
@@ -5233,7 +5463,7 @@
           }
         ]
       },
-      "content_hash": "sha256:897ad6b2f1cf2837406f5018ee16bf1117eaa40b43e0b3ff9394a95690cf0c90",
+      "content_hash": "sha256:0341fe37a626de656fad509b02cecc0834f35886c4c55a3f476f6286ff6746b1",
       "file": "app/src/lib.rs",
       "identity": "file:app/src/lib.rs#app%2Fsrc%2Flib.rs",
       "kind": "file",
@@ -5242,7 +5472,7 @@
       "qualified_name": "app/src/lib.rs",
       "span": {
         "end_column": 0,
-        "end_line": 74,
+        "end_line": 77,
         "start_column": 0,
         "start_line": 1
       },
@@ -5494,6 +5724,105 @@
       "span": {
         "end_column": 0,
         "end_line": 2,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:6df33bce4cccedd7b54c8cb6588474d74bac9d431c150179d9ae025016deef32",
+      "file": "app/src/nul.rs",
+      "identity": "file:app/src/nul.rs#app%2Fsrc%2Fnul.rs",
+      "kind": "file",
+      "level": 3,
+      "name": "nul.rs",
+      "qualified_name": "app/src/nul.rs",
+      "span": {
+        "end_column": 0,
+        "end_line": 3,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 1,
+        "unresolved_unknown_call_sites": [
+          {
+            "caller": "function:app/src/patattr.rs#split",
+            "name": "local_helper",
+            "span": {
+              "end_column": 26,
+              "end_line": 32,
+              "start_column": 12,
+              "start_line": 32
+            }
+          }
+        ]
+      },
+      "content_hash": "sha256:d4ef7b9e60f595685ba63a209cc74fa15d43cd082f5df3bf11bcee4828b32838",
+      "file": "app/src/patattr.rs",
+      "identity": "file:app/src/patattr.rs#app%2Fsrc%2Fpatattr.rs",
+      "kind": "file",
+      "level": 3,
+      "name": "patattr.rs",
+      "qualified_name": "app/src/patattr.rs",
+      "span": {
+        "end_column": 0,
+        "end_line": 44,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "precise",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:6c10a83e7c2aa5cef1404cc16f6ab1d42c4e3f4ab12d6d765a0a5cf847688c91",
+      "file": "app/src/patattr/inner.rs",
+      "identity": "file:app/src/patattr/inner.rs#app%2Fsrc%2Fpatattr%2Finner.rs",
+      "kind": "file",
+      "level": 3,
+      "name": "inner.rs",
+      "qualified_name": "app/src/patattr/inner.rs",
+      "span": {
+        "end_column": 0,
+        "end_line": 4,
+        "start_column": 0,
+        "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "precision": "best_effort",
+        "unresolved_calls_external": 0,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
+      },
+      "content_hash": "sha256:653515eafdac05421719256c73e62b068764b6b972331905bb3366582f140d28",
+      "file": "app/src/patbroken.rs",
+      "identity": "file:app/src/patbroken.rs#app%2Fsrc%2Fpatbroken.rs",
+      "kind": "file",
+      "level": 3,
+      "name": "patbroken.rs",
+      "qualified_name": "app/src/patbroken.rs",
+      "span": {
+        "end_column": 0,
+        "end_line": 15,
         "start_column": 0,
         "start_line": 1
       },
@@ -7128,6 +7457,121 @@
       "attributes": {
         "module": ""
       },
+      "content_hash": "sha256:3fd720cbaa2e58b9a2febad00bbba9a8c8e6101269b319bc6dfbbd335f83b426",
+      "file": "app/src/nul.rs",
+      "identity": "function:app/src/nul.rs#nul",
+      "kind": "function",
+      "level": 4,
+      "name": "nul",
+      "qualified_name": "nul",
+      "span": {
+        "end_column": 45,
+        "end_line": 2,
+        "start_column": 0,
+        "start_line": 2
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "module": ""
+      },
+      "content_hash": "sha256:20f5e6d2a3f848299c8ac46a6fddfe6674ce80bd967c08a18ab80f262e284638",
+      "file": "app/src/patattr.rs",
+      "identity": "function:app/src/patattr.rs#after",
+      "kind": "function",
+      "level": 4,
+      "name": "after",
+      "qualified_name": "after",
+      "span": {
+        "end_column": 17,
+        "end_line": 43,
+        "start_column": 0,
+        "start_line": 43
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "module": ""
+      },
+      "content_hash": "sha256:81920c7e7e082e0e9551517e6885f0f3a414370e59e9ff2d9d593f45deafe69e",
+      "file": "app/src/patattr.rs",
+      "identity": "function:app/src/patattr.rs#by_field",
+      "kind": "function",
+      "level": 4,
+      "name": "by_field",
+      "qualified_name": "by_field",
+      "span": {
+        "end_column": 1,
+        "end_line": 41,
+        "start_column": 0,
+        "start_line": 38
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "module": ""
+      },
+      "content_hash": "sha256:0b1d27ce099b77aca5c2a37b7d9d81c0e791e0cb0e090abf672aff3e611b9f42",
+      "file": "app/src/patattr.rs",
+      "identity": "function:app/src/patattr.rs#split",
+      "kind": "function",
+      "level": 4,
+      "name": "split",
+      "qualified_name": "split",
+      "span": {
+        "end_column": 1,
+        "end_line": 36,
+        "start_column": 0,
+        "start_line": 13
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "local": true,
+        "module": ""
+      },
+      "content_hash": "sha256:18e2ba094f15bf63ade23d7ccba8290b0cd412bb961cf8108b2311dff6913b82",
+      "file": "app/src/patattr.rs",
+      "identity": "function:app/src/patattr.rs#split.local_helper",
+      "kind": "function",
+      "level": 4,
+      "name": "local_helper",
+      "qualified_name": "split.local_helper",
+      "span": {
+        "end_column": 32,
+        "end_line": 31,
+        "start_column": 12,
+        "start_line": 31
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "module": ""
+      },
+      "content_hash": "sha256:47a1aa7a1448261f531351a2e75cd0352d0a214ddecc2fc7a99ef0771b2f6c9a",
+      "file": "app/src/patattr/inner.rs",
+      "identity": "function:app/src/patattr/inner.rs#inner",
+      "kind": "function",
+      "level": 4,
+      "name": "inner",
+      "qualified_name": "inner",
+      "span": {
+        "end_column": 17,
+        "end_line": 3,
+        "start_column": 0,
+        "start_line": 3
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "module": ""
+      },
       "content_hash": "sha256:5e2226c41b5ad7e06345f46945dcc507e683dea8385008ccf296e902ee352c11",
       "file": "app/src/pathdir/x.rs",
       "identity": "function:app/src/pathdir/x.rs#x",
@@ -8515,6 +8959,25 @@
         "end_line": 1,
         "start_column": 0,
         "start_line": 1
+      },
+      "type": "node"
+    },
+    {
+      "attributes": {
+        "module": ""
+      },
+      "content_hash": "sha256:5b4de255a3c78dabec221ed91e68a2c2b2adf7ee87e55a000f5c2cd94651ebfd",
+      "file": "app/src/patattr.rs",
+      "identity": "struct:app/src/patattr.rs#Services",
+      "kind": "struct",
+      "level": 4,
+      "name": "Services",
+      "qualified_name": "Services",
+      "span": {
+        "end_column": 1,
+        "end_line": 11,
+        "start_column": 0,
+        "start_line": 6
       },
       "type": "node"
     },

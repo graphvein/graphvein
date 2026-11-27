@@ -586,6 +586,16 @@ describe("view memory (WS-49)", () => {
     expect(readView("b~2")).toBeNull();
   });
 
+  it("reads only stored views for ids that name inherited properties", () => {
+    // Entry ids come from the URL: "constructor" is no view, and
+    // "__proto__" is stored and read back like any other id.
+    expect(readView("constructor")).toBeNull();
+    expect(readView("toString")).toBeNull();
+    saveView("__proto__", { hash: "#/api", member: null });
+    expect(readView("__proto__")).toMatchObject({ hash: "#/api", member: null });
+    expect(readView("constructor")).toBeNull();
+  });
+
   it("keeps at most MAX_ENTRIES views, dropping the oldest", () => {
     const now = vi.spyOn(Date, "now");
     for (let i = 0; i <= MAX_ENTRIES; i++) {

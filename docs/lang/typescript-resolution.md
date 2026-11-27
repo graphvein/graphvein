@@ -3,9 +3,11 @@
 ADR 0014 specifies inventory-only, best-effort resolution. The
 application still consumes contract v1. Every link pass rereads scanned
 package.json and tsconfig/jsconfig content; cached source facts contain syntax,
-never resolved cross-file links. Aggregate extraction version: extractors-62 (61 from T046: the call
+never resolved cross-file links. Aggregate extraction version: extractors-63 (61 from T046: the call
 binding model's cached call flags and written member names; 62 changes
-no TypeScript/JavaScript fact).
+no TypeScript/JavaScript fact; 63 from T056: the call site of
+`await f<T>(x)` read through its awaited callee, see "Call binding
+model").
 
 ## Exports and bindings
 
@@ -112,7 +114,15 @@ code and the fixture 1:1).
 
 Default branch: a callee that is neither an identifier nor a chain of
 named members of an identifier or `this` (`f()()`, `a[b]()`, `super.m()`,
-`(0, f)()`) is not resolved, as before. A member write whose receiver is
+`(0, f)()`) is not resolved, as before. Grammar correction (T056):
+tree-sitter-typescript reads `await f<T>(x)` (TypeScript and TSX, type
+arguments present) as a call whose callee is `await f`; ECMAScript's
+`await` takes a unary expression, so the source awaits the call
+`f<T>(x)`. Such a call site is read with `f` as its callee and starts at
+`f`, then bound by the rows above like any call; its member writes
+(`Object.assign<A, B>(o, ...)`, TSX-25) count too. `(await f)<T>(x)`
+keeps its parentheses in the tree and stays in the default branch.
+Fixture: `src/awaited.ts`. A member write whose receiver is
 none of the TSX-25 forms is TSX-26; a write in another file is not
 seen. Static class member calls (ADR
 0026) keep their own resolver and their own shadow guards.

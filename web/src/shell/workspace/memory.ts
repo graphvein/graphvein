@@ -24,22 +24,25 @@ export interface ViewMemory {
   savedAt: number;
 }
 
-type Store = Record<string, ViewMemory>;
+// Store is a Map, not a plain object: entry ids come from the URL, and an
+// id such as "constructor" or "__proto__" must name a stored view or
+// nothing, never a property every object inherits.
+type Store = Map<string, ViewMemory>;
 
 function load(): Store {
+  const out: Store = new Map();
   try {
     const raw = window.localStorage.getItem(VIEW_MEMORY_KEY);
-    if (raw === null) return {};
+    if (raw === null) return out;
     const v: unknown = JSON.parse(raw);
-    if (typeof v !== "object" || v === null || Array.isArray(v)) return {};
-    const out: Store = {};
+    if (typeof v !== "object" || v === null || Array.isArray(v)) return out;
     for (const [id, m] of Object.entries(v as Record<string, unknown>)) {
       const view = parseView(m);
-      if (view !== null) out[id] = view;
+      if (view !== null) out.set(id, view);
     }
     return out;
   } catch {
-    return {};
+    return new Map();
   }
 }
 
@@ -58,7 +61,7 @@ function parseView(m: unknown): ViewMemory | null {
 
 /** readView returns the remembered view of an entry, or null. */
 export function readView(id: string): ViewMemory | null {
-  return load()[id] ?? null;
+  return load().get(id) ?? null;
 }
 
 /** saveView remembers an entry's view; scroll positions not given keep
@@ -66,10 +69,10 @@ export function readView(id: string): ViewMemory | null {
 export function saveView(id: string, view: { hash: string; member: string | null; scroll?: Record<string, number> }): void {
   try {
     const store = load();
-    const prev = store[id];
-    store[id] = { hash: view.hash, member: view.member, scroll: view.scroll ?? prev?.scroll ?? {}, savedAt: Date.now() };
+    const prev = store.get(id);
+    store.set(id, { hash: view.hash, member: view.member, scroll: view.scroll ?? prev?.scroll ?? {}, savedAt: Date.now() });
     // Keep the MAX_ENTRIES most recently saved views.
-    const kept = Object.entries(store)
+    const kept = [...store.entries()]
       .sort(([, a], [, b]) => b.savedAt - a.savedAt)
       .slice(0, MAX_ENTRIES);
     window.localStorage.setItem(VIEW_MEMORY_KEY, JSON.stringify(Object.fromEntries(kept)));

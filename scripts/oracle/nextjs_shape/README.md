@@ -76,6 +76,14 @@ installed into the repository.
 
 | Set | Packages (direct) | Licences of the installed tree |
 |---|---|---|
-| `next14` | next 14.1.0, react and react-dom 18.2.0, zod 4.1.12, joi 17.13.3, typescript 5.6.3, @types/react 18.2.79, @types/node 20.17.6 | MIT, ISC, Apache-2.0, BSD-3-Clause (joi and its @hapi/@sideway dependencies), 0BSD, BlueOak-1.0.0 (graceful-fs); caniuse-lite (data) CC-BY-4.0 |
-| `next15` | next 15.5.4, react and react-dom 19.1.1, zod 4.1.12, joi 17.13.3, typescript 5.6.3, @types/react 19.1.13, @types/node 20.17.6 | as `next14`; sharp and its libvips binaries (Apache-2.0, LGPL-3.0-or-later parts) are installed as optional packages but not used (no image is optimized) |
-| `next16` | next 16.2.10, react and react-dom 19.2.0, zod 4.1.12, joi 17.13.3, typescript 5.6.3, @types/react 19.2.2, @types/node 20.17.6 | as `next15` |
+| `next14` | next 14.1.0, react and react-dom 18.2.0, zod 4.6.7, joi 17.13.9, typescript 5.6.3, @types/react 18.2.79, @types/node 20.17.6 | MIT, ISC, Apache-2.0, BSD-3-Clause (joi and its @hapi/@sideway dependencies), 0BSD, BlueOak-1.0.0 (graceful-fs); caniuse-lite (data) CC-BY-4.0 |
+| `next15` | next 15.5.29, react and react-dom 19.1.1, zod 4.6.7, joi 17.13.9, typescript 5.6.3, @types/react 19.1.13, @types/node 20.17.6 | as `next14`; sharp and its libvips binaries (Apache-2.0, LGPL-3.0-or-later parts) are installed as optional packages but not used (no image is optimized) |
+| `next16` | next 16.2.10, react and react-dom 19.2.0, zod 4.6.7, joi 17.13.9, typescript 5.6.3, @types/react 19.2.2, @types/node 20.17.6 | as `next15` |
+
+`next` 14.1.0 and 16.2.10 are the versions locked by two of the Next.js
+test corpora (chatbot-ui and ai-chatbot), so they stay exact even though
+npm audit reports advisories against them: no release of the 14.1 or 16.2
+line fixes all of them, and the oracle only builds and serves the
+fixture on 127.0.0.1, never user input. `next` 15.5.x has no corpus pin
+and follows the newest patch of its line. The `postcss` 8.4.31 that every
+`next` release here pins exactly is reported for the same reason.

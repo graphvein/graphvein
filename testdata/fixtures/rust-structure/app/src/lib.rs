@@ -71,3 +71,6 @@ pub mod lonecr;
 pub mod crlf;
 pub mod alts;
 pub mod locals;
+pub mod patattr;
+pub mod patbroken;
+pub mod nul;

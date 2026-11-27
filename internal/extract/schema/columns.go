@@ -954,7 +954,7 @@ func (s *state) createTrigger(toks []token) {
 			case t.kind == tokPunct && t.value == ",":
 				continue
 			case t.kind == tokIdent && t.value == "or":
-				k = on
+				// "OR" ends the column list: the break below leaves it.
 			case t.kind == tokIdent || t.kind == tokQuoted:
 				cols = append(cols, t.value)
 				continue

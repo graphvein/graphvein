@@ -1,7 +1,7 @@
 # HTTP route extraction
 
 ADRs 0013–0016 define the shared model. Express, FastAPI and Axum use cached syntax
-candidates and composition on every run (extractors-62, contract v1). Go routers
+candidates and composition on every run (extractors-63, contract v1). Go routers
 (net/http, chi, gin; ADR 0076) have their own section below. Next.js
 route handlers and Pages Router API files (ADR 0077) are at the end.
 

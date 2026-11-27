@@ -119,6 +119,24 @@ func diagnostic(file, code string, err error) contract.Diagnostic {
 	return contract.Diagnostic{Type: "diagnostic", File: file, Severity: "warning", Code: code, Message: err.Error()}
 }
 
+// SourceWithNUL reports whether a file holding NUL bytes is still read as
+// text: a Rust file (`.rs`) that is valid UTF-8 and holds few NUL bytes
+// (at most 8, or one per KiB of the file). The Rust reference reads source
+// as UTF-8 and allows a raw NUL inside string, byte-string and character
+// literals and comments (rustc 1.97 accepts them; a NUL anywhere else is a
+// syntax error, which the Rust structure rules then refuse), so such a file
+// is ordinary source, typically a test with binary data in a byte string.
+// Other languages keep the binary rule: Go and Python reject NUL in source,
+// and the rest are not checked. The count bound keeps a binary file that
+// happens to carry the extension out.
+func SourceWithNUL(p string, raw []byte) bool {
+	if Language(p, nil) != "rust" || !utf8.Valid(raw) {
+		return false
+	}
+	n := bytes.Count(raw, []byte{0})
+	return n <= 8 || n <= len(raw)/1024
+}
+
 // skipCodes are the codes the walk records for an entry it deliberately
 // does not read (a symlink, a FIFO or other non-regular file, a binary or
 // non-UTF-8 file). They describe the repository, not a failed walk, so a
@@ -438,7 +456,7 @@ func Walk(ctx context.Context, root string) (Result, error) {
 			}
 			// Ignored and default names never reach this point, so only a
 			// file the rules keep gets a record (row CR-35).
-			if bytes.Contains(raw, []byte{0}) {
+			if bytes.Contains(raw, []byte{0}) && !SourceWithNUL(p, raw) {
 				skip()
 				out.Diagnostics = append(out.Diagnostics, notice(p, "file_binary", fmt.Errorf("file holds a NUL byte (binary); content not read")))
 				continue

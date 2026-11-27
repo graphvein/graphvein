@@ -1,6 +1,7 @@
 package server
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
 	"net/http"
@@ -8,6 +9,7 @@ import (
 	"path/filepath"
 	"reflect"
 	"strconv"
+	"strings"
 	"sync"
 	"testing"
 
@@ -422,4 +424,30 @@ func TestChainBridgesPassesFunction(t *testing.T) {
 	if got := chainWording["CH8"]["passes_function"]; got != [2]string{"passed as callback, call not modelled", "passed as callback by, call not modelled"} {
 		t.Errorf("wording %v", got)
 	}
+}
+
+// edgeFailingStore fails every edge read, as a broken database would.
+type edgeFailingStore struct {
+	store.Store
+}
+
+func (edgeFailingStore) Edges(context.Context, string, []string, []string, store.Direction) ([]contract.Edge, error) {
+	return nil, errInjected
+}
+
+// TestChainNodeStoreFailure checks that a store failure while walking a
+// node's chain is a 500, not an empty chain (T052: the walk's error was
+// assigned to a shadowed variable and dropped).
+func TestChainNodeStoreFailure(t *testing.T) {
+	backends(t, func(t *testing.T, w, s store.Store) {
+		ids := ingestChainStream(t, w)
+		opt := testOptions(t.TempDir(), edgeFailingStore{s})
+		opt.Repository = "chainsynth"
+		for _, id := range []string{ids.handler, ids.file} {
+			rec := get(t, opt, http.MethodGet, chainPath(id), nil)
+			if rec.Code != http.StatusInternalServerError || !strings.Contains(rec.Body.String(), errInjected.Error()) {
+				t.Errorf("%s: status %d %s, want 500 with the store error", id, rec.Code, rec.Body.String())
+			}
+		}
+	})
 }

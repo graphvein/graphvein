@@ -38,7 +38,7 @@ the module digest is `343253fe664ecd1c20d49ccfe19991fc5f75a6fbe2834d5642c90da207
 `angular-LICENSES.txt`, `WASI-SDK-NOTICES.txt` and `LLVM-LICENSE.txt` retain its
 grammar and toolchain grants alongside the existing bridge/runtime notices.
 Redistribute all these notices. The runtime remains wasitter v0.1.0 /
-wazero v1.10.1; the cache namespace is `wasitter-0.1.0-assets-v5`. See ADR 0028, ADR 0067 and ADR 0074.
+wazero v1.12.0; the cache namespace is `wasitter-0.1.0-assets-v5`. See ADR 0028, ADR 0067 and ADR 0074.
 
 Set v4 (ADR 0067, T021) adds Java, C# and Dart. Java is the wasitter v0.1.0 release
 module (module SHA-256

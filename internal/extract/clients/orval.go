@@ -277,8 +277,7 @@ func (r *resolver) orvalModel(file, project string, config expr, sources map[str
 		if mp.Kind != "literal" || mn.Kind != "literal" || mn.Name == "" {
 			return p, "mutator.path and name must be literal strings", nil
 		}
-		mf, ok := containedPath(work, mp.Name)
-		if !ok {
+		if _, ok := containedPath(work, mp.Name); !ok {
 			return p, "mutator.path is outside the repository", nil
 		}
 		// Resolve relative to the workspace, retaining TypeScript extension probing.
@@ -286,8 +285,7 @@ func (r *resolver) orvalModel(file, project string, config expr, sources map[str
 		if resolved.File == "" {
 			return p, "mutator.path has no scanned file", nil
 		}
-		mf = resolved.File
-		b := r.modules.Export(mf, mn.Name)
+		b := r.modules.Export(resolved.File, mn.Name)
 		if b.Identity == "" || b.External || b.Ambiguous || b.Namespace {
 			return p, "mutator export is not uniquely emitted", nil
 		}

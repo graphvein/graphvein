@@ -15,4 +15,12 @@ with the same oracle's member-write check. `src/patch/` holds the
 imports and requires used as receivers of unknown owner: `api.js` and
 `lib.cjs` are the modules the other files import, call and patch.
 
+`src/awaited.ts` holds the grammar correction of the same section
+(T056): `await f<T>(x)`, which tree-sitter-typescript reads as a call of
+`await f`, is bound through its real callee `f`, and a generic
+`Object.assign<A, B>(o, ...)` under `await` is a member write (TSX-25);
+`(await f)<T>(x)` is left unresolved. The base build emitted one
+oracle-wrong edge here (`target.m()` after the awaited write) and missed
+the three awaited calls.
+
 No file is stored under an inert name.

@@ -4,7 +4,7 @@ Status: contract of the T020 implementation (2026-11-17, `extractors-42`), ADR
 0071, revised by the review fixes of step S4F (the T020 task record (internal),
 ADR 0071 "Review fixes") and the coverage recovery of step S4X (rows RS-D9,
 RS-D10 claim, RS-D12 added, raw-identifier `mod` names in RS-M2; ADR 0071
-"Coverage recovery"), from the investigation draft (the T020 task record (internal), read at
+"Coverage recovery") and by task T054 (row RS-F4, ADR 0092, extractors-63), from the investigation draft (the T020 task record (internal), read at
 `5b48ad4`, `extractors-39`). The rows are kept 1:1 with `structureRows` in
 `internal/lang/rust/structure.go` by `TestRustStructureContract`, which also
 checks that the fixture `testdata/fixtures/rust-structure` reaches every row
@@ -78,8 +78,9 @@ linked (as Go's union over build configurations). An edge states that the
 | row | form | facts claimed | refusal (to D) | status |
 |---|---|---|---|---|
 | RS-F1 | a scanned file with extension `.rs` (any crate, test, example, bench, build script, unreachable from any root) | file record and level-3 `file` node, `language: rust`; the file exists at this path with this content hash | - (the scanner decides the inventory) | oracle (inventory equals `git ls-files '*.rs'` minus the scanner's ignore rules) |
-| RS-F2 | a file in which tree-sitter reports a syntax error (an error or missing node) | the file node only, labelled `best_effort`, plus the indexer's `syntax_error` warning | every declaration, `mod` item and `use` leaf tree-sitter recovered goes to D, counted (`syntax_error`); the file's calls, Tauri, route and query payloads are dropped with them | oracle (every file syn rejects claims no declaration and no edge) |
+| RS-F2 | a file in which tree-sitter reports a syntax error (an error or missing node) that row RS-F4 does not read | the file node only, labelled `best_effort`, plus the indexer's `syntax_error` warning | every declaration, `mod` item and `use` leaf tree-sitter recovered goes to D, counted (`syntax_error`); the file's calls, Tauri, route and query payloads are dropped with them | oracle (every file syn rejects claims no declaration and no edge) |
 | RS-F3 | a file whose raw bytes hold a CR not followed by LF | the file node only, labelled `best_effort` | everything to D, counted (`lone_cr`; it wins over `syntax_error`), other payloads dropped as for RS-F2 | oracle (the fixture's lone-CR files) |
+| RS-F4 | (T054, ADR 0092) a file without a lone CR in which tree-sitter reports a syntax error, whose `#[...]` runs inside the nodes holding its ERROR nodes include outer attributes on the fields of a struct pattern (`let S { a, #[cfg(unix)] b } = s;`: Rust's `StructPatternField` takes outer attributes, tree-sitter-rust 0.24.2 has no rule for them) | as a file without a syntax error: the file is read from a second tree, parsed from a copy in which those attributes are replaced by spaces (line ends kept, so every offset, line, span and hash is that of the original bytes, which the nodes' text keeps); the attributes claim nothing (attributes are not modelled, cfg is never evaluated) | the copy is read only when each replaced run parses on its own as an attribute on a struct field, the second tree has no error at all and every replaced run sits directly inside a struct pattern, after its `{` or a `,` and before a field (only white space between; an attribute before the `..` rest pattern, which rustc 1.97 rejects, does not count); a run outside that position is restored and the file parsed once more under the same checks; any other outcome: RS-F2 | oracle (the fixture's `patattr.rs`; syn reads pattern field attributes) |
 
 ## Declarations
 

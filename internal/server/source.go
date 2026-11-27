@@ -18,6 +18,7 @@ import (
 	"unicode/utf8"
 
 	"github.com/graphvein/graphvein/internal/contract"
+	"github.com/graphvein/graphvein/internal/scan"
 	"github.com/graphvein/graphvein/internal/store"
 )
 
@@ -296,7 +297,9 @@ func readConfined(root, file string) fileRead {
 	if size > maxSourceBytes {
 		return fileRead{state: sourceTooLarge, size: &size}
 	}
-	if bytes.IndexByte(data, 0) >= 0 || !utf8.Valid(data) {
+	// The scanner's rule: a NUL byte makes a file binary, except in a Rust
+	// file the scanner reads as source (scan.SourceWithNUL).
+	if bytes.IndexByte(data, 0) >= 0 && !scan.SourceWithNUL(file, data) || !utf8.Valid(data) {
 		return fileRead{state: sourceBinary, data: data, size: &size}
 	}
 	return fileRead{data: data, size: &size}
