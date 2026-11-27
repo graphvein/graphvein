@@ -1,0 +1,52 @@
+name: Dependabot triage
+
+# Closes the Dependabot pull requests that change only directories pinned
+# on purpose (the reviewed list .github/dependabot-pinned.json: directory,
+# ecosystem and public reason per entry), with one comment giving the
+# reasons, by scripts/dependabot-triage.sh. Daily schedule (close) and
+# manual dispatch (list by default). `list` changes nothing and prints
+# every open pull request; `close` comments on and closes the matching
+# ones. A pull request by anyone else, or with any file outside the pinned
+# directories, is never touched. Nothing is merged and no branch deleted.
+# docs/public/dependabot.yml already stops these updates at the source;
+# this is the backstop for any pull request Dependabot still opens.
+
+on:
+  schedule:
+    - cron: '17 4 * * *'
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: list (read only) or close
+        required: true
+        default: list
+        type: choice
+        options: [list, close]
+
+concurrency:
+  group: dependabot-triage
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  triage:
+    if: github.repository == 'graphvein/graphvein'
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+      pull-requests: write  # read pull requests; comment and close in close mode
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Triage
+        env:
+          GH_TOKEN: ${{ github.token }}
+          # The schedule has no inputs and runs close.
+          MODE: ${{ inputs.mode || 'close' }}
+        run: bash scripts/dependabot-triage.sh "$MODE" .github/dependabot-pinned.json

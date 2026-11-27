@@ -1,0 +1,22 @@
+[
+  {
+    "directory": "scripts/oracle/nextjs_shape/next14",
+    "ecosystem": "npm",
+    "reason": "Dev-only oracle tooling, never shipped. next stays at 14.1.0, the version locked by the chatbot-ui test corpus that the oracle mirrors; no 14.1 release fixes the reported advisories, and the oracle only builds and serves a fixture on 127.0.0.1, never user input."
+  },
+  {
+    "directory": "scripts/oracle/nextjs_shape/next16",
+    "ecosystem": "npm",
+    "reason": "Dev-only oracle tooling, never shipped. next stays at 16.2.10, the version locked by the ai-chatbot test corpus that the oracle mirrors; no 16.2 release fixes the reported advisories, and the oracle only builds and serves a fixture on 127.0.0.1, never user input."
+  },
+  {
+    "directory": "scripts/oracle/express_shape/tools",
+    "ecosystem": "npm",
+    "reason": "Dev-only oracle tooling, never shipped. Express stays at 4.21.2 with the exact versions of its app's libraries (celebrate, express-validator, lodash), because the oracle checks Express 4 semantics; it serves a fixture on 127.0.0.1 to the oracle only."
+  },
+  {
+    "directory": "scripts/oracle/axum_shape/axum03",
+    "ecosystem": "cargo",
+    "reason": "Dev-only oracle tooling, never shipped. axum stays at exactly 0.3.4 (with its lockfile), because the oracle checks the route semantics claimed for a fixture written for axum 0.3; a newer axum would test another version."
+  }
+]

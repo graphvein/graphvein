@@ -15,6 +15,13 @@ Unreleased.
   code scanning alerts, or dismisses the ones matching the reviewed list
   in `.github/codeql-dismissals.json` (rule, exact file, reason and the
   comment saying why); an alert without an entry stays open.
+- A Dependabot triage workflow (daily, and by hand in list or close
+  mode): it closes Dependabot pull requests whose changed files are all in
+  oracle tooling directories pinned on purpose
+  (`.github/dependabot-pinned.json`), with one comment giving each
+  directory's reviewed reason; it never merges and leaves every other pull
+  request alone. `dependabot.yml` also stops version and security-update
+  pull requests for those directories (alerts stay).
 
 ## [0.1.2] - 2026-11-27
 

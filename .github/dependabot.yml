@@ -60,3 +60,41 @@ updates:
         update-types: [minor, patch]
       web-npm-major:
         update-types: [major]
+
+  # Oracle tooling pinned on purpose (.github/dependabot-pinned.json gives
+  # each directory's reason). `ignore` with dependency-name "*" stops both
+  # the version updates and the security-update pull requests for these
+  # ecosystem and directory pairs (Dependabot options reference: `ignore`
+  # applies to version and security updates; open-pull-requests-limit: 0
+  # and exclude-paths would apply to version updates only). Dependabot
+  # alerts stay. The Dependabot triage workflow
+  # (.github/workflows/dependabot-triage.yml) closes, with the reviewed
+  # reason, any pull request that still changes only these directories.
+  # `schedule` is required in every entry.
+  - package-ecosystem: npm
+    directory: /scripts/oracle/nextjs_shape/next14
+    schedule:
+      interval: weekly
+    ignore:
+      - dependency-name: "*"
+
+  - package-ecosystem: npm
+    directory: /scripts/oracle/nextjs_shape/next16
+    schedule:
+      interval: weekly
+    ignore:
+      - dependency-name: "*"
+
+  - package-ecosystem: npm
+    directory: /scripts/oracle/express_shape/tools
+    schedule:
+      interval: weekly
+    ignore:
+      - dependency-name: "*"
+
+  - package-ecosystem: cargo
+    directory: /scripts/oracle/axum_shape/axum03
+    schedule:
+      interval: weekly
+    ignore:
+      - dependency-name: "*"
