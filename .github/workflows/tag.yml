@@ -1,0 +1,84 @@
+name: Tag release
+
+# Creates a release tag on a commit of main and starts the release
+# workflow on it, for a maintainer or tool that can dispatch workflows but
+# cannot push tags. The checks are the release workflow's own (version
+# form, commit on main, release notes present on the commit), plus: the
+# tag must not exist yet. A tag created with GITHUB_TOKEN starts no push
+# run, so this workflow dispatches release.yml on the new tag, which treats
+# a dispatch on a tag ref as a release (not a dry run).
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Version to tag (vMAJOR.MINOR.PATCH[-PRERELEASE]), with docs/releases/<version>.md on the commit
+        required: true
+      commit:
+        description: Full 40-character SHA of the commit on main to tag
+        required: true
+
+concurrency:
+  group: tag-release
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  tag:
+    if: github.repository == 'graphvein/graphvein'
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write  # create the tag ref
+      actions: write   # dispatch release.yml on the tag
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: main
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Check the version, the commit and the notes
+        env:
+          VERSION: ${{ inputs.version }}
+          COMMIT: ${{ inputs.commit }}
+        run: |
+          if [[ ! "$VERSION" =~ ^v[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z.]+)?$ ]]; then
+            echo "::error::version $VERSION is not vMAJOR.MINOR.PATCH[-PRERELEASE]"
+            exit 1
+          fi
+          if [[ ! "$COMMIT" =~ ^[0-9a-f]{40}$ ]]; then
+            echo "::error::commit must be a full 40-character lowercase SHA"
+            exit 1
+          fi
+          if ! git merge-base --is-ancestor "$COMMIT" origin/main; then
+            echo "::error::commit $COMMIT is not on main"
+            exit 1
+          fi
+          if ! git cat-file -e "$COMMIT:docs/releases/$VERSION.md" 2>/dev/null; then
+            echo "::error::docs/releases/$VERSION.md (the release notes) is missing on $COMMIT"
+            exit 1
+          fi
+          if git ls-remote --exit-code --tags origin "refs/tags/$VERSION" > /dev/null; then
+            echo "::error::tag $VERSION already exists"
+            exit 1
+          fi
+      - name: Create the tag
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERSION: ${{ inputs.version }}
+          COMMIT: ${{ inputs.commit }}
+        run: |
+          gh api --method POST "repos/$GITHUB_REPOSITORY/git/refs" \
+            -f "ref=refs/tags/$VERSION" -f "sha=$COMMIT" > /dev/null
+          echo "Tagged $COMMIT as $VERSION"
+      - name: Start the release workflow on the tag
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERSION: ${{ inputs.version }}
+        run: |
+          gh workflow run release.yml --repo "$GITHUB_REPOSITORY" --ref "$VERSION" -f "version=$VERSION"
+          echo "Release workflow dispatched on $VERSION"

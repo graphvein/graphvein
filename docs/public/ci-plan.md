@@ -27,9 +27,10 @@ filter cannot depend on the repository):
 | `public-tree.yml` (Public tree) | push to `main`, pull request, manual dispatch |
 | `grammars.yml` (Grammar assets) | push to `main` or pull request that changes its build inputs, manual dispatch |
 | `dependency-review.yml` | pull request to `main` |
-| `release.yml` (Release) | push of a `v*` tag, manual dispatch (dry run) |
+| `release.yml` (Release) | push of a `v*` tag, manual dispatch on a `v*` tag (release) or on a branch (dry run) |
+| `tag.yml` (Tag release) | manual dispatch only: creates a `v*` tag on a commit of `main` and dispatches `release.yml` on it |
 
-No workflow but the release starts on a tag, and none starts on a push to
+No workflow but the release starts on a tag (Tag release only creates one), and none starts on a push to
 another branch. A branch with an open pull request is therefore tested
 once per push, by the `pull_request` run. Before, the branch push started
 a second run of the same commit in the same concurrency group, which
@@ -142,6 +143,16 @@ Release binaries are built only by the public repository's
 `.github/workflows/release.yml`, from a `v*` tag on a commit on `main`
 (the jobs are skipped in any other repository). They are not code-signed;
 they come with SHA-256 checksums and build provenance.
+
+A release starts in one of two ways: a pushed `v*` tag, or the Tag release
+workflow (`tag.yml`), dispatched with a version and the full SHA of a
+commit on `main`. It refuses a malformed version, a commit not on `main`,
+a commit without `docs/releases/<version>.md` and an existing tag, then
+creates the tag with the workflow token and dispatches `release.yml` on
+the tag, because a tag created with the workflow token starts no push run.
+`release.yml` treats a dispatch on a tag ref exactly as a tag push: same
+checks, same jobs, same draft. The tag ruleset still forbids moving or
+deleting a tag, whoever created it.
 
 **Guarantee.** Every released commit's tree passed the full CI matrix
 (`postgres`, `main (windows-2025)`, `main (macos-15)`), or the release
