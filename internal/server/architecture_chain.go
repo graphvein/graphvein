@@ -319,7 +319,10 @@ func computeArchitectureChain(h *apiHandler, q url.Values) (readFunc, error) {
 			out.Start = chainStart{ID: id, Kind: "component", Level: "component", Row: "CH9"}
 			sides, err = componentChain(rd, m, id, dirs, depth, scope, px)
 		} else {
-			start, err := rd.byIdentity([]string{id})
+			// err stays the outer variable: the walk's error below must
+			// reach the check after this branch, not a shadowed copy.
+			var start map[string]contract.Node
+			start, err = rd.byIdentity([]string{id})
 			if err != nil {
 				return nil, err
 			}

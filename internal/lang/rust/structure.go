@@ -36,6 +36,7 @@ var structureRows = []structureRow{
 	{"RS-F1", "file record and file node"},
 	{"RS-F2", "nothing beyond the file: a file with a syntax error goes to D"},
 	{"RS-F3", "nothing beyond the file: a file with a lone CR goes to D"},
+	{"RS-F4", "the claims of a file without syntax error: struct pattern field attributes read as blanks"},
 	{"RS-D1", "function node and contains edge"},
 	{"RS-D2", "struct, enum, union, trait or type_alias node and contains edge"},
 	{"RS-D3", "macro node and contains edge"},

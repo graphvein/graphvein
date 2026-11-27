@@ -37,7 +37,9 @@ func peekFiles() map[string]string {
 	long := "export function longTarget() {\n" + strings.Repeat("  x();\n", 450) + "}\n"
 	wide := `export function wideTarget() { return "` + strings.Repeat("a", 4095-39) + "\u00e9" + strings.Repeat("b", 900) + `"; }` + "\n"
 	return map[string]string{
-		"exact.ts":        "export function exactTarget() {\n  return fetch(\"/x\");\n}\n" + pad(20),
+		"exact.ts": "export function exactTarget() {\n  return fetch(\"/x\");\n}\n" + pad(20),
+		// A raw NUL in a Rust byte string: source, not binary (scan.SourceWithNUL).
+		"nulsrc.rs":       "pub fn nul_target() -> &'static [u8] {\n    b\"BM\x00\"\n}\n",
 		"tail.ts":         pad(20) + "export function tailTarget() {\n  return 1;\n}\n",
 		"inserted.ts":     pad(2) + "export function insertedTarget() {\n  return 2;\n}\n",
 		"elsewhere.ts":    "export function elsewhereTarget() {\n  return 3;\n}\n// tail\n",
@@ -213,6 +215,7 @@ func TestSourceStates(t *testing.T) {
 				}
 			}},
 			{"nul byte", "function:nul.ts#nulTarget", sourceBinary, "", func(t *testing.T) { write("nul.ts", files["nul.ts"]+"\x00") }},
+			{"nul byte in Rust source", "function:nulsrc.rs#nul_target", sourceExact, "", nil},
 			{"invalid utf-8", "function:badutf8.ts#badTarget", sourceBinary, "", func(t *testing.T) { write("badutf8.ts", files["badutf8.ts"]+"\xff") }},
 			{"too large", "function:big.ts#bigTarget", sourceTooLarge, "", func(t *testing.T) {
 				write("big.ts", files["big.ts"]+strings.Repeat("a", maxSourceBytes))

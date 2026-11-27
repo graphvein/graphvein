@@ -203,6 +203,14 @@ function shellQuote(s: string): string {
   return `'${s.replace(/'/g, `'"'"'`)}'`;
 }
 
+/** doubleQuoted escapes s for use inside a double-quoted shell word. The
+ * shell still reads backslash, double quote, dollar and backtick there, so
+ * each is escaped: a configured header name or prefix such as "$(cmd)"
+ * stays text when the copied command is run. */
+function doubleQuoted(s: string): string {
+  return s.replace(/[\\"$`]/g, "\\$&");
+}
+
 /** curlCommand writes the prepared request as a curl command line. The
  * auth header is written with its variable ($API_TOKEN) or a placeholder
  * for a value typed for the session, never a value: the UI never has it.
@@ -213,8 +221,8 @@ export function curlCommand(p: Prepared, env: Environment | undefined, req: { he
   if (p.authHeader !== null && p.authMissing === null) {
     const prefix = env?.auth.prefix ?? "";
     // The variable is left for the shell to expand: double quotes.
-    const value = env?.auth.sessionValue === true || env?.auth.env === null || env?.auth.env === undefined ? "<value typed for this session>" : `$${env.auth.env}`;
-    lines.push(`-H "${p.authHeader}: ${prefix.replace(/"/g, '\\"')}${value}"`);
+    const value = env?.auth.sessionValue === true || env?.auth.env === null || env?.auth.env === undefined ? "<value typed for this session>" : `$${doubleQuoted(env.auth.env)}`;
+    lines.push(`-H "${doubleQuoted(p.authHeader)}: ${doubleQuoted(prefix)}${value}"`);
   }
   if (req.multipart !== null) {
     for (const part of req.multipart) {

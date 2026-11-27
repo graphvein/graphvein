@@ -775,12 +775,15 @@ func Extract(file string, source []byte, root *parse.Node) Facts {
 			}
 			return
 		case "call_expression":
-			if callee := n.Fields["function"]; callee != nil {
+			// call is n, or the corrected call of `await f<T>(x)`; the
+			// tree's children are still visited below as they are.
+			call := awaitedGenericCall(n)
+			if callee := call.Fields["function"]; callee != nil {
 				switch {
 				case callee.Kind == "arrow_function":
 					unread(&out, unreadMisparse, 1)
 					return
-				case awaitMisparse(n):
+				case awaitMisparse(call):
 					// tree-sitter-javascript reads `await (x)` as a call of a
 					// function named await (T020-TSG): no call site below; the
 					// operand is still read, its calls are real.
@@ -798,13 +801,13 @@ func Extract(file string, source []byte, root *parse.Node) Facts {
 				}
 				// Object.defineProperty and the like write members
 				// (TSX-25).
-				propertyWrites = append(propertyWrites, objectWrites(n, cur)...)
+				propertyWrites = append(propertyWrites, objectWrites(call, cur)...)
 			}
-			if !awaitMisparse(n) {
+			if !awaitMisparse(call) {
 				bc.call(n, owner, caller)
 			}
-			if caller != "" && !awaitMisparse(n) {
-				callee := n.Fields["function"]
+			if caller != "" && !awaitMisparse(call) {
+				callee := call.Fields["function"]
 				name := text(callee)
 				staticName := ""
 				if callee != nil && callee.Kind == "member_expression" {
@@ -815,7 +818,7 @@ func Extract(file string, source []byte, root *parse.Node) Facts {
 				} else {
 					name = ""
 				}
-				out.Calls = append(out.Calls, Call{StaticName: staticName, Source: caller, Scope: owner, Name: name, Span: span(n)})
+				out.Calls = append(out.Calls, Call{StaticName: staticName, Source: caller, Scope: owner, Name: name, Span: span(call)})
 				sites = append(sites, callSite{index: len(out.Calls) - 1, scope: cur})
 			}
 		}
@@ -936,6 +939,30 @@ func defaultExportedValue(v *parse.Node) bool {
 func awaitMisparse(n *parse.Node) bool {
 	callee := n.Fields["function"]
 	return callee != nil && callee.Kind == "identifier" && callee.Text == "await"
+}
+
+// awaitedGenericCall corrects tree-sitter-typescript's reading of
+// `await f<T>(x)` as a call of `await f` with type arguments (the grammar
+// correction under "Call binding model" in
+// docs/lang/typescript-resolution.md). ECMAScript's await takes a unary
+// expression, so the source always awaits the call `f<T>(x)`; the
+// written form `(await f)<T>(x)` keeps its parentheses in the tree and is
+// not changed. The returned call has the awaited operand as its callee and
+// starts there; any other node is returned as it is.
+func awaitedGenericCall(n *parse.Node) *parse.Node {
+	callee := n.Fields["function"]
+	if callee == nil || callee.Kind != "await_expression" || len(callee.Children) != 1 || n.Fields["type_arguments"] == nil {
+		return n
+	}
+	operand := callee.Children[0]
+	fixed := *n
+	fixed.Fields = make(map[string]*parse.Node, len(n.Fields))
+	for k, v := range n.Fields {
+		fixed.Fields[k] = v
+	}
+	fixed.Fields["function"] = operand
+	fixed.Start, fixed.Row, fixed.Column = operand.Start, operand.Row, operand.Column
+	return &fixed
 }
 
 func misparsed(v *parse.Node) bool {

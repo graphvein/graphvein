@@ -21,12 +21,15 @@ const labelMaxFileSize = 64 << 10
 
 // refusedRustFiles are the fixture's Rust files whose structure claims
 // nothing (stored best_effort, reason structure_refused), by case, from the
-// fixture README: tree-sitter reports a syntax error (RS-F2), a lone CR
-// (RS-F3), and the file the test writes above the parse limit.
+// fixture README: tree-sitter reports a syntax error (RS-F2; patbroken.rs
+// also holds a struct pattern field attribute, which RS-F4 alone cannot
+// explain), a lone CR (RS-F3), and the file the test writes above the parse
+// limit. app/src/patattr.rs, read by RS-F4, is precise.
 var refusedRustFiles = map[string]string{
-	"app/src/broken.rs": "syntax_error",
-	"app/src/lonecr.rs": "lone_cr",
-	"app/src/big.rs":    "too_large",
+	"app/src/broken.rs":    "syntax_error",
+	"app/src/patbroken.rs": "syntax_error",
+	"app/src/lonecr.rs":    "lone_cr",
+	"app/src/big.rs":       "too_large",
 }
 
 // unrootedRustFiles are the fixture's Rust files no crate root of a read

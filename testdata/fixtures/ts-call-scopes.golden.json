@@ -22,6 +22,53 @@
     "confidence": 1,
     "evidence": [
       {
+        "file": "src/awaited.ts",
+        "span": {
+          "end_column": 28,
+          "end_line": 11,
+          "start_column": 8,
+          "start_line": 11
+        }
+      },
+      {
+        "file": "src/awaited.ts",
+        "span": {
+          "end_column": 45,
+          "end_line": 12,
+          "start_column": 18,
+          "start_line": 12
+        }
+      }
+    ],
+    "kind": "calls",
+    "provenance": "fact",
+    "source": "function:src/awaited.ts#awaitedGeneric",
+    "target": "function:src/awaited.ts#fetchAs",
+    "type": "edge"
+  },
+  {
+    "confidence": 1,
+    "evidence": [
+      {
+        "file": "src/awaited.ts",
+        "span": {
+          "end_column": 22,
+          "end_line": 10,
+          "start_column": 8,
+          "start_line": 10
+        }
+      }
+    ],
+    "kind": "calls",
+    "provenance": "fact",
+    "source": "function:src/awaited.ts#awaitedGeneric",
+    "target": "function:src/kinds.ts#read",
+    "type": "edge"
+  },
+  {
+    "confidence": 1,
+    "evidence": [
+      {
         "file": "src/kinds.ts",
         "span": {
           "end_column": 8,

@@ -22,8 +22,11 @@ Tests:
 The repository stores every file with LF line endings, so every test
 writes two more cases into its temporary copy (`structureExtraFiles` in
 `internal/lang/rust/structure_harness_test.go`): `app/src/crlf.rs` (CRLF)
-and `app/src/lonecr.rs` (a lone CR ends a `//` comment for Graphvein, not
-for Rust: RS-F3). `app/src/bom.rs` starts with a byte order mark.
+`app/src/lonecr.rs` (a lone CR ends a `//` comment for Graphvein, not
+for Rust: RS-F3) and `app/src/nul.rs` (raw NUL bytes in a block comment
+and a byte string, which Rust allows: the scanner reads the file as
+source and RS-D1 claims `nul`). `app/src/bom.rs` starts with a byte order
+mark.
 
 No file uses an ignored name (no `target/`, `build/`, `dist/`), so no inert
 names are needed.
@@ -40,6 +43,8 @@ names are needed.
 | `app/src/alts.rs`, `app/src/alts/` | RS-M2, RS-M3, RS-I1, RS-I3, RS-I4, D, RS-D5 | Later fixes: a cfg pair `#[cfg(unix)] #[path] mod sys;` / `#[cfg(windows)] #[path] mod sys;` (each item its own file, A1), `use sys::Shared` (both alternatives reach `common.rs`: edge) and `use sys::Handle` (different files: `cfg_module_alternatives`); an inline `mod backend {}` next to a cfg'd `mod backend;` (edge to `alts/backend.rs`, `use backend::run` to D); `#[path = "alts/foo/bar.rs"] mod bar;` whose `mod c;` loads `alts/foo/c.rs`, not the decoy `alts/foo/bar/c.rs` (B1); a comment and a doc comment between `#[path]` and its `mod` item, decoys at the default places (B2); `use probe_old::sub::X` through the edition 2015 crate's re-export (`edition_2015_path`, B3); `use ser::Deserialize` (`cargo:serde`, C2); `impl dyn m::Tr` (`dyn m::Tr.f`, C7) |
 | `targets/` | RS-M1, RS-M2, RS-I1, RS-I2, D | S4F target discovery: `autobins = false` (`src/main.rs` and `src/bin/auto.rs` are no roots: their `mod helper;` unresolved), `autoexamples = false` with `[[example]] name = "demo"` (`examples/demo/main.rs` a root, `examples/other.rs` none), `[[bin]] path`, `[[test]] path = "checks/smoke.rs"`, discovered `tests/auto.rs`, `build = "tools/gen.rs"` with `[build-dependencies] util` (RS-I2) and no access to the package's library or `[dependencies]` (`undeclared_crate`); a multi-line `description` holding `[lib]` and `path = ...` lines (one value, C1) |
 | `app/src/broken.rs` | RS-F2 | a syntax error: nothing beyond the file (`syntax_error`) |
+| `app/src/patattr.rs`, `app/src/patattr/inner.rs` | RS-F4, RS-D1, RS-D2, RS-D10, RS-M2 | T054: `#[cfg]` and `#[allow]` attributes on struct pattern fields (two `let` patterns, one with a renamed field and `..`), which tree-sitter-rust 0.24.2 reports as an error; statement attributes near the error (blanked in the first round, restored in the second) and `#[...]` text in a string; read from the verified second parse, so `Services`, `split`, `split.local_helper`, `by_field`, `after` and `mod inner;` (`patattr/inner.rs` rooted) are claimed |
+| `app/src/patbroken.rs` | RS-F2 | T054: a struct pattern field attribute and a real syntax error: RS-F4 does not read it, nothing beyond the file (`syntax_error`) |
 | `app/src/globbed.rs` | RS-I3 | `pub use serde::de::*;` |
 | `util/` | RS-M1, RS-I1 | `edition.workspace = true`; a private module re-exported |
 | `relay/`, `widget/` | RS-M1 | scanned libraries that are not the declared dependency |

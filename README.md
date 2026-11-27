@@ -20,7 +20,7 @@ or the Try it out environment you select
 ## Status
 
 <!-- site:status -->
-**Preview release (v0.1.1); contributions welcome** under the contributor licence agreement ([CONTRIBUTING.md](CONTRIBUTING.md)). What works today:
+**Preview release (v0.1.2); contributions welcome** under the contributor licence agreement ([CONTRIBUTING.md](CONTRIBUTING.md)). What works today:
 `graphvein index` builds the index of a repository, and `graphvein serve`
 opens a local web UI on it with the sections API (routes and their
 callers), Changes (what a change reaches), Architecture, Schema, Explorer
@@ -74,7 +74,7 @@ they are not code-signed. Download the archive for your system and
 `sha256sum`; on macOS use `shasum -a 256 -c` in its place):
 
 ```bash
-grep graphvein-v0.1.1-linux-amd64.tar.gz SHA256SUMS | sha256sum -c
+grep graphvein-v0.1.2-linux-amd64.tar.gz SHA256SUMS | sha256sum -c
 ```
 
 **Provenance.** Each archive has a build provenance attestation that ties
@@ -82,10 +82,10 @@ it to the workflow run and the commit it was built from. With the
 [GitHub CLI](https://cli.github.com/):
 
 ```bash
-gh attestation verify graphvein-v0.1.1-linux-amd64.tar.gz --repo graphvein/graphvein
+gh attestation verify graphvein-v0.1.2-linux-amd64.tar.gz --repo graphvein/graphvein
 ```
 
-Unpack it (`tar -xzf graphvein-v0.1.1-linux-amd64.tar.gz`; on Windows,
+Unpack it (`tar -xzf graphvein-v0.1.2-linux-amd64.tar.gz`; on Windows,
 Extract All in File Explorer) and put the folder on your `PATH`, or call
 the binary by its path: `graphvein version` prints the version you
 downloaded.
@@ -122,7 +122,7 @@ go install github.com/graphvein/graphvein/cmd/graphvein@latest
 It needs Go 1.21 or newer, which downloads the Go toolchain the module
 requires when yours is older. The binary goes to `$(go env GOPATH)/bin`
 and `graphvein version` reports the module version you installed (use
-`@v0.1.1` for a given release). To build from a checkout instead, see the
+`@v0.1.2` for a given release). To build from a checkout instead, see the
 next section.
 
 ## Building and running

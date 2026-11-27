@@ -54,10 +54,15 @@ Each item links to the decision record (ADR) that describes it in full.
 ## Routes and calls
 
 - **Only the listed frameworks give routes.** Express, FastAPI, Axum,
-  Go `net/http`, chi and gin, Next.js (App Router), Angular and Tauri are
-  read. gorilla/mux, echo, fiber, httprouter, the Next.js Pages Router,
-  middleware files and interception routes are not modelled yet and show
-  nothing ([ADR 0076](adr/0076-go-http-routers.md),
+  Go `net/http`, chi and gin, Next.js, Angular and Tauri are read. For
+  Next.js, App Router route handlers (`route.ts`, one route per exported
+  HTTP method) and Pages Router API routes (a default export in a file
+  under `pages/api/` or `src/pages/api/`) are read; a Pages Router API
+  route is one route for every method (`ANY`), with one shape that merges
+  the reads of all its `req.method` branches. Pages Router pages, Next.js
+  middleware files and interception routes are not modelled, nor are
+  gorilla/mux, echo, fiber and httprouter; they show nothing
+  ([ADR 0076](adr/0076-go-http-routers.md),
   [ADR 0077](adr/0077-nextjs-and-supabase.md)).
 - **Some route paths are not known.** A router mounted through a form
   Graphvein cannot follow (a variable prefix, a wrapper function, an app

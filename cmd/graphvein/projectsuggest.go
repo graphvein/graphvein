@@ -141,7 +141,7 @@ func selectText(s projectsuggest.Selector) string {
 }
 
 func fileText(member, file string, line int) string {
-	where := file
+	var where string
 	if member == "" {
 		where = "(project folder) " + file
 	} else {

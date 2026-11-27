@@ -61,6 +61,6 @@ Nothing is installed into the repository.
 
 | Set | Packages (direct) | Licences of the installed tree |
 |---|---|---|
-| `tools` | express 4.21.2, celebrate 15.0.3, joi 17.13.3, zod 4.1.12, cookie-parser 1.4.7, express-validator 7.2.1, lodash 4.17.21, typescript 5.6.3, @types/express 4.17.21, @types/cookie-parser 1.4.7 | MIT, ISC, BSD-3-Clause (joi and its @hapi/@sideway dependencies), Apache-2.0 (typescript) |
-| `express5` | express 5.1.0, joi 17.13.3, zod 4.1.12 | MIT, ISC, BSD-3-Clause |
-| `next` | next 15.5.4, react 19.1.1, react-dom 19.1.1 | MIT, ISC, Apache-2.0, BSD-3-Clause, 0BSD; caniuse-lite (data) CC-BY-4.0. next's optional image packages (sharp, LGPL-3.0-or-later parts) and compiler binaries are not installed (`--omit=optional`): `apiResolver` needs neither. |
+| `tools` | express 4.21.2, celebrate 15.0.3, joi 17.13.9, zod 4.6.7, cookie-parser 1.4.7, express-validator 7.2.1, lodash 4.17.21, typescript 5.6.3, @types/express 4.17.21, @types/cookie-parser 1.4.7 | MIT, ISC, BSD-3-Clause (joi and its @hapi/@sideway dependencies), Apache-2.0 (typescript) |
+| `express5` | express 5.1.0, joi 17.13.9, zod 4.6.7 | MIT, ISC, BSD-3-Clause |
+| `next` | next 15.5.29, react 19.1.1, react-dom 19.1.1 | MIT, ISC, Apache-2.0, BSD-3-Clause, 0BSD; caniuse-lite (data) CC-BY-4.0. next's optional image packages (sharp, LGPL-3.0-or-later parts) and compiler binaries are not installed (`--omit=optional`): `apiResolver` needs neither. |

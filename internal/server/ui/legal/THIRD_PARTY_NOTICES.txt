@@ -9,33 +9,33 @@ web/package-lock.json. Do not edit by hand.
 
 1. Go modules linked into the binary
 
-  github.com/dustin/go-humanize v1.0.1: MIT
+  github.com/dustin/go-humanize v1.1.0: MIT
   github.com/google/jsonschema-go v0.4.3: MIT
   github.com/google/uuid v1.6.0: BSD-3-Clause
   github.com/jackc/pgpassfile v1.0.0: MIT
   github.com/jackc/pgservicefile v0.0.0-20240606120523-5a60cdf6a761: MIT
-  github.com/jackc/pgx/v5 v5.11.0: MIT
-  github.com/jackc/puddle/v2 v2.2.2: MIT
+  github.com/jackc/pgx/v5 v5.13.0: MIT
+  github.com/jackc/puddle/v2 v2.2.3: MIT
   github.com/mattn/go-isatty v0.0.24: MIT
   github.com/modelcontextprotocol/go-sdk v1.8.0: Apache-2.0 AND MIT
-  github.com/ncruces/go-strftime v1.0.0: MIT
+  github.com/ncruces/go-strftime v1.1.0: MIT
   github.com/remyoudompheng/bigfft v0.0.0-20230129092748-24d4a6f8daec: BSD-3-Clause
   github.com/santhosh-tekuri/jsonschema/v6 v6.0.3: Apache-2.0
   github.com/segmentio/asm v1.1.3: MIT
   github.com/segmentio/encoding v0.5.4: MIT
-  github.com/tetratelabs/wazero v1.10.1: Apache-2.0
+  github.com/tetratelabs/wazero v1.12.0: Apache-2.0
   github.com/yosida95/uritemplate/v3 v3.0.2: BSD-3-Clause
   github.com/zema1/wasitter v0.1.0: MIT
-  go.yaml.in/yaml/v3 v3.0.4: MIT AND Apache-2.0
+  go.yaml.in/yaml/v3 v3.0.6: MIT AND Apache-2.0
   golang.org/x/oauth2 v0.35.0: BSD-3-Clause
-  golang.org/x/sync v0.23.0: BSD-3-Clause
-  golang.org/x/sys v0.48.0: BSD-3-Clause
-  golang.org/x/text v0.41.0: BSD-3-Clause
+  golang.org/x/sync v0.25.0: BSD-3-Clause
+  golang.org/x/sys v0.50.0: BSD-3-Clause
+  golang.org/x/text v0.44.0: BSD-3-Clause
   golang.org/x/time v0.15.0: BSD-3-Clause
-  modernc.org/libc v1.77.1: BSD-3-Clause AND MIT
+  modernc.org/libc v1.80.1: BSD-3-Clause AND MIT
   modernc.org/mathutil v1.7.1: BSD-3-Clause
   modernc.org/memory v1.12.1: BSD-3-Clause
-  modernc.org/sqlite v1.60.1: BSD-3-Clause AND blessing AND MIT
+  modernc.org/sqlite v1.63.0: BSD-3-Clause AND blessing AND MIT
 
 2. Tree-sitter grammars (WebAssembly modules in internal/parse/grammars)
 
@@ -151,29 +151,29 @@ are not covered by the Apache License (see NOTICE).
   detect-node-es 1.1.0: MIT, runtime
   elkjs 0.12.0: EPL-2.0 OR GPL-3.0-or-later (taken under EPL-2.0, ADR 0046), runtime
   get-nonce 1.0.1: MIT, runtime
-  lucide-react 1.67.0: ISC, runtime
+  lucide-react 1.72.0: ISC, runtime
   radix-ui 1.8.1: MIT, runtime
   react 19.3.1: MIT, runtime
   react-dom 19.3.1: MIT, runtime
   react-remove-scroll 2.7.2: MIT, runtime
   react-remove-scroll-bar 2.3.8: MIT, runtime
   react-style-singleton 2.2.3: MIT, runtime
-  rolldown 1.2.16: MIT, bundled build tool
+  rolldown 1.2.19: MIT, bundled build tool
   scheduler 0.28.0: MIT, runtime
   tailwind-merge 3.7.0: MIT, runtime
-  tailwindcss 4.3.4: MIT, bundled build tool
+  tailwindcss 4.3.5: MIT, bundled build tool
   tslib 2.9.1: 0BSD, runtime
   tw-animate-css 1.4.0: MIT, bundled build tool
   use-callback-ref 1.3.3: MIT, runtime
   use-sidecar 1.1.3: MIT, runtime
   use-sync-external-store 1.7.0: MIT, runtime
-  vite 8.3.5: MIT, bundled build tool
+  vite 8.3.8: MIT, bundled build tool
   zustand 4.5.7: MIT, runtime
 
 Appendix A. Go module licence and notice files (verbatim)
 
 ------------------------------------------------------------------------
-github.com/dustin/go-humanize v1.0.1
+github.com/dustin/go-humanize v1.1.0
 Licence: MIT
 
 --- LICENSE ---
@@ -321,7 +321,7 @@ OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ------------------------------------------------------------------------
-github.com/jackc/pgx/v5 v5.11.0
+github.com/jackc/pgx/v5 v5.13.0
 Licence: MIT
 
 --- LICENSE ---
@@ -350,7 +350,7 @@ OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ------------------------------------------------------------------------
-github.com/jackc/puddle/v2 v2.2.2
+github.com/jackc/puddle/v2 v2.2.3
 Licence: MIT
 
 --- LICENSE ---
@@ -618,7 +618,7 @@ CC-BY-4.0. See https://creativecommons.org/licenses/by/4.0/legalcode for
 the full license text.
 
 ------------------------------------------------------------------------
-github.com/ncruces/go-strftime v1.0.0
+github.com/ncruces/go-strftime v1.1.0
 Licence: MIT
 
 --- LICENSE ---
@@ -918,7 +918,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 ------------------------------------------------------------------------
-github.com/tetratelabs/wazero v1.10.1
+github.com/tetratelabs/wazero v1.12.0
 Licence: Apache-2.0
 
 --- LICENSE ---
@@ -1191,7 +1191,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 ------------------------------------------------------------------------
-go.yaml.in/yaml/v3 v3.0.4
+go.yaml.in/yaml/v3 v3.0.6
 Licence: MIT AND Apache-2.0
 
 --- LICENSE ---
@@ -1298,7 +1298,7 @@ THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 ------------------------------------------------------------------------
-golang.org/x/sync v0.23.0
+golang.org/x/sync v0.25.0
 Licence: BSD-3-Clause
 
 --- LICENSE ---
@@ -1357,7 +1357,7 @@ rights granted to you under this License for this implementation of Go
 shall terminate as of the date such litigation is filed.
 
 ------------------------------------------------------------------------
-golang.org/x/sys v0.48.0
+golang.org/x/sys v0.50.0
 Licence: BSD-3-Clause
 
 --- LICENSE ---
@@ -1416,7 +1416,7 @@ rights granted to you under this License for this implementation of Go
 shall terminate as of the date such litigation is filed.
 
 ------------------------------------------------------------------------
-golang.org/x/text v0.41.0
+golang.org/x/text v0.44.0
 Licence: BSD-3-Clause
 
 --- LICENSE ---
@@ -1534,7 +1534,7 @@ rights granted to you under this License for this implementation of Go
 shall terminate as of the date such litigation is filed.
 
 ------------------------------------------------------------------------
-modernc.org/libc v1.77.1
+modernc.org/libc v1.80.1
 Licence: BSD-3-Clause AND MIT
 
 --- AUTHORS ---
@@ -2068,7 +2068,7 @@ ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 ------------------------------------------------------------------------
-modernc.org/sqlite v1.60.1
+modernc.org/sqlite v1.63.0
 Licence: BSD-3-Clause AND blessing AND MIT
 
 --- AUTHORS ---
@@ -2085,6 +2085,7 @@ Licence: BSD-3-Clause AND blessing AND MIT
 
 Angus Dippenaar <angusdippenaar@gmail.com>
 Artyom Pervukhin <github@artyom.dev>
+Chris Gianelloni <wolf31o2@blinklabs.io>
 Dan Kortschak <dan@kortschak.io>
 Dan Peterson <danp@danp.net>
 David Walton <david@davidwalton.com>
@@ -2097,17 +2098,21 @@ Jan Mercl <0xjnml@gmail.com>
 Josh Bleecher Snyder <josharian@gmail.com>
 Josh Klein <josh.klein@outlook.com>
 Logan Snow <logansnow@protonmail.com>
+Michael Haddon <michael@politepixels.io>
 Michael Hoffmann <mhoffm@posteo.de>
 Michael Rykov <mrykov@gmail.com>
 Morgan Bazalgette <morgan@howl.moe>
 Nathan Herring <nherring@google.com>
+Roman Khafizianov <roman@any.org>
 Ross Light <ross@zombiezen.com>
 SUSE LLC <moio@suse.com>
 Saed SayedAhmed <saadmtsa@gmail.com>
 Steffen Butzer <steffen(dot)butzer@outlook.com>
+Tedla Brandsema <git@tedla.dev>
 Toni Spets <toni.spets@beeper.com>
 W. Michael Petullo <mike@flyn.org>
 Zhenghao Zhang zhangzhenghao@hotmail.com
+不插电 <r27153733@gmail.com>
 
 --- LICENSE ---
 
@@ -2180,18 +2185,18 @@ and license texts it points at are the ones you have to carry with you.
 
 | Component | Version | License | Reached via | Text |
 | --- | --- | --- | --- | --- |
-| [github.com/dustin/go-humanize](https://pkg.go.dev/github.com/dustin/go-humanize) | v1.0.1 | MIT | modernc.org/libc, `go.mod` | [L1](#L1) |
+| [github.com/dustin/go-humanize](https://pkg.go.dev/github.com/dustin/go-humanize) | v1.1.0 | MIT | modernc.org/libc, `go.mod` | [L1](#L1) |
 | [github.com/google/uuid](https://pkg.go.dev/github.com/google/uuid) | v1.6.0 | BSD-3-Clause | modernc.org/libc, `go.mod` | [L2](#L2) |
 | [github.com/remyoudompheng/bigfft](https://pkg.go.dev/github.com/remyoudompheng/bigfft) | v0.0.0-20230129092748-24d4a6f8daec | BSD-3-Clause | modernc.org/fileutil, modernc.org/libc, modernc.org/mathutil, modernc.org/memory, `go.mod` | [L2](#L2) |
 | [Go](https://github.com/golang/go) | -- | BSD-3-Clause | modernc.org/libc | [N1](#N1) |
 | [go-netdb](https://github.com/dominikh/go-netdb) | -- | MIT | modernc.org/libc | [N1](#N1) |
-| [golang.org/x/sys](https://pkg.go.dev/golang.org/x/sys) | v0.48.0 | BSD-3-Clause | github.com/google/pprof, github.com/mattn/go-isatty, modernc.org/libc, modernc.org/memory, `go.mod` | [L3](#L3) |
-| [modernc.org/libc](https://pkg.go.dev/modernc.org/libc) | v1.77.1 | BSD-3-Clause | `go.mod` | [L4](#L4) |
+| [golang.org/x/sys](https://pkg.go.dev/golang.org/x/sys) | v0.49.0 | BSD-3-Clause | github.com/google/pprof, github.com/mattn/go-isatty, modernc.org/libc, modernc.org/memory, `go.mod` | [L3](#L3) |
+| [modernc.org/libc](https://pkg.go.dev/modernc.org/libc) | v1.80.1 | BSD-3-Clause | `go.mod` | [L4](#L4) |
 | [modernc.org/mathutil](https://pkg.go.dev/modernc.org/mathutil) | v1.7.1 | BSD-3-Clause | modernc.org/fileutil, modernc.org/libc, modernc.org/memory, `go.mod` | [L4](#L4) |
 | [modernc.org/memory](https://pkg.go.dev/modernc.org/memory) | v1.12.1 | BSD-3-Clause, attribution reference | modernc.org/libc, `go.mod` | [L4](#L4), [L2](#L2), [L5](#L5), [L6](#L6) |
 | [musl libc](https://musl.libc.org/) | -- | MIT | modernc.org/libc | [N1](#N1) |
 | [NixOS/nixpkgs](https://github.com/NixOS/nixpkgs) | -- | MIT | modernc.org/libc | [N1](#N1) |
-| [SQLite](https://sqlite.org/) | 3.53.4 | public domain | transpiled into `lib/` | [L7](#L7) |
+| [SQLite](https://sqlite.org/) | 3.54.1 | public domain | transpiled into `lib/` | [L7](#L7) |
 | [sqlite-vec](https://github.com/asg017/sqlite-vec) | v0.1.9 | MIT | transpiled into `vec/` | [L8](#L8) |
 | [SQLite `test_demovfs.c`](https://www.sqlite.org/src/doc/trunk/src/test_demovfs.c) | -- | public domain | `vfs/c/vfs.c`, transpiled into `vfs/` | [L7](#L7) |
 
@@ -2206,7 +2211,7 @@ not reach a program that imports `modernc.org/sqlite`.
 
 | Component | Version | License | Reached via | Text |
 | --- | --- | --- | --- | --- |
-| [github.com/google/pprof](https://pkg.go.dev/github.com/google/pprof) | v0.0.0-20260802141513-ef3492d7dac3 | Apache-2.0, BSD-3-Clause | `go.mod` | [L9](#L9), [L10](#L10) |
+| [github.com/google/pprof](https://pkg.go.dev/github.com/google/pprof) | v0.0.0-20261016150608-1facf8f91b50 | Apache-2.0, BSD-3-Clause | `go.mod` | [L9](#L9), [L10](#L10) |
 | [modernc.org/fileutil](https://pkg.go.dev/modernc.org/fileutil) | v1.4.0 | BSD-3-Clause | modernc.org/libc, `go.mod` | [L4](#L4), [L11](#L11) |
 
 ## 3. Components in the module graph, not compiled into anything
@@ -2227,14 +2232,14 @@ this one.
 | [github.com/hashicorp/golang-lru/v2](https://pkg.go.dev/github.com/hashicorp/golang-lru/v2) | v2.0.7 | MPL-2.0, BSD-3-Clause | modernc.org/libc | [L13](#L13), [L14](#L14) |
 | [github.com/ianlancetaylor/demangle](https://pkg.go.dev/github.com/ianlancetaylor/demangle) | v0.0.0-20250417193237-f615e6bd150b | BSD-3-Clause | github.com/google/pprof | [L2](#L2) |
 | [github.com/mattn/go-isatty](https://pkg.go.dev/github.com/mattn/go-isatty) | v0.0.24 | MIT | modernc.org/libc, `go.mod` | [L15](#L15) |
-| [github.com/ncruces/go-strftime](https://pkg.go.dev/github.com/ncruces/go-strftime) | v1.0.0 | MIT | modernc.org/libc, `go.mod` | [L8](#L8) |
-| [golang.org/x/mod](https://pkg.go.dev/golang.org/x/mod) | v0.41.0 | BSD-3-Clause | modernc.org/libc | [L3](#L3) |
-| [golang.org/x/sync](https://pkg.go.dev/golang.org/x/sync) | v0.23.0 | BSD-3-Clause | modernc.org/libc | [L3](#L3) |
-| [golang.org/x/tools](https://pkg.go.dev/golang.org/x/tools) | v0.50.0 | BSD-3-Clause | modernc.org/libc | [L3](#L3) |
-| [modernc.org/cc/v4](https://pkg.go.dev/modernc.org/cc/v4) | v4.29.7 | BSD-3-Clause | modernc.org/libc | [L4](#L4) |
-| [modernc.org/ccgo/v4](https://pkg.go.dev/modernc.org/ccgo/v4) | v4.36.1 | BSD-3-Clause | modernc.org/libc | [L4](#L4) |
+| [github.com/ncruces/go-strftime](https://pkg.go.dev/github.com/ncruces/go-strftime) | v1.1.0 | MIT | modernc.org/libc, `go.mod` | [L8](#L8) |
+| [golang.org/x/mod](https://pkg.go.dev/golang.org/x/mod) | v0.42.0 | BSD-3-Clause | modernc.org/libc | [L3](#L3) |
+| [golang.org/x/sync](https://pkg.go.dev/golang.org/x/sync) | v0.24.0 | BSD-3-Clause | modernc.org/libc | [L3](#L3) |
+| [golang.org/x/tools](https://pkg.go.dev/golang.org/x/tools) | v0.52.0 | BSD-3-Clause | modernc.org/libc | [L3](#L3) |
+| [modernc.org/cc/v4](https://pkg.go.dev/modernc.org/cc/v4) | v4.30.6-0.20261101114202-1b9d1a076f6b | BSD-3-Clause | modernc.org/libc | [L4](#L4) |
+| [modernc.org/ccgo/v4](https://pkg.go.dev/modernc.org/ccgo/v4) | v4.38.1 | BSD-3-Clause | modernc.org/libc | [L4](#L4) |
 | [modernc.org/gc/v2](https://pkg.go.dev/modernc.org/gc/v2) | v2.6.5 | BSD-3-Clause | modernc.org/libc | [L16](#L16) |
-| [modernc.org/gc/v3](https://pkg.go.dev/modernc.org/gc/v3) | v3.1.5 | BSD-3-Clause | modernc.org/libc | [L16](#L16) |
+| [modernc.org/gc/v3](https://pkg.go.dev/modernc.org/gc/v3) | v3.2.0 | BSD-3-Clause | modernc.org/libc | [L16](#L16) |
 | [modernc.org/goabi0](https://pkg.go.dev/modernc.org/goabi0) | v0.2.0 | BSD-3-Clause | modernc.org/libc | [L17](#L17) |
 | [modernc.org/opt](https://pkg.go.dev/modernc.org/opt) | v0.2.0 | BSD-3-Clause | modernc.org/libc | [L4](#L4) |
 | [modernc.org/sortutil](https://pkg.go.dev/modernc.org/sortutil) | v1.2.1 | BSD-3-Clause | modernc.org/libc | [L4](#L4) |
@@ -2493,7 +2498,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 Applies to:
 
-- SQLite 3.53.4 (`LICENSE-SQLITE`)
+- SQLite 3.54.1 (`LICENSE-SQLITE`)
 - SQLite `test_demovfs.c`
 - SQLite test suite (`testdata/`)
 

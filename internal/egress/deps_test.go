@@ -25,6 +25,7 @@ var networkDeps = []struct {
 	{"github.com/graphvein/graphvein/internal/gitref", "os/exec: local git with protocol.allow=never and GIT_NO_LAZY_FETCH=1 (ADR 0056)", nil},
 	{"github.com/graphvein/graphvein/internal/server", "net/http: serves on an egress.ListenLoopback listener; no client", nil},
 	{"github.com/jackc/pgx/v5/pgconn", "net, crypto/tls: dials only through Config.DialFunc/LookupFunc, which egress installs", nil},
+	{"github.com/jackc/pgx/v5/pgconn/internal/bgreader", "net: the net.Error interface to recognise read timeouts on a connection pgconn already holds, no dial", nil},
 	{"github.com/jackc/pgx/v5/pgtype", "net: value types for inet/cidr columns only", nil},
 	{"github.com/tetratelabs/wazero", "net: socket support only with an explicit experimental sock config, never configured", nil},
 	{"github.com/tetratelabs/wazero/internal/sock", "net: as above", nil},

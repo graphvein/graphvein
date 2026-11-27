@@ -122,7 +122,7 @@
     {
       "code": "unresolved_calls",
       "file": "function-expression/transport.ts",
-      "message": "1 calls could not be resolved without a type checker (external=0, unknown=1)",
+      "message": "1 calls could not be resolved without a type checker (external=1, unknown=0)",
       "severity": "info",
       "type": "diagnostic"
     },
@@ -7679,20 +7679,9 @@
     {
       "attributes": {
         "precision": "precise",
-        "unresolved_calls_external": 0,
-        "unresolved_calls_unknown": 1,
-        "unresolved_unknown_call_sites": [
-          {
-            "caller": "function:function-expression/transport.ts#apiFetch",
-            "name": null,
-            "span": {
-              "end_column": 54,
-              "end_line": 2,
-              "start_column": 19,
-              "start_line": 2
-            }
-          }
-        ]
+        "unresolved_calls_external": 1,
+        "unresolved_calls_unknown": 0,
+        "unresolved_unknown_call_sites": []
       },
       "content_hash": "sha256:762b6255594adcd1934455d9538df14ad0ea0cb076679094109991dd9bb2b933",
       "file": "function-expression/transport.ts",

@@ -59,6 +59,14 @@ describe("try-it builder (T029 part B)", () => {
     expect(curlCommand(prepared(), env(), { ...req, body: "it's" })).toContain(`'it'"'"'s'`);
   });
 
+  it("escapes what the shell reads inside the double-quoted auth header", () => {
+    // A configured header name may hold $ and ` (RFC 9110 token) and a
+    // prefix any of \ " $ `: none of them may run when the copy is pasted.
+    const req = { headers: [], body: null, contentType: "", multipart: null };
+    const text = curlCommand(prepared({ authHeader: "X-$(id)`id`" }), env({ auth: { header: "X-$(id)`id`", env: "API_TOKEN", envSet: true, prefix: 'Tok "$(id)" `id` \\', sessionValue: false } }), req);
+    expect(text).toContain('-H "X-\\$(id)\\`id\\`: Tok \\"\\$(id)\\" \\`id\\` \\\\$API_TOKEN"');
+  });
+
   it("re-indents JSON token for token and leaves other text as received", () => {
     expect(prettyBody('{"a":[1]}', "application/json")).toEqual({ text: '{\n  "a": [\n    1\n  ]\n}', json: true, indented: true, note: null, duplicateKeys: [] });
     expect(prettyBody("<b>hi</b>", "text/html")).toEqual({ text: "<b>hi</b>", json: false, indented: false, note: null, duplicateKeys: [] });

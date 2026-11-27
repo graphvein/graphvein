@@ -4010,7 +4010,7 @@ For `id=route:backend.ts#GET%20%2Ft015b-requests` and `context=1` on the
 | `missing` | the file or a directory on its path does not exist, or a path component is a file | no | no |
 | `not_regular` | a path component under the root is a symlink (even one that stays inside the root), a component is not a directory, the file is not a regular file, or the path would leave the root | no | no |
 | `too_large` | the file is larger than 4 MiB (checked before and while reading) | no | no |
-| `binary` | the file contains a NUL byte or is not valid UTF-8 (the scanner would not index it) | no | no |
+| `binary` | the file contains a NUL byte (except a Rust file the scanner reads as source: valid UTF-8 with at most 8 NUL bytes, or one per KiB) or is not valid UTF-8 (the scanner would not index it) | no | no |
 | `unreadable` | any other open, stat or read error; `reason` holds the message | no | no |
 | `no_location` | a synthetic node (`file` `.`) or a node without span | no | no |
 | `not_indexed` | the node's file is not a stored file or not a valid contract path (a store inconsistency; nothing is read) | no | no |

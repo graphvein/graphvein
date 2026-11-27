@@ -26,6 +26,11 @@ var structureExtraFiles = map[string]string{
 	// `hidden`; Graphvein reads it as a line end. Row RS-F3: nothing beyond
 	// the file, counted lone_cr.
 	"app/src/lonecr.rs": "// note\rpub fn hidden() {}\npub fn visible() {}\n",
+	// Raw NUL bytes in a block comment and a byte string, which Rust
+	// allows: the scanner reads the file as source (scan.SourceWithNUL) and
+	// RS-D1 claims. (tree-sitter-rust reports an error on a NUL in a line
+	// comment or a character literal: such a file is RS-F2.)
+	"app/src/nul.rs": "/* a NUL: \x00 */\npub fn nul() -> &'static [u8] { b\"U3D\x00rest\" }\n",
 }
 
 // writeStructureExtraFiles writes structureExtraFiles below root.
@@ -80,6 +85,8 @@ func runStructure(t *testing.T, root string) *structureRun {
 		}
 	}
 	options := parse.Options{Workers: 4, CacheDir: filepath.Join(t.TempDir(), "cache")}
+	var recoveries []*Recovery
+	var recovered []string
 	err = parse.Consume(context.Background(), jobs, options, func(i int, r parse.Result) {
 		if r.Err != nil {
 			t.Errorf("parsing %s: %v", paths[i], r.Err)
@@ -89,9 +96,24 @@ func runStructure(t *testing.T, root string) *structureRun {
 		if loneCR[paths[i]] || r.SyntaxError {
 			extracted = Refuse(extracted, loneCR[paths[i]])
 		}
+		if !loneCR[paths[i]] && r.SyntaxError {
+			if rec := PatternAttributes(r.Root, sources[paths[i]]); rec != nil {
+				recoveries = append(recoveries, rec)
+				recovered = append(recovered, paths[i])
+			}
+		}
 		run.files[paths[i]] = extracted
 	})
 	if err != nil {
+		t.Fatal(err)
+	}
+	// Row RS-F4, after every first tree is released, as internal/index does.
+	pipeline := func(ctx context.Context, jobs []parse.Job, consume func(int, parse.Result)) error {
+		return parse.Consume(ctx, jobs, options, consume)
+	}
+	if err := Recover(context.Background(), recoveries, pipeline, func(i int, root *parse.Node) {
+		run.files[recovered[i]] = Extract(recovered[i], sources[recovered[i]], root)
+	}); err != nil {
 		t.Fatal(err)
 	}
 	_, edges, diagnostics := Link(run.files, sources)

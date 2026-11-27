@@ -6,6 +6,7 @@ import (
 	"os/exec"
 	"path/filepath"
 	"reflect"
+	"strings"
 	"testing"
 )
 
@@ -201,5 +202,48 @@ func TestDeliberateSkip(t *testing.T) {
 		if DeliberateSkip(code) {
 			t.Errorf("%s is a deliberate skip", code)
 		}
+	}
+}
+
+// TestRustSourceWithNUL checks the NUL exception of the binary rule: a Rust
+// file holding a few raw NUL bytes (legal inside literals and comments) is
+// read as source, while a Rust file made mostly of NUL bytes, a non-UTF-8
+// one, and files of other languages with a NUL stay skipped as binary.
+func TestRustSourceWithNUL(t *testing.T) {
+	root := t.TempDir()
+	dense := "fn f() {}\n" + strings.Repeat("\x00", 64)
+	files := map[string]string{
+		"lit.rs":    "#[test]\nfn t() { assert_eq!(b\"BM\x00\x00\".len(), 4); }\n",
+		"dense.rs":  dense,
+		"latin.rs":  "fn f() { let _ = b\"\x00\"; } // \xe9\n",
+		"script.py": "x = '\x00'\n",
+		"main.go":   "package main\n// \x00\n",
+	}
+	for p, s := range files {
+		if err := os.WriteFile(filepath.Join(root, p), []byte(s), 0o644); err != nil {
+			t.Fatal(err)
+		}
+	}
+	result, err := Walk(context.Background(), root)
+	if err != nil {
+		t.Fatal(err)
+	}
+	var read []string
+	for _, f := range result.Files {
+		read = append(read, f.Record.Path)
+		if f.Record.Path == "lit.rs" && (f.Record.Language != "rust" || string(f.Source) != files["lit.rs"]) {
+			t.Errorf("lit.rs read as %q with source %q", f.Record.Language, f.Source)
+		}
+	}
+	if !reflect.DeepEqual(read, []string{"lit.rs"}) {
+		t.Errorf("read %v, want [lit.rs]", read)
+	}
+	records := map[string]string{}
+	for _, d := range result.Diagnostics {
+		records[d.File] = d.Code
+	}
+	want := map[string]string{"dense.rs": "file_binary", "latin.rs": "file_binary", "script.py": "file_binary", "main.go": "file_binary"}
+	if !reflect.DeepEqual(records, want) {
+		t.Errorf("records %v, want %v", records, want)
 	}
 }
