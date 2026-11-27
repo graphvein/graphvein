@@ -167,10 +167,14 @@ done
 if bash "$src/dependabot-triage.sh" merge "$t/list.json" > "$t/out.txt" 2>&1; then fail "bad mode accepted"; fi
 
 # The committed list is well formed, names existing directories, and each
-# has its ignore entry in docs/public/dependabot.yml.
+# has its ignore entry in the Dependabot configuration: docs/public/
+# dependabot.yml in the maintainer's working repository, .github/
+# dependabot.yml in the public repository (the snapshot moves it).
 rm -f "$t"/api/*.json
 bash "$src/dependabot-triage.sh" list "$root/.github/dependabot-pinned.json" > "$t/out.txt" 2>&1 || fail "committed list rejected"
 yml=$root/docs/public/dependabot.yml
+[ -f "$yml" ] || yml=$root/.github/dependabot.yml
+[ -f "$yml" ] || fail "no dependabot.yml in docs/public/ or .github/"
 jq -r '.[] | [.directory, .ecosystem] | @tsv' "$root/.github/dependabot-pinned.json" | tr -d '\r' > "$t/committed.tsv"
 while IFS=$(printf '\t') read -r d eco; do
   [ -d "$root/$d" ] || fail "committed list names a missing directory: $d"
@@ -180,7 +184,7 @@ while IFS=$(printf '\t') read -r d eco; do
     /^  - package-ecosystem: / { e = ($3 == eco); d = 0; next }
     e && $1 == "directory:" && $2 == dir { d = 1; next }
     e && d && /dependency-name: "\*"/ { found = 1 }
-    END { exit found ? 0 : 1 }' "$yml" || fail "docs/public/dependabot.yml has no $eco ignore entry for /$d"
+    END { exit found ? 0 : 1 }' "$yml" || fail "${yml#$root/} has no $eco ignore entry for /$d"
 done < "$t/committed.tsv"
 
 echo "test-dependabot-triage: ok"
