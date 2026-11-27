@@ -30,6 +30,7 @@ filter cannot depend on the repository):
 | `release.yml` (Release) | push of a `v*` tag, manual dispatch on a `v*` tag (release) or on a branch (dry run) |
 | `tag.yml` (Tag release) | manual dispatch only: creates a `v*` tag on a commit of `main` and dispatches `release.yml` on it |
 | `codeql-triage.yml` (Code scanning triage) | manual dispatch only: lists the open code scanning alerts, or dismisses those matching the reviewed list `.github/codeql-dismissals.json` (rule, exact path, reason, comment); alerts without an entry stay open |
+| `dependabot-triage.yml` (Dependabot triage) | daily schedule (close mode) and manual dispatch (list mode by default): closes, with one comment of reviewed reasons, the Dependabot pull requests that change only the pinned directories of `.github/dependabot-pinned.json`; every other pull request stays open |
 
 No workflow but the release starts on a tag (Tag release only creates one), and none starts on a push to
 another branch. A branch with an open pull request is therefore tested
@@ -112,6 +113,23 @@ so the maintainer's working repository keeps the file as
 (`scripts/public-snapshot.sh`, and the export's tree built the same way)
 places it at `.github/dependabot.yml`; the import refuses a change to
 either path, which goes into `docs/public/dependabot.yml` by hand.
+
+**Pinned oracle directories.** Some oracle tooling under `scripts/oracle/`
+is pinned on purpose to the versions a test corpus or a fixture uses (for
+example `next` 14.1.0 and 16.2.10). `.github/dependabot-pinned.json` lists
+each such directory with its ecosystem and a public reason, and
+`.github/dependabot.yml` has an entry per directory with `ignore:
+dependency-name: "*"`, which stops both version updates and
+security-update pull requests there (alerts stay). The Dependabot triage
+workflow (`.github/workflows/dependabot-triage.yml`,
+`scripts/dependabot-triage.sh`, tested offline with a mock `gh` by
+`scripts/test-dependabot-triage.sh`) is the backstop: a pull request by
+`dependabot[bot]` whose every changed file is inside a listed directory
+gets one comment from `github-actions[bot]` with the reasons and is
+closed. It never merges, never deletes a branch, and leaves untouched any
+pull request by someone else, with a file outside the listed directories,
+or already carrying its comment. Its permissions are `contents: read` and
+`pull-requests: write`, with the workflow's `GITHUB_TOKEN`.
 
 ## `scripts/ci-changes.sh` and its offline test
 
