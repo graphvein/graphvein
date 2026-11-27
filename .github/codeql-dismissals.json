@@ -1,0 +1,158 @@
+[
+  {
+    "rule": "go/allocation-size-overflow",
+    "path": "internal/server/manifestdiff.go",
+    "reason": "false positive",
+    "comment": "False positive: line counts are bounded by the request body (maxConfigEditBody, maxManifestSize in internal/server/settings.go:366,385); the LCS table is allocated only when (len+1)*(len+1) <= diffCells (manifestdiff.go:138)"
+  },
+  {
+    "rule": "go/command-injection",
+    "path": "internal/scan/git.go",
+    "reason": "false positive",
+    "comment": "False positive: exec without a shell and with fixed argv; a ref starting with - or holding NUL/newline is refused and is passed after --end-of-options (internal/gitref/gitref.go:66-74)"
+  },
+  {
+    "rule": "go/disabled-certificate-check",
+    "path": "internal/egress/tryit.go",
+    "reason": "false positive",
+    "comment": "False positive: InsecureSkipVerify only disables Go's built-in check; VerifyConnection (internal/egress/tryit.go:135-153) verifies every chain with x509 Verify against the roots and DNSName, and accepts only pinned SHA-256 fingerprints in addition"
+  },
+  {
+    "rule": "go/incorrect-integer-conversion",
+    "path": "internal/config/tryit_options.go",
+    "reason": "false positive",
+    "comment": "False positive: x is checked 1 <= x <= MaxTimeoutSeconds before int(x) (internal/config/tryit_options.go:275)"
+  },
+  {
+    "rule": "go/incorrect-integer-conversion",
+    "path": "internal/extract/models/diesel/lexer.go",
+    "reason": "false positive",
+    "comment": "False positive: ParseUint(...,32) to rune: values >= 2^31 become negative runes, which utf8.ValidRune rejects on the next line; no value maps to a different valid rune"
+  },
+  {
+    "rule": "go/incorrect-integer-conversion",
+    "path": "internal/extract/schema/lexer.go",
+    "reason": "false positive",
+    "comment": "False positive: at most 6 hex digits (width 4 or 6), so the value is below 2^24 and fits int32"
+  },
+  {
+    "rule": "go/incorrect-integer-conversion",
+    "path": "internal/extract/tableaccess/prisma.go",
+    "reason": "false positive",
+    "comment": "False positive: ParseUint(...,32) to rune: an out-of-range value becomes an invalid rune, which string() turns into U+FFFD; no value maps to a different valid character"
+  },
+  {
+    "rule": "go/incorrect-integer-conversion",
+    "path": "internal/lang/python/syntax.go",
+    "reason": "false positive",
+    "comment": "False positive: ParseUint(...,32) to rune: values >= 2^31 become negative runes, which utf8.ValidRune rejects on the next line; no value maps to a different valid rune"
+  },
+  {
+    "rule": "go/incorrect-integer-conversion",
+    "path": "internal/lang/python/toml.go",
+    "reason": "false positive",
+    "comment": "False positive: ParseUint(...,32) to rune: values >= 2^31 become negative runes, which utf8.ValidRune rejects on the next line; no value maps to a different valid rune"
+  },
+  {
+    "rule": "go/incorrect-integer-conversion",
+    "path": "internal/lang/rust/manifest.go",
+    "reason": "false positive",
+    "comment": "False positive: ParseUint(...,32) to rune: values >= 2^31 become negative runes, which utf8.ValidRune rejects on the next line; no value maps to a different valid rune"
+  },
+  {
+    "rule": "go/incorrect-integer-conversion",
+    "path": "internal/lang/rust/syntax.go",
+    "reason": "false positive",
+    "comment": "False positive: ParseUint(...,32) to rune: values >= 2^31 become negative runes, which utf8.ValidRune rejects on the next line; no value maps to a different valid rune"
+  },
+  {
+    "rule": "go/incorrect-integer-conversion",
+    "path": "internal/server/schema.go",
+    "reason": "false positive",
+    "comment": "False positive: int64 to int: every release target is 64-bit (scripts/release/main.go:41-46), so int is 64 bits and the conversion is exact; the values are line numbers and counts the indexer stored"
+  },
+  {
+    "rule": "go/incorrect-integer-conversion",
+    "path": "internal/server/schemamodels.go",
+    "reason": "false positive",
+    "comment": "False positive: int64 to int: every release target is 64-bit (scripts/release/main.go:41-46), so int is 64 bits and the conversion is exact; the values are line numbers and counts the indexer stored"
+  },
+  {
+    "rule": "go/incorrect-integer-conversion",
+    "path": "internal/server/shapelinks.go",
+    "reason": "false positive",
+    "comment": "False positive: int64 to int: every release target is 64-bit (scripts/release/main.go:41-46), so int is 64 bits and the conversion is exact; the values are line numbers and counts the indexer stored"
+  },
+  {
+    "rule": "go/incorrect-integer-conversion",
+    "path": "testdata/fixtures/go-shape/ginapp/handlers.go",
+    "reason": "used in tests",
+    "comment": "Used in tests: fixture input for Graphvein's extractor tests (deliberately varied, sometimes broken, code); never executed by Graphvein"
+  },
+  {
+    "rule": "go/path-injection",
+    "path": "internal/config/config.go",
+    "reason": "false positive",
+    "comment": "False positive: the path is the folder the local user enters, which is the feature; the endpoint accepts it only from a loopback peer with the session token, resolves it and refuses system, home, config and store folders (internal/server/workspace_paths.go)."
+  },
+  {
+    "rule": "go/path-injection",
+    "path": "internal/config/project.go",
+    "reason": "false positive",
+    "comment": "False positive: the path is the folder the local user enters, which is the feature; the endpoint accepts it only from a loopback peer with the session token, resolves it and refuses system, home, config and store folders (internal/server/workspace_paths.go)."
+  },
+  {
+    "rule": "go/path-injection",
+    "path": "internal/server/manifest.go",
+    "reason": "false positive",
+    "comment": "False positive: manifest edits are accepted only from a loopback peer with the session token (internal/server/manifest.go:465-470); the scope folder is resolved with EvalSymlinks and must stay inside the member checkout; the sinks only stat and list it."
+  },
+  {
+    "rule": "go/path-injection",
+    "path": "internal/server/workspace_paths.go",
+    "reason": "false positive",
+    "comment": "False positive: the path is the folder the local user enters, which is the feature; the endpoint accepts it only from a loopback peer with the session token, resolves it and refuses system, home, config and store folders (internal/server/workspace_paths.go)."
+  },
+  {
+    "rule": "go/path-injection",
+    "path": "internal/server/workspace_shared.go",
+    "reason": "false positive",
+    "comment": "False positive: the path is the folder the local user enters, which is the feature; the endpoint accepts it only from a loopback peer with the session token, resolves it and refuses system, home, config and store folders (internal/server/workspace_paths.go)."
+  },
+  {
+    "rule": "go/path-injection",
+    "path": "internal/workspace/path.go",
+    "reason": "false positive",
+    "comment": "False positive: the path is the folder the local user enters, which is the feature; the endpoint accepts it only from a loopback peer with the session token, resolves it and refuses system, home, config and store folders (internal/server/workspace_paths.go)."
+  },
+  {
+    "rule": "js/clear-text-cookie",
+    "path": "testdata/fixtures/route-shape-security/express/app.js",
+    "reason": "used in tests",
+    "comment": "Used in tests: fixture input for Graphvein's extractor tests (deliberately varied, sometimes broken, code); never executed by Graphvein"
+  },
+  {
+    "rule": "js/incomplete-sanitization",
+    "path": "web/src/sections/explorer/ExplorerSection.test.tsx",
+    "reason": "used in tests",
+    "comment": "Used in tests: test file assertion code"
+  },
+  {
+    "rule": "js/incomplete-sanitization",
+    "path": "web/src/sections/help/HelpSection.test.tsx",
+    "reason": "used in tests",
+    "comment": "Used in tests: test file assertion code"
+  },
+  {
+    "rule": "js/missing-rate-limiting",
+    "path": "testdata/fixtures/express-shape/src/routes.ts",
+    "reason": "used in tests",
+    "comment": "Used in tests: fixture input for Graphvein's extractor tests (deliberately varied, sometimes broken, code); never executed by Graphvein"
+  },
+  {
+    "rule": "js/reflected-xss",
+    "path": "testdata/fixtures/express-shape/src/handlers.ts",
+    "reason": "used in tests",
+    "comment": "Used in tests: fixture input for Graphvein's extractor tests (deliberately varied, sometimes broken, code); never executed by Graphvein"
+  }
+]

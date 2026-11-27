@@ -9,6 +9,13 @@ Unreleased.
 
 ## [Unreleased]
 
+### Added
+
+- A Code scanning triage workflow, started by hand: it lists the open
+  code scanning alerts, or dismisses the ones matching the reviewed list
+  in `.github/codeql-dismissals.json` (rule, exact file, reason and the
+  comment saying why); an alert without an entry stays open.
+
 ## [0.1.2] - 2026-11-27
 
 ### Changed
