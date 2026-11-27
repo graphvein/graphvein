@@ -40,12 +40,13 @@ if ! jq -e 'type == "array" and all(.[];
   echo "codeql-triage: $list has an entry without rule, path, a valid reason or a comment of 1-280 characters" >&2
   exit 1
 fi
-jq -r '.[] | [.rule, .path, .reason, .comment] | @tsv' "$list" > "$tmp/entries.tsv"
+# jq and gh on Windows end lines with CRLF; the carriage returns are dropped.
+jq -r '.[] | [.rule, .path, .reason, .comment] | @tsv' "$list" | tr -d '\r' > "$tmp/entries.tsv"
 
 # Open alerts, one per line: number TAB rule TAB path TAB line.
 gh api --paginate "repos/$repo/code-scanning/alerts?state=open&per_page=100" \
   --jq '.[] | [.number, .rule.id, .most_recent_instance.location.path, .most_recent_instance.location.start_line] | @tsv' \
-  > "$tmp/alerts.tsv"
+  | tr -d '\r' > "$tmp/alerts.tsv"
 
 total=0
 matched=0

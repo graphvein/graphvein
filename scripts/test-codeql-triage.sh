@@ -84,7 +84,7 @@ if bash "$src/codeql-triage.sh" frobnicate "$t/list.json" > "$t/out.txt" 2>&1; t
 # The committed list is well formed and names files that exist.
 : > "$t/alerts.tsv"
 bash "$src/codeql-triage.sh" list "$root/.github/codeql-dismissals.json" > "$t/out.txt" 2>&1 || fail "committed list rejected"
-missing=$(jq -r '.[].path' "$root/.github/codeql-dismissals.json" | while read -r p; do [ -f "$root/$p" ] || echo "$p"; done)
+missing=$(jq -r '.[].path' "$root/.github/codeql-dismissals.json" | tr -d '\r' | while read -r p; do [ -f "$root/$p" ] || echo "$p"; done)
 [ -z "$missing" ] || fail "committed list names missing files: $missing"
 
 echo "test-codeql-triage: ok"
