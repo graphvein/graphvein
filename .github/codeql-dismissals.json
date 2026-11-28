@@ -154,5 +154,23 @@
     "path": "testdata/fixtures/express-shape/src/handlers.ts",
     "reason": "used in tests",
     "comment": "Used in tests: fixture input for Graphvein's extractor tests (deliberately varied, sometimes broken, code); never executed by Graphvein"
+  },
+  {
+    "rule": "go/path-injection",
+    "path": "internal/storeloc/move.go",
+    "reason": "false positive",
+    "comment": "False positive: the path is the folder the local user types to keep or move an index, which is the feature; it comes only from a loopback peer with the session token, is absolute, links resolved, and refused for system, home, .git and registered folders (ADR 0093)."
+  },
+  {
+    "rule": "go/path-injection",
+    "path": "internal/storeloc/storeloc.go",
+    "reason": "false positive",
+    "comment": "False positive: the path is the folder the local user types to keep or move an index, which is the feature; it comes only from a loopback peer with the session token, is absolute, links resolved, and refused for system, home, .git and registered folders (ADR 0093)."
+  },
+  {
+    "rule": "go/path-injection",
+    "path": "internal/server/workspace_store.go",
+    "reason": "false positive",
+    "comment": "False positive: the path is the folder the local user types to keep or move an index, which is the feature; it comes only from a loopback peer with the session token, is absolute, links resolved, and refused for system, home, .git and registered folders (ADR 0093)."
   }
 ]
