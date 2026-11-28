@@ -3,6 +3,7 @@ package storeloc
 import (
 	"context"
 	"errors"
+	"fmt"
 	"os"
 	"path/filepath"
 	"runtime"
@@ -414,6 +415,134 @@ func TestMoveRefusals(t *testing.T) {
 	f.env[EnvPostgres] = "postgres://example.invalid/db"
 	if _, err := f.r.PlanMove(f.folder, t.TempDir(), nil); err == nil || !strings.Contains(err.Error(), "team mode") {
 		t.Fatalf("Postgres: %v", err)
+	}
+}
+
+// TestRefusalsThroughALink: the refusals hold when the paths reach their
+// folders through a symbolic link, with the registered folders, the data
+// folder and the typed destination each spelled through the link or
+// resolved (on macOS every temporary folder is such a path: /var/folders
+// is a link to /private/var/folders).
+func TestRefusalsThroughALink(t *testing.T) {
+	real := t.TempDir()
+	link := filepath.Join(t.TempDir(), "link")
+	if err := os.Symlink(real, link); err != nil {
+		t.Skipf("symbolic links are not available: %v", err)
+	}
+	resolvedReal, err := workspace.Resolve(real)
+	if err != nil {
+		t.Fatal(err)
+	}
+	env := map[string]string{}
+	r := &Resolver{
+		Getenv:     func(k string) string { return env[k] },
+		StoresFile: filepath.Join(link, "config", StoresFileName),
+		DataDir:    filepath.Join(link, "data"),
+	}
+	for _, dir := range []string{"src/demo", "other", "dest"} {
+		if err := os.MkdirAll(filepath.Join(real, filepath.FromSlash(dir)), 0o755); err != nil {
+			t.Fatal(err)
+		}
+	}
+	folder := filepath.Join(link, "src", "demo")
+	loc, err := r.Resolve(folder, Scope{})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if err := loc.Prepare(); err != nil {
+		t.Fatal(err)
+	}
+	newStore(t, loc.Path)
+	stores := filepath.Join(r.DataDir, "graphvein", "stores")
+	viaLink := []string{filepath.Join(link, "other")}
+	resolved := []string{filepath.Join(resolvedReal, "other")}
+	code := func(err error) string {
+		var refusal *RefusalError
+		if errors.As(err, &refusal) {
+			return refusal.Code
+		}
+		return fmt.Sprint(err)
+	}
+	for _, tc := range []struct {
+		name       string
+		dest       string
+		registered []string
+		want       string
+	}{
+		{"registered through the link", filepath.Join(link, "other", "x"), viaLink, "inside_registered"},
+		{"registered resolved, typed through the link", filepath.Join(link, "other", "x"), resolved, "inside_registered"},
+		{"registered through the link, typed resolved", filepath.Join(resolvedReal, "other", "x"), viaLink, "inside_registered"},
+		{"the registered folder itself", filepath.Join(resolvedReal, "other"), viaLink, "inside_registered"},
+		{"the indexed folder through the link", filepath.Join(link, "src", "demo", "sub"), nil, "inside_folder"},
+		{"its own place, typed resolved", filepath.Join(resolvedReal, "data", "graphvein", "stores"), nil, "same_place"},
+		{"its own place through the link", stores, nil, "same_place"},
+		{"a .git folder through the link", filepath.Join(link, "dest", ".git", "x"), nil, "inside_git"},
+	} {
+		if _, err := r.PlanMove(folder, tc.dest, tc.registered); code(err) != tc.want {
+			t.Errorf("%s (%s): got %s, want %s", tc.name, tc.dest, code(err), tc.want)
+		}
+	}
+	if err := CheckStoresDir(filepath.Join(resolvedReal, "other", "keep"), viaLink); code(err) != "inside_registered" {
+		t.Errorf("stores folder inside a registered folder: %v", err)
+	}
+	if err := CheckStoresDir(filepath.Join(link, "other", "keep"), resolved); code(err) != "inside_registered" {
+		t.Errorf("stores folder through the link inside a registered folder: %v", err)
+	}
+	// A destination outside every registered folder is accepted.
+	if _, err := r.PlanMove(folder, filepath.Join(link, "dest"), viaLink); err != nil {
+		t.Errorf("outside the registered folders: %v", err)
+	}
+	if !SamePath(stores, filepath.Join(resolvedReal, "data", "graphvein", "stores")) || SamePath(stores, filepath.Join(resolvedReal, "dest")) {
+		t.Errorf("SamePath through the link")
+	}
+	if !InsidePath(filepath.Join(link, "other", "new", "x"), filepath.Join(resolvedReal, "other")) || InsidePath(filepath.Join(link, "dest"), filepath.Join(link, "other")) {
+		t.Errorf("InsidePath through the link")
+	}
+}
+
+// TestSamePathComparison checks the comparison behind the refusals with a
+// resolution of its own, so it means the same on every system: a short
+// or linked spelling and the long or real one are one place, also below
+// the part that exists, and nothing else is.
+func TestSamePathComparison(t *testing.T) {
+	short := filepath.FromSlash("/users/RUNNER~1/temp")
+	long := filepath.FromSlash("/users/runneradmin/temp")
+	resolve := func(p string) string {
+		if p == short || strings.HasPrefix(p, short+string(filepath.Separator)) {
+			return long + p[len(short):]
+		}
+		return p
+	}
+	j := func(base string, parts ...string) string { return filepath.Join(append([]string{base}, parts...)...) }
+	for _, tc := range []struct {
+		a, b         string
+		same, inside bool
+	}{
+		{short, long, true, false},
+		{j(short, "003", "x"), j(long, "003", "x"), true, false},
+		{j(short, "003", "x"), j(long, "003"), false, true},
+		{j(long, "003", "x"), j(short, "003"), false, true},
+		{j(short, "003"), j(long, "003", "x"), false, false},
+		{j(short, "0031"), j(long, "003"), false, false},
+		{j(short, "a"), j(long, "b"), false, false},
+	} {
+		if got := samePathBy(resolve, tc.a, tc.b); got != tc.same {
+			t.Errorf("samePath(%s, %s) = %v", tc.a, tc.b, got)
+		}
+		if got := insidePathBy(resolve, tc.a, tc.b); got != tc.inside {
+			t.Errorf("insidePath(%s, %s) = %v", tc.a, tc.b, got)
+		}
+	}
+	// The real resolution: t.TempDir is the unresolved spelling on macOS
+	// (/var/folders) and may be a short name on Windows; a path below it
+	// that does not exist yet compares by its longest existing ancestor.
+	dir := t.TempDir()
+	resolved, err := workspace.Resolve(dir)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if !SamePath(j(dir, "new", "x"), j(resolved, "new", "x")) || !InsidePath(j(resolved, "new", "x"), dir) || SamePath(j(dir, "new"), j(resolved, "other")) {
+		t.Errorf("%s and %s do not compare as one place", dir, resolved)
 	}
 }
 

@@ -696,7 +696,7 @@ func (s *workspaceServer) checkDefault(dir string) (storeCheckResponse, error) {
 		}
 		change.To = dest
 	}
-	if cur.Path != nil && (*cur.Path == change.To || workspace.SamePath(*cur.Path, change.To)) {
+	if cur.Path != nil && storeloc.SamePath(*cur.Path, change.To) {
 		return refuse("WS-80", "unchanged", "new indexes are already kept in "+change.To)
 	}
 	out.Outcome, out.DefaultDir = outcomeReady, change

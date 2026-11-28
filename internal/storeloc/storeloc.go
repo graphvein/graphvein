@@ -290,7 +290,7 @@ func (r *Resolver) Resolve(folder string, scope Scope) (Location, error) {
 		}
 		dup := false
 		for _, have := range found {
-			if workspace.SamePath(have.path, c.path) {
+			if SamePath(have.path, c.path) {
 				dup = true
 			}
 		}
@@ -355,7 +355,7 @@ func checkOwner(dir, folder string) error {
 	if err != nil || owner == "" {
 		return err
 	}
-	if owner != folder && !workspace.SamePath(owner, folder) {
+	if !SamePath(owner, folder) {
 		return &ForeignStoreError{Folder: folder, Store: dir, Owner: owner}
 	}
 	return nil

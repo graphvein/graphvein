@@ -60,14 +60,14 @@ func (r *Resolver) PlanPlace(folder string, place Place, dir string, registered 
 			return Location{}, err
 		}
 		out.Origin, out.Path = OriginMapped, filepath.Join(dest, key, StoreFile)
-		if cur.StoresDir != "" && workspace.SamePath(filepath.Dir(out.Path), filepath.Join(cur.StoresDir, key)) {
+		if cur.StoresDir != "" && SamePath(filepath.Dir(out.Path), filepath.Join(cur.StoresDir, key)) {
 			out.Origin = OriginDefault
 		}
 	default:
 		return Location{}, fmt.Errorf("unknown place %q", place)
 	}
 	if cur.Exists {
-		if workspace.SamePath(cur.Path, out.Path) {
+		if SamePath(cur.Path, out.Path) {
 			return cur, nil
 		}
 		return Location{}, refuse("store_fixed", "%s already has an index at %s; it stays there (moving it is Settings' Move or graphvein store move)", cur.Folder, cur.Path)

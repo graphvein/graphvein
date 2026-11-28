@@ -92,9 +92,9 @@ func (r *Resolver) PlanMove(folder, destDir string, registered []string) (MovePl
 			return MovePlan{}, err
 		}
 		plan.To = filepath.Join(dest, key, StoreFile)
-		plan.ToDefault = from.StoresDir != "" && workspace.SamePath(filepath.Dir(plan.To), filepath.Join(from.StoresDir, key))
+		plan.ToDefault = from.StoresDir != "" && SamePath(filepath.Dir(plan.To), filepath.Join(from.StoresDir, key))
 	}
-	if workspace.SamePath(plan.To, from.Path) || plan.To == from.Path {
+	if SamePath(plan.To, from.Path) {
 		return MovePlan{}, refuse("same_place", "the index of %s is already at %s", from.Folder, from.Path)
 	}
 	if fileExists(plan.To) {
@@ -126,6 +126,51 @@ func ResolveDest(dest string) (string, error) {
 		}
 		rest = filepath.Join(filepath.Base(p), rest)
 	}
+}
+
+// SamePath reports whether a and b (absolute paths) name one place once
+// the symbolic links of the part of each that exists are resolved, as
+// ResolveDest resolves a typed path. A resolved path and one that is not
+// are then one place: on macOS the temporary folder /var/folders/... is
+// /private/var/folders/..., and a folder reached through a link is the
+// folder itself. The names are compared as workspace.SamePath compares
+// them (on Windows without regard to case).
+func SamePath(a, b string) bool {
+	return samePathBy(resolvedPath, a, b)
+}
+
+// InsidePath reports whether path lies strictly inside dir, both resolved
+// as SamePath resolves them.
+func InsidePath(path, dir string) bool {
+	return insidePathBy(resolvedPath, path, dir)
+}
+
+// samePathBy and insidePathBy are SamePath and InsidePath with the
+// resolution passed in, so a test can check the comparison with a
+// resolution of its own (a Windows short name, a macOS link) on any
+// system.
+func samePathBy(resolve func(string) string, a, b string) bool {
+	if a == b || workspace.SamePath(a, b) {
+		return true
+	}
+	ra, rb := resolve(a), resolve(b)
+	return ra == rb || workspace.SamePath(ra, rb)
+}
+
+func insidePathBy(resolve func(string) string, path, dir string) bool {
+	return workspace.Inside(resolve(path), resolve(dir))
+}
+
+// resolvedPath is ResolveDest of p (links resolved, and on Windows short
+// names such as RUNNER~1 expanded and the case of every existing
+// component made the file system's), or p cleaned when it cannot be made
+// absolute.
+func resolvedPath(p string) string {
+	resolved, err := ResolveDest(p)
+	if err != nil {
+		return filepath.Clean(p)
+	}
+	return resolved
 }
 
 // RefusalError is a destination (or plan) PlanMove, CheckDestination or
@@ -185,7 +230,7 @@ func checkDir(dest, folder string, registered []string) error {
 		return refuse("filesystem_root", "the destination %s is the root of a file system; choose a folder inside it", dest)
 	}
 	if home, err := os.UserHomeDir(); err == nil {
-		if resolved, err := workspace.Resolve(home); err == nil && workspace.SamePath(resolved, dest) {
+		if SamePath(home, dest) {
 			return refuse("home_directory", "the destination %s is the home folder itself; choose a folder inside it", dest)
 		}
 	}
@@ -194,11 +239,11 @@ func checkDir(dest, folder string, registered []string) error {
 			return refuse("inside_git", "the destination %s is inside a .git folder", dest)
 		}
 	}
-	if folder != "" && (workspace.SamePath(dest, folder) || workspace.Inside(dest, folder)) {
+	if folder != "" && (SamePath(dest, folder) || InsidePath(dest, folder)) {
 		return refuse("inside_folder", "the destination %s is inside the indexed folder %s, where its scan and Git would see the index", dest, folder)
 	}
 	for _, other := range registered {
-		if workspace.SamePath(dest, other) || workspace.Inside(dest, other) {
+		if SamePath(dest, other) || InsidePath(dest, other) {
 			return refuse("inside_registered", "the destination %s is inside the workspace folder %s, where its scan and Git would see the index", dest, other)
 		}
 	}

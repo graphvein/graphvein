@@ -268,7 +268,7 @@ describe("ApiSection", () => {
     expect(texts()).not.toMatch(/never called|not called/i);
     expect(within(screen.getByTestId("card-http")).getByText("No linked caller in production")).toBeTruthy();
     expect(screen.getByTestId("strip-http").textContent).toContain("no linked caller in production");
-    expect(screen.getByTestId("strip-http").querySelector('[data-cell="never"]')?.getAttribute("title")).toMatch(new RegExp(`^\\d+ no linked caller in production\\. ${NO_LINKED_CALLER_HINT.replace(/[.;]/g, "\\$&")}$`));
+    expect(screen.getByTestId("strip-http").querySelector('[data-cell="never"]')?.getAttribute("title")).toMatch(new RegExp(`^\\d+ no linked caller in production\\. ${NO_LINKED_CALLER_HINT.replace(/[\\^$.*+?()[\]{}|]/g, "\\$&")}$`));
     // The list's group header counts them; a row says "0 linked" with the
     // sentence in its tooltip (T073).
     expect(screen.getAllByTestId("group-no-caller")[0]?.textContent).toMatch(/^\d+ no linked caller in production$/);

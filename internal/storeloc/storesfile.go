@@ -150,7 +150,7 @@ func (r *Resolver) Assign(folder, storeDir string) error {
 				kept = append(kept, e)
 			}
 		}
-		if dir, _, err := r.storesDir(*f); err != nil || !workspace.SamePath(storeDir, filepath.Join(dir, Key(resolved))) {
+		if dir, _, err := r.storesDir(*f); err != nil || !SamePath(storeDir, filepath.Join(dir, Key(resolved))) {
 			kept = append(kept, StoreEntry{Path: resolved, Store: storeDir})
 		}
 		f.Entries = kept
@@ -179,7 +179,7 @@ func (r *Resolver) SetDefaultDir(dir string) error {
 			return
 		}
 		for _, s := range stores {
-			if s.Origin != OriginDefault || !workspace.SamePath(filepath.Dir(s.Dir()), old) {
+			if s.Origin != OriginDefault || !SamePath(filepath.Dir(s.Dir()), old) {
 				continue
 			}
 			if _, ok := f.entry(s.Folder); !ok {
