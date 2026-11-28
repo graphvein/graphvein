@@ -401,7 +401,7 @@ func modelRoutesOf(p *presenter, class *contract.Node, routes []contract.Node) m
 				positions = append(positions, shapePosition{file: u.Provenance.File, line: u.Provenance.Line})
 			}
 			out.Routes = append(out.Routes, modelRouteEntry{
-				Route: r.Identity, Method: stringAttr(r, "method"), Path: displayPath(objects(r.Attributes["paths"]), scopeProduction),
+				Route: r.Identity, Method: stringAttr(r, "method"), Path: routePath(r, scopeProduction),
 				Pattern: stringAttr(r, "pattern"), Framework: stringAttr(r, "framework"), Scope: r.Attributes["scope"],
 				Model: name, Uses: uses,
 			})

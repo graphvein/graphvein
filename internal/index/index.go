@@ -4,6 +4,7 @@ package index
 import (
 	"context"
 	"encoding/json"
+	"errors"
 	"fmt"
 	"io"
 	"sort"
@@ -47,7 +48,7 @@ import (
 )
 
 // Version invalidates cached facts when any language or asset semantics change.
-const Version = "extractors-63"
+const Version = "extractors-64"
 
 func supported(language string) bool {
 	return language == "typescript" || language == "tsx" || language == "javascript" || language == "go" || language == "python" || language == "rust" || language == "html" || bestEffort(language)
@@ -144,6 +145,12 @@ type Summary struct {
 	// when set, else graphvein.yaml index.shape_depth, else the default.
 	// The extractors store it on every shape they write.
 	ShapeDepth int
+	// ParseFailed counts the files this run could not parse (parse_failed
+	// diagnostics), after the serial retry; ParseTimedOut is those of them
+	// whose parse ran past its deadline even when retried alone. Retried
+	// counts the files the serial retry parsed again, Recovered those it
+	// read (T074).
+	ParseFailed, ParseTimedOut, Retried, Recovered int
 	// Settings are the graphvein.yaml index inputs the run read, from the
 	// same bytes as its configuration, with ShapeDepth as the shape depth
 	// (ADR 0088, row ST-41). The run stores their record with its row.
@@ -306,8 +313,23 @@ func emitWithPipeline(ctx context.Context, root string, s store.Store, output io
 			f := scanned.Files[pending[i]]
 			summary.Parsed++
 			defer report(Progress{Phase: PhaseParsing, Done: summary.Parsed, Total: len(jobs), Counted: true})
+			if result.Retried {
+				summary.Retried++
+				if result.Err == nil {
+					summary.Recovered++
+				}
+			}
 			if result.Err != nil {
-				diagnostics = append(diagnostics, contract.Diagnostic{Type: "diagnostic", File: f.Record.Path, Severity: "error", Code: "parse_failed", Message: fmt.Sprintf("parsing %s: %v", f.Record.Path, result.Err)})
+				message := fmt.Sprintf("parsing %s: %v", f.Record.Path, result.Err)
+				summary.ParseFailed++
+				var timeout *parse.TimeoutError
+				if errors.As(result.Err, &timeout) {
+					summary.ParseTimedOut++
+					if result.Retried {
+						message += fmt.Sprintf(" (also when parsed again alone with a %s deadline)", timeout.Deadline)
+					}
+				}
+				diagnostics = append(diagnostics, contract.Diagnostic{Type: "diagnostic", File: f.Record.Path, Severity: "error", Code: "parse_failed", Message: message})
 				if isTypeScript(f.Record.Language) {
 					facts[f.Record.Path] = typescript.NotParsed()
 				}

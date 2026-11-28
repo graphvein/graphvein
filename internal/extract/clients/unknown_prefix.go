@@ -164,6 +164,20 @@ func (m matcher) catchAllRival(attrs map[string]any, call []string, method strin
 	return found.ids
 }
 
+// productionPrefixRival is the test-scope precision correction of task
+// T057: a production alternative whose winning tier in the existing tiers
+// holds only test-scope paths is test_only only when no production route
+// may serve it. A production unresolved_prefix_paths entry that matches it
+// as rows UP-14, UP-15 and UP-18 read a call, with at least one literal
+// segment (UP-17's competitor, the rival of row UP-22), is such a route:
+// its full production path is unknown, so the call may reach it. The
+// entries never become candidates here and no row is tagged; it reads
+// attrs and never changes them.
+func (m matcher) productionPrefixRival(attrs map[string]any, call []string, method string) bool {
+	found, _ := m.upCandidates(attrs, call, method, func(string) {})
+	return !found.isTest && len(found.ids) > 0
+}
+
 // upCandidates matches one alternative against every route's
 // unresolved_prefix_paths entries (rows UP-14..UP-18, UP-20, UP-21),
 // reporting each branch's row to tag. ok is false when the alternative

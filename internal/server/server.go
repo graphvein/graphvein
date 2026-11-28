@@ -56,6 +56,9 @@ type Options struct {
 	// re-index writes its temporary snapshot (indexrun.Options.SnapshotDir;
 	// "" for Postgres: the OS temporary directory).
 	StoreDir string
+	// StoreName is the writer store's file name in StoreDir
+	// (indexrun.Options.StoreName; "" for Postgres).
+	StoreName string
 	// Assets holds the UI files: ui.Assets in production, a MapFS in tests.
 	Assets fs.FS
 	// Logger receives request rejections and handler failures; nil discards.
@@ -73,7 +76,7 @@ type Options struct {
 	// parameter, and a re-index re-indexes the project.
 	Project *ProjectOptions
 	// Workspace, when set, makes the server a multi-index server (ADR
-	// 0087): Root, Repository, Store, Locker, OpenWriter, StoreDir and
+	// 0087): Root, Repository, Store, Locker, OpenWriter, StoreDir, StoreName and
 	// Project are unused, every index comes from Workspace (its current
 	// entry answers requests without ws=), and the workspace endpoints
 	// are served.

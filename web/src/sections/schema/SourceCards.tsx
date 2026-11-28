@@ -14,6 +14,7 @@ import { groupCounts, notCountedText, setLabel } from "@/sections/schema/SetStri
 import { tableListReason } from "@/sections/schema/cells";
 import { groupKeyOf } from "@/sections/schema/params";
 import { DialectNote, dialectHint, GroupChip } from "@/sections/schema/precision";
+import { MIGRATION_TOOLS, toolLabel } from "@/sections/schema/tools";
 import { WhyButton } from "@/sections/schema/WhyPopover";
 
 /** SourceLabel is the coloured source chip of a card. */
@@ -185,18 +186,16 @@ function EmptyCard({ source, reasons }: { source: "migrations" | "models"; reaso
   );
 }
 
-/** toolLabel is an unread tool's name for a reader ("Alembic", "Prisma"
- * for prisma-migrate, "Drizzle" for drizzle-kit); an unknown tool is shown
- * as sent. */
-export function toolLabel(tool: string): string {
-  return tool === "alembic" ? "Alembic" : tool === "prisma-migrate" ? "Prisma" : tool === "drizzle-kit" ? "Drizzle" : tool;
-}
+export { toolLabel };
 
 /** unreadTitle is an unread tool's card title: "<Tool> migrations found,
- * not read yet" for the tools the server's rules name. */
+ * not read yet" for the migration tools the server's rules name, "GORM v1
+ * models found, not read yet" for gorm-v1 (T070: plain names, never the
+ * raw id of a known tool). */
 export function unreadTitle(tool: UnreadTool): string {
   if (tool.tool === "alembic" && tool.path === null) return "Alembic configuration found; script directory not located";
-  if (tool.tool === "alembic" || tool.tool === "prisma-migrate" || tool.tool === "drizzle-kit") return `${toolLabel(tool.tool)} migrations found, not read yet`;
+  if (MIGRATION_TOOLS.has(tool.tool)) return `${toolLabel(tool.tool)} migrations found, not read yet`;
+  if (tool.tool === "gorm-v1") return "GORM v1 models found, not read yet";
   return `${tool.tool} found, not read yet`;
 }
 
@@ -224,17 +223,21 @@ function UnreadLead({ tool }: { tool: UnreadTool }) {
     );
   }
   const alembic = tool.tool === "alembic";
+  const v1 = tool.tool === "gorm-v1";
+  const label = toolLabel(tool.tool);
+  const what = alembic ? "Alembic revisions" : v1 ? "GORM v1 models" : MIGRATION_TOOLS.has(tool.tool) ? `${label} migrations` : `${label} files`;
   return (
     <>
-      The index holds {tool.path === null ? <>{alembic ? "an Alembic configuration" : `a ${tool.tool} configuration`} (<span className="font-mono">{tool.marker ?? "unknown"}</span>) whose script directory was not located</> : (
+      The index holds {tool.path === null ? <>{alembic ? "an Alembic configuration" : `a ${label} configuration`} (<span className="font-mono">{tool.marker ?? "unknown"}</span>) whose script directory was not located</> : (
         <>
-          {alembic ? "an Alembic script directory" : `a ${tool.tool} directory`} <span className="font-mono">{tool.path}</span>
+          {alembic ? "an Alembic script directory" : v1 ? "GORM v1 imports in" : MIGRATION_TOOLS.has(tool.tool) ? `a ${label} migrations directory` : `a ${label} directory`}{" "}
+          <span className="font-mono">{tool.path}</span>
           {tool.marker !== null && <> (configured by <span className="font-mono">{tool.marker}</span>)</>}
-          {tool.files !== null && <> with {plural(tool.files, "revision file", "revision files")}</>}
+          {tool.files !== null && <> with {alembic ? plural(tool.files, "revision file", "revision files") : v1 ? plural(tool.files, "file", "files") : plural(tool.files, "migration file", "migration files")}</>}
         </>
       )}
-      . Graphvein does not read {alembic ? "Alembic revisions" : `${tool.tool} files`} yet, so their tables are not in this view and nothing here is compared with them. This names
-      what was found and nothing else: other tools and layouts are not looked for.
+      . Graphvein does not read {what} yet, so their tables are not in this view and nothing here is compared with them. This names what was found and nothing else: other
+      tools and layouts are not looked for.
     </>
   );
 }

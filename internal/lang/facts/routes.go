@@ -3,6 +3,11 @@ package facts
 import "github.com/graphvein/graphvein/internal/contract"
 
 // RouteExpr is detached syntax for conservative route and client resolution.
+//
+// Within one file's RouteFacts, expressions may share their Object, Args,
+// Parts, Keywords and Properties (a nested call is one value in its
+// enclosing call and in its own client record, T069): readers copy before
+// they change any of them, never write into them.
 type RouteExpr struct {
 	Kind, Text, Name string
 	Offset           int
@@ -17,8 +22,12 @@ type RouteExpr struct {
 	// Spread marks a TypeScript object literal with at least one spread
 	// element ({...criteria, include: ...}), so a reader of Properties knows
 	// the map may be incomplete (T018h, ADR 0060).
-	Spread bool           `json:",omitempty"`
-	Span   *contract.Span `json:",omitempty"`
+	Spread bool `json:",omitempty"`
+	// Ref is zero except inside the fact cache layout of RouteFacts
+	// (exprtable.go), where an expression is written as a 1-based index
+	// into the file's expression table.
+	Ref  int32          `json:",omitempty"`
+	Span *contract.Span `json:",omitempty"`
 }
 
 // RouteKeyword preserves named and unpacked Python call arguments.
@@ -172,6 +181,20 @@ type RouteFacts struct {
 	// `exports` (T036): a `require` of the file reads it as an ESM import
 	// reads Exports. Nil when the file writes neither.
 	CommonJS *CommonJSExports `json:",omitempty"`
+
+	// source is the file's text from byte sourceAt on (SetSource): the
+	// fact cache stores an expression's Text as its length when it is
+	// source[Offset:], and recovers it from the stored covering text.
+	source   string
+	sourceAt int
+}
+
+// SetSource records the file text the expressions' Text values are slices
+// of, from byte offset at on (normally the parse tree root's Text and
+// Start), so the fact cache can store Text values as offsets (T069). Facts
+// without it are cached with their Text written out.
+func (r *RouteFacts) SetSource(text string, at int) {
+	r.source, r.sourceAt = text, at
 }
 
 // CommonJSExports is the value a `require` of a file returns, when the file

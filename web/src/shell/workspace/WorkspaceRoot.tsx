@@ -13,6 +13,7 @@
 import { createContext, useCallback, useContext, useEffect, useLayoutEffect, useMemo, useState, type ReactNode } from "react";
 
 import { ApiError, setRequestWorkspace } from "@/api/client";
+import { httpStoreClient, type StoreClient } from "@/api/store";
 import { httpWorkspaceClient, type Workspace, type WorkspaceClient, type WorkspaceEntry } from "@/api/workspace";
 import { DEFAULT_HASH, useHash, useLocationKey } from "@/router";
 import { readLocation, writeLocation } from "@/shell/workspace/location";
@@ -46,6 +47,9 @@ export interface WorkspaceState {
    * that just started). */
   watch: (id: string) => void;
   client: WorkspaceClient;
+  /** storeClient is the storage requests (Settings' Storage, the add
+   * dialog's place and the first-run line); httpStoreClient when unset. */
+  storeClient?: StoreClient;
   /** The add dialog: openAdd shows it; addRequest is non-null while open. */
   addRequest: AddRequest | null;
   openAdd: (req?: AddRequest) => void;
@@ -89,7 +93,7 @@ export function pickEntry(ws: Workspace, urlId: string | null): { entry: Workspa
  * workspace list, the shell as before); empty renders the first-run or
  * choose state; overlay (the add dialog) renders beside either and
  * outlives a switch. */
-export function WorkspaceRoot({ client = httpWorkspaceClient, shell, empty, overlay }: { client?: WorkspaceClient; shell: (entry: WorkspaceEntry | null) => ReactNode; empty: () => ReactNode; overlay?: ReactNode }) {
+export function WorkspaceRoot({ client = httpWorkspaceClient, storeClient = httpStoreClient, shell, empty, overlay }: { client?: WorkspaceClient; storeClient?: StoreClient; shell: (entry: WorkspaceEntry | null) => ReactNode; empty: () => ReactNode; overlay?: ReactNode }) {
   const [probe, setProbe] = useState<Probe>({ kind: "loading" });
   const [tick, setTick] = useState(0);
   const [watched, setWatched] = useState<string | null>(null);
@@ -231,8 +235,8 @@ export function WorkspaceRoot({ client = httpWorkspaceClient, shell, empty, over
   }, []);
 
   const value = useMemo<WorkspaceState | null>(
-    () => (ws === null ? null : { workspace: ws, entry, unknownLink, dismissUnknown, switchTo, refresh, watch, client, addRequest, openAdd, closeAdd }),
-    [ws, entry, unknownLink, dismissUnknown, switchTo, refresh, watch, client, addRequest, openAdd, closeAdd],
+    () => (ws === null ? null : { workspace: ws, entry, unknownLink, dismissUnknown, switchTo, refresh, watch, client, storeClient, addRequest, openAdd, closeAdd }),
+    [ws, entry, unknownLink, dismissUnknown, switchTo, refresh, watch, client, storeClient, addRequest, openAdd, closeAdd],
   );
 
   if (probe.kind === "loading") return <div aria-busy="true" className="h-screen bg-background" />;

@@ -370,3 +370,85 @@ The rules are claim rows WS-21..WS-38 of
 ## Review notes (delegated review, 2026-11-25, T038)
 
 Revision 1 (typed folder paths behind the existing guards plus a confirmation) accepted with ADR 0087 after the final CI gate of 2026-11-25 (CI runs 45627357238, 45632313364 and 45638139948 (the last green on Linux, Postgres and Windows; postgres log 0 FAIL, 291 /postgres PASS)). The guards held in the independent review (Host/Origin/Fetch Metadata, loopback, session token, single-use confirmation bound to its folder, symlink and traversal refusals).
+
+## Revision 2 (T068: typed store paths behind the guards)
+
+**Status:** Proposed
+
+### Context
+
+[ADR 0093](0093-per-user-store-location.md) keeps new indexes in a
+per-user stores folder and lets a user put one elsewhere. The design
+round (T063, variant A, every recommended default accepted on
+2026-11-27) asks for three things in the UI: choosing where a folder's
+index is kept when it is added ("Change…"), moving an existing index
+(Settings' "Move…"), and changing the folder for new indexes ("New
+indexes are kept in"). Each writes where a typed path says, so each goes
+behind the bar revision 1 set for typed folder paths.
+
+### Options considered
+
+- **Typed store paths in the existing check/confirm flow, plus a store
+  check and two store POSTs with their own confirm values (chosen).**
+  `POST /api/v0/workspace/check` takes an optional `store_place`
+  (`default`, `inside`, `folder`) and `store_dir`; its confirm value binds
+  the folder *and* the index file it showed. `POST /api/v0/store/check`
+  checks a move (`id`, `dest_dir`) or a default folder (`default_dir`) and
+  returns a confirm value bound to what it showed; `POST
+  /api/v0/store/move` and `POST /api/v0/store/default` need it. A script
+  cannot write where the dialog did not show.
+- A free `store_path` in `workspace/add`. Skips the step that shows the
+  path; rejected.
+- Settings read-only, with the CLI commands to copy. Kept as `command` in
+  a move check, but the design's open question 8 chose editable.
+
+### Decision
+
+1. The three store POSTs pass every check of revision 1: Host allow-list,
+   `Sec-Fetch-Site`, `Origin`, `http.CrossOriginProtection`, a loopback
+   peer (403 `not_loopback`), the session token in `X-Graphvein-Token`
+   (403 `token_required`), `Content-Type: application/json` and one strict
+   JSON object of at most 4 KiB. `GET /api/v0/store` is behind the GET
+   guard and needs no index.
+2. A typed store folder (`store_dir`, `dest_dir`, `default_dir`) is
+   absolute (`~` and variables are not expanded), the symbolic links of
+   the part that exists are resolved, and the resolved place is what the
+   answer shows and the confirm value binds.
+3. Refused store folders, one code each (claim row WS-75): a network path
+   on Windows (`\\server\share`, or a drive letter `GetDriveType` reports
+   as remote: SQLite's WAL needs a local disk), the file system root, the
+   home folder itself, anything inside a `.git` folder, the indexed folder
+   or anything inside it (its own `.graphvein` is the separate "inside"
+   place), a registered workspace folder or anything inside one (its scan
+   and Git would see the index), a file, a folder that cannot be written,
+   an `index.db` already there, and a store folder whose `folder.txt`
+   names another folder.
+4. Confirm values carry their operation: an add's value is refused by a
+   move and the other way round (409 `confirm_required`). Each POST
+   re-runs its check and answers 409 `path_changed` when the place or
+   file differs from what was confirmed.
+5. A folder that already has an index keeps it: the place of an add is
+   offered only for a folder without one (`store_fixed`); moving is the
+   explicit Move.
+
+The rules are claim rows WS-21 and WS-70..WS-81 of
+[the workspace contract](../contract/claims/workspace.md); the endpoints
+are documented in [docs/cli/serve.md](../cli/serve.md) ("Storage").
+
+### Consequences
+
+- Section 6's POST paths gain `/api/v0/store/check`, `/move` and
+  `/default`. The server can now write a store, a `stores.yaml` entry or
+  `default_dir` at a typed place, behind the same bar as an add.
+- A move deletes the old index files after a verified copy; it is the
+  first server action that deletes files the user can see. It happens
+  only with a confirm value of a check that named both files.
+- The "no authentication against other local processes" gap stands, as in
+  revision 1.
+
+### Known gaps
+
+- Network file systems mounted as folders (NFS, SMB on macOS and Linux)
+  are not detected; only Windows network paths are.
+- Free space at the destination is not checked; a copy that runs out of
+  space fails and keeps the original.

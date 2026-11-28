@@ -1,15 +1,12 @@
-// The roots fold (T016i D1, DD1-DD3 A) on both surfaces, with the
+// The roots fold (T016i D1, DD1-DD3 A) in the coverage cards, with the
 // measurement injected: jsdom has no layout, so every chip measures 100 px,
 // the "+N more roots" chip 90 px, the gap 6 px, and the line `room` px.
 import { act, fireEvent, render, screen, within } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
-import { CATEGORY_LABEL, CATEGORY_TONE, linkedPercent } from "@/api/categories";
 import type { RootCounts, TransportSummary } from "@/api/endpoints";
-import { cn } from "@/lib/utils";
 import { CoverageCards } from "@/sections/api/CoverageCards";
-import { manifestTitle, rootCategoryCounts, rootLabel, type CoverageActions } from "@/sections/api/coverage";
-import { BAR_CLASS } from "@/sections/api/parts";
+import type { CoverageActions } from "@/sections/api/coverage";
 import { ROOTS_EXPANDED_KEY, RootsMeasureContext, resetRootsChoice, type RootsMeasurer } from "@/sections/api/RootsFold";
 import { SummaryStrip } from "@/sections/api/SummaryStrip";
 import { endpointsGolden } from "@/test/apiFixtures";
@@ -38,16 +35,18 @@ function actions(over: Partial<CoverageActions> = {}): CoverageActions {
   return { openGap: vi.fn(), setRoot: vi.fn(), activeGap: null, root: null, ...over };
 }
 
-type Surface = "strip" | "cards";
+type Surface = "cards";
 
-function view(surface: Surface, room: number, a: CoverageActions = actions(), ts: TransportSummary[] = transports()) {
-  const body =
-    surface === "strip" ? <SummaryStrip transports={ts} scope="all" actions={a} /> : <CoverageCards transports={ts} repository="fixture" scope="all" actions={a} />;
-  return render(<RootsMeasureContext.Provider value={measurer(room)}>{body}</RootsMeasureContext.Provider>);
+function view(_surface: Surface, room: number, a: CoverageActions = actions(), ts: TransportSummary[] = transports()) {
+  return render(
+    <RootsMeasureContext.Provider value={measurer(room)}>
+      <CoverageCards transports={ts} repository="fixture" scope="all" actions={a} />
+    </RootsMeasureContext.Provider>,
+  );
 }
 
-function list(surface: Surface, transport = "http"): HTMLElement {
-  return screen.getByTestId(surface === "strip" ? `strip-roots-${transport}` : `roots-${transport}`);
+function list(_surface: Surface, transport = "http"): HTMLElement {
+  return screen.getByTestId(`roots-${transport}`);
 }
 
 /** The roots a list shows, in order (the measuring row has no data-root). */
@@ -65,60 +64,7 @@ afterEach(() => {
   resetRootsChoice();
 });
 
-// The strip's Roots row as it was before T016i (SummaryStrip.tsx at
-// 7fad72a), for the "fits: unchanged" check.
-function TodayStripChips({ t, actions: a }: { t: TransportSummary; actions: CoverageActions }) {
-  return (
-    <div data-testid="today">
-      {t.roots.map((r) => {
-        const on = a.root === r.root;
-        const pct = linkedPercent(r.by_status.linked ?? 0, r.total);
-        return (
-          <span key={r.root} data-root={r.root} className={cn("inline-flex h-[24px] items-center gap-1.5 rounded-md border pr-1 text-xs", on && "border-brand bg-brand-soft")}>
-            <button type="button" aria-pressed={on} title={`${manifestTitle(r)}. ${on ? "Show all roots" : "Filter by this root"}`} className="h-full rounded-l-md px-1.5 font-mono hover:bg-accent">
-              {rootLabel(r.root)}
-            </button>
-            <span className="tabular-nums text-muted-foreground">
-              {r.total} · <b className="font-semibold text-foreground">{pct === null ? "-" : `${String(pct)}%`}</b>
-            </span>
-            {rootCategoryCounts(t.transport, r)
-              .filter((c) => c.category !== "linked")
-              .map((c) => (
-                <button key={c.category} type="button" title={`${CATEGORY_LABEL[c.category]} in ${r.root}: show these calls`} className="inline-flex items-center gap-1 rounded px-1 hover:bg-accent">
-                  <i aria-hidden="true" className={cn("size-[7px] rounded-[2px]", BAR_CLASS[CATEGORY_TONE[c.category]])} />
-                  <b className="font-semibold tabular-nums">{c.count}</b>
-                  <span className="sr-only">{CATEGORY_LABEL[c.category]}</span>
-                </button>
-              ))}
-          </span>
-        );
-      })}
-    </div>
-  );
-}
-
 describe("roots fold: fits", () => {
-  it("strip: the list is today's when every chip fits, whatever the stored choice", () => {
-    window.localStorage.setItem(ROOTS_EXPANDED_KEY, "1");
-    const a = actions({ root: "d" });
-    const ts = transports();
-    view("strip", 630, a, ts);
-    const el = list("strip");
-    expect(el.getAttribute("data-fold")).toBe("fits");
-    expect(within(el).queryByTestId("roots-toggle")).toBeNull();
-    expect(shown(el)).toEqual(ROOTS.map((r) => r.root));
-    // Same elements: the label, then every chip as before, nothing else
-    // (the measuring row aside).
-    const kids = [...el.children].filter((c) => c.getAttribute("data-testid") !== "roots-measure");
-    expect(kids[0]?.textContent).toBe("Roots");
-    const http = ts.find((t) => t.transport === "http");
-    if (http === undefined) throw new Error("no http");
-    const today = render(<TodayStripChips t={http} actions={a} />);
-    const want = [...today.getByTestId("today").children].map((c) => c.outerHTML);
-    expect(kids.slice(1).map((c) => c.outerHTML)).toEqual(want);
-    expect(el.getAttribute("aria-label")).toBe("Source roots, HTTP");
-  });
-
   it("cards: today's rows when every chip fits", () => {
     view("cards", 630);
     const el = list("cards");
@@ -133,15 +79,17 @@ describe("roots fold: fits", () => {
   it("is today's list when nothing can be measured (a hidden surface)", () => {
     render(
       <RootsMeasureContext.Provider value={() => null}>
-        <SummaryStrip transports={transports()} scope="all" actions={actions()} />
+        <CoverageCards transports={transports()} repository="fixture" scope="all" actions={actions()} />
       </RootsMeasureContext.Provider>,
     );
-    expect(list("strip").getAttribute("data-fold")).toBe("fits");
-    expect(shown(list("strip"))).toEqual(ROOTS.map((r) => r.root));
+    expect(list("cards").getAttribute("data-fold")).toBe("fits");
+    expect(shown(list("cards"))).toEqual(ROOTS.map((r) => r.root));
   });
 });
 
-for (const surface of ["strip", "cards"] as const) {
+// T065: the strips have no Roots row any more; the roots live in the
+// cards behind the "Coverage and roots" disclosure.
+for (const surface of ["cards"] as const) {
   describe(`roots fold: ${surface}`, () => {
     it("folds to the largest roots and a +N chip, then unfolds to every root in server order", () => {
       view(surface, 420);
@@ -240,7 +188,7 @@ for (const surface of ["strip", "cards"] as const) {
       const rowA = list(surface).querySelector('[data-root="a"]') as HTMLElement;
       // The cards' unfolded rows are display: contents; their buttons are
       // the row's children.
-      const nameA = surface === "strip" ? within(rowA).getByRole("button", { name: "a" }) : (rowA.querySelector("button") as HTMLElement);
+      const nameA = rowA.querySelector("button") as HTMLElement;
       fireEvent.click(nameA);
       expect(a.setRoot).toHaveBeenLastCalledWith("a");
       const unmatched = [...rowA.querySelectorAll("button")].find((b) => /unmatched/i.test(b.textContent) || /Unmatched/.test(b.title));
@@ -277,14 +225,14 @@ describe("roots fold: other rules", () => {
   it("re-measures when the room changes (folded <-> fits)", () => {
     const a = actions();
     const ts = transports();
-    const r = view("strip", 420, a, ts);
-    expect(list("strip").getAttribute("data-fold")).toBe("folded");
+    const r = view("cards", 420, a, ts);
+    expect(list("cards").getAttribute("data-fold")).toBe("folded");
     r.rerender(
       <RootsMeasureContext.Provider value={measurer(2000)}>
-        <SummaryStrip transports={ts} scope="all" actions={a} />
+        <CoverageCards transports={ts} repository="fixture" scope="all" actions={a} />
       </RootsMeasureContext.Provider>,
     );
-    expect(list("strip").getAttribute("data-fold")).toBe("fits");
+    expect(list("cards").getAttribute("data-fold")).toBe("fits");
   });
 
   it("cards: a line that mounts after its roots arrive still re-folds on resize", () => {
@@ -336,12 +284,13 @@ describe("roots fold: other rules", () => {
     }
   });
 
-  it("the strip with the peek open still has no Roots row", () => {
+  it("the strips have no Roots row (T065)", () => {
     render(
       <RootsMeasureContext.Provider value={measurer(420)}>
-        <SummaryStrip transports={transports()} scope="all" actions={actions()} shown />
+        <SummaryStrip transports={transports()} scope="all" actions={actions()} open={false} onOpen={vi.fn()} />
       </RootsMeasureContext.Provider>,
     );
+    expect(screen.getByTestId("strip-http")).toBeTruthy();
     expect(screen.queryAllByTestId(/^strip-roots-/)).toHaveLength(0);
   });
 

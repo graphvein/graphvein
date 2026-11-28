@@ -14,7 +14,7 @@ export function NotFound({ hash }: { hash: string }) {
           There is no page at <span className="font-mono text-foreground">{hash}</span>.
         </p>
         <a href={DEFAULT_HASH} className="font-medium text-brand-text underline-offset-4 hover:underline">
-          Go to the API section
+          Go to the Overview
         </a>
       </div>
     </section>

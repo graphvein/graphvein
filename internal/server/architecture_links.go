@@ -306,7 +306,7 @@ func buildLinks(rd *reader, m *archModel, scope string, px *archProjectIn) (*arc
 			if target, ok := nodes[e.Target]; ok {
 				if f.family == familyHTTP {
 					member.Method, member.Path = stringAttr(target, "method"), stringAttr(target, "pattern")
-					member.FullPath = displayPath(objects(target.Attributes["paths"]), scope)
+					member.FullPath = routePath(target, scope)
 					member.PrefixPath = prefixPath(target, scope)
 				} else {
 					member.Path = stringAttr(target, "command")

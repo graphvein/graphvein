@@ -164,6 +164,16 @@ function viewportTransform(): string {
   return document.querySelector<HTMLElement>(".react-flow__viewport")?.style.transform ?? "";
 }
 
+/**
+ * expectCssNumber checks a number read back from an inline style against the
+ * value the component wrote. jsdom (31 and later) serialises CSS numbers to
+ * six significant digits (638.3999999999999 reads back as 638.4), so the
+ * check allows exactly that rounding and nothing more.
+ */
+function expectCssNumber(actual: number, expected: number, label: string): void {
+  expect(Math.abs(actual - expected), label).toBeLessThanOrEqual(Math.abs(expected) * 5e-6 + 1e-12);
+}
+
 /** fresh gives a golden its own layout cache key (another index run). */
 function fresh(f: FlowResponse, tag: string): FlowResponse {
   return { ...f, index: f.index === null ? null : { ...f.index, finished_at: `2026-11-04T00:00:${tag}Z` } };
@@ -384,7 +394,8 @@ describe("Flow tab", () => {
     // The count is of drawn lines, and says so (the summary counts callers).
     expect(chip.getAttribute("aria-label")).toBe("Call: call, 8 lines");
     expect(chip.getAttribute("title")).toContain("8 lines drawn");
-    expect(screen.getByTestId("flow-legend").textContent).toContain("counts are lines, not callers");
+    fireEvent.click(screen.getByTestId("flow-legend-toggle"));
+    expect(screen.getByTestId("flow-legend-full").textContent).toContain("Counts are lines, not callers");
     fireEvent.click(chip);
     expect(seen.tiers.at(-1)).not.toContain("call");
     await waitFor(() => {
@@ -596,7 +607,10 @@ describe("Flow tab", () => {
         }
         if (c === undefined) throw new Error(`no caption ${text}`);
         // Screen space: 12 px at zoom >= 1, scaled below; no vertical offset.
-        expect(c.style.transform, text).toBe(`translateX(${String(place.x)}px) scale(${String(Math.min(view.zoom, 1))})`);
+        const ct = /^translateX\((-?[\d.e+-]+)px\) scale\(([\d.e+-]+)\)$/.exec(c.style.transform);
+        if (ct === null) throw new Error(`caption ${text} transform ${c.style.transform}`);
+        expectCssNumber(Number(ct[1]), place.x, text);
+        expectCssNumber(Number(ct[2]), Math.min(view.zoom, 1), text);
         // Never beyond its own column on screen.
         expect(place.x, text).toBeGreaterThanOrEqual(left * view.zoom + view.x - 0.01);
         expect(place.x + place.maxWidth, text).toBeLessThanOrEqual(right * view.zoom + view.x + 0.01);

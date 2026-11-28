@@ -45,6 +45,9 @@ type schemaSummaryResponse struct {
 	ModelGroups *int               `json:"model_groups"`
 	SourcesRead []string           `json:"sources_read"`
 	UnreadTools []schemaUnreadTool `json:"unread_tools"`
+	// RefusedSources are the model sources a linker found and refused as a
+	// whole (T070): the reason the index holds no model table for them.
+	RefusedSources []schemaRefusedSource `json:"refused_sources"`
 }
 
 func computeSchemaSummary(h *apiHandler, _ url.Values) (readFunc, error) {
@@ -104,6 +107,9 @@ func computeSchemaSummary(h *apiHandler, _ url.Values) (readFunc, error) {
 		}
 		out.SourcesRead = sourcesRead(last)
 		if out.UnreadTools, err = rd.unreadTools(hashes, last); err != nil {
+			return nil, err
+		}
+		if out.RefusedSources, err = rd.refusedSources(hashes, last); err != nil {
 			return nil, err
 		}
 		return out, nil

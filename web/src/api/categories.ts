@@ -91,7 +91,7 @@ export const CATEGORY_LABEL: Record<Category, string> = {
   wrapper: "Wrapper",
   ambiguous: "Ambiguous",
   ambiguous_across: "Ambiguous across repositories",
-  test_only: "Test only",
+  test_only: "Only test endpoints match",
   unproven: "Unproven",
   plugin: "Plugin",
   global: "Global",

@@ -5,11 +5,13 @@ import (
 	"context"
 	"crypto/sha256"
 	"embed"
+	"errors"
 	"fmt"
 	"log/slog"
 	"os"
 	"path/filepath"
 	"runtime"
+	"sort"
 	"sync"
 	"time"
 
@@ -89,6 +91,37 @@ func FileTimeout(base time.Duration, size int) time.Duration {
 	return time.Duration(float64(base) * float64(size) / DeadlineUnit)
 }
 
+// RetryTimeout is the deadline of Consume's serial retry (T074): the cap
+// FileTimeout never exceeds, MaxDeadlineUnits base timeouts (60 s with the
+// 5 s default), whatever the file's size.
+func RetryTimeout(base time.Duration) time.Duration {
+	if base <= 0 {
+		return base
+	}
+	return MaxDeadlineUnits * base
+}
+
+// TimeoutError is a parse that ran past its own per-file deadline while the
+// run itself was still live. Its message is the underlying error's, so a
+// parse_failed diagnostic reads as before ("context deadline exceeded").
+// Consume retries such a file once, serially (T074); no other failure is
+// retried.
+type TimeoutError struct {
+	// Deadline is the per-file deadline the parse was given.
+	Deadline time.Duration
+	Err      error
+}
+
+func (e *TimeoutError) Error() string { return e.Err.Error() }
+
+func (e *TimeoutError) Unwrap() error { return e.Err }
+
+// IsTimeout reports whether err is a per-file parse deadline (TimeoutError).
+func IsTimeout(err error) bool {
+	var t *TimeoutError
+	return errors.As(err, &t)
+}
+
 type compiledGrammar struct {
 	rt     wazero.Runtime
 	module wazero.CompiledModule
@@ -106,10 +139,10 @@ type engine struct {
 var compileHook func(language string)
 
 // parseHook is a test-only hook called once the per-file deadline is set and
-// before parsing starts, so a test can make the parse itself outlast its
-// deadline on any machine speed instead of relying on a tiny timeout racing
-// the clock.
-var parseHook func(ctx context.Context)
+// before parsing starts, with the file's context and source, so a test can
+// make the parse itself outlast its deadline on any machine speed instead of
+// relying on a tiny timeout racing the clock.
+var parseHook func(ctx context.Context, source []byte)
 
 var engines = struct {
 	sync.Mutex
@@ -236,11 +269,18 @@ type worker struct {
 // may wait on another worker's compilation, and module instantiation), so it
 // bounds parsing and traversal alone. Setup cost depends on the compilation
 // cache and machine load, not on the file, so it must not turn a valid file
-// into parse_failed; ctx still cancels it. A timeout <= 0 adds no deadline.
+// into parse_failed; ctx still cancels it. timeout is the file's own
+// deadline (the caller applies FileTimeout or RetryTimeout); a timeout <= 0
+// adds no deadline. A failure after that deadline passed, while ctx is still
+// live, is returned as a *TimeoutError.
 func (w *worker) parse(ctx context.Context, timeout time.Duration, language string, source []byte) (root *Node, syntax bool, err error) {
+	var fileCtx context.Context
 	defer func() {
 		if v := recover(); v != nil {
 			err = fmt.Errorf("parser panic: %v", v)
+		}
+		if err != nil && fileCtx != nil && ctx.Err() == nil && errors.Is(fileCtx.Err(), context.DeadlineExceeded) {
+			err = &TimeoutError{Deadline: timeout, Err: err}
 		}
 		if err != nil {
 			if i := w.instances[language]; i != nil {
@@ -283,24 +323,31 @@ func (w *worker) parse(ctx context.Context, timeout time.Duration, language stri
 		i = &instance{r, p}
 		w.instances[language] = i
 	}
-	if timeout = FileTimeout(timeout, len(source)); timeout > 0 {
+	fileCtx = ctx
+	if timeout > 0 {
 		var cancel context.CancelFunc
-		ctx, cancel = context.WithTimeout(ctx, timeout)
+		fileCtx, cancel = context.WithTimeout(ctx, timeout)
 		defer cancel()
 	}
 	if parseHook != nil {
-		parseHook(ctx)
+		parseHook(fileCtx, source)
 	}
-	tree, err := i.parser.ParseContext(ctx, source, nil)
+	tree, err := i.parser.ParseContext(fileCtx, source, nil)
 	if err != nil {
 		return nil, false, err
 	}
 	defer tree.Close()
 	syntax = tree.RootNode().HasError()
+	// Every node's Text is a substring of one copy of the file, so the
+	// detached tree costs the file's bytes once. A copy per node cost the
+	// bytes times the tree's depth: a generated 19,307-member union type
+	// (717 KB, a left-nested tree as deep as the union is long) took more
+	// than 7 GB (T058).
+	text := string(source)
 	var errorSpans []contract.Span
 	var detach func(wasitter.Node) (*Node, error)
 	detach = func(n wasitter.Node) (*Node, error) {
-		if err := ctx.Err(); err != nil {
+		if err := fileCtx.Err(); err != nil {
 			return nil, err
 		}
 		start, end := n.StartPoint(), n.EndPoint()
@@ -309,7 +356,7 @@ func (w *worker) parse(ctx context.Context, timeout time.Duration, language stri
 		}
 		out := &Node{Kind: n.Type(), Start: n.StartByte(), End: n.EndByte(), Row: start.Row, Column: start.Column, EndRow: end.Row, EndColumn: end.Column, Fields: map[string]*Node{}}
 		if out.End <= uint32(len(source)) {
-			out.Text = string(source[out.Start:out.End])
+			out.Text = text[out.Start:out.End]
 		}
 		for j := 0; j < n.ChildCount(); j++ {
 			child := n.Child(j)
@@ -350,10 +397,16 @@ type Result struct {
 	Root        *Node
 	SyntaxError bool
 	Err         error
+	// Retried is true when the file timed out in Consume's parallel pass
+	// and this is the result of its serial retry (T074).
+	Retried bool
 }
 
 // Consume bounds detached-tree lifetime while one caller extracts results in
-// arrival order. The callback must not retain roots after returning.
+// arrival order. The callback must not retain roots after returning. A file
+// whose parse ran past its own deadline is not consumed from the parallel
+// pass: once every parallel worker has stopped, it is parsed again, alone,
+// with RetryTimeout, and that result (Retried set) is consumed instead.
 func Consume(ctx context.Context, jobs []Job, options Options, consume func(int, Result)) error {
 	if options.Workers <= 0 {
 		options.Workers = min(4, runtime.NumCPU())
@@ -399,7 +452,7 @@ func Consume(ctx context.Context, jobs []Job, options Options, consume func(int,
 				if ctx.Err() != nil {
 					return
 				}
-				root, syntax, err := w.parse(ctx, options.Timeout, jobs[j].Language, jobs[j].Source)
+				root, syntax, err := w.parse(ctx, FileTimeout(options.Timeout, len(jobs[j].Source)), jobs[j].Language, jobs[j].Source)
 				if j+workers >= len(jobs) {
 					if e := closeWorker(); e != nil {
 						err = e
@@ -409,7 +462,7 @@ func Consume(ctx context.Context, jobs []Job, options Options, consume func(int,
 					profileDetachedTree(1)
 				}
 				select {
-				case results <- indexedResult{j, Result{root, syntax, err}}:
+				case results <- indexedResult{j, Result{Root: root, SyntaxError: syntax, Err: err}}:
 					root = nil
 				case <-ctx.Done():
 					if root != nil {
@@ -427,16 +480,73 @@ func Consume(ctx context.Context, jobs []Job, options Options, consume func(int,
 	}()
 	// This calling goroutine is the sole consumer. Drain on cancellation to
 	// release queued roots and join all workers before returning the context error.
+	// A file that ran past its own deadline is held back for the retry below
+	// instead of being consumed.
+	var timedOut []int
 	for item := range results {
 		if ctx.Err() == nil {
-			consume(item.index, item.result)
+			if item.result.Root == nil && IsTimeout(item.result.Err) {
+				timedOut = append(timedOut, item.index)
+			} else {
+				consume(item.index, item.result)
+			}
 		}
 		if item.result.Root != nil {
 			item.result.Root = nil
 			profileDetachedTree(-1)
 		}
 	}
+	if ctx.Err() == nil && len(timedOut) > 0 {
+		retrySerially(ctx, e, jobs, timedOut, options.Timeout, consume)
+	}
 	return ctx.Err()
+}
+
+// retrySerially parses again, once each, the files of the parallel pass that
+// ran past their deadline (T074). Under CPU load a file of normal size can
+// outlast a deadline sized for an idle machine and lose every fact. The
+// retry runs after every parallel worker has stopped, one file at a time on
+// a single worker, with RetryTimeout: the least contention and the longest
+// deadline any file gets. A file that succeeds yields exactly the tree an
+// unloaded run parses, since parsing does not depend on timing; one that
+// times out again is consumed with that failure. Files are retried in input
+// order so the work done does not depend on arrival order.
+func retrySerially(ctx context.Context, e *engine, jobs []Job, indexes []int, base time.Duration, consume func(int, Result)) {
+	sort.Ints(indexes)
+	w := worker{e, map[string]*instance{}}
+	closeWorker := func() error {
+		var err error
+		for language, i := range w.instances {
+			if e := i.close(); e != nil {
+				err = fmt.Errorf("cleaning parser: %w", e)
+			}
+			delete(w.instances, language)
+		}
+		return err
+	}
+	defer closeWorker()
+	deadline := RetryTimeout(base)
+	for n, j := range indexes {
+		if ctx.Err() != nil {
+			return
+		}
+		slog.Debug("retrying timed-out parse serially", "job", j, "deadline", deadline)
+		root, syntax, err := w.parse(ctx, deadline, jobs[j].Language, jobs[j].Source)
+		if n == len(indexes)-1 {
+			if e := closeWorker(); e != nil {
+				err = e
+			}
+		}
+		if root != nil {
+			profileDetachedTree(1)
+		}
+		if ctx.Err() == nil {
+			consume(j, Result{Root: root, SyntaxError: syntax, Err: err, Retried: true})
+		}
+		if root != nil {
+			profileDetachedTree(-1)
+		}
+	}
 }
 
 // Batch parses independent files in stable input order and closes every worker module.
@@ -475,8 +585,8 @@ func Batch(ctx context.Context, jobs []Job, options Options) ([]Result, error) {
 			}()
 			for j := range queue {
 				last = j
-				root, syntax, err := w.parse(ctx, options.Timeout, jobs[j].Language, jobs[j].Source)
-				out[j] = Result{root, syntax, err}
+				root, syntax, err := w.parse(ctx, FileTimeout(options.Timeout, len(jobs[j].Source)), jobs[j].Language, jobs[j].Source)
+				out[j] = Result{Root: root, SyntaxError: syntax, Err: err}
 			}
 		}()
 	}

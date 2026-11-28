@@ -9,7 +9,9 @@
 // changes index inputs, the notice names them and starts the shell's one
 // re-index run. "Edit as YAML" edits the whole text through the same
 // preview. Values and origins come only from GET /api/v0/config and this
-// browser's storage: nothing is assumed.
+// browser's storage: nothing is assumed. The Storage section (T068 part
+// 3, StorageSection.tsx) comes first: it is this machine's, outside
+// graphvein.yaml, and read from GET /api/v0/store.
 
 import { ArrowLeft, CircleAlert, Code2, Info, Lock, RefreshCw, TriangleAlert } from "lucide-react";
 import { useEffect, useMemo, useState, type ReactNode } from "react";
@@ -56,6 +58,8 @@ import { useConfig } from "@/sections/settings/useConfig";
 import { EditorControl } from "@/shell/EditorPicker";
 import { LabelSetting } from "@/shell/LabelControl";
 import { useProject } from "@/shell/project";
+import { useWorkspace } from "@/shell/workspace/WorkspaceRoot";
+import { STORAGE_ANCHOR, StorageSection } from "@/sections/settings/StorageSection";
 import { PHASE_LABELS, slotLabel, type ReindexModel } from "@/shell/reindexModel";
 
 /** SettingsReindex is the shell's one re-index run (the same run the
@@ -136,6 +140,7 @@ export function SettingsSection({ status, reindex, client = httpConfigClient }: 
   const runKey = status.kind === "ok" ? (status.status.index.last_run?.finished_at ?? "") : "";
   const { view, reload } = useConfig(client, member, runKey);
   const browser = useBrowserChoices();
+  const entryId = useWorkspace()?.entry?.id ?? null;
   const labels = useLabels();
   const editor = useEditor();
   const [draft, setDraft] = useState<Draft>({});
@@ -214,19 +219,22 @@ export function SettingsSection({ status, reindex, client = httpConfigClient }: 
     return (
       <div className="grid gap-3" data-testid="settings-loading">
         <Skeleton className="h-9 w-56" />
-        <Skeleton className="h-40" />
+        <StorageSection entryId={entryId} />
         <Skeleton className="h-40" />
       </div>
     );
   }
   if (view.kind === "failed") {
     return (
-      <div role="alert" className="grid gap-2 rounded-lg border border-stale/40 p-4 text-sm" data-testid="settings-failed">
-        <p className="font-medium">The settings could not be read: {view.error.message}</p>
-        <div>
-          <Button variant="outline" size="sm" onClick={reload}>
-            Try again
-          </Button>
+      <div className="grid gap-3">
+        <StorageSection entryId={entryId} />
+        <div role="alert" className="grid gap-2 rounded-lg border border-stale/40 p-4 text-sm" data-testid="settings-failed">
+          <p className="font-medium">The settings could not be read: {view.error.message}</p>
+          <div>
+            <Button variant="outline" size="sm" onClick={reload}>
+              Try again
+            </Button>
+          </div>
         </div>
       </div>
     );
@@ -265,16 +273,19 @@ export function SettingsSection({ status, reindex, client = httpConfigClient }: 
         <>
           <Legend filter={filter} onFilter={setFilter} />
           <div className="grid grid-cols-[minmax(0,1fr)_200px] items-start gap-6 max-[1100px]:grid-cols-1">
-            <Form
-              key={generation}
-              config={cfg}
-              browser={browser}
-              draft={draft}
-              filter={filter}
-              typedEdits={typedEdits}
-              written={written}
-              onDraft={(key, next) => { setDraft((d) => withDraft(d, key, next)); }}
-            />
+            <div className="grid min-w-0 gap-4">
+              <StorageSection entryId={entryId} />
+              <Form
+                key={generation}
+                config={cfg}
+                browser={browser}
+                draft={draft}
+                filter={filter}
+                typedEdits={typedEdits}
+                written={written}
+                onDraft={(key, next) => { setDraft((d) => withDraft(d, key, next)); }}
+              />
+            </div>
             <PageIndex config={cfg} filter={filter} draft={draft} browser={browser} />
           </div>
           <SaveBar
@@ -331,7 +342,7 @@ function Header({ config, mode, onMode }: { config: Config; mode: "form" | "yaml
         )}
       </div>
       <p className="m-0 text-[13px] text-muted-foreground">
-        graphvein.yaml is the source of truth: the form reads it and writes it through a previewed edit. Values from this browser apply only here.
+        graphvein.yaml is the source of truth for the repository settings: the form reads it and writes it through a previewed edit. Values from this browser apply only here. Storage is this machine's and is not in graphvein.yaml.
         {project !== null && " In a project each member has its own graphvein.yaml; the member select is the one in the sidebar."}
       </p>
     </div>
@@ -776,6 +787,9 @@ function PageIndex({ config, filter, draft, browser }: { config: Config; filter:
   return (
     <nav aria-label="On this page" className="sticky top-0 grid gap-0.5 text-[13px] max-[1100px]:hidden" data-testid="settings-index">
       <span className="px-2 pb-1 text-[12px] font-medium text-muted-foreground">On this page</span>
+      <a href={settingsHash("storage")} onClick={(e) => { e.preventDefault(); replaceHash(settingsHash("storage")); document.getElementById(STORAGE_ANCHOR)?.scrollIntoView({ block: "start" }); }} className="rounded-md px-2 py-1 text-muted-foreground hover:bg-accent hover:text-foreground">
+        Storage
+      </a>
       {sections.map((id) => (
         <a key={id} href={settingsHash(id)} onClick={(e) => { e.preventDefault(); replaceHash(settingsHash(id)); document.getElementById(anchor(id))?.scrollIntoView({ block: "start" }); }} className="rounded-md px-2 py-1 text-muted-foreground hover:bg-accent hover:text-foreground">
           {SECTIONS.find((s) => s.id === id)?.title ?? id}

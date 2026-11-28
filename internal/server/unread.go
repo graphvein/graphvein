@@ -1055,7 +1055,7 @@ func countAttr(v any) (int, bool) {
 // routeLabel is a route item's text: its shown path, its unknown-prefix
 // path, else its pattern or its name marked by pathlessLabel.
 func routeLabel(n contract.Node, withheld map[routepaths.RouteSite]bool) string {
-	if shown := displayPath(objects(n.Attributes["paths"]), scopeProduction); shown != nil {
+	if shown := routePath(n, scopeProduction); shown != nil {
 		return *shown
 	}
 	if prefix := routePrefix(n, scopeAll); prefix != nil {

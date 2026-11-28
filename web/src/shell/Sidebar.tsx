@@ -2,13 +2,15 @@
 // others are listed as plain text with a "Soon" badge (and "coming soon"
 // for screen readers) so the frame shows where later views go.
 
-import { Boxes, BookOpenText, Check, CircleHelp, Database, EyeOff, FileText, FolderGit2, GitCompareArrows, Settings, TextAlignStart, TriangleAlert, Workflow, type LucideIcon } from "lucide-react";
+import { Boxes, BookOpenText, Check, CircleHelp, Database, EyeOff, FileText, FolderGit2, GitCompareArrows, House, PanelLeftClose, PanelLeftOpen, Settings, TextAlignStart, TriangleAlert, Workflow, type LucideIcon } from "lucide-react";
+import type { ReactNode } from "react";
 
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import type { Status } from "@/api/status";
 import type { StatusView } from "@/hooks/useStatus";
-import { HELP_SECTION, SECTIONS, SETTINGS_SECTION, sectionHash, type Route } from "@/router";
+import { DEFAULT_HASH, HELP_SECTION, SECTIONS, SETTINGS_SECTION, sectionHash, type Route, type Section } from "@/router";
 import { cn } from "@/lib/utils";
 import type { EntryTag } from "@/sections/schema/entry";
 import { JumpToButton } from "@/shell/JumpTo";
@@ -18,6 +20,7 @@ import { WorkspaceRailButton, WorkspaceTree } from "@/shell/workspace/WorkspaceL
 import { useWorkspace } from "@/shell/workspace/WorkspaceRoot";
 
 const ICONS: Record<string, LucideIcon> = {
+  overview: House,
   api: TextAlignStart,
   explorer: BookOpenText,
   architecture: Workflow,
@@ -72,6 +75,39 @@ interface SidebarProps {
   noIndex?: boolean | undefined;
   /** Opens the jump-to palette (T040); no box without it. */
   onJump?: (() => void) | undefined;
+  /** Collapses the full sidebar or expands the rail (T064); no button
+   * without it. */
+  onToggle?: (() => void) | undefined;
+  /** The full sidebar is open over the content (below 1100 px, T064): its
+   * button closes it. */
+  overlay?: boolean | undefined;
+}
+
+/** HOME_TITLE is the logo link's name: the Overview is the home page
+ * (T064); on the first-run page it shows the add card. */
+const HOME_TITLE = "Graphvein home: the Overview";
+
+/** RailTip is a rail icon's tooltip: its name and, when it has one, its
+ * tag on a second line ("Schema" / "none found"). Its own provider, so a
+ * rail rendered alone (tests) needs none. */
+function RailTip({ name, tag, children }: { name: string; tag?: string | undefined; children: ReactNode }) {
+  return (
+    <TooltipProvider delayDuration={200}>
+      <Tooltip>
+        <TooltipTrigger asChild>{children}</TooltipTrigger>
+        <TooltipContent side="right" sideOffset={6} className="grid gap-0.5" data-testid="rail-tip">
+          <span>{name}</span>
+          {tag !== undefined && <span className="opacity-75">{tag}</span>}
+        </TooltipContent>
+      </Tooltip>
+    </TooltipProvider>
+  );
+}
+
+/** splitSections puts the Overview before the Project entry, the other
+ * sections after it (T064: Overview is first in Sections). */
+function splitSections(): { head: Section[]; rest: Section[] } {
+  return { head: SECTIONS.filter((s) => s.id === "overview"), rest: SECTIONS.filter((s) => s.id !== "overview") };
 }
 
 /** PROJECT_ONLY is the greyed Project entry's tooltip for a single
@@ -118,67 +154,101 @@ function TagView({ tag }: { tag: EntryTag }) {
   );
 }
 
-function Rail({ route, repository, tags, status, noIndex = false, onJump }: Pick<SidebarProps, "route" | "repository" | "tags" | "status" | "noIndex" | "onJump">) {
+function Rail({ route, repository, tags, status, noIndex = false, onJump, onToggle }: Pick<SidebarProps, "route" | "repository" | "tags" | "status" | "noIndex" | "onJump" | "onToggle">) {
   const current = route.kind === "section" ? route.section.id : undefined;
   const project = useProject();
   const workspace = useWorkspace();
+  const { head, rest } = splitSections();
+  const sectionItem = (section: Section) => {
+    const Icon = ICONS[section.id] ?? TextAlignStart;
+    if (!section.available || noIndex) {
+      const why = noIndex ? "needs an index" : "coming soon";
+      return (
+        <li key={section.id}>
+          <RailTip name={section.label} tag={why}>
+            <span tabIndex={-1} className="grid size-9 place-items-center text-muted-foreground">
+              <Icon aria-hidden="true" className="size-4 opacity-60" />
+              <span className="sr-only">
+                {section.label}, {why}
+              </span>
+            </span>
+          </RailTip>
+        </li>
+      );
+    }
+    const active = section.id === current;
+    const tag = tags?.[section.id];
+    const name = tag === undefined ? section.label : `${section.label}, ${tag.text}`;
+    return (
+      <li key={section.id}>
+        <RailTip name={section.label} tag={tag?.text}>
+          <a
+            href={sectionHash(section)}
+            aria-current={active ? "page" : undefined}
+            aria-label={name}
+            aria-description={tag?.title}
+            className={cn("relative grid size-9 place-items-center rounded-md", active ? "bg-brand-soft text-brand-text" : "hover:bg-accent")}
+          >
+            <Icon aria-hidden="true" className="size-4" />
+            {tag?.tone === "warn" && <span aria-hidden="true" className="absolute top-1 right-1 size-2 rounded-full bg-dynamic-bar" />}
+          </a>
+        </RailTip>
+      </li>
+    );
+  };
   return (
-    <nav aria-label="Sections" className="flex min-w-0 flex-col items-center gap-1 border-r bg-sidebar py-2" data-testid="sidebar-rail">
-      <div className="mb-1.5 p-1" title={repository === undefined ? "Graphvein" : `Graphvein · ${repository}`}>
-        <Logo />
-      </div>
+    <nav aria-label="Sections" className="flex h-screen max-h-screen min-w-0 flex-col items-center gap-1 overflow-y-auto border-r bg-sidebar py-2" data-testid="sidebar-rail">
+      <RailTip name="Overview" tag={repository === undefined ? "Graphvein home" : `Graphvein · ${repository}`}>
+        <a href={DEFAULT_HASH} aria-label={HOME_TITLE} className="mb-1 rounded-lg p-1 outline-none hover:bg-accent focus-visible:ring-2 focus-visible:ring-ring" data-testid="logo-link">
+          <Logo />
+        </a>
+      </RailTip>
+      {onToggle !== undefined && (
+        <RailTip name="Expand the sidebar ([)" tag="remembered in this browser">
+          <button
+            type="button"
+            aria-label="Expand the sidebar"
+            aria-keyshortcuts="["
+            data-testid="sidebar-expand"
+            className="grid size-9 place-items-center rounded-md text-muted-foreground outline-none hover:bg-accent focus-visible:ring-2 focus-visible:ring-ring"
+            onClick={onToggle}
+          >
+            <PanelLeftOpen aria-hidden="true" className="size-4" />
+          </button>
+        </RailTip>
+      )}
+      <div className="my-0.5 h-px w-7 bg-border" />
       {onJump !== undefined && (
         <div className="mb-1">
           <JumpToButton onOpen={onJump} rail />
         </div>
       )}
       <ul className="grid gap-1">
+        {head.map(sectionItem)}
         {project !== null && !noIndex ? (
           <li>
-            <a
-              href="#/project"
-              aria-current={current === "project" ? "page" : undefined}
-              aria-label={`Project ${project.project.project}`}
-              title={`Project ${project.project.project}`}
-              className={cn("grid size-9 place-items-center rounded-md", current === "project" ? "bg-brand-soft text-brand-text" : "hover:bg-accent")}
-            >
-              <Boxes aria-hidden="true" className="size-4" />
-            </a>
+            <RailTip name="Project" tag={project.project.project}>
+              <a
+                href="#/project"
+                aria-current={current === "project" ? "page" : undefined}
+                aria-label={`Project ${project.project.project}`}
+                className={cn("grid size-9 place-items-center rounded-md", current === "project" ? "bg-brand-soft text-brand-text" : "hover:bg-accent")}
+              >
+                <Boxes aria-hidden="true" className="size-4" />
+              </a>
+            </RailTip>
           </li>
         ) : (
-          <li className="grid size-9 place-items-center text-muted-foreground" title={noIndex ? "Project" : PROJECT_ONLY} data-testid="project-greyed">
-            <Boxes aria-hidden="true" className="size-4 opacity-50" />
-            <span className="sr-only">Project, not available</span>
+          <li>
+            <RailTip name="Project" tag={noIndex ? "needs an index" : "only for a project (graphvein-project.yaml)"}>
+              <span tabIndex={-1} className="grid size-9 place-items-center text-muted-foreground" data-testid="project-greyed">
+                <Boxes aria-hidden="true" className="size-4 opacity-50" />
+                <span className="sr-only">Project, not available</span>
+              </span>
+            </RailTip>
           </li>
         )}
-        {SECTIONS.map((section) => {
-          const Icon = ICONS[section.id] ?? TextAlignStart;
-          if (!section.available || noIndex) {
-            return (
-              <li key={section.id} className="grid size-9 place-items-center text-muted-foreground" title={`${section.label} (soon)`}>
-                <Icon aria-hidden="true" className="size-4 opacity-60" />
-                <span className="sr-only">{section.label}, coming soon</span>
-              </li>
-            );
-          }
-          const active = section.id === current;
-          const tag = tags?.[section.id];
-          const name = tag === undefined ? section.label : `${section.label}, ${tag.text}`;
-          return (
-            <li key={section.id}>
-              <a
-                href={sectionHash(section)}
-                aria-current={active ? "page" : undefined}
-                aria-label={name}
-                title={tag === undefined ? section.label : `${name}: ${tag.title}`}
-                className={cn("relative grid size-9 place-items-center rounded-md", active ? "bg-brand-soft text-brand-text" : "hover:bg-accent")}
-              >
-                <Icon aria-hidden="true" className="size-4" />
-                {tag?.tone === "warn" && <span aria-hidden="true" className="absolute top-1 right-1 size-2 rounded-full bg-dynamic-bar" />}
-              </a>
-            </li>
-          );
-        })}
+        {rest.map(sectionItem)}
       </ul>
       {workspace !== null ? (
         <>
@@ -194,40 +264,38 @@ function Rail({ route, repository, tags, status, noIndex = false, onJump }: Pick
         )
       )}
       <div className="mt-auto grid justify-items-center gap-1.5">
-        {noIndex ? (
-          // Settings reads an index's graphvein.yaml: greyed like the
-          // sections until there is one (first run, T038 x T039).
-          <span aria-label="Settings, needs an index" title="Settings: needs an index" data-testid="rail-settings" className="grid size-9 place-items-center text-muted-foreground">
-            <Settings aria-hidden="true" className="size-4 opacity-60" />
-          </span>
-        ) : (
+        {/* Settings opens without an index too: this machine's Storage
+            (T068 part 3); the repository settings follow an index. */}
+        <RailTip name="Settings" tag={noIndex ? "where indexes are kept on this machine" : "graphvein.yaml, storage and this browser's choices"}>
           <a
             href={sectionHash(SETTINGS_SECTION)}
             aria-current={current === "settings" ? "page" : undefined}
             aria-label="Settings"
-            title="Settings: graphvein.yaml and this browser's choices (editor for links, labels)"
             data-testid="rail-settings"
             className={cn("grid size-9 place-items-center rounded-md", current === "settings" ? "bg-brand-soft text-brand-text" : "text-muted-foreground hover:bg-accent")}
           >
             <Settings aria-hidden="true" className="size-4" />
           </a>
-        )}
+        </RailTip>
         {/* Help (T045) after Settings (T039); reachable without an index. */}
-        <a
-          href={sectionHash(HELP_SECTION)}
-          aria-current={current === "help" ? "page" : undefined}
-          aria-label="Help"
-          aria-keyshortcuts="?"
-          title="Help (?)"
-          data-testid="rail-help"
-          className={cn("grid size-9 place-items-center rounded-md", current === "help" ? "bg-brand-soft text-brand-text" : "text-muted-foreground hover:bg-accent")}
-        >
-          <CircleHelp aria-hidden="true" className="size-4" />
-        </a>
+        <RailTip name="Help (?)">
+          <a
+            href={sectionHash(HELP_SECTION)}
+            aria-current={current === "help" ? "page" : undefined}
+            aria-label="Help"
+            aria-keyshortcuts="?"
+            data-testid="rail-help"
+            className={cn("grid size-9 place-items-center rounded-md", current === "help" ? "bg-brand-soft text-brand-text" : "text-muted-foreground hover:bg-accent")}
+          >
+            <CircleHelp aria-hidden="true" className="size-4" />
+          </a>
+        </RailTip>
         <div className="h-px w-7 bg-border" />
-        <a href="/third-party-licenses.txt" aria-label="Third-party licences" title="Third-party licences" className="grid size-9 place-items-center rounded-md text-muted-foreground hover:bg-accent">
-          <FileText aria-hidden="true" className="size-4" />
-        </a>
+        <RailTip name="Third-party licences">
+          <a href="/third-party-licenses.txt" aria-label="Third-party licences" className="grid size-9 place-items-center rounded-md text-muted-foreground hover:bg-accent">
+            <FileText aria-hidden="true" className="size-4" />
+          </a>
+        </RailTip>
       </div>
     </nav>
   );
@@ -245,22 +313,95 @@ function FooterValue({ status, pick }: { status: StatusView; pick: (s: Status) =
 }
 
 /** Sidebar is the section navigation with the repository and versions. */
-export function Sidebar({ route, repository, status, collapsed = false, tags, sub, noIndex = false, onJump }: SidebarProps) {
+export function Sidebar({ route, repository, status, collapsed = false, tags, sub, noIndex = false, onJump, onToggle, overlay = false }: SidebarProps) {
   const current = route.kind === "section" ? route.section.id : undefined;
   const project = useProject();
   const workspace = useWorkspace();
-  if (collapsed) return <Rail route={route} repository={repository} tags={tags} status={status} noIndex={noIndex} onJump={onJump} />;
+  if (collapsed) return <Rail route={route} repository={repository} tags={tags} status={status} noIndex={noIndex} onJump={onJump} onToggle={onToggle} />;
+  const { head, rest } = splitSections();
+  const sectionEntry = (section: Section) => {
+    const Icon = ICONS[section.id] ?? TextAlignStart;
+    if (noIndex && section.available) {
+      return (
+        <li key={section.id} className={cn(item, "text-muted-foreground")}>
+          <Icon aria-hidden="true" className="size-4 opacity-60" />
+          <span>
+            {section.label}
+            <span className="sr-only">, needs an index</span>
+          </span>
+        </li>
+      );
+    }
+    if (!section.available) {
+      return (
+        // A plain list item, not a disabled control: there is nothing
+        // to activate yet, so it is not focusable and screen readers
+        // read "Architecture, coming soon".
+        <li key={section.id} className={cn(item, "text-muted-foreground")}>
+          <Icon aria-hidden="true" className="size-4 opacity-60" />
+          <span>
+            {section.label}
+            <span className="sr-only">, coming soon</span>
+          </span>
+          <Badge aria-hidden="true" variant="outline" className="ml-auto rounded-md px-[7px] text-muted-foreground">
+            Soon
+          </Badge>
+        </li>
+      );
+    }
+    const active = section.id === current;
+    const tag = tags?.[section.id];
+    return (
+      <li key={section.id}>
+        <a
+          href={sectionHash(section)}
+          aria-current={active ? "page" : undefined}
+          aria-label={tag === undefined ? undefined : `${section.label}, ${tag.text}`}
+          title={tag?.title}
+          className={cn(item, active ? "bg-brand-soft font-medium text-brand-text" : "hover:bg-accent")}
+        >
+          <Icon aria-hidden="true" className="size-4" />
+          {section.label}
+          {tag !== undefined && <TagView tag={tag} />}
+        </a>
+        {active && sub !== undefined && sub.section === section.id && <SubList sub={sub} />}
+      </li>
+    );
+  };
   // The logo's second line: the project and member, the repository, or
   // the first-run words.
   const subtitle = noIndex ? (workspace?.workspace.entries.length === 0 ? "no folder yet" : "no index chosen") : project !== null ? `${project.project.project} · ${project.repository}` : repository;
   return (
     <nav aria-label="Sections" className="flex h-screen max-h-screen min-w-0 flex-col overflow-y-auto border-r bg-sidebar p-2">
-      <div className="mb-1.5 flex items-center gap-2.5 p-2">
-        <Logo />
-        <div className="min-w-0">
-          <div className="text-sm leading-tight font-semibold">Graphvein</div>
-          <div className="truncate text-xs text-muted-foreground">{subtitle ?? " "}</div>
-        </div>
+      <div className="mb-1.5 flex items-center gap-1">
+        {/* The logo block is the home link (T064): the Overview, or the add
+            card on the first-run page. */}
+        <a
+          href={DEFAULT_HASH}
+          aria-label={`${HOME_TITLE}${subtitle !== undefined && subtitle !== "" ? ` (${subtitle})` : ""}`}
+          title={HOME_TITLE}
+          data-testid="logo-link"
+          className="flex min-w-0 flex-1 items-center gap-2.5 rounded-lg p-2 outline-none hover:bg-accent focus-visible:ring-2 focus-visible:ring-ring"
+        >
+          <Logo />
+          <div className="min-w-0">
+            <div className="text-sm leading-tight font-semibold">Graphvein</div>
+            <div className="truncate text-xs text-muted-foreground">{subtitle ?? " "}</div>
+          </div>
+        </a>
+        {onToggle !== undefined && (
+          <button
+            type="button"
+            aria-label={overlay ? "Close the sidebar" : "Collapse the sidebar"}
+            aria-keyshortcuts="["
+            title={overlay ? "Close the sidebar (Esc)" : "Collapse the sidebar ([)"}
+            data-testid="sidebar-collapse"
+            className="grid size-8 flex-none place-items-center rounded-md text-muted-foreground outline-none hover:bg-accent hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring"
+            onClick={onToggle}
+          >
+            <PanelLeftClose aria-hidden="true" className="size-4" />
+          </button>
+        )}
       </div>
       {onJump !== undefined && (
         <div className="px-0.5">
@@ -269,6 +410,7 @@ export function Sidebar({ route, repository, status, collapsed = false, tags, su
       )}
       <Group>Sections</Group>
       <ul className="grid gap-px">
+        {head.map(sectionEntry)}
         {project !== null && !noIndex ? (
           <li>
             <a href="#/project" aria-current={current === "project" ? "page" : undefined} className={cn(item, current === "project" ? "bg-brand-soft font-medium text-brand-text" : "hover:bg-accent")}>
@@ -287,55 +429,7 @@ export function Sidebar({ route, repository, status, collapsed = false, tags, su
             </span>
           </li>
         )}
-        {SECTIONS.map((section) => {
-          const Icon = ICONS[section.id] ?? TextAlignStart;
-          if (noIndex && section.available) {
-            return (
-              <li key={section.id} className={cn(item, "text-muted-foreground")}>
-                <Icon aria-hidden="true" className="size-4 opacity-60" />
-                <span>
-                  {section.label}
-                  <span className="sr-only">, needs an index</span>
-                </span>
-              </li>
-            );
-          }
-          if (!section.available) {
-            return (
-              // A plain list item, not a disabled control: there is nothing
-              // to activate yet, so it is not focusable and screen readers
-              // read "Architecture, coming soon".
-              <li key={section.id} className={cn(item, "text-muted-foreground")}>
-                <Icon aria-hidden="true" className="size-4 opacity-60" />
-                <span>
-                  {section.label}
-                  <span className="sr-only">, coming soon</span>
-                </span>
-                <Badge aria-hidden="true" variant="outline" className="ml-auto rounded-md px-[7px] text-muted-foreground">
-                  Soon
-                </Badge>
-              </li>
-            );
-          }
-          const active = section.id === current;
-          const tag = tags?.[section.id];
-          return (
-            <li key={section.id}>
-              <a
-                href={sectionHash(section)}
-                aria-current={active ? "page" : undefined}
-                aria-label={tag === undefined ? undefined : `${section.label}, ${tag.text}`}
-                title={tag?.title}
-                className={cn(item, active ? "bg-brand-soft font-medium text-brand-text" : "hover:bg-accent")}
-              >
-                <Icon aria-hidden="true" className="size-4" />
-                {section.label}
-                {tag !== undefined && <TagView tag={tag} />}
-              </a>
-              {active && sub !== undefined && sub.section === section.id && <SubList sub={sub} />}
-            </li>
-          );
-        })}
+        {rest.map(sectionEntry)}
       </ul>
       {workspace !== null ? (
         <div className="mt-2 flex min-h-[132px] flex-1 flex-col" data-testid="sidebar-workspace">
@@ -359,27 +453,17 @@ export function Sidebar({ route, repository, status, collapsed = false, tags, su
           T045); the editor for links and the label style moved into
           Settings. */}
       <div className={cn("grid border-t px-0 pt-2 pb-2", workspace === null && "mt-auto")} data-testid="sidebar-settings">
-        {noIndex ? (
-          // Settings reads an index's graphvein.yaml: greyed like the
-          // sections until there is one (first run, T038 x T039).
-          <span className={cn(item, "text-muted-foreground")}>
-            <Settings aria-hidden="true" className="size-4 opacity-60" />
-            <span>
-              Settings
-              <span className="sr-only">, needs an index</span>
-            </span>
-          </span>
-        ) : (
-          <a
-            href={sectionHash(SETTINGS_SECTION)}
-            aria-current={current === "settings" ? "page" : undefined}
-            title="graphvein.yaml and this browser's choices (editor for links, labels)"
-            className={cn(item, current === "settings" ? "bg-brand-soft font-medium text-brand-text" : "hover:bg-accent")}
-          >
-            <Settings aria-hidden="true" className="size-4" />
-            Settings
-          </a>
-        )}
+        {/* Settings opens without an index too: this machine's Storage
+            (T068 part 3); the repository settings follow an index. */}
+        <a
+          href={sectionHash(SETTINGS_SECTION)}
+          aria-current={current === "settings" ? "page" : undefined}
+          title={noIndex ? "Where indexes are kept on this machine; repository settings once a folder is indexed" : "graphvein.yaml, where indexes are kept, and this browser's choices (editor for links, labels)"}
+          className={cn(item, current === "settings" ? "bg-brand-soft font-medium text-brand-text" : "hover:bg-accent")}
+        >
+          <Settings aria-hidden="true" className="size-4" />
+          Settings
+        </a>
         {/* Help stays a link without an index: Start here is for the first run. */}
         <a
           href={sectionHash(HELP_SECTION)}

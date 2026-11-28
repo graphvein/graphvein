@@ -32,23 +32,24 @@ function chipText(id: string): string[] {
 }
 
 describe("API section", () => {
-  it("summary strip and cards: Routes and Client calls, Best effort from row D", () => {
+  it("coverage cards: Routes and Client calls, Best effort from row D", () => {
     const { transports } = endpointsGolden("api-endpoints-all");
-    render(<SummaryStrip transports={transports} scope="all" actions={actions} shown />);
+    render(<CoverageCards transports={transports} repository="fixture" scope="all" actions={actions} />);
     expect(chipText("precision-endpoints")).toEqual(["Routes·Best effort [best_effort]", "IPC commands·Best effort [best_effort]", "Server actions·Best effort [best_effort]"]);
     expect(chipText("precision-calls")).toEqual(["Client calls·Best effort [best_effort]", "IPC calls·Best effort [best_effort]", "Action uses·Best effort [best_effort]"]);
   });
 
-  it("coverage cards carry the same chips", () => {
+  it("the transport strips leave the chips to the cards behind the disclosure (T065)", () => {
     const { transports } = endpointsGolden("api-endpoints-all");
-    render(<CoverageCards transports={transports} repository="fixture" scope="all" actions={actions} />);
-    expect(screen.getAllByTestId("precision-endpoints")).toHaveLength(3);
+    render(<SummaryStrip transports={transports} scope="all" actions={actions} open={false} onOpen={vi.fn()} />);
+    expect(screen.getAllByTestId(/^strip-/).length).toBeGreaterThan(0);
+    expect(screen.queryByTestId("precision-endpoints")).toBeNull();
   });
 
   it("an external run shows no scope chip", () => {
     const { transports } = endpointsGolden("api-statuses-endpoints");
     expect(transports[0]?.precision?.reason).toBe("external_indexer");
-    render(<SummaryStrip transports={transports} scope="all" actions={actions} shown />);
+    render(<CoverageCards transports={transports} repository="fixture" scope="all" actions={actions} />);
     expect(screen.queryByTestId("precision-endpoints")).toBeNull();
     expect(screen.queryByTestId("precision-calls")).toBeNull();
   });
@@ -70,12 +71,17 @@ describe("API section", () => {
 
   it("flow legend: one Precision line with both families; none without labels", () => {
     const label: ScopeLabel = { label: "best_effort", row: "D", reason: "default_branch" };
-    const { unmount } = render(<Legend counts={new Map()} tiers={new Set()} onToggle={vi.fn()} onGap={vi.fn()} transport="http" precision={label} callersPrecision={label} />);
+    const { unmount } = render(<Legend counts={new Map()} tiers={new Set()} onToggle={vi.fn()} onGap={vi.fn()} transport="http" precision={label} callersPrecision={label} defaultOpen />);
+    // T073: the strip shows the calls' label (the route's is in the
+    // header); the full legend has both families.
     expect(screen.getByTestId("flow-legend-precision").textContent).toContain("Precision");
+    expect(chipText("flow-callers-precision")).toEqual(["Client calls·Best effort [best_effort]"]);
+    expect(screen.getByTestId("flow-legend-precision-all").textContent).toContain("Precision");
     expect(chipText("flow-precision")).toEqual(["Routes·Best effort [best_effort]"]);
     unmount();
-    render(<Legend counts={new Map()} tiers={new Set()} onToggle={vi.fn()} onGap={vi.fn()} />);
+    render(<Legend counts={new Map()} tiers={new Set()} onToggle={vi.fn()} onGap={vi.fn()} defaultOpen />);
     expect(screen.queryByTestId("flow-legend-precision")).toBeNull();
+    expect(screen.queryByTestId("flow-legend-precision-all")).toBeNull();
   });
 
   it("flow legend: the code calls chip from the server's code_calls_precision (T020 O-S1-5)", () => {
@@ -87,8 +93,9 @@ describe("API section", () => {
 
   it("flow legend of an external run: labels without chips, so no Precision heading", () => {
     const external: ScopeLabel = { label: "best_effort", row: "D", reason: "external_indexer" };
-    render(<Legend counts={new Map()} tiers={new Set()} onToggle={vi.fn()} onGap={vi.fn()} transport="http" precision={external} callersPrecision={external} />);
+    render(<Legend counts={new Map()} tiers={new Set()} onToggle={vi.fn()} onGap={vi.fn()} transport="http" precision={external} callersPrecision={external} defaultOpen />);
     expect(screen.queryByTestId("flow-legend-precision")).toBeNull();
+    expect(screen.queryByTestId("flow-legend-precision-all")).toBeNull();
     expect(screen.queryByText("Precision")).toBeNull();
   });
 });

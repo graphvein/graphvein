@@ -104,6 +104,10 @@ func schemaCases() []apiCase {
 		// table's model, and a model table no route uses.
 		{"schema-table-model-routes", "routes", schemaPath("table", "table:app/models.py#Hero")},
 		{"schema-table-model-routes-none", "routes", schemaPath("table", "table:app/models.py#Audit")},
+		// T070: refused_sources from the Prisma linker's real refusals (a
+		// package whose schema setting is not a literal, .prisma files
+		// outside every schema, a mongodb schema).
+		{"schema-summary-prisma", "prisma", "/api/v0/schema/summary"},
 	}
 }
 
@@ -130,8 +134,13 @@ func schemaOptions(t *testing.T, w, s store.Store) (map[string]Options, map[stri
 		t.Fatal(err)
 	}
 	indexRepository(t, routes, w, "routes")
+	prisma := t.TempDir()
+	if err := os.CopyFS(prisma, os.DirFS("../../testdata/fixtures/prisma-models")); err != nil {
+		t.Fatal(err)
+	}
+	indexRepository(t, prisma, w, "prisma")
 	options, roots := map[string]Options{}, map[string]string{}
-	for _, repo := range []string{"fixture", "states", "empty", "models", "supabase", "routes"} {
+	for _, repo := range []string{"fixture", "states", "empty", "models", "supabase", "routes", "prisma"} {
 		dir := root
 		switch repo {
 		case "models":
@@ -140,6 +149,8 @@ func schemaOptions(t *testing.T, w, s store.Store) (map[string]Options, map[stri
 			dir = supabase
 		case "routes":
 			dir = routes
+		case "prisma":
+			dir = prisma
 		case "states", "empty":
 			dir = t.TempDir()
 		}

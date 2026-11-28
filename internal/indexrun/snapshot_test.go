@@ -187,7 +187,7 @@ func TestRunRemovesTheSnapshotDirectoryItCreated(t *testing.T) {
 func TestCreateSnapshotKeepsADirectoryInUse(t *testing.T) {
 	parent := t.TempDir()
 	dir := filepath.Join(parent, "a", "b")
-	stream, cleanup, err := createSnapshot(dir)
+	stream, cleanup, err := createSnapshot(dir, "")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -201,5 +201,67 @@ func TestCreateSnapshotKeepsADirectoryInUse(t *testing.T) {
 	}
 	if _, err := os.Stat(other); err != nil {
 		t.Fatalf("directory in use removed: %v", err)
+	}
+}
+
+// TestRunRemovesStaleSnapshotsOfItsStore: a run killed before its cleanup
+// (SIGKILL, the out-of-memory killer) leaves its temporary snapshot behind.
+// The next run of the same store, which holds the store's index lock,
+// removes it before it writes its own; the snapshots of another store in the
+// same directory, an untagged snapshot and unrelated files are kept, since
+// another store's run may be writing them (T058).
+func TestRunRemovesStaleSnapshotsOfItsStore(t *testing.T) {
+	root := fixture(t)
+	dir := filepath.Join(t.TempDir(), "stores")
+	if err := os.MkdirAll(dir, 0o755); err != nil {
+		t.Fatal(err)
+	}
+	path := filepath.Join(dir, "repo.db")
+	own := snapshotPattern("repo.db")
+	other := snapshotPattern("repo.db-other.db")
+	if own == other || !strings.HasPrefix(own, "snapshot-") {
+		t.Fatalf("patterns %q and %q", own, other)
+	}
+	stale := []string{strings.Replace(own, "*", "123", 1), strings.Replace(own, "*", "4567", 1)}
+	kept := []string{strings.Replace(other, "*", "123", 1), "snapshot-123.ndjson", strings.Replace(own, "*.ndjson", "123.json", 1), "notes.txt"}
+	for _, name := range append(append([]string(nil), stale...), kept...) {
+		if err := os.WriteFile(filepath.Join(dir, name), nil, 0o644); err != nil {
+			t.Fatal(err)
+		}
+	}
+	locker := sqlite.IndexLocker(path)
+	defer locker.Close()
+	lease, err := locker.Acquire(context.Background(), LockWait)
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer lease.Release()
+	var during []string
+	_, err = Run(context.Background(), Options{
+		Root: root, Repository: "fixture", Lease: lease, SnapshotDir: dir, StoreName: "repo.db",
+		OpenStore: func(ctx context.Context) (store.Store, error) { return sqlite.Open(ctx, path) },
+		Emit: func(ctx context.Context, root string, s store.Store, w io.Writer, o index.Options) (index.Summary, error) {
+			during, _ = filepath.Glob(filepath.Join(dir, own))
+			return index.Emit(ctx, root, s, w, o)
+		},
+	})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(during) != 1 || filepath.Base(during[0]) == stale[0] || filepath.Base(during[0]) == stale[1] {
+		t.Fatalf("own snapshots during the run: %v, want only the run's new one", during)
+	}
+	for _, name := range stale {
+		if _, err := os.Stat(filepath.Join(dir, name)); !errors.Is(err, fs.ErrNotExist) {
+			t.Errorf("stale snapshot %s not removed: %v", name, err)
+		}
+	}
+	for _, name := range kept {
+		if _, err := os.Stat(filepath.Join(dir, name)); err != nil {
+			t.Errorf("%s removed: %v", name, err)
+		}
+	}
+	if left, _ := filepath.Glob(filepath.Join(dir, own)); len(left) != 0 {
+		t.Fatalf("temporary snapshot left: %v", left)
 	}
 }

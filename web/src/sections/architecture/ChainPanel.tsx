@@ -2,7 +2,8 @@
 // evidence chain): every step numbered as on the map, the stored edges
 // into it with their wording and tier (link quality per step), its
 // members with their source location, CH11 end lines under the member
-// they end at, CH12 cap notes and CH10 hidden counts on the step, and the
+// they end at (once for the step when every member carries the same,
+// T072), CH12 cap notes and CH10 hidden counts on the step, and the
 // step's folded count. A member selected here or on the map is the same
 // selection (the `at` hash parameter); its code peek opens below.
 //
@@ -71,6 +72,16 @@ function where(m: ChainMember): string {
   return `${m.file}${m.line !== null ? `:${String(m.line)}` : ""}`;
 }
 
+/** sharedEnds is the end note list every member of a step carries when
+ * they all carry the identical one (T072, T071 question 10): the step then
+ * says it once. null: a step of one member, or the members differ. */
+export function sharedEnds(members: readonly string[], ends: ReadonlyMap<string, readonly string[]>): readonly string[] | null {
+  const first = ends.get(members[0] ?? "");
+  if (members.length < 2 || first === undefined || first.length === 0) return null;
+  const key = JSON.stringify(first);
+  return members.every((m) => JSON.stringify(ends.get(m) ?? []) === key) ? first : null;
+}
+
 function Badge({ n, on }: { n: number; on: boolean }) {
   return <span className={cn("grid size-[22px] flex-none place-items-center rounded-full text-[11px] font-semibold text-white", on ? "bg-foreground" : "bg-brand")}>{n}</span>;
 }
@@ -86,6 +97,15 @@ function Step({ p, view, selected, onSelect, databaseName }: { p: ChainPosition;
     const t = label(style, "chainEnd", { text: e.text, row: e.row }).text;
     ends.set(e.member, [...(ends.get(e.member) ?? []), t]);
   }
+  const shared = sharedEnds(
+    p.members.map((m) => m.id),
+    ends,
+  );
+  const endNote = (t: string, key: string) => (
+    <span key={key} className="mt-0.5 ml-1.5 block rounded border border-dashed border-never-bar px-1.5 py-0.5 text-[11.5px] text-muted-foreground" data-testid="chain-end">
+      {t}
+    </span>
+  );
   const pathStep = (m: ChainMember) => {
     if (m.tier === "fact" || m.tier_step === 0) return null;
     const side = p.side === "start" ? null : p.side;
@@ -143,15 +163,12 @@ function Step({ p, view, selected, onSelect, databaseName }: { p: ChainPosition;
                     path <LinkTierChip tier={m.tier} size="sm" /> at step {ps}
                   </span>
                 )}
-                {(ends.get(m.id) ?? []).map((t) => (
-                  <span key={t} className="mt-0.5 ml-1.5 block rounded border border-dashed border-never-bar px-1.5 py-0.5 text-[11.5px] text-muted-foreground" data-testid="chain-end">
-                    {t}
-                  </span>
-                ))}
+                {shared === null && (ends.get(m.id) ?? []).map((t) => endNote(t, t))}
               </li>
             );
           })}
         </ul>
+        {shared !== null && <div className="pl-[30px]" data-testid="chain-end-shared">{shared.map((t) => endNote(`${p.members.length === 2 ? "Both" : `All ${formatCount(p.members.length)}`}: ${t}`, t))}</div>}
         {p.members.length > STEP_ROWS && (
           <button
             type="button"

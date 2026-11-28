@@ -1,10 +1,10 @@
 // The label style controls (T025b): the browser's "Label style" choice,
 // shown in Settings since T039 (it was in the sidebar footer; the stored
-// key graphvein.labels.v1 is unchanged), and the one-time banner across the
-// top of the first view. The banner never blocks the page: it sits above the
-// content until a style is chosen or it is closed (×, which keeps the
-// current style, plain unless graphvein.yaml says otherwise), once per
-// browser.
+// key graphvein.labels.v1 is unchanged), and the one-time question, a card
+// on the Overview since T064 (it was a banner above every view). It never
+// blocks the page: it stays until a style is chosen or it is closed (×,
+// which keeps the current style, plain unless graphvein.yaml says
+// otherwise), once per browser.
 
 import { X } from "lucide-react";
 
@@ -85,48 +85,46 @@ export function LabelSetting({ labelledBy }: { labelledBy?: string }) {
   );
 }
 
-/** LabelBanner is the one-time first-run question above the content. */
+/** LabelBanner is the one-time label-style question. Since T064 it is a
+ * card on the Overview only (it was a banner above every section): a page
+ * opened directly by a link never shows it. */
 export function LabelBanner() {
   const state = useLabels();
   if (!state.banner) return null;
   return (
-    <section
-      aria-labelledby="labels-banner-title"
-      data-testid="labels-banner"
-      className="flex flex-wrap items-center gap-x-4 gap-y-2 rounded-lg border border-brand/40 bg-brand-soft py-2.5 pr-2 pl-4 text-[13px]"
-    >
-      <div className="min-w-[220px] flex-1">
-        <h2 id="labels-banner-title" className="m-0 text-[14px] font-semibold">
+    <section aria-labelledby="labels-banner-title" data-testid="labels-banner" className="grid gap-2.5 rounded-xl border bg-card p-4 text-[13px] shadow-[0_1px_2px_rgba(0,0,0,.04)]">
+      <div className="flex items-start gap-2">
+        <h2 id="labels-banner-title" className="m-0 flex-1 text-[15px] font-semibold">
           How should Graphvein label facts?
         </h2>
-        <p className="m-0 text-xs text-muted-foreground">You can change this any time under “Label style” in Settings.</p>
+        <button
+          type="button"
+          aria-label="Close: keep plain labels"
+          title="Close: keep plain labels"
+          data-testid="labels-banner-close"
+          className="-mt-1 -mr-1 grid size-7 flex-none place-items-center rounded-md text-muted-foreground outline-none hover:bg-accent focus-visible:ring-2 focus-visible:ring-ring"
+          onClick={state.dismissBanner}
+        >
+          <X aria-hidden="true" className="size-4" />
+        </button>
       </div>
-      <div className="grid min-w-0 flex-[2] grid-cols-2 gap-2 max-[700px]:grid-cols-1">
+      <div className="grid grid-cols-2 gap-2">
         {STYLES.map((s) => (
           <button
             key={s.style}
             type="button"
             data-testid={`labels-banner-${s.style}`}
-            className="grid min-w-0 gap-0.5 rounded-md border border-input bg-background px-3 py-1.5 text-left outline-none hover:bg-accent focus-visible:ring-2 focus-visible:ring-ring"
+            className="grid min-w-0 content-start gap-0.5 rounded-md border border-input bg-background px-3 py-2 text-left outline-none hover:bg-accent focus-visible:ring-2 focus-visible:ring-ring"
             onClick={() => {
               state.setStyle(s.style);
             }}
           >
             <b className="font-semibold">{s.name}</b>
-            <span className="truncate text-xs text-muted-foreground">e.g. {s.example}</span>
+            <span className="text-xs text-muted-foreground">e.g. {s.example}</span>
           </button>
         ))}
       </div>
-      <button
-        type="button"
-        aria-label="Close: keep plain labels"
-        title="Close: keep plain labels"
-        data-testid="labels-banner-close"
-        className="grid size-8 flex-none place-items-center rounded-md outline-none hover:bg-background/60 focus-visible:ring-2 focus-visible:ring-ring"
-        onClick={state.dismissBanner}
-      >
-        <X aria-hidden="true" className="size-4" />
-      </button>
+      <p className="m-0 text-xs text-muted-foreground">Asked once, here only; “Label style” in Settings changes it any time.</p>
     </section>
   );
 }

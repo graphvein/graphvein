@@ -16,7 +16,10 @@ describe("Sidebar", () => {
     const rail = screen.getByTestId("sidebar-rail");
     const api = screen.getByRole("link", { name: "API" });
     expect(api.getAttribute("aria-current")).toBe("page");
-    expect(api.getAttribute("title")).toBe("API");
+    expect(api.getAttribute("href")).toBe("#/api");
+    // The Overview is first and the logo is the home link (T064).
+    expect(screen.getByRole("link", { name: "Overview" }).getAttribute("href")).toBe("#/overview");
+    expect(screen.getByTestId("logo-link").getAttribute("href")).toBe("#/overview");
     expect(rail.textContent).toContain("Review, coming soon");
     expect(screen.getByRole("link", { name: "Architecture" }).getAttribute("href")).toBe("#/architecture");
     expect(screen.getByRole("link", { name: "Third-party licences" }).getAttribute("href")).toBe("/third-party-licenses.txt");
@@ -91,14 +94,16 @@ describe("Sidebar", () => {
     expect(screen.getByText("Repository").parentElement?.nextElementSibling?.textContent).toBe("fixture");
   });
 
-  it("in project mode: Project first under Sections, the member list under Repository", () => {
+  it("in project mode: Project after the Overview under Sections, the member list under Repository", () => {
     render(
       <ProjectProvider initial={project()} fetcher={() => Promise.resolve({ kind: "single" })}>
         {(r) => <Sidebar route={parseRoute("#/api")} repository={r} status={LOADING} />}
       </ProjectProvider>,
     );
     const links = screen.getByRole("navigation", { name: "Sections" }).querySelectorAll("ul:first-of-type > li > a");
-    expect(links[0]?.textContent).toBe("Project");
+    // The Overview (T064) stays first; Project follows it.
+    expect(links[0]?.textContent).toBe("Overview");
+    expect(links[1]?.textContent).toBe("Project");
     const list = screen.getByTestId("project-members");
     expect(list.textContent).toContain("shop");
     expect(screen.getAllByTestId("member-button")).toHaveLength(3);

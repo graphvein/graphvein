@@ -134,7 +134,7 @@ func clientReasons(n contract.Node, status string) []reason {
 			}
 			detail = &d
 		}
-		out = append(out, newReason("no_matching_route", "No route matches this method and path", detail))
+		out = append(out, newReason("no_matching_route", "No route with a known full path matches this method and path", detail))
 	}
 	if p := firstPathWithStatus(paths, "ambiguous"); p != nil {
 		count, exact := candidateTie(p)

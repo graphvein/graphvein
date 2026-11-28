@@ -1,5 +1,6 @@
 // Hash routing (ADR 0041): the server owns /api/, so UI pages live in the
-// fragment (#/api). An empty fragment or "#/" goes to the API section. A
+// fragment (#/api). An empty fragment or "#/" goes to the Overview (T064;
+// it went to the API section before, and #/api links keep working). A
 // section hash may carry a query (#/api?sel=...); the section reads it with
 // parseHashQuery and writes it back with replaceState, without a history
 // entry per click.
@@ -15,6 +16,9 @@ export interface Section {
 }
 
 export const SECTIONS: readonly Section[] = [
+  // The Overview (T064, design record T061 D1): the home page, opened by
+  // "#/", an empty hash and the sidebar's logo.
+  { id: "overview", label: "Overview", available: true },
   { id: "api", label: "API", available: true },
   { id: "explorer", label: "Explorer", available: true },
   { id: "architecture", label: "Architecture", available: true },
@@ -47,7 +51,8 @@ export function settingsHash(at: string | null = null): string {
   return at === null ? "#/settings" : `#/settings?at=${encodeURIComponent(at)}`;
 }
 
-export const DEFAULT_HASH = "#/api";
+/** DEFAULT_HASH is the home page: the Overview (T064). */
+export const DEFAULT_HASH = "#/overview";
 
 export type Route = { kind: "section"; section: Section } | { kind: "not_found"; hash: string };
 

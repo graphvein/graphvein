@@ -46,6 +46,28 @@ type extractorStatus struct {
 type indexStatus struct {
 	Indexed bool     `json:"indexed"`
 	LastRun *lastRun `json:"last_run"`
+	// ParseFailed counts the files the stored run could not parse
+	// (parse_failed diagnostics, T074): every count of the index is
+	// incomplete while it is nonzero. Omitted when zero.
+	ParseFailed int `json:"parse_failed,omitempty"`
+}
+
+// codeParseFailed is the diagnostic of a file whose parse failed, a timeout
+// included once the serial retry also timed out.
+const codeParseFailed = "parse_failed"
+
+// parseFailedFiles counts the distinct files of repo's stored parse_failed
+// diagnostics (T074), the files that make a run's counts incomplete.
+func parseFailedFiles(ctx context.Context, s store.Store, repo string) (int, error) {
+	diagnostics, err := s.DiagnosticsWithCodes(ctx, repo, []string{codeParseFailed}, nil)
+	if err != nil {
+		return 0, fmt.Errorf("reading parse_failed diagnostics: %w", err)
+	}
+	seen := map[string]bool{}
+	for _, d := range diagnostics {
+		seen[d.File] = true
+	}
+	return len(seen), nil
 }
 
 type lastRun struct {
@@ -139,6 +161,11 @@ func (h *statusHandler) compute(ctx context.Context) (statusResponse, error) {
 		Extractor:     extractorFor(index.Version, last),
 		Index:         indexStatus{Indexed: len(runs) > 0, LastRun: last},
 		Freshness:     freshnessFor(changed, freshErr, len(runs) > 0),
+	}
+	if len(runs) > 0 {
+		if out.Index.ParseFailed, err = parseFailedFiles(ctx, opt.Store, opt.Repository); err != nil {
+			return statusResponse{}, err
+		}
 	}
 	out.Freshness.CheckedAt = checkedAt.UTC().Format(time.RFC3339Nano)
 	out.Freshness.Settings = opt.statusSettings(runs)

@@ -44,7 +44,9 @@ func TestIndexRefusedWhileLocked(t *testing.T) {
 			out.Reset()
 			errOut.Reset()
 			started := time.Now()
-			if code := run(args, &out, &errOut); code != 1 || errOut.String() != want || out.Len() != 0 {
+			// Only the Index line (ADR 0093), printed before the lock is
+			// taken; nothing about a run.
+			if code := run(args, &out, &errOut); code != 1 || errOut.String() != want || !strings.HasPrefix(out.String(), "Index: ") || strings.Count(out.String(), "\n") != 1 {
 				t.Fatalf("%v: exit %d, stdout %q, stderr %q", args, code, out.String(), errOut.String())
 			}
 			if time.Since(started) < time.Second {

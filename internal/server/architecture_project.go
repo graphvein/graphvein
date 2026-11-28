@@ -289,7 +289,7 @@ func projectLinks(px *archProjectIn, m *archModel, g *archGraph, nodes map[strin
 		}
 		if routeOK {
 			member.Method, member.Path = stringAttr(route, "method"), stringAttr(route, "pattern")
-			member.FullPath = displayPath(objects(route.Attributes["paths"]), scope)
+			member.FullPath = routePath(route, scope)
 			member.PrefixPath = prefixPath(route, scope)
 			if member.Method != nil {
 				al.Methods = append(al.Methods, *member.Method)
@@ -449,7 +449,7 @@ func projectChainSteps(side *chainSide, dir string, depth int, scope string, px 
 						switch n.Kind {
 						case "route":
 							cm.Method, cm.Path = stringAttr(n, "method"), stringAttr(n, "pattern")
-							cm.FullPath = displayPath(objects(n.Attributes["paths"]), scopeProduction)
+							cm.FullPath = routePath(n, scopeProduction)
 							cm.PrefixPath = prefixPath(n, scopeProduction)
 						case "client_call":
 							cm.Method, cm.Status = stringAttr(n, "method"), stringAttr(n, "status")

@@ -3,17 +3,16 @@ package main
 import (
 	"context"
 	"encoding/json"
-	"errors"
 	"flag"
 	"fmt"
 	"io"
-	"io/fs"
 	"os"
 	"path/filepath"
 	"strings"
 
 	"github.com/graphvein/graphvein/internal/config"
 	"github.com/graphvein/graphvein/internal/projectsuggest"
+	"github.com/graphvein/graphvein/internal/storeloc"
 )
 
 // projectSuggestCommand is graphvein project suggest (ADR 0075, T022 B6):
@@ -78,10 +77,12 @@ func projectSuggestCommand(args []string, stdout, stderr io.Writer) int {
 // store nothing is indexed yet: every member then has no stored calls, and
 // the listing says to index the project first.
 func readProjectCalls(ctx context.Context, project config.Project) (projectsuggest.Calls, error) {
-	if os.Getenv("GRAPHVEIN_POSTGRES_URL") == "" {
-		if _, err := os.Stat(sqlitePath(project.Dir)); errors.Is(err, fs.ErrNotExist) {
-			return projectsuggest.Calls{}, nil
-		}
+	loc, err := locate(project.Dir)
+	if err != nil {
+		return projectsuggest.Calls{}, err
+	}
+	if loc.Origin != storeloc.OriginPostgres && !loc.Exists {
+		return projectsuggest.Calls{}, nil
 	}
 	s, err := openReadStore(ctx, project.Dir)
 	if err != nil {

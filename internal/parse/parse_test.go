@@ -9,6 +9,8 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"runtime"
+	"strings"
 	"testing"
 	"time"
 )
@@ -95,7 +97,7 @@ func TestAssetsAndWorkers(t *testing.T) {
 // raced the clock and lost on a fast Windows runner once grammar setup moved
 // outside the deadline (T018g2 G2W2).
 func TestTimeoutRetiresWorker(t *testing.T) {
-	parseHook = func(ctx context.Context) { <-ctx.Done() }
+	parseHook = func(ctx context.Context, _ []byte) { <-ctx.Done() }
 	t.Cleanup(func() { parseHook = nil })
 	options := Options{Workers: 1, CacheDir: filepath.Join(t.TempDir(), "cache"), Timeout: 20 * time.Millisecond}
 	results, err := Batch(context.Background(), []Job{{"typescript", []byte("function f() {}")}}, options)
@@ -193,5 +195,62 @@ func TestFileTimeout(t *testing.T) {
 	// with four workers busy; its deadline must leave a margin over that.
 	if got := FileTimeout(base, 722537); got < 2*8200*time.Millisecond {
 		t.Errorf("owncast chunk deadline %v leaves no margin", got)
+	}
+}
+
+// TestDeepTreeTextIsLinear pins that detaching a tree costs the file's bytes
+// once, not once per level. A long union type is a left-nested tree as deep
+// as the union is long; a copy of each node's text made t3code's 19,307-member
+// IAM action union allocate more than 7 GB (T058). Here 4,000 members
+// allocated 330 MB that way and allocate about 55 MB (mostly the parser's
+// own per-call cost) with one shared copy of the file. Every node's text
+// must still be exactly its source bytes.
+func TestDeepTreeTextIsLinear(t *testing.T) {
+	var b strings.Builder
+	b.WriteString("export type Action =\n")
+	const members = 4000
+	for i := 0; i < members; i++ {
+		fmt.Fprintf(&b, "  | \"service-%04d:OperationName\"\n", i)
+	}
+	b.WriteString(";\n")
+	source := []byte(b.String())
+	e, err := getEngine(context.Background(), filepath.Join(t.TempDir(), "cache"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	w := worker{e, map[string]*instance{}}
+	t.Cleanup(func() {
+		for _, i := range w.instances {
+			i.close()
+		}
+	})
+	// The first parse instantiates the grammar module; only the second is measured.
+	if _, _, err := w.parse(context.Background(), 0, "typescript", []byte("type A = 1;")); err != nil {
+		t.Fatal(err)
+	}
+	var before, after runtime.MemStats
+	runtime.ReadMemStats(&before)
+	root, syntax, err := w.parse(context.Background(), 0, "typescript", source)
+	runtime.ReadMemStats(&after)
+	if err != nil || syntax || root == nil {
+		t.Fatal(syntax, err)
+	}
+	if allocated := after.TotalAlloc - before.TotalAlloc; allocated > 128<<20 {
+		t.Fatalf("detaching a %d-byte file allocated %d bytes", len(source), allocated)
+	}
+	depth := 0
+	var walk func(n *Node, d int)
+	walk = func(n *Node, d int) {
+		depth = max(depth, d)
+		if n.Text != string(source[n.Start:n.End]) {
+			t.Fatalf("%s at %d..%d: text %q", n.Kind, n.Start, n.End, n.Text)
+		}
+		for _, c := range n.Children {
+			walk(c, d+1)
+		}
+	}
+	walk(root, 0)
+	if depth < members {
+		t.Fatalf("tree depth %d: the union is not nested as assumed", depth)
 	}
 }

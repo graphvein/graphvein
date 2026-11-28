@@ -10,7 +10,9 @@
 //
 // Claim rows WS-44 (progress), WS-45 (confirmation, with the registered
 // entries a folder holds), WS-46 (refusals), WS-55 (Index it for a
-// registered folder without an index), WS-56 (added, not indexed).
+// registered folder without an index), WS-56 (added, not indexed). Where
+// the index is kept (T068 part 3, WS-73, WS-76): the confirmation's
+// "Index kept in" row and its Change… (StorePlace.tsx).
 
 import { Check, Circle, ClipboardCopy, FolderPlus, LoaderCircle, SquareTerminal, TriangleAlert } from "lucide-react";
 import { useEffect, useRef, useState, type ReactNode } from "react";
@@ -22,6 +24,7 @@ import { Button } from "@/components/ui/button";
 import { formatShortTime } from "@/lib/time";
 import { cn } from "@/lib/utils";
 import { Modal } from "@/sections/explorer/tryit/Modal";
+import { FirstRunStoreLine, KeptIn, PlaceChooser } from "@/shell/workspace/StorePlace";
 import { useWorkspace, type WorkspaceState } from "@/shell/workspace/WorkspaceRoot";
 import { errorWords, jobProgress, jobRunning, needsIndex, phaseWord } from "@/shell/workspace/words";
 
@@ -60,6 +63,9 @@ type Step =
   | { kind: "path" }
   | { kind: "checking"; path: string }
   | { kind: "checked"; check: CheckResult }
+  // Change…: where this folder's index is kept, starting from the
+  // confirmed check.
+  | { kind: "place"; check: CheckResult }
   | { kind: "adding"; check: CheckResult }
   | { kind: "running"; id: string; name: string; started: Job | null }
   | { kind: "error"; path: string; error: ApiError | Error; during: "check" | "add" }
@@ -107,7 +113,7 @@ export function CommandLine({ command }: { command: string }) {
 }
 
 /** PathForm is the path step (dialog S1 and the first-run card S11). */
-export function PathForm({ initial = "", onSubmit, busy = false, autoFocus = true, footer }: { initial?: string; onSubmit: (path: string) => void; busy?: boolean; autoFocus?: boolean; footer?: (submit: ReactNode) => ReactNode }) {
+export function PathForm({ initial = "", onSubmit, busy = false, autoFocus = true, footer, note }: { initial?: string; onSubmit: (path: string) => void; busy?: boolean; autoFocus?: boolean; footer?: (submit: ReactNode) => ReactNode; note?: ReactNode }) {
   const [path, setPath] = useState(initial);
   const trimmed = path.trim();
   const submit = (
@@ -143,6 +149,7 @@ export function PathForm({ initial = "", onSubmit, busy = false, autoFocus = tru
           The full path of a repository folder, or of a project folder that holds <code className="font-mono">graphvein-project.yaml</code>. Graphvein checks the path, then asks you to confirm before it reads anything.
         </span>
       </label>
+      {note}
       <div className="grid gap-1.5">
         <span className="text-[12px] text-muted-foreground">Or run it in a terminal; the folder then appears here once served:</span>
         <CommandLine command={trimmed === "" ? INDEX_COMMAND : `graphvein index ${quotePath(trimmed)}`} />
@@ -170,17 +177,9 @@ export function indexWords(index: CheckResult["index"]): string {
   return index.state;
 }
 
-/** storeWords says where the index is written (WS-45): the SQLite path,
- * or Postgres named by its variable, never the URL. */
-export function storeWords(store: CheckResult["store"]): ReactNode {
-  if (store === null) return "not reported";
-  if (store.kind === "sqlite") return <code className="font-mono">{store.path ?? "the folder's .graphvein/index.db"}</code>;
-  if (store.kind === "postgres") return <>Postgres from <code className="font-mono">{store.env ?? "GRAPHVEIN_POSTGRES_URL"}</code></>;
-  return store.kind;
-}
-
-/** Confirmation is step 2 (S2, S10): what the check found. */
-export function Confirmation({ check }: { check: CheckResult }) {
+/** Confirmation is step 2 (S2, S10): what the check found. onChange
+ * opens Change… (where the index is kept); null hides it. */
+export function Confirmation({ check, onChange = null }: { check: CheckResult; onChange?: (() => void) | null }) {
   const project = check.kind === "project";
   return (
     <div className="grid gap-3" data-testid="add-confirm">
@@ -208,7 +207,9 @@ export function Confirmation({ check }: { check: CheckResult }) {
             </ul>
           </Row>
         )}
-        <Row label="Index written to">{project ? "each member's own index, as graphvein index writes it" : storeWords(check.store)}</Row>
+        <Row label="Index kept in">
+          <KeptIn store={check.store} places={check.places} onChange={onChange} />
+        </Row>
         <Row label="Stored index">{indexWords(check.index)}</Row>
         <Row label="Files">counted by the scan when it starts; no estimate before</Row>
       </dl>
@@ -227,8 +228,17 @@ export function Confirmation({ check }: { check: CheckResult }) {
           <p className="m-0 text-[12.5px] text-muted-foreground">Its index reads their files again into an index of its own; their entries and indexes stay as they are.</p>
         </div>
       )}
-      <p className="m-0 text-[12.5px] text-muted-foreground">
-        Graphvein never changes your files; it only adds its <code className="font-mono">.graphvein</code> folder. Nothing is sent over the network.
+      <p className="m-0 text-[12.5px] text-muted-foreground" data-testid="add-writes">
+        {check.store?.place === "inside" ? (
+          <>
+            Graphvein never changes your files; it only adds its <code className="font-mono">.graphvein</code> folder.
+          </>
+        ) : check.store === null ? (
+          "Graphvein never changes your files."
+        ) : (
+          "Graphvein never changes your files and writes nothing into this folder."
+        )}{" "}
+        Nothing is sent over the network.
       </p>
     </div>
   );
@@ -394,7 +404,14 @@ function AddFlow({ state, initialPath }: { state: WorkspaceState; initialPath: s
             Index <code className="font-mono [overflow-wrap:anywhere]">{c.resolved}</code>?
           </>
         );
-        body = <Confirmation check={c} />;
+        body = (
+          <Confirmation
+            check={c}
+            onChange={() => {
+              setStep({ kind: "place", check: c });
+            }}
+          />
+        );
         footer = (
           <Footer
             left={
@@ -498,6 +515,46 @@ function AddFlow({ state, initialPath }: { state: WorkspaceState; initialPath: s
           </Footer>
         );
       }
+      break;
+    }
+    case "place": {
+      const base = step.check;
+      title = `Where should the index of ${base.name ?? "this folder"} be kept?`;
+      body = (
+        <PlaceChooser
+          check={base}
+          runCheck={(place) => client.check(base.resolved ?? base.path, workspace.token, place)}
+          footer={(ready) => (
+            <Footer
+              left={
+                <Button
+                  variant="outline"
+                  onClick={() => {
+                    setStep({ kind: "checked", check: ready ?? base });
+                  }}
+                  data-testid="add-place-back"
+                >
+                  Back
+                </Button>
+              }
+            >
+              <Button variant="outline" onClick={close} data-autofocus="">
+                Cancel
+              </Button>
+              <Button
+                disabled={ready === null}
+                onClick={() => {
+                  if (ready !== null) add(ready);
+                }}
+                data-testid="add-index"
+              >
+                Index {base.name}
+              </Button>
+            </Footer>
+          )}
+        />
+      );
+      footer = null;
       break;
     }
     case "adding":
@@ -671,6 +728,7 @@ export function FirstRunCard({ helpHref = null, choose = false }: { helpHref?: s
           onSubmit={(path) => {
             state?.openAdd({ path });
           }}
+          note={<FirstRunStoreLine />}
         />
         {helpHref !== null && (
           <a href={helpHref} className="text-[13px] font-medium text-brand-text hover:underline" data-testid="first-run-help">

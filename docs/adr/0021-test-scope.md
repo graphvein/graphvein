@@ -87,3 +87,38 @@ remain those of ADRs 0013, 0016, 0018, 0019 and 0020.
   examples are unclassified; unrelated fixture repositories sharing URLs
   stay ambiguous in the self-index (multi-repository identity, M4).
 - Review fixed the status vocabulary in docs/extract/clients.md.
+
+## Revision 1 (T057, 2026-11-27)
+
+**Status:** Proposed
+
+**Date:** 2026-11-27
+
+A precision correction to the Decision's "entirely test-only tiers produce
+test_only". Principle: test_only claims that only test routes can serve the
+call, so a call may be labelled test-only only when every route it could
+match in production scope is proven not to match; a production route whose
+full path is unknown is a possible match.
+
+- Rival condition: for a production call whose winning tier holds only
+  test-scope paths, when a production `unresolved_prefix_paths` entry (the
+  path proven below a prefix the code does not fix) matches the call as the
+  unknown-prefix tier reads one (rows UP-14, UP-15, UP-18), with at least
+  one literal segment (UP-17's competitor, the rival row UP-22 already
+  uses), the call is `unmatched`: no candidates, no edge, no new reason code
+  or field. The entries never become candidates.
+- What stays test_only: a call no production route could serve, for example
+  a route only test code registers, a route whose production path below the
+  unknown prefix differs from the call, a route below no hop
+  (`route_unmounted`), and calls the unknown-prefix tier refuses (a literal
+  or assignment-derived origin, row UP-20). Test calls still ignore scope.
+- Views: in the production and all scope, a route whose only full paths are
+  composed through test-scope mounts and that has a production unknown-prefix
+  path shows that path, marked prefix unknown (row UP-29), not the
+  test-composed one.
+- Measured: new-api (explore set) 263 production calls move from test_only
+  to unmatched; the pinned corpora owncast, dozzle, miniflux, realworld-gin,
+  gotify, express, fastapi and langflow are unchanged. Aggregate extractor
+  version unchanged (link-time and view-only).
+
+See [test scope](../extract/test-scope.md).

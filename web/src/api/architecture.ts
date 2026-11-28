@@ -288,6 +288,8 @@ export interface ArchitectureResponse {
   scope: string;
   manifests: string;
   notice: string | null;
+  /** Files the run could not parse (T074); 0 when the server omits it. */
+  parse_failed: number;
   components: Component[];
   links: Link[];
   databases: Database[];
@@ -528,6 +530,7 @@ export function parseArchitecture(value: unknown): ArchitectureResponse {
     scope: optStr(obj, "scope", p) ?? "production",
     manifests: optStr(obj, "manifests", p) ?? "read",
     notice: optStr(obj, "notice", p),
+    parse_failed: numAt(obj, "parse_failed", p, 0),
     components: list("components").map((c, i) => parseComponent(c, `${p}.components[${String(i)}]`)),
     links: list("links").map((l, i) => parseLink(l, `${p}.links[${String(i)}]`)),
     databases: list("databases").map((d, i) => {

@@ -378,6 +378,35 @@ func displayPath(paths []map[string]any, scope string) *string {
 	return nil
 }
 
+// routePath is the full path a view shows for route n in scope
+// (displayPath), except that a production or all-scope view never shows a
+// path composed only through test-scope mounts as the route's path while
+// the route has a production path whose prefix the code does not fix
+// (T057, row UP-29): the test harness's prefix is not the production
+// prefix, so the view shows the unknown-prefix path instead (nil here).
+func routePath(n contract.Node, scope string) *string {
+	paths := objects(n.Attributes["paths"])
+	if scope != scopeTest && !hasProductionFullPath(paths) {
+		for _, p := range routepaths.PrefixUnknownPaths(n.Attributes) {
+			if p.Scope != scopeTest {
+				return nil
+			}
+		}
+	}
+	return displayPath(paths, scope)
+}
+
+// hasProductionFullPath reports whether some stored path entry is a full
+// composed path that is not test scope.
+func hasProductionFullPath(paths []map[string]any) bool {
+	for _, p := range fullPaths(paths) {
+		if p["scope"] != "test" {
+			return true
+		}
+	}
+	return false
+}
+
 // fullPaths keeps the stored path entries that are full composed paths
 // (routepaths.FullPathEntry).
 func fullPaths(paths []map[string]any) []map[string]any {
@@ -408,7 +437,7 @@ func storedPrefixEntries(n contract.Node) []map[string]any {
 // the prefix the code does not fix); nil when the route has a full path or
 // no unknown-prefix path.
 func prefixPath(n contract.Node, scope string) *string {
-	if displayPath(objects(n.Attributes["paths"]), scope) != nil {
+	if routePath(n, scope) != nil {
 		return nil
 	}
 	if p := routepaths.ShownPrefixPath(routepaths.PrefixUnknownPaths(n.Attributes), scope); p != nil {

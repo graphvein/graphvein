@@ -3,6 +3,14 @@
 Each part of Graphvein answers one kind of question. Every view links down
 to the exact line, which opens in your editor.
 
+## Overview: the repository at a glance
+
+What is this repository? The [Overview](#/overview) opens first. It lists
+the parts on the map (and the workspace libraries in the band below them),
+the routes and client calls with how many are linked, the database tables
+Graphvein reads, and what it could not read. A count it does not have is
+left out, never shown as zero. The label-style question is asked here once.
+
 ## API: routes and their callers
 
 Which calls reach this route? [API](#/api) lists every route Graphvein found
@@ -63,13 +71,24 @@ Started with `graphvein serve` and no folder, the sidebar lists every folder
 and project you indexed. Select one to switch to it, or use Add to index
 another folder; once it is indexed, Graphvein offers to open it.
 
+## The sidebar
+
+The sidebar has one width on every section. The button beside the logo (or
+`[`) collapses it to its icons, and the button under the logo expands it
+again; the choice is kept in this browser. In a window narrower than about
+1100 px it starts as icons, and expanding opens it over the page until you
+pick a section or press Esc.
+
 ## Settings
 
 What is configured, and where does it come from? [Settings](#/settings)
 shows the values from `graphvein.yaml` and the choices kept in this browser,
-each with where its value comes from. [Editor](#/settings?at=editor) comes
-first: the editor the file links open (and the repository's link template,
-when `graphvein.yaml` sets one). [Labels and views](#/settings?at=labels)
+each with where its value comes from. [Storage](#/settings?at=storage)
+comes first: where this machine keeps indexes, with Move to put one
+elsewhere and the folder new indexes go to. It is this machine's, not
+`graphvein.yaml`'s, and it opens before any folder is indexed.
+[Editor](#/settings?at=editor) is next: the editor the file links open (and
+the repository's link template, when `graphvein.yaml` sets one). [Labels and views](#/settings?at=labels)
 holds the label style and the Impact and chain depths.
 
 ## Jump to

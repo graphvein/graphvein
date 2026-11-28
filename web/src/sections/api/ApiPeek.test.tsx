@@ -9,6 +9,7 @@ import type { SourceParams } from "@/api/source";
 import { MIN_TOP } from "@/components/VerticalSplit";
 import type { StatusView } from "@/hooks/useStatus";
 import { ApiSection, PEEK_MIN_BOTTOM, PEEK_ROW_ROOM, peekSplitLimits } from "@/sections/api/ApiSection";
+import { COVERAGE_OPEN_KEY } from "@/sections/api/SummaryStrip";
 import { fakeClient } from "@/test/apiFixtures";
 import { goldenStatus } from "@/test/fixtures";
 import { sourceBody, stubSource } from "@/test/sourceFixtures";
@@ -48,6 +49,9 @@ function peekPanel(): HTMLElement | null {
 
 beforeEach(() => {
   window.localStorage.clear();
+  // The coverage cards are behind the "Coverage and roots" disclosure
+  // (T065): open it, so the tests see them collapse under the peek.
+  window.localStorage.setItem(COVERAGE_OPEN_KEY, "open");
 });
 
 describe("peekSplitLimits", () => {
@@ -79,7 +83,6 @@ describe("code peek in the API detail pane", () => {
     expect(within(row).getByText("peeking")).toBeTruthy();
     expect(within(row).getByRole("button", { name: PEEK }).getAttribute("aria-pressed")).toBe("true");
     expect(classes("coverage-cards")).toContain("hidden");
-    expect(classes("summary-strip")).toContain("block");
     expect(classes("summary-strip")).not.toContain("hidden");
     expect(within(panel).getByText(/^caller 1 of \d+$/)).toBeTruthy();
     expect(screen.getByRole("separator", { name: "Resize the code peek" })).toBeTruthy();
@@ -255,14 +258,16 @@ describe("code peek in the API detail pane", () => {
     });
   });
 
-  it("leaves the per-root rows out of the summary strip while the peek is open", async () => {
+  it("keeps the strips and the root filter while the peek is open", async () => {
     await setup();
-    expect(screen.queryAllByTestId(/^strip-roots-/).length).toBeGreaterThan(0);
+    expect(screen.getByTestId("strip-http")).toBeTruthy();
     fireEvent.click(rowOf(FIRST).querySelector("td") as HTMLElement);
     await screen.findByTestId("code-peek");
+    expect(screen.getByTestId("strip-http")).toBeTruthy();
     expect(screen.queryAllByTestId(/^strip-roots-/)).toHaveLength(0);
     expect(screen.getByRole("combobox", { name: /^Source root/ })).toBeTruthy();
   });
+
 });
 
 // T016i D4: the open peek is in the hash (`peek=<identity>`), so a reload

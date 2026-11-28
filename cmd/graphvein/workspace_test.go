@@ -13,6 +13,7 @@ import (
 	"testing"
 	"time"
 
+	"github.com/graphvein/graphvein/internal/storeloc"
 	"github.com/graphvein/graphvein/internal/workspace"
 )
 
@@ -25,6 +26,10 @@ func TestMain(m *testing.M) {
 		os.Exit(1)
 	}
 	os.Setenv(workspace.EnvFile, filepath.Join(dir, "workspace.yaml"))
+	// New indexes go to the per-user stores folder (ADR 0093): every test
+	// keeps them, and stores.yaml beside the registry above, in this
+	// temporary folder, never in the user's own data folder.
+	os.Setenv(storeloc.EnvStoreDir, filepath.Join(dir, "stores"))
 	code := m.Run()
 	os.RemoveAll(dir)
 	os.Exit(code)
@@ -201,12 +206,17 @@ func TestServeWorkspace(t *testing.T) {
 		}
 	})
 	t.Run("GRAPHVEIN_SQLITE_PATH applies only to the command-line index", func(t *testing.T) {
-		// T038 review follow-up: the variable names one file, so other
-		// entries are refused instead of all answering from it.
+		// WS-70 (ADR 0087 revision 5): the variable names the store of
+		// the folder on the command line only; every other entry opens
+		// from its own store through the resolver, never from that file.
 		single := filepath.Join(t.TempDir(), "single.db")
 		t.Setenv("GRAPHVEIN_SQLITE_PATH", single)
 		if code, out, errOut := runCLI("index", alpha); code != 0 {
 			t.Fatalf("index = %d\n%s\n%s", code, out, errOut)
+		}
+		before, err := os.Stat(single)
+		if err != nil {
+			t.Fatal(err)
 		}
 		line := startServe(t, alpha)
 		base := line[strings.LastIndex(line, " ")+1:]
@@ -225,9 +235,51 @@ func TestServeWorkspace(t *testing.T) {
 		if err := json.Unmarshal(call(http.MethodGet, base+"api/v0/status?ws="+alphaID, "", "", 200), &status); err != nil || status.Repository != "alpha" {
 			t.Fatalf("command-line index: %+v %v", status, err)
 		}
-		data := call(http.MethodGet, base+"api/v0/status?ws="+betaID, "", "", http.StatusConflict)
-		if !strings.Contains(string(data), `"single_store"`) || !strings.Contains(string(data), "GRAPHVEIN_SQLITE_PATH") {
-			t.Fatalf("another entry under GRAPHVEIN_SQLITE_PATH: %s", data)
+		var other struct {
+			Repository string `json:"repository"`
+			Index      struct {
+				Indexed bool `json:"indexed"`
+			} `json:"index"`
+		}
+		if err := json.Unmarshal(call(http.MethodGet, base+"api/v0/status?ws="+betaID, "", "", 200), &other); err != nil || other.Repository != "beta" || !other.Index.Indexed {
+			t.Fatalf("another entry under GRAPHVEIN_SQLITE_PATH: %+v %v", other, err)
+		}
+		// Settings' Storage section says which entry uses the variable
+		// and that beta's store is its own.
+		var storage struct {
+			SQLitePath struct {
+				Set   bool    `json:"set"`
+				Entry *string `json:"entry"`
+			} `json:"sqlite_path"`
+			Entries []struct {
+				ID    string `json:"id"`
+				Store struct {
+					Path   *string `json:"path"`
+					Origin *string `json:"origin"`
+				} `json:"store"`
+				Movable bool `json:"movable"`
+			} `json:"entries"`
+		}
+		if err := json.Unmarshal(call(http.MethodGet, base+"api/v0/store", "", "", 200), &storage); err != nil {
+			t.Fatal(err)
+		}
+		if !storage.SQLitePath.Set || storage.SQLitePath.Entry == nil || *storage.SQLitePath.Entry != alphaID {
+			t.Fatalf("sqlite_path %+v", storage.SQLitePath)
+		}
+		for _, e := range storage.Entries {
+			switch e.ID {
+			case alphaID:
+				if e.Store.Path == nil || *e.Store.Path != single || e.Movable {
+					t.Fatalf("alpha store %+v", e)
+				}
+			case betaID:
+				if e.Store.Path == nil || *e.Store.Path == single || !e.Movable {
+					t.Fatalf("beta store %+v", e)
+				}
+			}
+		}
+		if after, err := os.Stat(single); err != nil || !after.ModTime().Equal(before.ModTime()) || after.Size() != before.Size() {
+			t.Fatalf("the variable's file changed: %v", err)
 		}
 	})
 

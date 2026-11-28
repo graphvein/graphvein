@@ -1,11 +1,13 @@
 // The API section's title row: transport filter with counts, "Include
-// tests" (scope all instead of production), the source-root filter and the
-// time of the index the data comes from.
+// tests" (scope all instead of production), the source-root filter and, at
+// the right end, the time of the index the data comes from. A transport
+// with neither endpoints nor calls is a dashed "none found" tab (T061 D3)
+// whose tooltip names what the reader looks for.
 
 import type { TransportSummary } from "@/api/endpoints";
 import { formatShortTime } from "@/lib/time";
 import { cn } from "@/lib/utils";
-import { manifestTitle, rootLabel } from "@/sections/api/coverage";
+import { manifestTitle, noneFound, noneFoundTitle, rootLabel } from "@/sections/api/coverage";
 import type { TransportFilter } from "@/sections/api/params";
 import { TRANSPORT_BAR } from "@/sections/api/parts";
 
@@ -42,11 +44,14 @@ export interface ToolbarProps {
   /** Roots of the transports shown (all transports when "All"). */
   roots: RootOption[];
   finishedAt: string | null;
+  /** The scope the counts were read in (the endpoints answer's). */
+  scope: string;
 }
 
 /** Toolbar renders the title row. */
 export function Toolbar(props: ToolbarProps) {
   const counts = new Map(props.transports?.map((t) => [t.transport, t.endpoint_count]) ?? []);
+  const none = new Set(props.transports?.filter(noneFound).map((t) => t.transport) ?? []);
   const total = props.transports?.reduce((n, t) => n + t.endpoint_count, 0);
   const options: { value: TransportFilter; label: string; n: number | undefined }[] = [
     { value: "all", label: "All", n: total },
@@ -56,29 +61,37 @@ export function Toolbar(props: ToolbarProps) {
   ];
   const known = props.root === null || props.roots.some((r) => r.root === props.root);
   return (
-    <div className="flex flex-wrap items-center gap-x-3.5 gap-y-2">
+    <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
       <h1 id="api-title" className="m-0 text-[22px] font-semibold tracking-tight compact:text-xl">
         API
       </h1>
-      <div role="group" aria-label="Transport" className="inline-flex h-[34px] items-center rounded-lg bg-muted p-[3px] text-muted-foreground">
+      <div role="group" aria-label="Transport" className="inline-flex h-[34px] items-center gap-0.5 rounded-lg bg-muted p-[3px] text-muted-foreground">
         {options.map((o) => {
           const on = props.transport === o.value;
+          const empty = o.value !== "all" && none.has(o.value);
           return (
             <button
               key={o.value}
               type="button"
               aria-pressed={on}
+              title={empty && o.value !== "all" ? noneFoundTitle(o.value, props.scope) : undefined}
+              data-none-found={empty ? "true" : undefined}
               className={cn(
-                "inline-flex h-7 items-center gap-1.5 rounded-md px-[11px] text-[13px] font-medium",
+                "inline-flex h-7 items-center gap-1.5 rounded-md px-[11px] text-[13px] font-medium whitespace-nowrap max-[1299px]:px-2",
+                empty && "border border-dashed border-border px-2.5 font-normal text-muted-foreground/90 max-[1299px]:px-2",
                 on && "bg-background text-foreground shadow-[0_1px_3px_rgba(0,0,0,.1),0_1px_2px_rgba(0,0,0,.06)]",
               )}
               onClick={() => {
                 props.onTransport(o.value);
               }}
             >
-              {o.value !== "all" && <i aria-hidden="true" className={cn("size-[7px] rounded-[2px]", TRANSPORT_BAR[o.value])} />}
+              {o.value !== "all" && !empty && <i aria-hidden="true" className={cn("size-[7px] rounded-[2px]", TRANSPORT_BAR[o.value])} />}
               {o.label}
-              {o.n !== undefined && <span className="text-xs text-muted-foreground tabular-nums">{o.n}</span>}
+              {empty ? (
+                <span className="text-xs">none found</span>
+              ) : (
+                o.n !== undefined && <span className="text-xs text-muted-foreground tabular-nums">{o.n}</span>
+              )}
             </button>
           );
         })}
@@ -94,10 +107,10 @@ export function Toolbar(props: ToolbarProps) {
         />
         Include tests
       </label>
-      <label className="inline-flex h-8 items-center gap-2 text-[13px] text-muted-foreground">
-        Source root
+      <label className="inline-flex h-8 items-center text-[13px] text-muted-foreground">
+        <span className="sr-only">Source root</span>
         <select
-          className="h-8 max-w-[260px] rounded-md border border-input bg-background px-2 font-mono text-[12.5px] text-foreground"
+          className="h-8 max-w-[260px] rounded-md max-[1299px]:max-w-[150px] border border-input bg-background px-2 font-mono text-[12.5px] text-foreground"
           value={props.root ?? ""}
           onChange={(e) => {
             props.onRoot(e.target.value === "" ? null : e.target.value);
@@ -112,10 +125,10 @@ export function Toolbar(props: ToolbarProps) {
           {!known && props.root !== null && <option value={props.root}>{rootLabel(props.root)} (no calls)</option>}
         </select>
       </label>
-      <div className="flex-1" />
       {props.finishedAt !== null && (
-        <span className="text-[12.5px] text-muted-foreground" title={props.finishedAt}>
-          Data from the index of {formatShortTime(props.finishedAt)}
+        <span className="ml-auto text-[12.5px] whitespace-nowrap text-muted-foreground" title={props.finishedAt} data-testid="index-time">
+          <span className="max-[1299px]:hidden">Data from the index of</span>
+          <span className="hidden max-[1299px]:inline">Index of</span> {formatShortTime(props.finishedAt)}
         </span>
       )}
     </div>

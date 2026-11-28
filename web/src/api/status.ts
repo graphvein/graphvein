@@ -42,7 +42,9 @@ export interface Status {
   repository: string;
   server_version: string;
   extractor: Extractor;
-  index: { indexed: boolean; last_run: LastRun | null };
+  /** parse_failed counts the files the run could not parse (T074); the
+   * server omits it when zero, and so does this type. */
+  index: { indexed: boolean; last_run: LastRun | null; parse_failed?: number };
   freshness: Freshness;
 }
 
@@ -187,6 +189,7 @@ export function parseStatus(value: unknown): Status {
     index: {
       indexed: boolean(index, "indexed", "index"),
       last_run: parseLastRun(index.last_run),
+      ...(index.parse_failed !== undefined ? { parse_failed: number(index, "parse_failed", "index") } : {}),
     },
     freshness: parseFreshness(obj.freshness),
   };

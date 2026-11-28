@@ -91,7 +91,7 @@ describe("GapSheet helpers", () => {
     const text = copyText(items.slice(0, 2), false);
     expect(text).toBe(
       "| file:line | status | reason |\n|---|---|---|\n" +
-        "| tools/check.ts:2 | unmatched | No route matches this method and path |\n" +
+        "| tools/check.ts:2 | unmatched | No route with a known full path matches this method and path |\n" +
         "| web/src/client.ts:3 | wrapper | Inner request of a wrapper; the wrapper's call sites are listed as calls |\n",
     );
     const first = items[0];
@@ -123,7 +123,7 @@ describe("GapSheet", () => {
     openSheet();
     const dialog = screen.getByRole("dialog");
     const sections = () => [...dialog.querySelectorAll("section")].map((s) => s.getAttribute("aria-label"));
-    expect(sections()[0]).toBe("No route matches this method and path: 3");
+    expect(sections()[0]).toBe("No route with a known full path matches this method and path: 3");
     fireEvent.click(within(dialog).getByRole("button", { name: "File" }));
     expect(sections()).toEqual(["web/src/: 8", "tools/: 1"]);
     fireEvent.click(within(dialog).getByRole("button", { name: "Root" }));
@@ -159,7 +159,7 @@ describe("GapSheet", () => {
       await Promise.resolve();
     });
     expect(writeText).toHaveBeenCalledWith(
-      "| file:line | status | reason |\n|---|---|---|\n| tools/check.ts:2 | unmatched | No route matches this method and path |\n",
+      "| file:line | status | reason |\n|---|---|---|\n| tools/check.ts:2 | unmatched | No route with a known full path matches this method and path |\n",
     );
     expect(within(dialog).getByRole("button", { name: "Copied" })).toBeTruthy();
   });

@@ -9,11 +9,11 @@
 import { CircleHelp, Database, Plus, TriangleAlert } from "lucide-react";
 import type { ReactNode } from "react";
 
-import type { SchemaGroup, SchemaSets, SchemaSummary } from "@/api/schema";
+import type { SchemaGroup, SchemaSets, SchemaSummary, UnreadPath, UnreadTool } from "@/api/schema";
 import { formatShortTime } from "@/lib/time";
 import { cn } from "@/lib/utils";
 import { Banner, OUTLINE_BUTTON } from "@/sections/schema/parts";
-import { toolLabel } from "@/sections/schema/SourceCards";
+import { joinNames, MIGRATION_TOOLS, refusalReason, toolLabel } from "@/sections/schema/tools";
 
 function Card({ icon, title, sub, children, testId }: { icon: ReactNode; title: string; sub: ReactNode; children?: ReactNode; testId: string }) {
   return (
@@ -108,8 +108,9 @@ export function UnknownPage({
     case "scan_incomplete":
       why = (
         <>
-          The scanner did not read {summary.scan_gaps === null || summary.scan_gaps <= 0 ? "some paths" : `${String(summary.scan_gaps)} ${summary.scan_gaps === 1 ? "path" : "paths"}`} that may hide
-          a Cargo manifest, so Graphvein cannot say that {repo} has no migration set.
+          The scanner did not read {summary.scan_gaps === null || summary.scan_gaps <= 0 ? "some paths" : `${String(summary.scan_gaps)} ${summary.scan_gaps === 1 ? "path" : "paths"}`}
+          {sets !== null && sets.scan_gaps.length > 0 && <> ({scanGapKinds(sets.scan_gaps)}, listed below)</>}. A migration set behind a path it did not read would be missed, so
+          Graphvein cannot say that {repo} has no migration set.
         </>
       );
       action = (
@@ -156,21 +157,117 @@ export function UnknownPage({
   );
 }
 
+/** scanGapKinds names what the scanner did not read, by the codes /sets
+ * sends (T070: what the API says was incomplete, never a manifest kind the
+ * repository may not have): "2 symlinks not followed, 1 directory not
+ * listed". An unknown code is counted under its own name. */
+export function scanGapKinds(gaps: UnreadPath[]): string {
+  const kinds: Record<string, [string, string]> = {
+    symlink: ["symlink not followed", "symlinks not followed"],
+    scan_read: ["directory not listed", "directories not listed"],
+    invalid_path: ["path with an unsupported name", "paths with an unsupported name"],
+    ignore_read: ["ignore file not read", "ignore files not read"],
+    file_read: ["Cargo.toml not read", "Cargo.toml files not read"],
+    file_binary: ["Cargo.toml not read", "Cargo.toml files not read"],
+    file_not_utf8: ["Cargo.toml not read", "Cargo.toml files not read"],
+    file_not_regular: ["Cargo.toml not read", "Cargo.toml files not read"],
+  };
+  const counts = new Map<string, { n: number; words: [string, string] }>();
+  for (const g of gaps) {
+    const words = kinds[g.code] ?? [g.code, g.code];
+    const c = counts.get(words[1]) ?? { n: 0, words };
+    c.n++;
+    counts.set(words[1], c);
+  }
+  return [...counts.values()].map((c) => `${String(c.n)} ${c.n === 1 ? c.words[0] : c.words[1]}`).join(", ");
+}
+
+/** refusedModels names the model tools of the refusals and of a GORM v1
+ * unread entry, each once, in the order they come. */
+function refusedModels(summary: Partial<Pick<SchemaSummary, "unread_tools" | "refused_sources">>): string[] {
+  const out: string[] = [];
+  for (const r of summary.refused_sources ?? []) out.push(toolLabel(r.tool));
+  for (const t of summary.unread_tools ?? []) if (t.tool === "gorm-v1") out.push(toolLabel(t.tool));
+  return [...new Set(out)];
+}
+
 /** noneTitle is the found-none page's title (T018f): never "No migrations
- * found" while a migration tool is found but not read; models are named
- * only when the index proves their pass ran. */
-export function noneTitle(summary: Pick<SchemaSummary, "unread_tools" | "sources_read">): string {
+ * found" while a migration tool is found but not read, and (T070) never
+ * "No ... model tables found" while a model source is found and refused;
+ * models are named only when the index proves their pass ran. */
+export function noneTitle(summary: Pick<SchemaSummary, "unread_tools" | "sources_read"> & Partial<Pick<SchemaSummary, "refused_sources">>): string {
   const unread = summary.unread_tools ?? [];
+  if ((summary.refused_sources ?? []).length > 0) {
+    const models = refusedModels(summary);
+    const migrations = [...new Set(unread.filter((t) => MIGRATION_TOOLS.has(t.tool)).map((t) => toolLabel(t.tool)))];
+    const other = unread.some((t) => !MIGRATION_TOOLS.has(t.tool) && t.tool !== "gorm-v1");
+    let what = `${joinNames(models)} models`;
+    if (migrations.length > 0) what += migrations.join() === models.join() ? " and migrations" : ` and ${joinNames(migrations)} migrations`;
+    if (other) what += " and other schema files";
+    return `Graphvein found ${what} but did not read them`;
+  }
   if (unread.some((t) => t.tool === "alembic")) return "Graphvein found Alembic migrations but does not read them yet";
   if (unread.some((t) => t.tool === "prisma-migrate")) return "Graphvein found Prisma migrations but does not read them yet";
   if (unread.some((t) => t.tool === "drizzle-kit")) return "Graphvein found Drizzle migrations but does not read them yet";
+  if (unread.length > 0 && unread.every((t) => t.tool === "gorm-v1")) return "Graphvein found GORM v1 models but does not read them yet";
   if (unread.length > 0) return "Graphvein found migrations it does not read yet";
   return summary.sources_read?.includes("models") === true ? "No migrations or model tables found" : "No migrations found";
+}
+
+/** unreadWhat names a found-but-not-read tool on the found-none page by
+ * what the server's rule found (T066: every tool unread_tools can name). */
+function unreadWhat(t: UnreadTool): ReactNode {
+  const at = (what: string) => (
+    <>
+      {what} <span className={MONO}>{t.path}</span>
+    </>
+  );
+  if (t.path === null) {
+    return (
+      <>
+        {t.tool === "alembic" ? "Alembic" : t.tool} configuration <span className={MONO}>{t.marker ?? "unknown"}</span>, script directory not located
+      </>
+    );
+  }
+  switch (t.tool) {
+    case "alembic":
+      return at("Alembic script directory");
+    case "prisma-migrate":
+      return at("Prisma migrations directory");
+    case "drizzle-kit":
+      return at("Drizzle migrations folder");
+    case "sequelize-migrations":
+      return at("Sequelize migrations folder");
+    case "typeorm-migrations":
+      return at("TypeORM migrations folder");
+    case "diesel-migrations":
+      return at("Diesel migrations directory");
+    case "gorm-v1":
+      return at("GORM v1 imports in");
+    default:
+      return at(t.tool);
+  }
+}
+
+/** schemaPassesText is the found-none footer's first sentence: what this
+ * index looked for, from the summary's sources_read (T066: never a
+ * Cargo-only description on a repository of another stack). */
+export function schemaPassesText(summary: Pick<SchemaSummary, "index" | "sources_read">): string {
+  const of = summary.index !== null ? ` of ${formatShortTime(summary.index.finished_at)}` : "";
+  const read = summary.sources_read;
+  if (read === null) return `Which schema sources the index${of} looked for is not known.`;
+  const migrations = read.includes("migrations");
+  const models = read.includes("models");
+  if (migrations && models) return `The index${of} looked for migration sets and model tables in every indexed file.`;
+  if (migrations) return `The index${of} looked for migration sets in every indexed file; it was built before Graphvein read ORM models.`;
+  if (models) return `The index${of} looked for model tables in every indexed file.`;
+  return `The index${of} was built before Graphvein extracted database schemas.`;
 }
 
 /** NoneFound is D1's "No migrations found" page (found exactly none). */
 export function NoneFound({ summary }: { summary: SchemaSummary }) {
   const unread = summary.unread_tools ?? [];
+  const refused = summary.refused_sources ?? [];
   const models = summary.sources_read?.includes("models") === true;
   return (
     <Card
@@ -184,57 +281,65 @@ export function NoneFound({ summary }: { summary: SchemaSummary }) {
       }
       testId="schema-none"
     >
+      {refused.length > 0 && (
+        <ul className="m-0 grid gap-1.5 pl-5 text-[13px]" data-testid="none-refused">
+          {refused.map((r, i) => (
+            <li key={i} className="[overflow-wrap:anywhere]">
+              <b className="font-semibold">{toolLabel(r.tool)} models</b> found in <span className={MONO}>{r.file}</span>, not read:{" "}
+              <span className="text-muted-foreground">{refusalReason(r)}</span>
+            </li>
+          ))}
+        </ul>
+      )}
       {unread.length > 0 && (
         <ul className="m-0 grid gap-1 pl-5 text-[13px]" data-testid="none-unread-tools">
           {unread.map((t, i) => (
             <li key={i}>
-              {toolLabel(t.tool)} {t.path !== null ? <>{t.tool === "prisma-migrate" ? "migrations directory" : t.tool === "drizzle-kit" ? "migrations folder" : "script directory"} <span className={MONO}>{t.path}</span></> : <>configuration <span className={MONO}>{t.marker ?? "unknown"}</span>, script directory not located</>}
+              {unreadWhat(t)}
               {t.files !== null && <> ({t.files} {t.files === 1 ? "file" : "files"})</>}: not read yet.
             </li>
           ))}
         </ul>
       )}
       <div className="grid grid-cols-2 gap-3 text-[13px] max-[900px]:grid-cols-1">
-        <div className="rounded-lg border p-3.5">
+        <div className="rounded-lg border p-3.5" data-testid="none-looks-for">
           <b className="font-semibold">What Graphvein looks for</b>
           <ul className="mt-1.5 mb-0 grid gap-1 pl-5">
+            <li>
+              SQL migration sets: sqlx <span className={MONO}>migrations/</span> in a Cargo package that depends on <span className={MONO}>sqlx</span>, and Supabase{" "}
+              <span className={MONO}>supabase/migrations</span> beside <span className={MONO}>supabase/config.toml</span>
+            </li>
             {models && (
-              <li>
-                SQLModel classes with <span className={MONO}>table=True</span> in the indexed Python files
-              </li>
+              <>
+                <li>
+                  Python: SQLModel classes with <span className={MONO}>table=True</span>
+                </li>
+                <li>TypeScript: Prisma schemas, Drizzle schemas, Sequelize v6 models, TypeORM entities, Supabase generated types</li>
+                <li>
+                  Rust: Diesel <span className={MONO}>schema.rs</span>; Go: GORM v2 models
+                </li>
+              </>
             )}
-            <li>
-              A <span className={MONO}>migrations/</span> directory directly inside a Cargo package (a <span className={MONO}>Cargo.toml</span> with{" "}
-              <span className={MONO}>[package]</span>)
-            </li>
-            <li>
-              whose <span className={MONO}>Cargo.toml</span> depends on <span className={MONO}>sqlx</span>
-            </li>
-            <li>
-              holding at least one sqlx migration file, for example <span className={MONO}>1_setup.sql</span> or <span className={MONO}>20260330_init.up.sql</span>
-            </li>
           </ul>
         </div>
-        <div className="rounded-lg border p-3.5">
+        <div className="rounded-lg border p-3.5" data-testid="none-not-read">
           <b className="font-semibold">Not read yet</b>
           <ul className="mt-1.5 mb-0 grid gap-1 pl-5">
-            <li>{models ? "Alembic revisions and other ORM models (SQLAlchemy declarative, Django, ...)" : "Alembic revisions and ORM models (SQLModel, SQLAlchemy)"}</li>
+            {!models && <li>ORM models: this index was built before Graphvein read them</li>}
+            <li>Migrations of Alembic, Prisma Migrate, drizzle-kit, Sequelize, TypeORM and Diesel, and GORM v1 models (listed above when found)</li>
+            {models && <li>SQLAlchemy declarative classes that are not SQLModel, Django models</li>}
             <li>
-              SQL inside code strings (for example <span className={MONO}>sqlx::query(&quot;CREATE TABLE …&quot;)</span>)
+              Other tools: Flyway, golang-migrate, knex, Rails, plain <span className={MONO}>schema.sql</span>
             </li>
             <li>
-              Other tools: Prisma, Flyway, golang-migrate, knex, Rails, plain <span className={MONO}>schema.sql</span>
-            </li>
-            <li>
-              A <span className={MONO}>migrate!(&quot;&lt;dir&gt;&quot;)</span> path other than the default
+              SQL inside code strings, and a sqlx <span className={MONO}>migrate!(&quot;&lt;dir&gt;&quot;)</span> path other than the default
             </li>
           </ul>
         </div>
       </div>
-      <p className="m-0 text-[12.5px] text-muted-foreground">
-        The index{summary.index !== null && ` of ${formatShortTime(summary.index.finished_at)}`} looked at every indexed Cargo manifest. Manifests that ignore rules or the
-        default exclusions (<span className="font-mono">target</span>, <span className="font-mono">vendor</span>, <span className="font-mono">node_modules</span>, nested
-        Git repositories) leave out are outside the index. Re-indexing after adding migrations updates this view.
+      <p className="m-0 text-[12.5px] text-muted-foreground" data-testid="none-footer">
+        {schemaPassesText(summary)} Files that ignore rules or the default exclusions (<span className="font-mono">target</span>, <span className="font-mono">vendor</span>,{" "}
+        <span className="font-mono">node_modules</span>, nested Git repositories) leave out are outside the index. Re-indexing after adding migrations updates this view.
       </p>
     </Card>
   );
@@ -291,7 +396,7 @@ export function UnreadStrips({ sets }: { sets: SchemaSets }) {
       ))}
       {gaps.length > 0 && (
         <Strip title="Not scanned" path={`${String(gaps.length)} ${gaps.length === 1 ? "path" : "paths"}`} tone="warn" testId="scan-gaps">
-          The scanner did not read these paths; a Cargo manifest behind them would be missed.
+          The scanner did not read these paths; a migration set behind them would be missed.
           <ul className="m-0 mt-1 grid max-h-40 gap-0.5 overflow-auto pl-5">
             {gaps.map((g, i) => (
               <li key={i}>

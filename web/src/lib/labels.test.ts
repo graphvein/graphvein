@@ -10,8 +10,9 @@ import { factLabel, label, LABELS, RANK_NOTE, rowSamples, SHAPE_NOTE, storedEdge
 // Flow tab's table chip and line (54-55, AG-F) and the database card's
 // accessor counts (56), then the overview's links line and
 // project heading (57-58, TOP-2 R1 of 2026-11-18), then the Explorer's rows
-// (59-64, T029) and its Try it out (65-68, T029 part B).
-const T025_ROWS = Array.from({ length: 68 }, (_, i) => i + 1);
+// (59-64, T029) and its Try it out (65-68, T029 part B), then the quieter
+// API list, route header, callers and Flow legend strip (69-73, T073).
+const T025_ROWS = Array.from({ length: 73 }, (_, i) => i + 1);
 
 describe("label table (T025b)", () => {
   it("covers every row of the T025 table and the T025b additions exactly once, in both styles", () => {
@@ -136,6 +137,17 @@ describe("label table (T025b)", () => {
     expect(pair(66)).toEqual(["Bearer from $API_TOKEN · set", "Authorization: env API_TOKEN set"]);
     expect(pair(67)).toEqual(["a method override turns this GET or HEAD into another method", "method_override"]);
     expect(pair(68)).toEqual(["cut at the response size limit", "truncated size response_bytes"]);
+    // T073: the quieter API list, route header, callers and legend strip.
+    expect(pair(69)).toEqual(["0 linked", "never_called"]);
+    expect(byRow.get(69)?.plain.title).toBe("No linked caller in production. Graphvein found no call it could link; unresolved calls may still reach it.");
+    expect(pair(70)).toEqual(["266 path assumed", "266 path_assumed"]);
+    expect(pair(71)).toEqual(["Both callers rest on one assumption.", "path_assumed on 2 callers:"]);
+    expect(label("plain", "sharedAssumption", { count: 3, code: "path_assumed" }).text).toBe("All 3 callers rest on one assumption.");
+    expect(pair(72)).toEqual(["4 parts unverified", "unverified: handler, middleware, conditional, scope"]);
+    expect(byRow.get(72)?.plain.title).toMatch(/^Unverified: handler, middleware, conditional, scope\. /);
+    expect(label("plain", "unverifiedCount", ["scope"]).text).toBe("1 part unverified");
+    expect(pair(73)).toEqual(["+ 5 kinds with no line here", "+5 at 0"]);
+    expect(label("plain", "legendHidden", 1).text).toBe("+ 1 kind with no line here");
     // A typed value is never shown, in either style.
     const session = { header: "X-Api-Key", env: "KEY", set: false, session: true, prefix: null };
     expect(label("plain", "tryAuth", session).text).toBe("X-Api-Key: a value typed for this session");

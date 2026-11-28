@@ -73,9 +73,10 @@ describe("guide files", () => {
           expect(at !== null && slugs.has(at), where).toBe(true);
         }
         if (path === "#/settings" && href.includes("?")) {
-          // A Settings anchor: a section of the page or one of its key rows.
+          // A Settings anchor: a section of the page (Storage, outside
+          // graphvein.yaml, included) or one of its key rows.
           const at = new URLSearchParams(href.slice(href.indexOf("?") + 1)).get("at");
-          expect(at !== null && (SETTINGS_SECTIONS.some((s) => s.id === at) || Object.hasOwn(FIELDS, at)), where).toBe(true);
+          expect(at !== null && (at === "storage" || SETTINGS_SECTIONS.some((s) => s.id === at) || Object.hasOwn(FIELDS, at)), where).toBe(true);
         }
         continue;
       }

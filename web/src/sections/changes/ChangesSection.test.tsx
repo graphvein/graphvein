@@ -12,6 +12,7 @@ import { AppShell } from "@/shell/AppShell";
 import { LABELS_KEY } from "@/lib/labelChoice";
 import { COMPARE_KEY } from "@/shell/compare";
 import { fakeClient } from "@/test/apiFixtures";
+import { fakeArchClient } from "@/test/architectureFixtures";
 import { apiError, basesFor, fakeChangesClient, summaryOf, type FakeChanges } from "@/test/changesFixtures";
 import { goldenStatus } from "@/test/fixtures";
 import { fakeSchemaClient, summaryGolden } from "@/test/schemaFixtures";
@@ -557,7 +558,7 @@ describe("Changes: technical labels (T025b)", () => {
 });
 
 describe("label style onboarding (T025b)", () => {
-  it("first launch: the banner sits above the content, the setting in Settings, not the sidebar", async () => {
+  it("first launch: the question is asked on the Overview only (T064), the setting in Settings, not the sidebar", async () => {
     const { client } = fake();
     window.history.replaceState(null, "", "#/changes");
     render(
@@ -566,12 +567,19 @@ describe("label style onboarding (T025b)", () => {
         client={fakeClient()}
         schemaClient={fakeSchemaClient({ summary: summaryGolden("fixture") })}
         changesClient={client}
+        architectureClient={fakeArchClient("components")}
+        unreadFetcher={() => new Promise(() => undefined)}
         uiFetcher={() => Promise.resolve({ api_version: 0, labels: null, error: null })}
       />,
     );
+    // A page opened by a link never shows it.
+    await screen.findAllByText("fixture");
+    expect(screen.queryByTestId("labels-banner")).toBeNull();
+    act(() => {
+      window.location.hash = "#/overview";
+    });
     const banner = await screen.findByTestId("labels-banner");
-    expect(banner.closest("main")).not.toBeNull();
-    expect(banner.closest("main")?.firstElementChild).toBe(banner);
+    expect(banner.closest("[data-testid=overview-page]")).not.toBeNull();
     // The label choice moved from the sidebar footer to Settings (T039).
     expect(within(nav()).queryByTestId("labels-control")).toBeNull();
     expect(within(nav()).getByTestId("sidebar-settings").textContent).toContain("Settings");

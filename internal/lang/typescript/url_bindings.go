@@ -7,7 +7,7 @@ import (
 	"github.com/graphvein/graphvein/internal/parse"
 )
 
-func cacheURLSyntax(root *parse.Node, r *facts.RouteFacts, out *Facts) {
+func cacheURLSyntax(m *exprMemo, root *parse.Node, r *facts.RouteFacts, out *Facts) {
 	r.URLScopes = []facts.RouteScope{{Parent: -1, Bindings: map[string]facts.RouteBinding{}}}
 	for name, b := range r.Scopes[0].Bindings {
 		if b.Module != "" {
@@ -82,7 +82,7 @@ func cacheURLSyntax(root *parse.Node, r *facts.RouteFacts, out *Facts) {
 			name := n.Fields["name"]
 			v := n.Fields["value"]
 			if name != nil && (name.Kind == "identifier" || name.Kind == "undefined") {
-				r.URLScopes[scope].Bindings[name.Text] = facts.RouteBinding{Evaluation: &facts.URLBinding{Value: urlExpr(v), Constant: constant, Single: single, Offset: int(n.Start)}}
+				r.URLScopes[scope].Bindings[name.Text] = facts.RouteBinding{Evaluation: &facts.URLBinding{Value: m.url(v), Constant: constant, Single: single, Offset: int(n.Start)}}
 				if v != nil && (v.Kind == "arrow_function" || v.Kind == "function_expression") {
 					walk(v, scope, name.Text, constant, single)
 				} else {
@@ -152,14 +152,14 @@ func cacheURLSyntax(root *parse.Node, r *facts.RouteFacts, out *Facts) {
 						eligible = false
 						continue
 					}
-					parameters = append(parameters, facts.ClientParameter{Name: pn.Text, Default: urlExpr(item.Fields["value"])})
+					parameters = append(parameters, facts.ClientParameter{Name: pn.Text, Default: m.url(item.Fields["value"])})
 					r.URLScopes[child].Bindings[pn.Text] = facts.RouteBinding{Value: facts.RouteExpr{Kind: "parameter"}}
 				}
 			}
 			body := n.Fields["body"]
-			statements := urlStatements(body)
+			statements := m.urlStatements(body)
 			if body != nil && body.Kind != "statement_block" {
-				statements = []facts.URLStatement{{Kind: "return_statement", Expression: urlExpr(body), Span: span(body)}}
+				statements = []facts.URLStatement{{Kind: "return_statement", Expression: m.url(body), Span: span(body)}}
 			}
 			eligible = eligible && eligibleURLStatements(statements)
 			if name != "" && n.Kind != "method_definition" {
@@ -264,7 +264,7 @@ func cacheURLSyntax(root *parse.Node, r *facts.RouteFacts, out *Facts) {
 	for i := range r.Clients {
 		c := &r.Clients[i]
 		if n := byOffset[callKey{c.Expression.Offset, c.Span.EndLine, c.Span.EndColumn}]; n != nil {
-			e := urlExpr(n)
+			e := m.url(n)
 			e.Object = c.Expression.Object
 			c.Expression = e
 		}
@@ -283,15 +283,16 @@ func cacheURLSyntax(root *parse.Node, r *facts.RouteFacts, out *Facts) {
 		}
 		cacheURLObjects(root, r, urlScopes)
 	}
+	compact := m.compactor()
 	for _, scope := range r.URLScopes {
 		for _, b := range scope.Bindings {
 			if b.Evaluation != nil {
-				compactURLCache(&b.Evaluation.Value)
+				b.Evaluation.Value = compact(b.Evaluation.Value)
 				if h := b.Evaluation.Helper; h != nil {
 					for i := range h.Parameters {
-						compactURLCache(&h.Parameters[i].Default)
+						h.Parameters[i].Default = compact(h.Parameters[i].Default)
 					}
-					compactURLStatements(h.Body)
+					compactURLStatements(h.Body, compact)
 				}
 			}
 		}
@@ -316,11 +317,11 @@ func compactURLCache(e *facts.RouteExpr) {
 		e.Properties[k] = v
 	}
 }
-func compactURLStatements(body []facts.URLStatement) {
+func compactURLStatements(body []facts.URLStatement, compact func(facts.RouteExpr) facts.RouteExpr) {
 	for i := range body {
-		compactURLCache(&body[i].Expression)
-		compactURLStatements(body[i].Body)
-		compactURLStatements(body[i].Else)
+		body[i].Expression = compact(body[i].Expression)
+		compactURLStatements(body[i].Body, compact)
+		compactURLStatements(body[i].Else, compact)
 	}
 }
 

@@ -14,7 +14,7 @@ import (
 // a timeout are not held. It is test support only: call it, and the returned
 // restore function, while no Batch or Consume is running.
 func HoldParseUntilDeadline() (restore func()) {
-	parseHook = func(ctx context.Context) {
+	parseHook = func(ctx context.Context, _ []byte) {
 		if _, ok := ctx.Deadline(); ok {
 			<-ctx.Done()
 		}
@@ -30,7 +30,7 @@ func HoldParseUntilDeadline() (restore func()) {
 // without racing the clock. Test support only, with the same rules as
 // HoldParseUntilDeadline.
 func SimulateParseWork(work time.Duration) (restore func()) {
-	parseHook = func(ctx context.Context) {
+	parseHook = func(ctx context.Context, _ []byte) {
 		if deadline, ok := ctx.Deadline(); ok && time.Until(deadline) < work {
 			<-ctx.Done()
 		}

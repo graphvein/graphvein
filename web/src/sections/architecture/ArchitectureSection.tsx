@@ -17,6 +17,7 @@ import { CircleHelp, ExternalLink, Layers, X } from "lucide-react";
 import { Suspense, lazy, useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import { httpArchitectureClient, type ArchitectureClient, type ArchitectureResponse, type ChainDirection } from "@/api/architecture";
+import { ParseFailedNotice } from "@/components/ParseFailedNotice";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useApiRequest } from "@/hooks/useApiRequest";
 import { depthSourceText, useDepth } from "@/hooks/useDepth";
@@ -33,7 +34,7 @@ import type { ExpandedRows, MapActions } from "@/sections/architecture/context";
 import { Inspector, itemTitle, shortName } from "@/sections/architecture/Inspector";
 import { LinksTab } from "@/sections/architecture/LinksTab";
 import type { LayoutRunner } from "@/sections/architecture/MapView";
-import { buildMap, componentNodeId, databaseTitle, focusOf, type ShowOptions } from "@/sections/architecture/model";
+import { bandHoverNodes, buildMap, componentNodeId, databaseTitle, focusOf, selectionMarks, type Mark, type ShowOptions } from "@/sections/architecture/model";
 import { archHash, parseArchParams, type ArchParams } from "@/sections/architecture/params";
 import { buildRows } from "@/sections/architecture/rows";
 import { useDetails } from "@/sections/architecture/useDetails";
@@ -153,7 +154,23 @@ export function ArchitectureSection({ status, client = httpArchitectureClient, e
     setReload((r) => r + 1);
   }
 
-  const baseModel = useMemo(() => (data === null ? null : buildMap(data, params.show, params.expanded)), [data, params.show, params.expanded]);
+  // The band's "+ n more libraries" chip opens the rest (not in the hash).
+  const [bandAll, setBandAll] = useState(false);
+  const baseModel = useMemo(() => (data === null ? null : buildMap(data, params.show, params.expanded, { bandAll })), [data, params.show, params.expanded, bandAll]);
+  const bandDirs = baseModel?.nodes.some((n) => n.type === "band" && n.band.dirs) ?? false;
+
+  // The band's lines light for the card or chip under the pointer, else
+  // the one holding keyboard focus; a selected card or library marks its
+  // neighbours' chips with the stored counts (T072).
+  const [pointer, setPointer] = useState<string | null>(null);
+  const [focused, setFocused] = useState<string | null>(null);
+  const hover = pointer ?? focused;
+  const hoverNodes = useMemo(() => (baseModel === null ? new Set<string>() : bandHoverNodes(baseModel, hover)), [baseModel, hover]);
+  const marks = useMemo(() => (baseModel === null ? new Map<string, Mark>() : selectionMarks(baseModel, params.node)), [baseModel, params.node]);
+  const setHover = useCallback((id: string | null, by: "pointer" | "focus") => {
+    if (by === "pointer") setPointer(id);
+    else setFocused(id);
+  }, []);
 
   // The chain of the selection (AG16): requested once the overview is in.
   // Its depth (T042): the link's, else this browser's choice, else the
@@ -181,7 +198,6 @@ export function ArchitectureSection({ status, client = httpArchitectureClient, e
     const ids = new Set<string>();
     if (params.expanded !== null) ids.add(params.expanded);
     if (model !== null && params.node?.startsWith("c:") === true) ids.add(params.node.slice(2));
-    if (model !== null && params.node?.startsWith("stub:") === true) ids.add(params.node.slice(5));
     if (model !== null && params.edge !== null) {
       const e = model.edges.find((x) => x.id === params.edge);
       for (const l of e?.links ?? []) for (const id of [l.source, l.target]) if (data?.components.some((c) => c.id === id) === true) ids.add(id);
@@ -237,8 +253,16 @@ export function ArchitectureSection({ status, client = httpArchitectureClient, e
               update({ node: null, edge: null, item: null, chain: null, at: null });
             },
             retryRows: details.retry,
+            toggleBand: () => {
+              setBandAll((v) => !v);
+            },
+            bandDirs,
+            hover,
+            hoverNodes,
+            setHover,
+            marks,
           },
-    [data, params.node, params.edge, params.item, focus, expandedRows, overlay, update, details.retry],
+    [data, params.node, params.edge, params.item, focus, expandedRows, overlay, update, details.retry, bandDirs, hover, hoverNodes, setHover, marks],
   );
 
   const boxRef = useRef<HTMLDivElement>(null);
@@ -403,7 +427,7 @@ export function ArchitectureSection({ status, client = httpArchitectureClient, e
         </div>
         <div className="flex flex-wrap items-center gap-1.5" role="group" aria-label="Show">
           <span className="mr-0.5 text-[13px] text-muted-foreground">Show</span>
-          <Toggle on={params.show.libraries} count={counts.libraries} onChange={(on) => { setShow({ libraries: on }); }} title="Workspace libraries folded into one card (AG4)">
+          <Toggle on={params.show.libraries} count={counts.libraries} onChange={(on) => { setShow({ libraries: on }); }} title="Workspace libraries in the band below the cards (AG4)">
             Libraries
           </Toggle>
           <Toggle on={params.show.tests} count={counts.tests} onChange={(on) => { setShow({ tests: on }); }} title="Test components and test-scope links (AG10)">
@@ -417,7 +441,7 @@ export function ArchitectureSection({ status, client = httpArchitectureClient, e
               Configured
             </Toggle>
           )}
-          <Toggle on={params.show.sdk} onChange={(on) => { setShow({ sdk: on }); }} title="SDK import stubs, one per component (AG5)">
+          <Toggle on={params.show.sdk} onChange={(on) => { setShow({ sdk: on }); }} title="SDK import chips on the cards, one per component (AG5)">
             SDK imports
           </Toggle>
         </div>
@@ -434,6 +458,7 @@ export function ArchitectureSection({ status, client = httpArchitectureClient, e
         )}
       </header>
       {data !== null && data.notice !== null && <div className="border-b bg-dynamic-soft px-5 py-1.5 text-[13px] text-dynamic">{data.notice}</div>}
+      {data !== null && <ParseFailedNotice count={data.parse_failed} className="border-b bg-dynamic-soft px-5 py-1.5" />}
       {data === null || model === null || actions === null ? (
         <div className="grid flex-1 place-items-center" aria-label="Loading the architecture">
           <Skeleton className="h-48 w-96" />

@@ -286,7 +286,10 @@ Client nodes carry scope: test when the actual call site is in a test-scope file
 including wrapper invocation sites. Production calls apply scope after the
 existing top-tier and slash filtering: mixed tiers keep only production paths;
 entirely test-only tiers give test_only with capped candidates, full count for
-two or more (zero for one), and no edge or weaker-tier fallback. Test calls
+two or more (zero for one), and no edge or weaker-tier fallback, unless a
+production route below an unknown prefix may serve the call (T057 precision
+correction; see [test scope](test-scope.md)): then the alternative is
+unmatched. Test calls
 ignore scope entirely, preserving their existing ambiguity and links. See
 [test scope](test-scope.md). Scope and config edits relink unchanged cached syntax.
 
@@ -372,6 +375,11 @@ UP-13..UP-22):
   competitor), the alternative is
   `ambiguous` with the catch-alls and those routes as candidates, as LF-2
   makes a catch-all ambiguous beside a more specific route (UP-22); it is never linked to either.
+  The test-scope correction of T057 reads the entries the same way for an
+  alternative whose existing tiers give only test-scope candidates: a
+  production entry matching it with a literal segment makes it
+  `unmatched` instead of `test_only` (no entry becomes a candidate, no
+  edge is added; [test scope](test-scope.md)).
 - A call whose path is known from its start (base `none`, `literal`,
   `constant` or `configured`) matches an entry when its segments are
   `above` + V + `template`, V a run of zero or more literal call segments

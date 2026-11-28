@@ -1,8 +1,10 @@
 // The Architecture section's state in the hash (#/architecture?...), so a
 // reload or a shared link shows the same view (ADR 0041 routing):
 //   tab=links            the Links tab (default: the map)
-//   show=libraries,tests,docs,configured,nosdk   the Show toggles that
-//                        differ from the defaults
+//   show=tests,docs,configured,nolibraries,nosdk   the Show toggles
+//                        that differ from the defaults (libraries and SDK
+//                        chips are on by default; an old link's
+//                        "libraries" still reads as on)
 //   exp=<component id>   the component expanded in place (AG11, AG14)
 //   node=<map node id>   the selected card
 //   edge=<map edge id>   the selected line
@@ -51,7 +53,7 @@ export function parseArchParams(hash: string): ArchParams {
   return {
     tab: q.get("tab") === "links" ? "links" : "map",
     show: {
-      libraries: show.has("libraries"),
+      libraries: !show.has("nolibraries"),
       tests: show.has("tests"),
       docs: show.has("docs"),
       configured: show.has("configured"),
@@ -73,7 +75,8 @@ export function archHash(p: ArchParams): string {
   const q = new URLSearchParams();
   if (p.tab !== "map") q.set("tab", p.tab);
   const show: string[] = [];
-  for (const k of ["libraries", "tests", "docs", "configured"] as const) if (p.show[k] !== DEFAULT_SHOW[k]) show.push(k);
+  for (const k of ["tests", "docs", "configured"] as const) if (p.show[k] !== DEFAULT_SHOW[k]) show.push(k);
+  if (!p.show.libraries) show.push("nolibraries");
   if (!p.show.sdk) show.push("nosdk");
   if (show.length > 0) q.set("show", show.join(","));
   if (p.expanded !== null) q.set("exp", p.expanded);

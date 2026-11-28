@@ -6,8 +6,10 @@
 // never skipped or failed (row CR-22).
 
 import type { FileCategory, FileWithoutFacts, UnplacedRoute, UnreadCounts, UnreadPage, UnreadProject } from "@/api/unread";
+import type { RefusedSource } from "@/api/schema";
 import { formatCount } from "@/lib/count";
 import { parseHashQuery } from "@/router";
+import { refusalText } from "@/sections/schema/tools";
 
 /** Card is one summary card; value null when its part is not available. */
 export interface Card {
@@ -188,6 +190,16 @@ function where(file: string, line: number | null): string {
   return line === null ? file : `${file}:${String(line)}`;
 }
 
+/** schemaText is the schema part of the copied text (T070): the model
+ * sources of the schema summary found and not read, [] when none. */
+export function schemaText(refused: RefusedSource[] | null): string[] {
+  const list = refused ?? [];
+  return listLines(SCHEMA_REFUSED_TITLE, list.length, false, list.map(refusalText));
+}
+
+/** SCHEMA_REFUSED_TITLE heads the schema part (T070). */
+export const SCHEMA_REFUSED_TITLE = "Schema: model sources found, not read";
+
 function listLines(title: string, total: number, truncated: boolean, items: string[]): string[] {
   if (total === 0) return [];
   const out = [`${title} (${formatCount(total)}${truncated ? `, first ${formatCount(items.length)} listed` : ""}):`];
@@ -325,6 +337,18 @@ export function syntaxErrorsText(n: number): string {
   return `${plural(n, "file", "files")} had syntax errors`;
 }
 
+/** NO_ROUTES is the sentence shown instead of PATHS_COMPLETE when the
+ * index holds no route in scope (shapes.routes 0): "every route has a full
+ * path" would be vacuous (T066, baseline defect 12). */
+export const NO_ROUTES = "No production route found, and no route pattern, router form, mount or Go route recognition is recorded as not read or failed.";
+
+/** NO_ROUTES_IN_FILES_READ and NO_ROUTES_IN_FILES_READ_WITHOUT_ERRORS open
+ * the no-route sentence when files were not read or read with syntax
+ * errors: a route in them is not known, so the sentence speaks only of the
+ * files read. */
+export const NO_ROUTES_IN_FILES_READ = "No production route found in the files read";
+export const NO_ROUTES_IN_FILES_READ_WITHOUT_ERRORS = "No production route found in the files read without errors";
+
 /** PathsGap is one reason the full-path sentence is limited: its text
  * ("3 files were not read") and the files list it links to. */
 export interface PathsGap {
@@ -335,14 +359,17 @@ export interface PathsGap {
 /** pathsSentence is the full-path sentence when routePathsComplete holds:
  * PATHS_COMPLETE with no file gap, else the opening that names the files
  * it speaks of and the gaps that limit it, each linking to its list
- * (files not read, JX-R2 B3; files read with syntax errors). */
+ * (files not read, JX-R2 B3; files read with syntax errors). With no route
+ * in scope the NO_ROUTES forms say so instead. */
 export function pathsSentence(p: UnreadPage): { opening: string; gaps: PathsGap[] } {
   const notRead = codeFilesNotRead(p);
   const syntax = p.files.syntax_errors.total;
   const gaps: PathsGap[] = [];
   if (notRead > 0) gaps.push({ list: "files-not-read", text: filesNotReadText(notRead) });
   if (syntax > 0) gaps.push({ list: "syntax-errors", text: syntaxErrorsText(syntax) });
-  if (gaps.length === 0) return { opening: PATHS_COMPLETE, gaps };
+  const none = p.shapes.routes === 0;
+  if (gaps.length === 0) return { opening: none ? NO_ROUTES : PATHS_COMPLETE, gaps };
+  if (none) return { opening: syntax > 0 ? NO_ROUTES_IN_FILES_READ_WITHOUT_ERRORS : NO_ROUTES_IN_FILES_READ, gaps };
   return { opening: syntax > 0 ? PATHS_COMPLETE_IN_FILES_READ_WITHOUT_ERRORS : PATHS_COMPLETE_IN_FILES_READ, gaps };
 }
 

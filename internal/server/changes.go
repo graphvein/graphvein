@@ -50,6 +50,7 @@ var postPaths = map[string]bool{
 	tryItEnvironmentsPath: true, tryItSelectPath: true, tryItAuthPath: true, tryItPreparePath: true, tryItSendPath: true,
 	explorerValuesPath: true, configPath: true,
 	workspaceCheckPath: true, workspaceAddPath: true, workspaceRemovePath: true,
+	storeCheckPath: true, storeMovePath: true, storeDefaultPath: true,
 }
 
 // getAlso are POST paths that answer GET and HEAD too.
@@ -950,7 +951,7 @@ func (rr *refRunner) execute(job *refJob, lease store.IndexLease) {
 				continue
 			}
 			_, err = indexrun.RunRef(rr.ctx, indexrun.RefOptions{Commit: commit, Options: indexrun.Options{
-				Root: rr.opt.Root, Repository: rr.opt.Repository, Lease: lease, OpenStore: rr.opt.OpenWriter, SnapshotDir: rr.opt.StoreDir,
+				Root: rr.opt.Root, Repository: rr.opt.Repository, Lease: lease, OpenStore: rr.opt.OpenWriter, SnapshotDir: rr.opt.StoreDir, StoreName: rr.opt.StoreName,
 				Parser: parse.Options{Timeout: indexrun.DefaultTimeout}, MaxFileSize: indexrun.DefaultMaxFileSize,
 			}})
 			if err != nil {

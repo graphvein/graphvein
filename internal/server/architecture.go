@@ -593,22 +593,26 @@ func (m *archModel) unmappedServices() {
 // GET /api/v0/architecture
 
 type architectureResponse struct {
-	APIVersion int               `json:"api_version"`
-	Repository string            `json:"repository"`
-	Index      *lastRun          `json:"index"`
-	Scope      string            `json:"scope"`
-	Manifests  string            `json:"manifests"`
-	Notice     *string           `json:"notice"`
-	Components []*archComponent  `json:"components"`
-	Links      []*archLink       `json:"links"`
-	Databases  []*archDatabase   `json:"databases"`
-	Stubs      []archStub        `json:"stubs"`
-	Ghosts     []archGhost       `json:"ghosts"`
-	Documents  []archDocuments   `json:"documents"`
-	Hidden     archHidden        `json:"hidden"`
-	NotDrawn   map[string]int    `json:"not_drawn"`
-	NotProven  []archNotProven   `json:"not_proven"`
-	Libraries  archLibrariesCard `json:"libraries"`
+	APIVersion int      `json:"api_version"`
+	Repository string   `json:"repository"`
+	Index      *lastRun `json:"index"`
+	Scope      string   `json:"scope"`
+	Manifests  string   `json:"manifests"`
+	Notice     *string  `json:"notice"`
+	// ParseFailed counts the files the run could not parse (T074): the
+	// components, links and counts below miss their facts. Omitted when
+	// zero; GET /api/v0/unread lists the files.
+	ParseFailed int               `json:"parse_failed,omitempty"`
+	Components  []*archComponent  `json:"components"`
+	Links       []*archLink       `json:"links"`
+	Databases   []*archDatabase   `json:"databases"`
+	Stubs       []archStub        `json:"stubs"`
+	Ghosts      []archGhost       `json:"ghosts"`
+	Documents   []archDocuments   `json:"documents"`
+	Hidden      archHidden        `json:"hidden"`
+	NotDrawn    map[string]int    `json:"not_drawn"`
+	NotProven   []archNotProven   `json:"not_proven"`
+	Libraries   archLibrariesCard `json:"libraries"`
 	// Project is the link pass's view in project mode (serve --project,
 	// row CE8); absent on a single-repository server.
 	Project *archProjectDoc `json:"project,omitempty"`
@@ -724,6 +728,9 @@ func computeArchitecture(h *apiHandler, q url.Values) (readFunc, error) {
 		}
 		if px != nil {
 			out.Project = px.doc
+		}
+		if out.ParseFailed, err = parseFailedFiles(ctx, rd.s, rd.repo); err != nil {
+			return nil, err
 		}
 		out.NotProven = append(out.NotProven, g.notProven...)
 		for _, np := range m.unmapped {

@@ -519,7 +519,7 @@ type routePrefixView struct {
 // routePrefix is a route row's unknown-prefix view in scope, or nil when
 // the row shows a full path or the route has no unknown-prefix path.
 func routePrefix(n contract.Node, scope string) *routePrefixView {
-	if displayPath(objects(n.Attributes["paths"]), scope) != nil {
+	if routePath(n, scope) != nil {
 		return nil
 	}
 	list := routepaths.PrefixUnknownPaths(n.Attributes)
@@ -751,7 +751,7 @@ func summarize(rd *reader, t transport, scope string, root *string, roots *rootF
 			out.OpenAPI.DocumentedEndpoints++
 		}
 		rows = append(rows, routeRow{
-			ID: n.Identity, Name: n.Name, Method: stringAttr(n, "method"), Path: displayPath(paths, scope), PathCount: len(paths), PrefixUnknown: routePrefix(n, scope),
+			ID: n.Identity, Name: n.Name, Method: stringAttr(n, "method"), Path: routePath(n, scope), PathCount: len(paths), PrefixUnknown: routePrefix(n, scope),
 			Pattern: stringAttr(n, "pattern"), Framework: stringAttr(n, "framework"), File: n.File, Line: lineOf(n),
 			Scope: n.Attributes["scope"], CallerCount: cov.Callers[n.Identity], Documented: documented[n.Identity], Flags: routeFlags(n, withheld),
 			Shape: routeShapeSummary(n),

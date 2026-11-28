@@ -70,8 +70,9 @@ match, shows the assumption it rests on and is never labelled Precise
   manifest on disk; a rename from the web UI does this itself. The link
   journal keeps its past passes. `--manifest` is the manifest or its
   directory (default: the current directory); the store is the
-  project's (`GRAPHVEIN_POSTGRES_URL`, `GRAPHVEIN_SQLITE_PATH` or
-  `.graphvein/index.db` in the manifest's directory). It refuses, removing
+  project's (`GRAPHVEIN_POSTGRES_URL`, `GRAPHVEIN_SQLITE_PATH`, or the
+  manifest directory's store wherever the store resolver finds it,
+  [ADR 0093](../adr/0093-per-user-store-location.md)). It refuses, removing
   nothing: a name still in the manifest; a name no stored link pass of
   the project (the link journal included) had as a member, so another
   repository's index in a shared store is never removed by a typo; a
@@ -103,7 +104,10 @@ holding it) indexes every member and then links them:
    transaction. The rules are the claim contract in
    [docs/extract/project-links.md](../extract/project-links.md).
 
-The project store is `<manifest directory>/.graphvein/index.db`, or
+The project store is the manifest directory's store wherever the store
+resolver finds it ([ADR 0093](../adr/0093-per-user-store-location.md): by
+default `<stores>/<name>-<8 hex>/index.db` in the per-user stores folder,
+or `<manifest directory>/.graphvein/index.db` when one exists there), or
 `GRAPHVEIN_SQLITE_PATH`, or the Postgres database in
 `GRAPHVEIN_POSTGRES_URL`. With SQLite the project lock is the store's index
 lock, so nothing else writes the store during the pass; with Postgres it is

@@ -8,6 +8,8 @@ import (
 	"bufio"
 	"bytes"
 	"context"
+	"crypto/sha256"
+	"encoding/hex"
 	"encoding/json"
 	"errors"
 	"fmt"
@@ -130,6 +132,12 @@ type Options struct {
 	// never sees the snapshot and an interrupted run cannot leave it in
 	// the repository; see SnapshotLocation.
 	SnapshotDir string
+	// StoreName is the store's file name in SnapshotDir (SQLite: the base
+	// name of index.db); empty for Postgres. It names the temporary
+	// snapshot, so a run, which holds the store's index lock, removes the
+	// snapshot a killed run of the same store left behind, and never one
+	// of another store in the same directory (T058).
+	StoreName string
 }
 
 // Result describes a committed run.
@@ -192,7 +200,7 @@ func run(ctx context.Context, opt Options, extra runExtra) (Result, error) {
 			opt.OnCommit(run)
 		}
 	}}, func(ctx context.Context, s store.Store) error {
-		stream, cleanup, err := createSnapshot(SnapshotLocation(opt.Root, opt.SnapshotDir))
+		stream, cleanup, err := createSnapshot(SnapshotLocation(opt.Root, opt.SnapshotDir), opt.StoreName)
 		if err != nil {
 			return err
 		}
@@ -296,13 +304,56 @@ func SnapshotLocation(root, dir string) string {
 	return ""
 }
 
-// createSnapshot creates the temporary snapshot file in dir ("" is the OS
-// temporary directory), creating dir when it is missing. cleanup closes and
-// removes the file (closed first: Windows cannot remove an open file) and
-// then removes, innermost first, every directory createSnapshot created,
-// stopping at the first that is not empty, so a run never leaves an empty
-// directory behind.
-func createSnapshot(dir string) (stream *os.File, cleanup func(), err error) {
+// snapshotPattern is the os.CreateTemp pattern of the temporary snapshot of
+// the store named store: "snapshot-<tag>-*.ndjson", where tag is a fixed-
+// length hash of the name, so one store's pattern never matches another's
+// files. Without a store name it is "snapshot-*.ndjson".
+func snapshotPattern(store string) string {
+	if store == "" {
+		return "snapshot-*.ndjson"
+	}
+	sum := sha256.Sum256([]byte(store))
+	return "snapshot-" + hex.EncodeToString(sum[:6]) + "-*.ndjson"
+}
+
+// removeStaleSnapshots removes the temporary snapshots of the store named
+// store in dir. The caller holds the store's index lock, so no other run of
+// that store is writing one: each is the leftover of a run that was killed
+// (SIGKILL, the kernel's out-of-memory killer, a power cut) before its
+// cleanup ran. A file that cannot be removed is logged and left; the run
+// writes its own snapshot under a new name either way.
+func removeStaleSnapshots(dir, store string) {
+	if dir == "" || store == "" {
+		return
+	}
+	prefix, suffix, _ := strings.Cut(snapshotPattern(store), "*")
+	entries, err := os.ReadDir(dir)
+	if err != nil {
+		return
+	}
+	for _, e := range entries {
+		name := e.Name()
+		if !e.Type().IsRegular() || !strings.HasPrefix(name, prefix) || !strings.HasSuffix(name, suffix) || len(name) == len(prefix)+len(suffix) {
+			continue
+		}
+		path := filepath.Join(dir, name)
+		if err := os.Remove(path); err != nil {
+			slog.Warn("removing a stale temporary snapshot failed", "path", path, "error", err)
+			continue
+		}
+		slog.Info("removed the temporary snapshot of an interrupted run", "path", path)
+	}
+}
+
+// createSnapshot creates the temporary snapshot file of the store named
+// store in dir ("" is the OS temporary directory), creating dir when it is
+// missing, after removing the store's stale snapshots there (only in the
+// store's own directory, never in the shared temporary directory). cleanup
+// closes and removes the file (closed first: Windows cannot remove an open
+// file) and then removes, innermost first, every directory createSnapshot
+// created, stopping at the first that is not empty, so a run never leaves an
+// empty directory behind.
+func createSnapshot(dir, store string) (stream *os.File, cleanup func(), err error) {
 	var created []string
 	if dir != "" {
 		for d := dir; ; {
@@ -329,7 +380,8 @@ func createSnapshot(dir string) (stream *os.File, cleanup func(), err error) {
 			}
 		}
 	}
-	stream, err = os.CreateTemp(dir, "snapshot-*.ndjson")
+	removeStaleSnapshots(dir, store)
+	stream, err = os.CreateTemp(dir, snapshotPattern(store))
 	if err != nil {
 		removeCreated()
 		return nil, nil, fmt.Errorf("creating the temporary snapshot: %w", err)

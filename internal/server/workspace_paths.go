@@ -54,12 +54,29 @@ const (
 	indexUnknown = "unknown"
 )
 
+// Confirm value operations: a value issued by one check is accepted only
+// by its own POST.
+const (
+	opAdd     = "add"
+	opMove    = "move"
+	opDefault = "default_dir"
+)
+
 // confirmRecord is an issued confirm value: what the user was shown.
 type confirmRecord struct {
-	path    string
-	kind    workspace.Kind
-	name    string
-	expires time.Time
+	op   string
+	path string
+	kind workspace.Kind
+	name string
+	// choice is the store place of an add (WS-76) and storePath the store
+	// file the check showed: the add refuses when the folder would get
+	// another one.
+	choice    storeChoice
+	storePath string
+	// entry, from and to are a move's (WS-78) or a default folder
+	// change's (WS-80, from and to the folders) checked values.
+	entry, from, to string
+	expires         time.Time
 }
 
 // refusal is a typed path the server will not index, with its claim row.
@@ -72,6 +89,11 @@ type refusal struct {
 
 type checkRequest struct {
 	Path *string `json:"path"`
+	// StorePlace (default, inside or folder) and StoreDir (the typed
+	// folder of folder) choose where the new index is kept (WS-74);
+	// absent, the store resolver's place.
+	StorePlace *string `json:"store_place"`
+	StoreDir   *string `json:"store_dir"`
 }
 
 type checkResponse struct {
@@ -86,11 +108,14 @@ type checkResponse struct {
 	Name     *string         `json:"name"`
 	Members  []checkMember   `json:"members"`
 	Index    *indexPresence  `json:"index"`
-	Store    *StoreLocation  `json:"store"`
-	Entry    *string         `json:"entry"`
-	Confirm  *string         `json:"confirm"`
-	Expires  *string         `json:"confirm_expires_at"`
-	Command  *string         `json:"command"`
+	Store    *storeDoc       `json:"store"`
+	// Places are the places a ready folder's new index can be kept
+	// (WS-73), for the confirmation's "Change…"; null unless ready.
+	Places  *storePlaces `json:"places"`
+	Entry   *string      `json:"entry"`
+	Confirm *string      `json:"confirm"`
+	Expires *string      `json:"confirm_expires_at"`
+	Command *string      `json:"command"`
 	// Contains lists the registered entries inside a ready folder (WS-54):
 	// indexing it reads their files again into a store of its own, which
 	// the confirmation says. Empty when none; null unless ready.
@@ -117,7 +142,7 @@ type indexPresence struct {
 	Error   *string `json:"error"`
 }
 
-// post answers the three workspace POST paths.
+// post answers the workspace and store POST paths.
 func (s *workspaceServer) post(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost {
 		w.Header().Set("Allow", "POST")
@@ -131,6 +156,12 @@ func (s *workspaceServer) post(w http.ResponseWriter, r *http.Request) {
 			err = s.check(w, r, body)
 		case workspaceAddPath:
 			err = s.add(w, r, body)
+		case storeCheckPath:
+			err = s.storeCheck(w, r, body)
+		case storeMovePath:
+			err = s.storeMove(w, r, body)
+		case storeDefaultPath:
+			err = s.storeDefault(w, r, body)
 		default:
 			err = s.remove(w, r, body)
 		}
@@ -194,9 +225,17 @@ func (s *workspaceServer) check(w http.ResponseWriter, r *http.Request, body []b
 	if req.Path == nil || *req.Path == "" {
 		return badRequest("path is required")
 	}
-	out := s.examine(r.Context(), *req.Path)
+	choice, err := choiceOf(req.StorePlace, req.StoreDir)
+	if err != nil {
+		return err
+	}
+	out := s.examine(r.Context(), *req.Path, choice)
 	if out.Outcome == outcomeReady {
-		value, expires := s.issueConfirm(*out.Resolved, *out.Kind, *out.Name)
+		rec := confirmRecord{op: opAdd, path: *out.Resolved, kind: *out.Kind, name: *out.Name, choice: choice}
+		if out.Store != nil && out.Store.Path != nil {
+			rec.storePath = *out.Store.Path
+		}
+		value, expires := s.issueConfirm(rec)
 		out.Confirm = &value
 		out.Expires = newPtr(expires.UTC().Format(time.RFC3339))
 	}
@@ -204,9 +243,9 @@ func (s *workspaceServer) check(w http.ResponseWriter, r *http.Request, body []b
 	return nil
 }
 
-// examine runs every rule on a typed path, in table order. It never
-// issues a confirm value.
-func (s *workspaceServer) examine(ctx context.Context, typed string) checkResponse {
+// examine runs every rule on a typed path, in table order, with the store
+// place the check chose. It never issues a confirm value.
+func (s *workspaceServer) examine(ctx context.Context, typed string, choice storeChoice) checkResponse {
 	out := checkResponse{APIVersion: 0, Path: typed, Outcome: outcomeRefused}
 	refuse := func(row, code, message string) checkResponse {
 		out.Refusal = &refusal{Row: row, Code: code, Message: message}
@@ -256,7 +295,7 @@ func (s *workspaceServer) examine(ctx context.Context, typed string) checkRespon
 			out.Entry = newPtr(e.ID)
 			out.Kind, out.Name = newPtr(e.Kind), newPtr(e.Name)
 			out.Command = newPtr(indexCommandFor(e.Kind, resolved))
-			out.Store = s.storeLocation(resolved)
+			out.Store = s.entryStoreDoc(e)
 			return out
 		}
 	}
@@ -316,11 +355,20 @@ func (s *workspaceServer) examine(ctx context.Context, typed string) checkRespon
 			return r
 		}
 	}
+	// WS-71, WS-73..WS-75: where the index is or would be kept, and the
+	// place the check chose.
+	if s.ws.Stores != nil {
+		store, places, rf := s.placeOf(resolved, choice, entries)
+		if rf != nil {
+			out.Refusal = rf
+			return out
+		}
+		out.Store, out.Places = store, places
+	}
 	out.Outcome = outcomeReady
 	out.Contains = contains
 	out.Kind, out.Name = &kind, &name
 	out.Index = s.presence(ctx, workspace.Entry{Kind: kind, Name: name, Path: resolved, ID: workspace.EntryID(kind, resolved, name)})
-	out.Store = s.storeLocation(resolved)
 	out.Command = newPtr(indexCommandFor(kind, resolved))
 	return out
 }
@@ -534,14 +582,6 @@ func (s *workspaceServer) presence(ctx context.Context, e workspace.Entry) *inde
 	return &indexPresence{State: indexPresent, LastRun: newPtr(latest.FinishedAt)}
 }
 
-func (s *workspaceServer) storeLocation(folder string) *StoreLocation {
-	if s.ws.StoreLocation == nil {
-		return nil
-	}
-	loc := s.ws.StoreLocation(folder)
-	return &loc
-}
-
 // indexCommandFor is the terminal command that indexes the folder, for
 // the "copy the command" helper, quoted for POSIX shells and Git Bash.
 func indexCommandFor(kind workspace.Kind, path string) string {
@@ -552,8 +592,9 @@ func indexCommandFor(kind workspace.Kind, path string) string {
 	return "graphvein index " + quoted
 }
 
-// issueConfirm records a confirm value for the resolved folder (WS-35).
-func (s *workspaceServer) issueConfirm(path string, kind workspace.Kind, name string) (string, time.Time) {
+// issueConfirm records a confirm value for what a check showed (WS-35,
+// WS-76, WS-78, WS-80).
+func (s *workspaceServer) issueConfirm(rec confirmRecord) (string, time.Time) {
 	s.mu.Lock()
 	defer s.mu.Unlock()
 	now := s.opt.now()
@@ -572,19 +613,20 @@ func (s *workspaceServer) issueConfirm(path string, kind workspace.Kind, name st
 		delete(s.confirms, oldest)
 	}
 	value := rand.Text()
-	expires := now.Add(confirmLifetime)
-	s.confirms[value] = confirmRecord{path: path, kind: kind, name: name, expires: expires}
-	return value, expires
+	rec.expires = now.Add(confirmLifetime)
+	s.confirms[value] = rec
+	return value, rec.expires
 }
 
 // takeConfirm uses up a confirm value: it is gone after this call,
-// whatever the add's outcome.
-func (s *workspaceServer) takeConfirm(value string) (confirmRecord, bool) {
+// whatever the outcome. A value issued for another operation is not
+// accepted (and is used up too).
+func (s *workspaceServer) takeConfirm(value, op string) (confirmRecord, bool) {
 	s.mu.Lock()
 	defer s.mu.Unlock()
 	c, ok := s.confirms[value]
 	delete(s.confirms, value)
-	if !ok || !s.opt.now().Before(c.expires) {
+	if !ok || c.op != op || !s.opt.now().Before(c.expires) {
 		return confirmRecord{}, false
 	}
 	return c, true
@@ -624,20 +666,32 @@ func (s *workspaceServer) add(w http.ResponseWriter, r *http.Request, body []byt
 		return badRequest("path and confirm are required")
 	}
 	ctx := r.Context()
-	c, ok := s.takeConfirm(*req.Confirm)
+	c, ok := s.takeConfirm(*req.Confirm, opAdd)
 	if !ok {
 		return &apiError{http.StatusConflict, "confirm_required", "adding a folder needs the confirm value of a check of it from the last 10 minutes, used once; check the folder again"}
 	}
 	if c.path != *req.Path {
 		return &apiError{http.StatusConflict, "confirm_required", "the confirm value was issued for another folder; check this folder first"}
 	}
-	again := s.examine(ctx, c.path)
-	if again.Outcome != outcomeReady || *again.Kind != c.kind || *again.Name != c.name {
+	again := s.examine(ctx, c.path, c.choice)
+	storePath := ""
+	if again.Store != nil && again.Store.Path != nil {
+		storePath = *again.Store.Path
+	}
+	if again.Outcome != outcomeReady || *again.Kind != c.kind || *again.Name != c.name || storePath != c.storePath {
 		msg := "the folder changed since it was checked; check it again"
 		if again.Refusal != nil {
 			msg = again.Refusal.Message
+		} else if storePath != c.storePath {
+			msg = "the folder's index would now be kept at " + storePath + ", not where the check said; check it again"
 		}
 		return &apiError{http.StatusConflict, "path_changed", msg}
+	}
+	// WS-76: the chosen place is recorded (and an in-folder store
+	// created) before the entry is registered, so the index is written
+	// only where the confirmation said.
+	if err := s.recordPlace(ctx, c.path, c.choice); err != nil {
+		return err
 	}
 	e, added, err := s.ws.Registry.Add(workspace.Entry{Kind: c.kind, Name: c.name, Path: c.path})
 	if err != nil {

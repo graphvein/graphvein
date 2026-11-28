@@ -3,11 +3,13 @@
 ADR 0014 specifies inventory-only, best-effort resolution. The
 application still consumes contract v1. Every link pass rereads scanned
 package.json and tsconfig/jsconfig content; cached source facts contain syntax,
-never resolved cross-file links. Aggregate extraction version: extractors-63 (61 from T046: the call
+never resolved cross-file links. Aggregate extraction version: extractors-64 (61 from T046: the call
 binding model's cached call flags and written member names; 62 changes
 no TypeScript/JavaScript fact; 63 from T056: the call site of
 `await f<T>(x)` read through its awaited callee, see "Call binding
-model").
+model"; 64 from T069: route and client expression trees shared within a
+file and the fact cache layout of `RouteFacts`, no fact change, see
+docs/extract/routes.md "Cached expression trees").
 
 ## Exports and bindings
 

@@ -1,7 +1,7 @@
 # HTTP route extraction
 
 ADRs 0013–0016 define the shared model. Express, FastAPI and Axum use cached syntax
-candidates and composition on every run (extractors-63, contract v1). Go routers
+candidates and composition on every run (extractors-64, contract v1). Go routers
 (net/http, chi, gin; ADR 0076) have their own section below. Next.js
 route handlers and Pages Router API files (ADR 0077) are at the end.
 
@@ -1112,3 +1112,23 @@ code table (`unknown_prefix_contract.go`) 1:1.
 | UP-9 | a route with at least one usable `paths` entry, applied per scope | a route with a production-scope `paths` entry: no `unresolved_prefix_paths` (a known path is never weakened by an unknown one); a route whose `paths` are all test scope: its production entries only (all test scope: a test harness mount never removes a production entry) | - |
 | UP-10 | refused route forms | none: a route below no hop (`route_unmounted`), a Next.js `basePath` read as not literal (row NX-R4 keeps its `resolution: unresolved` entries in `paths`; shown and linked as UP-29 and UP-19 state, decision U6), a dynamic registration pattern (no route node), the path `""` below a hop (stored, never matched: it has no literal segment) | - |
 | D | anything else | nothing: no entry, no candidate, no call-side reading; the route keeps its existing state (empty `paths`, the existing diagnostics and `unresolved_mounts`), and a call of a helper of any other shape keeps the ordinary evaluation |
+
+## Cached expression trees (T069)
+
+TypeScript/JavaScript route, client, URL binding and Angular syntax stores
+each call, binding and registration with its detached expression tree
+(`facts.RouteExpr`). The extractor builds each node's expression once per
+file and shares it: a call nested in another call's arguments or callee
+chain is one value in the enclosing call's tree and in its own client
+record, so the facts grow with the file, not with the file times its call
+nesting. A file that constructs a URL (`new URL(...)`) is extracted without
+sharing, because the URL object proofs rewrite its client and URL binding
+syntax in place.
+
+The fact cache stores a file's `RouteFacts` as one table of distinct
+expressions, children before parents, with every expression of the facts a
+reference into it; a Text that is the source at the expression's offset is
+stored as its length, with the source text covering them stored once
+(`internal/lang/facts/exprtable.go`). A warm run decodes each entry once
+and shares it. The decoded facts equal those of the plain JSON layout
+(extractors-63 and earlier), so no fact changes (extractors-64).

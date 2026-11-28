@@ -245,6 +245,7 @@ func indexRefs(ctx context.Context, root, repo string, base changes.Base, stderr
 				Root: root, Repository: repo, Lease: lease,
 				OpenStore:   func(ctx context.Context) (store.Store, error) { return openStore(ctx, root) },
 				SnapshotDir: storeDir(root),
+				StoreName:   storeName(root),
 				Parser:      parse.Options{Timeout: indexrun.DefaultTimeout},
 				MaxFileSize: indexrun.DefaultMaxFileSize,
 			}})

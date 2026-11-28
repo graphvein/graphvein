@@ -18,6 +18,7 @@ import (
 	"github.com/graphvein/graphvein/internal/indexrun"
 	"github.com/graphvein/graphvein/internal/store"
 	"github.com/graphvein/graphvein/internal/store/sqlite"
+	"github.com/graphvein/graphvein/internal/storeloc"
 	"github.com/graphvein/graphvein/internal/workspace"
 )
 
@@ -386,19 +387,21 @@ func TestWorkspaceAddRunRefused(t *testing.T) {
 	if it := f.item(out.Entry.ID); !it.Registered {
 		t.Fatalf("listed %+v", it)
 	}
-	// An open failure is reported the same way, with the entry.
-	f2 := newWSFixture(t, func(context.Context, workspace.Entry, bool) (*WorkspaceIndex, error) {
-		return nil, fmt.Errorf("%w: GRAPHVEIN_SQLITE_PATH names one SQLite file", ErrSingleStore)
+	// An open failure is reported the same way, with the entry: here a
+	// folder that has two indexes (WS-71), which the store resolver
+	// refuses.
+	f2 := newWSFixture(t, func(_ context.Context, e workspace.Entry, _ bool) (*WorkspaceIndex, error) {
+		return nil, fmt.Errorf("resolving: %w", &storeloc.TwoIndexesError{Folder: e.Path, Paths: []string{"a", "b"}})
 	}, nil)
 	c2 := f2.checkPath(fixtureRoot(t))
 	body, _ = json.Marshal(map[string]string{"path": *c2.Resolved, "confirm": *c2.Confirm})
 	var out2 addResponse
 	f2.json(http.MethodPost, workspaceAddPath, string(body), http.StatusOK, &out2)
-	if out2.RunError == nil || out2.RunError.Code != "single_store" || !out2.Added {
+	if out2.RunError == nil || out2.RunError.Code != "two_indexes" || !out2.Added {
 		t.Fatalf("add with an open failure: %+v", out2)
 	}
 	// WS-15: the same refusal on a per-index request.
-	if rec := f2.do(http.MethodGet, "/api/v0/status?ws="+url.QueryEscape(out2.Entry.ID), "", nil); errorCode(t, rec) != "single_store" {
+	if rec := f2.do(http.MethodGet, "/api/v0/status?ws="+url.QueryEscape(out2.Entry.ID), "", nil); errorCode(t, rec) != "two_indexes" {
 		t.Fatalf("status: %d %s", rec.Code, rec.Body.String())
 	}
 }

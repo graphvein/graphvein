@@ -1,6 +1,6 @@
 // Shared coverage helpers for the cards and the summary strip.
 
-import { CATEGORY_ORDER, CATEGORY_TONE, categoryCounts, type Category } from "@/api/categories";
+import { CATEGORY_ORDER, CATEGORY_TONE, TRANSPORT_LABEL, categoryCounts, type Category } from "@/api/categories";
 import type { RootCounts, StatusCounts, TransportSummary, Transport } from "@/api/endpoints";
 import type { GapCategory } from "@/sections/api/params";
 import type { Tone } from "@/sections/api/parts";
@@ -36,6 +36,58 @@ export interface CoverageActions {
 /** isEmptyTransport: no endpoints and no calls (for example no Tauri app). */
 export function isEmptyTransport(t: TransportSummary): boolean {
   return t.endpoint_count === 0 && t.calls.total === 0;
+}
+
+/** noneFound: no endpoints and no calls in any source root, so the root
+ * filter cannot be what hides them. Such a transport gets no strip and no
+ * card; the toolbar shows a dashed "none found" tab (T061 D3). */
+export function noneFound(t: TransportSummary): boolean {
+  return isEmptyTransport(t) && t.roots.every((r) => r.total === 0);
+}
+
+/** LOOKS_FOR names what each transport's reader looks for, for the
+ * "none found" tab's tooltip. */
+const LOOKS_FOR: Record<Transport, string> = {
+  http: "routes of the supported web frameworks and client calls such as fetch or axios",
+  tauri_ipc: "#[tauri::command] functions and invoke calls",
+  server_action: '"use server" functions and the places that use them',
+};
+
+/** WHAT names a transport's endpoints and calls in one phrase, without
+ * repeating the transport's own name ("server actions or action uses",
+ * never "Server actions actions", label defect 10). */
+const WHAT: Record<Transport, string> = {
+  http: "HTTP routes or client calls",
+  tauri_ipc: "Tauri IPC commands or invoke sites",
+  server_action: "server actions or action uses",
+};
+
+/** filesWhere is where "none found" holds: the indexed files, or in
+ * production scope the indexed production files. */
+export function filesWhere(scope: string): string {
+  return scope === "production" ? "in the indexed production files" : "in the indexed files";
+}
+
+/** noneFoundSentence says once that none of the given transports has
+ * endpoints or calls ("No HTTP routes or client calls, Tauri IPC commands
+ * or invoke sites or server actions or action uses found in the indexed
+ * files."). testsHint adds, in production scope, that the API page's
+ * Include tests also counts test files; a page without that control (the
+ * Overview) leaves it out. */
+export function noneFoundSentence(transports: readonly Transport[], scope: string, testsHint = true): string {
+  const parts = transports.map((t) => WHAT[t]);
+  const list = parts.length <= 1 ? (parts[0] ?? "") : `${parts.slice(0, -1).join(", ")} or ${parts.at(-1) ?? ""}`;
+  const tests = testsHint && scope === "production" ? "; Include tests also counts test files" : "";
+  return `No ${list} found ${filesWhere(scope)}${tests}.`;
+}
+
+/** noneFoundTitle is the tooltip of a "none found" tab. The answer counts
+ * what the indexed files hold, not whether a reader ran (T061 open
+ * question 8), so it says "found in the indexed files"; in production
+ * scope it also says that test files were not counted. */
+export function noneFoundTitle(transport: Transport, scope: string): string {
+  const where = scope === "production" ? `${filesWhere(scope)}; Include tests also counts test files` : filesWhere(scope);
+  return `${TRANSPORT_LABEL[transport]}: none found ${where}. Graphvein looks for ${LOOKS_FOR[transport]}.`;
 }
 
 /** manifestTitle explains how a root was found. */

@@ -72,6 +72,53 @@ describe("EndpointDetailView", () => {
     expect(chip.getAttribute("title")).toContain("catchSub (web/app.js:109)");
   });
 
+  it("folds one composed path that is the title into the facts line (T073)", () => {
+    const d = structuredClone(detailGolden("api-endpoint-route"));
+    const path = (d.endpoint.attributes.paths as { template: string }[] | undefined)?.[0]?.template ?? "/x";
+    d.endpoint.attributes = { ...d.endpoint.attributes, paths: [{ template: path, resolution: "literal", assumptions: ["GR-V5"] }] };
+    view(d, vi.fn(), "callers");
+    expect(screen.queryByTestId("composed-paths")).toBeNull();
+    const facts = screen.getByTestId("route-facts");
+    expect(screen.getByTestId("route-facts-text").textContent).toMatch(/^HTTP · .+ · 1 composed path, same as above ·$/);
+    expect(facts.textContent).toContain("literal");
+    expect(facts.textContent).toContain("assumes GR-V5");
+    expect(facts.textContent).toContain("from the route registration");
+    // Two paths keep their list.
+    document.body.innerHTML = "";
+    d.endpoint.attributes = { ...d.endpoint.attributes, paths: [{ template: path, resolution: "literal", assumptions: ["GR-V5"] }, { template: `/v2${path}`, resolution: "literal" }] };
+    view(d, vi.fn(), "callers");
+    expect(screen.getByTestId("composed-paths").textContent).toContain("2 composed paths");
+    expect(screen.queryByTestId("composed-path-same")).toBeNull();
+  });
+
+  it("says an assumption every caller carries once above the table (T073)", () => {
+    const d = structuredClone(detailGolden("api-endpoint-route"));
+    const first = d.callers[0];
+    if (first === undefined) throw new Error("fixture changed");
+    const reason = { code: "path_assumed", text: "Assumption: the wrapper passes the request on unchanged", detail: "GR-V5" };
+    const other = { code: "origin_assumed", text: "Assumption: the origin is the app's own", detail: null };
+    d.callers = [
+      { ...first, reasons: [reason, other] },
+      { ...first, node: { ...first.node, identity: `${first.node.identity}-2` }, reasons: [{ ...reason }] },
+    ];
+    view(d, vi.fn(), "callers");
+    const notes = screen.getAllByTestId("shared-assumption");
+    expect(notes).toHaveLength(1);
+    expect(notes[0]?.textContent).toBe("Both callers rest on one assumption. the wrapper passes the request on unchanged GR-V5");
+    // Left out of the rows; a reason only one caller has stays under it.
+    expect(document.querySelectorAll('li[data-reason="path_assumed"]')).toHaveLength(0);
+    expect(document.querySelectorAll('li[data-reason="origin_assumed"]')).toHaveLength(1);
+    // Different texts: said under each caller.
+    document.body.innerHTML = "";
+    d.callers = [
+      { ...first, reasons: [reason] },
+      { ...first, node: { ...first.node, identity: `${first.node.identity}-2` }, reasons: [{ ...reason, detail: "RO-V1" }] },
+    ];
+    view(d, vi.fn(), "callers");
+    expect(screen.queryByTestId("shared-assumption")).toBeNull();
+    expect(document.querySelectorAll('li[data-reason="path_assumed"]')).toHaveLength(2);
+  });
+
   it("shows a Next.js route whose basePath is not read as prefix unknown (T033 U6)", () => {
     const d = detailGolden("unknown-prefix-next-endpoint");
     view(d, vi.fn(), "callers");
@@ -113,7 +160,11 @@ describe("EndpointDetailView", () => {
     const d = detailGolden("api-endpoint-route");
     d.precision = { label: "precise", row: "PL-F10", reason: null, unverified: ["handler", "middleware", "conditional", "scope"] };
     view(d, vi.fn(), "overview");
-    expect(screen.getByTestId("detail-precision-unverified").textContent).toBe("unverified: handler, middleware, conditional, scope");
+    // T073: the route header counts them; the facts are in the tooltip
+    // (and for a screen reader in the text).
+    const tag = screen.getByTestId("detail-precision-unverified");
+    expect(tag.textContent).toBe("4 parts unverified: handler, middleware, conditional, scope");
+    expect(tag.getAttribute("title")).toMatch(/^Unverified: handler, middleware, conditional, scope\. /);
     expect(screen.getAllByTestId("unverified-handler").length).toBeGreaterThan(0);
   });
 
