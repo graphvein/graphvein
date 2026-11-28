@@ -149,7 +149,7 @@ accepted and not edited).
 
 ## Revision (T073): the legend folds into a strip with a Legend button
 
-Status of this revision: Proposed (pending the developer's review; the
+Status of this revision: Accepted (delegated review, 2026-11-28; the
 decisions above keep their status).
 
 ### Context

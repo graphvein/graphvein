@@ -526,6 +526,23 @@ re-parsing; the depth used is stored on every route shape. Unknown keys,
 duplicate keys, non-integers and values out of range are errors naming the
 line.
 
+### Memory limit
+
+Every graphvein command sets a soft memory limit for Go's garbage
+collector when the `GOMEMLIMIT` environment variable is not set: 70% of
+the process's cgroup memory limit on Linux (cgroup v1 or v2, the
+smallest limit of its cgroup and their parents), or of the machine's
+physical memory when that is smaller or there is no cgroup limit
+([ADR 0094](adr/0094-default-soft-memory-limit.md)). Near the limit the
+collector runs more often instead of letting the heap grow to twice the
+live data, so an index run whose live data fits the machine finishes
+instead of being killed. It is a soft limit: it costs garbage collection
+time near the limit and never stops a run, and a repository whose live
+data does not fit is still killed by the operating system. `GOMEMLIMIT`
+replaces it (for example `GOMEMLIMIT=5GiB`), and `GOMEMLIMIT=off`
+disables it. The chosen limit is logged at debug level only; normal
+output does not mention it.
+
 ## Explorer
 
 ```yaml

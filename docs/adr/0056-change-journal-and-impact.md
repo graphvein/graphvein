@@ -818,7 +818,7 @@ contract as one class rule each (`ContractVersion` `T019-r7`):
 
 ## Revision (T042): traversal depth maximum 10
 
-Status of this revision: Proposed (pending the developer's review; the
+Status of this revision: Accepted (delegated review, 2026-11-28; the
 decisions above keep their status).
 
 - Context: a project walk already allowed depth 10 while one repository

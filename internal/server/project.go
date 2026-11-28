@@ -312,6 +312,11 @@ type projectMemberDoc struct {
 	Index      *lastRun        `json:"index"`
 	Freshness  freshnessStatus `json:"freshness"`
 	Links      memberLinksDoc  `json:"links"`
+	// ParseFailed counts the files the member's stored run could not parse,
+	// as index.parse_failed of its GET /api/v0/status (T074), so the
+	// project-wide Couldn't read view can say which members' counts are
+	// incomplete (T078). Omitted when zero.
+	ParseFailed int `json:"parse_failed,omitempty"`
 }
 
 // remoteDoc is the checkout's git remote: metadata only, never the ID.
@@ -497,6 +502,11 @@ func (h projectHandler) member(ctx context.Context, m config.Member) (projectMem
 	}
 	doc.Index = latestRun(runs)
 	doc.Extractor = extractorFor(index.Version, doc.Index)
+	if doc.Index != nil {
+		if doc.ParseFailed, err = parseFailedFiles(ctx, ps.opt.Store, m.Repository); err != nil {
+			return doc, nil, fmt.Errorf("member %s: %w", m.Repository, err)
+		}
+	}
 	doc.Freshness = freshnessFor(changed, freshErr, len(runs) > 0)
 	doc.Freshness.CheckedAt = checkedAt.UTC().Format(time.RFC3339Nano)
 	if m.Checkout {

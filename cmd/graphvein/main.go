@@ -16,6 +16,7 @@ import (
 	"github.com/graphvein/graphvein/internal/contract"
 	"github.com/graphvein/graphvein/internal/indexrun"
 	"github.com/graphvein/graphvein/internal/ingest"
+	"github.com/graphvein/graphvein/internal/memlimit"
 	"github.com/graphvein/graphvein/internal/store"
 	"github.com/graphvein/graphvein/internal/store/postgres"
 )
@@ -33,6 +34,10 @@ var (
 
 func main() {
 	version, commit, buildDate = resolveVersion(version, commit, buildDate, debug.ReadBuildInfo)
+	// The default soft memory limit (ADR 0094) applies to every command:
+	// index, serve and the web UI's workspace add, and changes all index,
+	// and a command with a small heap never reaches it.
+	memlimit.Apply(slog.Default(), memlimit.Default(), os.Getenv)
 	os.Exit(run(os.Args[1:], os.Stdout, os.Stderr))
 }
 

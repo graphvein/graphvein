@@ -373,7 +373,7 @@ Revision 1 (typed folder paths behind the existing guards plus a confirmation) a
 
 ## Revision 2 (T068: typed store paths behind the guards)
 
-**Status:** Proposed
+**Status:** Accepted (delegated review, 2026-11-28)
 
 ### Context
 

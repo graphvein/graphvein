@@ -426,7 +426,7 @@ WS-15, WS-53, WS-57.
 
 ## Revision 5: one store resolver for every entry (T068 part 2)
 
-**Status:** Proposed
+**Status:** Accepted (delegated review, 2026-11-28)
 
 [ADR 0093](0093-per-user-store-location.md) puts new indexes in a
 per-user stores folder and makes one function, `storeloc.Resolve`, decide

@@ -1,6 +1,6 @@
 # ADR 0093: Per-user store location
 
-**Status:** Proposed
+**Status:** Accepted (delegated review, 2026-11-28)
 
 ## Context
 

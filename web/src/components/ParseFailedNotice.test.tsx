@@ -4,7 +4,7 @@ import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 
 import { parseArchitecture } from "@/api/architecture";
-import { ParseFailedNotice, parseFailedText } from "@/components/ParseFailedNotice";
+import { ParseFailedNotice, ProjectParseFailedNotice, parseFailedText, projectParseFailedText } from "@/components/ParseFailedNotice";
 import { ARCH_GOLDENS } from "@/test/architectureFixtures";
 
 describe("ParseFailedNotice", () => {
@@ -32,5 +32,19 @@ describe("ParseFailedNotice", () => {
     expect(parseArchitecture(raw).parse_failed).toBe(0);
     raw.parse_failed = 3;
     expect(parseArchitecture(raw).parse_failed).toBe(3);
+  });
+
+  it("names the project members with files not parsed (T078)", () => {
+    expect(projectParseFailedText([{ repository: "web", count: 0 }])).toBe("");
+    expect(projectParseFailedText([{ repository: "web", count: 1 }, { repository: "api", count: 0 }])).toBe("Counts are incomplete: 1 file of web could not be parsed (parse_failed), so its facts are missing.");
+    expect(projectParseFailedText([{ repository: "web", count: 3 }, { repository: "api", count: 1 }, { repository: "cli", count: 1200 }])).toBe(
+      "Counts are incomplete: 3 files of web, 1 file of api and 1,200 files of cli could not be parsed (parse_failed), so their facts are missing.",
+    );
+    const { container, unmount } = render(<ProjectParseFailedNotice members={[{ repository: "web", count: 0 }]} />);
+    expect(container.innerHTML).toBe("");
+    unmount();
+    render(<ProjectParseFailedNotice members={[{ repository: "web", count: 2 }]} />);
+    expect(screen.queryByRole("link")).toBeNull();
+    expect(screen.getByTestId("parse-failed-notice").textContent).toBe("Counts are incomplete: 2 files of web could not be parsed (parse_failed), so their facts are missing. They are listed under Files not read.");
   });
 });

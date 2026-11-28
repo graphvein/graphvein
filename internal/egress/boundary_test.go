@@ -29,10 +29,12 @@ var httpBlocked = setOf("Get", "Head", "Post", "PostForm", "DefaultClient",
 
 // syscallFiles may import syscall or golang.org/x/sys, with the reason.
 var syscallFiles = map[string]string{
-	"cmd/profile/memory_windows.go":      "process memory and CPU queries for the developer profiler",
-	"internal/workspace/lock_unix.go":    "flock(2) on the workspace registry's lock file (ADR 0087), no network",
-	"internal/workspace/lock_windows.go": "LockFileEx on the workspace registry's lock file (ADR 0087), no network",
-	"internal/storeloc/drive_windows.go": "GetDriveType on a drive letter to refuse network drives for SQLite stores (ADR 0093), no network",
+	"cmd/profile/memory_windows.go":       "process memory and CPU queries for the developer profiler",
+	"internal/workspace/lock_unix.go":     "flock(2) on the workspace registry's lock file (ADR 0087), no network",
+	"internal/workspace/lock_windows.go":  "LockFileEx on the workspace registry's lock file (ADR 0087), no network",
+	"internal/storeloc/drive_windows.go":  "GetDriveType on a drive letter to refuse network drives for SQLite stores (ADR 0093), no network",
+	"internal/memlimit/system_darwin.go":  "sysctl hw.memsize for the default soft memory limit (ADR 0094), no network",
+	"internal/memlimit/system_windows.go": "GlobalMemoryStatusEx for the default soft memory limit (ADR 0094), no network",
 }
 
 // execPackages may import os/exec. Subprocesses are never under in-process
