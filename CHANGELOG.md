@@ -9,6 +9,48 @@ Unreleased.
 
 ## [Unreleased]
 
+## [0.2.1] - 2026-11-28
+
+### Added
+
+- In a project, What Graphvein couldn't read now says when files of a
+  member could not be parsed: the all-members view names every member
+  with unparsed files and how many, a selected member shows its own
+  count. `/api/v0/project` gains the member field `parse_failed` (left
+  out when zero).
+- A Drizzle config whose dialect Graphvein does not read is now listed
+  among the refused model sources, with its file and reason: in
+  `refused_sources` of `/api/v0/schema/summary`, on the Schema page
+  shown when no tables are found and in What Graphvein couldn't read.
+
+### Changed
+
+- Every graphvein command sets a soft memory limit for Go's garbage
+  collector by default: 70% of the cgroup memory limit on Linux or of
+  physical memory, whichever is smaller. A `GOMEMLIMIT` value replaces
+  it and `GOMEMLIMIT=off` disables it (ADR 0094). Near the limit the
+  collector runs more often instead of letting the heap grow to twice
+  the live data, so an index run whose live data fits in memory finishes
+  instead of being killed. The large TypeScript monorepo of 0.2.0's
+  known limits, with its vendored folder excluded in `.graphveinignore`
+  (about 9,000 files), was killed at a 7 GiB memory cap without
+  `GOMEMLIMIT`; it now finishes within it, with the same facts as a run
+  with `GOMEMLIMIT=5GiB` set by hand.
+- API section: where the callers table is narrower than 600 px (for
+  example in the detail pane of a 900 px wide window), each caller and
+  near-miss row stacks: the caller spans the row beside its open
+  buttons, and Status and Confidence sit under it on a second line.
+  Wider layouts are unchanged.
+
+### Known limits
+
+- The memory limit is soft: a repository whose live data does not fit
+  in the machine's memory can still be killed by the operating system.
+  The whole monorepo above, vendored folder included, still needs more
+  than 7 GB. On Windows and macOS, a memory limit set on the process (a
+  job object or a process limit) is not read; physical memory is the
+  bound.
+
 ## [0.2.0] - 2026-11-28
 
 ### Added
@@ -245,7 +287,8 @@ Unreleased.
   by platform, so they are compared exactly only on the platform they were
   generated on, and as inclusions elsewhere. Indexing is unchanged.
 
-[Unreleased]: https://github.com/graphvein/graphvein/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/graphvein/graphvein/compare/v0.2.1...HEAD
+[0.2.1]: https://github.com/graphvein/graphvein/releases/tag/v0.2.1
 [0.2.0]: https://github.com/graphvein/graphvein/releases/tag/v0.2.0
 [0.1.2]: https://github.com/graphvein/graphvein/releases/tag/v0.1.2
 [0.1.1]: https://github.com/graphvein/graphvein/releases/tag/v0.1.1

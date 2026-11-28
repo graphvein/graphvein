@@ -21,6 +21,8 @@ func TestRefusalForms(t *testing.T) {
 		{"prisma-mongodb", "prisma/schema.prisma", codeModelUnread, "prisma/schema.prisma:3: provider mongodb: collections are out of scope, no table is claimed"},
 		{"drizzle-version", "package.json", codeModelNotProven, "package.json: drizzle-orm 1.0.0: the claim contract is verified for drizzle-orm 0.x only; no claim is made until a corpus pins 1.0"},
 		{"drizzle-config", "drizzle.config.ts", codeModelNotProven, "no Drizzle schema is proven for drizzle.config.ts: schema is not a literal"},
+		{"drizzle-dialect", "drizzle.config.ts", codeModelUnread, "dialect \"gel\" of drizzle.config.ts is not read (row D)"},
+		{"drizzle-dialect", "db/drizzle.config.ts", codeModelUnread, "dialect \"singlestore\" of db/drizzle.config.ts is not read (row D)"},
 		{"drizzle-no-config", "package.json", codeModelNotProven, "package.json: no drizzle-kit config is found for this package (no default config name, no --config in its scripts); 3 table builder calls in 2 files not read"},
 		{"drizzle-script", "package.json", codeModelNotProven, "package.json: script \"db\" passes drizzle-kit options without a literal --schema and --dialect; its configuration is not read"},
 		{"drizzle-script", "package.json", codeModelNotProven, "package.json: two scripts run drizzle-kit with different configs; its drizzle-kit configuration is not read"},
@@ -77,6 +79,10 @@ func TestRefusalForms(t *testing.T) {
 		{File: "src/user.ts", Code: codeModelUnread, Message: "src/user.ts:3: @Entity class User is not read (row D)"},
 		{File: "src/db.ts", Code: codeModelNotProven, Message: "src/db.ts:2: dialect of Sequelize instance db: not a literal"},
 		{File: "diesel.toml", Code: codeModelUnread, Message: "diesel.toml: migrations_directory.dir cannot be placed in the repository; it is not read"},
+		{File: "s.ts", Code: codeModelUnread, Message: "s.ts:2: createTable: pgTableCreator is not read (row D); it builds the table(s) \"users\""},
+		{File: "drizzle.config.ts", Code: codeModelUnread, Message: "drizzle.config.ts: 1 matched schema file(s) without a .ts, .js, .mjs, .cjs, .mts or .cts extension are not read: db/a.sql"},
+		{File: "drizzle.config.ts", Code: codeModelUnread, Message: "drizzle.config.ts: 2 file(s) with 3 table builder call(s): a.ts (1), b.ts (2) outside the configured schema; not read"},
+		{File: "drizzle.config.ts", Code: codeModelNotProven, Message: "dialect \"gel\" of drizzle.config.ts is not read (row D)"},
 		{File: "go.mod", Code: "schema_model_migrations", Message: "go.mod: GORM module example.com/app is not read: x"},
 	} {
 		if got := refusalTool(d); got != "" {

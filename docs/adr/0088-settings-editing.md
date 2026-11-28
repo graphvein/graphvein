@@ -212,7 +212,7 @@ of the index inputs (ii) in a column of its own on every index run.
 
 ## Revision 1: a Storage section outside graphvein.yaml (T068 part 3)
 
-**Status:** Proposed
+**Status:** Accepted (delegated review, 2026-11-28)
 
 [ADR 0093](0093-per-user-store-location.md) keeps new indexes in a
 per-user stores folder and lets a person move one. Where an index is kept

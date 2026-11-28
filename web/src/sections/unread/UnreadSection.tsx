@@ -16,7 +16,7 @@ import { Fragment, useMemo, useState, type ReactNode } from "react";
 import type { SchemaSummary } from "@/api/schema";
 import { fetchUnread, type FileWithoutFacts, type UnreadFetcher, type UnreadList, type UnreadPage } from "@/api/unread";
 import type { IdeLink, IdeStatus } from "@/api/endpoints";
-import { ParseFailedNotice } from "@/components/ParseFailedNotice";
+import { ParseFailedNotice, ProjectParseFailedNotice } from "@/components/ParseFailedNotice";
 import { useApiRequest } from "@/hooks/useApiRequest";
 import { useEditor, withEditor } from "@/hooks/useEditor";
 import type { StatusView } from "@/hooks/useStatus";
@@ -521,6 +521,12 @@ export function UnreadSection({ status, fetcher = fetchUnread, schema = null }: 
             {params.tests ? "Production and test code." : "Production code only."}
           </p>
           {project === null && status.kind === "ok" && <ParseFailedNotice count={status.status.index.parse_failed ?? 0} onPage className="rounded-md border bg-dynamic-soft px-3 py-2" />}
+          {project !== null && (
+            <ProjectParseFailedNotice
+              members={project.project.members.filter((m) => member === "all" || m.repository === member).map((m) => ({ repository: m.repository, count: m.parse_failed }))}
+              className="rounded-md border bg-dynamic-soft px-3 py-2"
+            />
+          )}
         </div>
         <div className="flex flex-wrap items-center gap-2.5">
           {project !== null && (

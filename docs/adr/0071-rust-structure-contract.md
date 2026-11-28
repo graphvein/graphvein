@@ -477,12 +477,12 @@ kftray 270, crates.io 528 precise and 1 unrooted
 `spike` 1) and 3 refused (`structure_refused`: the fixtures' syntax-error
 files). No file of another language changed label.
 
-This section stays pending until the developer accepts the review record;
-Status stays Proposed.
+This section was accepted with the ADR (delegated review, 2026-11-18;
+label corrected 2026-11-28).
 
 ## Coverage recovery
 
-**Status:** Proposed (this section; the ADR's status is unchanged).
+**Status:** Accepted with the ADR (delegated review, 2026-11-18; see "Review notes (acceptance, 2026-11-18)"; label corrected 2026-11-28).
 
 Developer principle of the session: maximum coverage with no confident
 wrong fact; a correctly modelled form that went to D only for convenience

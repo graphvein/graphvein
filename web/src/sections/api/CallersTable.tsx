@@ -152,8 +152,8 @@ function CallerCell({ node, owner, reasons, peeking }: { node: PresentedNode; ow
 
 function SepRow({ children, rowRef, tone }: { children: ReactNode; rowRef?: Ref<HTMLTableRowElement> | undefined; tone: "dynamic" | "muted" }) {
   return (
-    <tr ref={rowRef} className="scroll-mt-2">
-      <td colSpan={4} className={cn("border-b-0 pt-3.5 pb-1.5 text-left text-[12.5px] font-semibold", tone === "dynamic" ? "text-dynamic" : "text-muted-foreground")}>
+    <tr ref={rowRef} className={cn("scroll-mt-2", STACK_SEP)}>
+      <td colSpan={4} className={cn(STACK_SEP, "border-b-0 pt-3.5 pb-1.5 text-left text-[12.5px] font-semibold", tone === "dynamic" ? "text-dynamic" : "text-muted-foreground")}>
         {children}
       </td>
     </tr>
@@ -174,6 +174,23 @@ export function scrollToRow(row: HTMLElement): void {
 }
 
 const TD = "border-b px-2 py-[9px] align-top first:pl-0 last:pr-0 last:text-right";
+
+// Below STACK_BELOW_PX of the table's own width (the API page's detail
+// pane at 900 px, T078) a caller row stacks: the caller cell spans the
+// row's width beside the open buttons, and Status and Confidence sit on a
+// second line under it, so the call expression and path keep a readable
+// column. The cells stay the same elements (one copy for tests and screen
+// readers); only their display changes. The thresholds below are
+// literal for Tailwind's scanner and must equal STACK_BELOW_PX.
+export const STACK_BELOW_PX = 600;
+const STACK_TABLE = "@max-[600px]/callers:block";
+const STACK_HEAD = "@max-[600px]/callers:sr-only";
+const STACK_ROW = "@max-[600px]/callers:grid @max-[600px]/callers:grid-cols-[auto_minmax(0,1fr)_auto] @max-[600px]/callers:border-b";
+const STACK_CALLER = "@max-[600px]/callers:col-span-2 @max-[600px]/callers:border-b-0 @max-[600px]/callers:pb-1";
+const STACK_STATUS = "@max-[600px]/callers:col-start-1 @max-[600px]/callers:row-start-2 @max-[600px]/callers:border-b-0 @max-[600px]/callers:pt-0 @max-[600px]/callers:pl-0";
+const STACK_CONFIDENCE = "@max-[600px]/callers:col-start-2 @max-[600px]/callers:row-start-2 @max-[600px]/callers:border-b-0 @max-[600px]/callers:pt-0";
+const STACK_OPEN = "@max-[600px]/callers:col-start-3 @max-[600px]/callers:row-span-2 @max-[600px]/callers:row-start-1 @max-[600px]/callers:border-b-0";
+const STACK_SEP = "@max-[600px]/callers:block";
 
 function Kbd({ children }: { children: ReactNode }) {
   return <kbd className="rounded-[4px] border bg-muted px-1 font-mono text-[12px] leading-4 text-foreground/80">{children}</kbd>;
@@ -338,11 +355,11 @@ export function CallersTable({ transport, callers, nearMisses, nearMissesIncompl
     const id = c.node.identity;
     const row = peekRowProps(id, peek, onPeek, tabStop === id);
     return (
-    <tr key={id} data-caller={id} {...row} className={cn(flags && "group/fact", highlight && peek !== id && "[&>td]:bg-dynamic-soft/55", row.className)}>
-      <td className={TD}>
+    <tr key={id} data-caller={id} {...row} className={cn(STACK_ROW, flags && "group/fact", highlight && peek !== id && "[&>td]:bg-dynamic-soft/55", row.className)}>
+      <td className={cn(TD, STACK_CALLER)}>
         <CallerCell node={c.node} owner={c.owner} reasons={ownReasons(c)} peeking={peek === id} />
       </td>
-      <td className={TD}>
+      <td className={cn(TD, STACK_STATUS)}>
         <CategoryBadge transport={transport} raw={statusOf(c.node)} />
         {conflicts?.has(id) === true && (
           <span
@@ -354,12 +371,12 @@ export function CallersTable({ transport, callers, nearMisses, nearMissesIncompl
           </span>
         )}
       </td>
-      <td className={TD}>
+      <td className={cn(TD, STACK_CONFIDENCE)}>
         {c.edges.map((e, i) => (
           <EdgeConfidence key={i} edge={e} block size="sm" />
         ))}
       </td>
-      <td className={TD}>{peekCell(id, c.node, callerName(c.owner, c.node), factOf !== undefined ? () => factOf(c) : undefined)}</td>
+      <td className={cn(TD, STACK_OPEN)}>{peekCell(id, c.node, callerName(c.owner, c.node), factOf !== undefined ? () => factOf(c) : undefined)}</td>
     </tr>
     );
   };
@@ -400,69 +417,71 @@ export function CallersTable({ transport, callers, nearMisses, nearMissesIncompl
         <SharedAssumption key={`${r.code}-${r.text}`} reason={r} count={callers.length} />
       ))}
       {callers.length + near.length > 0 && (
-        <table className="w-full table-fixed border-collapse text-[13px]">
-          <colgroup>
-            <col />
-            <col className="w-[118px]" />
-            <col className={onPeek !== undefined ? "w-[148px]" : "w-[132px]"} />
-            <col style={{ width: `${String((onPeek !== undefined ? 64 : 38) + (flags ? FLAG_WIDTH_PX : 0))}px` }} />
-          </colgroup>
-          <thead>
-            <tr className="text-left text-[12.5px] whitespace-nowrap text-muted-foreground">
-              <th className="h-[34px] border-b pr-2 font-medium">Caller</th>
-              <th className="h-[34px] border-b px-2 font-medium">Status</th>
-              <th className="h-[34px] border-b px-2 font-medium">Confidence</th>
-              <th className="h-[34px] border-b pl-2 font-medium">
-                <span className="sr-only">Open</span>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {linked.map((c) => callerRow(c, false))}
-            {others.map((g, i) => (
-              <Fragment key={g.status}>
-                <SepRow tone="dynamic" rowRef={i === 0 ? firstGap : undefined}>
-                  Linked alternative of {g.status === "" || categoryOf(transport, g.status) === "other" ? `a call with status ${rawLabel(g.status)}` : `a ${CATEGORY_LABEL[categoryOf(transport, g.status)].toLowerCase()} call`}{" "}
-                  <span className="font-normal text-muted-foreground">
-                    · one alternative has a stored link to this {noun}; the call is not counted as linked
-                  </span>
-                </SepRow>
-                {g.callers.map((c) => callerRow(c, true))}
-              </Fragment>
-            ))}
-            {near.length > 0 && (
-              <SepRow tone="muted" rowRef={notFully === 0 ? firstGap : undefined}>
-                Near misses · not linked, not counted above{" "}
-                <span className="font-normal">· this {noun} is among their recorded candidates</span>
-              </SepRow>
-            )}
-            {near.map((n) => {
-              const id = n.node.identity;
-              const row = peekRowProps(id, peek, onPeek, tabStop === id);
-              return (
-              <tr key={id} data-near-miss={id} {...row}>
-                <td className={TD}>
-                  <CallerCell node={n.node} owner={n.owner} reasons={n.reasons} peeking={peek === id} />
-                </td>
-                <td className={TD}>
-                  <CategoryBadge transport={transport} raw={statusOf(n.node)} />
-                </td>
-                <td className={TD}>
-                  <div className="font-mono text-xs text-muted-foreground">not linked</div>
-                  <div className="text-xs text-muted-foreground">
-                    {n.relation === "ambiguous_candidate"
-                      ? `1 of ${n.candidate_count_exact ? "" : "at least "}${String(n.candidate_count)} tied candidates`
-                      : n.relation === "test_only_candidate"
-                        ? "test-only candidate"
-                        : n.relation}
-                  </div>
-                </td>
-                <td className={TD}>{peekCell(id, n.node, callerName(n.owner, n.node))}</td>
+        <div className="@container/callers" data-testid="callers-table">
+          <table className={cn("w-full table-fixed border-collapse text-[13px]", STACK_TABLE)}>
+            <colgroup>
+              <col />
+              <col className="w-[118px]" />
+              <col className={onPeek !== undefined ? "w-[148px]" : "w-[132px]"} />
+              <col style={{ width: `${String((onPeek !== undefined ? 64 : 38) + (flags ? FLAG_WIDTH_PX : 0))}px` }} />
+            </colgroup>
+            <thead className={STACK_HEAD}>
+              <tr className="text-left text-[12.5px] whitespace-nowrap text-muted-foreground">
+                <th className="h-[34px] border-b pr-2 font-medium">Caller</th>
+                <th className="h-[34px] border-b px-2 font-medium">Status</th>
+                <th className="h-[34px] border-b px-2 font-medium">Confidence</th>
+                <th className="h-[34px] border-b pl-2 font-medium">
+                  <span className="sr-only">Open</span>
+                </th>
               </tr>
-              );
-            })}
-          </tbody>
-        </table>
+            </thead>
+            <tbody className={STACK_TABLE}>
+              {linked.map((c) => callerRow(c, false))}
+              {others.map((g, i) => (
+                <Fragment key={g.status}>
+                  <SepRow tone="dynamic" rowRef={i === 0 ? firstGap : undefined}>
+                    Linked alternative of {g.status === "" || categoryOf(transport, g.status) === "other" ? `a call with status ${rawLabel(g.status)}` : `a ${CATEGORY_LABEL[categoryOf(transport, g.status)].toLowerCase()} call`}{" "}
+                    <span className="font-normal text-muted-foreground">
+                      · one alternative has a stored link to this {noun}; the call is not counted as linked
+                    </span>
+                  </SepRow>
+                  {g.callers.map((c) => callerRow(c, true))}
+                </Fragment>
+              ))}
+              {near.length > 0 && (
+                <SepRow tone="muted" rowRef={notFully === 0 ? firstGap : undefined}>
+                  Near misses · not linked, not counted above{" "}
+                  <span className="font-normal">· this {noun} is among their recorded candidates</span>
+                </SepRow>
+              )}
+              {near.map((n) => {
+                const id = n.node.identity;
+                const row = peekRowProps(id, peek, onPeek, tabStop === id);
+                return (
+                <tr key={id} data-near-miss={id} {...row} className={cn(STACK_ROW, row.className)}>
+                  <td className={cn(TD, STACK_CALLER)}>
+                    <CallerCell node={n.node} owner={n.owner} reasons={n.reasons} peeking={peek === id} />
+                  </td>
+                  <td className={cn(TD, STACK_STATUS)}>
+                    <CategoryBadge transport={transport} raw={statusOf(n.node)} />
+                  </td>
+                  <td className={cn(TD, STACK_CONFIDENCE)}>
+                    <div className="font-mono text-xs text-muted-foreground">not linked</div>
+                    <div className="text-xs text-muted-foreground">
+                      {n.relation === "ambiguous_candidate"
+                        ? `1 of ${n.candidate_count_exact ? "" : "at least "}${String(n.candidate_count)} tied candidates`
+                        : n.relation === "test_only_candidate"
+                          ? "test-only candidate"
+                          : n.relation}
+                    </div>
+                  </td>
+                  <td className={cn(TD, STACK_OPEN)}>{peekCell(id, n.node, callerName(n.owner, n.node))}</td>
+                </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
       )}
       {nearMissesIncomplete > 0 && (
         <p className="mt-2.5 text-[12.5px] text-muted-foreground" data-testid="near-misses-incomplete">

@@ -90,7 +90,7 @@ remain those of ADRs 0013, 0016, 0018, 0019 and 0020.
 
 ## Revision 1 (T057, 2026-11-27)
 
-**Status:** Proposed
+**Status:** Accepted (delegated review, 2026-11-28)
 
 **Date:** 2026-11-27
 

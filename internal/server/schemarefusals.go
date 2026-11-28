@@ -76,6 +76,12 @@ var refusalForms = []refusalForm{
 	{"drizzle-version", "drizzle", codeModelNotProven, msgHas(": drizzle-orm ", ": the claim contract is verified for drizzle-orm 0.x only")},
 	// drizzle/discover.go: "no Drizzle schema is proven for <config>: <why>".
 	{"drizzle-config", "drizzle", codeModelNotProven, func(_, m string) bool { return strings.HasPrefix(m, "no Drizzle schema is proven for ") }},
+	// drizzle/config.go (apply) via discover.go: a config with a dialect
+	// that goes to D: "dialect \"<d>\" of <config> is not read (row D)"
+	// (T078).
+	{"drizzle-dialect", "drizzle", codeModelUnread, func(_, m string) bool {
+		return strings.HasPrefix(m, "dialect \"") && strings.Contains(m, "\" of ") && strings.HasSuffix(m, " is not read (row D)")
+	}},
 	// drizzle/discover.go: "<package.json>: no drizzle-kit config is found
 	// for this package (...); <builders> not read".
 	{"drizzle-no-config", "drizzle", codeModelNotProven, msgHas(": no drizzle-kit config is found for this package ")},

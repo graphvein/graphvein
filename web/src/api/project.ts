@@ -42,6 +42,9 @@ export interface ProjectMember {
   finished_at: string | null;
   freshness: MemberFreshness;
   links: MemberLinks;
+  /** parse_failed counts the files the member's stored run could not
+   * parse (T078; index.parse_failed of its status); 0 when omitted. */
+  parse_failed: number;
 }
 
 /** LinkPass is the last stored link pass: state "none" (no pass),
@@ -180,6 +183,7 @@ function parseMember(value: unknown, path: string): ProjectMember {
       stale: num(l, "stale", `${path}.links`),
       stale_reasons: strings(l.stale_reasons, `${path}.links.stale_reasons`),
     },
+    parse_failed: o.parse_failed === undefined ? 0 : num(o, "parse_failed", path),
   };
 }
 

@@ -869,7 +869,11 @@ their list), the precision chip with the facts it does not cover counted
 ("4 parts unverified", the facts in the tooltip), the fact badge and its
 source. An assumption that every caller carries with the identical text
 is said once above the callers table ("Both callers rest on one
-assumption. ..."); a reason that differs stays under each caller. Default scope is
+assumption. ..."); a reason that differs stays under each caller. Where
+the callers table is narrower than 600 px (the detail pane at 900 px,
+T078), each row stacks: the caller spans the row beside its open buttons
+and Status and Confidence sit under it on a second line; the column
+headings are then for screen readers only. Default scope is
 production; "Include tests" switches to `all`; the source-root filter sets
 `root` on every request. Only the exact status `linked` is shown as linked;
 statuses the UI does not know are shown raw under "Other". Callers are only
@@ -1370,7 +1374,7 @@ misses" in the tab row (default 2 hops, near misses on; they filter the
 loaded answer and never re-request), zoom out, zoom in and Fit on the
 canvas (Fit returns to zoom 1, where every text is at least 12 px; the
 wheel and the buttons may zoom out to 0.5), a minimap, and the legend
-strip below the canvas (T073, Proposed revision of ADR 0046): the kinds
+strip below the canvas (T073, revision of ADR 0046): the kinds
 with a line on this screen as filter chips (Fact, Exact, Suffix, Call,
 Near miss dim a tier without re-layout), "+ n kinds with no line here",
 the calls' precision labels while the strip is at least 1000 px wide (the
@@ -2335,7 +2339,8 @@ stored `Cargo.toml` files and the diagnostics whose file is not stored
   that refuses a package, module, config or schema file: a GORM module
   not read, a package without a proven Prisma schema, `.prisma` files
   outside every schema, a mongodb schema, a Drizzle, Sequelize or TypeORM
-  package, config or data source not read, a refused `diesel.toml`, a
+  package, config or data source not read (a Drizzle config whose
+  dialect goes to D too, T078), a refused `diesel.toml`, a
   Diesel `schema.rs` no `diesel.toml` names). `tool` is `gorm`, `prisma`,
   `drizzle`, `sequelize`, `typeorm` or `diesel`; `code` is
   `schema_model_not_proven` or `schema_model_unread`; `message` is the
@@ -3756,6 +3761,11 @@ the shell's `/api/v0/schema/summary` answer has `refused_sources` (T070):
 one item per refusal, the tool, the file and the stored message. It is
 the schema summary's list, not part of this response, and it covers the
 served repository (in project mode the primary member), in every scope.
+The "Counts are incomplete" notice reads `index.parse_failed` of the
+status; in project mode it reads each member's `parse_failed` of `GET
+/api/v0/project` instead and names the members with files not parsed
+("3 files of web and 1 file of api could not be parsed ..."), all of
+them in the project scope, the selected one otherwise (T078).
 
 ```json
 {"api_version": 0, "repository": "app", "scope": "production", "limit": 200,
@@ -4336,6 +4346,9 @@ indexed again since. Stale links are shown and followed, never dropped.
   the member (freshness walks its checkout; a member without one is
   `unknown` with the error "no checkout here", and its `settings` are
   `unknown`).
+- `parse_failed` (T078, additive): the member's `index.parse_failed` of
+  `/api/v0/status`, the files its stored run could not parse; omitted
+  when zero. A failure to read them is a 500 `store_error`.
 - `links`: the member in the last pass (`in_pass`, the run it linked,
   the index error the pass recorded), the links with this member at
   either end, the stale ones and their distinct reasons.

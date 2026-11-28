@@ -1,8 +1,11 @@
 import { fireEvent, render, screen, within } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 
+import { parseProject } from "@/api/project";
 import type { UnreadFetcher, UnreadPage } from "@/api/unread";
 import { UnreadSection } from "@/sections/unread/UnreadSection";
+import { ProjectProvider } from "@/shell/project";
+import { projectBody } from "@/test/projectFixtures";
 import { craftedSummary } from "@/test/schemaFixtures";
 
 function list<T>(items: T[]) {
@@ -181,5 +184,48 @@ describe("UnreadSection schema part (T070)", () => {
     render(<UnreadSection status={{ kind: "loading" }} fetcher={fetcher(page("none"))} schema={craftedSummary({ refused_sources: [] })} />);
     await screen.findByTestId("unread-paths-complete");
     expect(screen.queryByTestId("unread-schema-refused")).toBeNull();
+  });
+});
+
+describe("UnreadSection project-wide parse_failed notice (T078)", () => {
+  // The project body's members react, express, axum-ddd; react and
+  // axum-ddd have files their runs could not parse.
+  function project(failed: Record<string, number>) {
+    const body = projectBody();
+    body.members = (body.members as Record<string, unknown>[]).map((m) => (failed[m.repository as string] === undefined ? m : { ...m, parse_failed: failed[m.repository as string] }));
+    return parseProject(body);
+  }
+  function projectFetcher(): UnreadFetcher {
+    return (params) => {
+      const p = page("none");
+      if (params.member !== undefined && params.member !== "all") return Promise.resolve({ kind: "page", page: { ...p, repository: params.member } });
+      return Promise.resolve({ kind: "project", project: { project: "shop", scope: "production", totals: {}, not_available: {}, members: [p] } });
+    };
+  }
+  function show(failed: Record<string, number>, hash = "#/unread") {
+    window.location.hash = hash;
+    render(
+      <ProjectProvider initial={project(failed)} fetcher={() => Promise.resolve({ kind: "single" })}>
+        {() => <UnreadSection status={{ kind: "loading" }} fetcher={projectFetcher()} />}
+      </ProjectProvider>,
+    );
+  }
+
+  it("names every member with files not parsed on the all-members view", async () => {
+    show({ react: 3, "axum-ddd": 1 });
+    expect((await screen.findByTestId("parse-failed-notice")).textContent).toBe(
+      "Counts are incomplete: 3 files of react and 1 file of axum-ddd could not be parsed (parse_failed), so their facts are missing. They are listed under Files not read.",
+    );
+  });
+
+  it("names only the selected member, and nothing when it parsed every file", async () => {
+    show({ react: 3, "axum-ddd": 1 }, "#/unread?m=axum-ddd");
+    expect((await screen.findByTestId("parse-failed-notice")).textContent).toBe("Counts are incomplete: 1 file of axum-ddd could not be parsed (parse_failed), so its facts are missing. They are listed under Files not read.");
+  });
+
+  it("shows no notice when every member parsed every file", async () => {
+    show({ react: 3 }, "#/unread?m=express");
+    await screen.findByTestId("unread-page");
+    expect(screen.queryByTestId("parse-failed-notice")).toBeNull();
   });
 });

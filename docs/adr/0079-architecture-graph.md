@@ -624,7 +624,7 @@ A contract change the developer asked for (rows added to
 
 ## Revision (T042): chain depth up to 10, default 6
 
-Status of this revision: Proposed (pending the developer's review; the
+Status of this revision: Accepted (delegated review, 2026-11-28; the
 decisions above keep their status).
 
 - Context: the chain shares the change impact walk and its caps
@@ -651,7 +651,7 @@ decisions above keep their status).
 
 ## Revision (T067): the libraries band, SDK chips on cards
 
-Status of this revision: Proposed (pending the developer's review; the
+Status of this revision: Accepted (delegated review, 2026-11-28; the
 decisions above keep their status). Design record and mockups: task T062
 (variant A with every recommended default, developer decision
 2026-11-27).
@@ -704,7 +704,7 @@ decisions above keep their status). Design record and mockups: task T062
 
 ## Revision (T072): band lines on a bus, selection marks on the chips
 
-Status of this revision: Proposed (pending the developer's review; the
+Status of this revision: Accepted (delegated review, 2026-11-28; the
 decisions above keep their status). Design review: task T071 (declutter
 review, recommendations V1 and V3 with their defaults, developer decision
 2026-11-27).

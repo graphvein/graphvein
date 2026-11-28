@@ -5,7 +5,7 @@ import type { EndpointDetail } from "@/api/endpoints";
 import { LabelProvider } from "@/hooks/useLabels";
 import { LABELS_KEY } from "@/lib/labelChoice";
 import { edgeLabel } from "@/lib/labels";
-import { CallersTable } from "@/sections/api/CallersTable";
+import { CallersTable, STACK_BELOW_PX } from "@/sections/api/CallersTable";
 import { ideLabel } from "@/sections/api/parts";
 import { detailGolden } from "@/test/apiFixtures";
 
@@ -202,6 +202,35 @@ describe("technical labels (T025b)", () => {
       });
     } finally {
       window.localStorage.removeItem(LABELS_KEY);
+    }
+  });
+});
+
+describe("narrow table (T078)", () => {
+  // jsdom applies no container query; the classes say what a browser
+  // does below STACK_BELOW_PX of the table's width: the caller cell spans
+  // the row, Status and Confidence stack on a second line, the open
+  // buttons stay at the right, and the header row is for screen readers.
+  it("stacks Status and Confidence under the caller below the container width", () => {
+    for (const golden of ["api-endpoint-route", "api-endpoint-route-ambiguous"] as const) {
+      const { container, unmount } = table(detailGolden(golden));
+      const q = `@max-[${String(STACK_BELOW_PX)}px]/callers:`;
+      expect(container.querySelector('[data-testid="callers-table"]')?.className).toContain("@container/callers");
+      expect(container.querySelector("table")?.className).toContain(`${q}block`);
+      expect(container.querySelector("thead")?.className).toContain(`${q}sr-only`);
+      const rows = [...container.querySelectorAll("tr[data-caller], tr[data-near-miss]")];
+      expect(rows.length).toBeGreaterThan(0);
+      for (const tr of rows) {
+        expect(tr.className).toContain(`${q}grid`);
+        const [caller, status, confidence, open] = [...tr.children].map((td) => td.className);
+        expect(caller).toContain(`${q}col-span-2`);
+        expect(status).toContain(`${q}row-start-2`);
+        expect(confidence).toContain(`${q}col-start-2`);
+        expect(open).toContain(`${q}row-span-2`);
+        // One copy of each cell: nothing is rendered twice for the narrow form.
+        expect(tr.children.length).toBe(4);
+      }
+      unmount();
     }
   });
 });
